@@ -28,3 +28,15 @@ Senkron modeli: her beat ayrı bir TTS klibi; sahne kodu `beat(i)` ile klibi zam
 ## Bilinen kısıtlar
 - `gemini-3.8-flash-tts` stil talimatını metinle birlikte sesli okuyor; talimatlı kullanım için 2.5-pro TTS seçildi.
 - `www.itu.int` bu ortamdan erişilemiyor; G.989.2 PDF'i Drive veya repo üzerinden sağlanmalı.
+
+## Seri: LAMBDA (10 × 40–45 dk)
+Plan: `plan/sezon_plani.md`, bölüm planları `plan/B01_plan.md` …, bölüm meta verisi `plan/episodes.json`.
+Ses: Gemini TTS, ses **Sadaltager**; intro müziği Lyria (`assets/intro_theme_a.mp3` içinden `tools/pick_window.py`
+ile seçilen 10 sn, vuruş 5,88 sn → `assets/intro_theme_10s.wav`). Görsellerin tamamı Manim koduyla üretilir.
+
+| Parça | Dosya | Komut |
+|---|---|---|
+| Ortak stil, senkron, cihaz kartları | `scenes/lib.py` | — |
+| Seri intro'su (10 sn, müziğe kilitli) | `scenes/intro.py` | `cd scenes && EP=1 manim -qh --resolution 1920,1080 --frame_rate 30 --media_dir ../build/media --disable_caching intro.py Intro` |
+| B01 açılış özeti | `scenes/ep01_open.py`, `script/ep01_open.json` | `python3 tools/tts.py script/ep01_open.json build/ep01_open/audio && python3 tools/prep_audio.py build/ep01_open/audio/manifest.json build/ep01_open/audio_proc 1.06` sonra manim |
+| Birleştirme + altyazı | `tools/assemble.py` | `python3 tools/assemble.py <spec.json> <çıktı.mp4>` |

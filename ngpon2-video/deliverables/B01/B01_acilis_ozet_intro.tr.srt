@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:01,390
+Bölüm bir: Işığa Dönüş.
+
+2
+00:00:01,440 --> 00:00:08,035
+Bu bölümde, sezon boyunca üzerine inşa edeceğimiz büyük resmi kuruyoruz.
+
+3
+00:00:08,133 --> 00:00:12,243
+Önce pasif optik ağın özüne ineceğiz: tek fiber,
+
+4
+00:00:12,293 --> 00:00:15,743
+pasif bir ayırıcı ve onlarca kullanıcı.
+
+5
+00:00:15,793 --> 00:00:19,845
+Aşağı yönde yayın, yukarı yönde sıraya giren burst'ler.
+
+6
+00:00:19,933 --> 00:00:23,413
+Sonra şu soruyu soracağız: GPON'dan NG-PON2'ye geçerken,
+
+7
+00:00:23,463 --> 00:00:30,085
+neden tek bir dalga boyunu hızlandırmak yerine yeni dalga boyları eklendi?
+
+8
+00:00:30,167 --> 00:00:35,917
+G.989 ailesini katman katman açacağız ve PMD katmanının nerede bitip,
+
+9
+00:00:35,967 --> 00:00:39,524
+TC katmanının nerede başladığını göreceğiz.
+
+10
+00:00:39,600 --> 00:00:42,320
+G.989.2'nin referans mimarisini,
+
+11
+00:00:42,370 --> 00:00:47,260
+ölçüm noktalarını ve hat hızı kombinasyonlarını inceleyip,
+
+12
+00:00:47,310 --> 00:00:50,773
+dokümanı nasıl okuyacağımızı konuşacağız.
+
+13
+00:00:50,867 --> 00:00:55,977
+Ve son olarak, sezon boyunca kullanacağımız test tezgâhını tanıyacağız.
+
+14
+00:00:56,027 --> 00:00:57,310
+Hazırsan, başlayalım.
+

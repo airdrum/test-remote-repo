@@ -1,0 +1,19 @@
+{
+ "series": "LAMBDA",
+ "tagline": "NG-PON2'nin Fizik Katmanı",
+ "season": "Sezon 1 · ITU-T G.989.2",
+ "intro_music": "assets/intro_theme_10s.wav",
+ "intro_hit": 5.88,
+ "episodes": [
+  {"n": 1, "title": "Işığa Dönüş", "sub": "Neden NG-PON2 · G.989 ailesi · referans mimari", "refs": "G.989.2 §1 §6 §9.1 · G.989.3 §6.1"},
+  {"n": 2, "title": "Işığın Yolu", "sub": "ODN, optik yol kaybı ve fiber mesafe sınıfları", "refs": "G.989.2 §6.2 §6.3 §9.3.5 · G.989.3 §13.1"},
+  {"n": 3, "title": "Renk Haritası", "sub": "Dalga boyu planı ve birlikte çalışma", "refs": "G.989.2 §9.2 Ek I Ek VI · G.989.3 §17.1"},
+  {"n": 4, "title": "Kaynak", "sub": "OLT vericisi ve aşağı yön sinyali", "refs": "G.989.2 §11.1 · G.989.3 §8.1 §10.1"},
+  {"n": 5, "title": "Ayarlanabilir Kulak", "sub": "ONU alıcısı ve X/S toleransı", "refs": "G.989.2 §9.3.6 §10 · G.989.3 §14 Ek B"},
+  {"n": 6, "title": "Patlama", "sub": "ONU vericisi I: burst modu", "refs": "G.989.2 §11.1.4.3 §11.2 · G.989.3 §10.1"},
+  {"n": 7, "title": "Renk Değiştiren Lazer", "sub": "Ayarlanabilirlik ve kanal yönetimi", "refs": "G.989.2 §9.3.7 Ek VIII · G.989.3 §17 Ek F"},
+  {"n": 8, "title": "Kalabalığı Dinlemek", "sub": "OLT burst alıcısı, aktivasyon, güç dengeleme", "refs": "G.989.2 Ek V Ek D · G.989.3 §12.1 §19"},
+  {"n": 9, "title": "Özel Hat", "sub": "PtP WDM ve AMCC", "refs": "G.989.2 Ek A–C · G.989.3 Ek E"},
+  {"n": 10, "title": "Sahaya İniş", "sub": "Koruma, izleme, uyumluluk", "refs": "G.989.2 Ek II · G.989.3 §18"}
+ ]
+}
