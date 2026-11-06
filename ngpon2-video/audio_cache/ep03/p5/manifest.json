@@ -1,0 +1,112 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "f1",
+   "file": "f1_gbe5315ee64.wav",
+   "duration": 20.244,
+   "text": "Perde beş: kanal profilleri. Yeni açılan bir ONU, sistemin dalga boyu haritasını bilmez. G.989.3'ün on yedinci maddesi, OLT'nin bu haritayı nasıl duyurduğunu tanımlar: her aşağı yön kanalında, onaysız yayın PLOAM mesajları dizisi halinde.",
+   "qa": "ok"
+  },
+  {
+   "id": "f1a",
+   "file": "f1a_gbe5315ee64.wav",
+   "duration": 20.367,
+   "text": "Duyuru üç parçadan oluşur: tek bir sistem profili mesajı; her kanal çifti için bir kanal profili mesajı, yani en çok sekiz; ve her burst profili için bir mesaj, kanal başına en çok sekiz, toplamda altmış dört. Bütün set, bir ile beş saniye arasında ayarlanabilen bir periyotla tekrarlanır.",
+   "qa": "ok"
+  },
+  {
+   "id": "f2",
+   "file": "f2_g45fb5695e7.wav",
+   "duration": 24.083,
+   "text": "Sistem profili, sistemin tamamına ait parametreleri taşır: kanal sayısı, yukarı yön kanal aralığı, en büyük spektral sapma, döngüsel çoklayıcı varsa serbest spektral aralık, yukarı yön bant seçeneği ve kalibrasyon doğruluğu. Burada önemli bir not var: kanal aralığı, sistemin tasarlandığı ızgarayı gösterir; kanalların sahada nasıl dağıtıldığını değil.",
+   "qa": "ok"
+  },
+  {
+   "id": "f2a",
+   "file": "f2a_g45fb5695e7.wav",
+   "duration": 15.888,
+   "text": "Sistem profilinde bir parametre daha dikkat çeker: gevşek kalibrasyon sınırı. Bir ONU'nun ne kadar kaba kalibre edilmiş olabileceği çoklayıcının özelliklerine bağlıdır. Bunu standart değil OLT belirler, ve ONU'ya çalışma sırasında bildirir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f2b",
+   "file": "f2b_g3cad75eaf4.wav",
+   "duration": 20.284,
+   "text": "Kalibrasyon doğruluğu ise bir ONU'nun bant içi aktivasyona geçebilmesi için sağlaması gereken en küçük doğruluktur. Bunu sağlamayan bir ONU için standart başka bir yol bırakır: AMCC. Kanal profilindeki seri numarası grant tipi alanı, bant içi ve AMCC seri numarası grantlarının sunulup sunulmadığını gösterir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3",
+   "file": "f3_g3cad75eaf4.wav",
+   "duration": 21.007,
+   "text": "Kanal profili mesajı ise tek bir kanal çiftini tarif eder. Başında dört bitlik kanal profili kimliği ve üç bayrak vardır: bu kanal mı, aşağı yön tanımı geçersiz mi, yukarı yön tanımı geçersiz mi. Ardından profil sürümü gelir; içerik değişirse sürüm de değişir, böylece ONU yalnızca sürüme bakarak güncellemeyi fark eder.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3a",
+   "file": "f3a_gfcece4d026.wav",
+   "duration": 23.429,
+   "text": "Aşağı yön tanımında PON kimliği, gerçek verici frekansının nominal değerden farkı, hat hızı, FEC durumu ve hat kodu bulunur. Yukarı yön tanımında ise yukarı yön kanal kimliği ve yukarı yön frekansı vardır. Frekanslar sıfır virgül bir gigahertz birimiyle yazılır. Döngüsel çoklayıcıda yukarı yön frekansı, tekrar eden frekans setinin kök frekansıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3b",
+   "file": "f3b_gfcece4d026.wav",
+   "duration": 18.102,
+   "text": "Aşağı yön frekans kayması alanının bir özel değeri vardır: bir sıfır sıfır sıfır sıfır sıfır sıfır sıfır, yani kaymanın bilinmediği durum. Aşağı yön hız alanında ise iki bit önemlidir: biri hat hızını, on ya da iki buçuk gigabit; diğeri FEC'in açık mı kapalı mı olduğunu söyler.",
+   "qa": "ok"
+  },
+  {
+   "id": "f4",
+   "file": "f4_g3c2a88807c.wav",
+   "duration": 22.981,
+   "text": "ONU, yüz seksen yedi virgül yedi terahertzlik kanalı dinliyor. Çerçevedeki PON kimliğinin son dört biti sıfır sıfır sıfır bir; yani ikinci kanal. Kendi kanalının profilinde yukarı yön frekansı bir milyon dokuz yüz elli beş bin olarak yazılmış. Sıfır virgül bir gigahertz birimiyle bu, yüz doksan beş virgül beş terahertz demektir.",
+   "qa": "ok(text-adjusted)"
+  },
+  {
+   "id": "f4a",
+   "file": "f4a_g3c2a88807c.wav",
+   "duration": 20.15,
+   "text": "Profil ayrıca bağlantı tipini de söyler: A tipi, B tipi ya da ikisi. İkinci bölümdeki yükselteçli ve yükselteçsiz alıcı ayrımı, burada TC katmanına taşınır. Bir de varsayılan ONU zayıflatması vardır: üç desibellik adımlarla, ONU'nun ilk yanıtında gücünü ne kadar kısması gerektiğini belirtir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f4b",
+   "file": "f4b_g8e2b811065.wav",
+   "duration": 17.11,
+   "text": "Burst profilleri ayrı bir mesajla duyurulur ve bant haritası her burst için bunlardan birini seçer. Profil, önsözün uzunluğunu ve desenini, sınırlayıcıyı ve FEC kullanımını tanımlar. Bunları altıncı bölümde, ONU vericisinin burst modunu işlerken ayrıntısıyla göreceğiz.",
+   "qa": "ok"
+  },
+  {
+   "id": "f5",
+   "file": "f5_g8e2b811065.wav",
+   "duration": 22.501,
+   "text": "En basit durumda her kanal profili, aşağı ve yukarı yön kanalları arasında birebir ve sabit bir eşleme kurar: bu aşağı yön kanalını dinleyen ONU, şu yukarı yön kanalında cevap verir. Ama standart daha esnek bir yapıya da izin verir: bire çok ya da çoğa bir eşlemeler. O durumda profil yalnızca bir adlandırma kuralıdır; eşlemeyi varsayılan yanıt kanalı alanı ve ayar kontrol mesajı belirler.",
+   "qa": "ok"
+  },
+  {
+   "id": "f5a",
+   "file": "f5a_g69e5ee7255.wav",
+   "duration": 20.417,
+   "text": "Noktadan noktaya WDM için ayrı bir kanal profili biçimi vardır. Orada bir bayrak öne çıkar: kanalın bir ONU ile eşleşip eşleşmediğini, yani artık başka ONU'lara kapalı olup olmadığını gösteren bayrak. Noktadan noktaya WDM'i dokuzuncu bölümde ayrıntılı işleyeceğiz.",
+   "qa": "ok"
+  },
+  {
+   "id": "f6",
+   "file": "f6_g69e5ee7255.wav",
+   "duration": 19.921,
+   "text": "Mühendis notu. Bir: kanal profili, fiziksel katman ile TC katmanının buluştuğu yerdir; ölçtüğünüz frekans ile duyurulan frekans uyuşmuyorsa, sorun ya kalibrasyonda ya da konfigürasyondadır. İki: protokol analizörüyle profil duyurularını yakalayın ve OSA ölçümünüzle karşılaştırın.",
+   "qa": "ok"
+  },
+  {
+   "id": "f7",
+   "file": "f7_g69e5ee7255.wav",
+   "duration": 3.472,
+   "text": "Şimdi bu haritayı laboratuvarda gerçekten görelim.",
+   "qa": "ok"
+  }
+ ],
+ "total": 289.96
+}
