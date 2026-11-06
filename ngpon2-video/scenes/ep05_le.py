@@ -12,7 +12,7 @@ def ber_axes(o, w, h, p0, p1, q0=2.0, q1=7.2, exps=(-2, -3, -4, -6, -9, -12), xl
     for e in exps:
         y = Y(q_of(10.0 ** e))
         g.add(Line([o[0] - 0.06, y, 0], [o[0] + 0.06, y, 0], color=MUTED, stroke_width=1.5), T(sup(e), 15, MUTED).next_to([o[0], y, 0], LEFT, buff=0.1))
-    g.add(T(xl, 14, MUTED).next_to(o + [w / 2, 0, 0], DOWN, buff=0.12), T("BER (Q ölçeği)", 14, MUTED).next_to(o + [0, h, 0], RIGHT, buff=0.12))
+    g.add(T(xl, 14, MUTED).next_to(o + [w * 0.72, 0, 0], DOWN, buff=0.12), T("BER (Q ölçeği)", 14, MUTED).next_to(o + [0, h, 0], RIGHT, buff=0.12))
     return g, X, Y
 
 
@@ -34,7 +34,7 @@ class E5LabA(Act5):
         self.set_badge("lab")
         h = self.show_heading("Üç ölçüm")
         cs = VGroup(card("BER eğrisi", "hassasiyet · aşırı yük", None, ACC, w=3.95, h=1.45, tsize=25, bsize=19),
-                    card("Yol cezası", "kısa bağlantı ↔ en kötü fiber", None, GOLD, w=3.95, h=1.45, tsize=25, bsize=19),
+                    card("Yol cezası", "kısa ↔ en kötü fiber", None, GOLD, w=3.95, h=1.45, tsize=25, bsize=19),
                     card("X/S toleransı", "7 girişimci · sapma uçları", None, XC, w=3.95, h=1.45, tsize=25, bsize=19)).arrange(RIGHT, buff=0.3).move_to(UP * 1.0)
         voa = instrument("VOA", 1.8, 1.3).move_to([-1.6, -1.95, 0])
         pm = instr("PM", 1.8, 1.3, "−28,0 dBm", "R noktası").move_to([1.6, -1.95, 0])
@@ -64,7 +64,7 @@ class E5LabA(Act5):
         l4 = Line(cpl.get_bottom(), pm[0].get_top(), color=GOLD, stroke_width=2.5)
         l5 = Line(onu.get_right(), [bert[0].get_left()[0], y, 0], color=FEED, stroke_width=2.5)
         rr = VGroup(DashedLine([0.25, y - 0.6, 0], [0.25, y + 0.6, 0], color=GOLD, stroke_width=2), T("R", 18, GOLD, BOLD).move_to([0.25, y + 0.8, 0]))
-        fp = pill("BER FEC öncesinde ölçülür — referans FEC öncesi tanımlı", ACC, 18).move_to([2.75, -0.75, 0])
+        fp = pill("BER: FEC öncesi (referans FEC öncesi tanımlı)", ACC, 18).move_to([3.4, -0.55, 0])
         o1 = VGroup(T("1", 20, GOOD, BOLD), T("BERT ile ham hata sayımı", 19, TXT)).arrange(RIGHT, buff=0.2)
         o2 = VGroup(T("2", 20, GOLD, BOLD), T("FEC çözücünün düzeltme sayaçlarından tahmin", 19, TXT)).arrange(RIGHT, buff=0.2)
         ops = VGroup(o1, o2).arrange(DOWN, aligned_edge=LEFT, buff=0.18).move_to([3.0, -1.85, 0])
@@ -90,7 +90,7 @@ class E5LabA(Act5):
         f = T("bayt düzeyinde sembol hata oranı  =  düzeltilen bayt / toplam bayt", 23, ACC, BOLD).move_to(UP * 1.75)
 
         def byte(errs):
-            return VGroup(*[Square(0.3, stroke_color=MUTED, stroke_width=1.5, fill_color=WARN if i in errs else PANEL, fill_opacity=1) for i in range(8)]).arrange(RIGHT, buff=0.03)
+            return VGroup(*[Square(0.22, stroke_color=MUTED, stroke_width=1.5, fill_color=WARN if i in errs else PANEL, fill_opacity=1) for i in range(8)]).arrange(RIGHT, buff=0.03)
         sc = VGroup(byte({2}), byte({6}), byte({4})).arrange(RIGHT, buff=0.25).move_to([-3.4, 0.45, 0])
         scl = VGroup(T("dağınık", 21, TXT, BOLD), T("her hatalı baytta 1 bit → BER ≈ SER / 8", 18, TXT)).arrange(DOWN, buff=0.08).next_to(sc, DOWN, buff=0.25)
         bu = byte(set(range(8))).move_to([3.4, 0.45, 0])
@@ -111,7 +111,7 @@ class E5LabA(Act5):
         self.beat("g3")
         self.clear(h)
         h = self.show_heading("BER eğrisi ve hassasiyet", h)
-        ax, X, Y = ber_axes([-5.6, -2.7], 6.8, 4.5, -31, -25)
+        ax, X, Y = ber_axes([-5.6, -2.7, 0], 6.8, 4.5, -31, -25)
         pts = [-30.4, -29.9, -29.4, -28.9, -28.4, -27.9, -27.4, -26.9]
         dots, line = ber_points(X, Y, -29.15, 0.85, pts, GOLD, seed=4)
         ref = DashedLine([X(-31), Y(Q3), 0], [X(-25), Y(Q3), 0], color=ACC, stroke_width=2)
@@ -119,10 +119,10 @@ class E5LabA(Act5):
         sx = X(-29.15)
         sens = VGroup(DashedLine([sx, Y(Q3), 0], [sx, -2.7, 0], color=GOLD, stroke_width=2), Dot([sx, Y(Q3), 0], radius=0.09, color=GOLD))
         lim = VGroup(DashedLine([X(-28), -2.7, 0], [X(-28), Y(6.5), 0], color=WARN, stroke_width=2), T("sınır −28 dBm", 15, WARN, BOLD).move_to([X(-28) + 0.75, Y(6.8), 0]))
-        st = T("hassasiyet", 15, GOLD, BOLD).move_to([sx - 0.75, Y(2.4), 0])
+        st = T("hassasiyet", 15, GOLD, BOLD).next_to([sx, -2.7, 0], DOWN, buff=0.12)
         floor = VMobject(stroke_color=WARN, stroke_width=2.5).set_points_smoothly([[X(p), Y(min(Q3 + 0.85 * (p + 29.15), 4.4 + 0.25 * np.tanh((p + 27.6)))), 0] for p in np.linspace(-30.6, -25.2, 30)])
         floor = DashedVMobject(floor, num_dashes=40)
-        flt = T("hata tabanı → eğri gösterir", 16, WARN, BOLD).move_to([X(-26.0), Y(4.85), 0])
+        flt = T("hata tabanı → eğri gösterir", 16, WARN, BOLD).move_to([X(-25.9), Y(3.75), 0])
         steps = VGroup(T("1  gücü adım adım azalt", 19, TXT), T("2  her noktada BER ölç", 19, TXT), T("3  Q ölçeğinde ≈ doğru", 19, TXT),
                        T("4  referansı kestiği güç", 19, TXT), T("    = hassasiyet", 19, GOLD, BOLD), T("eğri: gürültüyü ortalar,\nhata tabanını gösterir", 18, ACC, BOLD, line_spacing=0.9)).arrange(DOWN, aligned_edge=LEFT, buff=0.17).move_to([4.9, -0.3, 0])
         self.play(Create(ax[:2]), FadeIn(ax[2:]), FadeIn(steps[0]), run_time=0.6)
@@ -150,15 +150,15 @@ class E5LabB(Act5):
     def construct(self):
         self.beat("g4")
         h = self.show_heading("Yol cezası: aynı eğri, iki kez")
-        ax, X, Y = ber_axes([-5.6, -2.7], 7.0, 4.5, -31, -24)
+        ax, X, Y = ber_axes([-5.6, -2.7, 0], 7.0, 4.5, -31, -24)
         pts = [-30.3, -29.7, -29.1, -28.5, -27.9, -27.3]
         d1, l1 = ber_points(X, Y, -29.15, 0.85, pts, GOOD, seed=2)
         d2, l2 = ber_points(X, Y, -27.75, 0.85, [p + 1.4 for p in pts], GOLD, seed=3)
         ref = DashedLine([X(-31), Y(Q3), 0], [X(-24), Y(Q3), 0], color=ACC, stroke_width=2)
         reft = T("BER ref", 15, ACC, BOLD).next_to(ref, RIGHT, buff=0.1)
         lg = VGroup(T("kısa bağlantı", 17, GOOD, BOLD), T("en kötü dispersiyon:", 17, GOLD, BOLD), T("40 km · 840 ps/nm", 17, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08).move_to([4.6, 1.3, 0])
-        da = DoubleArrow([X(-29.15), Y(Q3) - 0.35, 0], [X(-27.75), Y(Q3) - 0.35, 0], buff=0, color=WARN, stroke_width=3, tip_length=0.12)
-        dat = T("OPP", 18, WARN, BOLD).next_to(da, DOWN, buff=0.08)
+        da = DoubleArrow([X(-29.15), Y(Q3), 0], [X(-27.75), Y(Q3), 0], buff=0, color=WARN, stroke_width=3, tip_length=0.12)
+        dat = T("OPP", 18, WARN, BOLD).next_to(da, UP, buff=0.12)
         r1 = T("OPP = fark @ BER ref", 22, WARN, BOLD).move_to([4.6, -0.2, 0])
         r2 = T("10G: < 2 dB olmalı", 24, TXT, BOLD).move_to([4.6, -0.85, 0])
         r3 = card("aşarsa", "farkı verici gücüyle kapat\n(Tablo 11-5, Not 6)", None, GOLD, w=4.2, h=1.35, tsize=20, bsize=18).move_to([4.6, -2.15, 0])
@@ -180,7 +180,7 @@ class E5LabB(Act5):
         self.beat("g5")
         self.clear(h)
         h = self.show_heading("Aşırı yük: gücü artırın", h)
-        ax, X, Y = ber_axes([-5.6, -2.7], 9.6, 4.5, -32, -3, q1=7.6)
+        ax, X, Y = ber_axes([-5.6, -2.7, 0], 9.6, 4.5, -32, -3, q1=7.6)
         qf = lambda p: min(Q3 + 0.9 * (p + 29.2), Q3 + 1.3 * (-5.4 - p), 7.3)
         ps = np.linspace(-30.0, -4.6, 120)
         cv = VMobject(stroke_color=GOLD, stroke_width=3).set_points_smoothly([[X(p), Y(qf(p)), 0] for p in ps])
@@ -192,7 +192,7 @@ class E5LabB(Act5):
         okt = T("✓ BER hâlâ referansın altında", 18, GOOD, BOLD).next_to(dot, LEFT, buff=0.2).shift(DOWN * 0.15)
         arr = arrow([X(-20), Y(5.6), 0], [X(-10), Y(5.6), 0], GOLD, 3)
         arrt = T("güç ↑", 17, GOLD, BOLD).next_to(arr, UP, buff=0.06)
-        apd = pill("APD: bu bölgede kazanç kontrolü kritik", PINK, 19).move_to([1.6, -1.95, 0])
+        apd = pill("APD: bu bölgede kazanç kontrolü kritik", PINK, 19).move_to([-0.4, Y(4.0), 0])
         self.play(Create(ax[:2]), FadeIn(ax[2:]), Create(ref), FadeIn(reft), FadeIn(v28), run_time=0.7)
         self.at(self.cue("gücü artırın", 2.0))
         self.play(GrowArrow(arr), FadeIn(arrt), Create(cv), run_time=1.6)
@@ -231,7 +231,7 @@ class E5LabB(Act5):
         self.clear(h)
         h = self.show_heading("X/S testi", h)
         ya = -1.75
-        axg, X = lin_axis(-420, 420, -6.0, 6.0, ya, list(range(-400, 401, 100)), size=14, fmt=lambda v: "C" if v == 0 else ("+" if v > 0 else "−") + str(abs(int(v))), unit="ONU filtresinin merkezine göre (GHz)")
+        axg, X = lin_axis(-560, 560, -6.0, 6.0, ya, list(range(-500, 501, 100)), size=14, fmt=lambda v: "C" if v == 0 else ("+" if v > 0 else "−") + str(abs(int(v))), unit="ONU filtresinin merkezine göre (GHz)")
         tg = lobe(X, 0, ya, 1.3, 9, SIG, op=0.4)
         ks = [-2, -1, 1, 2, 3, 4, 5]
         nom = VGroup(*[lobe(X, 100 * k, ya, 1.9, 9, XC, op=0.22) for k in ks])
@@ -268,9 +268,9 @@ class E5LabC(Act5):
     def construct(self):
         self.beat("g6a")
         h = self.show_heading("Girişimcileri üretmek")
-        ca = card("Ayarlanabilir lazerler + modülatör", "7 dalga boyu · tek modülatör", None, XC, w=5.6, h=1.45, tsize=22, bsize=19)
-        cb = card("Gerçek OLT kanal sonlandırıcıları", "kendi vericileriyle", None, TW_DS, w=5.6, h=1.45, tsize=22, bsize=19)
-        VGroup(ca, cb).arrange(RIGHT, buff=0.4).move_to(UP * 1.05)
+        ca = card("Ayarlanabilir lazerler + modülatör", "7 dalga boyu · tek modülatör", None, XC, w=5.4, h=1.45, tsize=21, bsize=19)
+        cb = card("Gerçek OLT kanal sonlandırıcıları", "kendi vericileriyle", None, TW_DS, w=5.4, h=1.45, tsize=21, bsize=19)
+        VGroup(ca, cb).arrange(RIGHT, buff=1.0).move_to(UP * 1.05)
         orr = T("ya da", 18, MUTED, BOLD).move_to(UP * 1.05)
         p1 = pill("girişim sinyali: hedefle aynı hızda · NRZ · sözde rastgele dizi (madde 10)", ACC, 19).move_to(DOWN * 0.6)
         lad = VGroup(*[VGroup(Rectangle(width=0.5, height=hh, stroke_width=0, fill_color=c, fill_opacity=0.85), T(n, 16, c, BOLD))
@@ -343,13 +343,13 @@ class E5LabC(Act5):
         self.beat("g7b")
         self.clear(h)
         h = self.show_heading("Senkron dayanıklılığı testi", h)
-        o = np.array([-6.0, -0.75, 0])
-        ax = VGroup(Line(o, o + [8.0, 0, 0], color=MUTED, stroke_width=2), Line(o, o + [0, 2.6, 0], color=MUTED, stroke_width=2),
-                    T("zaman (uzun süre)", 14, MUTED).next_to(o + [4.0, 0, 0], DOWN, buff=0.08), T("BER", 14, MUTED).next_to(o + [0, 2.6, 0], RIGHT, buff=0.1))
-        ref = DashedLine(o + [0, 1.3, 0], o + [8.0, 1.3, 0], color=ACC, stroke_width=2)
+        o = np.array([-5.5, -0.75, 0])
+        ax = VGroup(Line(o, o + [7.6, 0, 0], color=MUTED, stroke_width=2), Line(o, o + [0, 2.6, 0], color=MUTED, stroke_width=2),
+                    T("zaman (uzun süre)", 14, MUTED).next_to(o + [3.8, 0, 0], DOWN, buff=0.08), T("BER", 14, MUTED).next_to(o + [0, 2.6, 0], RIGHT, buff=0.1))
+        ref = DashedLine(o + [0, 1.3, 0], o + [7.6, 1.3, 0], color=ACC, stroke_width=2)
         reft = T("≈ 10⁻³", 16, ACC, BOLD).next_to(ref, LEFT, buff=0.1)
         rng = np.random.default_rng(9)
-        tr_ = VMobject(stroke_color=GOLD, stroke_width=2).set_points_as_corners([o + [x, 1.3 + 0.18 * rng.standard_normal(), 0] for x in np.linspace(0.05, 7.95, 90)])
+        tr_ = VMobject(stroke_color=GOLD, stroke_width=2).set_points_as_corners([o + [x, 1.3 + 0.18 * rng.standard_normal(), 0] for x in np.linspace(0.05, 7.55, 90)])
         voa = instrument("VOA", 1.5, 1.1).move_to([-5.9 + 0.75, 2.0, 0]).shift(RIGHT * 0.2)
         ctr = VGroup(RoundedRectangle(corner_radius=0.12, width=2.2, height=1.5, stroke_color=GOOD, stroke_width=2.5, fill_color="#050810", fill_opacity=1),
                      T("LODS", 18, MUTED, BOLD), T("0", 48, GOOD, BOLD))

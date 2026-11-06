@@ -734,7 +734,7 @@ class E5P2C(Act5):
         rbars = VGroup(*[Rectangle(width=0.5, height=v, stroke_width=0, fill_color=TW_US, fill_opacity=0.5 + 0.15 * i).move_to([2.0 + i * 0.75, -2.5 + v / 2, 0]) for i, v in enumerate(rhs)])
         rbase = Line([1.5, -2.5, 0], [3.9, -2.5, 0], color=MUTED, stroke_width=2)
         br = BraceBetweenPoints([3.85, -2.5 + rhs[2], 0], [3.85, -2.5 + rhs[0], 0], RIGHT, color=GOLD)
-        brt = T("≈ 20 dB'e kadar", 18, GOLD, BOLD).next_to(br, RIGHT, buff=0.1)
+        brt = T("≈ 20 dB", 20, GOLD, BOLD).next_to(br, RIGHT, buff=0.1)
         rcap = T("en uzak ONU ↔ en yakın ONU", 17, TXT, BOLD).move_to([2.75, -2.85, 0])
         self.at(self.cue("ONU'ya gelen", 1.6))
         self.play(FadeIn(lt), FadeIn(oltb), FadeIn(cts), Create(f), FadeIn(onu), run_time=0.8)

@@ -6,6 +6,15 @@ PSYNC_HEX = "0xC5E51840 FD59BB49"
 DS_NM = [thz_to_nm(f) for f in (187.8, 187.7, 187.6, 187.5)]
 
 
+def pm_ds(w=2.15, h=1.55):
+    """Power meter tile with a downstream (L-band) display instead of the upstream example reading."""
+    ins = instrument("PM", w, h)
+    scr = ins[1]
+    g = VGroup(T("kanal gücü", 15, ACC, BOLD), T("dBm · ↓ L bandı", 10, MUTED)).arrange(DOWN, buff=0.06).move_to(scr)
+    ins.submobjects[2] = g
+    return ins
+
+
 def bits_row(labels, colors, w=0.75, size=22):
     cells = VGroup(*[VGroup(Square(w, stroke_color=c, stroke_width=2.5, fill_color=PANEL, fill_opacity=1), T(s, size, c, BOLD)) for s, c in zip(labels, colors)])
     for c in cells:
@@ -126,7 +135,7 @@ class E4P5A(Act4):
                      T("→ sayaç tek bit hatasıyla kaybolmaz", 20, GOOD, BOLD)).arrange(DOWN, aligned_edge=RIGHT, buff=0.14).move_to([3.0, 0.15, 0])
         blk = seg_bar([("PSync", 2.0, PSY_C, 0.85), ("SFC", 2.0, SFC_C, 0.8), ("OC", 2.0, OC_C, 0.8)], -1.65, -6.2, h=0.6, size=18)
         xb = BraceBetweenPoints(blk[1][0].get_corner(DL), blk[2][0].get_corner(DR), DOWN, color=WARN, buff=0.06)
-        xo = VGroup(xb, T("⊕ 0x0F0F0F0F 0F0F0F0F", 17, WARN, BOLD).next_to(xb, DOWN, buff=0.06))
+        xo = VGroup(xb, T("⊕ 0x0F0F0F0F 0F0F0F0F", 19, WARN, BOLD).next_to(xb, DOWN, buff=0.06))
         xt = T("HEC hesaplandıktan sonra XOR", 18, WARN, BOLD).next_to(blk, RIGHT, buff=0.4)
         pt = T("PSync: olduğu gibi", 17, PSY_C, BOLD).next_to(blk[0], UP, buff=0.12)
         self.play(GrowFromEdge(sb[0], LEFT), GrowFromEdge(sb[1], LEFT), self.set_src("G.989.3 §10.1.1.1.2 · §10.1.1.2 · Ek A.1"), run_time=0.8)
@@ -149,7 +158,7 @@ class E4P5A(Act4):
         h = self.show_heading("SFC'nin üç işi", h)
         cs = VGroup(card("1 · Senkron doğrulaması", "alıcı: geçerli HEC + beklenen sayaç (bir öncekinin bir fazlası)", None, SFC_C, w=11.6, h=1.1, tsize=22, bsize=19),
                     card("2 · Karıştırıcı", "ön yükleme deseni → her çerçevede farklı dizi", None, ACC, w=11.6, h=1.1, tsize=22, bsize=19),
-                    card("3 · Dalga boyu değişimi", "Tuning_Control: hedef SFC  ·  ONU: kendi SFC'sinin en düşük 16 biti = hedef → ayar başlar", None, GOLD, w=11.6, h=1.1, tsize=22, bsize=19)).arrange(DOWN, buff=0.28).move_to(DOWN * 0.3)
+                    card("3 · Dalga boyu değişimi", "Tuning_Control: SFC değeriyle hedef çerçeve\nONU: kendi SFC'sinin en düşük 16 biti = hedef → ayar başlar", None, GOLD, w=11.6, h=1.45, tsize=22, bsize=19)).arrange(DOWN, buff=0.28).move_to(DOWN * 0.35)
         for i, key in enumerate(["Alıcı onu", "Karıştırıcı onu", "Ve dalga boyu"]):
             self.at(self.cue(key, 2 + 5 * i))
             self.play(FadeIn(cs[i], shift=UP * 0.12), run_time=0.5)
@@ -212,15 +221,14 @@ class E4P5B(Act4):
         self.end(pad=0.05)
 
         self.beat("f3a")
-        self.clear(h, ob)
+        self.clear(h, *ob)
         h = self.show_heading("TOL: iletim optik düzeyi", h)
         self.play(*[ob[i].animate.set_opacity(0.25) for i in (0, 1, 2, 5)], run_time=0.4)
         tf = VGroup(T("9 bit · 0,1 dB adım · referans −30 dBm", 22, GOOD, BOLD), T("P = −30 dBm + 0,1 dB × TOL", 26, TXT, BOLD)).arrange(DOWN, buff=0.14).move_to(UP * 0.55)
         X = lambda d: -5.0 + (d + 30) * (10.0 / 51)
         yr = -1.15
         rule = VGroup(Line([X(-30), yr, 0], [X(21), yr, 0], color=MUTED, stroke_width=2.5),
-                      *[Line([X(d), yr - 0.07, 0], [X(d), yr + 0.07, 0], color=MUTED, stroke_width=1.5) for d in range(-30, 22, 10)],
-                      T("dBm", 15, MUTED).next_to([X(21), yr, 0], RIGHT, buff=0.15))
+                      *[Line([X(d), yr - 0.07, 0], [X(d), yr + 0.07, 0], color=MUTED, stroke_width=1.5) for d in range(-30, 22, 10)])
 
         def mark(d, top, bot, col):
             return VGroup(Dot([X(d), yr, 0], radius=0.08, color=col), T(top, 19, col, BOLD).next_to([X(d), yr, 0], UP, buff=0.18),
@@ -314,9 +322,10 @@ class E4P5C(Act4):
         k = 0.03
         lz = VGroup(seg_bar([("152 veri", 152 * k, TW_DS, 0.6)], -0.75, -5.6, h=0.6, size=17)[0],
                     DashedVMobject(Rectangle(width=80 * k, height=0.6, color=MUTED, stroke_width=2), num_dashes=30).move_to([-5.6 + 152 * k + 40 * k, -0.75, 0]),
-                    seg_bar([("16 eşlik", 16 * k, FEC_C, 0.85)], -0.75, -5.6 + 232 * k, h=0.6, size=15)[0])
+                    seg_bar([("16", 16 * k, FEC_C, 0.85)], -0.75, -5.6 + 232 * k, h=0.6, size=15)[0])
         lzt = T("80 sıfır bayt", 16, MUTED, BOLD).move_to(lz[1])
         lzn = T("kodlamadan önce eklenir, gönderilmez", 17, MUTED).next_to(lz[1], DOWN, buff=0.15)
+        lzp = T("16 eşlik", 15, FEC_C, BOLD).next_to(lz[2], UP, buff=0.08)
         cz = connect(last, VGroup(lz[0], lz[2]))
         eq = T("156 × 248 + 168 = 38 856 bayt = yük", 26, TXT, BOLD).move_to([0, -2.1, 0])
         pnote = pill("PSBd hiçbir zaman FEC'e dahil değil", PSY_C, 20).move_to(DOWN * 2.85)
@@ -328,7 +337,7 @@ class E4P5C(Act4):
         self.at(self.cue("Son veri bloğu", 10))
         self.play(Create(cz), FadeIn(lz[0]), run_time=0.5)
         self.at(self.cue("kodlamadan önce seksen", 12))
-        self.play(Create(lz[1]), FadeIn(lzt), FadeIn(lz[2]), run_time=0.7)
+        self.play(Create(lz[1]), FadeIn(lzt), FadeIn(lz[2]), FadeIn(lzp), run_time=0.7)
         self.at(self.cue("ve bu dolgu", 15))
         self.play(FadeIn(lzn), FadeIn(eq), run_time=0.5)
         self.at(self.cue("PSBd hiçbir", 17))
@@ -339,11 +348,13 @@ class E4P5C(Act4):
         self.clear(h)
         h = self.show_heading("FEC'in bedeli ve kazancı", h)
         k = 0.036
-        r10 = VGroup(T("10G", 24, TW_DS, BOLD), seg_bar([("veri 216", 216 * k, TW_DS, 0.6), ("32", 32 * k, FEC_C, 0.85)], 0, 0, h=0.55, size=16)).arrange(RIGHT, buff=0.3)
-        r25 = VGroup(T("2,5G", 24, GOLD, BOLD), seg_bar([("veri 232", 232 * k, GOLD, 0.6), ("16", 16 * k, FEC_C, 0.85)], 0, 0, h=0.55, size=16)).arrange(RIGHT, buff=0.3)
-        rows = VGroup(r10, r25).arrange(DOWN, aligned_edge=LEFT, buff=0.75).move_to([-1.2, 0.85, 0])
-        t10 = VGroup(T("eşlik %12,9", 20, FEC_C, BOLD), T("135 432 veri baytı / çerçeve ≈ 8,67 Gbit/s", 18, TXT)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).next_to(r10, DOWN, buff=0.08).align_to(r10[1], LEFT)
-        t25 = VGroup(T("eşlik %6,5", 20, FEC_C, BOLD), T("≈ 2,33 Gbit/s", 18, TXT)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).next_to(r25, DOWN, buff=0.08).align_to(r25[1], LEFT)
+        bx = -5.2
+        b10 = seg_bar([("veri 216", 216 * k, TW_DS, 0.6), ("32", 32 * k, FEC_C, 0.85)], 1.6, bx, h=0.55, size=16)
+        b25 = seg_bar([("veri 232", 232 * k, GOLD, 0.6), ("16", 16 * k, FEC_C, 0.85)], 0.1, bx, h=0.55, size=16)
+        r10 = VGroup(T("10G", 24, TW_DS, BOLD).next_to(b10, LEFT, buff=0.3), b10)
+        r25 = VGroup(T("2,5G", 24, GOLD, BOLD).next_to(b25, LEFT, buff=0.3), b25)
+        t10 = VGroup(T("eşlik %12,9", 20, FEC_C, BOLD), T("135 432 veri baytı / çerçeve ≈ 8,67 Gbit/s", 18, TXT)).arrange(RIGHT, buff=0.35).next_to(b10, DOWN, buff=0.14).align_to(b10, LEFT)
+        t25 = VGroup(T("eşlik %6,5", 20, FEC_C, BOLD), T("≈ 2,33 Gbit/s", 18, TXT)).arrange(RIGHT, buff=0.35).next_to(b25, DOWN, buff=0.14).align_to(b25, LEFT)
         gain = card("Kazanç (G.989.3 §6.1.3.3)", "alıcı daha yüksek hata oranında çalışabilir\n→ hassasiyet ve aşırı yük etkin olarak iyileşir", None, GOOD, w=11.0, h=1.55, tsize=22, bsize=20).move_to(DOWN * 2.2)
         self.at(self.cue("On gigabitte eşlik", 2))
         self.play(FadeIn(r10[0]), GrowFromEdge(r10[1], LEFT), FadeIn(t10[0]), run_time=0.7)
@@ -459,7 +470,7 @@ class E4LabA(Act4):
         self.to_header(tc)
         self.set_badge("lab")
         h = self.show_heading("Tezgâh")
-        ins = VGroup(instrument("DCA", 3.0, 2.2), instrument("OSA", 3.0, 2.2), instrument("PM", 3.0, 2.2)).arrange(RIGHT, buff=0.9).move_to(UP * 0.2)
+        ins = VGroup(instrument("DCA", 3.0, 2.2), instrument("OSA", 3.0, 2.2), pm_ds(3.0, 2.2)).arrange(RIGHT, buff=0.9).move_to(UP * 0.2)
         cap = VGroup(T("göz · sönüm oranı", 20, GOOD, BOLD), T("spektrum", 20, GOOD, BOLD), T("kalibre güç ölçer", 20, GOOD, BOLD))
         for c, i in zip(cap, ins):
             c.next_to(i, DOWN, buff=0.25)
@@ -689,9 +700,9 @@ class E4LabB(Act4):
         cg = DashedLine([-4.45, y - 0.9, 0], [-4.45, y + 0.9, 0], color=ACC, stroke_width=2)
         cgt = T("S/R-CG", 15, ACC, BOLD).next_to(cg, DOWN, buff=0.05)
         flt = box(2.3, 0.75, "filtre / OSA", GOLD, 16).move_to([-2.3, y, 0])
-        pm = instrument("PM", 2.0, 1.45).move_to([0.9, y + 0.1, 0])
+        pm = pm_ds(2.0, 1.45).move_to([0.9, y + 0.1, 0])
         ln = VGroup(Line(wm.get_right(), flt.get_left(), color=FEED, stroke_width=2.5), Arrow(flt.get_right(), [pm[0].get_left()[0], y, 0], buff=0.02, color=FEED, stroke_width=2.5, max_tip_length_to_length_ratio=0.2))
-        each = T("her kanal ayrı ayrı · toplam gücü okumayın", 18, GOLD, BOLD).move_to([4.5, y, 0])
+        each = T("her kanal ayrı ayrı\ntoplam gücü okumayın", 19, GOLD, BOLD, line_spacing=0.9).move_to([4.7, y, 0])
         cmp_ = VGroup(card("ölçülen", "kalibre güç ölçer", None, GOOD, w=3.6, h=1.3, tsize=24, bsize=18), T("↔", 36, TXT, BOLD),
                       card("TOL", "OC alanı · her çerçevede", None, OC_C, w=3.6, h=1.3, tsize=24, bsize=18)).arrange(RIGHT, buff=0.4).move_to(DOWN * 1.65)
         self.play(FadeIn(cts), Create(l1), FadeIn(wm), Create(cg), FadeIn(cgt), self.set_src("G.989.2 §11.1.5.2.8 · G.989.3 §10.1.1.1.3"), run_time=0.8)

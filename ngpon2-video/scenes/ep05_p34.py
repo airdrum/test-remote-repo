@@ -169,7 +169,7 @@ class E5P3B(Act5):
         x1 = o[0] + 0.6 + (1.2 - 0.2) / 2.2 * 3.0
         da = DoubleArrow([x1, yr - 0.35, 0], [x1 + 1.0, yr - 0.35, 0], buff=0, color=WARN, stroke_width=2.5, tip_length=0.1)
         dat = T("1 dB", 17, WARN, BOLD).next_to(da, DOWN, buff=0.06)
-        lg = VGroup(T("titreşimsiz", 15, GOOD, BOLD), T("+ sinüzoidal titreşim", 15, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).move_to(o + [4.4, 0.45, 0])
+        lg = VGroup(T("titreşimsiz", 15, GOOD, BOLD), T("+ sinüzoidal titreşim", 15, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).next_to(o + [0.3, 2.15, 0], RIGHT, buff=0)
         cd = card("Ölçüt: 1 dB güç cezası", "BER'de bir çöküş değil\nstres testi → çalışmada ek ceza olmasın", None, WARN, w=5.6, h=1.8, tsize=23, bsize=19).move_to([3.95, -1.85, 0])
         self.play(FadeIn(qt[0]), FadeIn(qt[1]), self.set_src("G.989.2 §11.1.5.4"), run_time=0.7)
         self.at(self.cue("giriş sinyaline", 1.4))
@@ -440,8 +440,8 @@ class SyncMachine:
         self.ss = VGroup(loop, lab("ikisi ✓", GOOD, [S.get_x(), y + 1.3, 0]))
         self.sr = VGroup(arrow(S.get_right() + u, R.get_left() + u, WARN, 2.5, 0.12), lab("biri ✗", WARN, [3.33, y + 0.72, 0]))
         self.rs = VGroup(arrow(R.get_left() + d, S.get_right() + d, GOOD, 2.5, 0.12), lab("ikisi ✓", GOOD, [3.33, y - 0.62, 0]))
-        arc = CurvedArrow(R.get_bottom() + LEFT * 0.3, H.get_bottom() + RIGHT * 0.3, angle=-0.75, color=WARN, stroke_width=3, tip_length=0.15)
-        self.rh = VGroup(arc, lab("M − 1 ardışık ✗  →  LODS", WARN, [0, y - 1.62, 0]))
+        arc = CurvedArrow(R.get_bottom() + RIGHT * 0.3, H.get_bottom() + LEFT * 0.3, angle=-0.75, color=WARN, stroke_width=3, tip_length=0.15)
+        self.rh = VGroup(arc, lab("M − 1 ardışık ✗  →  LODS", WARN, [0, y - 1.74, 0]))
 
 
 class E5P4A(Act5):
