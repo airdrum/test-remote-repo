@@ -1,0 +1,80 @@
+{
+ "title": "B03 Perde 3 — Izgaralar",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: ızgaralar. Aşağı yön ızgarası Tablo on bir iki'de sabittir: sekiz kanal, yüz seksen yedi virgül sekiz terahertzten başlayarak yüzer gigahertz aşağı iner ve yüz seksen yedi virgül bir terahertzte biter. Dalga boyu olarak, bin beş yüz doksan altı virgül üç dört ile bin altı yüz iki virgül üç bir nanometre."
+  },
+  {
+   "id": "d1a",
+   "text": "İlk dört kanal, dört dalga boylu TWDM sistemine aittir. Beşten sekize kadar olanlar isteğe bağlıdır; TWDM genişlemesi için ayrılmamışlarsa noktadan noktaya WDM ya da başka sistemler tarafından kullanılabilir. Aşağı yönde en büyük spektral sapma artı eksi yirmi gigahertzdir."
+  },
+  {
+   "id": "d2",
+   "text": "G.989.3 bu sekiz kanala bir kimlik verir: aşağı yön dalga boyu kanal kimliği. Dört bitlik bu sayı, kanal sırasının sıfırdan yediye çevrilmiş halidir. Otuz iki bitlik PON kimliğinin son dört bitini oluşturur; ilk yirmi sekiz bit ise operatörün verdiği yönetim etiketidir. PON kimliği her aşağı yön çerçevesinde taşınır; yani ONU, dinlediği kanalı çerçeveden okuyabilir."
+  },
+  {
+   "id": "d2a",
+   "text": "Tablo on bir dört'ün ikinci notu küçük bir esneklik tanır: birleşik bir çoklayıcı ve ayırıcı cihazı kullanabilmek için yüz gigahertzlik aralıktan küçük sapmalara izin verilir. Kanal profili de bunu taşır: aşağı yön frekans kaymasını, sıfır virgül bir gigahertz birimiyle bildiren bir alan vardır."
+  },
+  {
+   "id": "d3",
+   "text": "Yukarı yönde ise standart sabit frekans vermez. Kanal aralığı elli ile iki yüz gigahertz arasında seçilebilir, ve en büyük spektral sapma bu aralığa göre ölçeklenir: elli gigahertz için artı eksi on iki buçuk, yüz için yirmi, iki yüz için yirmi beş gigahertz. Aradaki değerler bu üç noktadan hesaplanabilir."
+  },
+  {
+   "id": "d3a",
+   "text": "Bu sapma, bir OLT ONU ayar döngüsü boyunca tanımlanır; yani lazer ayarlanırken ve kilitlenirken geçen süreyi de kapsar. Ayrıca verici gücünün dalga boyuna bağımlılığı sınırlanır: iki buçuk gigabitte gigahertz başına artı eksi sıfır virgül sıfır beş, on gigabitte artı eksi sıfır virgül sıfır iki desibel. Bu sınır, ayar için OLT'nin geri bildirimine ihtiyaç duyan ONU'lar içindir."
+  },
+  {
+   "id": "d4",
+   "text": "Peki ONU lazeri ne kadar geniş bir aralıkta ayarlanabilmeli? Tablo on bir altı iki formül verir. Döngüsel ızgara kullanılmıyorsa, en küçük ayar penceresi N eksi bir çarpı kanal aralığı, artı iki kat en büyük sapmadır. Dört kanal ve yüz gigahertz için: üç yüz kırk gigahertz."
+  },
+  {
+   "id": "d4a",
+   "text": "Döngüsel ızgara kullanılıyorsa formül N artı bir çarpı kanal aralığıdır: dört kanal ve yüz gigahertz için beş yüz gigahertz. Döngüsel çoklayıcıda kanal seti, serbest spektral aralık kadar ötede kendini tekrarlar. Formül, ayar penceresinin en az bir tam tekrar aralığını ve bir kanal payını kapsamasını ister."
+  },
+  {
+   "id": "d4b",
+   "text": "Sekiz kanal için aynı formüller yedi yüz kırk ve dokuz yüz gigahertz verir. Elli gigahertz aralıkta ise dört kanal için yüz yetmiş beş ve iki yüz elli, sekiz kanal için üç yüz yetmiş beş ve dört yüz elli gigahertz."
+  },
+  {
+   "id": "d4c",
+   "text": "Bu pencereleri lazer diline çevirelim. Beş yüz gigahertz, bin beş yüz otuz altı nanometre civarında yaklaşık dört nanometredir. Tipik bir DFB lazer, sıcaklıkla kelvin başına yaklaşık sıfır virgül bir nanometre kayar; dört nanometre için kırk derecelik bir sıcaklık aralığı gerekir. Dokuz yüz gigahertz, yani yaklaşık yedi nanometre, ısıl ayarla zorlanır; çok bölümlü ya da harici kaviteli ayarlanabilir lazerlere yönelmek gerekir."
+  },
+  {
+   "id": "d5",
+   "text": "Standardın döngüsel AWG örneklerine ayrılmış yedinci eki, iki bin on dokuz sürümünde yürürlükten kaldırılmıştır. Ama fikir, Ek sekizdeki ızgara örneklerinde yaşar. Izgara dışı örnekte yukarı yön kanal aralığı yüz dört virgül iki gigahertzdir. Bu tuhaf sayının fiziksel bir nedeni var."
+  },
+  {
+   "id": "d5a",
+   "text": "Bir AWG'de kanal aralığı, dalga boyunda göreli olarak sabittir; frekans cinsinden ise optik frekansla birlikte büyür. Aşağı yöndeki yüz gigahertzlik aralık, yüz seksen yedi virgül sekiz terahertzte tanımlıdır. Aynı AWG, yüz doksan beş virgül altı terahertzteki yukarı yön kanallarında yaklaşık yüz dört virgül iki gigahertz aralık üretir. Böylece tek bir çift yönlü AWG, iki yönü birden çoklayabilir."
+  },
+  {
+   "id": "d6",
+   "text": "Son olarak, çoklayıcının filtresi ile ONU'nun kilitlenmesi arasındaki ilişki. Ek sekiz, en büyük ayar hatasını tanımlar: en büyük spektral sapmadan, sinyalin eksi on beş desibeldeki tek yanlı spektral genişliği çıkarılır; bu yaklaşık olarak veri hızına eşittir. Yüz gigahertz aralıkta, iki buçuk gigabitlik bir ONU için yaklaşık on yedi buçuk, on gigabitlik bir ONU için yaklaşık on gigahertz."
+  },
+  {
+   "id": "d6a",
+   "text": "OLT tarafındaki alıcı filtresi için üç şart konur. Bir artı X desibellik bant genişliği, iki kat ayar hatasından küçük olmalıdır; X, verici gücünün dalga boyu bağımlılığıdır. Filtre eğrisi, kanal merkezinden iki yana doğru tekdüze azalmalıdır. Ve kalan dalgalanma, OLT'nin güç ölçüm çözünürlüğünden küçük olmalıdır. Amaç basit: ONU dalga boyunu, OLT'nin ölçtüğü güce bakarak her zaman kanal merkezine doğru kaydırabilmek."
+  },
+  {
+   "id": "d6b",
+   "text": "Ek sekiz, kanal dışı emisyonu da iki düzeyde inceler. Birinci düzey, girişim ışığının kurban kanalın bant genişliği dışında kaldığı durumdur; burada karışma uyumsuzdur. İkinci düzey ise girişim ışığının kurban kanalın içine düştüğü durumdur; burada karışma uyumludur, yani çok daha zararlıdır, ve sınır daha sıkıdır."
+  },
+  {
+   "id": "d6c",
+   "text": "Sayılara bakalım. İki buçuk gigabitlik yukarı yönde birinci düzey sınır, on beş gigahertz başına, elli gigahertz aralıkta eksi otuz altı virgül yedi, yüz gigahertzde eksi kırk virgül beş, iki yüz gigahertzde eksi kırk dört virgül dört dBm'dir. İkinci düzey sınır ise sekiz kanal için eksi kırk sekiz virgül sekiz dBm. Bu ayrıntıları yedinci bölümde, ayarlanabilir lazerle birlikte açacağız."
+  },
+  {
+   "id": "d7",
+   "text": "Mühendis notu. Bir: yukarı yön ızgarası bir sistem kararıdır; onu standart değil, operatör ve OLT üreticisi belirler. İki: ızgarayı seçerken ONU lazerinin ayar penceresini, sapma sınırını ve çoklayıcı teknolojisini birlikte değerlendirin."
+  },
+  {
+   "id": "d8",
+   "text": "Sıradaki: aynı fiberde yan yana yürüyen bu ışıklar birbirini rahat bırakır mı? Cevap: hayır. Raman."
+  }
+ ]
+}

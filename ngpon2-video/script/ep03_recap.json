@@ -1,0 +1,24 @@
+{
+ "title": "B03 önceki bölümde",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Önceki bölümde ODN'in üç parçasını, dört yol kaybı sınıfını, bütçe denklemini, dispersiyon ve yansıma sınırlarını, ve mesafenin zaman yüzünü gördük. Şimdi sorduğumuz üç sorunun cevapları."
+  },
+  {
+   "id": "a2",
+   "text": "Birinci soru: yirmi kilometre fiber ve bire yüz yirmi sekiz ayırıcı. Ayırıcı yaklaşık yirmi üç buçuk, fiber beş, ekler bir buçuk desibel; toplam yaklaşık otuz desibel. Bu, N1'in üst sınırı olan yirmi dokuzu aşar, N2'nin otuz birine ise bir desibel payla sığar. Cevap: N2."
+  },
+  {
+   "id": "a3",
+   "text": "İkinci soru: yükselteçli OLT alıcısı, yani B tipi bağlantı. İki buçuk gigabitlik yukarı yönde ONU'nun en küçük başlatma gücü artı dörtten sıfır dBm'e iner: dört desibel. On gigabitlik yukarı yönde ise artı dörtten artı ikiye: iki desibel."
+  },
+  {
+   "id": "a4",
+   "text": "Üçüncü soru: kırk kilometrelik diferansiyel mesafede gidiş dönüş gecikmesinin değişimi yaklaşık dört yüz mikrosaniyedir. Buna iki mikrosaniyelik yanıt süresi değişimi ve kırk sekiz mikrosaniyelik rastgele gecikme eklenir. Önerilen sessiz pencere: dört yüz elli mikrosaniye."
+  }
+ ]
+}

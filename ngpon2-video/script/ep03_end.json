@@ -1,0 +1,24 @@
+{
+ "title": "B03 Kapanış",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölüm üçün özeti. Bir: TWDM aşağı yönü bin beş yüz doksan altı ile bin altı yüz üç nanometrededir; yukarı yön için geniş, azaltılmış ve dar olmak üzere üç bant seçeneği vardır. Noktadan noktaya kanallar paylaşılan ya da genişletilmiş spektrumu kullanır. İki: NG-PON2, G-PON, XG-PON1, RF video ve OTDR bantlarının arasındaki boşluklara yerleştirilmiştir."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: aşağı yön ızgarası yüz gigahertz aralıkla sabittir; yukarı yön aralığı elli ile iki yüz gigahertz arasında seçilir ve sapma sınırı aralıkla ölçeklenir. Dört: Raman etkisi videoyu modülasyon karışmasıyla, yukarı yön kanallarını güç tüketimiyle etkiler; azaltma yöntemleri altıncı ve dokuzuncu eklerdedir. Beş: bütün bu harita, ONU'ya sistem ve kanal profilleriyle duyurulur."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: dört kanallı, döngüsel olmayan, yüz gigahertz aralıklı bir yukarı yön ızgarası için en küçük ayar penceresi kaç gigahertzdir? İkinci soru: yüz doksan beş virgül bir terahertzlik bir yukarı yön kanalı, kanal profilinde hangi sayıyla yazılır? Üçüncü soru: Raman kaynaklı modülasyon karışması, aynı yönde mi, yoksa karşı yönde yayılan sinyaller arasında mı oluşur? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Kaynak. OLT vericisinden çıkan aşağı yön sinyali: sönüm oranı, göz maskesi, yan mod bastırma, ve yüz yirmi beş mikrosaniyelik çerçevenin içi. Görüşmek üzere."
+  }
+ ]
+}

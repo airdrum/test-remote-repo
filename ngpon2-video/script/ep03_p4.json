@@ -1,0 +1,76 @@
+{
+ "title": "B03 Perde 4 — Raman",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: Raman. Uyarılmış Raman saçılması, fiberde birlikte yayılan ışık dalgaları arasında bir enerji aktarımıdır. Silika fiberde Raman kazanç spektrumu yaklaşık elli terahertze kadar uzanır; etkiler bir terahertz kadar yakın, ya da kırk terahertz kadar uzak sinyaller arasında görülebilir."
+  },
+  {
+   "id": "e1a",
+   "text": "Raman iki istenmeyen sonuç doğurur. Birincisi modülasyon karışmasıdır: bir sinyalin modülasyonu, başka bir dalga boyundaki sinyalin üzerine biner. Bu yalnızca aynı yönde yayılan sinyaller arasında olur. İkincisi güç tüketimidir: kısa dalga boyları pompa gibi davranır, uzun dalga boylarını güçlendirirken kendileri güç kaybeder. Bu ise hem aynı yönde hem karşı yönde yayılan sinyallerde görülür."
+  },
+  {
+   "id": "e1b",
+   "text": "Raman kazancının tepe noktası, silika fiberde yaklaşık on üç terahertzlik frekans farkındadır; bin beş yüz elli nanometre civarında bu, yaklaşık yüz nanometrelik bir kaymaya karşılık gelir. NG-PON2'nin kendi bantları arasındaki farklar, beş ile on terahertz arasında; yani kazanç eğrisinin yükselen kısmında."
+  },
+  {
+   "id": "e2",
+   "text": "NG-PON2'de en hassas kurban RF video yayınıdır. Video, bin beş yüz elli ile bin beş yüz altmış nanometrede, TWDM aşağı yön kanallarıyla aynı yönde yayılır. Aralarındaki fark yaklaşık beş ile altı terahertz; Raman kazanç eğrisinin etkili bölgesinde. TWDM sinyallerinin modülasyonu, video taşıyıcısının üzerine gürültü olarak biner."
+  },
+  {
+   "id": "e2a",
+   "text": "Bu gürültü en çok RF spektrumunun alt ucunda, yani alçak frekanslı TV kanallarında hissedilir. Çünkü farklı dalga boyları fiberde farklı hızlarda ilerler; bu kayma, yüksek frekanslı bileşenlerin etkisini ortalayarak söndürür, düşük frekanslılar ise birikir. Standarda göre, on ile yirmi kilometrelik sistemlerde en doğrudan etkiyi üç yüz megahertze kadar olan frekanslar yapar."
+  },
+  {
+   "id": "e3",
+   "text": "Güç tüketimi tarafında ise yukarı yön kanalları etkilenir. TWDM yukarı yön kanalları C bandında, aşağı yön kanallarından daha kısa dalga boyundadır. OLT'nin yakınında aşağı yön sinyalleri güçlü, yukarı yön sinyalleri ise ODN'den geçtiği için zayıftır. Yukarı yön sinyali, karşı yönde ilerleyen güçlü aşağı yön kanallarına enerji kaptırır."
+  },
+  {
+   "id": "e3a",
+   "text": "Bu yüzden Tablo on bir altı'daki yukarı yön yol cezası Raman etkisini içerir. Notu açıktır: ceza, sınıfa özgü verici gücünü, mesafeyi ve dalga boyu sayısını hesaba katar. En kötü durum, OLT tarafında ayırıcı olmayan ve fiber kaybı düşük ağdır; çünkü orada aşağı yön gücü uzun bir mesafe boyunca yüksek kalır. Sekiz kanal ve kırk kilometrede cezanın iki virgül sekiz desibele çıkması bu yüzdendir."
+  },
+  {
+   "id": "e3b",
+   "text": "Birlikte çalışma bu tabloyu karmaşıklaştırır. Bin dört yüz doksan nanometredeki G-PON aşağı yön sinyali, TWDM yukarı yön kanallarından daha kısa dalga boyundadır; yani onları pompalar ve güçlendirir. XG-PON1 aşağı yönü ve video ise daha uzun dalga boyundadır ve yukarı yön kanallarından güç çeker. Net etki, ağda hangi sistemlerin bulunduğuna bağlıdır."
+  },
+  {
+   "id": "e4",
+   "text": "Raman fiziğin bir parçasıdır; kaçınılamaz, ama azaltılabilir. Altıncı ek dört yöntem sayar. Birincisi yüksek geçiren RF süzgeç: veri modülasyonunun alçak frekanslı kısmı iletimden önce bastırılır; örneğin on gigabitlik bir sinyalde iki yüz megahertzin altı. Bu, Raman karışmasında on iki desibele kadar azalma sağlayabilir."
+  },
+  {
+   "id": "e4a",
+   "text": "İkincisi sıfır polarizasyon derecesi: girişimci sinyallerin polarizasyonları, birleşik polarizasyon derecesi sıfır olacak şekilde dizilir. Hepsinin paralel olduğu en kötü duruma göre karışma altı desibel azalır. Elektriksel ve optik desibeller arasındaki ikiye bir ilişki nedeniyle bu, fibere üç desibel daha fazla optik güç verebilmek demektir. Bunun için OLT lazerleri ve çoklayıcı polarizasyon kontrollü olmalı, aralarda polarizasyon koruyan fiber kullanılmalıdır."
+  },
+  {
+   "id": "e4b",
+   "text": "Üçüncüsü özel bir bastırma vericisidir: girişimci modülasyonların bant sınırlı bir kopyasını taşıyan ek bir lazer, Raman gürültüsünü yıkıcı girişimle söndürür; videonun taşıyıcı karışma oranında on iki ila on dört desibel iyileşme mümkündür. Dördüncüsü ise spektrum şekillendirme: sayısal işaret işleme ile veri spektrumu, video bölgesiyle örtüşmeyecek şekilde biçimlendirilir."
+  },
+  {
+   "id": "e5",
+   "text": "Dokuzuncu ek bu fikri hat koduna taşır ve iki örnek verir. 8B10B kodu, DC dengeli bir koddur ve MAC katmanında açılıp kapatılabilen bir alt katman olarak tanımlanır. Miller kodu ve onun DC dengeli türevi ise NRZ'ye göre daha dar bantlıdır ve alçak frekanslarda daha az enerji taşır."
+  },
+  {
+   "id": "e5b",
+   "text": "8B10B'nin bedeli yüzde yirmi beşlik ek yüktür: on gigabitlik veri için hat hızı on iki buçuk gigabite çıkar. Standart, on gigabit uyumlu bileşenlerle on iki buçuk gigabitte çalışmanın alıcı hassasiyetine etkisini de not eder; yani bu kod bedava değildir."
+  },
+  {
+   "id": "e5a",
+   "text": "Miller kodunun bir yan faydası daha var: daha dar spektrum, dispersiyon cezasını da azaltır. Standart, bu sayede on gigabitlik aşağı yönde EML yerine doğrudan modüle edilen bir lazer kullanılabileceğini belirtir. Bedeli ise alıcıda faz belirsizliğidir: yüz seksen derece kaymış bir saat, bitleri ters çözer. Kod ihlalleri bu hatayı yakalamak için kullanılabilir."
+  },
+  {
+   "id": "e6",
+   "text": "TC katmanında bu seçim için bir yer ayrılmıştır. Kanal profili mesajında aşağı yön hat kodu için dört bitlik bir alan vardır. Bugün yalnızca sıfır değeri, yani NRZ tanımlıdır; diğer kod noktaları ileride çalışılacak konular olarak bırakılmıştır."
+  },
+  {
+   "id": "e7",
+   "text": "Mühendis notu. Bir: RF video olan bir ağda NG-PON2'yi devreye almadan önce, video alıcısında taşıyıcı gürültü oranını ölçün ve kayıt altına alın. İki: TWDM kanallarını tek tek açarak alçak frekanslı TV kanallarındaki değişimi izleyin; Raman karışması orada görünür."
+  },
+  {
+   "id": "e8",
+   "text": "Sıradaki: bütün bu harita ONU'ya nasıl anlatılır? Kanal profilleri."
+  }
+ ]
+}

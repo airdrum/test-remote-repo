@@ -1,0 +1,60 @@
+{
+ "title": "B03 Perde 2 — Komşular",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: komşular. Standardın birinci eki, birlikte çalışmada dikkate alınan sistemleri sayar: G-PON, RF video yayını, XG-PON1 ve OTDR. Her birinin fiberde kendi bandı vardır, ve NG-PON2 bu bantların arasına yerleştirilmiştir."
+  },
+  {
+   "id": "c2",
+   "text": "G-PON aşağı yönde bin dört yüz seksen ile bin beş yüz nanometre arasını kullanır. Yukarı yönde, birlikte çalışma için daraltılmış bandı bin iki yüz doksan ile bin üç yüz otuz nanometredir. XG-PON1 ise yukarı yönde bin iki yüz altmış ile bin iki yüz seksen, aşağı yönde bin beş yüz yetmiş beş ile bin beş yüz seksen nanometre arasındadır."
+  },
+  {
+   "id": "c2b",
+   "text": "G-PON'un ilk tanımında yukarı yön bandı bin iki yüz altmış ile bin üç yüz altmış nanometreydi. XG-PON1'in yukarı yönü bin iki yüz altmış ile bin iki yüz seksen arasına yerleşince, birlikte çalışma için G-PON bandı bin iki yüz doksan ile bin üç yüz otuza daraltıldı. Bu, yeni bir sisteme yer açmak için verilen tavizin tipik bir örneğidir."
+  },
+  {
+   "id": "c2a",
+   "text": "RF video yayını bin beş yüz elli ile bin beş yüz altmış nanometre arasında taşınır. Bakım için kullanılan OTDR ise genellikle bin altı yüz yirmi beşin üstünde, U bandında çalışır. Standart bakım dalga boyu için ITU-T L.313'e yönlendirir."
+  },
+  {
+   "id": "c3",
+   "text": "Şimdi NG-PON2'yi bu haritaya yerleştirelim. TWDM yukarı yön bandı, G-PON aşağı yön bandının üstünde ve RF videonun hemen altında kalır; geniş bant seçeneğinde videoya yalnızca altı nanometre mesafe vardır. TWDM aşağı yön bandı ise XG-PON1 aşağı yönünün on altı nanometre üstünde, ve noktadan noktaya paylaşılan spektrumun hemen altındadır."
+  },
+  {
+   "id": "c3a",
+   "text": "Bu yerleşimin bir mantığı var. Eski sistemlerin alıcıları, kendi bantları dışındaki ışığı bastıracak filtrelerle tasarlanmıştı; ama o filtrelerin de bir sınırı vardı. NG-PON2, en az çakışma ve en geniş koruma bandını veren boşlukları seçti. Yukarı yönün üç bant seçeneği de kısmen bu yüzden var: dar bant, videoya daha fazla mesafe bırakır."
+  },
+  {
+   "id": "c4",
+   "text": "Bu dar boşlukları ayıran eleman, birlikte çalışma elemanıdır; standart onu CEx olarak anar. Filtrenin kenar dikliği, koruma bandının genişliğine bağlıdır. Altı nanometrelik bir boşluk, birkaç düzine nanometrelik boşluklara göre çok daha dik, ve genellikle daha pahalı bir filtre ister."
+  },
+  {
+   "id": "c5",
+   "text": "Dalga boyu çoklayıcı için de Ek sekiz örnek değerler verir. Konnektörsüz ekleme kaybı iki sınıfta tanımlanır: düşük sınıfta iki desibelin, yüksek sınıfta dört desibelin altında. Geri dönüş kaybı ve yönlülük elli desibelin üstünde; herhangi bir portta izin verilen en büyük optik güç ise artı yirmi üç dBm."
+  },
+  {
+   "id": "c5a",
+   "text": "Artı yirmi üç dBm sınırının nereden geldiğini kabaca görebiliriz. E2 sınıfında bir aşağı yön kanalının en büyük gücü artı on dBm'dir. Sekiz kanal birlikte yaklaşık artı on dokuz dBm eder. Çoklayıcının sınırı, bunun üstünde birkaç desibellik bir pay bırakır."
+  },
+  {
+   "id": "c6",
+   "text": "Kayıp sınıfı teknolojiye bağlıdır; örneğin AWG ile ince film filtre arasında fark vardır. OLT alıcı vericileri, hangi kayıp sınıfıyla uyumlu olduklarını belirtir. Bu, birinci bölümdeki S bölü R CP noktasının neden bir alternatif olarak var olduğunu da açıklar: CP ile CG arasındaki fark, çoklayıcının kaybıdır."
+  },
+  {
+   "id": "c6a",
+   "text": "Aynı fiberde birden çok sistem olduğunda toplam optik güç de artar. Altıncı ek bu yüzden doğrusal olmayan etkileri ve göz güvenliğini birlikte ele alır. Bir video yükselteci, sekiz TWDM kanalı ve eski PON sinyalleri aynı fiberdeyse, toplam güç tek bir sistemin çok üstüne çıkabilir."
+  },
+  {
+   "id": "c7",
+   "text": "Mühendis notu. Birlikte çalışma bir lisans meselesi değil, bir filtre meselesidir. Sahada yeni bir sistem eklerken önce mevcut bantların listesini çıkarın, sonra her bant kenarında hangi yalıtımın gerektiğini hesaplayın."
+  },
+  {
+   "id": "c8",
+   "text": "Sıradaki: bantların içindeki ızgara. Kanallar nereye oturur, ve ne kadar kayabilir?"
+  }
+ ]
+}

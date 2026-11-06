@@ -1,0 +1,48 @@
+{
+ "title": "B03 Laboratuvarda",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda: kanal haritası ve yalıtım. Bu bölümün ölçümleri iki soruya cevap verir: kanallar olması gereken yerde mi, ve komşu sistemler birbirinden yeterince ayrılmış mı?"
+  },
+  {
+   "id": "g2",
+   "text": "Birinci araç optik spektrum analizörü. Kanal haritasını S bölü R CG noktasında, yani çoklayıcının ortak portunda çıkarın. Burada bütün aşağı yön kanalları ve geri gelen yukarı yön kanalları tek ekranda görünür; bir yönlü kuplörle iki yönü ayırmak ölçümü kolaylaştırır."
+  },
+  {
+   "id": "g3",
+   "text": "Çözünürlük bant genişliğine dikkat. Standardın güç spektral yoğunluğu sınırları on beş gigahertzlik bant için verilir. OSA'da sıfır virgül bir nanometre seçerseniz, bin beş yüz doksan sekiz nanometrede bu yaklaşık on bir virgül yetmiş beş gigahertzdir. Okuduğunuz değeri on beş gigahertze çevirmek için yaklaşık bir desibel eklemelisiniz."
+  },
+  {
+   "id": "g4",
+   "text": "Frekans doğruluğu ikinci konudur. Aşağı yönde artı eksi yirmi gigahertzlik sapma sınırı, bin altı yüz nanometre civarında yaklaşık artı eksi yüz yetmiş pikometreye karşılık gelir. Tipik bir OSA'nın dalga boyu doğruluğu on ile yirmi pikometredir; sınırın onda biri kadar, yeterli. Ama OSA'yı bir referans kaynakla düzenli olarak doğrulayın; ölçüm hatası doğrudan sapma payınızdan yer."
+  },
+  {
+   "id": "g5",
+   "text": "Yukarı yönde ONU'yu sırayla her kanala ayarlayın ve her kanalda frekansı bir ayar döngüsü boyunca izleyin. Sapma sınırı kanal aralığıyla ölçeklenir: elli gigahertz aralıkta artı eksi on iki buçuk gigahertz, yani bu bantta yaklaşık artı eksi yüz pikometre. Burst içindeki dalga boyu kaymasını ölçmek daha ince bir iştir; onu yedinci bölüme bırakıyoruz."
+  },
+  {
+   "id": "g5a",
+   "text": "Çoklayıcının kendisini de karakterize edin. Ayarlanabilir bir lazer ve güç ölçerle her portun geçirgenlik eğrisini tarayın. Ek sekizdeki üç şartı tek tek kontrol edin: bir artı X desibellik bant genişliği iki kat ayar hatasından küçük mü, eğri kanal merkezinden iki yana tekdüze azalıyor mu, ve dalgalanma OLT'nin güç ölçüm çözünürlüğünün altında mı?"
+  },
+  {
+   "id": "g6",
+   "text": "İkinci ölçüm yalıtım. Çoklayıcının bir portuna kalibre bir kaynak verin ve komşu portlardaki sızıntıyı ölçün; kanal yalıtımını böyle bulursunuz. Ek sekizdeki örnek değerler, geri dönüş kaybı ve yönlülük için elli desibelin üstündedir. Aynı yöntemle, birlikte çalışma elemanının G-PON, XG-PON1 ve video portları arasındaki yalıtımı da doğrulayın."
+  },
+  {
+   "id": "g6a",
+   "text": "Birlikte çalışma testinin asıl sorusu ise şudur: NG-PON2 açıldığında eski sistemler bundan etkileniyor mu? G-PON ya da XG-PON1 bağlantısını çalışır halde bırakın, bit hata oranını izleyin, sonra NG-PON2 kanallarını devreye alın. Hata oranında bir değişim olmamalıdır."
+  },
+  {
+   "id": "g7",
+   "text": "Üçüncü ölçüm Raman. RF video varsa, video alıcısının çıkışında taşıyıcı karışma oranını ölçün: önce yalnızca video, sonra TWDM aşağı yön kanallarını birer birer açarak. Düşük frekanslı kanallarda bir bozulma görüyorsanız, bu Raman karışmasıdır. Aynı testi farklı fiber uzunluklarıyla tekrarlamak, etkinin mesafeyle değişimini gösterir."
+  },
+  {
+   "id": "g8",
+   "text": "Mühendis notu. Bir: spektrum ölçümünde frekans doğruluğunu ve çözünürlük düzeltmesini raporunuza yazın. İki: yalıtım ölçümünü yalnızca kanal merkezinde değil, sapma sınırının iki ucunda da yapın; en kötü durum oradadır."
+  }
+ ]
+}

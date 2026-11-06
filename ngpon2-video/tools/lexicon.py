@@ -2,7 +2,7 @@
 import re
 LEX = [
     ("ITU-T", "ay ti yu ti"),
-    ("NG-PON2", "en ci pon iki"), ("XGS-PON", "eks ci es pon"), ("XG-PON", "eks ci pon"), ("GPON", "ci pon"),
+    ("NG-PON2", "en ci pon iki"), ("XGS-PON", "eks ci es pon"), ("XG-PON1", "eks ci pon bir"), ("XG-PON", "eks ci pon"), ("G-PON", "ci pon"), ("GPON", "ci pon"),
     (r"G\.989\.(\d)", lambda m: "ci dokuz sekiz dokuz nokta " + ["sıfır", "bir", "iki", "üç"][int(m.group(1))]),
     (r"G\.987\.3", "ci dokuz sekiz yedi nokta üç"), (r"G\.988", "ci dokuz sekiz sekiz"), (r"G\.989", "ci dokuz sekiz dokuz"),
     (r"\bAWG\b", "ey dabılyu ci"), (r"\bPLC\b", "pi el si"), (r"\bFBT\b", "ef bi ti"), (r"\bORL\b", "o ar el"), (r"\bOTDR\b", "o ti di ar"),
@@ -23,6 +23,9 @@ LEX = [
     (r"Stratum-(\d)", lambda m: "stratum " + ["sıfır", "bir", "iki", "üç", "dört"][int(m.group(1))]),
     (r"Tablo 11-5", "tablo on bir tire beş"), (r"Tablo 11-8", "tablo on bir tire sekiz"), (r"Şekil 11-4", "şekil on bir tire dört"),
     (r"\bO8\b", "o sekiz"), (r"\bO9\b", "o dokuz"),
+    (r"\bCEx\b", "si i eks"), (r"8B10B", "sekiz bi on bi"), (r"\bMAC\b", "mek"), (r"\bDC\b", "di si"), (r"\bEML\b", "i em el"),
+    (r"\bDFB\b", "di ef bi"), (r"\bTV\b", "ti vi"), (r"\bL bandı", "el bandı"), (r"\bC bandı", "si bandı"), (r"\bU bandı", "yu bandı"),
+    (r"G\.694\.1", "ci altı dokuz dört nokta bir"), (r"G\.698\.3", "ci altı dokuz sekiz nokta üç"),
 ]
 
 def speak(text):
