@@ -1,0 +1,133 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "f1",
+   "file": "f1_g20fb2cf625.wav",
+   "duration": 16.791,
+   "text": "Perde beş: TC köprüsü. Çalışan bir OLT kanal sonlandırıcısı, aşağı yönde sürekli gönderir. Her yüz yirmi beş mikrosaniyelik fiziksel çerçeve, on gigabitte yüz elli beş bin beş yüz yirmi bayt, iki buçuk gigabitte otuz sekiz bin sekiz yüz seksen bayttır.",
+   "qa": "ok"
+  },
+  {
+   "id": "f1a",
+   "file": "f1a_g20fb2cf625.wav",
+   "duration": 19.299,
+   "text": "Çerçeve, yirmi dört baytlık fiziksel senkron bloğuyla, yani PSBd ile başlar. Ardından yük gelir: çerçeve yapısı önce isteğe bağlı FEC'ten, sonra karıştırıcıdan geçirilir. PSBd'nin üç parçası vardır: PSync, süper çerçeve sayacı ve işletim kontrol yapısı; her biri sekiz bayt.",
+   "qa": "ok"
+  },
+  {
+   "id": "f1b",
+   "file": "f1b_gb3c234f803.wav",
+   "duration": 15.17,
+   "text": "Bir ayrıntı: OLT her zaman gönderir. Trafik olmadığında bile çerçeveler boş XGEM çerçeveleriyle doldurulur. ONU'ların senkronda kalması ve saatlerini çıkarması buna bağlıdır; aşağı yönde sessizlik, bir hata durumudur.",
+   "qa": "ok"
+  },
+  {
+   "id": "f2",
+   "file": "f2_gb3c234f803.wav",
+   "duration": 16.601,
+   "text": "PSync sabit, altmış dört bitlik bir desendir; onaltılık değerini ekranda görüyorsunuz. Her iki hızda da aynıdır, ve XG-PON1 ile aynı desendir. Süper çerçeve sayacı elli bir bitliktir ve her çerçevede bir artar. Bu hızla başa dönmesi yaklaşık dokuz bin yıl sürer.",
+   "qa": "ok"
+  },
+  {
+   "id": "f2a",
+   "file": "f2a_g818f87fc0b.wav",
+   "duration": 22.384,
+   "text": "Sayaç on üç bitlik bir HEC ile korunur: BCH altmış üç, on iki kodu artı bir eşlik biti. İki hatayı düzeltir, üç hatayı algılar; böylece sayaç tek bir bit hatasıyla kaybolmaz. Süper çerçeve sayacı ve işletim kontrol yapısı, HEC hesaplandıktan sonra sabit bir desenle XOR'lanır; PSync ise olduğu gibi gönderilir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f2b",
+   "file": "f2b_g818f87fc0b.wav",
+   "duration": 20.627,
+   "text": "Süper çerçeve sayacı üç iş görür. Alıcı onu senkron doğrulamasında kullanır. Karıştırıcı onu her çerçevede farklı bir dizi üretmek için kullanır. Ve dalga boyu değişimi onunla zamanlanır: ayar kontrol mesajı, sayacın değeriyle bir hedef çerçeve belirtir, ve ONU kendi sayacının en düşük on altı biti bu değere ulaştığında ayara başlar.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3",
+   "file": "f3_gf7df6c8981.wav",
+   "duration": 25.121,
+   "text": "İşletim kontrol yapısı, ONU'ya kanal hakkında bilgi taşır. Önce sekiz bitlik PON-ID tipi: bir menzil uzatıcı bayrağı, üç bitlik ODN sınıf kodu, aşağı yön FEC bayrağı, TC sürümü bayrağı ve iki bitlik bağlantı tipi. Ardından otuz iki bitlik PON-ID: yirmi sekiz bitlik yönetim etiketi ve dört bitlik aşağı yön kanal kimliği.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3c",
+   "file": "f3c_gf7df6c8981.wav",
+   "duration": 29.61,
+   "text": "PON-ID tipindeki bayrakların anlamları da tanımlıdır. TC sürümü bayrağı bir ise ONU, G.989.3 TC katmanıyla; sıfır ise G.987.3 TC katmanıyla konuştuğunu bilir. Bağlantı tipi iki bitlik bir haritadır: yalnız A tipi, yalnız B tipi, ya da ikisi birden. Menzil uzatıcı bayrağı ise TOL değerinin OLT'ye mi yoksa bir menzil uzatıcıya mı ait olduğunu söyler.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3a",
+   "file": "f3a_gdc2c8514ba.wav",
+   "duration": 29.825,
+   "text": "Ve vericiyle doğrudan ilgili bir alan: TOL, yani iletim optik düzeyi. Dokuz bitlik bir sayıdır, ve eksi otuz dBm'e göre sıfır virgül bir desibellik adımlarla OLT'nin o anki başlatma gücünü gösterir. Sıfır değeri eksi otuz dBm, üç yüz değeri sıfır dBm, beş yüz on değeri artı yirmi bir dBm demektir; en büyük değer ise desteklenmiyor anlamına gelir. Bir bit de bu gücün CG noktasına mı, CP noktasına mı ait olduğunu söyler.",
+   "qa": "ok"
+  },
+  {
+   "id": "f3b",
+   "file": "f3b_gdc2c8514ba.wav",
+   "duration": 17.586,
+   "text": "Standart ONU'nun bu değerle ne yapacağını söylemez. Ama bilgi değerlidir: OLT, dört desibellik güç penceresinin neresinde çalıştığını her çerçevede yayınlar. İkinci ekteki örneklere göre OLT'nin kendi verici güç izlemesinin doğruluğu ise artı eksi iki desibeldir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f4",
+   "file": "f4_ga42060acb7.wav",
+   "duration": 24.792,
+   "text": "FEC aşağı yönde zorunlu olarak desteklenir, ama statik olarak açılır ya da kapatılır; bütün ONU'lar için aynı. On gigabitte RS iki yüz kırk sekiz, iki yüz on altı kullanılır: her çerçevede altı yüz yirmi yedi kod sözcüğü, her biri iki yüz on altı veri ve otuz iki eşlik baytı. Altı yüz yirmi yedi çarpı iki yüz kırk sekiz, tam olarak yükün boyuna eşittir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f4a",
+   "file": "f4a_ga42060acb7.wav",
+   "duration": 20.099,
+   "text": "İki buçuk gigabitte RS iki yüz kırk sekiz, iki yüz otuz iki kullanılır: yüz elli altı tam kod sözcüğü, ve yüz altmış sekiz baytlık kısaltılmış bir son kod sözcüğü. Son veri bloğu, kodlamadan önce seksen sıfır baytla tamamlanır, ve bu dolgu gönderilmez. PSBd hiçbir zaman FEC'e dahil edilmez.",
+   "qa": "ok"
+  },
+  {
+   "id": "f4b",
+   "file": "b2ca2a28235_0.wav",
+   "duration": 27.931,
+   "text": "FEC'in bedeli kapasitedir. On gigabitte eşlik payı yüzde on iki virgül dokuz: çerçeve başına yüz otuz beş bin dört yüz otuz iki veri baytı, yaklaşık sekiz virgül altı yedi gigabit. İki buçuk gigabitte pay yüzde altı virgül beş, yaklaşık iki virgül üç üç gigabit. Standart kazancı da açıkça söyler: FEC, alıcının daha yüksek bir hata oranında çalışmasına izin verir; hassasiyet ve aşırı yük etkin olarak iyileşir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f5",
+   "file": "f5_g51c83f5692.wav",
+   "duration": 22.832,
+   "text": "Son adım karıştırıcıdır: x üzeri elli sekiz, artı x üzeri otuz dokuz, artı bir polinomlu, çerçeveye senkron bir karıştırıcı. Kaydırmalı yazmaç her çerçevede, PSBd'den sonraki ilk bitte yeniden yüklenir. Yükleme deseninin en anlamlı elli bir biti süper çerçeve sayacıdır, kalan yedi bit birdir. Yani karıştırma dizisi her çerçevede farklıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "f5a",
+   "file": "f5a_g51c83f5692.wav",
+   "duration": 20.019,
+   "text": "Sıralama önemlidir: FEC karıştırmadan önce uygulanır. Ve karıştırma tek başına her şeyi çözmez: boş XGEM çerçevelerinin içeriği vericinin takdirine bırakılmıştır, ama standart bunun hat deseni kontrolü ve ardışık özdeş rakamların önlenmesi düşünülerek yapılmasını ister. Alıcıdaki yetmiş iki bitlik bağışıklık, bu zincirin sonundaki güvencedir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f5b",
+   "file": "f5b_g525cdf55c8.wav",
+   "duration": 18.057,
+   "text": "Tasarımcılar için bir kolaylık: standardın A eki, süper çerçeve sayacı sıfırken karıştırıcının ilk iki yüz elli altı bitini test vektörü olarak verir. HEC için de örnekler vardır. Kendi karıştırıcınızı ve HEC'inizi bu vektörlerle doğrulayın; bir bitlik bir hata, bütün aşağı yön trafiğini anlamsız hale getirir.",
+   "qa": "ok"
+  },
+  {
+   "id": "f6",
+   "file": "f6_g525cdf55c8.wav",
+   "duration": 18.39,
+   "text": "Mühendis notu. Bir: TOL alanını izleme sisteminize bağlayın; OLT'nin bildirdiği güç ile sizin ölçtüğünüz güç arasındaki fark, bir kalibrasyon ya da donanım sorununun erken işaretidir. İki: aşağı yön FEC'ini canlı bir kanalda açıp kapatmayın; standart bunun aralıklı trafik kaybına yol açabileceğini söyler.",
+   "qa": "ok"
+  },
+  {
+   "id": "f7",
+   "file": "f7_g525cdf55c8.wav",
+   "duration": 2.164,
+   "text": "Şimdi bunları laboratuvarda ölçelim.",
+   "qa": "ok"
+  }
+ ],
+ "total": 367.3
+}
