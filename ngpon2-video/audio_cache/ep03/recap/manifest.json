@@ -1,0 +1,35 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "a1_g7ba9db52d3.wav",
+   "duration": 13.308,
+   "text": "Önceki bölümde ODN'in üç parçasını, dört yol kaybı sınıfını, bütçe denklemini, dispersiyon ve yansıma sınırlarını, ve mesafenin zaman yüzünü gördük. Şimdi sorduğumuz üç sorunun cevapları.",
+   "qa": "ok"
+  },
+  {
+   "id": "a2",
+   "file": "a2_g7ba9db52d3.wav",
+   "duration": 20.804,
+   "text": "Birinci soru: yirmi kilometre fiber ve bire yüz yirmi sekiz ayırıcı. Ayırıcı yaklaşık yirmi üç buçuk, fiber beş, ekler bir buçuk desibel; toplam yaklaşık otuz desibel. Bu, N1'in üst sınırı olan yirmi dokuzu aşar, N2'nin otuz birine ise bir desibel payla sığar. Cevap: N2.",
+   "qa": "ok"
+  },
+  {
+   "id": "a3",
+   "file": "a3_g7ba9db52d3.wav",
+   "duration": 18.808,
+   "text": "İkinci soru: yükselteçli OLT alıcısı, yani B tipi bağlantı. İki buçuk gigabitlik yukarı yönde ONU'nun en küçük başlatma gücü artı dörtten sıfır dBm'e iner: dört desibel. On gigabitlik yukarı yönde ise artı dörtten artı ikiye: iki desibel.",
+   "qa": "ok"
+  },
+  {
+   "id": "a4",
+   "file": "b04b61e6a8d_0.wav",
+   "duration": 18.08,
+   "text": "Üçüncü soru: kırk kilometrelik diferansiyel mesafede gidiş dönüş gecikmesinin değişimi yaklaşık dört yüz mikrosaniyedir. Buna iki mikrosaniyelik yanıt süresi değişimi ve kırk sekiz mikrosaniyelik rastgele gecikme eklenir. Önerilen sessiz pencere: dört yüz elli mikrosaniye.",
+   "qa": "ok"
+  }
+ ],
+ "total": 71.0
+}

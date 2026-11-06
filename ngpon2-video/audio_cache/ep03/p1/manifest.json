@@ -1,0 +1,98 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "beats": [
+  {
+   "id": "b1",
+   "file": "b1_g513f3b8d3d.wav",
+   "duration": 16.576,
+   "text": "Perde bir: spektrum haritası. Bir NG-PON2 sistemi kurmadan önce şu soruyu sormalıyız: bu fiberde başka hangi ışıklar var? Standart, dalga boyu planını bu soruya göre kurar ve hepsini tek bir tabloda toplar: Tablo dokuz bir.",
+   "qa": "ok"
+  },
+  {
+   "id": "b2",
+   "file": "b2_g513f3b8d3d.wav",
+   "duration": 11.544,
+   "text": "Aşağı yönde TWDM kanalları bin beş yüz doksan altı ile bin altı yüz üç nanometre arasındadır, yani L bandının başında. Bu yedi nanometrelik pencere, yüz gigahertz aralıkla sekiz kanalı taşır.",
+   "qa": "head=0 tail=1"
+  },
+  {
+   "id": "b2b",
+   "file": "b2b_g171696a1dc.wav",
+   "duration": 19.83,
+   "text": "L bandının bir bedeli var. İkinci bölümde gördüğümüz gibi, G.652 fiberde dispersiyon katsayısı burada kilometre başına yirmi bir pikosaniye bölü nanometreye kadar çıkar; C bandına göre daha yüksektir. On gigabitlik aşağı yön tablosundaki iki desibellik yol cezası, kısmen bu seçimin karşılığıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "b2a",
+   "file": "b2a_g171696a1dc.wav",
+   "duration": 16.09,
+   "text": "Yukarı yönde C bandına iniyoruz, ve standart burada üç seçenek sunar. Geniş bant: bin beş yüz yirmi dört ile bin beş yüz kırk dört nanometre. Azaltılmış bant: bin beş yüz yirmi sekiz ile bin beş yüz kırk. Dar bant: bin beş yüz otuz iki ile bin beş yüz kırk.",
+   "qa": "ok"
+  },
+  {
+   "id": "b3",
+   "file": "b3_g26c0767b04.wav",
+   "duration": 19.031,
+   "text": "Neden üç seçenek? Çünkü bant genişliği, kanal aralığı ve ONU lazerinin ayar yeteneği birlikte düşünülmelidir. Dar bant yaklaşık sekiz nanometre, yani bin gigahertz civarındadır. İki yüz gigahertz aralıklı sekiz kanalı, sapma payıyla birlikte bu banda sığdıramazsınız.",
+   "qa": "ok"
+  },
+  {
+   "id": "b3a",
+   "file": "b3a_g26c0767b04.wav",
+   "duration": 18.249,
+   "text": "Ek sekizdeki iki yüz gigahertzlik örnek ızgara, yaklaşık bin beş yüz yirmi sekiz virgül sekiz ile bin beş yüz otuz dokuz virgül sekiz nanometre arasını kaplar; azaltılmış bandın içine ancak sığar. Elli gigahertz aralıklı sekiz kanal ise yaklaşık üç nanometre yer tutar ve dar banda rahatça yerleşir.",
+   "qa": "head=0 tail=1"
+  },
+  {
+   "id": "b4",
+   "file": "b4_gdeae35848f.wav",
+   "duration": 21.249,
+   "text": "Noktadan noktaya WDM kanalları için iki seçenek vardır. Paylaşılan spektrum, bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasıdır ve bütün eski sistemlerle tam birlikte çalışmaya izin verir. Genişletilmiş spektrum ise bin beş yüz yirmi dört ile bin altı yüz yirmi beş arasını kapsar; ama yalnızca bu bantları kullanan sistemlerden biri ortamda yoksa.",
+   "qa": "ok"
+  },
+  {
+   "id": "b4a",
+   "file": "b4a_gdeae35848f.wav",
+   "duration": 22.991,
+   "text": "Genişletilmiş spektrumda standart, G.694.1 ya da G.698.3'teki yoğun WDM ızgaralarının kullanılabileceğini söyler. Birinci not ise bir uyarı ekler: boş bir alt bandı kullanmak serbesttir, ama TWDM ve eski sistemlere karşı gereken yalıtım, hangi dalga boylarının kullanılacağı belirlenirken mutlaka hesaba katılmalıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "b5",
+   "file": "b5_gb417603beb.wav",
+   "duration": 24.432,
+   "text": "Tablonun ikinci notu, iki teknoloji yan yana olduğunda kuralı koyar: TWDM ve noktadan noktaya kanallar komşu bantlarda olabilir, ama iç içe geçemez. Ayrı çoklayıcılar kullanılıyorsa aradaki koruma bandı en az üç nanometredir; tek bir cihaz kullanılıyorsa en az yüz gigahertz. Paylaşılan spektrumda noktadan noktaya yukarı yön kanalları kısa dalga boylarını kullanır.",
+   "qa": "ok"
+  },
+  {
+   "id": "b6",
+   "file": "b6_gb417603beb.wav",
+   "duration": 16.528,
+   "text": "Bir ayrıntı daha: aşağı yönde frekanslar normatiftir, dalga boyları ise yalnızca bilgi içindir. Standart ızgarayı terahertz cinsinden tanımlar; nanometre değerleri hesaplanmış karşılıklardır. Ölçüm yaparken bu yüzden frekansla düşünmek daha doğrudur.",
+   "qa": "ok"
+  },
+  {
+   "id": "b6a",
+   "file": "b6a_g1d63510e13.wav",
+   "duration": 19.824,
+   "text": "Bunun pratik bir nedeni var. Sabit bir frekans aralığı, dalga boyunda sabit değildir. Yüz gigahertz, bin beş yüz otuz nanometrede yaklaşık sıfır virgül yetmiş sekiz, bin altı yüz nanometrede ise yaklaşık sıfır virgül seksen beş nanometreye karşılık gelir. Nanometreyle düşünen biri, iki bant arasında bu farkı kaçırabilir.",
+   "qa": "ok"
+  },
+  {
+   "id": "b6b",
+   "file": "b6b_g1d63510e13.wav",
+   "duration": 16.109,
+   "text": "Aşağı yöndeki sekiz kanal bandın tamamını kullanmaz. Birinci kanal bin beş yüz doksan altı virgül üç dört, sekizinci kanal bin altı yüz iki virgül üç bir nanometrededir. Bandın iki kenarındaki küçük boşluklar, sapma payını ve filtre kenarlarını barındırır.",
+   "qa": "head=0 tail=1"
+  },
+  {
+   "id": "b7",
+   "file": "b7_g1d63510e13.wav",
+   "duration": 6.667,
+   "text": "Sıradaki soru: bu bantlar neden tam burada? Cevap, fiberi paylaştığımız komşularda.",
+   "qa": "ok"
+  }
+ ],
+ "total": 229.12
+}

@@ -1,0 +1,49 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "o1_g15525165f8.wav",
+   "duration": 11.038,
+   "text": "Bölüm üç: Renk Haritası. NG-PON2'nin dalga boyları rastgele seçilmedi; fiberde zaten başka ışıklar vardı. Bu bölümde o haritayı açıyoruz.",
+   "qa": "ok"
+  },
+  {
+   "id": "o2",
+   "file": "o2_g15525165f8.wav",
+   "duration": 9.784,
+   "text": "Önce spektrum: aşağı yön, yukarı yön ve noktadan noktaya kanallar için Tablo dokuz bir'deki bantlar, ve yukarı yöndeki üç bant seçeneği.",
+   "qa": "ok"
+  },
+  {
+   "id": "o3",
+   "file": "o3_g15525165f8.wav",
+   "duration": 11.832,
+   "text": "Sonra komşular: G-PON, XG-PON1, RF video ve OTDR. NG-PON2, bu sistemlerin arasındaki boşluklara yerleştirildi.",
+   "qa": "ok"
+  },
+  {
+   "id": "o4",
+   "file": "o4_g15525165f8.wav",
+   "duration": 13.386,
+   "text": "Ardından ızgaralar: yüz gigahertzlik aşağı yön ızgarası, elli ile iki yüz gigahertz arasındaki yukarı yön kanal aralığı, en büyük spektral sapma ve ayar penceresi.",
+   "qa": "ok"
+  },
+  {
+   "id": "o5",
+   "file": "o5_g9a82aa519b.wav",
+   "duration": 12.895,
+   "text": "Sonra Raman: ışığın ışığı pompaladığı ve video yayınını bozabilen doğrusal olmayan bir etkileşim. Ve TC köprüsü: kanal profilleri bu haritayı ONU'ya nasıl anlatır?",
+   "qa": "ok"
+  },
+  {
+   "id": "o6",
+   "file": "o6_g9a82aa519b.wav",
+   "duration": 7.545,
+   "text": "Laboratuvarda ise OSA ile kanal haritasını çıkaracak, çoklayıcının yalıtımını ve Raman karışmasını ölçeceğiz.",
+   "qa": "ok"
+  }
+ ],
+ "total": 66.48
+}
