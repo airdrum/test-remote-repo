@@ -1,0 +1,64 @@
+1
+00:00:00,000 --> 00:00:05,450
+ITU-T G.989.2, NG-PON2'nin fiziksel katmanını tanımlar.
+
+2
+00:00:05,500 --> 00:00:12,977
+Bu önizlemede mimariye, dalga boyu planına ve bir test yöntemine bakacağız.
+
+3
+00:00:13,733 --> 00:00:15,573
+Sistemin kalbinde TWDM var.
+
+4
+00:00:15,623 --> 00:00:23,153
+OLT'deki dört ila sekiz kanal sonlandırıcının her biri kendi dalga boyu çiftini kullanır ve tek bir fiberle,
+
+5
+00:00:23,203 --> 00:00:26,235
+pasif bir ayırıcı üzerinden ONU'lara ulaşır.
+
+6
+00:00:27,500 --> 00:00:32,100
+Aşağı yön, 1596 ile 1603 nanometre arasında,
+
+7
+00:00:32,150 --> 00:00:34,760
+100 gigahertz aralıklı bir ızgaraya oturur.
+
+8
+00:00:34,810 --> 00:00:40,560
+Yukarı yön, geniş bantta 1524 ile 1544 nanometre arasındadır.
+
+9
+00:00:40,610 --> 00:00:44,945
+Böylece GPON ve XG-PON ile aynı fiber paylaşılır.
+
+10
+00:00:45,567 --> 00:00:49,387
+Kanalı OLT atadığı için ONU ayarlanabilir olmalıdır.
+
+11
+00:00:49,437 --> 00:00:53,837
+Standart üç ayar süresi sınıfı tanımlar: on mikrosaniyenin altı,
+
+12
+00:00:53,887 --> 00:00:56,592
+yirmi beş milisaniyeye kadar ve bir saniyeye kadar.
+
+13
+00:00:57,233 --> 00:01:04,003
+Ölçümde ONU çıkışı bir demultiplekserden geçirilir ve eski ile yeni kanal iki fotodiyotla izlenir.
+
+14
+00:01:04,053 --> 00:01:09,233
+Tetikten, yeni kanaldaki gücün kararlı seviyeye oturmasına kadar geçen süre,
+
+15
+00:01:09,283 --> 00:01:10,276
+ayar süresidir.
+
+16
+00:01:11,000 --> 00:01:16,431
+Seride her parametreyi bu yapıyla işleyeceğiz: tanım, limit ve ölçüm düzeneği.
+

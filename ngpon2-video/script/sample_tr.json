@@ -1,0 +1,32 @@
+{
+ "title": "ITU-T G.989.2 NG-PON2 PMD — 1 dakikalık önizleme",
+ "voice": "Charon",
+ "model": "gemini-2.5-pro-preview-tts",
+ "style": "Deneyimli bir telekom mühendisi eğitmen gibi; net, sakin, kendinden emin ve akıcı bir tempoda oku. NG-PON2, TWDM, OLT, ONU, GPON ve XG-PON gibi kısaltmaları İngilizce harf okunuşuyla söyle.",
+ "beats": [
+  {
+   "id": "b1_intro",
+   "text": "ITU-T G.989.2, NG-PON2'nin fiziksel katmanını tanımlar. Bu önizlemede mimariye, dalga boyu planına ve bir test yöntemine bakacağız."
+  },
+  {
+   "id": "b2_arch",
+   "text": "Sistemin kalbinde TWDM var. OLT'deki dört ila sekiz kanal sonlandırıcının her biri kendi dalga boyu çiftini kullanır ve tek bir fiberle, pasif bir ayırıcı üzerinden ONU'lara ulaşır."
+  },
+  {
+   "id": "b3_plan",
+   "text": "Aşağı yön, 1596 ile 1603 nanometre arasında, 100 gigahertz aralıklı bir ızgaraya oturur. Yukarı yön, geniş bantta 1524 ile 1544 nanometre arasındadır. Böylece GPON ve XG-PON ile aynı fiber paylaşılır."
+  },
+  {
+   "id": "b4_tune",
+   "text": "Kanalı OLT atadığı için ONU ayarlanabilir olmalıdır. Standart üç ayar süresi sınıfı tanımlar: on mikrosaniyenin altı, yirmi beş milisaniyeye kadar ve bir saniyeye kadar."
+  },
+  {
+   "id": "b5_test",
+   "text": "Ölçümde ONU çıkışı bir demultiplekserden geçirilir ve eski ile yeni kanal iki fotodiyotla izlenir. Tetikten, yeni kanaldaki gücün kararlı seviyeye oturmasına kadar geçen süre, ayar süresidir."
+  },
+  {
+   "id": "b6_outro",
+   "text": "Seride her parametreyi bu yapıyla işleyeceğiz: tanım, limit ve ölçüm düzeneği."
+  }
+ ]
+}
