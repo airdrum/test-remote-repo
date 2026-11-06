@@ -1,0 +1,49 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "o1_g4abe93cda9.wav",
+   "duration": 11.098,
+   "text": "Bölüm dört: Kaynak. Bu bölümde OLT vericisini ve ondan çıkan aşağı yön sinyalini inceliyoruz: bütün PON'un saatini, gücünü ve rengini belirleyen parça.",
+   "qa": "ok"
+  },
+  {
+   "id": "o2",
+   "file": "o2_g4abe93cda9.wav",
+   "duration": 9.34,
+   "text": "Önce hız, saat ve hat kodu: dokuz virgül dokuz beş ve iki virgül dört sekiz gigabit, Stratum saatleri ve karıştırılmış NRZ.",
+   "qa": "ok"
+  },
+  {
+   "id": "o3",
+   "file": "o3_g4abe93cda9.wav",
+   "duration": 7.016,
+   "text": "Sonra güç ve sönüm oranı: sınıf başına başlatma gücü penceresi, sönüm oranının ölçümü, ve güçle takası.",
+   "qa": "ok"
+  },
+  {
+   "id": "o4",
+   "file": "o4_g4abe93cda9.wav",
+   "duration": 7.594,
+   "text": "Ardından spektrum: yan mod bastırma, spektral sapma, ve komşuları korumak için bant dışı ve kanal dışı güç yoğunluğu.",
+   "qa": "ok"
+  },
+  {
+   "id": "o5",
+   "file": "o5_g4abe93cda9.wav",
+   "duration": 8.532,
+   "text": "Göz maskesi ve titreşim; ve TC köprüsünde yüz yirmi beş mikrosaniyelik çerçevenin içi: PSBd, FEC ve karıştırıcı.",
+   "qa": "head=1 tail=0"
+  },
+  {
+   "id": "o6",
+   "file": "o6_g4abe93cda9.wav",
+   "duration": 4.991,
+   "text": "Laboratuvarda ise DCA ile gözü ve sönüm oranını, OSA ile spektrumu ölçeceğiz.",
+   "qa": "head=0 tail=1"
+  }
+ ],
+ "total": 48.57
+}
