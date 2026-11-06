@@ -1,11 +1,11 @@
 """Gemini TTS: narration JSON -> per-beat WAV (24 kHz mono) + manifest with durations. Cached by content hash."""
-import base64, hashlib, json, sys, time, urllib.request, wave, io
+import base64, hashlib, io, json, os, random, sys, time, urllib.request, wave
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent"
 
-def synth(model, voice, style, text, retries=4):
+def synth(model, voice, style, text, retries=8):
     prompt = f"{style}\n\n{text}" if style else text
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseModalities": ["AUDIO"],
@@ -23,7 +23,8 @@ def synth(model, voice, style, text, retries=4):
                     raw = w.readframes(w.getnframes())
             return raw
         except Exception as e:
-            print(f"  retry {i+1}: {e}", file=sys.stderr); time.sleep(2 ** (i + 1))
+            wait = min(60, 4 * 2 ** i) + random.uniform(0, 3)
+            print(f"  retry {i+1} in {wait:.0f}s: {e}", file=sys.stderr); time.sleep(wait)
     raise RuntimeError("TTS failed")
 
 def run(script_path, out_dir, voice=None, model=None):
@@ -40,7 +41,7 @@ def run(script_path, out_dir, voice=None, model=None):
         with wave.open(str(fn)) as w: dur = w.getnframes() / w.getframerate()
         print(f"{b['id']:10s} {dur:6.2f}s  {fn.name}")
         return {"id": b["id"], "file": str(fn.resolve()), "duration": dur, "text": b["text"]}
-    with ThreadPoolExecutor(6) as ex: beats = list(ex.map(job, s["beats"]))
+    with ThreadPoolExecutor(int(os.environ.get("TTS_WORKERS", "2"))) as ex: beats = list(ex.map(job, s["beats"]))
     man = {"voice": voice, "model": model, "beats": beats, "total": sum(b["duration"] for b in beats)}
     (out / "manifest.json").write_text(json.dumps(man, ensure_ascii=False, indent=1))
     print(f"total narration: {man['total']:.1f}s")

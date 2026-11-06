@@ -14,7 +14,11 @@ def run(spec_path, out):
     for i, seg in enumerate(spec):
         ins += ["-i", seg["video"]]
         a = f"[{i}:a]aresample=48000,aformat=channel_layouts=stereo"
-        a += ",loudnorm=I=-16:LRA=11:TP=-1.5,aresample=48000" if seg.get("norm") else ""
+        if seg.get("norm"):  # two-pass style: measure integrated loudness, apply a fixed gain (no pumping)
+            err = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", seg["video"], "-map", "0:a", "-af", "ebur128",
+                                  "-f", "null", "-"], capture_output=True, text=True).stderr
+            I = float(err.split("Summary:")[1].split("I:")[1].split("LUFS")[0])
+            a += f",volume={-16 - I:.2f}dB,alimiter=limit=0.84:level=false"
         fc.append(f"{a}[a{i}];[{i}:v]fps=30,format=yuv420p[v{i}]")
         if seg.get("timeline"):
             tmp = Path(out).with_suffix(f".seg{i}.srt")

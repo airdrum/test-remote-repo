@@ -1,0 +1,84 @@
+{
+  "title": "B01 Perde 1 — PON'un özü",
+  "voice": "Sadaltager",
+  "model": "gemini-2.5-pro-preview-tts",
+  "style": "Deneyimli bir telekom mühendisi eğitmen gibi; net, sakin, kendinden emin ve akıcı bir tempoda, bir belgesel dizisinin anlatıcısı gibi oku. PON, OLT, ONU, ODN, TC, NG-PON2 ve G.989 gibi kısaltmaları İngilizce harf okunuşuyla söyle.",
+  "beats": [
+    {
+      "id": "p1",
+      "text": "Perde bir: PON'un özü. NG-PON2'yi anlamak için, önce her PON'un çözmek zorunda olduğu üç problemi masaya koyalım: bölünen güç, herkese giden aşağı yön ve aynı anda konuşamayan yukarı yön."
+    },
+    {
+      "id": "p2",
+      "text": "G.989.2, kapsam maddesinde sistemi şöyle tanımlar: fiber tabanlı, esnek bir erişim ağı; aşağı yönde kırk gigabitlik referans toplam hız. Ağın omurgası, OLT ile ONU'lar arasında kurulan, noktadan çok noktaya bir ağaç yapısıdır: optik dağıtım ağı, yani ODN."
+    },
+    {
+      "id": "p3",
+      "text": "Altıncı madde iki yönü tanımlar: OLT'den ONU'lara aşağı yön, ONU'lardan OLT'ye yukarı yön. Ve kritik bir cümle ekler: iki yön de aynı fiber ve aynı bileşenler üzerinden taşınır."
+    },
+    {
+      "id": "p4",
+      "text": "Pasif kelimesinin anlamı burada: ODN'de enerjiyle çalışan tek bir eleman bile yoktur. Ayırıcı, gelen ışığı N kola böler; ideal durumda her kola düşen güç, on çarpı logaritma N desibel kadar azalır."
+    },
+    {
+      "id": "p5",
+      "text": "İkiye bölmek üç desibel, otuz ikiye bölmek on beş, altmış dörde bölmek on sekiz desibel demektir. Gerçek ayırıcılarda buna bir ila üç desibellik fazlalık kaybı ve kollar arası düzgünsüzlük eklenir."
+    },
+    {
+      "id": "p6",
+      "text": "Bu yüzden ayırıcı, güç bütçesinin en büyük kalemidir. Bir sonraki bölümde göreceğimiz yol kaybı sınıflarının neden on dört ile otuz beş desibel arasında tanımlandığının ilk ipucu burada."
+    },
+    {
+      "id": "p7",
+      "text": "Aşağı yönde OLT, tek bir sürekli sinyal gönderir. Ayırıcı bu sinyali her kola kopyalar; yani her ONU, herkesin verisini alır. ONU yalnızca kendisine ait olanı seçer, gerisini atar."
+    },
+    {
+      "id": "p8",
+      "text": "Bunun iki sonucu var. Birincisi güvenlik: yayın ortamında gizlilik ancak şifrelemeyle sağlanır, ve NG-PON2'de bu, TC katmanının işidir. İkincisi zamanlama: aşağı yöndeki sürekli sinyal, bütün sistemin saatini ve yüz yirmi beş mikrosaniyelik çerçeve referansını taşır."
+    },
+    {
+      "id": "p9",
+      "text": "Yukarı yön çok daha zordur. Ters yönde ayırıcı bir birleştiricidir: bütün ONU'ların ışığı aynı fibere toplanır. İki ONU aynı anda ışık gönderirse, OLT alıcısında sinyaller üst üste biner ve ikisi de kaybolur."
+    },
+    {
+      "id": "p10",
+      "text": "Çözüm, zaman bölmeli çoklu erişimdir. OLT, her ONU'ya ne zaman ve ne kadar süre konuşabileceğini söyler. ONU yalnızca kendi zaman diliminde lazerini açar, kısa bir veri patlaması, yani bir burst gönderir ve lazerini kapatır."
+    },
+    {
+      "id": "p11",
+      "text": "Lazeri kapatmak bir ayrıntı gibi görünür, ama değildir. Altmış dört ONU'lu bir ağda, kapalı olması gereken vericilerin sızdırdığı küçük güçler toplanır ve konuşan ONU'nun sinyalini bozabilir. G.989.2'nin, etkin olmayan vericinin spektral güç yoğunluğuna ayrı bir limit koymasının sebebi bu. Buna altıncı bölümde döneceğiz."
+    },
+    {
+      "id": "p12",
+      "text": "Burst'lerin ölçülebilir iki zorluğu var. İlki güç farkı: yakındaki bir ONU'nun ışığı az kayıpla, uzaktaki bir ONU'nunki çok kayıpla gelir. Standart, aynı ağdaki iki yol arasında on beş desibele kadar kayıp farkı öngörür."
+    },
+    {
+      "id": "p13",
+      "text": "Bu yüzden OLT alıcısı, her burst'ün başında karar eşiğini ve kazancını yeniden ayarlamak zorundadır. Bu, sürekli mod alıcılardan tamamen farklı bir tasarımdır: burst modlu alıcı. Ne kadar hızlı ayarlandığını ölçmek için standardın beşinci bilgilendirici ekinde ayrı bir yöntem var; sekizinci bölümde onu laboratuvarda uygulayacağız."
+    },
+    {
+      "id": "p14",
+      "text": "İkinci zorluk zamanlama. ONU'lar OLT'ye farklı uzaklıklardadır ve ışık fiberde kilometre başına yaklaşık beş mikrosaniye yol alır. Yirmi kilometrelik bir mesafe farkı, gidiş dönüşte yaklaşık yüz doksan altı mikrosaniyeye, yani bir buçuk çerçeveden fazlasına karşılık gelir."
+    },
+    {
+      "id": "p15",
+      "text": "Bu yüzden her ONU, aktivasyon sırasında ölçülür; buna ranging denir. OLT her ONU'ya bir eşitleme gecikmesi atar. Böylece bütün ONU'lar, OLT'ye aynı uzaklıktaymış gibi davranır ve burst'ler, aralarındaki küçük koruma boşluklarıyla kusursuz bir sıraya girer."
+    },
+    {
+      "id": "p16",
+      "text": "Laboratuvarda bu yapının ilk sonucu, şaşırtıcı derecede basit bir yerde ortaya çıkar: güç ölçümünde. Sürekli dalga için tasarlanmış bir güç ölçer, burst'lü bir sinyalin ortalamasını okur. ONU zamanın yüzde onunda konuşuyorsa, okuduğunuz değer burst gücünün tam on desibel altındadır."
+    },
+    {
+      "id": "p17",
+      "text": "Doğru ölçüm için ya yalnızca ışığın açık olduğu süreyi ölçen, burst'ü algılayan bir güç ölçer kullanılır, ya da ONU bir test modunda sürekli yayına alınır. Bir de şunu unutmayın: ONU, aşağı yön sinyalini almadan konuşmaz. Bu yüzden sahada, sinyalin içinden geçerek ölçen, araya giren tip ölçerler kullanılır."
+    },
+    {
+      "id": "p18",
+      "text": "Mühendis notu. Ayırıcı kaybını hesaplarken ideal değere güvenmeyin; üreticinin en kötü durum ekleme kaybını ve kollar arası düzgünsüzlüğü kullanın. Ve bir burst gücü okuyorsanız, ilk soru her zaman şu olmalı: bu ölçer ortalamayı mı okuyor, yoksa burst'ü mü?"
+    },
+    {
+      "id": "p19",
+      "text": "Böylece her PON'un üç temel problemini gördük: bölünen güç, herkese giden aşağı yön ve sıraya girmek zorunda olan yukarı yön. Şimdi asıl soruya geçelim: daha fazla hız gerektiğinde, neden tek bir dalga boyunu hızlandırmak yerine yeni renkler eklendi?"
+    }
+  ]
+}

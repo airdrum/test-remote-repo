@@ -1,0 +1,384 @@
+1
+00:00:00,000 --> 00:00:01,390
+Bölüm bir: Işığa Dönüş.
+
+2
+00:00:01,440 --> 00:00:08,035
+Bu bölümde, sezon boyunca üzerine inşa edeceğimiz büyük resmi kuruyoruz.
+
+3
+00:00:08,133 --> 00:00:12,243
+Önce pasif optik ağın özüne ineceğiz: tek fiber,
+
+4
+00:00:12,293 --> 00:00:15,743
+pasif bir ayırıcı ve onlarca kullanıcı.
+
+5
+00:00:15,793 --> 00:00:19,845
+Aşağı yönde yayın, yukarı yönde sıraya giren burst'ler.
+
+6
+00:00:19,933 --> 00:00:23,413
+Sonra şu soruyu soracağız: GPON'dan NG-PON2'ye geçerken,
+
+7
+00:00:23,463 --> 00:00:30,085
+neden tek bir dalga boyunu hızlandırmak yerine yeni dalga boyları eklendi?
+
+8
+00:00:30,167 --> 00:00:35,917
+G.989 ailesini katman katman açacağız ve PMD katmanının nerede bitip,
+
+9
+00:00:35,967 --> 00:00:39,524
+TC katmanının nerede başladığını göreceğiz.
+
+10
+00:00:39,600 --> 00:00:42,320
+G.989.2'nin referans mimarisini,
+
+11
+00:00:42,370 --> 00:00:47,260
+ölçüm noktalarını ve hat hızı kombinasyonlarını inceleyip,
+
+12
+00:00:47,310 --> 00:00:50,773
+dokümanı nasıl okuyacağımızı konuşacağız.
+
+13
+00:00:50,867 --> 00:00:55,977
+Ve son olarak, sezon boyunca kullanacağımız test tezgâhını tanıyacağız.
+
+14
+00:00:56,027 --> 00:00:57,310
+Hazırsan, başlayalım.
+
+15
+00:01:08,727 --> 00:01:10,207
+Perde bir: PON'un özü.
+
+16
+00:01:10,257 --> 00:01:11,827
+NG-PON2'yi anlamak için,
+
+17
+00:01:11,877 --> 00:01:19,777
+önce her PON'un çözmek zorunda olduğu üç problemi masaya koyalım: bölünen güç,
+
+18
+00:01:19,827 --> 00:01:24,045
+herkese giden aşağı yön ve aynı anda konuşamayan yukarı yön.
+
+19
+00:01:24,894 --> 00:01:29,994
+G.989.2, kapsam maddesinde sistemi şöyle tanımlar: fiber tabanlı,
+
+20
+00:01:30,044 --> 00:01:36,954
+esnek bir erişim ağı; aşağı yönde kırk gigabitlik referans toplam hız.
+
+21
+00:01:37,004 --> 00:01:40,904
+Ağın omurgası, OLT ile ONU'lar arasında kurulan,
+
+22
+00:01:40,954 --> 00:01:46,916
+noktadan çok noktaya bir ağaç yapısıdır: optik dağıtım ağı, yani ODN.
+
+23
+00:01:47,060 --> 00:01:52,300
+Altıncı madde iki yönü tanımlar: OLT'den ONU'lara aşağı yön,
+
+24
+00:01:52,350 --> 00:01:54,070
+ONU'lardan OLT'ye yukarı yön.
+
+25
+00:01:54,120 --> 00:01:56,930
+Ve kritik bir cümle ekler:
+
+26
+00:01:56,980 --> 00:02:00,880
+iki yön de aynı fiber ve aynı bileşenler üzerinden taşınır.
+
+27
+00:02:01,627 --> 00:02:03,917
+Pasif kelimesinin anlamı burada:
+
+28
+00:02:03,967 --> 00:02:07,697
+ODN'de enerjiyle çalışan tek bir eleman bile yoktur.
+
+29
+00:02:07,747 --> 00:02:13,277
+Ayırıcı, gelen ışığı N kola böler; ideal durumda her kola düşen güç,
+
+30
+00:02:13,327 --> 00:02:16,556
+on çarpı logaritma N desibel kadar azalır.
+
+31
+00:02:16,694 --> 00:02:20,414
+İkiye bölmek üç desibel, otuz ikiye bölmek on beş,
+
+32
+00:02:20,464 --> 00:02:24,664
+altmış dörde bölmek on sekiz desibel demektir.
+
+33
+00:02:24,714 --> 00:02:31,577
+Gerçek ayırıcılarda buna bir ila üç desibellik fazlalık kaybı ve kollar arası düzgünsüzlük eklenir.
+
+34
+00:02:31,694 --> 00:02:34,984
+Bu yüzden ayırıcı, güç bütçesinin en büyük kalemidir.
+
+35
+00:02:35,034 --> 00:02:43,479
+Bir sonraki bölümde göreceğimiz yol kaybı sınıflarının neden on dört ile otuz beş desibel arasında tanımlandığının ilk ipucu burada.
+
+36
+00:02:44,227 --> 00:02:48,687
+Aşağı yönde OLT, tek bir sürekli sinyal gönderir.
+
+37
+00:02:48,737 --> 00:02:54,867
+Ayırıcı bu sinyali her kola kopyalar; yani her ONU, herkesin verisini alır.
+
+38
+00:02:54,917 --> 00:02:59,131
+ONU yalnızca kendisine ait olanı seçer, gerisini atar.
+
+39
+00:02:59,260 --> 00:03:00,730
+Bunun iki sonucu var.
+
+40
+00:03:00,780 --> 00:03:06,370
+Birincisi güvenlik: yayın ortamında gizlilik ancak şifrelemeyle sağlanır,
+
+41
+00:03:06,420 --> 00:03:10,040
+ve NG-PON2'de bu, TC katmanının işidir.
+
+42
+00:03:10,090 --> 00:03:12,000
+İkincisi zamanlama: aşağı yöndeki sürekli sinyal,
+
+43
+00:03:13,050 --> 00:03:19,233
+bütün sistemin saatini ve yüz yirmi beş mikrosaniyelik çerçeve referansını taşır.
+
+44
+00:03:19,960 --> 00:03:22,170
+Yukarı yön çok daha zordur.
+
+45
+00:03:22,220 --> 00:03:28,540
+Ters yönde ayırıcı bir birleştiricidir: bütün ONU'ların ışığı aynı fibere toplanır.
+
+46
+00:03:28,590 --> 00:03:31,390
+İki ONU aynı anda ışık gönderirse,
+
+47
+00:03:31,440 --> 00:03:36,292
+OLT alıcısında sinyaller üst üste biner ve ikisi de kaybolur.
+
+48
+00:03:36,427 --> 00:03:39,367
+Çözüm, zaman bölmeli çoklu erişimdir.
+
+49
+00:03:39,417 --> 00:03:44,847
+OLT, her ONU'ya ne zaman ve ne kadar süre konuşabileceğini söyler.
+
+50
+00:03:44,897 --> 00:03:50,027
+ONU yalnızca kendi zaman diliminde lazerini açar, kısa bir veri patlaması,
+
+51
+00:03:50,077 --> 00:03:53,473
+yani bir burst gönderir ve lazerini kapatır.
+
+52
+00:03:53,593 --> 00:03:57,843
+Lazeri kapatmak bir ayrıntı gibi görünür, ama değildir.
+
+53
+00:03:57,893 --> 00:03:59,953
+Altmış dört ONU'lu bir ağda,
+
+54
+00:04:00,003 --> 00:04:06,903
+kapalı olması gereken vericilerin sızdırdığı küçük güçler toplanır ve konuşan ONU'nun sinyalini bozabilir.
+
+55
+00:04:06,953 --> 00:04:08,553
+G.989.2'nin,
+
+56
+00:04:08,603 --> 00:04:15,383
+etkin olmayan vericinin spektral güç yoğunluğuna ayrı bir limit koymasının sebebi bu.
+
+57
+00:04:15,433 --> 00:04:17,251
+Buna altıncı bölümde döneceğiz.
+
+58
+00:04:17,991 --> 00:04:21,051
+Burst'lerin ölçülebilir iki zorluğu var.
+
+59
+00:04:21,101 --> 00:04:25,791
+İlki güç farkı: yakındaki bir ONU'nun ışığı az kayıpla,
+
+60
+00:04:25,841 --> 00:04:28,721
+uzaktaki bir ONU'nunki çok kayıpla gelir.
+
+61
+00:04:28,771 --> 00:04:34,288
+Standart, aynı ağdaki iki yol arasında on beş desibele kadar kayıp farkı öngörür.
+
+62
+00:04:34,424 --> 00:04:35,904
+Bu yüzden OLT alıcısı,
+
+63
+00:04:35,954 --> 00:04:41,594
+her burst'ün başında karar eşiğini ve kazancını yeniden ayarlamak zorundadır.
+
+64
+00:04:41,644 --> 00:04:45,764
+Bu, sürekli mod alıcılardan tamamen farklı bir tasarımdır: burst modlu alıcı.
+
+65
+00:04:45,814 --> 00:04:54,054
+Ne kadar hızlı ayarlandığını ölçmek için standardın beşinci bilgilendirici ekinde ayrı bir yöntem var;
+
+66
+00:04:54,104 --> 00:04:57,001
+sekizinci bölümde onu laboratuvarda uygulayacağız.
+
+67
+00:04:57,124 --> 00:04:59,204
+İkinci zorluk zamanlama.
+
+68
+00:04:59,254 --> 00:05:07,124
+ONU'lar OLT'ye farklı uzaklıklardadır ve ışık fiberde kilometre başına yaklaşık beş mikrosaniye yol alır.
+
+69
+00:05:07,174 --> 00:05:08,874
+Yirmi kilometrelik bir mesafe farkı,
+
+70
+00:05:08,924 --> 00:05:12,674
+gidiş dönüşte yaklaşık yüz doksan altı mikrosaniyeye,
+
+71
+00:05:12,724 --> 00:05:16,318
+yani bir buçuk çerçeveden fazlasına karşılık gelir.
+
+72
+00:05:16,458 --> 00:05:22,148
+Bu yüzden her ONU, aktivasyon sırasında ölçülür; buna ranging denir.
+
+73
+00:05:22,198 --> 00:05:25,878
+OLT her ONU'ya bir eşitleme gecikmesi atar.
+
+74
+00:05:25,928 --> 00:05:30,888
+Böylece bütün ONU'lar, OLT'ye aynı uzaklıktaymış gibi davranır ve burst'ler,
+
+75
+00:05:30,938 --> 00:05:36,078
+aralarındaki küçük koruma boşluklarıyla kusursuz bir sıraya girer.
+
+76
+00:05:36,825 --> 00:05:39,545
+Laboratuvarda bu yapının ilk sonucu,
+
+77
+00:05:39,595 --> 00:05:44,295
+şaşırtıcı derecede basit bir yerde ortaya çıkar: güç ölçümünde.
+
+78
+00:05:44,345 --> 00:05:47,785
+Sürekli dalga için tasarlanmış bir güç ölçer,
+
+79
+00:05:47,835 --> 00:05:50,765
+burst'lü bir sinyalin ortalamasını okur.
+
+80
+00:05:50,815 --> 00:05:53,905
+ONU zamanın yüzde onunda konuşuyorsa,
+
+81
+00:05:53,955 --> 00:05:58,105
+okuduğunuz değer burst gücünün tam on desibel altındadır.
+
+82
+00:05:58,225 --> 00:06:02,615
+Doğru ölçüm için ya yalnızca ışığın açık olduğu süreyi ölçen,
+
+83
+00:06:02,665 --> 00:06:05,745
+burst'ü algılayan bir güç ölçer kullanılır,
+
+84
+00:06:05,795 --> 00:06:09,345
+ya da ONU bir test modunda sürekli yayına alınır.
+
+85
+00:06:09,395 --> 00:06:14,415
+Bir de şunu unutmayın: ONU, aşağı yön sinyalini almadan konuşmaz.
+
+86
+00:06:14,465 --> 00:06:17,395
+Bu yüzden sahada, sinyalin içinden geçerek ölçen,
+
+87
+00:06:17,445 --> 00:06:20,013
+araya giren tip ölçerler kullanılır.
+
+88
+00:06:20,158 --> 00:06:21,508
+Mühendis notu.
+
+89
+00:06:21,558 --> 00:06:25,438
+Ayırıcı kaybını hesaplarken ideal değere güvenmeyin;
+
+90
+00:06:25,488 --> 00:06:30,548
+üreticinin en kötü durum ekleme kaybını ve kollar arası düzgünsüzlüğü kullanın.
+
+91
+00:06:30,598 --> 00:06:34,748
+Ve bir burst gücü okuyorsanız, ilk soru her zaman şu olmalı:
+
+92
+00:06:34,798 --> 00:06:38,042
+bu ölçer ortalamayı mı okuyor, yoksa burst'ü mü?
+
+93
+00:06:38,192 --> 00:06:42,112
+Böylece her PON'un üç temel problemini gördük: bölünen güç,
+
+94
+00:06:42,162 --> 00:06:48,202
+herkese giden aşağı yön ve sıraya girmek zorunda olan yukarı yön.
+
+95
+00:06:48,252 --> 00:06:51,432
+Şimdi asıl soruya geçelim: daha fazla hız gerektiğinde,
+
+96
+00:06:51,482 --> 00:06:56,532
+neden tek bir dalga boyunu hızlandırmak yerine yeni renkler eklendi?
+

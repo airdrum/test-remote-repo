@@ -44,12 +44,12 @@ class Narrated(Scene):
 
     def setup(self):
         self.man = json.loads((ROOT / self.MANIFEST).read_text()) if self.MANIFEST else None
+        self.bmap = {b["id"]: b for b in self.man["beats"]} if self.man else {}
         self.timeline, self.bi = [], -1
 
     def beat(self, key=None):
         self.bi += 1
-        b = self.man["beats"][self.bi]
-        assert key is None or b["id"] == key, (b["id"], key)
+        b = self.bmap[key] if key else self.man["beats"][self.bi]
         self.add_sound(b["file"])
         self.b0, self.bdur = self.renderer.time, b["duration"]
         self.cues = [c["t"] for c in b["cues"]]
