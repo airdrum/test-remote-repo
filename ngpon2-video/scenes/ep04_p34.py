@@ -28,7 +28,7 @@ class E4P3A(Act4):
                     DoubleArrow([axx, yside, 0], [axx, ytop, 0], buff=0, color=GOLD, stroke_width=3, tip_length=0.14))
         smt = T("SMSR", 22, GOLD, BOLD).next_to([axx, (ytop + yside) / 2, 0], RIGHT, buff=0.15)
         info = VGroup(T("kaynak tipi zorunlu değil", 20, MUTED), T("uygun verici: yalnızca", 20, TXT), T("tek boylamsal modlu (SLM) lazer", 20, TW_DS, BOLD),
-                      T("amaç: mod bölüşme gürültüsü", 20, TXT), T("en küçük SMSR = 30 dB", 30, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.18).move_to([4.6, 0.0, 0])
+                      T("amaç: mod bölüşme gürültüsü", 20, TXT), T("en küçük SMSR = 30 dB", 27, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.18).move_to([4.45, 0.0, 0])
         self.play(Create(ax), FadeIn(info[0]), self.set_src("G.989.2 §11.1.5.1 · §11.1.5.2 · §9.3.8"), run_time=0.7)
         self.at(self.cue("uygun vericilerin", 4))
         self.play(Create(spec), FadeIn(info[1:3]), run_time=1.2)

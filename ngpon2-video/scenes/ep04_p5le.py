@@ -782,7 +782,7 @@ class E4End(Act4):
         cr = VGroup(T("LAMBDA · Bölüm 4 · Kaynak", 30, TXT, BOLD),
                     T("Senaryo, animasyon ve görseller: Claude (Anthropic)", 22, TXT),
                     T("Seslendirme: Google Gemini TTS — ses: Sadaltager", 22, ACC, BOLD),
-                    T("(TTS_MODELS)", 18, ACC),
+                    T("(Gemini 2.5 Flash TTS)", 18, ACC),
                     T("Intro müziği: Google Lyria", 22, TXT),
                     T("Kaynaklar: ITU-T G.989.2 (2019)/Amd.1 (2020) · ITU-T G.989.3 (2021)/Amd.2 (2025)", 18, MUTED)).arrange(DOWN, buff=0.3)
         self.play(FadeIn(cr, shift=UP * 0.2), run_time=1.0)
