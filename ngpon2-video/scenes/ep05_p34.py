@@ -159,18 +159,18 @@ class E5P3B(Act5):
                         "“…the peak-to-peak amplitude of sinusoidal jitter applied on the input TWDM PON signal\nthat causes a 1-dB optical power penalty at the optical receiver.”",
                         "girişe uygulanan sinüzoidal titreşimin tepeden tepeye genliği → alıcıda 1 dB güç cezası", width=12.4).move_to(UP * 1.4)
         o = np.array([-5.8, -3.0, 0])
-        ax = VGroup(Line(o, o + [6.0, 0, 0], color=MUTED, stroke_width=2), Line(o, o + [0, 2.5, 0], color=MUTED, stroke_width=2),
-                    T("alınan güç (dBm)", 14, MUTED).next_to(o + [3.0, 0, 0], DOWN, buff=0.08), T("−log BER", 14, MUTED).next_to(o + [0, 2.5, 0], RIGHT, buff=0.1))
+        ax = VGroup(Line(o, o + [5.6, 0, 0], color=MUTED, stroke_width=2), Line(o, o + [0, 2.5, 0], color=MUTED, stroke_width=2),
+                    T("alınan güç (dBm)", 14, MUTED).next_to(o + [2.8, 0, 0], DOWN, buff=0.08), T("−log BER", 14, MUTED).next_to(o + [0, 2.5, 0], RIGHT, buff=0.1))
         yr = o[1] + 1.2
-        ref = DashedLine(o + [0, 1.2, 0], o + [6.0, 1.2, 0], color=ACC, stroke_width=2)
+        ref = DashedLine(o + [0, 1.2, 0], o + [5.6, 1.2, 0], color=ACC, stroke_width=2)
         reft = T("BER ref", 14, ACC, BOLD).next_to(ref, RIGHT, buff=0.08)
         c1 = Line(o + [0.6, 0.2, 0], o + [3.6, 2.4, 0], color=GOOD, stroke_width=3.5)
         c2 = Line(o + [1.6, 0.2, 0], o + [4.6, 2.4, 0], color=GOLD, stroke_width=3.5)
         x1 = o[0] + 0.6 + (1.2 - 0.2) / 2.2 * 3.0
         da = DoubleArrow([x1, yr - 0.35, 0], [x1 + 1.0, yr - 0.35, 0], buff=0, color=WARN, stroke_width=2.5, tip_length=0.1)
         dat = T("1 dB", 17, WARN, BOLD).next_to(da, DOWN, buff=0.06)
-        lg = VGroup(T("titreşimsiz", 15, GOOD, BOLD), T("+ sinüzoidal titreşim", 15, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).move_to(o + [1.5, 2.25, 0])
-        cd = card("Ölçüt: 1 dB güç cezası", "BER'de bir çöküş değil\nstres testi → çalışmada ek ceza olmasın", None, WARN, w=5.8, h=1.8, tsize=23, bsize=19).move_to([3.6, -1.85, 0])
+        lg = VGroup(T("titreşimsiz", 15, GOOD, BOLD), T("+ sinüzoidal titreşim", 15, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).move_to(o + [4.4, 0.45, 0])
+        cd = card("Ölçüt: 1 dB güç cezası", "BER'de bir çöküş değil\nstres testi → çalışmada ek ceza olmasın", None, WARN, w=5.6, h=1.8, tsize=23, bsize=19).move_to([3.95, -1.85, 0])
         self.play(FadeIn(qt[0]), FadeIn(qt[1]), self.set_src("G.989.2 §11.1.5.4"), run_time=0.7)
         self.at(self.cue("giriş sinyaline", 1.4))
         self.play(FadeIn(qt[2], shift=UP * 0.1), run_time=0.5)
@@ -253,7 +253,7 @@ class E5P3B(Act5):
         y0 = o[1] + 2.0
         pts = []
         for x in np.linspace(0.1, 6.9, 70):
-            g = 0.18 * np.exp(-((x - 3.0) / 0.6) ** 2) - (0 if x < 3.2 else 0.55 * (x - 3.2) ** 1.3)
+            g = max(-1.85, 0.18 * np.exp(-((x - 3.0) / 0.6) ** 2) - (0 if x < 3.2 else 0.55 * (x - 3.2) ** 1.3))
             pts.append(o + [x, 2.0 + g, 0])
         tf = VMobject(stroke_color=ACC, stroke_width=3).set_points_smoothly(pts)
         zero = DashedLine(o + [0, 2.0, 0], o + [7.0, 2.0, 0], color=MUTED, stroke_width=1.5)
@@ -261,7 +261,7 @@ class E5P3B(Act5):
         mskt = T("+0,1 dB", 15, WARN, BOLD).next_to(msk, RIGHT, buff=0.08)
         zt = T("0 dB", 14, MUTED).next_to(zero, LEFT, buff=0.08)
         ex = T("(ölçek abartılı)", 13, MUTED).move_to(o + [5.8, 2.6, 0])
-        why = card("Neden?", "ONU ↑ yönde, ↓ sinyalden\nçıkardığı saati kullanır →\nbu saat titreşimi büyütmemeli", None, GOLD, w=4.8, h=2.0, tsize=22, bsize=18).move_to([4.6, -1.75, 0])
+        why = card("Neden?", "ONU ↑ yönde, ↓ sinyalden\nçıkardığı saati kullanır →\nbu saat titreşimi büyütmemeli", None, GOLD, w=4.3, h=2.0, tsize=22, bsize=18).move_to([4.65, -1.75, 0])
         self.play(Create(jin), FadeIn(jl), GrowArrow(a1), FadeIn(box_), run_time=0.8)
         self.at(self.cue("Aşağı yöndeki titreşimin", 3.8))
         self.play(GrowArrow(a2), Create(jout), FadeIn(jo), run_time=0.7)
@@ -394,7 +394,7 @@ class E5P3C(Act5):
         tzt = T("geçiş bölgesi", 16, GOLD, BOLD).move_to([X(-50), ya + 3.0, 0])
         sh = VGroup(arrow([X(0), ya + 3.45, 0], [X(5) + 0.15, ya + 3.45, 0], GOLD, 2.5, 0.1))
         sht = T("5 GHz adım → konumlama hatası", 18, GOLD, BOLD).move_to([X(70), ya + 3.45, 0])
-        msg = pill("kenar ne kadar dikse, aynı küçük hata o kadar pahalı", WARN, 19).move_to([X(0) + 2.4, ya + 1.35, 0])
+        msg = pill("kenar ne kadar dikse, aynı küçük hata o kadar pahalı", WARN, 19).move_to([0, 1.95, 0])
         self.play(Create(axg[0]), FadeIn(axg[1:]), run_time=0.5)
         self.at(self.cue("Alıcı filtresi", 2.2))
         self.play(Create(flt), FadeIn(pb), FadeIn(pbt), run_time=1.0)
@@ -440,8 +440,8 @@ class SyncMachine:
         self.ss = VGroup(loop, lab("ikisi ✓", GOOD, [S.get_x(), y + 1.3, 0]))
         self.sr = VGroup(arrow(S.get_right() + u, R.get_left() + u, WARN, 2.5, 0.12), lab("biri ✗", WARN, [3.33, y + 0.72, 0]))
         self.rs = VGroup(arrow(R.get_left() + d, S.get_right() + d, GOOD, 2.5, 0.12), lab("ikisi ✓", GOOD, [3.33, y - 0.62, 0]))
-        arc = CurvedArrow(R.get_bottom() + LEFT * 0.3, H.get_bottom() + RIGHT * 0.3, angle=-0.42, color=WARN, stroke_width=3, tip_length=0.15)
-        self.rh = VGroup(arc, lab("M − 1 ardışık ✗  →  LODS", WARN, [0, y - 1.25, 0]))
+        arc = CurvedArrow(R.get_bottom() + LEFT * 0.3, H.get_bottom() + RIGHT * 0.3, angle=-0.75, color=WARN, stroke_width=3, tip_length=0.15)
+        self.rh = VGroup(arc, lab("M − 1 ardışık ✗  →  LODS", WARN, [0, y - 1.62, 0]))
 
 
 class E5P4A(Act5):
@@ -548,10 +548,10 @@ class E5P4A(Act5):
         marks = [("✓", GOOD, "Senkron"), ("✗", WARN, "→ Yeniden senkron"), ("✗", WARN, "Yeniden senkron"), ("✗", WARN, "→ Av · LODS")]
         fr = VGroup()
         for x, (m, c, s) in zip(fx, marks):
-            r = Rectangle(width=1.65, height=0.55, stroke_color=c, stroke_width=2.5, fill_color=PANEL, fill_opacity=1).move_to([x, -1.55, 0])
+            r = Rectangle(width=1.65, height=0.55, stroke_color=c, stroke_width=2.5, fill_color=PANEL, fill_opacity=1).move_to([x, -1.75, 0])
             fr.add(VGroup(r, T(m, 24, c, BOLD).move_to(r), T(s, 14, c, BOLD).next_to(r, DOWN, buff=0.1)))
         ftl = T("125 µs çerçeveler", 15, MUTED).next_to(fr, UP, buff=0.12).align_to(fr, LEFT)
-        bb = BraceBetweenPoints([fx[2] - 0.8, -2.25, 0], [fx[3] + 0.8, -2.25, 0], DOWN, color=WARN)
+        bb = BraceBetweenPoints([fx[2] - 0.8, -2.42, 0], [fx[3] + 0.8, -2.42, 0], DOWN, color=WARN)
         bbt = T("M − 1 ardışık ✗", 16, WARN, BOLD).next_to(bb, DOWN, buff=0.06)
         m3 = T("M = 3 (önerilen)", 28, GOLD, BOLD).move_to([4.3, -1.3, 0])
         ber = VGroup(T("yanlış senkron kaybı yok:", 18, TXT), T("BER ≤ 10⁻³'e kadar", 22, GOOD, BOLD), T("= 10G referans BER rejimi", 18, MUTED)).arrange(DOWN, buff=0.08).move_to([4.3, -2.45, 0])
@@ -585,10 +585,9 @@ class E5P4B(Act5):
         a56 = VGroup(arrow(o5.get_right() + UP * 0.15, o6.get_left() + UP * 0.15, WARN, 3), T("LODS", 17, WARN, BOLD).move_to([-2.8, 0.65, 0]))
         tm = VGroup(T("zamanlayıcı:", 17, MUTED), T("koruma (WLCP) varsa TO3", 17, PINK, BOLD), T("yoksa TO2", 17, STATE, BOLD)).arrange(DOWN, buff=0.06).next_to(o6, DOWN, buff=0.2)
         a65 = VGroup(CurvedArrow(o6.get_left() + DOWN * 0.3, o5.get_right() + DOWN * 0.3, angle=-0.9, color=GOOD, stroke_width=2.5, tip_length=0.13),
-                     T("senkron zamanında geri ✓", 16, GOOD, BOLD).move_to([-2.85, -0.8, 0]))
+                     T("senkron zamanında geri ✓", 16, GOOD, BOLD).move_to([-4.75, -0.75, 0]))
         a61 = VGroup(arrow(o6.get_right() + UP * 0.2, o1.get_left(), STATE, 2.5, 0.13), T("TO2 doldu", 16, STATE, BOLD).move_to([1.85, 1.0, 0]))
         a68 = VGroup(arrow(o6.get_right() + DOWN * 0.2, o8.get_left(), PINK, 2.5, 0.13), T("TO3 doldu", 16, PINK, BOLD).move_to([1.85, -1.05, 0]))
-        a65[1].shift(DOWN * 0.45)
         self.at(self.cue("ONU'nun kendisinin", 0.2))
         self.play(FadeIn(top, shift=DOWN * 0.1), self.set_src("G.989.3 Tablo 14-3, Tablo 12-1 / 12-4"), run_time=0.5)
         self.at(self.cue("Çalışma durumunda", 3.5))
@@ -654,7 +653,7 @@ class E5P4B(Act5):
         self.at(self.cue("sonra FEC", 14.4))
         self.play(GrowArrow(ra), FadeIn(rx[1], shift=RIGHT * 0.1), run_time=0.5)
         self.at(self.cue("PSBd ise", 15.8))
-        self.play(FadeIn(ps, shift=UP * 0.1), Indicate(VGroup(f10[0], f25[0]), color=GOLD), run_time=0.7)
+        self.play(FadeIn(ps, shift=UP * 0.1), Indicate(VGroup(f10[0], f10[2], f25[0], f25[2]), color=GOLD), run_time=0.7)
         self.end(pad=0.05)
 
         self.beat("e4a")
@@ -662,13 +661,13 @@ class E5P4B(Act5):
         h = self.show_heading("Aşağı yön FEC: açık mı, kapalı mı?", h)
         top = pill("statik: kanaldaki bütün ONU'lar için açık ya da kapalı", GOLD, 19).move_to(UP * 1.95)
         frs = VGroup(*[VGroup(Rectangle(width=0.95, height=0.5, stroke_color=TW_DS, stroke_width=1.5, fill_color=TW_DS, fill_opacity=0.15),
-                              T("1", 18, GOLD, BOLD)) for _ in range(5)]).arrange(RIGHT, buff=0.08).move_to([-3.6, 0.65, 0])
+                              T("1", 18, GOLD, BOLD)) for _ in range(5)]).arrange(RIGHT, buff=0.08).move_to([-3.9, 0.65, 0])
         for f in frs:
             f[1].move_to(f[0])
         frl = T("PSBd · OC · DS FEC bayrağı", 17, TW_DS, BOLD).next_to(frs, UP, buff=0.1)
-        cp = sbox("Channel_Profile", "oktet 12 · E biti", PROF_C, 3.4, 0.95, 19, 16).move_to([-3.6, -0.85, 0])
-        dec = sbox("karşılaştır", "yeterli sayıda özdeş bayrak", ACC, 3.3, 0.95, 19, 15).move_to([1.4, -0.1, 0])
-        res = VGroup(T("FEC durumu", 18, MUTED), T("kanalda kaldıkça korunur", 20, GOOD, BOLD)).arrange(DOWN, buff=0.06).move_to([5.0, -0.1, 0])
+        cp = sbox("Channel_Profile", "oktet 12 · E biti", PROF_C, 3.4, 0.95, 19, 16).move_to([-3.9, -0.85, 0])
+        dec = sbox("karşılaştır", "yeterli sayıda özdeş bayrak", ACC, 3.3, 0.95, 19, 15).move_to([0.55, -0.1, 0])
+        res = VGroup(T("FEC durumu", 18, MUTED), T("kanalda kaldıkça korunur", 19, GOOD, BOLD)).arrange(DOWN, buff=0.06).move_to([4.75, -0.1, 0])
         a1 = arrow(frs.get_right() + RIGHT * 0.1, dec.get_left() + UP * 0.2, MUTED, 2.5, 0.13)
         a2 = arrow(cp.get_right() + RIGHT * 0.1, dec.get_left() + DOWN * 0.2, MUTED, 2.5, 0.13)
         a3 = arrow(dec.get_right(), res.get_left() + LEFT * 0.1, GOOD, 2.5, 0.13)
