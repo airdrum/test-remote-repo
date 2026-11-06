@@ -1,0 +1,112 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "d1_gf9c0a71b19.wav",
+   "duration": 17.393,
+   "text": "Perde üç: spektrum. Standart kaynak tipini zorunlu kılmaz, ama uygun vericilerin yalnızca tek boylamsal modlu lazerler olduğunu söyler. Mod bölüşme gürültüsünü kontrol etmek için en küçük yan mod bastırma oranı, yani SMSR, otuz desibel olarak verilir.",
+   "qa": "ok"
+  },
+  {
+   "id": "d1b",
+   "file": "d1b_gf9c0a71b19.wav",
+   "duration": 18.458,
+   "text": "Mod bölüşme gürültüsü nedir? Çok modlu bir lazerde toplam güç sabit kalırken, güç modlar arasında sürekli el değiştirir. Dispersiyonlu bir fiberde modlar farklı hızlarda ilerlediği için, bu el değiştirme alıcıda gürültüye dönüşür. Yan modları otuz desibel bastırmak, bu etkiyi önemsiz kılar.",
+   "qa": "ok"
+  },
+  {
+   "id": "d1a",
+   "file": "d1a_g56331c0f13.wav",
+   "duration": 21.464,
+   "text": "SMSR'nin ölçüldüğü yer önemlidir: lazerin çıkışında, herhangi bir süzmeden önce. Tablo satırı S bölü R CP noktasını gösterir. Yani SMSR bir lazer özelliğidir; arayüzdeki bant dışı ve kanal dışı sınırlar ayrıca geçerlidir. İkisini karıştırmamak gerekir: biri lazeri, diğeri arayüzü tanımlar.",
+   "qa": "head=0 tail=1"
+  },
+  {
+   "id": "d2",
+   "file": "d2_g56331c0f13.wav",
+   "duration": 23.547,
+   "text": "En büyük spektral sapma, nominal merkez frekanstan tek yönlü sapmadır ve gigahertz cinsinden verilir: aşağı yönde artı eksi yirmi. Hem sabit hem ayarlanabilir vericilere uygulanır, ve en kötü koşullarda, yaşlanma dahil sağlanmalıdır. OLT için ayrı bir dalga boyu kayması ya da kararlılık parametresi yoktur; bütün sınır bu yirmi gigahertzin içindedir.",
+   "qa": "ok"
+  },
+  {
+   "id": "d2a",
+   "file": "d2a_ga1dc3314d4.wav",
+   "duration": 14.832,
+   "text": "OLT gerçek frekansını biliyorsa bunu duyurabilir: kanal profilindeki aşağı yön frekans kayması alanı, nominal değerden farkı sıfır virgül bir gigahertz birimiyle taşır. Bu, ONU'nun ayarlanabilir alıcısı için yararlı bir ipucudur.",
+   "qa": "ok"
+  },
+  {
+   "id": "d2b",
+   "file": "d2b_ga1dc3314d4.wav",
+   "duration": 23.179,
+   "text": "Artı eksi yirmi gigahertz, bin altı yüz nanometre civarında yaklaşık artı eksi sıfır virgül on yedi nanometredir. Tipik bir DFB lazer, sıcaklıkla kelvin başına yaklaşık sıfır virgül bir nanometre kayar; yani bu sınır, yaklaşık artı eksi iki kelvinlik bir sıcaklık değişimine karşılık gelir. Bu yüzden OLT lazerleri pratikte termoelektrik soğutucuyla sıcaklık kontrollüdür.",
+   "qa": "ok"
+  },
+  {
+   "id": "d3",
+   "file": "b9c9e3c1742_0.wav",
+   "duration": 27.731,
+   "text": "Şimdi komşuları korumaya gelelim. Tabloda iki güç yoğunluğu sınırı var, ikisi de on beş gigahertzlik bant başına. Kanal dışı sınır, diğer TWDM kanallarını korur: dört kanallı sistemde kanal başına eksi otuz dört virgül beş, sekiz kanallı sistemde eksi kırk iki virgül dört dBm. Bant dışı sınır ise noktadan noktaya WDM kanallarını korur: eksi kırk dört virgül dokuz, ve eksi elli iki virgül bir.",
+   "qa": "ok"
+  },
+  {
+   "id": "d3a",
+   "file": "d3a_g586c5cf20a.wav",
+   "duration": 22.836,
+   "text": "Notlar varsayımları açıklar. Kanal dışı sınır; kurban TWDM kanalının FEC ile çalıştığını, çoklayıcının süzmesini ve sıfır virgül bir desibellik ceza bütçesini varsayar. Bant dışı sınır da sıfır virgül bir desibellik ceza varsayar, ama kurbanın, yani PtP WDM'in, FEC olmadan çalıştığını varsayar; bu yüzden daha sıkıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "d3b",
+   "file": "d3b_g586c5cf20a.wav",
+   "duration": 21.455,
+   "text": "Sekiz kanala geçildiğinde sınırlar sıkılaşır: bant dışında yedi virgül iki, kanal dışında yedi virgül dokuz desibel. Girişimci sayısı artar: dört kanalda üç, sekiz kanalda yedi. Standart ayrıca bu güç yoğunluğu değerlerinin dört kanal ve yirmi kilometre için optimize edildiğini, sekiz kanal ve kırk kilometrenin ileride çalışılacağını not eder.",
+   "qa": "ok"
+  },
+  {
+   "id": "d4",
+   "file": "d4_g84edca92e0.wav",
+   "duration": 24.429,
+   "text": "Bu sınırları bastırma oranına çevirelim. On gigabit E2'de en büyük güç artı on bir dBm. Kanal dışı sınır eksi otuz dört virgül beş ise, aradaki fark kırk beş virgül beş desibeldir. Bu, otuz desibellik SMSR'nin çok üstündedir; aradaki fark çoklayıcının süzmesinden gelmelidir. Bu çıkarma, standardın D ekinde kullandığı yöntemin aynısıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "d4b",
+   "file": "d4b_g84edca92e0.wav",
+   "duration": 18.262,
+   "text": "Bant dışı için gereken bastırma daha da büyüktür. Aynı artı on bir dBm'lik güçle, dört kanallı sistemde elli beş virgül dokuz, sekiz kanallı sistemde altmış üç virgül bir desibel. PtP WDM kanalları FEC olmadan çalıştığı için, onları korumak daha pahalıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "d4a",
+   "file": "d4a_g35dad48e6a.wav",
+   "duration": 25.978,
+   "text": "Bir satır daha var: aşağı yönde istem dışı güç yoğunluğu, WNE; iki buçuk gigabitte eksi altmış üç virgül beş, on gigabitte eksi altmış üç virgül yedi dBm. Yukarı yönde bu kavram açıkça tanımlıdır: ONU'ya ait olmayan burst'ler sırasında yayılmasına izin verilen güç. Aşağı yön satırının tanımı ise G.989'a bırakılmıştır.",
+   "qa": "ok"
+  },
+  {
+   "id": "d5",
+   "file": "d5_g35dad48e6a.wav",
+   "duration": 24.073,
+   "text": "Kanal dışı maskenin iki düzeyi, üçüncü bölümde gördüğümüz gibi, uyumsuz ve uyumlu karışmayı ayırır. Aşağı yön tablosu kanal sayısı başına tek bir kanal dışı değer verir; birinci ve ikinci düzey ayrımı yukarı yön tablolarında görünür. Ek sekizdeki model, NRZ sinyalini yarım güçte bir taşıyıcı ve on beş gigahertzlik dikdörtgen bir modülasyon spektrumu olarak ele alır.",
+   "qa": "ok"
+  },
+  {
+   "id": "d6",
+   "file": "d6_ge2f944d76d.wav",
+   "duration": 17.355,
+   "text": "Mühendis notu. Bir: SMSR'yi lazer çıkışında, güç yoğunluğunu arayüzde ölçün; ikisini birbirinin yerine koymayın. İki: sekiz kanallı bir sistem planlıyorsanız, güç yoğunluğu sınırlarının dört kanal için optimize edildiğini unutmayın; marjı kendiniz doğrulayın.",
+   "qa": "ok"
+  },
+  {
+   "id": "d7",
+   "file": "d7_ge2f944d76d.wav",
+   "duration": 5.055,
+   "text": "Sıradaki: spektrum temiz. Peki zaman ekseninde sinyal ne kadar temiz?",
+   "qa": "ok"
+  }
+ ],
+ "total": 306.05
+}

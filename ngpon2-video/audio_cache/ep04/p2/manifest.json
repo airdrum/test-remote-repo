@@ -1,0 +1,105 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "c1_g8ec9214ee6.wav",
+   "duration": 23.21,
+   "text": "Perde iki: güç. Başlatma gücü, S bölü R CG noktasında, yani çoklayıcının ODN tarafında, kanal başına ortalama güç olarak tanımlanır. Standart onu bir aralık olarak verir: alt sınır sağlanması gereken en küçük güç, üst sınır asla aşılmaması gereken güçtür. Aralık; konnektör bozulmasını, ölçüm toleransını ve yaşlanmayı kapsar.",
+   "qa": "ok"
+  },
+  {
+   "id": "c2",
+   "file": "c2_g8ec9214ee6.wav",
+   "duration": 22.761,
+   "text": "On gigabitte en küçük güç N1'de artı üç, N2'de artı beş, E1'de artı yedi, E2'de artı dokuz dBm'dir. En büyük güç ise artı yedi, artı dokuz, artı on bir ve yine artı on bir. İki buçuk gigabitte en küçük güç sıfır, iki, dört ve altı; en büyük güç dört, altı, sekiz ve on dBm.",
+   "qa": "ok"
+  },
+  {
+   "id": "c2a",
+   "file": "c2a_g763c996ad6.wav",
+   "duration": 21.341,
+   "text": "Her sınıfta pencere dört desibeldir, bir istisna dışında: on gigabitte E2'de en büyük güç, E1 ile aynı, artı on birde kalır ve pencere iki desibele daralır. Standart bu tavanın nedenini söylemez. Ama sonucunu beşinci bölümde göreceğiz: E2'de ONU'nun aşırı yük değeri eksi dokuz dBm'e iner.",
+   "qa": "ok"
+  },
+  {
+   "id": "c2b",
+   "file": "c2b_g763c996ad6.wav",
+   "duration": 17.11,
+   "text": "Neden on gigabitte üç desibel daha fazla güç? Çünkü alıcı hassasiyeti iki desibel daha kötüdür, eksi otuz yerine eksi yirmi sekiz; ve yol cezası bir desibel daha büyüktür, bir yerine iki. Toplam üç desibel. Tablolar bütçe denklemiyle tam olarak kapanır.",
+   "qa": "ok"
+  },
+  {
+   "id": "c2c",
+   "file": "c2c_g5ea52c2018.wav",
+   "duration": 23.296,
+   "text": "Dört desibellik pencere başka yerlerde de karşımıza çıkar. ONU alıcısının X bölü S toleransında, komşu kanalların hedeften dört desibel güçlü olabileceği varsayılır, çünkü bu OLT vericileri arasındaki en kötü güç farkıdır. Sekiz kanalın hepsi artı on bir dBm'de olursa, beslemeye toplam yaklaşık artı yirmi dBm girer.",
+   "qa": "ok"
+  },
+  {
+   "id": "c3",
+   "file": "c3_g5ea52c2018.wav",
+   "duration": 20.115,
+   "text": "Sönüm oranı, yüksek ve düşük ışık düzeyleri arasındaki oranın desibel karşılığıdır; en küçük değeri her iki hızda sekiz virgül iki desibeldir. Ölçüm noktası önemlidir. Tek kanallı bir noktada, yani S bölü R CP ya da R bölü S'de, G.957'deki düzenek doğrudan kullanılabilir.",
+   "qa": "ok"
+  },
+  {
+   "id": "c3a",
+   "file": "c3a_gf7a95ff650.wav",
+   "duration": 26.212,
+   "text": "Ama birincil referans nokta olan S bölü R CG çok kanallıdır. Orada önce kanal, G.959.1'deki referans optik bant geçiren filtreyle ayrılmalı, sonra aynı düzenek uygulanmalıdır. Tek dalga boylu eski PON'larda olmayan bir incelik: filtre yetersizse, komşu kanalların ışığı sıfır düzeyini yükseltir ve sönüm oranı olduğundan kötü ölçülür.",
+   "qa": "ok"
+  },
+  {
+   "id": "c4",
+   "file": "c4_gf7a95ff650.wav",
+   "duration": 18.279,
+   "text": "Tablonun üçüncü notu bir takasa izin verir: daha düşük bir sönüm oranı kabul edilebilir, ama daha yüksek başlatma gücüyle, en büyük güç sınırı içinde telafi edilmelidir. Ve bir uyarı ekler: düşük sönüm oranının bant dışı ve kanal dışı güce etkisi de hesaba katılmalıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "c4b",
+   "file": "c4b_g00adae3caa.wav",
+   "duration": 25.12,
+   "text": "Bu takasın fiziği basittir. Alıcı aslında ortalama güce değil, bir ile sıfır arasındaki farka, yani optik modülasyon genliğine bakar. Sönüm oranı sekiz virgül iki desibelken modülasyon genliği ortalama gücün yaklaşık bir virgül yedi desibel üstündedir; altı desibele düşünce bu fark yaklaşık sıfır virgül sekize iner. Yani aynı göz açıklığı için ortalama gücü yaklaşık bir desibel artırmak gerekir.",
+   "qa": "ok"
+  },
+  {
+   "id": "c4a",
+   "file": "c4a_g00adae3caa.wav",
+   "duration": 15.611,
+   "text": "Spektral sapma tanımı bunu destekler: NRZ sıfır gücünün sapma aralığının dışında kalmasına izin verilir, ama kanal dışı güce etkisi dikkate alınmalıdır. Yani sönüm oranını düşürmek, sıfırda da yanmaya devam etmek demektir; ve komşular bu ışığı görür.",
+   "qa": "ok"
+  },
+  {
+   "id": "c5",
+   "file": "c5_gb805d338b4.wav",
+   "duration": 23.085,
+   "text": "Vericinin bir de yansımaya dayanıklılığı vardır: eksi on beş desibellik yansıyan güç varken bile performans bozulmamalıdır. ODN'nin geri dönüş kaybı en az otuz iki desibel olsa da, yakındaki tek bir kirli konnektör çok daha kötü bir yansıma yaratabilir; vericinin toleransı, bu yerel olayların sınırıdır. OLT'nin kendi ekipman yansıması ise tabloda tanımlanmamıştır.",
+   "qa": "ok"
+  },
+  {
+   "id": "c6",
+   "file": "c6_gb805d338b4.wav",
+   "duration": 21.846,
+   "text": "Birinci bölümdeki alternatif referans noktası burada sayıya dönüşür. On birinci bilgilendirici ek, simetrik on gigabitlik sistem ve N1, N2 sınıfları için S bölü R CP değerlerini verir: en küçük güç, CG değerine çoklayıcının en büyük kaybı eklenerek bulunur. On gigabit N1 için artı beş virgül iki, N2 için artı yedi virgül iki dBm.",
+   "qa": "ok"
+  },
+  {
+   "id": "c7",
+   "file": "c7_g20390ada47.wav",
+   "duration": 22.242,
+   "text": "Mühendis notu. Bir: başlatma gücünü CG noktasında ölçüyorsanız çoklayıcıyı da ölçüme dahil edin; kart üreticisinin CP değeri ile operatörün CG değeri arasındaki fark, çoklayıcının kaybıdır. İki: sönüm oranını düşürüp gücü artırdığınızda, bant dışı ve kanal dışı güç yoğunluğunu yeniden ölçün.",
+   "qa": "ok"
+  },
+  {
+   "id": "c8",
+   "file": "c8_g20390ada47.wav",
+   "duration": 5.129,
+   "text": "Sıradaki: güç tek başına yetmez. O gücün spektrumda nereye düştüğü de önemlidir.",
+   "qa": "ok"
+  }
+ ],
+ "total": 285.36
+}
