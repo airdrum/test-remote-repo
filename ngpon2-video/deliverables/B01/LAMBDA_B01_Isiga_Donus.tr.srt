@@ -1,0 +1,2012 @@
+1
+00:00:00,000 --> 00:00:01,090
+Bölüm bir: Işığa Dönüş.
+
+2
+00:00:01,140 --> 00:00:07,733
+Bu bölümde, sezon boyunca üzerine inşa edeceğimiz büyük resmi kuruyoruz.
+
+3
+00:00:08,167 --> 00:00:12,567
+Önce pasif optik ağın özüne ineceğiz: tek fiber,
+
+4
+00:00:12,617 --> 00:00:15,767
+pasif bir ayırıcı ve onlarca kullanıcı.
+
+5
+00:00:15,817 --> 00:00:19,965
+Aşağı yönde yayın, yukarı yönde sıraya giren burst'ler.
+
+6
+00:00:20,400 --> 00:00:24,510
+Sonra şu soruyu soracağız: GPON'dan NG-PON2'ye geçerken,
+
+7
+00:00:24,560 --> 00:00:30,116
+neden tek bir dalga boyunu hızlandırmak yerine yeni dalga boyları eklendi?
+
+8
+00:00:30,533 --> 00:00:36,963
+G.989 ailesini katman katman açacağız ve PMD katmanının nerede bitip,
+
+9
+00:00:37,013 --> 00:00:41,007
+TC katmanının nerede başladığını göreceğiz.
+
+10
+00:00:41,433 --> 00:00:44,063
+G.989.2'nin referans mimarisini,
+
+11
+00:00:44,113 --> 00:00:48,923
+ölçüm noktalarını ve hat hızı kombinasyonlarını inceleyip,
+
+12
+00:00:48,973 --> 00:00:52,351
+dokümanı nasıl okuyacağımızı konuşacağız.
+
+13
+00:00:52,800 --> 00:00:58,100
+Ve son olarak, sezon boyunca kullanacağımız test tezgâhını tanıyacağız.
+
+14
+00:00:58,150 --> 00:00:59,332
+Hazırsan, başlayalım.
+
+15
+00:01:11,093 --> 00:01:12,093
+Perde bir: PON'un özü.
+
+16
+00:01:13,143 --> 00:01:14,823
+NG-PON2'yi anlamak için,
+
+17
+00:01:14,873 --> 00:01:21,803
+önce her PON'un çözmek zorunda olduğu üç problemi masaya koyalım: bölünen güç,
+
+18
+00:01:21,853 --> 00:01:26,326
+herkese giden aşağı yön ve aynı anda konuşamayan yukarı yön.
+
+19
+00:01:27,493 --> 00:01:33,023
+G.989.2, kapsam maddesinde sistemi şöyle tanımlar: fiber tabanlı,
+
+20
+00:01:33,073 --> 00:01:40,563
+esnek bir erişim ağı; aşağı yönde kırk gigabitlik referans toplam hız.
+
+21
+00:01:40,613 --> 00:01:44,883
+Ağın omurgası, OLT ile ONU'lar arasında kurulan,
+
+22
+00:01:44,933 --> 00:01:51,405
+noktadan çok noktaya bir ağaç yapısıdır: optik dağıtım ağı, yani ODN.
+
+23
+00:01:51,893 --> 00:01:58,093
+Altıncı madde iki yönü tanımlar: OLT'den ONU'lara aşağı yön,
+
+24
+00:01:58,143 --> 00:02:00,173
+ONU'lardan OLT'ye yukarı yön.
+
+25
+00:02:00,223 --> 00:02:02,643
+Ve kritik bir cümle ekler:
+
+26
+00:02:02,693 --> 00:02:08,227
+iki yön de aynı fiber ve aynı bileşenler üzerinden taşınır.
+
+27
+00:02:09,326 --> 00:02:12,006
+Pasif kelimesinin anlamı burada:
+
+28
+00:02:12,056 --> 00:02:16,776
+ODN'de enerjiyle çalışan tek bir eleman bile yoktur.
+
+29
+00:02:16,826 --> 00:02:23,166
+Ayırıcı, gelen ışığı N kola böler; ideal durumda her kola düşen güç,
+
+30
+00:02:23,216 --> 00:02:26,669
+on çarpı logaritma N desibel kadar azalır.
+
+31
+00:02:27,159 --> 00:02:30,869
+İkiye bölmek üç desibel, otuz ikiye bölmek on beş,
+
+32
+00:02:30,919 --> 00:02:34,579
+altmış dörde bölmek on sekiz desibel demektir.
+
+33
+00:02:34,629 --> 00:02:41,994
+Gerçek ayırıcılarda buna bir ila üç desibellik fazlalık kaybı ve kollar arası düzgünsüzlük eklenir.
+
+34
+00:02:42,493 --> 00:02:47,133
+Bu yüzden ayırıcı, güç bütçesinin en büyük kalemidir.
+
+35
+00:02:47,183 --> 00:02:56,206
+Bir sonraki bölümde göreceğimiz yol kaybı sınıflarının neden on dört ile otuz beş desibel arasında tanımlandığının ilk ipucu burada.
+
+36
+00:02:57,293 --> 00:03:01,463
+Aşağı yönde OLT, tek bir sürekli sinyal gönderir.
+
+37
+00:03:01,513 --> 00:03:07,513
+Ayırıcı bu sinyali her kola kopyalar; yani her ONU, herkesin verisini alır.
+
+38
+00:03:07,563 --> 00:03:12,005
+ONU yalnızca kendisine ait olanı seçer, gerisini atar.
+
+39
+00:03:12,493 --> 00:03:14,133
+Bunun iki sonucu var.
+
+40
+00:03:14,183 --> 00:03:19,913
+Birincisi güvenlik: yayın ortamında gizlilik ancak şifrelemeyle sağlanır,
+
+41
+00:03:19,963 --> 00:03:23,413
+ve NG-PON2'de bu, TC katmanının işidir.
+
+42
+00:03:23,463 --> 00:03:26,823
+İkincisi zamanlama: aşağı yöndeki sürekli sinyal,
+
+43
+00:03:26,873 --> 00:03:33,326
+bütün sistemin saatini ve yüz yirmi beş mikrosaniyelik çerçeve referansını taşır.
+
+44
+00:03:34,393 --> 00:03:36,603
+Yukarı yön çok daha zordur.
+
+45
+00:03:36,653 --> 00:03:43,453
+Ters yönde ayırıcı bir birleştiricidir: bütün ONU'ların ışığı aynı fibere toplanır.
+
+46
+00:03:43,503 --> 00:03:46,293
+İki ONU aynı anda ışık gönderirse,
+
+47
+00:03:46,343 --> 00:03:51,384
+OLT alıcısında sinyaller üst üste biner ve ikisi de kaybolur.
+
+48
+00:03:51,860 --> 00:03:54,770
+Çözüm, zaman bölmeli çoklu erişimdir.
+
+49
+00:03:54,820 --> 00:04:00,380
+OLT, her ONU'ya ne zaman ve ne kadar süre konuşabileceğini söyler.
+
+50
+00:04:00,430 --> 00:04:05,880
+ONU yalnızca kendi zaman diliminde lazerini açar, kısa bir veri patlaması,
+
+51
+00:04:05,930 --> 00:04:09,442
+yani bir burst gönderir ve lazerini kapatır.
+
+52
+00:04:09,926 --> 00:04:13,776
+Lazeri kapatmak bir ayrıntı gibi görünür, ama değildir.
+
+53
+00:04:13,826 --> 00:04:16,186
+Altmış dört ONU'lu bir ağda,
+
+54
+00:04:16,236 --> 00:04:23,656
+kapalı olması gereken vericilerin sızdırdığı küçük güçler toplanır ve konuşan ONU'nun sinyalini bozabilir.
+
+55
+00:04:23,706 --> 00:04:25,266
+G.989.2'nin,
+
+56
+00:04:25,316 --> 00:04:32,296
+etkin olmayan vericinin spektral güç yoğunluğuna ayrı bir limit koymasının sebebi bu.
+
+57
+00:04:32,346 --> 00:04:34,188
+Buna altıncı bölümde döneceğiz.
+
+58
+00:04:35,258 --> 00:04:38,498
+Burst'lerin ölçülebilir iki zorluğu var.
+
+59
+00:04:38,548 --> 00:04:43,918
+İlki güç farkı: yakındaki bir ONU'nun ışığı az kayıpla,
+
+60
+00:04:43,968 --> 00:04:47,648
+uzaktaki bir ONU'nunki çok kayıpla gelir.
+
+61
+00:04:47,698 --> 00:04:53,684
+Standart, aynı ağdaki iki yol arasında on beş desibele kadar kayıp farkı öngörür.
+
+62
+00:04:54,158 --> 00:04:55,778
+Bu yüzden OLT alıcısı,
+
+63
+00:04:55,828 --> 00:05:02,168
+her burst'ün başında karar eşiğini ve kazancını yeniden ayarlamak zorundadır.
+
+64
+00:05:02,218 --> 00:05:06,728
+Bu, sürekli mod alıcılardan tamamen farklı bir tasarımdır: burst modlu alıcı.
+
+65
+00:05:06,778 --> 00:05:15,668
+Ne kadar hızlı ayarlandığını ölçmek için standardın beşinci bilgilendirici ekinde ayrı bir yöntem var;
+
+66
+00:05:15,718 --> 00:05:18,853
+sekizinci bölümde onu laboratuvarda uygulayacağız.
+
+67
+00:05:19,325 --> 00:05:21,795
+İkinci zorluk zamanlama.
+
+68
+00:05:21,845 --> 00:05:29,055
+ONU'lar OLT'ye farklı uzaklıklardadır ve ışık fiberde kilometre başına yaklaşık beş mikrosaniye yol alır.
+
+69
+00:05:29,105 --> 00:05:31,775
+Yirmi kilometrelik bir mesafe farkı,
+
+70
+00:05:31,825 --> 00:05:35,795
+gidiş dönüşte yaklaşık yüz doksan altı mikrosaniyeye,
+
+71
+00:05:35,845 --> 00:05:39,662
+yani bir buçuk çerçeveden fazlasına karşılık gelir.
+
+72
+00:05:40,158 --> 00:05:45,488
+Bu yüzden her ONU, aktivasyon sırasında ölçülür; buna ranging denir.
+
+73
+00:05:45,538 --> 00:05:48,998
+OLT her ONU'ya bir eşitleme gecikmesi atar.
+
+74
+00:05:49,048 --> 00:05:55,118
+Böylece bütün ONU'lar, OLT'ye aynı uzaklıktaymış gibi davranır ve burst'ler,
+
+75
+00:05:55,168 --> 00:06:00,504
+aralarındaki küçük koruma boşluklarıyla kusursuz bir sıraya girer.
+
+76
+00:06:01,591 --> 00:06:04,211
+Laboratuvarda bu yapının ilk sonucu,
+
+77
+00:06:04,261 --> 00:06:08,741
+şaşırtıcı derecede basit bir yerde ortaya çıkar: güç ölçümünde.
+
+78
+00:06:08,791 --> 00:06:12,151
+Sürekli dalga için tasarlanmış bir güç ölçer,
+
+79
+00:06:12,201 --> 00:06:14,811
+burst'lü bir sinyalin ortalamasını okur.
+
+80
+00:06:14,861 --> 00:06:17,871
+ONU zamanın yüzde onunda konuşuyorsa,
+
+81
+00:06:17,921 --> 00:06:22,098
+okuduğunuz değer burst gücünün tam on desibel altındadır.
+
+82
+00:06:22,591 --> 00:06:27,071
+Doğru ölçüm için ya yalnızca ışığın açık olduğu süreyi ölçen,
+
+83
+00:06:27,121 --> 00:06:30,271
+burst'ü algılayan bir güç ölçer kullanılır,
+
+84
+00:06:30,321 --> 00:06:33,951
+ya da ONU bir test modunda sürekli yayına alınır.
+
+85
+00:06:34,001 --> 00:06:38,861
+Bir de şunu unutmayın: ONU, aşağı yön sinyalini almadan konuşmaz.
+
+86
+00:06:38,911 --> 00:06:42,161
+Bu yüzden sahada, sinyalin içinden geçerek ölçen,
+
+87
+00:06:42,211 --> 00:06:44,836
+araya giren tip ölçerler kullanılır.
+
+88
+00:06:45,324 --> 00:06:46,424
+Mühendis notu.
+
+89
+00:06:46,474 --> 00:06:50,594
+Ayırıcı kaybını hesaplarken ideal değere güvenmeyin;
+
+90
+00:06:50,644 --> 00:06:56,044
+üreticinin en kötü durum ekleme kaybını ve kollar arası düzgünsüzlüğü kullanın.
+
+91
+00:06:56,094 --> 00:07:00,384
+Ve bir burst gücü okuyorsanız, ilk soru her zaman şu olmalı:
+
+92
+00:07:00,434 --> 00:07:03,865
+bu ölçer ortalamayı mı okuyor, yoksa burst'ü mü?
+
+93
+00:07:04,358 --> 00:07:08,228
+Böylece her PON'un üç temel problemini gördük: bölünen güç,
+
+94
+00:07:08,278 --> 00:07:13,938
+herkese giden aşağı yön ve sıraya girmek zorunda olan yukarı yön.
+
+95
+00:07:13,988 --> 00:07:18,238
+Şimdi asıl soruya geçelim: daha fazla hız gerektiğinde,
+
+96
+00:07:18,288 --> 00:07:22,356
+neden tek bir dalga boyunu hızlandırmak yerine yeni renkler eklendi?
+
+97
+00:07:23,824 --> 00:07:29,884
+Perde iki: Neden hız değil, renk? Önce nereden geldiğimize bakalım.
+
+98
+00:07:29,934 --> 00:07:34,681
+Her PON nesli, aynı ağaç yapısını korurken hattaki hızı artırdı.
+
+99
+00:07:35,124 --> 00:07:41,654
+GPON, aşağı yönde iki virgül beş, yukarı yönde bir virgül iki beş gigabit sundu.
+
+100
+00:07:41,704 --> 00:07:47,614
+XG-PON aşağı yönü on gigabite çıkardı, yukarı yön iki virgül beşte kaldı.
+
+101
+00:07:47,664 --> 00:07:51,708
+XGS-PON ise iki yönde de on gigabite ulaştı.
+
+102
+00:07:52,157 --> 00:07:56,137
+Bu nesillerin hepsinde tek bir dalga boyu çifti vardır.
+
+103
+00:07:56,187 --> 00:08:00,899
+Hızı artırmanın yolu hep aynıydı: aynı ışığı daha hızlı modüle etmek.
+
+104
+00:08:01,324 --> 00:08:04,494
+NG-PON2'nin hedefi çok daha büyüktü.
+
+105
+00:08:04,544 --> 00:08:09,174
+G.989.2, özet bölümünde bunu açıkça yazar: aşağı yönde kırk,
+
+106
+00:08:09,224 --> 00:08:14,034
+yukarı yönde on gigabitlik nominal toplam kapasite.
+
+107
+00:08:14,084 --> 00:08:19,845
+İlk akla gelen yol, tek bir dalga boyunu kırk gigabite çıkarmaktır.
+
+108
+00:08:20,891 --> 00:08:23,341
+Fizik burada iki duvar örer.
+
+109
+00:08:23,391 --> 00:08:26,201
+Birincisi kromatik dispersiyon.
+
+110
+00:08:26,251 --> 00:08:32,421
+Bir NRZ sinyalinin dispersiyona karşı dayanıklılığı, hızın karesiyle azalır.
+
+111
+00:08:32,471 --> 00:08:34,121
+Hızı dört katına çıkarırsanız,
+
+112
+00:08:34,171 --> 00:08:38,894
+aynı cezayla gidebileceğiniz mesafe on altıda birine düşer.
+
+113
+00:08:39,391 --> 00:08:41,021
+Kaba bir kural olarak,
+
+114
+00:08:41,071 --> 00:08:47,081
+chirpsiz bir vericiyle on gigabitte yaklaşık altmış kilometre gidilebilen standart fiberde,
+
+115
+00:08:47,131 --> 00:08:52,081
+kırk gigabitte bu mesafe dört kilometre civarına iner.
+
+116
+00:08:52,131 --> 00:08:57,271
+Üstelik NG-PON2'nin aşağı yön bandı L bandındadır; orada dispersiyon,
+
+117
+00:08:57,321 --> 00:08:59,176
+C bandından da yüksektir.
+
+118
+00:08:59,658 --> 00:09:02,578
+İkinci duvar alıcı hassasiyeti.
+
+119
+00:09:02,628 --> 00:09:08,098
+Hız dört katına çıktığında alıcının bant genişliği büyür ve gürültü artar.
+
+120
+00:09:08,148 --> 00:09:13,868
+Aynı hata oranı için kabaca üç ila altı desibel daha fazla güç gerekir.
+
+121
+00:09:13,918 --> 00:09:18,438
+Otuz desibel mertebesindeki bütçelerle çalışan bir PON için bu,
+
+122
+00:09:18,488 --> 00:09:20,368
+kabul edilemez bir kayıptır.
+
+123
+00:09:20,858 --> 00:09:22,168
+Bir de maliyet var.
+
+124
+00:09:22,218 --> 00:09:24,838
+Kırk gigabitlik burst modlu alıcılar,
+
+125
+00:09:24,888 --> 00:09:30,308
+kırk gigabitlik SerDes'ler ve bunların her evdeki ONU'da yer alması,
+
+126
+00:09:30,358 --> 00:09:32,745
+o dönemin teknolojisiyle ekonomik değildi.
+
+127
+00:09:33,791 --> 00:09:37,791
+NG-PON2'nin cevabı şuydu: hızı değil, renk sayısını artır.
+
+128
+00:09:37,841 --> 00:09:44,981
+Her biri on gigabitlik dört dalga boyu çifti, aynı fiberde yan yana çalışsın.
+
+129
+00:09:45,031 --> 00:09:47,081
+Toplam aşağı yön kırk gigabit olur,
+
+130
+00:09:47,131 --> 00:09:51,953
+ama her kanal olgunlaşmış on gigabitlik teknolojiyle kurulur.
+
+131
+00:09:52,424 --> 00:09:57,954
+Bu yapının adı TWDM: zaman ve dalga boyu bölmeli çoklama.
+
+132
+00:09:58,004 --> 00:10:03,294
+Kanallar dalga boyu boyutunda ayrılır; her kanalın içinde ise,
+
+133
+00:10:03,344 --> 00:10:05,649
+bildiğimiz zaman bölmeli PON çalışır.
+
+134
+00:10:06,124 --> 00:10:14,494
+Standart en az dört TWDM kanalını zorunlu tutar ve isteğe bağlı olarak sekiz kanala kadar genişlemeye izin verir.
+
+135
+00:10:14,544 --> 00:10:17,164
+Sekiz kanal ve simetrik on gigabitle,
+
+136
+00:10:17,214 --> 00:10:21,451
+aşağı yön toplam kapasite seksen gigabite kadar çıkabilir.
+
+137
+00:10:21,924 --> 00:10:27,134
+Yukarı yönde ise temel yapılandırma kanal başına iki virgül beş gigabittir.
+
+138
+00:10:27,184 --> 00:10:31,774
+Dört kanalla bu, on gigabitlik toplam yukarı yön kapasitesini verir;
+
+139
+00:10:31,824 --> 00:10:34,444
+yani standardın nominal hedefini.
+
+140
+00:10:35,491 --> 00:10:38,881
+Renk eklemenin, hızdan bağımsız başka faydaları da var.
+
+141
+00:10:38,931 --> 00:10:43,541
+Birincisi kademeli büyüme: operatör tek bir kanalla başlar,
+
+142
+00:10:43,591 --> 00:10:47,661
+talep arttıkça OLT'ye yeni kanal sonlandırıcılar ekler.
+
+143
+00:10:47,711 --> 00:10:51,131
+Bunun için sahadaki ONU'ları değiştirmek gerekmez.
+
+144
+00:10:51,624 --> 00:10:58,634
+İkincisi yük dengeleme: bir kanal dolarsa, OLT bazı ONU'ları başka bir kanala taşır.
+
+145
+00:10:58,684 --> 00:11:02,374
+Üçüncüsü koruma: bir kanal sonlandırıcı arızalanırsa,
+
+146
+00:11:02,424 --> 00:11:05,554
+ONU'lar yedek kanala ayarlanır.
+
+147
+00:11:05,604 --> 00:11:09,874
+Dördüncüsü paylaşım: farklı servisler, hatta farklı operatörler,
+
+148
+00:11:09,924 --> 00:11:12,780
+farklı dalga boylarını kullanabilir.
+
+149
+00:11:13,258 --> 00:11:17,778
+Bütün bunların bir bedeli var ve o bedel ONU'da ödenir.
+
+150
+00:11:17,828 --> 00:11:23,198
+ONU artık sabit bir dalga boyunda çalışamaz: vericisi ve alıcısı,
+
+151
+00:11:23,248 --> 00:11:27,308
+OLT'nin atadığı kanala ayarlanabilir olmalıdır.
+
+152
+00:11:27,358 --> 00:11:33,279
+NG-PON2'nin en zor mühendislik problemi ve en büyük maliyet kalemi budur.
+
+153
+00:11:34,324 --> 00:11:37,964
+NG-PON2'nin ikinci bileşeni ise PtP WDM'dir:
+
+154
+00:11:38,014 --> 00:11:41,654
+noktadan noktaya dalga boyu bölmeli çoklama.
+
+155
+00:11:41,704 --> 00:11:48,104
+Burada bir dalga boyu çifti tek bir ONU'ya ayrılır ve zaman paylaşımı yoktur.
+
+156
+00:11:48,154 --> 00:11:53,804
+Ağaç yapısının üzerinde, sanal bir noktadan noktaya bağlantı kurulur.
+
+157
+00:11:54,291 --> 00:11:58,631
+PtP WDM, kurumsal hatlar ve mobil şebeke bağlantıları gibi,
+
+158
+00:11:58,681 --> 00:12:03,131
+garanti edilmiş ve şeffaf bir kanal isteyen servisler içindir.
+
+159
+00:12:03,181 --> 00:12:09,831
+Standart en az dört PtP WDM kanalını destekler ve bir üst sınır tanımlamaz.
+
+160
+00:12:09,881 --> 00:12:13,005
+Bu kanalları dokuzuncu bölümde ayrıntılı işleyeceğiz.
+
+161
+00:12:13,491 --> 00:12:14,491
+Mühendis notu.
+
+162
+00:12:14,541 --> 00:12:19,361
+Dispersiyon ve hassasiyet için verdiğimiz sayılar kaba kurallardır;
+
+163
+00:12:19,411 --> 00:12:20,751
+tasarımda kullanılmazlar.
+
+164
+00:12:20,801 --> 00:12:26,291
+Ama mesajları nettir: hız dört katına çıktığında menzil ve optik bütçe,
+
+165
+00:12:26,341 --> 00:12:28,821
+bir PON'un taşıyamayacağı kadar küçülür.
+
+166
+00:12:28,871 --> 00:12:33,307
+NG-PON2, bu duvara çarpmak yerine yanından geçmeyi seçti.
+
+167
+00:12:33,824 --> 00:12:35,574
+Peki bu kadar çok renk,
+
+168
+00:12:35,624 --> 00:12:46,311
+bu kadar çok kanal ve ayarlanabilir ONU'lar standartta nasıl organize edilmiş? Bunun için G.989 ailesini katman katman açmamız gerekiyor.
+
+169
+00:12:47,590 --> 00:12:48,810
+Perde üç: G.989 ailesi.
+
+170
+00:12:48,860 --> 00:12:56,540
+NG-PON2 tek bir dokümanda değil, birbirine bağlı beş tavsiyede tanımlanır.
+
+171
+00:12:56,590 --> 00:12:59,574
+Bunları bir bina gibi düşünelim.
+
+172
+00:13:00,023 --> 00:13:05,043
+Temelde G.989 vardır: tanımlar, kısaltmalar ve kurallar.
+
+173
+00:13:05,093 --> 00:13:07,493
+Ailenin sözlüğüdür.
+
+174
+00:13:07,543 --> 00:13:07,713
+Kanal çifti,
+
+175
+00:13:07,763 --> 00:13:15,543
+spektral sapma ya da ayar süresi gibi terimlerin resmi tanımları burada yer alır.
+
+176
+00:13:15,990 --> 00:13:20,410
+G.989.1, genel gereksinimleri koyar: hangi servisler taşınacak,
+
+177
+00:13:20,460 --> 00:13:27,640
+hangi kapasite hedeflenecek, eski sistemlerle nasıl bir arada çalışılacak.
+
+178
+00:13:27,690 --> 00:13:31,238
+Diğer dokümanların cevapladığı sorular burada sorulur.
+
+179
+00:13:31,657 --> 00:13:37,727
+G.989.2, bu serinin konusu: fiziksel ortama bağımlı katman, yani PMD.
+
+180
+00:13:37,777 --> 00:13:43,527
+Işığın kendisini tanımlar: dalga boyları, güçler, sönüm oranları,
+
+181
+00:13:43,577 --> 00:13:49,605
+alıcı hassasiyetleri, ayar süreleri ve girişim toleransları.
+
+182
+00:13:50,324 --> 00:13:58,854
+G.989.3 ise iletim yakınsama katmanını, yani TC'yi tanımlar: çerçeve yapısı,
+
+183
+00:13:58,904 --> 00:14:06,444
+ONU aktivasyonu, bant genişliği tahsisi, kanal yönetimi, güvenlik ve koruma.
+
+184
+00:14:06,494 --> 00:14:10,124
+G.989.2'nin özeti,
+
+185
+00:14:10,174 --> 00:14:22,634
+TC katmanının XG-PON'un G.987.3'üne dayandığını ve NG-PON2'ye özgü değişikliklerin G.989.3'te toplandığını söyler.
+
+186
+00:14:23,057 --> 00:14:30,377
+En üstte G.988 vardır, yani OMCI: ONU'nun yönetim ve kontrol arayüzü.
+
+187
+00:14:30,427 --> 00:14:36,979
+Servislerin ONU üzerinde nasıl yapılandırılacağını tanımlar.
+
+188
+00:14:37,424 --> 00:14:44,514
+G.989.2'nin dokuzuncu maddesi, katmanlı yapıyı tek cümleyle özetler:
+
+189
+00:14:44,564 --> 00:14:51,244
+veri düzlemi ve yardımcı yönetim ve kontrol düzlemi, ortak fiziksel ortamın,
+
+190
+00:14:51,294 --> 00:14:54,854
+yani NG-PON2 ODN'inin üzerine oturur.
+
+191
+00:14:55,291 --> 00:14:57,831
+Bu seride odağımız PMD.
+
+192
+00:14:57,881 --> 00:15:00,091
+Ama PMD'yi doğru anlamak için,
+
+193
+00:15:00,141 --> 00:15:05,591
+TC katmanıyla hangi noktada el sıkıştığını bilmemiz gerekir.
+
+194
+00:15:05,641 --> 00:15:08,612
+Şimdi ilk TC köprümüzü kuruyoruz.
+
+195
+00:15:09,590 --> 00:15:13,920
+G.989.3'e göre TC katmanı üç alt katmandan oluşur.
+
+196
+00:15:13,970 --> 00:15:17,340
+En üstteki servis uyarlama alt katmanı,
+
+197
+00:15:17,390 --> 00:15:23,890
+kullanıcı verisini ve OMCI mesajlarını XGEM çerçevelerine paketler;
+
+198
+00:15:23,940 --> 00:15:27,413
+gerekirse böler ve isteğe bağlı olarak şifreler.
+
+199
+00:15:27,857 --> 00:15:30,717
+Ortadaki çerçeveleme alt katmanı,
+
+200
+00:15:30,767 --> 00:15:34,397
+PON'un yönetimi için gereken başlık alanlarını oluşturur.
+
+201
+00:15:34,447 --> 00:15:42,107
+En alttaki PHY uyarlama alt katmanı ise ileri hata düzeltme kodlamasını ve karıştırmayı uygular,
+
+202
+00:15:42,157 --> 00:15:44,142
+ve senkronizasyon bloğunu ekler.
+
+203
+00:15:44,590 --> 00:15:46,080
+Ve işte sınır.
+
+204
+00:15:46,130 --> 00:15:50,720
+G.989.3'e göre aşağı yönde TC ile PMD arasındaki arayüz,
+
+205
+00:15:50,770 --> 00:15:59,800
+nominal hat hızında akan ve yüz yirmi beş mikrosaniyelik çerçevelere bölünmüş sürekli bir bit akışıdır.
+
+206
+00:15:59,850 --> 00:16:06,683
+Yukarı yönde ise bu arayüz, hassas zamanlanmış burst'lerden oluşan bir dizidir.
+
+207
+00:16:07,123 --> 00:16:13,303
+On gigabitlik aşağı yönde tek bir çerçeve, yüz elli beş bin beş yüz yirmi bayttır.
+
+208
+00:16:13,353 --> 00:16:18,233
+Çerçeve, yirmi dört baytlık bir fiziksel senkronizasyon bloğuyla başlar.
+
+209
+00:16:18,283 --> 00:16:18,233
+ONU,
+
+210
+00:16:18,283 --> 00:16:25,160
+bu bloğun içindeki sabit altmış dört bitlik deseni yakalayarak çerçeve sınırına kilitlenir.
+
+211
+00:16:26,157 --> 00:16:28,247
+Somut bir örnekle izleyelim.
+
+212
+00:16:28,297 --> 00:16:32,987
+Bin beş yüz baytlık bir Ethernet çerçevesi OLT'ye gelir.
+
+213
+00:16:33,037 --> 00:16:38,687
+Servis uyarlama alt katmanı, önüne sekiz baytlık bir XGEM başlığı ekler.
+
+214
+00:16:38,737 --> 00:16:44,347
+Bu başlık, çerçevenin hangi akışa ait olduğunu söyleyen XGEM port kimliğini taşır.
+
+215
+00:16:44,790 --> 00:16:51,670
+Çerçeveleme alt katmanı bu XGEM çerçevelerini kendi çerçevesinin içine dizer ve başlıkları ekler.
+
+216
+00:16:51,720 --> 00:16:57,770
+PHY uyarlama alt katmanı ise veriyi iki yüz kırk sekiz baytlık kod sözcüklerine böler:
+
+217
+00:16:57,820 --> 00:17:02,498
+her birinin iki yüz on altı baytı veri, otuz iki baytı eşliktir.
+
+218
+00:17:02,924 --> 00:17:05,354
+Yalnızca FEC'i hesaba katarsak,
+
+219
+00:17:05,404 --> 00:17:09,954
+aşağı yön kapasitesinin yaklaşık yüzde on üçü düzeltmeye gider:
+
+220
+00:17:10,004 --> 00:17:17,834
+dokuz virgül dokuz beş gigabitlik hattın yaklaşık sekiz virgül altı yedi gigabiti veri taşır.
+
+221
+00:17:17,884 --> 00:17:22,844
+G.989.3'e göre FEC desteği her iki yönde de zorunludur;
+
+222
+00:17:22,894 --> 00:17:26,184
+aşağı yönde statik olarak açılıp kapatılır,
+
+223
+00:17:26,234 --> 00:17:30,635
+yukarı yönde ise OLT tarafından dinamik olarak kontrol edilir.
+
+224
+00:17:31,124 --> 00:17:37,544
+PMD açısından bunun anlamı şudur: PMD, bitlerin ne anlama geldiğini bilmez.
+
+225
+00:17:37,594 --> 00:17:43,384
+Onun işi, TC'nin verdiği bit akışını ışığa, ışığı da yeniden bit akışına,
+
+226
+00:17:43,434 --> 00:17:46,331
+belirli bir hata oranının altında çevirmektir.
+
+227
+00:17:47,324 --> 00:17:50,914
+Hata oranı dedik; burada çok önemli bir köprü var.
+
+228
+00:17:50,964 --> 00:17:58,984
+G.989.2'deki alıcı hassasiyetleri, bir bit hata oranı referansına göre tanımlanır.
+
+229
+00:17:59,034 --> 00:18:02,504
+Bu referans, on gigabitlik hızlarda on üzeri eksi üç,
+
+230
+00:18:02,554 --> 00:18:07,274
+iki virgül beş gigabitlik hızlarda on üzeri eksi dörttür.
+
+231
+00:18:07,724 --> 00:18:12,574
+Bin bitte bir hata, bir fiber hattı için korkunç görünebilir.
+
+232
+00:18:12,624 --> 00:18:16,484
+Ama bu, ileri hata düzeltmeden önceki ham hata oranıdır.
+
+233
+00:18:16,534 --> 00:18:22,704
+G.989.3'teki Reed Solomon kodları, on gigabitte RS iki yüz kırk sekiz,
+
+234
+00:18:22,754 --> 00:18:29,234
+iki yüz on altı, iki virgül beş gigabitte RS iki yüz kırk sekiz, iki yüz otuz iki,
+
+235
+00:18:29,284 --> 00:18:35,929
+bu ham hataları düzelterek servisin ihtiyaç duyduğu çok düşük hata oranını sağlar.
+
+236
+00:18:36,357 --> 00:18:42,687
+Yani PMD testinde ölçtüğünüz hassasiyet, FEC'in var olduğu varsayımına dayanır.
+
+237
+00:18:42,737 --> 00:18:48,417
+Bir alıcıyı FEC'siz bir düzenekte, on üzeri eksi on iki hedefiyle ölçerseniz,
+
+238
+00:18:48,467 --> 00:18:51,747
+standardın tanımladığı şeyi ölçmemiş olursunuz.
+
+239
+00:18:51,797 --> 00:18:55,929
+Beşinci bölümde bu ayrımı laboratuvarda göreceğiz.
+
+240
+00:18:56,924 --> 00:18:59,034
+Son olarak yönetim kanalları.
+
+241
+00:18:59,084 --> 00:19:06,334
+G.989.3 üç kanal tanımlar: çerçeve başlıklarına gömülü OAM,
+
+242
+00:19:06,384 --> 00:19:10,654
+mesaj tabanlı PLOAM ve OMCI'yi taşıyan OMCC.
+
+243
+00:19:10,704 --> 00:19:16,014
+Gömülü OAM ve PLOAM, PMD ve TC katmanlarını yönetir;
+
+244
+00:19:16,064 --> 00:19:23,171
+yani kanal ayarı ve güç seviyesi gibi komutlar bu kanallardan gelir.
+
+245
+00:19:23,591 --> 00:19:27,331
+Burada NG-PON2'ye özgü ilginç bir ayrıntı var.
+
+246
+00:19:27,381 --> 00:19:30,361
+Henüz yeterince kalibre olmamış bir ONU,
+
+247
+00:19:30,411 --> 00:19:34,331
+yanlış dalga boyunda konuşup çalışan kanalları bozabilir.
+
+248
+00:19:34,381 --> 00:19:39,731
+Bu yüzden G.989.3, böyle bir ONU'nun kendini tanıtma mesajını,
+
+249
+00:19:39,781 --> 00:19:46,241
+AMCC adı verilen düşük hızlı bir yardımcı kanal üzerinden göndermesine izin verir.
+
+250
+00:19:46,291 --> 00:19:50,364
+Bu konuya yedinci ve sekizinci bölümlerde döneceğiz.
+
+251
+00:19:50,857 --> 00:19:57,967
+Bu arada, TC katmanının ONU için tanımladığı durum makinesine de kısaca bakalım.
+
+252
+00:19:58,017 --> 00:20:03,537
+G.989.3'e göre ONU, başlangıç durumundan seri numarası,
+
+253
+00:20:03,587 --> 00:20:07,027
+ranging ve çalışma durumlarına ilerler.
+
+254
+00:20:07,077 --> 00:20:10,267
+NG-PON2'ye özgü iki durum daha vardır:
+
+255
+00:20:10,317 --> 00:20:14,987
+aşağı yön ayar durumu ve yukarı yön ayar durumu, yani O8 ve O9.
+
+256
+00:20:15,037 --> 00:20:19,617
+Kanal değiştiren bir ONU bu durumlardan geçer;
+
+257
+00:20:19,667 --> 00:20:24,692
+yedinci bölümde ayar süresini bu durumlara bağlayacağız.
+
+258
+00:20:25,191 --> 00:20:26,741
+Mühendis notu.
+
+259
+00:20:26,791 --> 00:20:30,351
+Bir PMD parametresini okurken her zaman sorun:
+
+260
+00:20:30,401 --> 00:20:33,051
+bu değer hangi bit hata oranı referansına,
+
+261
+00:20:33,101 --> 00:20:40,261
+hangi hat hızına ve hangi FEC varsayımına göre verilmiş? Datasheet'lerde en sık yapılan hata,
+
+262
+00:20:40,311 --> 00:20:45,069
+farklı referanslara göre verilmiş değerleri karşılaştırmaktır.
+
+263
+00:20:45,591 --> 00:20:47,211
+Katmanları gördük.
+
+264
+00:20:47,261 --> 00:20:54,921
+Şimdi fiziksel dünyaya dönelim: G.989.2'nin referans mimarisinde hangi kutular var,
+
+265
+00:20:54,971 --> 00:20:57,626
+ve ölçümü tam olarak nerede yapıyoruz?
+
+266
+00:20:58,924 --> 00:21:02,254
+Perde dört: referans mimari.
+
+267
+00:21:02,304 --> 00:21:05,564
+G.989.2'nin altıncı maddesindeki ilk şekil,
+
+268
+00:21:05,614 --> 00:21:10,434
+NG-PON2'nin mantıksal referans mimarisini gösterir.
+
+269
+00:21:10,484 --> 00:21:17,401
+Bu şekli sezon boyunca defalarca kullanacağız; o yüzden kutu kutu kuralım.
+
+270
+00:21:17,824 --> 00:21:21,144
+OLT tarafında kanal sonlandırıcılar vardır.
+
+271
+00:21:21,194 --> 00:21:23,474
+Her TWDM kanal sonlandırıcısı,
+
+272
+00:21:23,524 --> 00:21:29,984
+bir aşağı yön ve bir yukarı yön dalga boyundan oluşan bir kanal çiftini yönetir.
+
+273
+00:21:30,034 --> 00:21:34,022
+PtP WDM kanal sonlandırıcıları da aynı yapıda yer alır.
+
+274
+00:21:34,457 --> 00:21:41,067
+Kanal sonlandırıcıların çıkışları, dalga boyu çoklayıcıda, yani WM'de birleşir.
+
+275
+00:21:41,117 --> 00:21:43,707
+WM farklı renkleri tek bir fibere toplar;
+
+276
+00:21:43,757 --> 00:21:48,901
+ters yönde ise gelen renkleri doğru kanal sonlandırıcısına ayırır.
+
+277
+00:21:49,324 --> 00:21:52,254
+Ardından birlikte çalışma elemanı gelir.
+
+278
+00:21:52,304 --> 00:21:56,084
+Bu eleman NG-PON2'yi aynı fiberdeki GPON,
+
+279
+00:21:56,134 --> 00:22:01,194
+XG-PON ve RF video gibi eski sistemlerle birleştirir.
+
+280
+00:22:01,244 --> 00:22:07,104
+Böylece mevcut bir ağa, kullanıcıları kesintiye uğratmadan NG-PON2 eklenebilir.
+
+281
+00:22:07,524 --> 00:22:10,784
+Sonra ODN gelir: fiber ve pasif ayırıcılar.
+
+282
+00:22:10,834 --> 00:22:15,124
+Standart ODN'in güç ayırıcılarla kurulmasını esas alır,
+
+283
+00:22:15,174 --> 00:22:19,864
+ama dalga boyu ayırıcıların kullanılmasına da izin verir.
+
+284
+00:22:19,914 --> 00:22:28,284
+ODN'in diğer ucunda ONU'lar vardır ve her ONU'da ayarlanabilir bir verici ile ayarlanabilir bir alıcı bulunur.
+
+285
+00:22:28,724 --> 00:22:32,094
+Altıncı madde bir noktanın daha altını çizer:
+
+286
+00:22:32,144 --> 00:22:36,954
+şekildeki mantıksal fonksiyonlar ayrı fiziksel kutular olabilir,
+
+287
+00:22:37,004 --> 00:22:38,964
+ya da tek bir cihazda bütünleşebilir.
+
+288
+00:22:39,014 --> 00:22:44,994
+Yani WM ve birlikte çalışma elemanı OLT şasisinin içinde de olabilir,
+
+289
+00:22:45,044 --> 00:22:47,047
+sahada ayrı bir panelde de.
+
+290
+00:22:48,090 --> 00:22:50,710
+Bunu gerçek bir senaryoyla düşünelim.
+
+291
+00:22:50,760 --> 00:22:54,130
+Bir operatörün sahada çalışan bir GPON ağı var.
+
+292
+00:22:54,180 --> 00:23:02,560
+Merkez ofiste fiberin başına bir birlikte çalışma elemanı yerleştirilir ve NG-PON2 OLT'si bu elemana bağlanır.
+
+293
+00:23:02,610 --> 00:23:05,950
+GPON kullanıcıları hiçbir şey fark etmez;
+
+294
+00:23:06,000 --> 00:23:12,206
+NG-PON2 ONU'ları ise aynı ayırıcılar üzerinden kendi renklerinde çalışmaya başlar.
+
+295
+00:23:12,623 --> 00:23:17,213
+Bunun mümkün olmasının nedeni, NG-PON2'nin dalga boyu planının,
+
+296
+00:23:17,263 --> 00:23:22,363
+eski sistemlerin bantlarını boş bırakacak şekilde seçilmiş olmasıdır.
+
+297
+00:23:22,413 --> 00:23:26,725
+Bu planı üçüncü bölümde nanometre nanometre inceleyeceğiz.
+
+298
+00:23:27,757 --> 00:23:32,277
+Şimdi en önemli kısım: referans noktaları.
+
+299
+00:23:32,327 --> 00:23:36,307
+S, ağa gönderim arayüzüdür; R, ağdan alım arayüzüdür.
+
+300
+00:23:36,357 --> 00:23:44,297
+Tek bir fiberde iki yön birlikte bulunduğu için, OLT tarafındaki noktaya S bölü R,
+
+301
+00:23:44,347 --> 00:23:47,637
+ONU tarafındaki noktaya R bölü S denir.
+
+302
+00:23:48,057 --> 00:23:51,957
+NG-PON2 OLT tarafındaki noktayı ikiye ayırır.
+
+303
+00:23:52,007 --> 00:23:55,987
+Birincisi kanal grubu noktası, yani S bölü R CG.
+
+304
+00:23:56,037 --> 00:24:02,137
+Bu nokta WM'nin çıkışındadır ve bütün kanallar burada bir aradadır.
+
+305
+00:24:02,187 --> 00:24:09,097
+G.989.2'nin on birinci maddesindeki bütün PMD tabloları bu noktaya göre yazılmıştır.
+
+306
+00:24:09,147 --> 00:24:16,123
+Yol kaybı sınıfları da bu nokta ile ONU tarafındaki R bölü S arasında tanımlanır.
+
+307
+00:24:16,557 --> 00:24:19,977
+İkincisi kanal çifti noktası, yani S bölü R CP.
+
+308
+00:24:20,027 --> 00:24:23,827
+Bu nokta WM'den önce, tek bir kanal sonlandırıcının,
+
+309
+00:24:23,877 --> 00:24:26,847
+yani tek bir transceiver'ın portundadır.
+
+310
+00:24:26,897 --> 00:24:33,107
+Standart bu noktayı alternatif ve bilgilendirici bir yöntem olarak tanımlar;
+
+311
+00:24:33,157 --> 00:24:36,291
+değerleri on birinci bilgilendirici ekte verilir.
+
+312
+00:24:36,724 --> 00:24:42,344
+Neden iki nokta? Çünkü CG noktası her zaman erişilebilir değildir,
+
+313
+00:24:42,394 --> 00:24:47,094
+ya da bir OLT transceiver üreticisine, WM'den bağımsız,
+
+314
+00:24:47,144 --> 00:24:51,124
+basit bir hassasiyet şartnamesi vermek gerekir.
+
+315
+00:24:51,174 --> 00:24:51,124
+Standart,
+
+316
+00:24:51,174 --> 00:25:02,389
+CP değerlerinin birincil yöntemle tutarlı olduğunu ve WM kaybı için sektörün en iyi uygulamalarına dayandığını belirtir.
+
+317
+00:25:02,824 --> 00:25:08,484
+Laboratuvar için bunun anlamı nettir: güç ölçerinizi CP'ye takarsanız,
+
+318
+00:25:08,534 --> 00:25:15,804
+okuduğunuz değer ile tablodaki CG değeri arasında WM'nin kaybı kadar fark vardır.
+
+319
+00:25:15,854 --> 00:25:21,723
+Aynı transceiver, iki farklı noktada iki farklı sayı verir ve ikisi de doğrudur.
+
+320
+00:25:22,757 --> 00:25:24,707
+Şekil bir şeyi daha söyler:
+
+321
+00:25:24,757 --> 00:25:33,657
+aynı ODN üzerinde dört ila sekiz TWDM kanalı ve en az dört PtP WDM kanalı birlikte bulunabilir.
+
+322
+00:25:33,707 --> 00:25:39,217
+Ve mimari, aynı ODN üzerinde birden fazla OLT'ye de izin verir;
+
+323
+00:25:39,267 --> 00:25:43,974
+örneğin kademeli büyüme ya da spektral esneklik için.
+
+324
+00:25:44,424 --> 00:25:46,874
+Yol kaybı tarafında da bir hatırlatma yapalım.
+
+325
+00:25:46,924 --> 00:25:51,964
+Kayıp sınıfları, on beş desibellik bir diferansiyel kaybı hesaba katar.
+
+326
+00:25:52,014 --> 00:25:56,444
+Ayrıca kaybı, sınıfın alt sınırından düşük olan ağlarda,
+
+327
+00:25:56,494 --> 00:26:00,604
+örneğin düşük oranlı bir ayırıcıyla kurulmuş kısa bir ağda,
+
+328
+00:26:00,654 --> 00:26:08,018
+alıcıların zarar görmemesi ve hata oranının bozulmaması için optik zayıflatıcı gibi önlemler alınmalıdır.
+
+329
+00:26:08,490 --> 00:26:09,840
+Mühendis notu.
+
+330
+00:26:09,890 --> 00:26:16,370
+Bir datasheet'te hassasiyet ya da başlatma gücü gördüğünüzde ilk soru şu olmalı:
+
+331
+00:26:16,420 --> 00:26:24,130
+bu değer CG'ye mi, CP'ye mi göre verilmiş? Ve WM kaybı nereye yazılmış? Bu iki soru,
+
+332
+00:26:24,180 --> 00:26:29,978
+entegrasyon aşamasındaki bütçe sürprizlerinin büyük kısmını önler.
+
+333
+00:26:30,524 --> 00:26:31,784
+Mimari tamam.
+
+334
+00:26:31,834 --> 00:26:35,774
+Şimdi bu kutuların hangi hızlarda konuştuğuna,
+
+335
+00:26:35,824 --> 00:26:40,530
+ve G.989.2'nin kendisini nasıl okuyacağımıza bakalım.
+
+336
+00:26:41,824 --> 00:26:44,674
+Perde beş: hızlar ve harita.
+
+337
+00:26:44,724 --> 00:26:48,874
+G.989.2'de iki nominal hat hızı vardır:
+
+338
+00:26:48,924 --> 00:26:57,694
+dokuz virgül dokuz beş üç iki sekiz ve iki virgül dört sekiz sekiz üç iki gigabit.
+
+339
+00:26:57,744 --> 00:27:01,033
+Bu tuhaf sayılar tesadüf değil.
+
+340
+00:27:01,457 --> 00:27:08,237
+İkisi de yüz elli beş virgül elli iki megabitin katlarıdır: biri altmış dört katı,
+
+341
+00:27:08,287 --> 00:27:09,657
+diğeri on altı katı.
+
+342
+00:27:09,707 --> 00:27:13,677
+Bu SDH hiyerarşisinden gelen bir mirastır;
+
+343
+00:27:13,727 --> 00:27:17,167
+aynı hızlar STM-64 ve STM-16 olarak bilinir.
+
+344
+00:27:17,217 --> 00:27:22,727
+Standart ayrıca hat hızının sekiz kilohertzin katı olmasını ister;
+
+345
+00:27:22,777 --> 00:27:27,278
+yüz yirmi beş mikrosaniyelik çerçeve de buradan gelir.
+
+346
+00:27:27,724 --> 00:27:33,494
+On birinci maddedeki ilk tablo, kanal başına üç hız seçeneği tanımlar.
+
+347
+00:27:33,544 --> 00:27:39,324
+Temel hız: aşağı yönde on, yukarı yönde iki virgül beş gigabit.
+
+348
+00:27:39,374 --> 00:27:43,024
+Birinci seçenek: iki yönde on gigabit.
+
+349
+00:27:43,074 --> 00:27:47,194
+İkinci seçenek: iki yönde iki virgül beş gigabit.
+
+350
+00:27:47,244 --> 00:27:54,830
+Bir kanal grubundaki her TWDM kanalı, bu seçeneklerden herhangi birini kullanabilir.
+
+351
+00:27:55,857 --> 00:27:59,447
+G.989.3 bu tabloya bir satır daha ekler.
+
+352
+00:27:59,497 --> 00:28:02,087
+Bir OLT kanal sonlandırıcısı,
+
+353
+00:28:02,137 --> 00:28:09,477
+yukarı yönde hem on hem iki virgül beş gigabiti birlikte destekleyebilir.
+
+354
+00:28:09,527 --> 00:28:11,447
+Bu çift hızlı kanal,
+
+355
+00:28:11,497 --> 00:28:17,208
+aynı PHY çerçevesi içinde iki farklı hızda konuşan ONU'lara hizmet verir.
+
+356
+00:28:17,657 --> 00:28:21,017
+ONU tarafında ise üç kombinasyon vardır,
+
+357
+00:28:21,067 --> 00:28:25,207
+ve bir ONU kanal değiştirerek farklı bir hıza geçebilir.
+
+358
+00:28:25,257 --> 00:28:31,727
+Yani NG-PON2'de hız, kanalın bir özelliğidir; ONU hangi kanala ayarlanırsa,
+
+359
+00:28:31,777 --> 00:28:33,815
+o kanalın hızını konuşur.
+
+360
+00:28:34,257 --> 00:28:39,167
+Hat kodlaması her iki yönde ve her hızda karıştırılmış NRZ'dir.
+
+361
+00:28:39,217 --> 00:28:45,077
+Mantık seviyeleri basittir: yüksek ışık seviyesi bir, düşük ışık seviyesi sıfırdır.
+
+362
+00:28:45,127 --> 00:28:48,804
+Göz diyagramı ve sönüm oranı ölçümleri bu temel üzerine kurulur.
+
+363
+00:28:49,224 --> 00:28:51,444
+Saat doğruluğu da tanımlıdır.
+
+364
+00:28:51,494 --> 00:28:57,874
+Normal çalışmada OLT, tipik olarak Stratum-1 bir referansa izlenebilir.
+
+365
+00:28:57,924 --> 00:29:03,164
+Serbest çalışmada bile, aşağı yön sinyali en az Stratum-4 doğruluğunda,
+
+366
+00:29:03,214 --> 00:29:07,084
+yani milyonda otuz iki mertebesinde olmalıdır.
+
+367
+00:29:07,134 --> 00:29:13,515
+ONU ise yukarı yönde, aldığı aşağı yön sinyalinin frekans doğruluğuyla gönderir.
+
+368
+00:29:13,957 --> 00:29:16,497
+Standart burada bir not da düşer:
+
+369
+00:29:16,547 --> 00:29:20,987
+mobil şebeke bağlantısı gibi zamanlamaya duyarlı uygulamalarda,
+
+370
+00:29:21,037 --> 00:29:26,672
+OLT'nin serbest çalışmada Stratum-3 kalitesine ihtiyaç duyabileceğini söyler.
+
+371
+00:29:27,690 --> 00:29:30,060
+Şimdi dokümanın haritası.
+
+372
+00:29:30,110 --> 00:29:35,770
+Altıncı madde mimariyi, yol kaybı ve fiber mesafe sınıflarını tanımlar.
+
+373
+00:29:35,820 --> 00:29:42,610
+Dokuzuncu madde ortak gereksinimleri verir: dalga boyu planı, genel PMD tanımları,
+
+374
+00:29:42,660 --> 00:29:45,869
+ayar özellikleri ve kanal dışı güç maskesi.
+
+375
+00:29:46,290 --> 00:29:50,980
+Onuncu madde girişimin sinyale oranına karşı toleransı,
+
+376
+00:29:51,030 --> 00:29:56,690
+on birinci madde ise TWDM için asıl parametre tablolarını içerir.
+
+377
+00:29:56,740 --> 00:30:00,240
+Hassasiyetler, güçler, sönüm oranları,
+
+378
+00:30:00,290 --> 00:30:04,908
+spektral sapmalar ve göz maskeleri bu tablolardadır.
+
+379
+00:30:05,357 --> 00:30:07,207
+Ekler iki türlüdür.
+
+380
+00:30:07,257 --> 00:30:15,157
+Harfli ekler, A'dan D'ye, standardın bağlayıcı parçasıdır: ayarlanabilir PtP WDM,
+
+381
+00:30:15,207 --> 00:30:19,587
+AMCC, düşük kayıplı PtP WDM ve ONU güç dengeleme.
+
+382
+00:30:19,637 --> 00:30:24,657
+Roma rakamlı ekler ise, birden on bire, bilgilendiricidir.
+
+383
+00:30:24,707 --> 00:30:29,640
+Doküman bunu her birinin başında açıkça yazar.
+
+384
+00:30:30,057 --> 00:30:34,147
+Bilgilendirici olmaları önemsiz oldukları anlamına gelmez.
+
+385
+00:30:34,197 --> 00:30:37,417
+Raman etkileşimleri, döngüsel AWG tasarımı,
+
+386
+00:30:37,467 --> 00:30:45,277
+ayar süresi değerlendirmeleri ve OLT'de burst edinim süresinin nasıl ölçüleceği bu eklerdedir.
+
+387
+00:30:45,327 --> 00:30:49,280
+Bir test mühendisi için en değerli sayfaların bir kısmı buradadır.
+
+388
+00:30:50,324 --> 00:30:57,784
+Şimdi bir tabloyu birlikte okuyalım: on gigabitlik aşağı yönü tanımlayan Tablo 11-5.
+
+389
+00:30:57,834 --> 00:31:02,594
+Üst yarısı OLT vericisini, alt yarısı ONU alıcısını tanımlar.
+
+390
+00:31:02,644 --> 00:31:05,514
+Bazı satırlar tek bir değer verir;
+
+391
+00:31:05,564 --> 00:31:10,599
+bazıları ise dört kayıp sınıfı için ayrı sütunlara bölünür.
+
+392
+00:31:11,024 --> 00:31:12,814
+Vericiden birkaç satır:
+
+393
+00:31:12,864 --> 00:31:17,644
+çalışma bandı bin beş yüz doksan altı ile bin altı yüz üç nanometre,
+
+394
+00:31:17,694 --> 00:31:23,844
+kanal aralığı yüz gigahertz, en büyük spektral sapma artı eksi yirmi gigahertz,
+
+395
+00:31:23,894 --> 00:31:30,724
+en küçük sönüm oranı sekiz virgül iki desibel ve yan mod bastırma oranı en az otuz desibel.
+
+396
+00:31:30,774 --> 00:31:36,647
+Dikkat edin: yan mod bastırma oranı, CG'ye değil CP noktasına göre verilmiştir.
+
+397
+00:31:37,091 --> 00:31:43,401
+Kanal başına ortalama başlatma gücü sınıfa göre değişir: N1 için en az artı üç,
+
+398
+00:31:43,451 --> 00:31:49,031
+en çok artı yedi dBm; E2 için en az artı dokuz, en çok artı on bir dBm.
+
+399
+00:31:49,081 --> 00:31:55,621
+Alıcı tarafında hassasiyet, dört sınıfın hepsinde eksi yirmi sekiz dBm'dir;
+
+400
+00:31:55,671 --> 00:31:59,111
+bit hata oranı referansı on üzeri eksi üç,
+
+401
+00:31:59,161 --> 00:32:02,167
+en büyük optik yol cezası ise iki desibeldir.
+
+402
+00:32:02,591 --> 00:32:05,311
+Şimdi en güzel kısım.
+
+403
+00:32:05,361 --> 00:32:09,411
+N1 sınıfında en düşük başlatma gücünü alın: artı üç.
+
+404
+00:32:09,461 --> 00:32:13,301
+En büyük yol kaybını çıkarın: yirmi dokuz.
+
+405
+00:32:13,351 --> 00:32:16,461
+Yol cezasını çıkarın: iki.
+
+406
+00:32:16,511 --> 00:32:22,611
+Sonuç eksi yirmi sekiz dBm, yani tam olarak alıcı hassasiyeti.
+
+407
+00:32:22,661 --> 00:32:28,161
+Aynı hesap N2, E1 ve E2 için de eksi yirmi sekizi verir.
+
+408
+00:32:28,211 --> 00:32:32,799
+Tablo, kendi içinde kapanan bir güç bütçesidir.
+
+409
+00:32:33,224 --> 00:32:35,344
+Aynı şeyi ters yönden yapın:
+
+410
+00:32:35,394 --> 00:32:40,504
+en yüksek başlatma gücünden en düşük yol kaybını çıkarın.
+
+411
+00:32:40,554 --> 00:32:48,354
+N1 için artı yedi eksi on dört, eksi yedi dBm eder; tablodaki aşırı yük değeri.
+
+412
+00:32:48,404 --> 00:32:53,474
+E2'de bu hesap eksi dokuzu verir, tablo da eksi dokuz der.
+
+413
+00:32:53,524 --> 00:32:59,780
+Bir PMD tablosunu okumanın en iyi yolu, satırlarını birbirine karşı doğrulamaktır.
+
+414
+00:33:00,224 --> 00:33:03,434
+Son bir kontrol: dispersiyon aralığı,
+
+415
+00:33:03,484 --> 00:33:08,574
+yirmi kilometre için sıfır ile dört yüz yirmi pikosaniye bölü nanometredir.
+
+416
+00:33:08,624 --> 00:33:13,454
+Bu, kilometre başına yaklaşık yirmi bir pikosaniye bölü nanometre demektir;
+
+417
+00:33:13,504 --> 00:33:18,434
+L bandındaki standart fiberin dispersiyonu da tam bu mertebededir.
+
+418
+00:33:18,484 --> 00:33:22,724
+İkinci perdede söylediğimiz şey, tabloda sayıya dönüşmüş olarak duruyor.
+
+419
+00:33:23,757 --> 00:33:26,327
+Ve gözden kaçmaması gereken bir not.
+
+420
+00:33:26,377 --> 00:33:29,107
+Altıncı maddenin sonunda şöyle yazar:
+
+421
+00:33:29,157 --> 00:33:32,097
+on birinci maddedeki güç spektral yoğunluğu değerleri,
+
+422
+00:33:32,147 --> 00:33:36,347
+dört kanal ve yirmi kilometre için optimize edilmiştir.
+
+423
+00:33:36,397 --> 00:33:40,148
+Sekiz kanal ve kırk kilometre için çalışmalar ileride yapılacaktır.
+
+424
+00:33:40,590 --> 00:33:45,590
+Yani sekiz kanallı ya da kırk kilometrelik bir sistem tasarlıyorsanız,
+
+425
+00:33:45,640 --> 00:33:49,190
+tablodaki bazı değerler doğrudan geçerli olmayabilir.
+
+426
+00:33:49,240 --> 00:33:53,340
+Standardı okurken dipnotlar ve bu tür cümleler,
+
+427
+00:33:53,390 --> 00:33:55,759
+en az tabloların kendisi kadar önemlidir.
+
+428
+00:33:56,190 --> 00:33:58,360
+Son olarak sürümler.
+
+429
+00:33:58,410 --> 00:34:04,550
+Bu seride ikinci baskıyı, ve onun düzeltme ve değişiklik eklerini temel alıyoruz.
+
+430
+00:34:04,600 --> 00:34:04,550
+İkinci baskı,
+
+431
+00:34:04,600 --> 00:34:12,410
+önceki değişiklikleri birleştirip bazı bant dışı ve kanal dışı girişim parametrelerini gevşetti.
+
+432
+00:34:12,460 --> 00:34:18,110
+Düzeltme eki ONU alıcısının girişim toleransı tablosunu yeniledi;
+
+433
+00:34:18,160 --> 00:34:22,100
+değişiklik eki ise güç dengeleme ekindeki değerleri güncelledi.
+
+434
+00:34:22,150 --> 00:34:26,186
+Elinizdeki dokümanın sürümünü her zaman kontrol edin.
+
+435
+00:34:27,557 --> 00:34:28,847
+Laboratuvarda.
+
+436
+00:34:28,897 --> 00:34:35,757
+Bölümü kapatmadan önce, sezon boyunca kullanacağımız test tezgâhını tanıyalım.
+
+437
+00:34:35,807 --> 00:34:36,667
+Her cihaz,
+
+438
+00:34:36,717 --> 00:34:43,465
+ilerideki bölümlerde belirli bir G.989.2 parametresinin karşısına oturacak.
+
+439
+00:34:43,890 --> 00:34:47,090
+Optik spektrum analizörü, yani OSA: kanal haritasını,
+
+440
+00:34:47,140 --> 00:34:52,960
+yan mod bastırma oranını ve spektral sapmayı görmek için.
+
+441
+00:34:53,010 --> 00:34:55,520
+Elli ve yüz gigahertzlik kanal aralıklarında,
+
+442
+00:34:55,570 --> 00:35:01,730
+analizörün çözünürlük bant genişliği ölçümün doğruluğunu doğrudan belirler.
+
+443
+00:35:01,780 --> 00:35:05,147
+Üçüncü, dördüncü ve yedinci bölümlerde kullanacağız.
+
+444
+00:35:05,590 --> 00:35:10,750
+Örnekleme osiloskobu, yani DCA, standart referans alıcısıyla birlikte:
+
+445
+00:35:10,800 --> 00:35:13,200
+göz maskesi ve sönüm oranı için.
+
+446
+00:35:13,250 --> 00:35:19,700
+Hem sürekli aşağı yön sinyalinde hem de yukarı yönün burst'lerinde kullanılacak;
+
+447
+00:35:19,750 --> 00:35:21,550
+dördüncü ve altıncı bölümler.
+
+448
+00:35:21,990 --> 00:35:26,620
+Göz maskesi için standart yalnızca maskenin geometrisini değil,
+
+449
+00:35:26,670 --> 00:35:32,880
+ölçüm düzeneğini de tanımlar: OLT vericisinin maske parametreleri Tablo 11-8'de,
+
+450
+00:35:32,930 --> 00:35:35,080
+test düzeneği ise Şekil 11-4'tedir.
+
+451
+00:35:35,130 --> 00:35:39,240
+Bir de kalibrasyon uyarısı: güç ölçerinizin ve OSA'nızın,
+
+452
+00:35:39,290 --> 00:35:44,160
+ölçtüğünüz dalga boyunda kalibre edildiğinden emin olun.
+
+453
+00:35:44,210 --> 00:35:46,810
+Bin beş yüz elli nanometrelik varsayılan ayar,
+
+454
+00:35:46,860 --> 00:35:51,484
+L bandında onda birler mertebesinde desibel hatası getirebilir.
+
+455
+00:35:52,324 --> 00:35:56,934
+Bit hata oranı test cihazı, yani BERT, sürekli ve burst modda.
+
+456
+00:35:56,984 --> 00:36:01,844
+Alıcı hassasiyeti, aşırı yük ve yol cezası ölçümlerinin merkezinde o var;
+
+457
+00:36:01,894 --> 00:36:03,506
+beşinci ve sekizinci bölümler.
+
+458
+00:36:03,924 --> 00:36:06,584
+Değişken optik zayıflatıcı, yani VOA:
+
+459
+00:36:06,634 --> 00:36:10,484
+yol kaybını laboratuvarda yeniden yaratmak için.
+
+460
+00:36:10,534 --> 00:36:16,274
+Burst'ü algılayan bir güç ölçer: birinci perdede gördüğümüz tuzağa düşmemek için.
+
+461
+00:36:16,324 --> 00:36:21,694
+Ve hızlı fotodiyotlu bir osiloskop: burst zamanlaması ve ayar süresi için.
+
+462
+00:36:22,724 --> 00:36:23,984
+Bunlara ek olarak,
+
+463
+00:36:24,034 --> 00:36:28,954
+gerçek dispersiyon için yirmi ve kırk kilometrelik fiber makaraları;
+
+464
+00:36:29,004 --> 00:36:34,204
+girişim testlerinde komşu kanalları taklit eden ayarlanabilir kaynaklar;
+
+465
+00:36:34,254 --> 00:36:35,804
+ve bir sıcaklık kabini.
+
+466
+00:36:35,854 --> 00:36:40,394
+Çünkü standart, bütün değerlerin en kötü çalışma koşullarında,
+
+467
+00:36:40,444 --> 00:36:45,519
+sıcaklık ve nem dahil, yaşlanma etkileriyle birlikte sağlanmasını ister.
+
+468
+00:36:45,957 --> 00:36:49,687
+Bu cihazlar tek tek değil, bir düzenek içinde çalışır.
+
+469
+00:36:49,737 --> 00:36:54,287
+Tipik bir aşağı yön testinde OLT vericisinin sinyali,
+
+470
+00:36:54,337 --> 00:36:58,997
+bir VOA ve fiber makarasıyla kurulan referans ODN'den geçer.
+
+471
+00:36:59,047 --> 00:37:04,937
+Yol üzerindeki bir kuplör, sinyalin bir kısmını OSA'ya ve güç ölçere ayırır;
+
+472
+00:37:04,987 --> 00:37:08,987
+ONU alıcısının hata oranı ise BERT ile izlenir.
+
+473
+00:37:09,037 --> 00:37:12,867
+İkinci bölümde bu referans ODN'i adım adım kuracağız.
+
+474
+00:37:13,291 --> 00:37:14,531
+Mühendis notu.
+
+475
+00:37:14,581 --> 00:37:20,551
+Bir test planı kurarken, her ölçümün yanına üç şey yazın: referans noktası,
+
+476
+00:37:20,601 --> 00:37:22,621
+bit hata oranı referansı ve sıcaklık koşulu.
+
+477
+00:37:22,671 --> 00:37:29,038
+Bu bölümde gördüğümüz her şey, bu üç sütunun neden gerekli olduğunu açıklıyor.
+
+478
+00:37:30,424 --> 00:37:32,194
+Bölüm bir'in özeti.
+
+479
+00:37:32,244 --> 00:37:37,764
+Bir: PON pasif bir ağaçtır; aşağı yön herkese yayındır,
+
+480
+00:37:37,814 --> 00:37:41,734
+yukarı yön sıraya girmek zorundadır.
+
+481
+00:37:41,784 --> 00:37:49,984
+İki: NG-PON2 hızı değil, renk sayısını artırdı; TWDM ile dört ila sekiz kanal,
+
+482
+00:37:50,034 --> 00:37:52,560
+PtP WDM ile özel hatlar.
+
+483
+00:37:52,991 --> 00:37:59,421
+Üç: G.989.2 ışığı, G.989.3 bitleri tanımlar; aralarındaki arayüz,
+
+484
+00:37:59,471 --> 00:38:06,541
+yüz yirmi beş mikrosaniyelik çerçeveler ve zamanlanmış burst'lerdir.
+
+485
+00:38:06,591 --> 00:38:12,601
+Dört: PMD tabloları S bölü R CG noktasına göre yazılmıştır.
+
+486
+00:38:12,651 --> 00:38:20,132
+Beş: hassasiyetler, FEC öncesi bir hata oranı referansına göre tanımlanır.
+
+487
+00:38:20,657 --> 00:38:22,077
+Kendini test et.
+
+488
+00:38:22,127 --> 00:38:28,597
+Birinci soru: G.989.2'deki PMD tabloları hangi referans noktasına göre yazılmıştır,
+
+489
+00:38:28,647 --> 00:38:33,237
+ve neden alternatif bir nokta tanımlanmıştır? İkinci soru:
+
+490
+00:38:33,287 --> 00:38:37,317
+on gigabitlik bir NG-PON2 alıcısının hassasiyeti,
+
+491
+00:38:37,367 --> 00:38:42,947
+hangi hata oranında ölçülür? Üçüncü soru: altmış dört ONU'lu bir ağda,
+
+492
+00:38:42,997 --> 00:38:49,367
+kapalı vericilerin sızıntısı taban gürültüsünü kaç desibel yükseltir? Cevaplar,
+
+493
+00:38:49,417 --> 00:38:51,670
+bir sonraki bölümün başında.
+
+494
+00:38:52,157 --> 00:38:57,877
+Sezonun geri kalanı şöyle ilerleyecek: ikinci bölümde ODN ve güç bütçesi,
+
+495
+00:38:57,927 --> 00:39:05,137
+üçüncüde dalga boyu planı, dördüncüde OLT vericisi, beşincide ONU alıcısı.
+
+496
+00:39:05,187 --> 00:39:12,717
+Altıncı ve yedinci bölümlerde ONU vericisinin burst ve ayarlanabilirlik yüzleri,
+
+497
+00:39:12,767 --> 00:39:19,567
+sekizincide OLT burst alıcısı ve aktivasyon, dokuzuncuda PtP WDM ve AMCC.
+
+498
+00:39:19,617 --> 00:39:22,473
+Ve onuncu bölümde, sahaya iniyoruz.
+
+499
+00:39:22,957 --> 00:39:25,217
+Bir sonraki bölüm: Işığın Yolu.
+
+500
+00:39:25,267 --> 00:39:25,217
+Işık yirmi,
+
+501
+00:39:25,267 --> 00:39:31,647
+belki kırk kilometre yol alacak ve otuz beş desibele kadar kaybedebilecek.
+
+502
+00:39:31,697 --> 00:39:33,347
+Bu bütçe nereden geliyor,
+
+503
+00:39:33,397 --> 00:39:37,742
+ve laboratuvarda nasıl yeniden yaratılıyor? Görüşmek üzere.
+

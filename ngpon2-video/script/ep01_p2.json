@@ -1,0 +1,84 @@
+{
+ "title": "B01 Perde 2 — Neden hız değil, renk?",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "q1",
+   "text": "Perde iki: Neden hız değil, renk? Önce nereden geldiğimize bakalım. Her PON nesli, aynı ağaç yapısını korurken hattaki hızı artırdı."
+  },
+  {
+   "id": "q2",
+   "text": "GPON, aşağı yönde iki virgül beş, yukarı yönde bir virgül iki beş gigabit sundu. XG-PON aşağı yönü on gigabite çıkardı, yukarı yön iki virgül beşte kaldı. XGS-PON ise iki yönde de on gigabite ulaştı."
+  },
+  {
+   "id": "q3",
+   "text": "Bu nesillerin hepsinde tek bir dalga boyu çifti vardır. Hızı artırmanın yolu hep aynıydı: aynı ışığı daha hızlı modüle etmek."
+  },
+  {
+   "id": "q4",
+   "text": "NG-PON2'nin hedefi çok daha büyüktü. G.989.2, özet bölümünde bunu açıkça yazar: aşağı yönde kırk, yukarı yönde on gigabitlik nominal toplam kapasite. İlk akla gelen yol, tek bir dalga boyunu kırk gigabite çıkarmaktır."
+  },
+  {
+   "id": "q5",
+   "text": "Fizik burada iki duvar örer. Birincisi kromatik dispersiyon. Bir NRZ sinyalinin dispersiyona karşı dayanıklılığı, hızın karesiyle azalır. Hızı dört katına çıkarırsanız, aynı cezayla gidebileceğiniz mesafe on altıda birine düşer."
+  },
+  {
+   "id": "q6",
+   "text": "Kaba bir kural olarak, chirpsiz bir vericiyle on gigabitte yaklaşık altmış kilometre gidilebilen standart fiberde, kırk gigabitte bu mesafe dört kilometre civarına iner. Üstelik NG-PON2'nin aşağı yön bandı L bandındadır; orada dispersiyon, C bandından da yüksektir."
+  },
+  {
+   "id": "q7",
+   "text": "İkinci duvar alıcı hassasiyeti. Hız dört katına çıktığında alıcının bant genişliği büyür ve gürültü artar. Aynı hata oranı için kabaca üç ila altı desibel daha fazla güç gerekir. Otuz desibel mertebesindeki bütçelerle çalışan bir PON için bu, kabul edilemez bir kayıptır."
+  },
+  {
+   "id": "q8",
+   "text": "Bir de maliyet var. Kırk gigabitlik burst modlu alıcılar, kırk gigabitlik SerDes'ler ve bunların her evdeki ONU'da yer alması, o dönemin teknolojisiyle ekonomik değildi."
+  },
+  {
+   "id": "q9",
+   "text": "NG-PON2'nin cevabı şuydu: hızı değil, renk sayısını artır. Her biri on gigabitlik dört dalga boyu çifti, aynı fiberde yan yana çalışsın. Toplam aşağı yön kırk gigabit olur, ama her kanal olgunlaşmış on gigabitlik teknolojiyle kurulur."
+  },
+  {
+   "id": "q10",
+   "text": "Bu yapının adı TWDM: zaman ve dalga boyu bölmeli çoklama. Kanallar dalga boyu boyutunda ayrılır; her kanalın içinde ise, bildiğimiz zaman bölmeli PON çalışır."
+  },
+  {
+   "id": "q11",
+   "text": "Standart en az dört TWDM kanalını zorunlu tutar ve isteğe bağlı olarak sekiz kanala kadar genişlemeye izin verir. Sekiz kanal ve simetrik on gigabitle, aşağı yön toplam kapasite seksen gigabite kadar çıkabilir."
+  },
+  {
+   "id": "q11a",
+   "text": "Yukarı yönde ise temel yapılandırma kanal başına iki virgül beş gigabittir. Dört kanalla bu, on gigabitlik toplam yukarı yön kapasitesini verir; yani standardın nominal hedefini."
+  },
+  {
+   "id": "q12",
+   "text": "Renk eklemenin, hızdan bağımsız başka faydaları da var. Birincisi kademeli büyüme: operatör tek bir kanalla başlar, talep arttıkça OLT'ye yeni kanal sonlandırıcılar ekler. Bunun için sahadaki ONU'ları değiştirmek gerekmez."
+  },
+  {
+   "id": "q13",
+   "text": "İkincisi yük dengeleme: bir kanal dolarsa, OLT bazı ONU'ları başka bir kanala taşır. Üçüncüsü koruma: bir kanal sonlandırıcı arızalanırsa, ONU'lar yedek kanala ayarlanır. Dördüncüsü paylaşım: farklı servisler, hatta farklı operatörler, farklı dalga boylarını kullanabilir."
+  },
+  {
+   "id": "q14",
+   "text": "Bütün bunların bir bedeli var ve o bedel ONU'da ödenir. ONU artık sabit bir dalga boyunda çalışamaz: vericisi ve alıcısı, OLT'nin atadığı kanala ayarlanabilir olmalıdır. NG-PON2'nin en zor mühendislik problemi ve en büyük maliyet kalemi budur."
+  },
+  {
+   "id": "q15",
+   "text": "NG-PON2'nin ikinci bileşeni ise PtP WDM'dir: noktadan noktaya dalga boyu bölmeli çoklama. Burada bir dalga boyu çifti tek bir ONU'ya ayrılır ve zaman paylaşımı yoktur. Ağaç yapısının üzerinde, sanal bir noktadan noktaya bağlantı kurulur."
+  },
+  {
+   "id": "q16",
+   "text": "PtP WDM, kurumsal hatlar ve mobil şebeke bağlantıları gibi, garanti edilmiş ve şeffaf bir kanal isteyen servisler içindir. Standart en az dört PtP WDM kanalını destekler ve bir üst sınır tanımlamaz. Bu kanalları dokuzuncu bölümde ayrıntılı işleyeceğiz."
+  },
+  {
+   "id": "q17",
+   "text": "Mühendis notu. Dispersiyon ve hassasiyet için verdiğimiz sayılar kaba kurallardır; tasarımda kullanılmazlar. Ama mesajları nettir: hız dört katına çıktığında menzil ve optik bütçe, bir PON'un taşıyamayacağı kadar küçülür. NG-PON2, bu duvara çarpmak yerine yanından geçmeyi seçti."
+  },
+  {
+   "id": "q18",
+   "text": "Peki bu kadar çok renk, bu kadar çok kanal ve ayarlanabilir ONU'lar standartta nasıl organize edilmiş? Bunun için G.989 ailesini katman katman açmamız gerekiyor."
+  }
+ ]
+}

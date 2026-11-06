@@ -1,14 +1,32 @@
 {
-  "title": "B01 — açılış özeti",
-  "voice": "Sadaltager",
-  "model": "gemini-2.5-pro-preview-tts",
-  "style": "Deneyimli bir telekom mühendisi eğitmen gibi; net, sakin, kendinden emin ve akıcı bir tempoda, bir belgesel dizisinin anlatıcısı gibi oku. NG-PON2, PON, GPON, PMD, TC ve G.989 gibi kısaltmaları İngilizce harf okunuşuyla söyle.",
-  "beats": [
-    {"id": "o1", "text": "Bölüm bir: Işığa Dönüş. Bu bölümde, sezon boyunca üzerine inşa edeceğimiz büyük resmi kuruyoruz."},
-    {"id": "o2", "text": "Önce pasif optik ağın özüne ineceğiz: tek fiber, pasif bir ayırıcı ve onlarca kullanıcı. Aşağı yönde yayın, yukarı yönde sıraya giren burst'ler."},
-    {"id": "o3", "text": "Sonra şu soruyu soracağız: GPON'dan NG-PON2'ye geçerken, neden tek bir dalga boyunu hızlandırmak yerine yeni dalga boyları eklendi?"},
-    {"id": "o4", "text": "G.989 ailesini katman katman açacağız ve PMD katmanının nerede bitip, TC katmanının nerede başladığını göreceğiz."},
-    {"id": "o5", "text": "G.989.2'nin referans mimarisini, ölçüm noktalarını ve hat hızı kombinasyonlarını inceleyip, dokümanı nasıl okuyacağımızı konuşacağız."},
-    {"id": "o6", "text": "Ve son olarak, sezon boyunca kullanacağımız test tezgâhını tanıyacağız. Hazırsan, başlayalım."}
-  ]
+ "title": "B01 — açılış özeti",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm bir: Işığa Dönüş. Bu bölümde, sezon boyunca üzerine inşa edeceğimiz büyük resmi kuruyoruz."
+  },
+  {
+   "id": "o2",
+   "text": "Önce pasif optik ağın özüne ineceğiz: tek fiber, pasif bir ayırıcı ve onlarca kullanıcı. Aşağı yönde yayın, yukarı yönde sıraya giren burst'ler."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra şu soruyu soracağız: GPON'dan NG-PON2'ye geçerken, neden tek bir dalga boyunu hızlandırmak yerine yeni dalga boyları eklendi?"
+  },
+  {
+   "id": "o4",
+   "text": "G.989 ailesini katman katman açacağız ve PMD katmanının nerede bitip, TC katmanının nerede başladığını göreceğiz."
+  },
+  {
+   "id": "o5",
+   "text": "G.989.2'nin referans mimarisini, ölçüm noktalarını ve hat hızı kombinasyonlarını inceleyip, dokümanı nasıl okuyacağımızı konuşacağız."
+  },
+  {
+   "id": "o6",
+   "text": "Ve son olarak, sezon boyunca kullanacağımız test tezgâhını tanıyacağız. Hazırsan, başlayalım."
+  }
+ ]
 }

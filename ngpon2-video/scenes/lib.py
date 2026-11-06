@@ -60,8 +60,10 @@ class Narrated(Scene):
         if dt > 1 / 30:
             self.wait(dt)
 
+    EXTRA_PAD = float(__import__('os').environ.get('EXTRA_PAD', '0.35'))
+
     def end(self, pad=0.25):
-        self.at(self.bdur + pad)
+        self.at(self.bdur + pad + self.EXTRA_PAD)
 
     def save_timeline(self, name):
         (ROOT / f"build/{name}_timeline.json").write_text(json.dumps(self.timeline, ensure_ascii=False, indent=1))

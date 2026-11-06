@@ -1,0 +1,28 @@
+{
+ "title": "B01 Kapanış",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "v1",
+   "text": "Bölüm bir'in özeti. Bir: PON pasif bir ağaçtır; aşağı yön herkese yayındır, yukarı yön sıraya girmek zorundadır. İki: NG-PON2 hızı değil, renk sayısını artırdı; TWDM ile dört ila sekiz kanal, PtP WDM ile özel hatlar."
+  },
+  {
+   "id": "v2",
+   "text": "Üç: G.989.2 ışığı, G.989.3 bitleri tanımlar; aralarındaki arayüz, yüz yirmi beş mikrosaniyelik çerçeveler ve zamanlanmış burst'lerdir. Dört: PMD tabloları S bölü R CG noktasına göre yazılmıştır. Beş: hassasiyetler, FEC öncesi bir hata oranı referansına göre tanımlanır."
+  },
+  {
+   "id": "v3",
+   "text": "Kendini test et. Birinci soru: G.989.2'deki PMD tabloları hangi referans noktasına göre yazılmıştır, ve neden alternatif bir nokta tanımlanmıştır? İkinci soru: on gigabitlik bir NG-PON2 alıcısının hassasiyeti, hangi hata oranında ölçülür? Üçüncü soru: altmış dört ONU'lu bir ağda, kapalı vericilerin sızıntısı taban gürültüsünü kaç desibel yükseltir? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "v3a",
+   "text": "Sezonun geri kalanı şöyle ilerleyecek: ikinci bölümde ODN ve güç bütçesi, üçüncüde dalga boyu planı, dördüncüde OLT vericisi, beşincide ONU alıcısı. Altıncı ve yedinci bölümlerde ONU vericisinin burst ve ayarlanabilirlik yüzleri, sekizincide OLT burst alıcısı ve aktivasyon, dokuzuncuda PtP WDM ve AMCC. Ve onuncu bölümde, sahaya iniyoruz."
+  },
+  {
+   "id": "v4",
+   "text": "Bir sonraki bölüm: Işığın Yolu. Işık yirmi, belki kırk kilometre yol alacak ve otuz beş desibele kadar kaybedebilecek. Bu bütçe nereden geliyor, ve laboratuvarda nasıl yeniden yaratılıyor? Görüşmek üzere."
+  }
+ ]
+}

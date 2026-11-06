@@ -8,7 +8,7 @@ PX, PY = 3.4, -0.45  # teaser panel centre
 
 
 class Ep01Open(Narrated):
-    MANIFEST = "build/ep01_open/audio_proc/manifest.json"
+    MANIFEST = "build/v4/ep01_open/audio_proc/manifest.json"
 
     def construct(self):
         # ── o1: title + agenda ─────────────────────────────────────────

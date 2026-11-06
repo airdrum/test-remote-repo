@@ -1,0 +1,104 @@
+{
+ "title": "B01 Perde 3 — G.989 ailesi ve PMD–TC sınırı",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "r1",
+   "text": "Perde üç: G.989 ailesi. NG-PON2 tek bir dokümanda değil, birbirine bağlı beş tavsiyede tanımlanır. Bunları bir bina gibi düşünelim."
+  },
+  {
+   "id": "r2",
+   "text": "Temelde G.989 vardır: tanımlar, kısaltmalar ve kurallar. Ailenin sözlüğüdür. Kanal çifti, spektral sapma ya da ayar süresi gibi terimlerin resmi tanımları burada yer alır."
+  },
+  {
+   "id": "r3",
+   "text": "G.989.1, genel gereksinimleri koyar: hangi servisler taşınacak, hangi kapasite hedeflenecek, eski sistemlerle nasıl bir arada çalışılacak. Diğer dokümanların cevapladığı sorular burada sorulur."
+  },
+  {
+   "id": "r4",
+   "text": "G.989.2, bu serinin konusu: fiziksel ortama bağımlı katman, yani PMD. Işığın kendisini tanımlar: dalga boyları, güçler, sönüm oranları, alıcı hassasiyetleri, ayar süreleri ve girişim toleransları."
+  },
+  {
+   "id": "r5",
+   "text": "G.989.3 ise iletim yakınsama katmanını, yani TC'yi tanımlar: çerçeve yapısı, ONU aktivasyonu, bant genişliği tahsisi, kanal yönetimi, güvenlik ve koruma. G.989.2'nin özeti, TC katmanının XG-PON'un G.987.3'üne dayandığını ve NG-PON2'ye özgü değişikliklerin G.989.3'te toplandığını söyler."
+  },
+  {
+   "id": "r6",
+   "text": "En üstte G.988 vardır, yani OMCI: ONU'nun yönetim ve kontrol arayüzü. Servislerin ONU üzerinde nasıl yapılandırılacağını tanımlar."
+  },
+  {
+   "id": "r7",
+   "text": "G.989.2'nin dokuzuncu maddesi, katmanlı yapıyı tek cümleyle özetler: veri düzlemi ve yardımcı yönetim ve kontrol düzlemi, ortak fiziksel ortamın, yani NG-PON2 ODN'inin üzerine oturur."
+  },
+  {
+   "id": "r8",
+   "text": "Bu seride odağımız PMD. Ama PMD'yi doğru anlamak için, TC katmanıyla hangi noktada el sıkıştığını bilmemiz gerekir. Şimdi ilk TC köprümüzü kuruyoruz."
+  },
+  {
+   "id": "r9",
+   "text": "G.989.3'e göre TC katmanı üç alt katmandan oluşur. En üstteki servis uyarlama alt katmanı, kullanıcı verisini ve OMCI mesajlarını XGEM çerçevelerine paketler; gerekirse böler ve isteğe bağlı olarak şifreler."
+  },
+  {
+   "id": "r10",
+   "text": "Ortadaki çerçeveleme alt katmanı, PON'un yönetimi için gereken başlık alanlarını oluşturur. En alttaki PHY uyarlama alt katmanı ise ileri hata düzeltme kodlamasını ve karıştırmayı uygular, ve senkronizasyon bloğunu ekler."
+  },
+  {
+   "id": "r11",
+   "text": "Ve işte sınır. G.989.3'e göre aşağı yönde TC ile PMD arasındaki arayüz, nominal hat hızında akan ve yüz yirmi beş mikrosaniyelik çerçevelere bölünmüş sürekli bir bit akışıdır. Yukarı yönde ise bu arayüz, hassas zamanlanmış burst'lerden oluşan bir dizidir."
+  },
+  {
+   "id": "r12",
+   "text": "On gigabitlik aşağı yönde tek bir çerçeve, yüz elli beş bin beş yüz yirmi bayttır. Çerçeve, yirmi dört baytlık bir fiziksel senkronizasyon bloğuyla başlar. ONU, bu bloğun içindeki sabit altmış dört bitlik deseni yakalayarak çerçeve sınırına kilitlenir."
+  },
+  {
+   "id": "r12a",
+   "text": "Somut bir örnekle izleyelim. Bin beş yüz baytlık bir Ethernet çerçevesi OLT'ye gelir. Servis uyarlama alt katmanı, önüne sekiz baytlık bir XGEM başlığı ekler. Bu başlık, çerçevenin hangi akışa ait olduğunu söyleyen XGEM port kimliğini taşır."
+  },
+  {
+   "id": "r12b",
+   "text": "Çerçeveleme alt katmanı bu XGEM çerçevelerini kendi çerçevesinin içine dizer ve başlıkları ekler. PHY uyarlama alt katmanı ise veriyi iki yüz kırk sekiz baytlık kod sözcüklerine böler: her birinin iki yüz on altı baytı veri, otuz iki baytı eşliktir."
+  },
+  {
+   "id": "r12c",
+   "text": "Yalnızca FEC'i hesaba katarsak, aşağı yön kapasitesinin yaklaşık yüzde on üçü düzeltmeye gider: dokuz virgül dokuz beş gigabitlik hattın yaklaşık sekiz virgül altı yedi gigabiti veri taşır. G.989.3'e göre FEC desteği her iki yönde de zorunludur; aşağı yönde statik olarak açılıp kapatılır, yukarı yönde ise OLT tarafından dinamik olarak kontrol edilir."
+  },
+  {
+   "id": "r13",
+   "text": "PMD açısından bunun anlamı şudur: PMD, bitlerin ne anlama geldiğini bilmez. Onun işi, TC'nin verdiği bit akışını ışığa, ışığı da yeniden bit akışına, belirli bir hata oranının altında çevirmektir."
+  },
+  {
+   "id": "r14",
+   "text": "Hata oranı dedik; burada çok önemli bir köprü var. G.989.2'deki alıcı hassasiyetleri, bir bit hata oranı referansına göre tanımlanır. Bu referans, on gigabitlik hızlarda on üzeri eksi üç, iki virgül beş gigabitlik hızlarda on üzeri eksi dörttür."
+  },
+  {
+   "id": "r15",
+   "text": "Bin bitte bir hata, bir fiber hattı için korkunç görünebilir. Ama bu, ileri hata düzeltmeden önceki ham hata oranıdır. G.989.3'teki Reed Solomon kodları, on gigabitte RS iki yüz kırk sekiz, iki yüz on altı, iki virgül beş gigabitte RS iki yüz kırk sekiz, iki yüz otuz iki, bu ham hataları düzelterek servisin ihtiyaç duyduğu çok düşük hata oranını sağlar."
+  },
+  {
+   "id": "r16",
+   "text": "Yani PMD testinde ölçtüğünüz hassasiyet, FEC'in var olduğu varsayımına dayanır. Bir alıcıyı FEC'siz bir düzenekte, on üzeri eksi on iki hedefiyle ölçerseniz, standardın tanımladığı şeyi ölçmemiş olursunuz. Beşinci bölümde bu ayrımı laboratuvarda göreceğiz."
+  },
+  {
+   "id": "r17",
+   "text": "Son olarak yönetim kanalları. G.989.3 üç kanal tanımlar: çerçeve başlıklarına gömülü OAM, mesaj tabanlı PLOAM ve OMCI'yi taşıyan OMCC. Gömülü OAM ve PLOAM, PMD ve TC katmanlarını yönetir; yani kanal ayarı ve güç seviyesi gibi komutlar bu kanallardan gelir."
+  },
+  {
+   "id": "r18",
+   "text": "Burada NG-PON2'ye özgü ilginç bir ayrıntı var. Henüz yeterince kalibre olmamış bir ONU, yanlış dalga boyunda konuşup çalışan kanalları bozabilir. Bu yüzden G.989.3, böyle bir ONU'nun kendini tanıtma mesajını, AMCC adı verilen düşük hızlı bir yardımcı kanal üzerinden göndermesine izin verir. Bu konuya yedinci ve sekizinci bölümlerde döneceğiz."
+  },
+  {
+   "id": "r18a",
+   "text": "Bu arada, TC katmanının ONU için tanımladığı durum makinesine de kısaca bakalım. G.989.3'e göre ONU, başlangıç durumundan seri numarası, ranging ve çalışma durumlarına ilerler. NG-PON2'ye özgü iki durum daha vardır: aşağı yön ayar durumu ve yukarı yön ayar durumu, yani O8 ve O9. Kanal değiştiren bir ONU bu durumlardan geçer; yedinci bölümde ayar süresini bu durumlara bağlayacağız."
+  },
+  {
+   "id": "r19",
+   "text": "Mühendis notu. Bir PMD parametresini okurken her zaman sorun: bu değer hangi bit hata oranı referansına, hangi hat hızına ve hangi FEC varsayımına göre verilmiş? Datasheet'lerde en sık yapılan hata, farklı referanslara göre verilmiş değerleri karşılaştırmaktır."
+  },
+  {
+   "id": "r20",
+   "text": "Katmanları gördük. Şimdi fiziksel dünyaya dönelim: G.989.2'nin referans mimarisinde hangi kutular var, ve ölçümü tam olarak nerede yapıyoruz?"
+  }
+ ]
+}

@@ -40,3 +40,15 @@ ile seçilen 10 sn, vuruş 5,88 sn → `assets/intro_theme_10s.wav`). Görseller
 | Seri intro'su (10 sn, müziğe kilitli) | `scenes/intro.py` | `cd scenes && EP=1 manim -qh --resolution 1920,1080 --frame_rate 30 --media_dir ../build/media --disable_caching intro.py Intro` |
 | B01 açılış özeti | `scenes/ep01_open.py`, `script/ep01_open.json` | `python3 tools/tts.py script/ep01_open.json build/ep01_open/audio && python3 tools/prep_audio.py build/ep01_open/audio/manifest.json build/ep01_open/audio_proc 1.06` sonra manim |
 | Birleştirme + altyazı | `tools/assemble.py` | `python3 tools/assemble.py <spec.json> <çıktı.mp4>` |
+
+## Ses hattı v4 (B01 tam bölüm)
+- **Model:** `gemini-3.8-flash-tts`, ses **Sadaltager**, stil talimatı yok (3.x modelleri talimatı zaman zaman sesli okuyor).
+  Kotalar (Tier 1): 2.5-pro-tts 50 istek/gün, 3.8-flash-tts 100 istek/gün → gruplu üretim zorunlu.
+- **Okunuş sözlüğü:** `tools/lexicon.py` — kısaltmalar TTS'e Türkçe okunuşla gider (NG-PON2 → "en ci pon iki", OLT → "o el ti", FEC → "fek" …);
+  altyazılar orijinal yazımı korur.
+- **Sağlam üretim:** `tools/tts_robust.py` — grup başına 1 istek → grup transkripsiyonu ile tekrar/atlama kontrolü (gerekirse yeniden üret / beat beat)
+  → Gemini ile paragraf başlangıç zamanları + en yakın duraklama → beat bazında baş/son kelime kontrolü. Elle sınır düzeltme: `tools/fix_cut.py`.
+- **Tempo:** `tools/prep_audio.py … 0.86` — ffmpeg `rubberband` (formant korumalı) ile ~106 kelime/dk ders temposu.
+- **Render:** `tools/render_many.sh h $(cat build/all_scenes.txt)` (4 paralel, sahne başına ayrı önbellek).
+- **Birleştirme:** `NO_SUBS=1 CRF=20 python3 tools/assemble.py build/ep01_full_spec.json deliverables/B01/LAMBDA_B01_Isiga_Donus.mp4`
+  → MP4 (H.264 + AAC stereo, faststart) + ayrı `.tr.srt`.

@@ -41,7 +41,7 @@ def make_tree(x_olt=-5.3, x_sp=-0.9, x_onu=4.9, y0=-0.4, n=4, spread=1.25, names
 
 
 class P1Base(Narrated):
-    MANIFEST = "build/ep01_p1/audio_proc/manifest.json"
+    MANIFEST = "build/v4/ep01_p1/audio_proc/manifest.json"
     FIRST = False
     PREV_BADGE = None
 

@@ -12,7 +12,8 @@ def silences(path, db=-42, d=0.18):
 def run(manifest_in, out_dir, tempo=1.08):
     m = json.loads(Path(manifest_in).read_text()); out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     trim = "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05"
-    af = f"{trim},areverse,{trim},areverse,atempo={tempo},aresample=48000"
+    stretch = f"rubberband=tempo={tempo}:transients=mixed:formant=preserved:pitchq=quality" if abs(tempo - 1) > 1e-3 else "anull"
+    af = f"{trim},areverse,{trim},areverse,{stretch},aresample=48000"
     for b in m["beats"]:
         fn = out / Path(b["file"]).name
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", b["file"], "-af", af, "-ac", "1", str(fn)], check=True)

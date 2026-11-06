@@ -1,0 +1,92 @@
+{
+ "title": "B01 Perde 5 — Hat hızları ve G.989.2'yi okumak",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "t1",
+   "text": "Perde beş: hızlar ve harita. G.989.2'de iki nominal hat hızı vardır: dokuz virgül dokuz beş üç iki sekiz ve iki virgül dört sekiz sekiz üç iki gigabit. Bu tuhaf sayılar tesadüf değil."
+  },
+  {
+   "id": "t2",
+   "text": "İkisi de yüz elli beş virgül elli iki megabitin katlarıdır: biri altmış dört katı, diğeri on altı katı. Bu SDH hiyerarşisinden gelen bir mirastır; aynı hızlar STM-64 ve STM-16 olarak bilinir. Standart ayrıca hat hızının sekiz kilohertzin katı olmasını ister; yüz yirmi beş mikrosaniyelik çerçeve de buradan gelir."
+  },
+  {
+   "id": "t3",
+   "text": "On birinci maddedeki ilk tablo, kanal başına üç hız seçeneği tanımlar. Temel hız: aşağı yönde on, yukarı yönde iki virgül beş gigabit. Birinci seçenek: iki yönde on gigabit. İkinci seçenek: iki yönde iki virgül beş gigabit. Bir kanal grubundaki her TWDM kanalı, bu seçeneklerden herhangi birini kullanabilir."
+  },
+  {
+   "id": "t4",
+   "text": "G.989.3 bu tabloya bir satır daha ekler. Bir OLT kanal sonlandırıcısı, yukarı yönde hem on hem iki virgül beş gigabiti birlikte destekleyebilir. Bu çift hızlı kanal, aynı PHY çerçevesi içinde iki farklı hızda konuşan ONU'lara hizmet verir."
+  },
+  {
+   "id": "t5",
+   "text": "ONU tarafında ise üç kombinasyon vardır, ve bir ONU kanal değiştirerek farklı bir hıza geçebilir. Yani NG-PON2'de hız, kanalın bir özelliğidir; ONU hangi kanala ayarlanırsa, o kanalın hızını konuşur."
+  },
+  {
+   "id": "t6",
+   "text": "Hat kodlaması her iki yönde ve her hızda karıştırılmış NRZ'dir. Mantık seviyeleri basittir: yüksek ışık seviyesi bir, düşük ışık seviyesi sıfırdır. Göz diyagramı ve sönüm oranı ölçümleri bu temel üzerine kurulur."
+  },
+  {
+   "id": "t7",
+   "text": "Saat doğruluğu da tanımlıdır. Normal çalışmada OLT, tipik olarak Stratum-1 bir referansa izlenebilir. Serbest çalışmada bile, aşağı yön sinyali en az Stratum-4 doğruluğunda, yani milyonda otuz iki mertebesinde olmalıdır. ONU ise yukarı yönde, aldığı aşağı yön sinyalinin frekans doğruluğuyla gönderir."
+  },
+  {
+   "id": "t7a",
+   "text": "Standart burada bir not da düşer: mobil şebeke bağlantısı gibi zamanlamaya duyarlı uygulamalarda, OLT'nin serbest çalışmada Stratum-3 kalitesine ihtiyaç duyabileceğini söyler."
+  },
+  {
+   "id": "t8",
+   "text": "Şimdi dokümanın haritası. Altıncı madde mimariyi, yol kaybı ve fiber mesafe sınıflarını tanımlar. Dokuzuncu madde ortak gereksinimleri verir: dalga boyu planı, genel PMD tanımları, ayar özellikleri ve kanal dışı güç maskesi."
+  },
+  {
+   "id": "t9",
+   "text": "Onuncu madde girişimin sinyale oranına karşı toleransı, on birinci madde ise TWDM için asıl parametre tablolarını içerir. Hassasiyetler, güçler, sönüm oranları, spektral sapmalar ve göz maskeleri bu tablolardadır."
+  },
+  {
+   "id": "t10",
+   "text": "Ekler iki türlüdür. Harfli ekler, A'dan D'ye, standardın bağlayıcı parçasıdır: ayarlanabilir PtP WDM, AMCC, düşük kayıplı PtP WDM ve ONU güç dengeleme. Roma rakamlı ekler ise, birden on bire, bilgilendiricidir. Doküman bunu her birinin başında açıkça yazar."
+  },
+  {
+   "id": "t11",
+   "text": "Bilgilendirici olmaları önemsiz oldukları anlamına gelmez. Raman etkileşimleri, döngüsel AWG tasarımı, ayar süresi değerlendirmeleri ve OLT'de burst edinim süresinin nasıl ölçüleceği bu eklerdedir. Bir test mühendisi için en değerli sayfaların bir kısmı buradadır."
+  },
+  {
+   "id": "t11a",
+   "text": "Şimdi bir tabloyu birlikte okuyalım: on gigabitlik aşağı yönü tanımlayan Tablo 11-5. Üst yarısı OLT vericisini, alt yarısı ONU alıcısını tanımlar. Bazı satırlar tek bir değer verir; bazıları ise dört kayıp sınıfı için ayrı sütunlara bölünür."
+  },
+  {
+   "id": "t11b",
+   "text": "Vericiden birkaç satır: çalışma bandı bin beş yüz doksan altı ile bin altı yüz üç nanometre, kanal aralığı yüz gigahertz, en büyük spektral sapma artı eksi yirmi gigahertz, en küçük sönüm oranı sekiz virgül iki desibel ve yan mod bastırma oranı en az otuz desibel. Dikkat edin: yan mod bastırma oranı, CG'ye değil CP noktasına göre verilmiştir."
+  },
+  {
+   "id": "t11c",
+   "text": "Kanal başına ortalama başlatma gücü sınıfa göre değişir: N1 için en az artı üç, en çok artı yedi dBm; E2 için en az artı dokuz, en çok artı on bir dBm. Alıcı tarafında hassasiyet, dört sınıfın hepsinde eksi yirmi sekiz dBm'dir; bit hata oranı referansı on üzeri eksi üç, en büyük optik yol cezası ise iki desibeldir."
+  },
+  {
+   "id": "t11d",
+   "text": "Şimdi en güzel kısım. N1 sınıfında en düşük başlatma gücünü alın: artı üç. En büyük yol kaybını çıkarın: yirmi dokuz. Yol cezasını çıkarın: iki. Sonuç eksi yirmi sekiz dBm, yani tam olarak alıcı hassasiyeti. Aynı hesap N2, E1 ve E2 için de eksi yirmi sekizi verir. Tablo, kendi içinde kapanan bir güç bütçesidir."
+  },
+  {
+   "id": "t11e",
+   "text": "Aynı şeyi ters yönden yapın: en yüksek başlatma gücünden en düşük yol kaybını çıkarın. N1 için artı yedi eksi on dört, eksi yedi dBm eder; tablodaki aşırı yük değeri. E2'de bu hesap eksi dokuzu verir, tablo da eksi dokuz der. Bir PMD tablosunu okumanın en iyi yolu, satırlarını birbirine karşı doğrulamaktır."
+  },
+  {
+   "id": "t11f",
+   "text": "Son bir kontrol: dispersiyon aralığı, yirmi kilometre için sıfır ile dört yüz yirmi pikosaniye bölü nanometredir. Bu, kilometre başına yaklaşık yirmi bir pikosaniye bölü nanometre demektir; L bandındaki standart fiberin dispersiyonu da tam bu mertebededir. İkinci perdede söylediğimiz şey, tabloda sayıya dönüşmüş olarak duruyor."
+  },
+  {
+   "id": "t12",
+   "text": "Ve gözden kaçmaması gereken bir not. Altıncı maddenin sonunda şöyle yazar: on birinci maddedeki güç spektral yoğunluğu değerleri, dört kanal ve yirmi kilometre için optimize edilmiştir. Sekiz kanal ve kırk kilometre için çalışmalar ileride yapılacaktır."
+  },
+  {
+   "id": "t13",
+   "text": "Yani sekiz kanallı ya da kırk kilometrelik bir sistem tasarlıyorsanız, tablodaki bazı değerler doğrudan geçerli olmayabilir. Standardı okurken dipnotlar ve bu tür cümleler, en az tabloların kendisi kadar önemlidir."
+  },
+  {
+   "id": "t14",
+   "text": "Son olarak sürümler. Bu seride ikinci baskıyı, ve onun düzeltme ve değişiklik eklerini temel alıyoruz. İkinci baskı, önceki değişiklikleri birleştirip bazı bant dışı ve kanal dışı girişim parametrelerini gevşetti. Düzeltme eki ONU alıcısının girişim toleransı tablosunu yeniledi; değişiklik eki ise güç dengeleme ekindeki değerleri güncelledi. Elinizdeki dokümanın sürümünü her zaman kontrol edin."
+  }
+ ]
+}

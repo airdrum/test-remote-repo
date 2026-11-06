@@ -1,0 +1,44 @@
+{
+ "title": "B01 Laboratuvarda — test tezgâhı",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "u1",
+   "text": "Laboratuvarda. Bölümü kapatmadan önce, sezon boyunca kullanacağımız test tezgâhını tanıyalım. Her cihaz, ilerideki bölümlerde belirli bir G.989.2 parametresinin karşısına oturacak."
+  },
+  {
+   "id": "u2",
+   "text": "Optik spektrum analizörü, yani OSA: kanal haritasını, yan mod bastırma oranını ve spektral sapmayı görmek için. Elli ve yüz gigahertzlik kanal aralıklarında, analizörün çözünürlük bant genişliği ölçümün doğruluğunu doğrudan belirler. Üçüncü, dördüncü ve yedinci bölümlerde kullanacağız."
+  },
+  {
+   "id": "u3",
+   "text": "Örnekleme osiloskobu, yani DCA, standart referans alıcısıyla birlikte: göz maskesi ve sönüm oranı için. Hem sürekli aşağı yön sinyalinde hem de yukarı yönün burst'lerinde kullanılacak; dördüncü ve altıncı bölümler."
+  },
+  {
+   "id": "u3a",
+   "text": "Göz maskesi için standart yalnızca maskenin geometrisini değil, ölçüm düzeneğini de tanımlar: OLT vericisinin maske parametreleri Tablo 11-8'de, test düzeneği ise Şekil 11-4'tedir. Bir de kalibrasyon uyarısı: güç ölçerinizin ve OSA'nızın, ölçtüğünüz dalga boyunda kalibre edildiğinden emin olun. Bin beş yüz elli nanometrelik varsayılan ayar, L bandında onda birler mertebesinde desibel hatası getirebilir."
+  },
+  {
+   "id": "u4",
+   "text": "Bit hata oranı test cihazı, yani BERT, sürekli ve burst modda. Alıcı hassasiyeti, aşırı yük ve yol cezası ölçümlerinin merkezinde o var; beşinci ve sekizinci bölümler."
+  },
+  {
+   "id": "u5",
+   "text": "Değişken optik zayıflatıcı, yani VOA: yol kaybını laboratuvarda yeniden yaratmak için. Burst'ü algılayan bir güç ölçer: birinci perdede gördüğümüz tuzağa düşmemek için. Ve hızlı fotodiyotlu bir osiloskop: burst zamanlaması ve ayar süresi için."
+  },
+  {
+   "id": "u6",
+   "text": "Bunlara ek olarak, gerçek dispersiyon için yirmi ve kırk kilometrelik fiber makaraları; girişim testlerinde komşu kanalları taklit eden ayarlanabilir kaynaklar; ve bir sıcaklık kabini. Çünkü standart, bütün değerlerin en kötü çalışma koşullarında, sıcaklık ve nem dahil, yaşlanma etkileriyle birlikte sağlanmasını ister."
+  },
+  {
+   "id": "u6a",
+   "text": "Bu cihazlar tek tek değil, bir düzenek içinde çalışır. Tipik bir aşağı yön testinde OLT vericisinin sinyali, bir VOA ve fiber makarasıyla kurulan referans ODN'den geçer. Yol üzerindeki bir kuplör, sinyalin bir kısmını OSA'ya ve güç ölçere ayırır; ONU alıcısının hata oranı ise BERT ile izlenir. İkinci bölümde bu referans ODN'i adım adım kuracağız."
+  },
+  {
+   "id": "u7",
+   "text": "Mühendis notu. Bir test planı kurarken, her ölçümün yanına üç şey yazın: referans noktası, bit hata oranı referansı ve sıcaklık koşulu. Bu bölümde gördüğümüz her şey, bu üç sütunun neden gerekli olduğunu açıklıyor."
+  }
+ ]
+}

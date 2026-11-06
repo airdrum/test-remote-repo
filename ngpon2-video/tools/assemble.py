@@ -33,10 +33,13 @@ def run(spec_path, out):
     fc.append("".join(f"[v{i}][a{i}]" for i in range(n)) + f"concat=n={n}:v=1:a=1[v][a]")
     srt = Path(out).with_suffix(".tr.srt")
     srt.write_text("".join(f"{k}\n{srt_time(a)} --> {srt_time(z)}\n{t}\n\n" for k, (a, z, t) in enumerate(rows, 1)), encoding="utf-8")
-    subprocess.run(["ffmpeg", "-y", "-v", "error", *ins, "-i", str(srt), "-filter_complex", ";".join(fc),
-                    "-map", "[v]", "-map", "[a]", "-map", f"{n}:s", "-c:v", "libx264", "-crf", "18", "-preset", "medium",
-                    "-c:a", "aac", "-b:a", "192k", "-c:s", "mov_text", "-metadata:s:s:0", "language=tur",
-                    "-movflags", "+faststart", out], check=True)
+    import os
+    subs = os.environ.get("NO_SUBS") != "1"
+    cmd = ["ffmpeg", "-y", "-v", "error", *ins] + (["-i", str(srt)] if subs else []) + ["-filter_complex", ";".join(fc),
+           "-map", "[v]", "-map", "[a]"] + (["-map", f"{n}:s", "-c:s", "mov_text", "-metadata:s:s:0", "language=tur"] if subs else []) + \
+          ["-c:v", "libx264", "-crf", os.environ.get("CRF", "18"), "-preset", "medium", "-pix_fmt", "yuv420p",
+           "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart", out]
+    subprocess.run(cmd, check=True)
     print("wrote", out, f"{dur(out):.1f}s")
 
 if __name__ == "__main__":

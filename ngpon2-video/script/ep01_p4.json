@@ -1,0 +1,76 @@
+{
+ "title": "B01 Perde 4 — Referans mimari",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "s1",
+   "text": "Perde dört: referans mimari. G.989.2'nin altıncı maddesindeki ilk şekil, NG-PON2'nin mantıksal referans mimarisini gösterir. Bu şekli sezon boyunca defalarca kullanacağız; o yüzden kutu kutu kuralım."
+  },
+  {
+   "id": "s2",
+   "text": "OLT tarafında kanal sonlandırıcılar vardır. Her TWDM kanal sonlandırıcısı, bir aşağı yön ve bir yukarı yön dalga boyundan oluşan bir kanal çiftini yönetir. PtP WDM kanal sonlandırıcıları da aynı yapıda yer alır."
+  },
+  {
+   "id": "s3",
+   "text": "Kanal sonlandırıcıların çıkışları, dalga boyu çoklayıcıda, yani WM'de birleşir. WM farklı renkleri tek bir fibere toplar; ters yönde ise gelen renkleri doğru kanal sonlandırıcısına ayırır."
+  },
+  {
+   "id": "s4",
+   "text": "Ardından birlikte çalışma elemanı gelir. Bu eleman NG-PON2'yi aynı fiberdeki GPON, XG-PON ve RF video gibi eski sistemlerle birleştirir. Böylece mevcut bir ağa, kullanıcıları kesintiye uğratmadan NG-PON2 eklenebilir."
+  },
+  {
+   "id": "s5",
+   "text": "Sonra ODN gelir: fiber ve pasif ayırıcılar. Standart ODN'in güç ayırıcılarla kurulmasını esas alır, ama dalga boyu ayırıcıların kullanılmasına da izin verir. ODN'in diğer ucunda ONU'lar vardır ve her ONU'da ayarlanabilir bir verici ile ayarlanabilir bir alıcı bulunur."
+  },
+  {
+   "id": "s6",
+   "text": "Altıncı madde bir noktanın daha altını çizer: şekildeki mantıksal fonksiyonlar ayrı fiziksel kutular olabilir, ya da tek bir cihazda bütünleşebilir. Yani WM ve birlikte çalışma elemanı OLT şasisinin içinde de olabilir, sahada ayrı bir panelde de."
+  },
+  {
+   "id": "s6a",
+   "text": "Bunu gerçek bir senaryoyla düşünelim. Bir operatörün sahada çalışan bir GPON ağı var. Merkez ofiste fiberin başına bir birlikte çalışma elemanı yerleştirilir ve NG-PON2 OLT'si bu elemana bağlanır. GPON kullanıcıları hiçbir şey fark etmez; NG-PON2 ONU'ları ise aynı ayırıcılar üzerinden kendi renklerinde çalışmaya başlar."
+  },
+  {
+   "id": "s6b",
+   "text": "Bunun mümkün olmasının nedeni, NG-PON2'nin dalga boyu planının, eski sistemlerin bantlarını boş bırakacak şekilde seçilmiş olmasıdır. Bu planı üçüncü bölümde nanometre nanometre inceleyeceğiz."
+  },
+  {
+   "id": "s7",
+   "text": "Şimdi en önemli kısım: referans noktaları. S, ağa gönderim arayüzüdür; R, ağdan alım arayüzüdür. Tek bir fiberde iki yön birlikte bulunduğu için, OLT tarafındaki noktaya S bölü R, ONU tarafındaki noktaya R bölü S denir."
+  },
+  {
+   "id": "s8",
+   "text": "NG-PON2 OLT tarafındaki noktayı ikiye ayırır. Birincisi kanal grubu noktası, yani S bölü R CG. Bu nokta WM'nin çıkışındadır ve bütün kanallar burada bir aradadır. G.989.2'nin on birinci maddesindeki bütün PMD tabloları bu noktaya göre yazılmıştır. Yol kaybı sınıfları da bu nokta ile ONU tarafındaki R bölü S arasında tanımlanır."
+  },
+  {
+   "id": "s9",
+   "text": "İkincisi kanal çifti noktası, yani S bölü R CP. Bu nokta WM'den önce, tek bir kanal sonlandırıcının, yani tek bir transceiver'ın portundadır. Standart bu noktayı alternatif ve bilgilendirici bir yöntem olarak tanımlar; değerleri on birinci bilgilendirici ekte verilir."
+  },
+  {
+   "id": "s10",
+   "text": "Neden iki nokta? Çünkü CG noktası her zaman erişilebilir değildir, ya da bir OLT transceiver üreticisine, WM'den bağımsız, basit bir hassasiyet şartnamesi vermek gerekir. Standart, CP değerlerinin birincil yöntemle tutarlı olduğunu ve WM kaybı için sektörün en iyi uygulamalarına dayandığını belirtir."
+  },
+  {
+   "id": "s11",
+   "text": "Laboratuvar için bunun anlamı nettir: güç ölçerinizi CP'ye takarsanız, okuduğunuz değer ile tablodaki CG değeri arasında WM'nin kaybı kadar fark vardır. Aynı transceiver, iki farklı noktada iki farklı sayı verir ve ikisi de doğrudur."
+  },
+  {
+   "id": "s12",
+   "text": "Şekil bir şeyi daha söyler: aynı ODN üzerinde dört ila sekiz TWDM kanalı ve en az dört PtP WDM kanalı birlikte bulunabilir. Ve mimari, aynı ODN üzerinde birden fazla OLT'ye de izin verir; örneğin kademeli büyüme ya da spektral esneklik için."
+  },
+  {
+   "id": "s13",
+   "text": "Yol kaybı tarafında da bir hatırlatma yapalım. Kayıp sınıfları, on beş desibellik bir diferansiyel kaybı hesaba katar. Ayrıca kaybı, sınıfın alt sınırından düşük olan ağlarda, örneğin düşük oranlı bir ayırıcıyla kurulmuş kısa bir ağda, alıcıların zarar görmemesi ve hata oranının bozulmaması için optik zayıflatıcı gibi önlemler alınmalıdır."
+  },
+  {
+   "id": "s14",
+   "text": "Mühendis notu. Bir datasheet'te hassasiyet ya da başlatma gücü gördüğünüzde ilk soru şu olmalı: bu değer CG'ye mi, CP'ye mi göre verilmiş? Ve WM kaybı nereye yazılmış? Bu iki soru, entegrasyon aşamasındaki bütçe sürprizlerinin büyük kısmını önler."
+  },
+  {
+   "id": "s15",
+   "text": "Mimari tamam. Şimdi bu kutuların hangi hızlarda konuştuğuna, ve G.989.2'nin kendisini nasıl okuyacağımıza bakalım."
+  }
+ ]
+}
