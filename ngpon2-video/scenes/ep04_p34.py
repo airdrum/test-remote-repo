@@ -20,7 +20,7 @@ class E4P3A(Act4):
         x0, y0, sy, fl = -6.0, -2.4, 0.07, -58.0
         ax = mini_axes(x0, y0, 6.6, 4.3, "optik frekans", "güç (dB)", xbuff=0.12)
         o = np.array([x0 + 3.0, y0, 0])
-        spec = spec_db(o, 1.0, sy, [(0, 0), (-1.2, -37), (1.2, -33), (-2.4, -46), (2.4, -44)], (-2.95, 3.5), floor=fl, w=0.035)
+        spec = spec_db(o, 1.0, sy, [(0, 0), (-1.2, -37), (1.2, -33), (-2.4, -46), (2.4, -44)], (-2.95, 3.5), floor=fl, w=0.012, n=700)
         ytop, yside = y0 + (0 - fl) * sy, y0 + (-33 - fl) * sy
         axx = o[0] + 2.55
         sm = VGroup(DashedLine([o[0] + 0.1, ytop, 0], [axx + 0.1, ytop, 0], color=GOLD, stroke_width=1.5),
@@ -159,6 +159,8 @@ class E4P3A(Act4):
         loop = VGroup(box(1.9, 0.6, "sıcaklık kontrol", GOLD, 15).move_to([2.2, -1.3, 0]))
         lw = VGroup(Line(th.get_center(), [1.25, -1.05, 0], color=MUTED, stroke_width=2), Line([1.25, -1.55, 0], [-0.7, -1.55, 0], color=MUTED, stroke_width=2))
         lt = VGroup(T("lazer yongası", 15, TW_DS).next_to(chip, UP, buff=0.08), T("TEC", 15, GOLD, BOLD).next_to(tec[0], DOWN, buff=0.08), T("termistör", 14, WARN).move_to([-0.6, -0.75, 0]))
+        tecg = VGroup(tec, chip, th, lt, loop, lw)
+        tecg.scale(1.25).move_to([0, -1.15, 0])
         cap = T("OLT lazerleri pratikte termoelektrik soğutucuyla sıcaklık kontrollü", 21, GOOD, BOLD).move_to(DOWN * 2.6)
         self.play(FadeIn(r1, shift=UP * 0.1), run_time=0.6)
         self.at(self.cue("Tipik bir DFB", 6))
@@ -180,15 +182,15 @@ class E4P3B(Act4):
         self.beat("d3")
         self.set_badge("std")
         h = self.show_heading("Komşuları korumak: iki güç yoğunluğu sınırı")
-        axg, X = nm_axis(1595, 1627, x0=-6.0, x1=6.0, y=0.25, step=1, label_every=5, size=14)
+        axg, X = nm_axis(1595, 1627, x0=-5.0, x1=6.1, y=0.25, step=1, label_every=5, size=14)
         chans = VGroup(*[Line([X(v), 0.25, 0], [X(v), 1.6, 0], color=TW_DS, stroke_width=4) for v in DS_NM])
         me = chans[1]
         ptp = band(X, 1603, 1625, 0.7, 0.9, PTP, "PtP WDM kanalları", op=0.45, lsize=17, lcolor=TXT)
-        tl = T("TWDM ↓", 15, TW_DS, BOLD).next_to(chans, UP, buff=0.1).shift(LEFT * 0.5)
-        ooc = VGroup(*[CurvedArrow([X(DS_NM[1]), 1.65, 0], [X(DS_NM[j]), 1.65, 0], angle=-1.4 if j > 1 else 1.4, color=ACC, stroke_width=2.5, tip_length=0.1) for j in (0, 2, 3)])
+        tl = T("TWDM ↓", 16, TW_DS, BOLD).next_to(chans, LEFT, buff=0.25)
+        ooc = VGroup(*[CurvedArrow([X(DS_NM[1]), 1.65, 0], [X(DS_NM[j]), 1.65, 0], angle=-2.0 if j > 1 else 2.0, color=ACC, stroke_width=2.5, tip_length=0.1) for j in (0, 2, 3)])
         oob = CurvedArrow([X(DS_NM[1]) + 0.05, 1.8, 0], [X(1612), 1.2, 0], angle=-0.7, color=PTP, stroke_width=2.5, tip_length=0.14)
         oobt = T("bant dışı (OOB)", 17, PTP, BOLD).move_to([X(1608), 2.2, 0])
-        ooct = T("kanal dışı (OOC)", 17, ACC, BOLD).next_to(chans, LEFT, buff=0.3).shift(UP * 0.35)
+        ooct = T("kanal dışı (OOC)", 17, ACC, BOLD).move_to([chans.get_x(), 2.2, 0])
         tb = table(["kanal başına, dBm / 15 GHz", "4 kanal", "8 kanal"], [["kanal dışı (OOC) → diğer TWDM kanalları", "−34,5", "−42,4"], ["bant dışı (OOB) → PtP WDM kanalları", "−44,9", "−52,1"]],
                    [6.6, 2.3, 2.3], size=22, hsize=17, row_h=0.6).move_to(DOWN * 1.65)
         self.play(Create(axg[0]), FadeIn(axg[1:]), FadeIn(chans), FadeIn(tl), FadeIn(ptp), self.set_src("G.989.2 Tablo 11-4, 11-5"), run_time=0.8)
@@ -328,7 +330,8 @@ class E4P3C(Act4):
         for c in cx:
             pts += [[c - 0.45, o1, 0], [c - 0.45, o2, 0], [c + 0.45, o2, 0], [c + 0.45, o1, 0]]
         pts.append([0.2, o1, 0])
-        mask = VMobject(color=GOLD, stroke_width=3).set_points_as_corners(pts)
+        mask = VGroup(VMobject(color=GOLD, stroke_width=3).set_points_as_corners(pts),
+                      *[Line([c - 0.45, o2, 0], [c + 0.45, o2, 0], color=WARN, stroke_width=5) for c in cx])
         vic = VGroup(*[DashedVMobject(Rectangle(width=0.9, height=1.7, color=MUTED, stroke_width=1.5), num_dashes=24).move_to([c, yb + 0.85, 0]) for c in cx])
         vt = T("diğer kanalların ± MSE aralıkları", 15, MUTED).move_to([-2.3, yb + 2.0, 0])
         l1 = T("OOC1 · aralıklar arası · uyumsuz", 16, GOLD, BOLD).move_to([-2.3, yb - 0.35, 0])
@@ -468,10 +471,9 @@ class E4P4A(Act4):
         e3 = VMobject(color=GOOD, stroke_width=2.5).set_points_as_corners([[x0 + w * a, -2.95 + 1.0 * flat(a), 0] for a in t])
         r = VGroup(T("gevşeme salınımı", 22, TW_DS, BOLD), T("→ gözde aşma", 20, TXT), T("frekans çırpıntısı", 22, GOLD, BOLD), T("→ fiberde dispersiyon cezası", 20, TXT),
                    T("EML (harici modülatör)", 22, GOOD, BOLD), T("→ iki etki de çok daha küçük", 20, TXT)).arrange(DOWN, aligned_edge=LEFT, buff=0.14).move_to([3.8, -0.3, 0])
-        for i in (2, 4):
-            r[i].shift(DOWN * 0.18)
-        r[3].shift(DOWN * 0.18)
-        r[5].shift(DOWN * 0.18)
+        r[2:4].shift(DOWN * 0.22)
+        r[4:].shift(DOWN * 0.44)
+        r.move_to([3.8, -0.3, 0])
         self.at(self.cue("Doğrudan modüle", 3))
         self.play(Create(p1), run_time=0.7)
         self.at(self.cue("gevşeme salınımlarına", 6))
@@ -498,7 +500,7 @@ class E4P4B(Act4):
         blocks = VGroup(box(2.3, 0.9, "optik verici", TW_DS, 18), box(2.5, 0.9, "zayıflatıcı\n(gerekirse)", MUTED, 16),
                         box(3.2, 0.9, "O/E + 4. derece\nThomson filtresi", GOLD, 16), box(2.6, 0.9, "dalga biçimi\nmonitörü", GOOD, 16)).arrange(RIGHT, buff=0.55).move_to(UP * 1.35)
         arr = VGroup(*[Arrow(blocks[i].get_right(), blocks[i + 1].get_left(), buff=0.05, color=FEED, stroke_width=2.5, max_tip_length_to_length_ratio=0.3) for i in range(3)])
-        f = T("f₃dB = 0,75 × nominal hız", 34, GOLD, BOLD).move_to(DOWN * 0.15)
+        f = T("3 dB kesim frekansı = 0,75 × nominal hız", 32, GOLD, BOLD).move_to(DOWN * 0.15)
         f10 = T("10G: 0,75 × 9,95328 ≈ 7,5 GHz", 26, TXT, BOLD).move_to(DOWN * 0.95)
         wn = pill("değer metinde değil, şekilde — cihazda doğru filtreyi seçin", WARN, 20).move_to(DOWN * 2.2)
         self.play(FadeIn(blocks[0]), self.set_src("G.989.2 Şekil 11-4"), run_time=0.5)
@@ -526,7 +528,7 @@ class E4P4B(Act4):
         cb = VMobject(color=GOOD, stroke_width=3.5).set_points_smoothly([[x0 + w * a / 9, y0 + hh * v, 0] for a, v in zip(tt, yb_)])
         cu = VMobject(color=WARN, stroke_width=2.5).set_points_smoothly([[x0 + w * a / 9, y0 + hh * v, 0] for a, v in zip(tt, yu_)])
         one = DashedLine([x0, y0 + hh, 0], [x0 + w, y0 + hh, 0], color=MUTED, stroke_width=1.2)
-        l1 = VGroup(T("Thomson: aşma yok", 18, GOOD, BOLD), T("keskin kesimli filtre: aşma", 18, WARN, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08).move_to([x0 + 3.2, y0 + 0.9, 0])
+        l1 = VGroup(T("Thomson: aşma yok", 18, GOOD, BOLD), T("keskin kesimli filtre: aşma", 18, WARN, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08).move_to([x0 + 3.95, y0 + 0.75, 0])
         gd = T("en düzgün grup gecikmesi", 18, GOOD).move_to([x0 + 2.7, y0 + hh * 1.25 + 0.42, 0])
         x1, w1 = 0.9, 5.6
         ax2 = mini_axes(x1, y0, w1, hh * 1.25, "frekans / bit hızı", "genlik", xbuff=0.42)
@@ -614,27 +616,19 @@ class E4P4C(Act4):
         self.clear(h)
         h = self.show_heading("Kökenler ve birim aralık", h)
         ps = VGroup(pill("sınırlar ← G.783 (SDH ekipmanı)", GOLD, 20), pill("filtreler · ölçüm süresi ← G.825", MUTED, 20)).arrange(RIGHT, buff=0.4).move_to(UP * 1.75)
-        U = 4.6
-        xa, xb = -U / 2, U / 2
-        y0, y1 = -1.8, 0.0
-        tr_ = VGroup()
-        rng = np.random.default_rng(7)
-        for k in range(14):
-            d = rng.uniform(-0.15, 0.15) * U
-            for xc in (xa, xb):
-                for s in (1, -1):
-                    tr_.add(Line([xc + d - 0.45, (y0 if s > 0 else y1), 0], [xc + d + 0.45, (y1 if s > 0 else y0), 0], color=TW_DS, stroke_width=1.6, stroke_opacity=0.5))
-            tr_.add(Line([xa + d + 0.45, y1, 0], [xb + d - 0.45, y1, 0], color=TW_DS, stroke_width=1.6, stroke_opacity=0.3),
-                    Line([xa + d + 0.45, y0, 0], [xb + d - 0.45, y0, 0], color=TW_DS, stroke_width=1.6, stroke_opacity=0.3))
-        jb = VGroup(*[Rectangle(width=0.3 * U, height=y1 - y0 + 0.3, stroke_width=0, fill_color=GOLD, fill_opacity=0.18).move_to([xc, (y0 + y1) / 2, 0]) for xc in (xa, xb)])
-        ui = VGroup(DoubleArrow([xa, y0 - 0.4, 0], [xb, y0 - 0.4, 0], buff=0, color=TXT, stroke_width=2.5, tip_length=0.14), T("1 UI @ 10G ≈ 100 ps", 21, TXT, BOLD).move_to([0, y0 - 0.72, 0]))
-        jt = VGroup(DoubleArrow([xb - 0.15 * U, y1 + 0.35, 0], [xb + 0.15 * U, y1 + 0.35, 0], buff=0, color=GOLD, stroke_width=2.5, tip_length=0.1),
-                    T("0,3 UI ≈ 30 ps tepeden tepeye", 21, GOLD, BOLD).move_to([xb + 0.4, y1 + 0.7, 0]))
+        o, U, H = np.array([-2.3, -1.85, 0]), 4.6, 1.6
+        scr = eye_frame(o, U, H, -0.28, 1.28, 1.3, -0.3)
+        tr_ = eye_traces(o, U, H, ov=0.05, u0=-0.28, u1=1.28, jit=0.05, sw=1.8, op=0.45, seed=11)
+        jb = VGroup(*[Rectangle(width=0.3 * U, height=1.6 * H, stroke_width=0, fill_color=GOLD, fill_opacity=0.16).move_to(o + np.array([u * U, 0.5 * H, 0])) for u in (0, 1)])
+        ui = VGroup(DoubleArrow(o + np.array([0, -0.45 * H, 0]), o + np.array([U, -0.45 * H, 0]), buff=0, color=TXT, stroke_width=2.5, tip_length=0.14),
+                    T("1 UI @ 10G ≈ 100 ps", 21, TXT, BOLD).move_to(o + np.array([0.5 * U, -0.68 * H, 0])))
+        jt = VGroup(DoubleArrow(o + np.array([0.85 * U, 1.42 * H, 0]), o + np.array([1.15 * U, 1.42 * H, 0]), buff=0, color=GOLD, stroke_width=2.5, tip_length=0.1),
+                    T("0,3 UI ≈ 30 ps tepeden tepeye", 21, GOLD, BOLD).move_to(o + np.array([0.62 * U, 1.66 * H, 0])))
         self.play(FadeIn(ps[0], shift=UP * 0.1), self.set_src("G.989.2 Tablo 11-10 (Not 1–3)"), run_time=0.5)
         self.at(self.cue("filtreler ve ölçüm", 4))
         self.play(FadeIn(ps[1], shift=UP * 0.1), run_time=0.5)
         self.at(self.cue("Birim aralık cinsinden", 7))
-        self.play(FadeIn(tr_), run_time=0.8)
+        self.play(FadeIn(scr), FadeIn(tr_), run_time=0.8)
         self.at(self.cue("on gigabitte bir birim", 9))
         self.play(FadeIn(ui), run_time=0.5)
         self.at(self.cue("sıfır virgül üç", 13))

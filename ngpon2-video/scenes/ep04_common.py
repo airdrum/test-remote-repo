@@ -111,7 +111,7 @@ def eye_frame(o, W, H, u0=-0.3, u1=1.3, vtop=1.5, vbot=-0.5):
 # ---------- laser spectrum in dB ---------------------------------------------------
 def spec_db(o, sx, sy, modes, xr, floor=-55.0, w=0.05, color=TW_DS, sw=3.0, top=0.0, n=400):
     """Spectrum curve: modes = [(x, dB)], Lorentzian lines on a floor. Plots dB relative to `top` (0 at axis top)."""
-    xs = np.linspace(xr[0], xr[1], n)
+    xs = np.union1d(np.linspace(xr[0], xr[1], n), [m[0] + d for m in modes for d in (-w, -w / 3, 0, w / 3, w) if xr[0] <= m[0] + d <= xr[1]])
     p = np.full_like(xs, 10 ** (floor / 10))
     for x0, db in modes:
         p += 10 ** (db / 10) / (1 + ((xs - x0) / w) ** 2)
