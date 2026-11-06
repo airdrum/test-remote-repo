@@ -1,0 +1,68 @@
+{
+ "title": "B02 Perde 3 — Bütçe denklemi",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: bütçe denklemi. Dokuzuncu maddedeki bir cümle, bütün PMD tablolarının mantığını özetler. Bir sınıf için optik bağlantı bütçesi ancak şu koşulda sağlanır: vericinin en küçük ortalama başlatma gücü ile alıcı hassasiyeti arasındaki fark, en büyük optik yol cezası ile o sınıfın en büyük yol kaybının toplamına eşit ya da ondan büyük olmalıdır."
+  },
+  {
+   "id": "d1a",
+   "text": "Bunu bir eşitsizlik olarak yazalım: P en küçük eksi hassasiyet, büyük ya da eşit, en büyük yol kaybı artı yol cezası. Her terimin bir referans noktası vardır. Aşağı yönde verici gücü S bölü R CG'de, hassasiyet R bölü S'de tanımlanır. Yukarı yönde ise tersi geçerlidir: verici gücü R bölü S'de, hassasiyet S bölü R CG'de."
+  },
+  {
+   "id": "d2",
+   "text": "Bölüm birde bunu on gigabitlik aşağı yön tablosunda doğruladık. İki virgül beş gigabitlik aşağı yönde de aynı mantık işler: N1 için en küçük başlatma gücü sıfır dBm, yol cezası bir desibel, hassasiyet eksi otuz dBm. Sıfır eksi yirmi dokuz eksi bir, eksi otuz."
+  },
+  {
+   "id": "d3",
+   "text": "Yukarı yön daha ilginçtir. İki virgül beş gigabitlik yukarı yön tablosu iki bağlantı tipi tanımlar. A tipi, yükselteçsiz bir OLT alıcısını varsayar. B tipi ise S bölü R CG noktasında yükselteç bulunan bir OLT alıcısını varsayar."
+  },
+  {
+   "id": "d4",
+   "text": "A tipinde ONU'nun en küçük başlatma gücü artı dört dBm'dir; B tipinde sıfır dBm. Yükselteçli alıcı daha hassas olduğu için ONU'dan daha az güç istenir. Bu, maliyeti evdeki çok sayıdaki cihazdan, merkez ofisteki az sayıdaki alıcıya taşımanın bir yoludur."
+  },
+  {
+   "id": "d5",
+   "text": "Şimdi hesaplayalım. A tipi, N1 sınıfı: artı dört, eksi yirmi dokuz, eksi bir desibellik yol cezası; sonuç eksi yirmi altı dBm. Tablodaki hassasiyet de eksi yirmi altı. E2 sınıfında: artı dört, eksi otuz beş, eksi bir buçuk; sonuç eksi otuz iki buçuk. Tablo da eksi otuz iki buçuk der. B tipinde aynı hesap, dört desibel daha hassas değerleri verir."
+  },
+  {
+   "id": "d5a",
+   "text": "Tabloda B tipinin bir bedeli de görünür: bant içi girişim toleransı. N1 sınıfında A tipi için yirmi altı, B tipi için yirmi iki desibel. Bu toleransı ve anlamını, beşinci bölümde alıcıları işlerken açacağız."
+  },
+  {
+   "id": "d6",
+   "text": "Yukarı yönde yol cezası neden sınıfa göre değişir? Çünkü bu ceza Raman etkisini de içerir. Standardın notuna göre ceza, sınıfa özgü verici gücünü, mesafeyi ve dalga boyu sayısını hesaba katar. En kötü Raman durumu, S bölü R CG yakınında ayırıcı olmayan ve fiber kaybı düşük ağlarda ortaya çıkar."
+  },
+  {
+   "id": "d7",
+   "text": "Bu yüzden tablo yol cezasını dört senaryo için verir: yirmi ya da kırk kilometre, dört ya da sekiz kanal. En kötü durumda, kırk kilometre ve sekiz kanalla, E2 sınıfında ceza iki virgül sekiz desibele çıkar. Raman hariç ceza ise yirmi kilometrede yarım, kırk kilometrede bir desibeldir. Raman'ı üçüncü bölümde ayrıntılı işleyeceğiz."
+  },
+  {
+   "id": "d7a",
+   "text": "Raman hariç cezayla ilgili bir not daha var. Gerçek ceza belirtilenden kötüyse, vericinin en küçük başlatma gücü, her fazladan desibel için bir desibel artırılarak telafi edilebilir; ama bu yalnızca bir buçuk desibelden küçük fazlalıklar ve yalnızca DD20 için geçerlidir. Standart, yüksek ceza bölgesinde çalışmanın risk taşıdığını ve gerçek cezanın birlikte çalışabilirlik testleriyle ölçülmesi gerektiğini vurgular."
+  },
+  {
+   "id": "d8",
+   "text": "Aşırı yük tarafı da aynı mantıkla kapanır: en büyük başlatma gücünden en küçük yol kaybını çıkarın. A tipi, N1: artı dokuz eksi on dört, eksi beş dBm. E2: artı dokuz eksi yirmi, eksi on bir dBm. Tablo ikisinde de aynı değeri verir."
+  },
+  {
+   "id": "d8b",
+   "text": "On gigabitlik yukarı yön tablosuna da hızlıca bakalım. Burada A tipi için en küçük başlatma gücü yine artı dört dBm, B tipi için artı iki dBm'dir. Hesap yine kapanır: B tipi, N1 sınıfı için artı iki eksi yirmi dokuz eksi bir, eksi yirmi sekiz dBm. Ama dikkat çekici bir ayrıntı var: E2 sınıfı, A tipi bağlantı için tanımlı değildir; tabloda yalnızca yükselteçli B tipi için değer verilir. On gigabitte en yüksek sınıf, yükselteçli bir OLT alıcısı gerektirir."
+  },
+  {
+   "id": "d8c",
+   "text": "Bir de sönüm oranına bakın: iki virgül beş gigabitlik yukarı yönde en küçük sönüm oranı sekiz virgül iki desibel iken, on gigabitlik yukarı yönde altı desibeldir. Daha yüksek hızda burst modlu bir lazerden yüksek sönüm oranı istemek zordur; standart bunu daha düşük bir sınırla kabul eder."
+  },
+  {
+   "id": "d8a",
+   "text": "Bütçe denklemi bize bir şey daha söyler: marj. Gerçek bir sistemde verici gücü tipik olarak en küçük değerin üzerinde, alıcı hassasiyeti ise tablodakinden iyidir. Aradaki fark bağlantının marjıdır. Testte ölçmemiz gereken asıl şey, bu marjın en kötü sıcaklıkta ve ömür sonunda da korunup korunmadığıdır."
+  },
+  {
+   "id": "d9",
+   "text": "Mühendis notu. Bütçe tablosundaki her hassasiyet değeri, belirli bir mesafe ve kanal sayısı varsayımıyla yazılmıştır. Sekiz kanal ve kırk kilometrelik bir sistemde aynı ONU ve aynı OLT daha yüksek bir yol cezası görür. Tablonun dipnotlarını okumadan bütçe kapatmayın."
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "title": "B02 — Bu bölümde",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm iki: Işığın Yolu. Bu bölümde, OLT ile ONU arasındaki o pasif yolculuğu baştan sona izliyoruz."
+  },
+  {
+   "id": "o2",
+   "text": "Önce ODN'in anatomisine bakacağız: fiber bölümleri, ayırıcı yapıları ve standardın basit ODN tanımı."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra yol kaybı sınıflarını ve güç bütçesi denklemini açacağız; aşağı ve yukarı yön tablolarının nasıl kendi içinde kapandığını göreceğiz."
+  },
+  {
+   "id": "o4",
+   "text": "Mesafenin, dispersiyonun ve yansımaların neden ayrı ayrı sınırlandığını konuşacağız."
+  },
+  {
+   "id": "o5",
+   "text": "TC köprüsünde, yirmi ya da kırk kilometrelik farkın zaman boyutunu çözeceğiz: sessiz pencere, ranging ve eşitleme gecikmesi."
+  },
+  {
+   "id": "o6",
+   "text": "Ve laboratuvarda, bütün bunları test edeceğimiz referans ODN'i kuracağız. Hazırsan, başlayalım."
+  }
+ ]
+}

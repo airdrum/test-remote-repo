@@ -1,0 +1,60 @@
+{
+ "title": "B02 Perde 1 — ODN'in anatomisi",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: ODN'in anatomisi. Bölüm birde ODN'i tek bir ağaç olarak çizdik. Şimdi o ağacı parçalarına ayıralım; çünkü her parça, güç bütçesine ve zamanlamaya ayrı bir katkı yapar."
+  },
+  {
+   "id": "b2",
+   "text": "G.989.3'ün yedinci bilgilendirici eki, OLT kanal sonlandırıcısı ile ONU arasındaki fiber mesafesini üç parçaya böler. Kanal bağlantı fiberi, kanal sonlandırıcıyı dalga boyu çoklayıcıya bağlar. Besleme fiberi, merkez ofisten sahadaki ayırıcıya uzanır ve bütün kanallar ile bütün ONU'lar tarafından paylaşılır. Dağıtım fiberi ise ayırıcıdan her bir ONU'ya gider."
+  },
+  {
+   "id": "b2a",
+   "text": "Tipik bir saha mimarisinde besleme fiberi birkaç kilometreden yirmi kilometreye kadar uzanır; dağıtım fiberleri ise çoğunlukla birkaç yüz metre ile bir iki kilometre arasındadır. Bu yüzden mesafenin, dolayısıyla dispersiyonun ve gecikmenin büyük kısmı besleme fiberindedir. Kayıp tarafında ise tablo tersine döner: kaybın büyük kısmı ayırıcıdadır."
+  },
+  {
+   "id": "b3",
+   "text": "Bu ayrımın pratik bir sonucu var. Kanal bağlantı fiberinin uzunluğu her kanal sonlandırıcı için farklı olabilir. Bir ONU başka bir kanala ayarlandığında, OLT'ye olan mesafesi de değişir. Bu bölümün sonunda bu nota geri döneceğiz."
+  },
+  {
+   "id": "b4",
+   "text": "G.989.2, on birinci maddede basit bir ODN tanımlar. Fiber tipi G.652 ya da uyumlu bir fiberdir. Zayıflama aralığı, yol kaybı sınıflarından gelir. En büyük fiber mesafesi DD20 için yirmi, DD40 için kırk kilometredir; en küçük mesafe sıfırdır. Diferansiyel yol kaybı en çok on beş desibeldir. Çift yönlü iletim, tek fiberde dalga boyu bölmeyle yapılır; bakım dalga boyu için ise ITU-T L.313'e atıf yapılır."
+  },
+  {
+   "id": "b5",
+   "text": "Tablonun bir de notu var: altmış kilometrelik fiber mesafesi, menzil genişletici gerektirebilir. Yani standardın pasif ODN sınıfları kırk kilometrede biter."
+  },
+  {
+   "id": "b6",
+   "text": "Ayırıcı yapısı tasarıma göre değişir. Merkezi yapıda tek bir bire altmış dört ayırıcı vardır. Kademeli yapıda ise, örneğin bire dört ve bire on altı ayırıcılar seri bağlanır. İdeal olarak ikisinin toplam kaybı aynıdır, on sekiz desibel; ama her kademe kendi fazlalık kaybını, ekini ve konnektörünü ekler."
+  },
+  {
+   "id": "b6a",
+   "text": "Ayırıcılar iki teknolojiyle üretilir: düzlemsel dalga kılavuzu, yani PLC, ve eritilmiş çift konik, yani FBT. PLC ayırıcılar geniş bir dalga boyu aralığında düz bir kayıp sunar. Bu, eski sistemlerden NG-PON2'ye kadar uzanan geniş bir spektrumu aynı ayırıcıdan geçirmek için önemlidir. FBT ayırıcıların kaybı ise dalga boyuna daha duyarlıdır."
+  },
+  {
+   "id": "b6b",
+   "text": "Bire altmış dört bir PLC ayırıcının en kötü durum ekleme kaybı, üretici veri sayfalarında tipik olarak yirmi ile yirmi bir desibel arasında verilir. İdeal on sekiz desibelin üzerindeki kısım, fazlalık kaybı ve kollar arası düzgünsüzlüktür."
+  },
+  {
+   "id": "b7",
+   "text": "Standart güç ayırıcılı ağacı esas alır, ama dalga boyu ayırıcıların kullanılmasına da izin verir. G.989.3'ün onuncu bilgilendirici eki ilginç bir örnek verir: dört kanallı bir dalga boyu çoklayıcı ile ilk kademe bire iki ayırıcıyı tek bir elemanda birleştiren, dörde iki bir WM. Bu tür hibrit yapılar, OLT tarafında kaybı yönetmenin bir yoludur."
+  },
+  {
+   "id": "b7a",
+   "text": "Tamamen dalga boyu yönlendirmeli bir ODN'de ise ayırıcının yerinde bir dizi dalga kılavuzu ızgarası, yani AWG bulunur ve her çıkış belirli bir dalga boyunu taşır. Bu, kaybı güç ayırıcıya göre çok daha düşük tutar, ama her ONU'yu belirli bir kanala bağlar. G.989.2'nin yedinci bilgilendirici eki, bu tür yapılar için döngüsel AWG ızgara örnekleri verir; üçüncü bölümde bunlara bakacağız."
+  },
+  {
+   "id": "b8",
+   "text": "Mühendis notu. Ayırıcıların kollar arası düzgünsüzlüğü, aynı ODN'deki ONU'ların farklı kayıp görmesine yol açar. Bütçeyi en kötü kola göre yapın; diferansiyel kaybı ise en iyi ve en kötü yolun farkı olarak ayrıca kontrol edin."
+  },
+  {
+   "id": "b9",
+   "text": "Parçaları gördük. Şimdi bu parçaların toplam kaybının, standartta nasıl sınıflara ayrıldığına bakalım."
+  }
+ ]
+}

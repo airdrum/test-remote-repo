@@ -1,0 +1,24 @@
+{
+ "title": "B02 Kapanış",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölüm ikinin özeti. Bir: ODN, kanal bağlantı, besleme ve dağıtım fiberlerinden oluşur; basit ODN tanımı G.652 fiber, yirmi ya da kırk kilometre ve en çok on beş desibel diferansiyel kayıp öngörür. İki: dört sınıf vardır, N1'den E2'ye; her biri on beş desibel genişliğinde ve iki desibel aralıklı."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: bütçe denklemi, en küçük başlatma gücü eksi hassasiyetin, en büyük yol kaybı artı yol cezasına eşit ya da ondan büyük olmasıdır; tablolar bu denklemle kapanır. Dört: dispersiyon ve yansıma ayrı ayrı sınırlandırılır; ORL en az otuz iki desibel, ayrık yansıma eksi otuz beşin altında. Beş: mesafenin zaman yüzü, sessiz pencere, ranging ve eşitleme gecikmesiyle çözülür."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: yirmi kilometre fiber ve bire yüz yirmi sekiz ayırıcıyla kurulmuş bir ağ, perde ikideki varsayımlarla hangi sınıfa girer? İkinci soru: yükselteçli bir OLT alıcısı, ONU'dan istenen en küçük başlatma gücünü kaç desibel düşürür? Üçüncü soru: kırk kilometrelik diferansiyel mesafede, seri numarası toplama için önerilen sessiz pencere kaç mikrosaniyedir? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Renk Haritası. NG-PON2'nin dalga boyları neden tam bu nanometrelere yerleştirildi, eski sistemlerle aynı fiberi nasıl paylaşıyor, ve Raman etkisi bu dengeyi nasıl bozuyor? Görüşmek üzere."
+  }
+ ]
+}

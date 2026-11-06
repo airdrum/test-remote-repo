@@ -43,7 +43,10 @@ class Narrated(Scene):
     MANIFEST = None  # path relative to ROOT
 
     def setup(self):
-        self.man = json.loads((ROOT / self.MANIFEST).read_text()) if self.MANIFEST else None
+        mp = self.MANIFEST
+        if mp and __import__('os').environ.get('AUDIO_DIR'):
+            mp = mp.replace('audio_proc', __import__('os').environ['AUDIO_DIR'])
+        self.man = json.loads((ROOT / mp).read_text()) if mp else None
         self.bmap = {b["id"]: b for b in self.man["beats"]} if self.man else {}
         self.timeline, self.bi = [], -1
 

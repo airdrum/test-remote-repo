@@ -1,0 +1,52 @@
+{
+ "title": "B02 Laboratuvarda — Referans test ODN'i",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda: referans test ODN'i. Bu bölümde konuştuğumuz her şey, laboratuvarda tekrarlanabilir bir ODN'e dönüşmelidir. Amaç sahayı değil, standardın sınırlarını yeniden yaratmaktır."
+  },
+  {
+   "id": "g2",
+   "text": "Temel yapı şöyle: OLT tarafında kanal sonlandırıcılar ve bir WM. Ardından ölçüm için bir kuplör. Sonra bir değişken optik zayıflatıcı. Gerçek dispersiyon için yirmi ya da kırk kilometrelik G.652 fiber makarası. En sonda gerçek bölünmeyi temsil eden bir ayırıcı ve ONU'lar."
+  },
+  {
+   "id": "g2a",
+   "text": "Kuplörü, ölçümlerin standardın referans noktasına karşılık gelmesi için WM'nin hemen çıkışına, yani S bölü R CG noktasına yerleştirin. Kuplörün kendi ekleme kaybını, hem bütçeye hem de güç okumalarına dahil etmeyi unutmayın."
+  },
+  {
+   "id": "g3",
+   "text": "Zayıflatıcı, sınıfın iki ucunu yaratmak için kullanılır: en büyük yol kaybında hassasiyet, en küçük yol kaybında aşırı yük test edilir. Zayıflatıcıyı ayarlarken fiber makarasının ve ayırıcının kaybını da hesaba katın; toplam yol kaybı, S bölü R CG ile R bölü S arasında, sınıfın tanımladığı değere eşit olmalıdır."
+  },
+  {
+   "id": "g4",
+   "text": "Ekleme kaybını iki yönde ve iki bantta ölçün: yukarı yön bandında ve aşağı yön bandında. Fiberin zayıflaması dalga boyuyla değiştiği için, bin beş yüz yirmi dört nanometrede ölçtüğünüz kayıp, bin altı yüz nanometredekiyle aynı değildir. Kaynak ve güç ölçerin kalibrasyon dalga boyunu ölçülen banda ayarlamayı unutmayın."
+  },
+  {
+   "id": "g5",
+   "text": "Geri dönüş kaybı için bir ORL ölçer ya da OTDR kullanın. ODN'in toplam ORL değeri en az otuz iki desibel olmalı, tek bir konnektörün yansıması eksi otuz beş desibelin altında kalmalıdır. Sahada OTDR kullanırken, standardın atıf yaptığı L.313'teki bakım dalga boyunu kullanın ki, hizmet trafiğine girişim yapmasın."
+  },
+  {
+   "id": "g5a",
+   "text": "OTDR ölçümünü iki yönden yapıp ortalamak, tek yönlü ölçümün ek ve konnektör kayıplarında verebileceği yanıltıcı sonuçları önler. Ayırıcının arkasındaki dağıtım kollarını ise OTDR ile ayırt etmek zordur; bu yüzden sahada, kol sonlarındaki referans yansıtıcılar gibi çözümler kullanılır."
+  },
+  {
+   "id": "g6",
+   "text": "Diferansiyel kayıp testi için iki kollu bir düzenek kurun: bir ONU'nun yolu sınıfın alt sınırında, diğerininki üst sınırında olsun. Aradaki on beş desibel, OLT burst alıcısının dinamik aralığını zorlar. Bu testi sekizinci bölümde ayrıntılı yapacağız."
+  },
+  {
+   "id": "g7",
+   "text": "Zamanlama için de iki farklı uzunlukta fiber kullanın, örneğin sıfır ve yirmi kilometre. Böylece ranging'in ve eşitleme gecikmesinin doğru çalıştığını, iki ONU'nun burst'lerinin OLT'de koruma boşluklarıyla sıralandığını osiloskopta görebilirsiniz."
+  },
+  {
+   "id": "g7a",
+   "text": "Son olarak cihazların kendi ölçümleri. G.989.2'nin ikinci bilgilendirici eki, optik katman izlemesi için ONU ve OLT'nin bildirdiği değerleri tanımlar. ONU'nun alınan güç ölçümünün doğruluğu artı eksi üç, OLT'ninki artı eksi iki desibeldir; tekrarlanabilirlik ise artı eksi yarım desibel. OLT, burst sırasındaki ortalama gücü ölçer. Bu değerler eğilim izlemek için çok değerlidir, ama bir ODN'in sınıfını belgelemek için kalibre bir ölçerin yerini tutmaz."
+  },
+  {
+   "id": "g8",
+   "text": "Mühendis notu. Referans ODN'in her elemanını ayrı ayrı belgeleyin: iki banttaki kayıp, ORL, konnektör tipi, fiber uzunluğu ve dispersiyonu. Bir test sonucu tartışmalı hale geldiğinde, ilk bakılacak yer test ODN'inin kendisidir."
+  }
+ ]
+}

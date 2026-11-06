@@ -50,6 +50,9 @@ def table(headers, rows, widths, size=19, hsize=17, row_h=0.5, hl=None):
         xs = np.cumsum([0] + widths[:-1])
         g = VGroup(bg)
         for c, x, w in zip(cells, xs, widths):
+            if c == "":
+                g.add(VGroup().move_to([x + 0.12 - W / 2, 0, 0]))
+                continue
             t = T(c, sz, color, weight)
             if t.width > w - 0.15:
                 t.scale_to_fit_width(w - 0.15)
@@ -144,6 +147,8 @@ class Act(Narrated):
         r = RoundedRectangle(corner_radius=0.18, width=w, height=1.9, stroke_color=PINK, stroke_width=2.5, fill_color=PANEL, fill_opacity=1)
         n = T(num, 54, PINK, BOLD).move_to(r).align_to(r, LEFT).shift(RIGHT * 0.5)
         g = VGroup(T(title, 26, TXT, BOLD), T(body, 21, TXT, line_spacing=0.9)).arrange(DOWN, aligned_edge=LEFT, buff=0.12)
+        if g.width > w - 1.6:
+            g.scale_to_fit_width(w - 1.6)
         g.next_to(n, RIGHT, buff=0.5)
         return VGroup(r, n, g)
 

@@ -1,0 +1,14 @@
+{
+ "title": "B02 — ek uygulama beat'leri",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {"id": "x1", "text": "Bütçeyi ters yönde de okuyabiliriz. N1 sınıfının üst sınırı yirmi dokuz desibel. Yirmi kilometre fiber için beş, ekler ve konnektörler için bir buçuk desibel ayırın; ayırıcıya yirmi iki buçuk desibel kalır. Bire altmış dört ayırıcı, yaklaşık yirmi buçuk desibelle sığar ve iki desibel pay bırakır. Bire yüz yirmi sekiz ise, yaklaşık yirmi üç buçuk desibelle sığmaz."},
+  {"id": "x2", "text": "Aynı hesabı diğer sınıflara uygulayalım. N2'de, yirmi kilometrede ayırıcıya yirmi dört buçuk desibel kalır: bire yüz yirmi sekiz ancak bir desibel payla sığar. E1'de, kırk kilometrede ayırıcıya yirmi bir buçuk desibel kalır: bire altmış dört, yine bir desibel payla. Yani sınıf seçimi, mesafe ile bölünme oranı arasındaki bir takastır; aradaki pay da onarım ekleri ve yaşlanma için ayrılan bütçedir."},
+  {"id": "x3", "text": "Bu sayıların on gigabitteki anlamını düşünelim. Bir bit yaklaşık yüz pikosaniye sürer. Yirmi kilometrede dört yüz yirmi pikosaniye bölü nanometrelik dispersiyon, spektrumu geniş ya da çırpıntılı bir vericide sembolleri birbirine karıştırmaya yeter. Bu yüzden aşağı yön vericilerinde tipik olarak çırpıntısı düşük, elektro-absorpsiyon modülatörlü lazerler kullanılır. Yukarı yönde ise tipik olarak doğrudan modüle edilen, burst modlu ONU lazerleri vardır; on gigabitlik yukarı yönün daha zorlu olmasının bir nedeni de budur."},
+  {"id": "x4", "text": "G.989.3 burada ince bir ayrım yapar. Sessiz pencerenin konumu, sistemdeki en küçük gecikmelerle, yani L min ve en kısa yanıt süresiyle belirlenir. Pencerenin genişliği ise bilinmeyen kısımla, yani D maks, yanıt süresi değişimi ve rastgele gecikmeyle belirlenir. Bu yüzden ONU'ları yirmi ile kırk kilometre arasında olan bir ağda pencere yine yaklaşık iki yüz elli mikrosaniyedir; yalnızca yirmi kilometrelik yayılma kadar ileri kayar."},
+  {"id": "x5", "text": "T eqd için ise toplam mesafe önemlidir. Aynı ağda en uzak ONU kırk kilometrededir. Gidiş dönüş yayılma yaklaşık üç yüz doksan iki mikrosaniye, artı otuz altı mikrosaniyelik yanıt süresi: T eqd en az yaklaşık dört yüz yirmi sekiz mikrosaniye. Standardın kendi örneğinde, sıfır ile yirmi kilometre arası için T eqd iki yüz otuz altı mikrosaniye seçilmiştir; hesapladığımız alt sınırın biraz üzerinde."},
+  {"id": "x6", "text": "Pratik bir test sırası önereyim. Bir: referans ODN'i iki bantta ve iki yönde kalibre edin, değerleri kaydedin. İki: en küçük yol kaybında aşırı yük testini yapın. Üç: VOA ile kaybı adım adım artırın ve tablodaki referans bit hata oranına ulaştığınız noktayı bulun; o noktadaki yol kaybı, sisteminizin gerçek bütçesidir. Dört: aynı ölçümü en kötü sıcaklıkta tekrarlayın. Ölçülen bütçe ile sınıfın üst sınırı arasındaki fark, ürününüzün gerçek marjıdır."}
+ ]
+}

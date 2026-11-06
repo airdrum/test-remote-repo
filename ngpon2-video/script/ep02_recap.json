@@ -1,0 +1,24 @@
+{
+ "title": "B02 — Önceki bölümde",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Önceki bölümde, PON'un üç temel problemini, NG-PON2'nin renk ekleyerek büyüme kararını, G.989 ailesinin katmanlarını ve referans noktalarını gördük. Şimdi sorduğumuz üç sorunun cevapları."
+  },
+  {
+   "id": "a2",
+   "text": "Birinci soru: PMD tabloları S bölü R CG noktasına, yani WM'nin çıkışındaki kanal grubu noktasına göre yazılmıştır. Alternatif CP noktası ise, CG erişilemediğinde ya da bir transceiver üreticisine WM'den bağımsız bir şartname vermek gerektiğinde kullanılır."
+  },
+  {
+   "id": "a3",
+   "text": "İkinci soru: on gigabitlik bir NG-PON2 alıcısının hassasiyeti, ileri hata düzeltmeden önce, on üzeri eksi üç bit hata oranında tanımlanır."
+  },
+  {
+   "id": "a4",
+   "text": "Üçüncü soru: altmış dört ONU'lu bir kanalda, konuşan ONU'nun dışında altmış üç verici sızdırır. Bu, tabanı on çarpı logaritma altmış üç, yani yaklaşık on sekiz desibel yükseltir. İlginçtir ki, standardın etkin olmayan verici limiti de tam bu varsayımla, altmış üç girişimciyle hesaplanmıştır."
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "title": "B02 Perde 2 — Yol kaybı sınıfları",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: yol kaybı sınıfları. G.989.2'nin altıncı maddesindeki ilk tablo, dört ODN sınıfı tanımlar: N1, N2, E1 ve E2. Her sınıf, S bölü R CG ile R bölü S arasında bir en küçük ve bir en büyük optik yol kaybıyla tanımlanır."
+  },
+  {
+   "id": "c2",
+   "text": "N1 için on dört ile yirmi dokuz, N2 için on altı ile otuz bir, E1 için on sekiz ile otuz üç, E2 için ise yirmi ile otuz beş desibel. Her sınıf bir öncekine göre iki desibel kaydırılmıştır ve her birinin genişliği on beş desibeldir."
+  },
+  {
+   "id": "c2a",
+   "text": "Bu genişliğin pratik bir yorumu var. Aynı ağda, merkez ofise çok yakın ve kısa dağıtım fiberli bir ONU ile, en uzak ve en çok bölünmüş kola bağlı bir ONU birlikte bulunabilir. Bu iki uç arasındaki fark, alıcıların dinamik aralığını ve burst modlu alıcının her burst'te yapması gereken ayarın büyüklüğünü belirler."
+  },
+  {
+   "id": "c2b",
+   "text": "Bu dört sınıfın adları ve sınırları size tanıdık gelebilir: XG-PON da aynı N1, N2, E1 ve E2 sınıflarını kullanır. Bu bilinçli bir seçimdir. Böylece aynı ODN, eski ve yeni nesil sistemleri aynı kayıp varsayımlarıyla taşıyabilir."
+  },
+  {
+   "id": "c3",
+   "text": "Bu on beş desibel tesadüf değildir: standart, sınıfları on beş desibellik bir diferansiyel yol kaybını hesaba katacak şekilde tanımlar. Dokuzuncu madde de zayıflama aralığını, sınıfın en büyük ve en küçük kaybı arasındaki fark olarak tanımlar."
+  },
+  {
+   "id": "c4",
+   "text": "Neden bir alt sınır var? Çünkü çok az kayıp da sorundur: alıcı aşırı yüklenir, hata oranı bozulur, hatta alıcı zarar görebilir. Standart, kazanç elemanı, dalga boyu kuplörü ya da düşük oranlı ayırıcı içeren ağların sınıfın alt sınırının altına düşebileceğini, bu durumda optik zayıflatıcı gibi önlemlerle en küçük kaybın garanti edilmesi gerektiğini söyler."
+  },
+  {
+   "id": "c4a",
+   "text": "Bir örnek: bire sekiz ayırıcı ve birkaç yüz metrelik fiberle kurulmuş bir bina içi ağın kaybı on bir, on iki desibel olabilir. Bu, N1'in alt sınırı olan on dört desibelin altındadır; alıcılar, tasarlandıklarından daha güçlü bir sinyalle karşılaşır. Çözüm, yola bilinçli olarak sabit bir zayıflatıcı eklemektir."
+  },
+  {
+   "id": "c5",
+   "text": "Bir örnek bütçe kuralım. Bire altmış dört ayırıcı, fazlalık kaybıyla birlikte yaklaşık yirmi buçuk desibel. Yirmi kilometre fiber, bu bantlarda kilometre başına tipik olarak çeyrek desibel civarı; yani beş desibel. Ekler ve konnektörler için bir buçuk desibel. Toplam yaklaşık yirmi yedi desibel: N1 sınıfının içinde."
+  },
+  {
+   "id": "c6",
+   "text": "Aynı ağı kırk kilometreye uzatırsanız beş desibel daha eklenir ve toplam otuz iki desibele çıkar. Bu artık N1'e de N2'ye de sığmaz; E1 sınıfı gerekir. Üstüne bölünme oranını bire yüz yirmi sekize çıkarırsanız üç desibel daha eklenir ve E2'nin üst sınırına dayanırsınız."
+  },
+  {
+   "id": "c6a",
+   "text": "Bu hesaplar bize sınıf seçiminin aslında bir mimari kararı olduğunu gösterir. Daha yüksek sınıf, daha uzun mesafe ya da daha yüksek bölünme demektir; ama daha güçlü verici, daha hassas alıcı ve çoğu zaman daha pahalı optik anlamına gelir. On gigabitlik aşağı yönde vericinin en küçük gücü, N1'de artı üç, E2'de ise artı dokuz dBm'dir."
+  },
+  {
+   "id": "c7",
+   "text": "G.989.3'ün onuncu bilgilendirici eki, sınıfların sahadaki hayatına dair güzel bir senaryo anlatır. Operatör kademeli büyümeye N1 sınıfı OLT optikleriyle başlar. Daha sonra yüksek sınıflı optikler yaygınlaşınca, kalan kanalları N2 optiklerle ekler. Aynı ODN, iki farklı sınıftaki kanal sonlandırıcıları birlikte taşır."
+  },
+  {
+   "id": "c8",
+   "text": "Bunu mümkün kılan bir ayrıntı daha var. Aynı ek, G.989.2'ye atıfla, ONU tarafı optiklerinin N1'den E1'e kadar aynı olduğunu belirtir. Yani sınıf farkı, büyük ölçüde OLT tarafındaki optiklerle karşılanır."
+  },
+  {
+   "id": "c9",
+   "text": "Mühendis notu. Bir ağın sınıfını, ölçülen en kötü ve en iyi yola göre belirleyin; ortalama kayıp sizi yanıltır. Ve yaşlanma, onarım ekleri ve sıcaklık için mutlaka bir marj bırakın."
+  }
+ ]
+}

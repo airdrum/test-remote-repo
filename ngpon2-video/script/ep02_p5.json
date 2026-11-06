@@ -1,0 +1,72 @@
+{
+ "title": "B02 Perde 5 — Zaman: ranging ve EqD",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "f1",
+   "text": "Perde beş: zaman. Mesafenin bir de zaman yüzü var ve bu yüz TC katmanında çözülür. G.989.3'ün on üçüncü maddesi bir ODN'i iki parametreyle tanımlar: en küçük fiber mesafesi L min, ve en büyük diferansiyel fiber mesafesi D maks. Her ONU'nun mesafesi, L min ile L min artı D maks arasındadır. Bu iki değer ODN tasarımıyla belirlenir ve OLT tarafından önceden bilinir."
+  },
+  {
+   "id": "f2",
+   "text": "Her ONU, aşağı yön çerçevesini aldıktan sonra yanıt vermek için belirli bir süreye ihtiyaç duyar. Standart bu ONU yanıt süresini otuz beş artı eksi bir mikrosaniye olarak sabitler; yani en kısa otuz dört, en uzun otuz altı mikrosaniye."
+  },
+  {
+   "id": "f2b",
+   "text": "Neden sabit bir yanıt süresi? Çünkü ONU'nun aşağı yön çerçevesini alması, içindeki bant genişliği haritasını çözmesi, gerekiyorsa ileri hata düzeltmesini yapması ve yanıtını hazırlaması zaman alır. Standart bu süreyi bütün sistem için ortak bir parametre olarak sabitler; böylece OLT, her ONU'nun ne zaman konuşmaya hazır olacağını bilir."
+  },
+  {
+   "id": "f2a",
+   "text": "Bir ayrıntı daha: ölçülen gidiş dönüş gecikmesi hem aşağı hem yukarı yönün yayılma süresini içerir. Aşağı ve yukarı yön farklı dalga boylarında taşındığı için grup kırılma indisleri de biraz farklıdır. G.989.3'ün formülleri bu yüzden iki yön için ayrı indisler kullanır."
+  },
+  {
+   "id": "f3",
+   "text": "Yeni bir ONU ağa katıldığında, OLT onun mesafesini henüz bilmez. Bu yüzden seri numarası toplanırken, OLT çalışan ONU'ları geçici olarak susturur ve bir sessiz pencere açar. Pencere, bilinmeyen gecikmenin tamamını kapsamalıdır."
+  },
+  {
+   "id": "f4",
+   "text": "Yirmi kilometrelik diferansiyel mesafe için standart hesabı verir: gidiş dönüş yayılma gecikmesindeki değişim iki yüz mikrosaniye, ONU yanıt süresindeki değişim iki mikrosaniye, ve çakışmaları azaltmak için ONU'nun eklediği rastgele gecikme en çok kırk sekiz mikrosaniye. Önerilen sessiz pencere iki yüz elli mikrosaniye. Kırk kilometrede bu, dört yüz elli mikrosaniyeye çıkar."
+  },
+  {
+   "id": "f5",
+   "text": "Bölüm birde kendi hesabımızla yüz doksan altı mikrosaniye bulmuştuk; standart bunu iki yüze yuvarlar. Ranging sırasında ise rastgele gecikme sıfırdır ve önerilen pencere yirmi kilometre için iki yüz iki, kırk kilometre için dört yüz iki mikrosaniyedir."
+  },
+  {
+   "id": "f5a",
+   "text": "Sessiz pencerenin bir bedeli vardır: o süre boyunca çalışan ONU'lar yukarı yönde veri gönderemez. İki yüz elli mikrosaniye, iki tam çerçeve demektir. Yani diferansiyel mesafe, yalnızca güç bütçesini değil, yeni ONU keşfinin trafiğe getirdiği kesintiyi de belirler."
+  },
+  {
+   "id": "f6",
+   "text": "Ranging tamamlanınca, OLT her ONU'ya bir eşitleme gecikmesi verir. Önce sabit bir hedef seçer: T eqd. Bu değer, en uzun yanıt süresi ile en uzak ONU'nun gidiş dönüş yayılma gecikmesinin toplamından küçük olamaz. Sonra her ONU için eşitleme gecikmesi, T eqd eksi o ONU'nun ölçülen gidiş dönüş gecikmesi olarak hesaplanır."
+  },
+  {
+   "id": "f6a",
+   "text": "Sayısal bir örnek: L min sıfır, D maks yirmi kilometre olsun. Gidiş dönüş yayılma gecikmesi en çok yaklaşık yüz doksan altı mikrosaniye, en uzun yanıt süresi otuz altı mikrosaniyedir. Yani T eqd en az yaklaşık iki yüz otuz iki mikrosaniye olmalıdır; bu, yaklaşık bir virgül dokuz çerçeve demektir. OLT'nin hemen yanındaki bir ONU, bu sürenin neredeyse tamamını eşitleme gecikmesi olarak bekler."
+  },
+  {
+   "id": "f7",
+   "text": "Bu değer, iki virgül beş gigabitlik nominal hızda tek bir bit periyodu doğrulukla iletilir; yaklaşık dört yüz pikosaniye. Sonuçta yirmi kilometre uzaktaki bir ONU ile OLT'nin hemen yanındaki bir ONU, yukarı yönde aynı zaman ızgarasına oturur."
+  },
+  {
+   "id": "f7a",
+   "text": "Eşitleme gecikmesi bir kez atanıp unutulmaz. Sıcaklık değiştikçe fiberin gecikmesi de değişir. OLT bunu Ranging_Time mesajıyla düzeltebilir: mesaj, eşitleme gecikmesini mutlak bir değer olarak ya da işaretli bir artış veya azalış olarak taşıyabilir. Ve yukarı yön burst'leri arasında, açılma, kapanma süreleri ve bu küçük kaymalar için bir koruma süresi bırakılır; G.989.3'ün önerdiği en küçük değer altmış dört bittir."
+  },
+  {
+   "id": "f8",
+   "text": "Şimdi birinci perdedeki nota dönüyoruz. Kanal bağlantı fiberleri farklı uzunluktaysa, bir ONU kanal değiştirdiğinde gidiş dönüş gecikmesi de değişir. Eski eşitleme gecikmesiyle konuşmaya devam ederse, burst'ü başka bir ONU'nun zaman dilimine düşer; standardın ifadesiyle, en kötü durumda rogue bir ONU haline gelir."
+  },
+  {
+   "id": "f9",
+   "text": "G.989.3'ün yedinci bilgilendirici eki bunun için üç yöntem önerir: yeni kanalda yeniden ranging yapmak, bütün kanal sonlandırıcılarda tutarlı bir eşitleme gecikmesi kullanmak, ya da eşitleme gecikmesini önceden yapılandırmak. Kanal değiştiren bir sistemde mesafe, beklediğimizden çok daha ince bir meseledir."
+  },
+  {
+   "id": "f9a",
+   "text": "Tutarlı eşitleme gecikmesi yöntemi özellikle zariftir. Kanal sonlandırıcılar, kanallar arası iletişim protokolüyle ortak bir hedef üzerinde anlaşır. İlk aktive olan ONU bir öncü ONU olarak kullanılır ve kanal sonlandırıcılar arasında iki tur boyunca devredilir; bu sırada her kanal sonlandırıcı, kendi kanal bağlantı fiberi farkını telafi edecek T eqd değerini bulur. Önceden yapılandırma yönteminde ise Ranging_Time mesajı, eşitleme gecikmesini belirli bir dalga boyu çifti için önceden taşıyabilir."
+  },
+  {
+   "id": "f9b",
+   "text": "Bu bölümün TC köprüsünü tek cümleyle özetleyelim: G.989.2 mesafeyi kayıp ve dispersiyon olarak sınırlar, G.989.3 ise aynı mesafeyi zaman olarak yönetir. Yirmi ya da kırk kilometrelik bir ağ, ancak ikisi birlikte çalıştığında hem doğru güçte hem de doğru zamanda konuşur."
+  }
+ ]
+}

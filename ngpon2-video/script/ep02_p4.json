@@ -1,0 +1,64 @@
+{
+ "title": "B02 Perde 4 — Mesafe, dispersiyon, yansıma",
+ "voice": "Sadaltager",
+ "model": "gemini-3.8-flash-lite-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: mesafe, dispersiyon ve yansıma. Altıncı maddenin ikinci tablosu iki fiber mesafe sınıfı tanımlar: DD20, sıfır ile yirmi kilometre; DD40, sıfır ile kırk kilometre."
+  },
+  {
+   "id": "e1a",
+   "text": "Mesafe sınıfının bir sonucu daha var. Altıncı maddenin sonundaki not, on birinci maddedeki güç spektral yoğunluğu değerlerinin dört kanal ve yirmi kilometre için optimize edildiğini, sekiz kanal ve kırk kilometrenin ileride çalışılacağını söyler. Yani mesafe sınıfı, girişim limitlerinin geçerliliğini de etkiler."
+  },
+  {
+   "id": "e2",
+   "text": "Mesafe, dispersiyon demektir. Aşağı yön tablolarında dispersiyon aralığı, DD20 için sıfır ile dört yüz yirmi, DD40 için sıfır ile sekiz yüz kırk pikosaniye bölü nanometredir. Yukarı yönde ise DD20 için üç yüz elli beş, DD40 için yedi yüz on."
+  },
+  {
+   "id": "e3",
+   "text": "Bu sayıları kilometreye bölün: aşağı yönde kilometre başına yirmi bir, yukarı yönde yaklaşık on yedi buçuk pikosaniye bölü nanometre. Standart, bu değerlerin çalışma bandındaki en kötü fiber dispersiyon katsayısını hesaba kattığını söyler. L bandı ile C bandının farkı, bu iki sayıda açıkça görülür."
+  },
+  {
+   "id": "e3a",
+   "text": "Dispersiyon cezasının büyüklüğü vericinin spektral özelliklerine de bağlıdır. Standart kaynak tipini zorunlu kılmaz; ama fiberin zayıflama ve dispersiyon özellikleri düşünüldüğünde yalnızca tek boylamsal modlu lazerlerin uygun olduğunu söyler, ve mod bölüşme gürültüsünü kontrol etmek için en küçük yan mod bastırma oranını tanımlar. Sonuçta sınırlanan şey teknolojinin kendisi değil, ortaya çıkan yol cezasıdır."
+  },
+  {
+   "id": "e4",
+   "text": "Dispersiyonun bütçedeki karşılığı yol cezasıdır. On gigabitlik aşağı yön tablosunun notu, iki desibellik cezanın kırk kilometreye kadar geçerli olduğunu söyler. Gerçek ceza daha kötüyse, verici gücü, en büyük başlatma gücü sınırı içinde artırılarak telafi edilmelidir."
+  },
+  {
+   "id": "e5",
+   "text": "Şimdi yansımalar. Tek fiberde iki yön birlikte taşındığı için, her konnektör ve her ek ışığın bir kısmını geri yansıtır. Standart burada üç ayrı sınır koyar. ODN'in optik geri dönüş kaybı en az otuz iki desibel olmalıdır. ODN içindeki tek bir ayrık elemanın yansıması eksi otuz beş desibelden düşük olmalıdır. Ve vericiler, eksi on beş desibellik yansıyan güce performans kaybı olmadan dayanmalıdır."
+  },
+  {
+   "id": "e5a",
+   "text": "Alıcı dalga boyunda da bir sınır vardır: ONU'nun alıcı tarafındaki ekipman yansıması eksi yirmi desibeli geçmemelidir. Yani hem ağın kendisi, hem de ağın iki ucundaki cihazlar, ışığı geri göndermeme konusunda ayrı ayrı sorumludur."
+  },
+  {
+   "id": "e6",
+   "text": "ONU tarafında bir sınır daha var. İki virgül beş gigabitlik yukarı yön tablosunda, ONU'nun verici dalga boyundaki ekipman yansıması eksi otuz iki desibelle sınırlandırılmıştır. Dipnot bunun nedenini açıklar: birden çok yukarı yön ONU yankısı."
+  },
+  {
+   "id": "e7",
+   "text": "Fiziği şöyle: bir ONU'nun yukarı yön ışığı, ODN'deki bir konnektörden geri yansır, ONU'lara geri döner ve oradan bir kez daha yansıyarak yukarı yöne gider. Bu yankı asıl sinyalle aynı dalga boyundadır ve OLT'de filtreyle ayrılamaz; bant içi girişim olarak sinyalin üzerine biner. Altmış dört ONU'lu bir ağda bu küçük yankılar toplanır."
+  },
+  {
+   "id": "e7a",
+   "text": "Bir yankının OLT'ye ulaşabilmesi için iki yansıma ve fazladan bir gidiş dönüş kaybı gerekir. Tek bir yankı bu yüzden çok küçüktür. Ama aynı kanaldaki onlarca ONU'nun yankısı birleştiğinde, standardın bant içi girişim bütçesinde yer kaplayacak kadar büyür. Standart da ONU yansıma sınırını, tam bu toplamı hesaba katarak belirlemiştir."
+  },
+  {
+   "id": "e8",
+   "text": "Bu yüzden yansıma sınırları birbirine bağlıdır: ODN'in geri dönüş kaybı, konnektörlerin yansıması, ONU'nun ekipman yansıması ve OLT alıcısının bant içi girişim toleransı, aynı denklemin parçalarıdır. Beşinci ve sekizinci bölümlerde girişim toleransını ölçeceğiz."
+  },
+  {
+   "id": "e8a",
+   "text": "Sahada sık görülen bir örüntü şöyledir: yeni devreye alınan bir kanalda, belirli ONU'larda zaman zaman hata artışı görülür ve güç seviyeleri normaldir. Yansıma ölçümü, açılı cilalı bir hattın ortasına karışmış düz cilalı bir konnektörü ya da kirli bir bağlantıyı ortaya çıkarır. Konnektör temizlenince ya da değiştirilince sorun kaybolur. Yansıma, ölçülmedikçe görünmez."
+  },
+  {
+   "id": "e9",
+   "text": "Mühendis notu. Sahada en sık yansıma kaynağı kirli ya da hasarlı konnektörlerdir. NG-PON2 gibi çok dalga boylu ve çift yönlü bir sistemde, açılı cilalı konnektörler ve temizlik disiplini, bütçenin görünmez ama kritik bir kalemidir."
+  }
+ ]
+}
