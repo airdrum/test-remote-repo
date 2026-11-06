@@ -1,9 +1,13 @@
 """Gemini TTS: narration JSON -> per-beat WAV (24 kHz mono) + manifest with durations. Cached by content hash."""
-import base64, hashlib, io, json, os, random, sys, time, urllib.request, wave
+import urllib.error, base64, hashlib, io, json, os, random, sys, time, urllib.request, wave
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{}:generateContent"
+
+class DailyQuota(Exception):
+    """The model's requests-per-day quota is spent; retrying today only burns time."""
+
 
 def synth(model, voice, style, text, retries=8):
     prompt = f"{style}\n\n{text}" if style else text
@@ -22,6 +26,14 @@ def synth(model, voice, style, text, retries=8):
                     assert w.getframerate() == 24000 and w.getnchannels() == 1
                     raw = w.readframes(w.getnframes())
             return raw
+        except urllib.error.HTTPError as e:
+            msg = e.read().decode(errors="ignore")
+            if e.code == 429 and ("per_day" in msg or "PerDay" in msg):
+                raise DailyQuota(model) from None
+            if e.code in (400, 403, 404):
+                raise RuntimeError(f"TTS {model}: HTTP {e.code} {msg[:200]}") from None
+            wait = min(60, 4 * 2 ** i) + random.uniform(0, 3)
+            print(f"  retry {i+1} in {wait:.0f}s: HTTP {e.code}", file=sys.stderr); time.sleep(wait)
         except Exception as e:
             wait = min(60, 4 * 2 ** i) + random.uniform(0, 3)
             print(f"  retry {i+1} in {wait:.0f}s: {e}", file=sys.stderr); time.sleep(wait)
