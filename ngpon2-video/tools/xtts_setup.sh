@@ -20,11 +20,11 @@ if [ -z "$(vpy)" ]; then
   else py -3.12 -m venv "$VENV"; fi   # Windows launcher
 fi
 VPY=$(vpy); echo "venv python: $VPY"
-PIP=(uv pip install --python "$VPY"); command -v uv >/dev/null || PIP=("$VPY" -m pip install)
-"${PIP[@]}" "coqui-tts[cuda,codec]==0.28.0" six soundfile   # six is missing from coqui-tts 0.28.0's deps
+PIP=(uv pip install --python "$VPY"); REINSTALL=--reinstall; command -v uv >/dev/null || { PIP=("$VPY" -m pip install); REINSTALL=--force-reinstall; }  # uv: --reinstall, plain pip: --force-reinstall
+"${PIP[@]}" "coqui-tts[cuda,codec]==0.28.0" six soundfile spacy   # six missing from coqui-tts 0.28.0 deps; spacy needed for enable_text_splitting=True
 if [ "$("$VPY" -c 'import torch; print(torch.cuda.is_available())')" != "True" ]; then
   echo "torch CUDA görmüyor (PyPI torch'un CUDA sürümü sürücüden yeni olabilir) → cu128 index'inden yeniden kuruluyor"
-  "${PIP[@]}" --reinstall torch torchaudio --index-url https://download.pytorch.org/whl/cu128
+  "${PIP[@]}" "$REINSTALL" torch torchaudio --index-url https://download.pytorch.org/whl/cu128
 fi
 "$VPY" -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
 [ "$("$VPY" -c 'import torch; print(torch.cuda.is_available())')" = "True" ] || { echo "DUR: torch.cuda.is_available() hâlâ False" >&2; exit 3; }
@@ -35,7 +35,7 @@ for f in model.pth speakers_xtts.pth config.json vocab.json; do
   [ -s "$MODEL_DIR/$f" ] || curl -sSL --retry 4 -o "$MODEL_DIR/$f" "https://huggingface.co/coqui/XTTS-v2/resolve/main/$f"
 done
 check() { [ "$(sha256sum "$MODEL_DIR/$1" | cut -d' ' -f1)" = "$2" ] || { echo "DUR: $1 SHA256 uyuşmuyor" >&2; exit 4; }; echo "$1 SHA256 ok"; }
-check model.pth c7ea20001c6a0a841c77e252d8409f6a74fb423e79b3206a0771ba5989776187
+check model.pth 185738fdce8f2bdc859bfb9f99d8978a2c0c61c4569dae63944a0f92677aeeec
 check speakers_xtts.pth f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e645b943b
 
 echo "== 4) test (Damien Black, tr, CUDA zorunlu)"

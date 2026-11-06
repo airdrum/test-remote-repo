@@ -1,0 +1,98 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "b497b24d7ff_0.wav",
+   "duration": 15.939,
+   "text": "Laboratuvarda: alıcı testleri. Üç ana ölçüm var: hata oranı eğrisi, yol cezası ve X bölü S toleransı. Hepsinin ortak noktası, kalibre bir zayıflatıcı ve güvenilir bir güç ölçümü.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "b0ac1178602_0.wav",
+   "duration": 24.483,
+   "text": "Düzenek şöyle: bir referans OLT vericisi ya da test vericisi, değişken optik zayıflatıcı, R noktasında gücü ölçmek için bir kuplör, ve ONU alıcısı. Hata oranı FEC öncesinde ölçülmelidir, çünkü referans seviye FEC öncesi tanımlıdır. Bunun için ya BERT ile ham hata sayımı yapılır, ya da FEC çözücünün düzeltme sayaçlarından tahmin edilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2a",
+   "file": "b4322bf4a3c_0.wav",
+   "duration": 24.052,
+   "text": "FEC sayaçlarından hata oranı tahmin ederken dikkatli olun. Düzeltilen bayt sayısını toplam bayt sayısına bölmek, bayt düzeyinde bir sembol hata oranı verir. Bit hata oranı, hata deseninin dağınık ya da öbek olmasına göre, bu oranın sekizde biri ile kendisi arasında bir yerdedir. Kesin hassasiyet ölçümü için ham hata sayımı tercih edilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b44e96e1ea8_0.wav",
+   "duration": 25.108,
+   "text": "Gücü adım adım azaltın ve her noktada hata oranını ölçün. Q ölçeğinde bu noktalar yaklaşık bir doğru üzerine düşer. Hassasiyet, eğrinin referans seviyeyi kestiği güçtür: on gigabitte on üzeri eksi üç. Tek noktada ölçmek yerine eğri çizmek, ölçüm gürültüsünü ortalar ve hata tabanı gibi sorunları ortaya çıkarır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "b6db8330d82_0.wav",
+   "duration": 27.032,
+   "text": "Yol cezası için aynı eğriyi iki kez çıkarın: bir kez kısa bir bağlantıyla, bir kez de en kötü dispersiyonlu fiberle, örneğin kırk kilometre için sekiz yüz kırk ps bölü nanometre. İki eğri arasındaki güç farkı, referans hata oranında ölçülen yol cezasıdır. On gigabitte bu iki desibelin altında kalmalıdır; kalmıyorsa standart, farkı verici gücüyle kapatmayı söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "bac84818332_0.wav",
+   "duration": 18.808,
+   "text": "Aşırı yük için tersini yapın: gücü artırın ve hata oranının referansı aştığı noktayı bulun. On gigabitte eksi yedi dBm'de hata oranı hâlâ referansın altında olmalıdır. APD'li alıcılarda bu bölgede kazanç kontrolü kritik hale gelir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5a",
+   "file": "bffdbd63aa8_0.wav",
+   "duration": 22.029,
+   "text": "Alıcı ayar süresini ölçmek için ONU'ya bir kanal değişikliği yaptırın ve yeni kanalda aşağı yön senkronunun kurulduğu anı kaydedin. Bu süre, F ekindeki TC katmanı ayar süresidir. Fiziksel katmandaki ayar süresini ayrıca ölçmek isterseniz, alıcının çıkışındaki optik ya da elektriksel sinyali bir osiloskopla izleyin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "b233d0bc827_0.wav",
+   "duration": 27.643,
+   "text": "X bölü S testi en karmaşık olanıdır. Hedef kanalı S düzeyine, yani hassasiyet artı yol cezasına ayarlayın. Yedi TWDM girişimcisini aynı hızda, S artı dört desibelde ekleyin. Hedefi ve komşularını spektral sapmanın uçlarına kaydırın: hedef artı ya da eksi yirmi gigahertzde, en yakın girişimci seksen gigahertz ötede. Alıcının hata oranı referansta kalmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6a",
+   "file": "b59eb3781c1_0.wav",
+   "duration": 21.325,
+   "text": "Girişimciler için ayarlanabilir lazerler ve bir modülatör, ya da gerçek OLT kanal sonlandırıcıları kullanılabilir. Standart, girişim sinyali olarak hedefle aynı hızda, NRZ biçiminde sözde rastgele bir dizi ister. PtP girişimcileri için ayrıca Y ve Z düzeylerinde sinyaller eklenir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "bd808e27094_0.wav",
+   "duration": 20.788,
+   "text": "Titreşim toleransı için BERT'in titreşim üreteci kullanılır. Alıcı gücünü hassasiyetin bir desibel üstüne ayarlayın, belirli bir frekansta sinüzoidal titreşimi artırın, ve hata oranının referansa çıktığı genliği bulun. Bu genlik, o frekanstaki maske değerinin üstünde olmalıdır. Birkaç frekansta tekrarlayarak eğriyi çıkarın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7a",
+   "file": "b56d4ba8a73_0.wav",
+   "duration": 18.723,
+   "text": "Ardışık özdeş rakam testi için de BERT'in desen üreteci kullanılır. Yetmiş iki bitlik sıfır ve bir dizileri içeren bir desen gönderin, ve hata oranının bozulmadığını doğrulayın. Bu test özellikle saat çıkarıcının döngü bant genişliği ile ilgili sorunları ortaya çıkarır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7b",
+   "file": "bd71cd7e7cb_0.wav",
+   "duration": 23.277,
+   "text": "Bir de senkron dayanıklılığı testi yapın. Zayıflatıcıyla gücü, hata oranı on üzeri eksi üç civarına gelene kadar düşürün, ve uzun bir süre boyunca LODS olayı olmadığını doğrulayın. Standart, referans senkron makinesinin bu hata oranında yanlış senkron kaybına dayanıklı olmasını ister; sayaçlarınızda tek bir LODS bile bir uyarıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "b0113700544_0.wav",
+   "duration": 22.104,
+   "text": "Mühendis notu. Bir: hata oranı ölçümünde güç ölçerin doğruluğu sonucu doğrudan kaydırır; R noktasındaki kuplörün oranını kalibre edin. İki: hassasiyet ölçümünü sıcaklık uçlarında tekrarlayın; tablo değerleri sıcaklık ve yaşlanma dahil en kötü koşul içindir.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 291.31
+}

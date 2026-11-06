@@ -1,105 +1,105 @@
 {
- "voice": "Sadaltager",
- "model": "gemini-3.1-flash-tts-preview",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
  "beats": [
   {
    "id": "c1",
-   "file": "c1_gc395c25136.wav",
-   "duration": 21.891,
+   "file": "bf58555f85b_0.wav",
+   "duration": 24.511,
    "text": "Perde iki: X bölü S toleransı. NG-PON2 çok dalga boylu bir mimaridir; bir alıcı için kendisine ait olmayan her kanal bir girişimcidir. Standart bunu onuncu maddede bir oranla tanımlar: S, hedef kanalın gücüdür; X, girişim yapan sinyallerin gücüdür. İkisi de alıcının R noktasında ölçülür.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c1a",
-   "file": "c1a_gc395c25136.wav",
-   "duration": 22.229,
+   "file": "b70087866b6_0.wav",
+   "duration": 22.253,
    "text": "Önemli bir tasarım kararı var: standart filtrenin yalıtımını belirtmez; alıcının X bölü S toleransını belirtir. ONU üreticisi filtreyi istediği gibi yapabilir; ama sonuçta alıcı, bu girişimciler varken de hassasiyetini korumalıdır. Önceki PON'larda bu yalnızca ONU için tanımlanırdı; NG-PON2'de OLT için de tanımlıdır.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c2",
-   "file": "c2_gd793de4f98.wav",
-   "duration": 20.316,
+   "file": "b692218e9a7_0.wav",
+   "duration": 21.784,
    "text": "Maske iki parçadır. Geniş bant kısmı eski sistemlere karşıdır: G-PON, XG-PON1, RF video ve OTDR. Standart burada bir şekil verir: ek servislerin dalga boyları ve toplam güçleri bu maskenin altında kalmalıdır ki NG-PON2 ONU'su onlarla birlikte çalışabilsin.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c3",
-   "file": "c3_gd793de4f98.wav",
-   "duration": 22.644,
+   "file": "ba56b1b51d8_0.wav",
+   "duration": 27.668,
    "text": "Dar bant kısmı ise NG-PON2 kanallarına karşıdır. Hedef kanalın merkezi C olsun. Alıcı, C artı eksi en büyük spektral sapma aralığında, yani artı eksi yirmi gigahertzde hassasiyetini sağlamalıdır. Girişimciler ise kanal aralığı eksi sapma kadar yakın olabilir: yüz gigahertz aralıkta en yakın girişimci seksen gigahertz ötededir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c3a",
-   "file": "c3a_g6499ecd94e.wav",
-   "duration": 19.279,
+   "file": "bdd17849c42_0.wav",
+   "duration": 17.645,
    "text": "Bu, iki komşunun birbirine doğru en kötü sapmayla yaklaştığı durumdur. On dört olası girişimci konumundan, aynı anda yedi bitişik konum doludur: hedef kanal sekiz kanaldan biriyse, diğer yedisi girişimcidir. Hepsi aynı hızda, TWDM biçiminde modüle edilir.",
-   "qa": "head=1 tail=0"
+   "qa": "skipped"
   },
   {
    "id": "c4",
-   "file": "c4_g6499ecd94e.wav",
-   "duration": 20.841,
+   "file": "bcbca5ff15d_0.wav",
+   "duration": 22.879,
    "text": "Seviyeler Tablo on bir'dedir. S, hassasiyet artı yol cezası olarak alınır. X, her TWDM girişimcisi için S artı dört desibeldir. Dört desibel, OLT vericileri arasındaki en kötü güç farkıdır, yani bir sınıftaki en küçük ve en büyük başlatma gücü arasındaki fark.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c4a",
-   "file": "b761fe1a7f3_0.wav",
-   "duration": 28.24,
+   "file": "b9ba32634c8_0.wav",
+   "duration": 30.367,
    "text": "ONU için ayrıca noktadan noktaya WDM girişimcileri vardır. Aşağı yöndeki PtP kanalları Z düzeyindedir: iki buçuk gigabitlik bağlantı için S artı yedi, on gigabit için S artı sekiz desibel. Bir de yukarı yöndeki PtP sinyallerinin yansımaları vardır: ODN'nin otuz iki desibellik geri dönüş kaybı nedeniyle, başka abonelerin yukarı yön ışığı ONU'nuza geri gelir. Bunun düzeyi Y'dir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c5",
-   "file": "b470df71534_0.wav",
-   "duration": 34.12,
+   "file": "b96c6ed0182_0.wav",
+   "duration": 34.025,
    "text": "Y için yazılan sayı, standardın düzeltilmiş bir yeridir. İki bin on dokuz şubat metninde Y, S artı altı desibel olarak yazılmıştı. Oysa tablonun kendi notu yedi desibel diyordu: PtP ONU vericisinin en büyük gücü artı dokuz dBm, eksi otuz iki desibel ORL, eksi otuz dBm'lik ONU hassasiyeti; sonuç yedi. Ağustos iki bin on dokuzdaki birinci düzeltme Y'yi S artı yedi yaptı, ve notta yanlışlıkla OLT yazan alıcıyı ONU olarak düzeltti.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c5a",
-   "file": "c5a_g4a214cf366.wav",
-   "duration": 27.495,
+   "file": "bb81f971f8a_0.wav",
+   "duration": 30.424,
    "text": "Somut sayılarla: on gigabitlik bir ONU'da S, eksi yirmi sekiz artı iki, yani eksi yirmi altı dBm. Yedi TWDM girişimcisinin her biri eksi yirmi iki, yansıyan PtP sinyalleri eksi on dokuz, PtP aşağı yön kanalları eksi on sekiz dBm olabilir. Alıcı bu kalabalığın içinde, eksi yirmi altıdaki kanalı referans hata oranında çözebilmelidir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c6",
-   "file": "c6_g4a214cf366.wav",
-   "duration": 20.825,
+   "file": "b65b646f22c_0.wav",
+   "duration": 25.784,
    "text": "OLT tarafında tablo farklıdır: X, S artı yirmi desibeldir. Beş desibel ONU vericileri arasındaki güç farkından, on beş desibel ise diferansiyel yol kaybından gelir. OLT'de PtP kanalları dikkate alınmaz; dalga boyunda o kadar uzaktırlar ki TWDM ayırıcısı onları etkili biçimde süzer.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c6a",
-   "file": "c6a_g3fc32d782a.wav",
-   "duration": 22.913,
+   "file": "b46fa9e137e_0.wav",
+   "duration": 25.08,
    "text": "Bu asimetri sezgiseldir. ONU'ya gelen bütün TWDM kanalları aynı yoldan geçer; aralarındaki fark yalnızca OLT vericilerinin farkıdır. OLT'ye gelen yukarı yön kanalları ise farklı ONU'lardan, farklı yol kayıplarından gelir; en uzaktaki ONU'nun sinyali, en yakındakinin yirmi desibel altında kalabilir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c6b",
-   "file": "c6b_g3fc32d782a.wav",
-   "duration": 25.167,
+   "file": "ba6698a43a1_0.wav",
+   "duration": 25.577,
    "text": "Alıcı tablosunda bir satır daha var: bant içi karışma toleransı. İki buçuk gigabitte otuz iki virgül üç, on gigabitte otuz beş virgül üç desibel, on beş gigahertz başına. Bu, hedef kanalın kendi bandına düşen istenmeyen ışığa karşı toleranstır; tanımı G.989'dadır. Dördüncü bölümdeki kanal dışı güç yoğunluğu sınırları, işte bu tür karışmayı sınırlamak içindir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c7",
-   "file": "c7_gb85f3ea1fd.wav",
-   "duration": 19.721,
+   "file": "b6ceb81561e_0.wav",
+   "duration": 21.272,
    "text": "Mühendis notu. Bir: filtre yalıtımını hesaplarken X bölü S değerine, kabul edilebilir bozulma için gereken yalıtımı ekleyin; standardın dipnotu bunu açıkça söyler. İki: testte girişimcileri gerçekten sapma sınırına, hedefe doğru kaydırın; merkezde yapılan test iyimserdir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "c8",
-   "file": "c8_gb85f3ea1fd.wav",
-   "duration": 7.559,
+   "file": "b0552af0566_0.wav",
+   "duration": 6.897,
    "text": "Sıradaki: gücü ve spektrumu geçtik. Şimdi zaman: alıcı, bitlerin ne zaman geldiğini nasıl bilir?",
-   "qa": "ok"
+   "qa": "skipped"
   }
  ],
- "total": 313.24
+ "total": 336.17
 }

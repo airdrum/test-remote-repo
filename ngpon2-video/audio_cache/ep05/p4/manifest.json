@@ -1,0 +1,133 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b3471a45fc0_0.wav",
+   "duration": 22.505,
+   "text": "Perde dört: senkron. Her yüz yirmi beş mikrosaniyelik aşağı yön çerçevesi, yirmi dört baytlık fiziksel senkron bloğuyla başlar: sekiz baytlık PSync, sekiz baytlık süper çerçeve sayacı, ve sekiz baytlık işletim kontrol yapısı. PSync sabit, altmış dört bitlik bir desendir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "b1704d064b3_0.wav",
+   "duration": 22.861,
+   "text": "ONU'nun referans senkron durum makinesi dört durumludur: av, ön senkron, senkron ve yeniden senkron. Av durumunda ONU, bütün bit ve bayt hizalamalarında PSync'in hatasız bir eşleşmesini arar. Bulduğunda, sonraki altmış dört bitin geçerli, HEC korumalı bir süper çerçeve sayacı olup olmadığını kontrol eder.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2a",
+   "file": "b88a7d238c5_0.wav",
+   "duration": 27.945,
+   "text": "Kilitlendikten sonra her çerçevede iki doğrulama yapılır. PSync için altmış dört bitten en az altmış ikisinin eşleşmesi yeterlidir; yani iki bit hataya izin verilir. Süper çerçeve sayacı ise geçerli bir HEC'e sahip olmalı, ve yerel kopyanın bir artırılmış haline eşit olmalıdır. Avda tam eşleşme, kilitliyken iki bit tolerans: yanlış kilitlenmeye karşı sıkı, yanlış kayba karşı gevşek.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2b",
+   "file": "b80c03dfb11_0.wav",
+   "duration": 24.361,
+   "text": "Avdaki tam eşleşme şartının ne kadar güçlü olduğunu bir hesapla görelim. Rastgele bir bit akışında altmış dört bitlik tam bir eşleşmenin olasılığı, her konumda iki üzeri eksi altmış dörttür. On gigabitte saniyede yaklaşık on milyar konum denenir; yani rastgele bir eşleşme ortalama elli dokuz yılda bir olur. Üstelik ardından geçerli bir HEC ve bir sonraki çerçevede yeniden doğrulama gerekir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "b59513df89a_0.wav",
+   "duration": 35.135,
+   "text": "Senkron durumunda bir doğrulama başarısız olursa makine yeniden senkron durumuna geçer. Orada M eksi bir ardışık çerçeve daha başarısız olursa ONU, aşağı yön senkron kaybını, yani LODS'u ilan eder ve ava döner. Önerilen M değeri üçtür. Standart bu makinenin, on üzeri eksi üçe kadar yüksek hata oranında yanlış senkron kaybına dayanıklı olmasını ister: on gigabitlik referans hata oranıyla aynı rejim.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3a",
+   "file": "b20e52d8cce_0.wav",
+   "duration": 25.812,
+   "text": "LODS, ONU'nun kendisinin algıladığı tek kusurdur. Çalışma durumunda LODS olursa ONU aralıklı LODS durumuna geçer ve bir zamanlayıcı başlatır: dalga boyu kanalı koruması varsa TO3, yoksa TO2. Senkron zamanında geri gelirse çalışmaya döner. Gelmezse ya baştan aktivasyona, ya da korumalı kanal için aşağı yön ayar durumuna gider.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3b",
+   "file": "b393560d936_0.wav",
+   "duration": 27.572,
+   "text": "Diğer durumlarda tepki daha kısadır. Seri numarası ya da ranging durumunda LODS olursa, ONU zamanlayıcısını durdurur ve başlangıç durumuna döner. Acil durdurma durumunda ise senkron makinesi çalışmaya devam eder; LODS olursa ONU, varsa önceden yapılandırılmış koruma kanalından başlayarak başka bir aşağı yön kanalı arar. Acil durdurma, yeniden başlatma ve güç kesintisinden sonra da sürer.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "bebed4e62a5_0.wav",
+   "duration": 19.0,
+   "text": "Dördüncü bölümde çerçeveyi verici tarafından kurduk: on gigabitte altı yüz yirmi yedi, iki buçuk gigabitte yüz elli yedi kod sözcüğü. Alıcı tarafında sıra tersine döner: önce karıştırma çözülür, sonra FEC çözülür. PSBd ise FEC ile korunmaz; onu kendi HEC'i korur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4a",
+   "file": "b23742d31e0_0.wav",
+   "duration": 23.625,
+   "text": "Aşağı yönde FEC herkes için statik olarak açık ya da kapalıdır. ONU bu durumu iki yerden öğrenir: PSBd'deki FEC bayrağından ve kanal profilindeki E bitinden. Yeterli sayıda özdeş bayrağı profille karşılaştırarak karar verir, ve kanalda kaldığı sürece bu durumu korur. Farklı FEC durumlu bir kanala geçerken, senkronun kurulduğu andan itibaren FEC'i doğru işlemelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4b",
+   "file": "bf07aeb417c_0.wav",
+   "duration": 23.252,
+   "text": "Alıcının bir yan görevi daha var: hata oranını izlemek. FEC açıkken çözücü, düzeltilen bayt ve kod sözcüğü sayılarıyla aşağı yön hata oranının tahminini verir. FEC kapalıyken bunun için çerçeve sonundaki BIP-32 kullanılır. Bu sayaçlar OMCI üzerinden OLT'ye ulaşır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4c",
+   "file": "be9ee999f83_0.wav",
+   "duration": 24.899,
+   "text": "LODS sayaçları ayrıntılıdır: toplam LODS olayları; çalışma kanalında geri gelenler; önceden yapılandırılmış koruma kanalında geri gelenler; keyfi bir kanalda geri gelenler; ve senkron geri gelmeden yeniden aktivasyona yol açanlar. Bu ayrım, sahada bir sorunun fiberde mi, OLT kanalında mı, yoksa ONU'nun kendisinde mi olduğunu ayırt etmeye yardım eder.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "b75504706b1_0.wav",
+   "duration": 18.975,
+   "text": "Şimdi ONU'nun ilk adımları. Açılışta verici kapalıdır. ONU başlangıç durumunda, senkron dışı alt durumunda, bir aşağı yön sinyali arar. Senkron olunca profil öğrenme alt durumuna geçer, ve en az on saniyelik bir bekleme süresi başlatır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5a",
+   "file": "b657f8cd032_0.wav",
+   "duration": 23.956,
+   "text": "Bu sürede sistem, kanal ve burst profillerini toplar. Sonra karar verir: kanal bölümü, yukarı yön bağlantı tipi ve hızı uyuyorsa, ve uygun tipte seri numarası grantı sunuluyorsa, aktivasyona devam eder. Uymuyorsa burst profillerini atar ve başka bir aşağı yön kanalı aramaya döner. Bu ayrım, iki bin yirmi beşteki ikinci değişiklikle netleştirildi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5b",
+   "file": "b80b477c316_0.wav",
+   "duration": 20.899,
+   "text": "Profiller bir ile beş saniyede bir tekrarlanır. Hiçbir şey bilmeyen bir ONU, dört ile sekiz kanalı tararken, alıcı ayar sınıfına bağlı olarak saniyeler, hatta onlarca saniye harcayabilir. İlk yanıttan önceki bu sessiz süre, sahada bir ONU'nun neden hemen görünmediğini açıklar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5d",
+   "file": "b2d403fe1c1_0.wav",
+   "duration": 35.199,
+   "text": "Kanalı seçen ONU, seri numarası durumunda vericisini açar ve ilk yanıtında kendini anlatır: seçtiği aşağı yön ve yukarı yön PON-ID'leri, kalibrasyon kaydının durumu, ayar adımı ve tek adımlık ayar süresi, rastgele gecikmesi. Yeterince kalibre değilse bant içi değil, AMCC seri numarası grantlarına yanıt verir. Bunların ayrıntısı altıncı ve yedinci bölümlerde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5c",
+   "file": "b2910b84eab_0.wav",
+   "duration": 22.253,
+   "text": "Dördüncü bölümde gördüğümüz TOL alanı burada işe yarayabilir. ONU, kendi ölçtüğü alınan gücü, OLT'nin her çerçevede bildirdiği başlatma gücüyle karşılaştırıp yol kaybını kabaca tahmin edebilir. Standart bu kullanımı açıkça tanımlamaz, ama bilgi oradadır; ODN sınıf kodu da aynı yapıda taşınır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "b9631321ac3_0.wav",
+   "duration": 22.253,
+   "text": "Mühendis notu. Bir: sahada bir ONU görünmüyorsa önce LODS sayaçlarına bakın; LODS olayları sayılır, ve senkronun hangi kanalda geri geldiği kaydedilir. İki: seri numarası mesajındaki aktivasyon hata ayıklama alanı, ONU'nun neden yeniden başlangıca döndüğünü söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "b8c0fb62405_0.wav",
+   "duration": 3.573,
+   "text": "Şimdi bunları laboratuvarda ölçelim.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 424.07
+}

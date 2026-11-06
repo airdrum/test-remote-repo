@@ -1,49 +1,49 @@
 {
- "voice": "Sadaltager",
- "model": "gemini-2.5-flash-preview-tts",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
  "beats": [
   {
    "id": "o1",
-   "file": "o1_gca8740ea0c.wav",
-   "duration": 11.779,
+   "file": "b6e3849226d_0.wav",
+   "duration": 10.343,
    "text": "Bölüm beş: Ayarlanabilir Kulak. Bu bölümde ONU alıcısını inceliyoruz: bir evin içinde, sekiz renk arasından doğru olanı seçip ondan veri çıkaran parçayı.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "o2",
-   "file": "o2_gca8740ea0c.wav",
-   "duration": 11.656,
+   "file": "b9340435fec_0.wav",
+   "duration": 13.905,
    "text": "Önce bütçenin alıcı tarafı: hassasiyet, aşırı yük, yol cezası ve hata oranı referansı. Ve neden ONU'nun her sınıfta aynı pencereyi gördüğü.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "o3",
-   "file": "o3_gca8740ea0c.wav",
-   "duration": 9.397,
+   "file": "b100566c906_0.wav",
+   "duration": 6.773,
    "text": "Sonra kalabalık bir spektrumda duyabilmek: X bölü S toleransı, ve birinci düzeltmenin değiştirdiği tek sayı.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "o4",
-   "file": "o4_gca8740ea0c.wav",
-   "duration": 6.048,
+   "file": "b91e77d2f1e_0.wav",
+   "duration": 7.008,
    "text": "Ardından zaman: saat çıkarımı, ardışık özdeş rakamlar, titreşim toleransı ve alıcının ayarı.",
-   "qa": "head=0 tail=1"
+   "qa": "skipped"
   },
   {
    "id": "o5",
-   "file": "o5_gca8740ea0c.wav",
-   "duration": 8.247,
+   "file": "baa4d24e146_0.wav",
+   "duration": 8.117,
    "text": "TC köprüsünde ise PSync avı, senkron kaybı, çerçevenin içindeki FEC ve bir ONU'nun ilk adımları.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "o6",
-   "file": "o6_gca8740ea0c.wav",
-   "duration": 6.404,
+   "file": "b538b6ae5c3_0.wav",
+   "duration": 7.147,
    "text": "Laboratuvarda hata oranı eğrisini, yol cezasını ve X bölü S toleransını ölçeceğiz.",
-   "qa": "ok"
+   "qa": "skipped"
   }
  ],
- "total": 53.53
+ "total": 53.29
 }

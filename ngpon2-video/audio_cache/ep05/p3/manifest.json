@@ -1,105 +1,105 @@
 {
- "voice": "Sadaltager",
- "model": "gemini-3.1-flash-tts-preview",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
  "beats": [
   {
    "id": "d1",
-   "file": "d1_gb9b05f4a10.wav",
-   "duration": 21.478,
+   "file": "be7e1236464_0.wav",
+   "duration": 21.496,
    "text": "Perde üç: zaman. Aşağı yön sürekli bir sinyaldir, ve ONU saatini bu sinyalden çıkarır; standart bunu geleneksel saat çıkarımı olarak tanımlar. Yukarı yöndeki burst alıcısı ise saati her burst'ün önsözündeki birkaç değişen bitten hızla çıkarmak zorundadır; onu sekizinci bölümde göreceğiz.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d1a",
-   "file": "d1a_gb9b05f4a10.wav",
-   "duration": 25.162,
+   "file": "b39f2f84db0_0.wav",
+   "duration": 26.324,
    "text": "ONU'nun çıkardığı bu saat yalnızca alıcı için değildir. Standart, ONU'nun yukarı yönde, alınan aşağı yön sinyaliyle aynı frekans doğruluğunda göndermesini ister. Yani alıcının saat devresi, ONU vericisinin de zaman kaynağıdır. Aşağı yön saati normal çalışmada Stratum-1'e izlenebilir; serbest çalışmada ise en az Stratum-4 doğruluğundadır, yani milyonda otuz iki.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d2",
-   "file": "d2_g7db00eb8be.wav",
-   "duration": 21.895,
+   "file": "bf1b79c6cfc_0.wav",
+   "duration": 21.699,
    "text": "Saat çıkarıcı, sinyalde geçiş olduğu sürece kilitli kalır. Ardışık özdeş rakam bağışıklığı, alıcının geçişsiz kaç biti hatasız taşıyabileceğini söyler: her iki hızda da yetmiş iki bit. Karıştırıcı uzun sıfır ya da bir dizilerini olasılıksal olarak kırar; yetmiş iki bitlik bağışıklık ise kalan riski karşılar.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d2a",
-   "file": "d2a_g7db00eb8be.wav",
-   "duration": 19.065,
+   "file": "be6b01c4429_0.wav",
+   "duration": 19.011,
    "text": "Yetmiş iki bit, on gigabitte yaklaşık yedi nanosaniye eder. Saat çıkarıcı bu süre boyunca hiçbir geçiş görmeden fazını korumalıdır. İki buçuk gigabitte aynı yetmiş iki bit dört kat daha uzun, yaklaşık yirmi dokuz nanosaniyedir; ama döngü bant genişliği de orantılı olarak daha düşüktür.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d3",
-   "file": "d3_g3f8e605cee.wav",
-   "duration": 25.276,
+   "file": "b01b5dec3e7_0.wav",
+   "duration": 27.459,
    "text": "Titreşim toleransı, giriş sinyaline uygulanan ve alıcıda bir desibellik optik güç cezasına yol açan sinüzoidal titreşimin tepeden tepeye genliği olarak tanımlanır. Dikkat edin: ölçüt hata oranında bir çöküş değil, bir desibellik güç cezası. Standart bunu bir stres testi olarak tanımlar; amaç, çalışma koşullarında ek ceza oluşmamasını güvence altına almaktır.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d3a",
-   "file": "d3a_g3f8e605cee.wav",
-   "duration": 22.044,
+   "file": "bdeb0dfa3d6_0.wav",
+   "duration": 23.433,
    "text": "Maske iki seviyelidir. Düşük frekanslarda sıfır virgül yetmiş beş, yüksek frekanslarda sıfır virgül sıfır yetmiş beş birim aralık. Köşe frekansları iki buçuk gigabitte yüz kilohertz ve bir megahertz, on gigabitte dört yüz kilohertz ve dört megahertz. Değerler G.984.2'den on gigabite ölçeklenmiştir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d4",
-   "file": "d4_g73fe7c1804.wav",
-   "duration": 23.028,
+   "file": "bf085de2aa1_0.wav",
+   "duration": 21.133,
    "text": "Üretim tarafında sınırlar G.783'ten gelir. On gigabitte yirmi kilohertz ile seksen megahertz arasında en çok sıfır virgül üç, dört megahertz ile seksen megahertz arasında sıfır virgül bir birim aralık. İki buçuk gigabitte aynı sınırlar, beş kilohertz ile yirmi megahertz, ve bir megahertz ile yirmi megahertz bantlarında geçerlidir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d4a",
-   "file": "d4a_g73fe7c1804.wav",
-   "duration": 18.892,
+   "file": "bc0a46efbed_0.wav",
+   "duration": 20.12,
    "text": "ONU için bir parametre daha vardır: titreşim aktarımı. Aşağı yöndeki titreşimin ne kadarının yukarı yöne geçtiğini ölçer, ve tepe kazancı sıfır virgül bir desibelle sınırlıdır. Çünkü ONU yukarı yönde, aşağı yönden çıkardığı saati kullanır; bu saat titreşimi büyütmemelidir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d5",
-   "file": "b6ac1a7b742_0.wav",
-   "duration": 24.12,
+   "file": "b4eefebd167_0.wav",
+   "duration": 22.463,
    "text": "Ayarlanabilir kulağın ayar tarafı: alıcı en çok beş gigahertzlik adımlarla ayarlanabilmelidir. Ayar süresi sınıfları Tablo dokuz iki'dedir: birinci sınıf on mikrosaniyenin altında, ikinci sınıf on mikrosaniye ile yirmi beş milisaniye arası, üçüncü sınıf yirmi beş milisaniye ile bir saniye arası. Tablolar alıcı için bir sınıfı zorunlu kılmaz.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d5a",
-   "file": "b6a2bf0dcc8_0.wav",
-   "duration": 25.32,
+   "file": "bdb7dffe9ef_0.wav",
+   "duration": 27.768,
    "text": "Alıcının ayarı otonom olarak kalibre edilebilir. Kalibre olmamış bir ONU, alıcı ayar aralığını tarar, sinyal bulduğu yerde senkronize olur, kanal profilinden kanal parametrelerini okur, ve bunları kendi iç ayar parametreleriyle eşleyip kaydeder. Çalışma sırasında ince ayar için, ayar parametresine küçük bir titreşim ekleyip sinyal kalitesini en iyi yapan noktayı izlemek önerilir.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d5c",
-   "file": "d5c_gf6b73a6d1e.wav",
-   "duration": 26.518,
+   "file": "bf09ceb1e94_0.wav",
+   "duration": 26.328,
    "text": "TC katmanı açısından ayar süresi daha geniş tanımlanır. G.989.3'ün F eki, TC katmanı ayar süresini üç parçanın toplamı olarak verir: hazırlık süresi, fiziksel katmandaki ayar süresi, ve yeniden senkron süresi. Yani alıcının lazeri ya da filtresi ne kadar hızlı olursa olsun, ONU ancak yeni kanalda çerçeve senkronunu yeniden kurduğunda ayar tamamlanmış sayılır.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d5b",
-   "file": "d5b_gf6b73a6d1e.wav",
-   "duration": 18.922,
+   "file": "b48b7e78556_0.wav",
+   "duration": 21.411,
    "text": "Bu iki sayıyı birlikte düşünün. Alıcı filtresi artı eksi yirmi gigahertzlik sapma aralığında düz geçirmeli, seksen gigahertzde ise reddetmelidir. Beş gigahertzlik ayar adımı, bu geçiş bandının içinde kalan bir konumlama hatası demektir; filtre kenarı ne kadar dikse, bu küçük hata o kadar pahalıya mal olur.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d6",
-   "file": "d6_g4d123e4fff.wav",
-   "duration": 19.743,
+   "file": "b4a9b565294_0.wav",
+   "duration": 22.488,
    "text": "Mühendis notu. Bir: titreşim toleransı ölçümünde ölçütü karıştırmayın; bir desibellik güç cezası, hata oranı eşiği değil. İki: ONU vericisinin zaman kaynağı alıcının saatidir; alıcı tarafındaki bir saat sorunu, yukarı yönde de iz bırakır.",
-   "qa": "ok"
+   "qa": "skipped"
   },
   {
    "id": "d7",
-   "file": "d7_g4d123e4fff.wav",
-   "duration": 5.817,
+   "file": "bc2c0e446e3_0.wav",
+   "duration": 7.505,
    "text": "Sıradaki: alıcı bit akışını yakaladı. Şimdi çerçeveyi bulması gerekiyor.",
-   "qa": "ok"
+   "qa": "skipped"
   }
  ],
- "total": 297.28
+ "total": 308.64
 }
