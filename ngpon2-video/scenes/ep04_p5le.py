@@ -32,7 +32,7 @@ class E4P5A(Act4):
 
     def construct(self):
         self.beat("f1")
-        tc = self.title_card("PERDE 5", "TC köprüsü: 125 µs çerçeve")
+        tc = self.title_card("PERDE 5", "TC köprüsü")
         self.at(self.cue("Çalışan bir OLT", 2))
         self.to_header(tc)
         self.set_badge("tc")

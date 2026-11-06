@@ -166,7 +166,6 @@ class Ep04Recap(Act4):
         items = VGroup(*[VGroup(T("✓", 26, GOOD, BOLD), T(s, 23, TXT)).arrange(RIGHT, buff=0.3) for s in pts]).arrange(DOWN, aligned_edge=LEFT, buff=0.38).move_to(DOWN * 0.25)
         self.play(LaggedStart(*[FadeIn(i, shift=RIGHT * 0.2) for i in items], lag_ratio=0.35), run_time=3.0)
         self.end(pad=0.05)
-        self.clear()
         qa = [("Soru 1", "4 kanal · döngüsel değil · 100 GHz ↑ ızgara:\nen küçük ayar penceresi?", "W = (N − 1) · CS + 2 · MSE\n= 3 · 100 + 2 · 20 = 340 GHz", CH[0], "a2", "Formül"),
               ("Soru 2", "↑ kanal 195,1 THz:\nChannel_Profile'da hangi sayıyla yazılır?", "0,1 GHz birimi: 195 100 GHz\n→ 1 951 000", CH[1], "a3", "Frekans sıfır virgül"),
               ("Soru 3", "Raman modülasyon karışması:\naynı yönde mi, karşı yönde mi?", "Yalnızca AYNI yönde yayılanlar arasında\nKarşı yön: güç tüketimi var, modülasyon karışması yok", CH[3], "a4", "Raman kaynaklı")]
@@ -175,6 +174,8 @@ class Ep04Recap(Act4):
             self.beat(bid)
             if prev is not None:
                 self.play(FadeOut(prev), run_time=0.4)
+            else:
+                self.clear(rt=0.4)
             qt = VGroup(T(title, 26, c, BOLD), T(q, 28, TXT, SEMIBOLD, line_spacing=0.9)).arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to(UP * 1.15).to_edge(LEFT, buff=1.0)
             ans = RoundedRectangle(corner_radius=0.18, width=11.5, height=2.2, stroke_color=GOOD, stroke_width=2.5, fill_color=PANEL, fill_opacity=1).move_to(DOWN * 1.55)
             at = VGroup(T("Cevap", 20, GOOD, BOLD), T(a, 24, TXT, line_spacing=0.9)).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to(ans).align_to(ans, LEFT).shift(RIGHT * 0.4)
