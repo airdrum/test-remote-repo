@@ -1,0 +1,56 @@
+{
+ "title": "B04 Perde 1 — Hız, saat ve hat kodu",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: hız, saat ve hat kodu. Aşağı yön için iki hız tanımlıdır: dokuz virgül dokuz beş üç iki sekiz, ve iki virgül dört sekiz sekiz üç iki gigabit. Standart, iletim hızının sekiz kilohertzin katı olduğunu söyler; yani yüz yirmi beş mikrosaniyelik çerçeve, her iki hızda da tam sayıda bayt taşır."
+  },
+  {
+   "id": "b1b",
+   "text": "Neden sekiz kilohertz? Çünkü sekiz kilohertz, sayısal telefonun örnekleme frekansıdır, ve yüz yirmi beş mikrosaniye onun periyodudur. NG-PON2 bu mirası SDH'den ve önceki PON'lardan devralır. Dokuz bin dokuz yüz elli üç virgül yirmi sekiz megabiti sekiz kilohertze bölün: çerçeve başına bir milyon iki yüz kırk dört bin yüz altmış bit, yani yüz elli beş bin beş yüz yirmi bayt."
+  },
+  {
+   "id": "b1a",
+   "text": "Hız kombinasyonları Tablo on bir bir'dedir. Temel seçenek: aşağı yönde on, yukarı yönde iki buçuk gigabit. Birinci seçenek: iki yönde de on gigabit. İkinci seçenek: iki yönde de iki buçuk gigabit. Kanal grubundaki her TWDM kanalı, bu seçeneklerden herhangi birini kullanabilir."
+  },
+  {
+   "id": "b2",
+   "text": "OLT, bütün PON'un saatidir. Normal çalışmada OLT tipik olarak Stratum-1 referansına, yani on üzeri eksi on bir doğruluğa izlenebilir. Serbest çalışmada aşağı yön sinyalinin doğruluğu en az Stratum-4, yani milyonda otuz ikidir. Mobil geri taşıma gibi zamanlamanın kritik olduğu uygulamalarda, serbest çalışmada Stratum-3 kalitesi gerekebilir."
+  },
+  {
+   "id": "b2a",
+   "text": "Bu saatin önemi ONU tarafında ortaya çıkar. Standart, ONU'nun yukarı yönde, alınan aşağı yön sinyaliyle aynı frekans doğruluğunda göndermesini ister. Yani OLT'nin aşağı yön saati, bütün yukarı yön burst'lerinin de frekans referansıdır. OLT saatini ayrılmış bir zamanlama kaynağından, senkron bir veri arayüzünden, ya da paket tabanlı bir zamanlama kaynağından alabilir."
+  },
+  {
+   "id": "b2b",
+   "text": "Milyonda otuz ikiyi bir sayıya çevirelim: on gigabitte bu, saniyede yaklaşık üç yüz yirmi bin bitlik bir frekans farkı demektir. ONU'lar aşağı yön saatini izlediği için bu fark bütün sisteme birlikte yayılır; bir PON'un içinde sorun değildir. Ama dış ağla senkron çalışması gereken bir servis için, OLT'nin saat kaynağı belirleyicidir."
+  },
+  {
+   "id": "b3",
+   "text": "Hat kodu her iki hızda da karıştırılmış NRZ'dir. Mantık kuralı basittir: bir için yüksek ışık, sıfır için düşük ışık. Karıştırma, uzun özdeş bit dizilerini olasılıksal olarak kırar ve alıcının saat çıkarımını besler; ayrıntısını beşinci perdede göreceğiz."
+  },
+  {
+   "id": "b3a",
+   "text": "Üçüncü bölümde gördüğümüz alternatif kodlar burada vericiye dokunur. 8B10B ile on gigabitlik veri, on iki buçuk gigabitte gönderilir. Standart, on gigabit uyumlu bileşenlerle bunun sönüm oranına ve hassasiyete doğrudan etkisi olabileceğini, bunun da OLT'nin en küçük başlatma gücünü artırarak telafi edilebileceğini söyler. Miller kodu ise dar spektrumuyla, L bandında EML yerine doğrudan modüle edilen bir lazere izin verir."
+  },
+  {
+   "id": "b3b",
+   "text": "Dokuzuncu ekteki bir tablo, bunun neden gündemde olduğunu sayıyla gösterir: N2 sınıfında, dört dalga boyuyla ve RF video ile birlikte çalışmada, yaklaşık altı desibellik bir Raman azaltımı gerekir. Varsayımlar; iki yüz elli altı QAM video, bir desibellik taşıyıcı gürültü oranı cezası ve sıfır virgül altılık bir polarizasyon örtüşme faktörüdür. Sekiz dalga boyu için değer, ileride çalışılacaktır."
+  },
+  {
+   "id": "b4",
+   "text": "Bir ayrıntı daha: elektronik dispersiyon dengelemesi, OLT vericisinde ya da ONU alıcısında kullanılabilir. Amaç, tablodaki yol cezasını tutturmaktır. Standart EDC'yi yasaklamaz, ama kapsamı dışında bırakır; nasıl yapıldığı üreticiye kalmıştır."
+  },
+  {
+   "id": "b5",
+   "text": "Mühendis notu. Bir: OLT'nin saat kaynağını ve serbest çalışma doğruluğunu belgeleyin; bütün yukarı yön bu saate bağlıdır. İki: alternatif bir hat kodu düşünüyorsanız, sönüm oranı ve hassasiyet bedelini güç bütçesinde ayrıca hesaplayın."
+  },
+  {
+   "id": "b6",
+   "text": "Sıradaki: bu bitleri ne kadar güçle ve ne kadar net gönderiyoruz?"
+  }
+ ]
+}

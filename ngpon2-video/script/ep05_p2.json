@@ -1,0 +1,64 @@
+{
+ "title": "B05 Perde 2 — X/S toleransı",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: X bölü S toleransı. NG-PON2 çok dalga boylu bir mimaridir; bir alıcı için kendisine ait olmayan her kanal bir girişimcidir. Standart bunu onuncu maddede bir oranla tanımlar: S, hedef kanalın gücüdür; X, girişim yapan sinyallerin gücüdür. İkisi de alıcının R noktasında ölçülür."
+  },
+  {
+   "id": "c1a",
+   "text": "Önemli bir tasarım kararı var: standart filtrenin yalıtımını belirtmez; alıcının X bölü S toleransını belirtir. ONU üreticisi filtreyi istediği gibi yapabilir; ama sonuçta alıcı, bu girişimciler varken de hassasiyetini korumalıdır. Önceki PON'larda bu yalnızca ONU için tanımlanırdı; NG-PON2'de OLT için de tanımlıdır."
+  },
+  {
+   "id": "c2",
+   "text": "Maske iki parçadır. Geniş bant kısmı eski sistemlere karşıdır: G-PON, XG-PON1, RF video ve OTDR. Standart burada bir şekil verir: ek servislerin dalga boyları ve toplam güçleri bu maskenin altında kalmalıdır ki NG-PON2 ONU'su onlarla birlikte çalışabilsin."
+  },
+  {
+   "id": "c3",
+   "text": "Dar bant kısmı ise NG-PON2 kanallarına karşıdır. Hedef kanalın merkezi C olsun. Alıcı, C artı eksi en büyük spektral sapma aralığında, yani artı eksi yirmi gigahertzde hassasiyetini sağlamalıdır. Girişimciler ise kanal aralığı eksi sapma kadar yakın olabilir: yüz gigahertz aralıkta en yakın girişimci seksen gigahertz ötededir."
+  },
+  {
+   "id": "c3a",
+   "text": "Bu, iki komşunun birbirine doğru en kötü sapmayla yaklaştığı durumdur. On dört olası girişimci konumundan, aynı anda yedi bitişik konum doludur: hedef kanal sekiz kanaldan biriyse, diğer yedisi girişimcidir. Hepsi aynı hızda, TWDM biçiminde modüle edilir."
+  },
+  {
+   "id": "c4",
+   "text": "Seviyeler Tablo on bir'dedir. S, hassasiyet artı yol cezası olarak alınır. X, her TWDM girişimcisi için S artı dört desibeldir. Dört desibel, OLT vericileri arasındaki en kötü güç farkıdır, yani bir sınıftaki en küçük ve en büyük başlatma gücü arasındaki fark."
+  },
+  {
+   "id": "c4a",
+   "text": "ONU için ayrıca noktadan noktaya WDM girişimcileri vardır. Aşağı yöndeki PtP kanalları Z düzeyindedir: iki buçuk gigabitlik bağlantı için S artı yedi, on gigabit için S artı sekiz desibel. Bir de yukarı yöndeki PtP sinyallerinin yansımaları vardır: ODN'nin otuz iki desibellik geri dönüş kaybı nedeniyle, başka abonelerin yukarı yön ışığı ONU'nuza geri gelir. Bunun düzeyi Y'dir."
+  },
+  {
+   "id": "c5",
+   "text": "Y için yazılan sayı, standardın düzeltilmiş bir yeridir. İki bin on dokuz şubat metninde Y, S artı altı desibel olarak yazılmıştı. Oysa tablonun kendi notu yedi desibel diyordu: PtP ONU vericisinin en büyük gücü artı dokuz dBm, eksi otuz iki desibel ORL, eksi otuz dBm'lik ONU hassasiyeti; sonuç yedi. Ağustos iki bin on dokuzdaki birinci düzeltme Y'yi S artı yedi yaptı, ve notta yanlışlıkla OLT yazan alıcıyı ONU olarak düzeltti."
+  },
+  {
+   "id": "c5a",
+   "text": "Somut sayılarla: on gigabitlik bir ONU'da S, eksi yirmi sekiz artı iki, yani eksi yirmi altı dBm. Yedi TWDM girişimcisinin her biri eksi yirmi iki, yansıyan PtP sinyalleri eksi on dokuz, PtP aşağı yön kanalları eksi on sekiz dBm olabilir. Alıcı bu kalabalığın içinde, eksi yirmi altıdaki kanalı referans hata oranında çözebilmelidir."
+  },
+  {
+   "id": "c6",
+   "text": "OLT tarafında tablo farklıdır: X, S artı yirmi desibeldir. Beş desibel ONU vericileri arasındaki güç farkından, on beş desibel ise diferansiyel yol kaybından gelir. OLT'de PtP kanalları dikkate alınmaz; dalga boyunda o kadar uzaktırlar ki TWDM ayırıcısı onları etkili biçimde süzer."
+  },
+  {
+   "id": "c6a",
+   "text": "Bu asimetri sezgiseldir. ONU'ya gelen bütün TWDM kanalları aynı yoldan geçer; aralarındaki fark yalnızca OLT vericilerinin farkıdır. OLT'ye gelen yukarı yön kanalları ise farklı ONU'lardan, farklı yol kayıplarından gelir; en uzaktaki ONU'nun sinyali, en yakındakinin yirmi desibel altında kalabilir."
+  },
+  {
+   "id": "c6b",
+   "text": "Alıcı tablosunda bir satır daha var: bant içi karışma toleransı. İki buçuk gigabitte otuz iki virgül üç, on gigabitte otuz beş virgül üç desibel, on beş gigahertz başına. Bu, hedef kanalın kendi bandına düşen istenmeyen ışığa karşı toleranstır; tanımı G.989'dadır. Dördüncü bölümdeki kanal dışı güç yoğunluğu sınırları, işte bu tür karışmayı sınırlamak içindir."
+  },
+  {
+   "id": "c7",
+   "text": "Mühendis notu. Bir: filtre yalıtımını hesaplarken X bölü S değerine, kabul edilebilir bozulma için gereken yalıtımı ekleyin; standardın dipnotu bunu açıkça söyler. İki: testte girişimcileri gerçekten sapma sınırına, hedefe doğru kaydırın; merkezde yapılan test iyimserdir."
+  },
+  {
+   "id": "c8",
+   "text": "Sıradaki: gücü ve spektrumu geçtik. Şimdi zaman: alıcı, bitlerin ne zaman geldiğini nasıl bilir?"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "title": "B05 Perde 1 — Bütçenin alıcı tarafı",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: bütçenin alıcı tarafı. İkinci bölümde bütçe denklemini kurduk. Şimdi denklemin öbür ucundaki sayıya, alıcı hassasiyetine bakıyoruz. Önce standardın tanımları."
+  },
+  {
+   "id": "b1a",
+   "text": "Hassasiyet bir güç düzeyidir, ve alıcı bu düzeyde ya da altında doğrulanmalıdır. Aşırı yük de bir güç düzeyidir; alıcı bu düzeyde ya da üstünde doğrulanmalıdır. İkisi de bir hata oranı referansında ölçülür, ve tablo değerleri en kötü yol kaybı, en kötü dispersiyon, sıcaklık ve yaşlanma dahil sağlanmalıdır."
+  },
+  {
+   "id": "b2",
+   "text": "İki buçuk gigabitlik aşağı yönde hassasiyet bütün sınıflarda eksi otuz, aşırı yük eksi on dBm'dir. On gigabitte hassasiyet eksi yirmi sekiz, aşırı yük eksi yedi dBm; yalnızca E2 sınıfında eksi dokuz."
+  },
+  {
+   "id": "b2a",
+   "text": "Dikkat edin: ONU'nun hassasiyeti sınıfa göre değişmez. Sınıf farkını OLT vericisi üstlenir; en küçük başlatma gücü her sınıfta iki desibel artar. On gigabitte N1 için artı üç eksi eksi yirmi sekiz, otuz bir desibel eder: yirmi dokuz desibellik yol kaybı artı iki desibellik yol cezası. E2'de artı dokuz ile otuz yedi desibel: otuz beş artı iki."
+  },
+  {
+   "id": "b3",
+   "text": "Aşırı yük tarafı da aynı mantıkla kapanır: en büyük başlatma gücünden en küçük yol kaybını çıkarın. İki buçuk gigabitte her sınıfta eksi on. On gigabitte N1, N2 ve E1'de eksi yedi. E2'de ise en büyük başlatma gücü, E1 ile aynı, artı on bir dBm'de sınırlanmıştır; yirmi desibellik en küçük yol kaybıyla eksi dokuz çıkar. Tablodaki bu tek istisna, bir verici güç tavanının izidir."
+  },
+  {
+   "id": "b3a",
+   "text": "Sonuç: alıcı her sınıfta aynı pencereyi görür. İki buçuk gigabitte eksi otuzdan eksi ona, yirmi desibel; on gigabitte eksi yirmi sekizden eksi yediye, yirmi bir desibel. Bir ONU tasarımcısı için bu iyi bir haber: tek bir alıcı bütün sınıflarda çalışabilir, ama en zor iki ucu birlikte sağlamalıdır."
+  },
+  {
+   "id": "b3b",
+   "text": "Bu sayılara hangi alıcıyla ulaşılır? Standart teknoloji belirtmez. Ama on gigabitte eksi yirmi sekiz dBm, PIN fotodiyotlu alıcılar için zorlayıcıdır; pratikte genellikle çığ fotodiyotlu, yani APD'li alıcılar kullanılır. Ayarlanabilir alıcı için de, alıcının önüne genellikle ısıl olarak ayarlanan dar bantlı bir filtre konur."
+  },
+  {
+   "id": "b4",
+   "text": "Yol cezası alıcının değil, yolun payıdır: iki buçuk gigabitte bir, on gigabitte iki desibel. Notu açıktır: belirtilen ceza kırk kilometreye kadar geçerlidir. Gerçek ceza daha kötüyse, OLT verici gücünü en büyük sınır içinde artırarak telafi eder. Yani on gigabitte dispersiyonun bedelini de verici öder."
+  },
+  {
+   "id": "b4a",
+   "text": "On gigabitte iki desibellik ceza neyi kapsar? Kırk kilometrede sekiz yüz kırk ps bölü nanometreye varan dispersiyonu ve vericinin spektral özelliklerini. Alıcı tarafında elektronik dispersiyon dengelemesi kullanılabilir; standart buna izin verir, ama kapsamı dışında bırakır."
+  },
+  {
+   "id": "b5",
+   "text": "Hassasiyetin hangi hata oranında ölçüldüğü kritiktir. İki buçuk gigabitlik aşağı yönde referans on üzeri eksi dört, on gigabitte on üzeri eksi üç. Bu oranlar FEC öncesidir. On gigabitlik aşağı yön, otuz iki eşlik baytlı RS iki yüz kırk sekiz, iki yüz on altı koduyla korunur; iki buçuk gigabit ise on altı eşlik baytlı RS iki yüz kırk sekiz, iki yüz otuz ikiyle."
+  },
+  {
+   "id": "b5a",
+   "text": "Reed Solomon kodunda düzeltilebilen sembol sayısı, eşlik baytlarının yarısıdır: güçlü kodda bir kod sözcüğünde on altı, zayıf kodda sekiz bayt. Daha güçlü kod, daha yüksek ham hata oranına dayanabilir; iki referans arasındaki fark bunu yansıtır. Standart, FEC öncesi ve sonrası hata oranı eşlemesini kendi metninde vermez; bunun için G.Sup39'a yönlendirir."
+  },
+  {
+   "id": "b6",
+   "text": "ONU'nun kendi ölçtüğü alınan güç de hassasiyet bölgesinde dikkatle okunmalıdır. İkinci ekteki örnek değerlere göre bu ölçümün doğruluğu, eksi otuz beş dBm'e kadar artı eksi üç, daha düşük güçte artı eksi beş desibeldir. Yani eşik civarındaki bir ONU'nun bildirdiği değer, bütçe hesabı için tek başına yeterli değildir."
+  },
+  {
+   "id": "b6a",
+   "text": "Aynı ekteki örnek tablo, ONU'nun alınan güç izlemesi için eksi elli üç ile eksi dört virgül dokuz dBm arasında bir aralık, sıfır virgül bir desibellik çözünürlük ve üç yüz nanosaniyelik bir yanıt süresi verir. Tekrarlanabilirlik ise artı eksi yarım desibeldir; yani mutlak değere değil, değişime güvenmek daha doğrudur."
+  },
+  {
+   "id": "b7",
+   "text": "Mühendis notu. Bir: hassasiyeti tek noktada değil, eğri olarak ölçün; referans hata oranının iki yanında birkaç nokta alın. İki: bütün sınıflar için tek alıcı kullanılacaksa, on gigabitte eksi yirmi sekizde hassasiyeti ve eksi yedide aşırı yükü birlikte doğrulayın."
+  },
+  {
+   "id": "b8",
+   "text": "Sıradaki: güç yetiyor. Ama alıcı, yedi komşu kanalın ortasında doğru kanalı duyabilecek mi?"
+  }
+ ]
+}

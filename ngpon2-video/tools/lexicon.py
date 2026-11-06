@@ -26,6 +26,13 @@ LEX = [
     (r"\bCEx\b", "si i eks"), (r"8B10B", "sekiz bi on bi"), (r"\bMAC\b", "mek"), (r"\bDC\b", "di si"), (r"\bEML\b", "i em el"),
     (r"\bDFB\b", "di ef bi"), (r"\bTV\b", "ti vi"), (r"\bL bandı", "el bandı"), (r"\bC bandı", "si bandı"), (r"\bU bandı", "yu bandı"),
     (r"G\.694\.1", "ci altı dokuz dört nokta bir"), (r"G\.698\.3", "ci altı dokuz sekiz nokta üç"),
+    (r"G\.Sup39", "ci ek otuz dokuz"), (r"G\.984\.2", "ci dokuz sekiz dört nokta iki"), (r"G\.783", "ci yedi sekiz üç"), (r"G\.825", "ci sekiz iki beş"),
+    (r"G\.957", "ci dokuz beş yedi"), (r"G\.959\.1", "ci dokuz beş dokuz nokta bir"), (r"G\.987\.3", "ci dokuz sekiz yedi nokta üç"),
+    (r"\bAPD", "a pe de"), (r"\bPIN\b", "pin"), (r"\bLODS", "lods"), (r"\bPSync", "pi sink"), (r"\bPSBd", "pi es bi di"), (r"\bHEC", "hek"),
+    (r"BIP-32", "bip otuz iki"), (r"\bTO(\d)\b", lambda m: "te o " + ["sıfır","bir","iki","üç","dört","beş","altı"][int(m.group(1))]),
+    (r"\bSMSR", "es em es ar"), (r"\bWNE\b", "dabılyu en i"), (r"\bEDC\b", "i di si"), (r"\bDCA'", "di si ey'"), (r"\bTOL\b", "tol"),
+    (r"\bXGEM", "eks ci em"), (r"\bBCH\b", "bi si eyç"), (r"\bXOR", "eks or"), (r"\bOTN\b", "o ti en"), (r"\bQAM\b", "kuam"),
+    (r"PON-ID", "pon ay di"), (r"\bDFB\b", "di ef bi"), (r"\bOMCI\b", "o em si ay"),
 ]
 
 def speak(text):

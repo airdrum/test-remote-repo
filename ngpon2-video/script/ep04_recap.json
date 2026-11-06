@@ -1,0 +1,24 @@
+{
+ "title": "B04 önceki bölümde",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Önceki bölümde NG-PON2'nin dalga boyu planını, eski sistemlerle birlikte yaşamayı, ızgaraları, Raman etkisini ve kanal profillerini gördük. Şimdi sorduğumuz üç sorunun cevapları."
+  },
+  {
+   "id": "a2",
+   "text": "Birinci soru: dört kanallı, döngüsel olmayan, yüz gigahertz aralıklı bir yukarı yön ızgarası için en küçük ayar penceresi. Formül N eksi bir çarpı kanal aralığı, artı iki kat en büyük sapma: üç çarpı yüz, artı iki çarpı yirmi. Cevap: üç yüz kırk gigahertz."
+  },
+  {
+   "id": "a3",
+   "text": "İkinci soru: yüz doksan beş virgül bir terahertzlik bir yukarı yön kanalı. Frekans sıfır virgül bir gigahertz birimiyle yazılır: yüz doksan beş bin yüz gigahertz, yani bir milyon dokuz yüz elli bir bin."
+  },
+  {
+   "id": "a4",
+   "text": "Üçüncü soru: Raman kaynaklı modülasyon karışması yalnızca aynı yönde yayılan sinyaller arasında oluşur. Karşı yönde yayılanlar arasında güç aktarımı, yani güç tüketimi görülür, ama modülasyon karışması görülmez."
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "title": "B05 önceki bölümde",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Önceki bölümde OLT vericisini gördük: saat, güç penceresi, sönüm oranı, spektral sınırlar, göz maskesi ve yüz yirmi beş mikrosaniyelik çerçeve. Şimdi sorduğumuz üç sorunun cevapları."
+  },
+  {
+   "id": "a2",
+   "text": "Birinci soru: N1 sınıfında on gigabitlik en küçük başlatma gücü artı üç dBm'dir. TOL, eksi otuz dBm'den başlayarak sıfır virgül bir desibellik adımlarla sayar: otuz üç desibel, yani üç yüz otuz adım. Cevap: üç yüz otuz."
+  },
+  {
+   "id": "a3",
+   "text": "İkinci soru: en büyük güç artı on bir dBm, dört kanallı sistemde kanal dışı sınır ise on beş gigahertz başına eksi otuz dört virgül beş dBm. Fark kırk beş virgül beş desibeldir. Otuz desibellik SMSR'nin üstündeki kısım, çoklayıcının süzmesiyle sağlanmalıdır."
+  },
+  {
+   "id": "a4",
+   "text": "Üçüncü soru: iki buçuk gigabitlik yük otuz sekiz bin sekiz yüz elli altı bayttır, ve iki yüz kırk sekizin tam katı değildir. Yüz elli altı tam kod sözcüğünden sonra yüz altmış sekiz bayt kalır: yüz elli iki veri ve on altı eşlik baytı. Son veri bloğu, kodlamadan önce seksen sanal sıfır baytla tamamlanır, ve bu dolgu gönderilmez."
+  }
+ ]
+}

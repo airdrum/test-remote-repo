@@ -1,0 +1,24 @@
+{
+ "title": "B05 Kapanış",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölüm beşin özeti. Bir: ONU alıcısı her sınıfta aynı pencereyi görür; iki buçuk gigabitte eksi otuz ile eksi on, on gigabitte eksi yirmi sekiz ile eksi yedi dBm. Sınıf farkını OLT vericisi taşır. İki: hassasiyet, FEC öncesi bir referans hata oranında tanımlıdır: on üzeri eksi dört ve on üzeri eksi üç."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: X bölü S toleransı, filtre yalıtımı yerine alıcının kalabalıkta duyma yeteneğini tanımlar; komşu TWDM kanalları S artı dört, PtP sinyalleri S artı yedi ile sekiz desibelde. Dört: titreşim toleransı bir desibellik güç cezası ölçütüyle tanımlanır. Beş: ONU önce senkron olur, profilleri öğrenir, sonra konuşur; LODS onun tek kusurudur."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: on gigabitlik aşağı yönde E2 sınıfında aşırı yük neden eksi yedi değil, eksi dokuz dBm'dir? İkinci soru: iki buçuk gigabitlik bir ONU için S, X ve Z düzeyleri kaç dBm'dir? Üçüncü soru: önerilen M değeriyle, senkron durumundaki bir ONU kaç ardışık kötü çerçeveden sonra LODS ilan eder? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Patlama. ONU vericisinin burst modu: açılma ve kapanma, önsöz ve sınırlayıcı, ve kapalı bir vericinin bile karanlıkta yaydığı güç. Görüşmek üzere."
+  }
+ ]
+}

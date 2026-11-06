@@ -1,0 +1,32 @@
+{
+ "title": "B04 açılış",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm dört: Kaynak. Bu bölümde OLT vericisini ve ondan çıkan aşağı yön sinyalini inceliyoruz: bütün PON'un saatini, gücünü ve rengini belirleyen parça."
+  },
+  {
+   "id": "o2",
+   "text": "Önce hız, saat ve hat kodu: dokuz virgül dokuz beş ve iki virgül dört sekiz gigabit, Stratum saatleri ve karıştırılmış NRZ."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra güç ve sönüm oranı: sınıf başına başlatma gücü penceresi, sönüm oranının ölçümü, ve güçle takası."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından spektrum: yan mod bastırma, spektral sapma, ve komşuları korumak için bant dışı ve kanal dışı güç yoğunluğu."
+  },
+  {
+   "id": "o5",
+   "text": "Göz maskesi ve titreşim; ve TC köprüsünde yüz yirmi beş mikrosaniyelik çerçevenin içi: PSBd, FEC ve karıştırıcı."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda ise DCA ile gözü ve sönüm oranını, OSA ile spektrumu ölçeceğiz."
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "title": "B05 açılış",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm beş: Ayarlanabilir Kulak. Bu bölümde ONU alıcısını inceliyoruz: bir evin içinde, sekiz renk arasından doğru olanı seçip ondan veri çıkaran parçayı."
+  },
+  {
+   "id": "o2",
+   "text": "Önce bütçenin alıcı tarafı: hassasiyet, aşırı yük, yol cezası ve hata oranı referansı. Ve neden ONU'nun her sınıfta aynı pencereyi gördüğü."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra kalabalık bir spektrumda duyabilmek: X bölü S toleransı, ve birinci düzeltmenin değiştirdiği tek sayı."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından zaman: saat çıkarımı, ardışık özdeş rakamlar, titreşim toleransı ve alıcının ayarı."
+  },
+  {
+   "id": "o5",
+   "text": "TC köprüsünde ise PSync avı, senkron kaybı, çerçevenin içindeki FEC ve bir ONU'nun ilk adımları."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda hata oranı eğrisini, yol cezasını ve X bölü S toleransını ölçeceğiz."
+  }
+ ]
+}

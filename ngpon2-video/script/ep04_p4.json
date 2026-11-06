@@ -1,0 +1,56 @@
+{
+ "title": "B04 Perde 4 — Göz ve titreşim",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: göz. Göz diyagramı yalnızca açıklığı değil, aşma ve alt aşma sınırlarını da kontrol etmek için kullanılır. OLT vericisinin göz maskesi Tablo on bir sekiz'dedir, ve değerler her iki hızda aynıdır."
+  },
+  {
+   "id": "e1a",
+   "text": "Maske, dikdörtgen bir iç bölge ile üst ve alt yasak bölgelerden oluşur. İç bölgenin genişliği, x üç eksi x iki, sıfır virgül iki birim aralıktır. Düşey olarak iç bölge sıfır virgül yirmi beş ile sıfır virgül yetmiş beş arasındadır. Üstte bir artı sıfır virgül yirmi beşin, altta eksi sıfır virgül yirmi beşin ötesi yasaktır; yani aşma ve alt aşma en çok yüzde yirmi beş olabilir."
+  },
+  {
+   "id": "e1b",
+   "text": "İç bölgenin iki kenarının, sıfır ve bir birim aralığa göre simetrik olması gerekmez. Bu değerler, optik taşıma ağı arayüzleri için G.959.1'den alınmıştır. ONU vericisinin maskesi aynı sayılara sahiptir, ama kaynağı SDH için G.957'dir. Aynı sayılar, iki ayrı miras."
+  },
+  {
+   "id": "e1c",
+   "text": "Aşma sınırı doğrudan lazerin fiziğiyle ilgilidir. Doğrudan modüle edilen bir lazerde akım adımı, gevşeme salınımlarına ve buna eşlik eden bir frekans çırpıntısına yol açar. Salınım gözde aşma olarak, çırpıntı ise fiberde dispersiyon cezası olarak karşımıza çıkar. Harici modülatörlü bir lazerde, yani EML'de, bu iki etki çok daha küçüktür."
+  },
+  {
+   "id": "e2",
+   "text": "Göz bir referans alıcıyla ölçülür: optik elektrik dönüştürücüsü ve dördüncü dereceden bir Thomson filtresi. Filtrenin üç desibel kesim frekansı, nominal hızın sıfır virgül yetmiş beş katıdır: on gigabitte yaklaşık yedi virgül beş gigahertz. Bu değer standardın metninde değil, şeklinde yer alır; ölçüm cihazınızda doğru filtrenin seçildiğinden emin olun."
+  },
+  {
+   "id": "e2b",
+   "text": "Neden Thomson filtresi? Çünkü grup gecikmesi en düzgün olan filtre ailesidir; bir adım girişte aşma üretmez. Böylece ekranda gördüğünüz aşma, ölçüm sisteminin değil, vericinin aşması olur. Bant genişliği ise sinyalin büyük kısmını geçirirken gürültüyü sınırlayacak şekilde, hızın dörtte üçü olarak seçilmiştir."
+  },
+  {
+   "id": "e2a",
+   "text": "Standart bir maske marjı ya da isabet oranı tanımlamaz. Ama pratikte göz, maskeden ne kadar uzak durduğuyla değerlendirilir; üretim testlerinde marj, yaşlanma ve sıcaklık için bir güvenlik payıdır."
+  },
+  {
+   "id": "e3",
+   "text": "Titreşim üretimi: OLT, zamanlama girişine titreşim uygulanmadığında Tablo on bir on'daki sınırları aşmamalıdır. On gigabitte yirmi kilohertz ile seksen megahertz arasında en çok sıfır virgül üç, dört megahertz ile seksen megahertz arasında sıfır virgül bir birim aralık, tepeden tepeye. İki buçuk gigabitte bantlar, beş kilohertz ile yirmi megahertz, ve bir megahertz ile yirmi megahertzdir."
+  },
+  {
+   "id": "e3a",
+   "text": "Bu sayılar SDH ekipman standardı G.783'ten gelir; filtreler ve ölçüm süresi G.825'te tanımlıdır. Birim aralık cinsinden düşünün: on gigabitte bir birim aralık yaklaşık yüz pikosaniyedir; sıfır virgül üç birim aralık, otuz pikosaniyelik tepeden tepeye titreşim demektir."
+  },
+  {
+   "id": "e3b",
+   "text": "Titreşim toleransı ise ONU alıcısının özelliğidir; beşinci bölümde göreceğiz. OLT tarafında tolerans yalnızca bilgilendirme amaçlıdır, çünkü yukarı yön burst'lü olduğu için, sürekli çalışma gerektiren bu ölçüm doğrudan yapılamaz."
+  },
+  {
+   "id": "e4",
+   "text": "Mühendis notu. Bir: göz ölçümünde referans filtreyi doğru seçin; yanlış filtre gözü olduğundan açık ya da kapalı gösterir. İki: titreşim üretimini, OLT'nin gerçek saat kaynağıyla ve en kötü trafik deseninde ölçün."
+  },
+  {
+   "id": "e5",
+   "text": "Sıradaki: bu bitler hangi yapının içinde gidiyor?"
+  }
+ ]
+}

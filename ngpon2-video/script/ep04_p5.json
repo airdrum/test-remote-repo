@@ -1,0 +1,80 @@
+{
+ "title": "B04 Perde 5 — 125 µs çerçeve",
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "style": "",
+ "beats": [
+  {
+   "id": "f1",
+   "text": "Perde beş: TC köprüsü. Çalışan bir OLT kanal sonlandırıcısı, aşağı yönde sürekli gönderir. Her yüz yirmi beş mikrosaniyelik fiziksel çerçeve, on gigabitte yüz elli beş bin beş yüz yirmi bayt, iki buçuk gigabitte otuz sekiz bin sekiz yüz seksen bayttır."
+  },
+  {
+   "id": "f1a",
+   "text": "Çerçeve, yirmi dört baytlık fiziksel senkron bloğuyla, yani PSBd ile başlar. Ardından yük gelir: çerçeve yapısı önce isteğe bağlı FEC'ten, sonra karıştırıcıdan geçirilir. PSBd'nin üç parçası vardır: PSync, süper çerçeve sayacı ve işletim kontrol yapısı; her biri sekiz bayt."
+  },
+  {
+   "id": "f1b",
+   "text": "Bir ayrıntı: OLT her zaman gönderir. Trafik olmadığında bile çerçeveler boş XGEM çerçeveleriyle doldurulur. ONU'ların senkronda kalması ve saatlerini çıkarması buna bağlıdır; aşağı yönde sessizlik, bir hata durumudur."
+  },
+  {
+   "id": "f2",
+   "text": "PSync sabit, altmış dört bitlik bir desendir; onaltılık değerini ekranda görüyorsunuz. Her iki hızda da aynıdır, ve XG-PON1 ile aynı desendir. Süper çerçeve sayacı elli bir bitliktir ve her çerçevede bir artar. Bu hızla başa dönmesi yaklaşık dokuz bin yıl sürer."
+  },
+  {
+   "id": "f2a",
+   "text": "Sayaç on üç bitlik bir HEC ile korunur: BCH altmış üç, on iki kodu artı bir eşlik biti. İki hatayı düzeltir, üç hatayı algılar; böylece sayaç tek bir bit hatasıyla kaybolmaz. Süper çerçeve sayacı ve işletim kontrol yapısı, HEC hesaplandıktan sonra sabit bir desenle XOR'lanır; PSync ise olduğu gibi gönderilir."
+  },
+  {
+   "id": "f2b",
+   "text": "Süper çerçeve sayacı üç iş görür. Alıcı onu senkron doğrulamasında kullanır. Karıştırıcı onu her çerçevede farklı bir dizi üretmek için kullanır. Ve dalga boyu değişimi onunla zamanlanır: ayar kontrol mesajı, sayacın değeriyle bir hedef çerçeve belirtir, ve ONU kendi sayacının en düşük on altı biti bu değere ulaştığında ayara başlar."
+  },
+  {
+   "id": "f3",
+   "text": "İşletim kontrol yapısı, ONU'ya kanal hakkında bilgi taşır. Önce sekiz bitlik PON-ID tipi: bir menzil uzatıcı bayrağı, üç bitlik ODN sınıf kodu, aşağı yön FEC bayrağı, TC sürümü bayrağı ve iki bitlik bağlantı tipi. Ardından otuz iki bitlik PON-ID: yirmi sekiz bitlik yönetim etiketi ve dört bitlik aşağı yön kanal kimliği."
+  },
+  {
+   "id": "f3c",
+   "text": "PON-ID tipindeki bayrakların anlamları da tanımlıdır. TC sürümü bayrağı bir ise ONU, G.989.3 TC katmanıyla; sıfır ise G.987.3 TC katmanıyla konuştuğunu bilir. Bağlantı tipi iki bitlik bir haritadır: yalnız A tipi, yalnız B tipi, ya da ikisi birden. Menzil uzatıcı bayrağı ise TOL değerinin OLT'ye mi yoksa bir menzil uzatıcıya mı ait olduğunu söyler."
+  },
+  {
+   "id": "f3a",
+   "text": "Ve vericiyle doğrudan ilgili bir alan: TOL, yani iletim optik düzeyi. Dokuz bitlik bir sayıdır, ve eksi otuz dBm'e göre sıfır virgül bir desibellik adımlarla OLT'nin o anki başlatma gücünü gösterir. Sıfır değeri eksi otuz dBm, üç yüz değeri sıfır dBm, beş yüz on değeri artı yirmi bir dBm demektir; en büyük değer ise desteklenmiyor anlamına gelir. Bir bit de bu gücün CG noktasına mı, CP noktasına mı ait olduğunu söyler."
+  },
+  {
+   "id": "f3b",
+   "text": "Standart ONU'nun bu değerle ne yapacağını söylemez. Ama bilgi değerlidir: OLT, dört desibellik güç penceresinin neresinde çalıştığını her çerçevede yayınlar. İkinci ekteki örneklere göre OLT'nin kendi verici güç izlemesinin doğruluğu ise artı eksi iki desibeldir."
+  },
+  {
+   "id": "f4",
+   "text": "FEC aşağı yönde zorunlu olarak desteklenir, ama statik olarak açılır ya da kapatılır; bütün ONU'lar için aynı. On gigabitte RS iki yüz kırk sekiz, iki yüz on altı kullanılır: her çerçevede altı yüz yirmi yedi kod sözcüğü, her biri iki yüz on altı veri ve otuz iki eşlik baytı. Altı yüz yirmi yedi çarpı iki yüz kırk sekiz, tam olarak yükün boyuna eşittir."
+  },
+  {
+   "id": "f4a",
+   "text": "İki buçuk gigabitte RS iki yüz kırk sekiz, iki yüz otuz iki kullanılır: yüz elli altı tam kod sözcüğü, ve yüz altmış sekiz baytlık kısaltılmış bir son kod sözcüğü. Son veri bloğu, kodlamadan önce seksen sıfır baytla tamamlanır, ve bu dolgu gönderilmez. PSBd hiçbir zaman FEC'e dahil edilmez."
+  },
+  {
+   "id": "f4b",
+   "text": "FEC'in bedeli kapasitedir. On gigabitte eşlik payı yüzde on iki virgül dokuz: çerçeve başına yüz otuz beş bin dört yüz otuz iki veri baytı, yaklaşık sekiz virgül altı yedi gigabit. İki buçuk gigabitte pay yüzde altı virgül beş, yaklaşık iki virgül üç üç gigabit. Standart kazancı da açıkça söyler: FEC, alıcının daha yüksek bir hata oranında çalışmasına izin verir; hassasiyet ve aşırı yük etkin olarak iyileşir."
+  },
+  {
+   "id": "f5",
+   "text": "Son adım karıştırıcıdır: x üzeri elli sekiz, artı x üzeri otuz dokuz, artı bir polinomlu, çerçeveye senkron bir karıştırıcı. Kaydırmalı yazmaç her çerçevede, PSBd'den sonraki ilk bitte yeniden yüklenir. Yükleme deseninin en anlamlı elli bir biti süper çerçeve sayacıdır, kalan yedi bit birdir. Yani karıştırma dizisi her çerçevede farklıdır."
+  },
+  {
+   "id": "f5a",
+   "text": "Sıralama önemlidir: FEC karıştırmadan önce uygulanır. Ve karıştırma tek başına her şeyi çözmez: boş XGEM çerçevelerinin içeriği vericinin takdirine bırakılmıştır, ama standart bunun hat deseni kontrolü ve ardışık özdeş rakamların önlenmesi düşünülerek yapılmasını ister. Alıcıdaki yetmiş iki bitlik bağışıklık, bu zincirin sonundaki güvencedir."
+  },
+  {
+   "id": "f5b",
+   "text": "Tasarımcılar için bir kolaylık: standardın A eki, süper çerçeve sayacı sıfırken karıştırıcının ilk iki yüz elli altı bitini test vektörü olarak verir. HEC için de örnekler vardır. Kendi karıştırıcınızı ve HEC'inizi bu vektörlerle doğrulayın; bir bitlik bir hata, bütün aşağı yön trafiğini anlamsız hale getirir."
+  },
+  {
+   "id": "f6",
+   "text": "Mühendis notu. Bir: TOL alanını izleme sisteminize bağlayın; OLT'nin bildirdiği güç ile sizin ölçtüğünüz güç arasındaki fark, bir kalibrasyon ya da donanım sorununun erken işaretidir. İki: aşağı yön FEC'ini canlı bir kanalda açıp kapatmayın; standart bunun aralıklı trafik kaybına yol açabileceğini söyler."
+  },
+  {
+   "id": "f7",
+   "text": "Şimdi bunları laboratuvarda ölçelim."
+  }
+ ]
+}
