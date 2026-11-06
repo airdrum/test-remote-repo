@@ -13,8 +13,16 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from tts import synth
 from lexicon import speak
-from qa_tts import transcribe
+from qa_tts import transcribe as _transcribe
 from align import para_starts
+import functools, os
+
+QA = os.environ.get("TTS_QA", "1") != "0"  # TTS_QA=0: no Gemini transcription (e.g. no GEMINI_API_KEY on the GPU machine)
+
+
+@functools.lru_cache(maxsize=None)
+def transcribe(path):  # each clip is transcribed once (synth QA and boundary QA share it)
+    return _transcribe(path)
 
 SR = 24000
 NUM = set("bir iki üç dört beş altı yedi sekiz dokuz on yirmi otuz kırk elli altmış yetmiş seksen doksan yüz bin milyon virgül nokta eksi artı".split())
@@ -63,6 +71,11 @@ def groups_of(beats, max_chars):
 def run(script_path, out_dir, max_chars=700, workers=2, log=print):
     s = json.loads(Path(script_path).read_text())
     model, voice, style = s["model"], s["voice"], s.get("style", "")
+    from tts import BACKEND
+    if BACKEND == "xtts":  # one beat per request (no group cutting), one GPU model, no style prompt
+        import os
+        model, voice, style = "xtts-v2", os.environ.get("XTTS_SPEAKER", "Damien Black"), ""
+        max_chars, workers = 1, 1
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     groups = list(groups_of(s["beats"], max_chars))
 
@@ -71,7 +84,9 @@ def run(script_path, out_dir, max_chars=700, workers=2, log=print):
         for k in range(tries):
             fn = out / f"{key}_{k}.wav"
             if not fn.exists():
-                write_wav(fn, synth(model, voice, style, text_spoken))
+                write_wav(fn, synth(model, voice, style, text_spoken, seed=1234 + 101 * k))
+            if not QA:
+                return fn, read_wav(fn)
             tx = transcribe(str(fn))
             sim, ratio = similar(text_display, tx)
             if sim >= 0.8 and 0.85 <= ratio <= 1.15:
@@ -111,6 +126,8 @@ def run(script_path, out_dir, max_chars=700, workers=2, log=print):
                 res.append({"id": b["id"], "file": str(Path(bf).resolve()), "duration": round(len(bp) / 2 / SR, 3), "text": b["text"]})
         # beat-level QA on boundaries
         for r in res:
+            if not QA:
+                r["qa"] = "skipped"; continue
             tx = transcribe(r["file"])
             ew, tw = words(r["text"]), words(tx)
             head = sum(w in tw[:12] for w in ew[:3]) >= 2 if len(ew) >= 3 else True
@@ -124,7 +141,7 @@ def run(script_path, out_dir, max_chars=700, workers=2, log=print):
         beats = [b for r in ex.map(job, enumerate(groups)) for b in r]
     man = {"voice": voice, "model": model, "beats": beats, "total": round(sum(b["duration"] for b in beats), 2)}
     (out / "manifest.json").write_text(json.dumps(man, ensure_ascii=False, indent=1))
-    bad = [b["id"] for b in beats if b.get("qa") != "ok"]
+    bad = [b["id"] for b in beats if b.get("qa") not in ("ok", "skipped")]
     log(f"{script_path}: {len(beats)} beats, {man['total']:.1f}s, QA issues: {bad or 'none'}")
     return bad
 

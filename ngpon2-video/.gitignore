@@ -2,3 +2,4 @@ build/
 __pycache__/
 deliverables/**/LAMBDA_*.mp4
 scenes/media/
+.venv-xtts/

@@ -9,7 +9,13 @@ class DailyQuota(Exception):
     """The model's requests-per-day quota is spent; retrying today only burns time."""
 
 
-def synth(model, voice, style, text, retries=8):
+BACKEND = os.environ.get("TTS_BACKEND", "xtts").lower()  # default: local XTTS-v2 (see CLAUDE.md); "gemini" only on request
+
+
+def synth(model, voice, style, text, retries=8, seed=None):
+    if BACKEND == "xtts":  # style prompts are never sent to XTTS — it would read them aloud
+        from xtts_backend import synthesize_pcm16
+        return synthesize_pcm16(text, seed=1234 if seed is None else seed)
     prompt = f"{style}\n\n{text}" if style else text
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseModalities": ["AUDIO"],
@@ -17,7 +23,7 @@ def synth(model, voice, style, text, retries=8):
     for i in range(retries):
         try:
             req = urllib.request.Request(API.format(model), data=json.dumps(body).encode(),
-                headers={"Content-Type": "application/json", "x-goog-api-key": "dummy"})
+                headers={"Content-Type": "application/json", "x-goog-api-key": os.environ.get("GEMINI_API_KEY", "dummy")})
             r = json.load(urllib.request.urlopen(req, timeout=300))
             d = r["candidates"][0]["content"]["parts"][0]["inlineData"]
             raw = base64.b64decode(d["data"])

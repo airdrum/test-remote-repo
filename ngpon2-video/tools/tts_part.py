@@ -9,6 +9,9 @@ from tts import DailyQuota
 import tts_robust
 
 def main(script, out, models):
+    from tts import BACKEND
+    if BACKEND == "xtts":
+        models = ["xtts-v2"]
     s = json.loads(Path(script).read_text())
     for m in models:
         s["model"] = m

@@ -1,5 +1,5 @@
 """Transcribe each beat with Gemini and compare to the script (word-level similarity)."""
-import base64, difflib, json, re, sys, time, urllib.request
+import base64, difflib, json, os, re, sys, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 def transcribe(path, model="gemini-3.5-flash"):
@@ -8,7 +8,7 @@ def transcribe(path, model="gemini-3.5-flash"):
     for i in range(6):
         try:
             req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": "dummy"})
+                data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": os.environ.get("GEMINI_API_KEY", "dummy")})
             r = json.load(urllib.request.urlopen(req, timeout=180))
             return "".join(p.get("text", "") for p in r["candidates"][0]["content"]["parts"]).strip()
         except Exception as e:

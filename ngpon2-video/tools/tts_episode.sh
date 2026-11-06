@@ -1,14 +1,25 @@
 #!/usr/bin/env bash
-# Voice all parts of an episode, falling back across TTS models per part; waits for the daily reset if all are spent.
-# usage: tts_episode.sh 04 "open recap p1 p2 p3 p4 p5 lab end"
+# Voice all parts of an episode. usage: tts_episode.sh 05 "p4 lab end"
+# Default backend = local XTTS-v2 (Damien Black, tr, CUDA) — see ../CLAUDE.md. Gemini only with TTS_BACKEND=gemini:
+# then each part falls back across TTS models and waits for the daily reset if all are spent.
 cd "$(dirname "$0")/.."
 EP=$1; PARTS=$2
+export TTS_BACKEND=${TTS_BACKEND:-xtts}
+if [ "$TTS_BACKEND" = xtts ]; then
+  export XTTS_REQUIRE_GPU=${XTTS_REQUIRE_GPU:-1} XTTS_SPEAKER=${XTTS_SPEAKER:-Damien Black} XTTS_MODEL_DIR=${XTTS_MODEL_DIR:-$HOME/.cache/xtts_v2}
+  PY=${PY:-.venv-xtts/bin/python}; [ -x "$PY" ] || { echo "XTTS venv yok: önce bash tools/xtts_setup.sh" >&2; exit 2; }
+  [ -n "${GEMINI_API_KEY:-}" ] || [ -n "${HTTPS_PROXY:-}" ] || { export TTS_QA=${TTS_QA:-0}; echo "GEMINI_API_KEY yok → transkripsiyon QA kapalı (TTS_QA=0)"; }
+else
+  PY=${PY:-python3}
+fi
+export PY
 MODELS=${TTS_MODELS:-"gemini-2.5-flash-preview-tts gemini-3.1-flash-tts-preview gemini-3.8-flash-lite-tts gemini-3.8-flash-tts gemini-2.5-pro-preview-tts"}
-ST=build/ep${EP}_tts.status; : > $ST
+mkdir -p build; ST=build/ep${EP}_tts.status; : > $ST
 for p in $PARTS; do
   until [ -f build/ep$EP/$p/audio/manifest.json ]; do
-    python3 -u tools/tts_part.py script/ep${EP}_$p.json build/ep$EP/$p/audio $MODELS >> build/ep${EP}_tts_$p.log 2>&1
-    rc=$?
+    "$PY" -u tools/tts_part.py script/ep${EP}_$p.json build/ep$EP/$p/audio $MODELS 2>&1 | tee -a build/ep${EP}_tts_$p.log
+    rc=${PIPESTATUS[0]}
+    if [ "$TTS_BACKEND" = xtts ] && [ $rc -ne 0 ]; then echo "$p ERROR rc=$rc (xtts)" >> $ST; exit $rc; fi
     if [ $rc -eq 3 ]; then echo "$p WAITING_FOR_QUOTA $(date -u +%H:%M)" >> $ST; sleep 1800; elif [ $rc -ne 0 ]; then echo "$p ERROR rc=$rc" >> $ST; sleep 120; fi
   done
   echo "$p exit=0 $(grep -h MODEL_USED build/ep${EP}_tts_$p.log | tail -1)" >> $ST

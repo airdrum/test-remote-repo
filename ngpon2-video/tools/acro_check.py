@@ -1,6 +1,6 @@
 """Catch TTS acronym swaps (e.g. ONU spoken as OLT): ask an audio model which acronyms are spoken, in order, per beat.
 usage: acro_check.py manifest.json [ACR1 ACR2 ...]   (default ONU OLT)  → prints MISMATCH lines"""
-import base64, json, re, sys, urllib.request
+import base64, json, os, re, sys, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 def ask(path, script, acrs):
@@ -11,7 +11,7 @@ def ask(path, script, acrs):
     for _ in range(4):
         try:
             req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent",
-                                         data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": "dummy"})
+                                         data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": os.environ.get("GEMINI_API_KEY", "dummy")})
             r = json.load(urllib.request.urlopen(req, timeout=180))
             return "".join(p.get("text", "") for p in r["candidates"][0]["content"]["parts"])
         except Exception:

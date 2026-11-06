@@ -1,5 +1,5 @@
 """Ask Gemini (audio understanding) for paragraph start times in a grouped TTS clip."""
-import base64, json, re, sys, time, urllib.request
+import base64, json, os, re, sys, time, urllib.request
 
 def para_starts(wav_path, paragraphs, model="gemini-3.5-flash"):
     listing = "\n".join(f"{i + 1}. {p}" for i, p in enumerate(paragraphs))
@@ -11,7 +11,7 @@ def para_starts(wav_path, paragraphs, model="gemini-3.5-flash"):
     for i in range(5):
         try:
             req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": "dummy"})
+                data=json.dumps(body).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": os.environ.get("GEMINI_API_KEY", "dummy")})
             r = json.load(urllib.request.urlopen(req, timeout=300))
             txt = "".join(p.get("text", "") for p in r["candidates"][0]["content"]["parts"])
             arr = json.loads(re.search(r"\[[^\]]*\]", txt).group(0))

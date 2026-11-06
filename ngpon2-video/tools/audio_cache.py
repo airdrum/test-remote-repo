@@ -2,14 +2,23 @@
 pack:   audio_cache.py pack build/ep03/p1/audio audio_cache/ep03/p1   → FLAC of every wav + manifest with relative names
 unpack: audio_cache.py unpack audio_cache/ep03/p1 build/ep03/p1/audio → wavs back + manifest with absolute paths
 Group wavs (g*_k.wav) are kept too: tts_robust treats them as a cache, so finished groups are never re-synthesised."""
-import json, subprocess, sys
+import json, shutil, subprocess, sys
 from pathlib import Path
+
+
+def _flac(w, f):
+    if shutil.which("ffmpeg"):
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(w), "-c:a", "flac", "-compression_level", "8", str(f)], check=True)
+    else:  # GPU machine without ffmpeg: soundfile (installed in .venv-xtts) writes the same lossless FLAC
+        import soundfile as sf
+        data, sr = sf.read(str(w), dtype="int16")
+        sf.write(str(f), data, sr, format="FLAC", subtype="PCM_16")
 
 
 def pack(src, dst):
     src, dst = Path(src), Path(dst); dst.mkdir(parents=True, exist_ok=True)
     for w in sorted(src.glob("*.wav")):
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(w), "-c:a", "flac", "-compression_level", "8", str(dst / (w.stem + ".flac"))], check=True)
+        _flac(w, dst / (w.stem + ".flac"))
     m = src / "manifest.json"
     if m.exists():
         man = json.loads(m.read_text())
