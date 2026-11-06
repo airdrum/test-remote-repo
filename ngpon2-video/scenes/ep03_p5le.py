@@ -74,6 +74,20 @@ class E3P5A(Act3):
         self.play(FadeIn(tb[7], shift=UP * 0.05), FadeIn(tb[8], shift=UP * 0.05), run_time=0.5)
         hl = SurroundingRectangle(tb[7], color=GOLD, buff=0.03)
         self.play(Create(hl), run_time=0.5)
+        self.end(pad=0.05)
+
+        self.beat("f2b")
+        self.clear(h)
+        h = self.show_heading("Kalibrasyon doğruluğu ve AMCC", h)
+        a = card("kalibre ONU", "sistem profilindeki doğruluğu sağlar\n→ bant içi aktivasyon", None, GOOD, w=5.2, h=1.9, tsize=24, bsize=19)
+        b = card("yeterince kalibre değil", "→ AMCC üzerinden aktivasyon", None, WARN, w=5.2, h=1.9, tsize=24, bsize=19)
+        VGroup(a, b).arrange(RIGHT, buff=0.4).move_to(UP * 0.5)
+        o18 = VGroup(T("Channel_Profile · oktet 18 · 0000 00IA", 21, PROF, BOLD), T("I: bant içi SN grant · A: AMCC SN grant sunuluyor mu?", 19, TXT)).arrange(DOWN, buff=0.12).move_to(DOWN * 1.6)
+        self.play(FadeIn(a, shift=UP * 0.15), run_time=0.6)
+        self.at(self.cue("Bunu sağlamayan", 2))
+        self.play(FadeIn(b, shift=UP * 0.15), run_time=0.6)
+        self.at(self.cue("Kanal profilindeki", 3))
+        self.play(FadeIn(o18, shift=UP * 0.1), run_time=0.5)
         self.end(pad=0.1)
         self.clear()
         self.save_timeline("ep03_p5A")
@@ -146,6 +160,7 @@ class E3P5B(Act3):
 
         self.beat("f4b")
         self.clear(h)
+        h = self.show_heading("Burst profilleri", h)
         bp = card("Burst_Profile", "önsöz uzunluğu ve deseni · sınırlayıcı · FEC\nBWmap her burst için bir profil seçer", "→ Bölüm 6: ONU vericisi ve burst modu", TW_DS, w=9.0, h=2.2, tsize=26, bsize=20).move_to(DOWN * 0.2)
         self.play(FadeIn(bp, shift=UP * 0.15), run_time=0.7)
         self.end(pad=0.05)
@@ -166,6 +181,16 @@ class E3P5B(Act3):
         self.play(FadeIn(m2[0]), FadeIn(m2[1]), FadeIn(m2[3]), Create(m2[2]), run_time=0.9)
         self.at(self.cue("eşlemeyi", 4))
         self.play(FadeIn(cap), run_time=0.5)
+        self.end(pad=0.05)
+
+        self.beat("f5a")
+        self.clear(h)
+        h = self.show_heading("PtP WDM kanal profili (Tablo 11-19)", h)
+        eng = card("engaged bayrağı", "kanal bir ONU ile eşleşti →\nartık başka ONU'lara kapalı", "G.989.3 Tablo 17-2", PTP, w=7.0, h=2.2, tsize=26, bsize=21).move_to(UP * 0.3)
+        b9 = T("→ PtP WDM: Bölüm 9", 21, ACC, BOLD).next_to(eng, DOWN, buff=0.5)
+        self.play(FadeIn(eng, shift=UP * 0.15), run_time=0.6)
+        self.at(self.cue("Noktadan noktaya WDM'i", 3))
+        self.play(FadeIn(b9), run_time=0.4)
         self.end(pad=0.05)
 
         self.engineer_note("f6", [("1", "Fizik ile TC'nin buluştuğu yer", "Ölçülen ≠ duyurulan frekans → kalibrasyon ya da konfigürasyon.", 1),
@@ -247,6 +272,17 @@ class E3LabA(Act3):
         self.play(FadeIn(c), run_time=0.5)
         self.end(pad=0.05)
 
+        self.beat("g4a")
+        self.play(*[FadeOut(m) for m in (b1, b2, c)], run_time=0.4)
+        ref = VGroup(box(2.2, 0.7, "referans lazer", GOLD, 16), Arrow(LEFT, RIGHT, color=MUTED), instrument("OSA", 2.0, 1.45), T("eksen doğrulaması", 19, GOLD, BOLD)).arrange(RIGHT, buff=0.3).move_to(UP * 0.7)
+        cmp_ = VGroup(T("ölçülen ↓ frekans", 22, TW_DS, BOLD), T("↔", 26, TXT), T("Channel_Profile oktet 11 (duyurulan kayma)", 22, PROF, BOLD)).arrange(RIGHT, buff=0.3).move_to(DOWN * 1.2)
+        ct = T("→ OLT'nin kendi bildirdiği değer de test edilir", 19, GOOD, BOLD).next_to(cmp_, DOWN, buff=0.25)
+        self.play(FadeIn(ref, shift=UP * 0.1), run_time=0.7)
+        self.at(self.cue("Ölçtüğünüz", 2))
+        self.play(FadeIn(cmp_), run_time=0.6)
+        self.play(FadeIn(ct), run_time=0.4)
+        self.end(pad=0.05)
+
         self.beat("g5")
         self.clear(h)
         h = self.show_heading("Yukarı yön: kanal kanal", h)
@@ -297,8 +333,8 @@ class E3LabB(Act3):
         pi_ = Line(src.get_right(), [wm.get_left()[0], 0.8, 0], color=GOLD, stroke_width=3)
         pj = VGroup(Line([wm.get_left()[0], -0.4, 0], [-4.4, -0.4, 0], color=WARN, stroke_width=2), instrument("PM", 1.4, 1.0).move_to([-5.2, -0.6, 0]))
         lbl = VGroup(T("port i", 15, GOLD).next_to(pi_, UP, buff=0.05), T("port j: sızıntı", 15, WARN).next_to(pj[0], DOWN, buff=0.05))
-        res = VGroup(T("yalıtım = P_i − P_j", 26, ACC, BOLD), T("geri dönüş kaybı > 50 dB · yönlülük > 50 dB (Ek VIII örnek)", 19, TXT),
-                     T("CEx: G-PON · XG-PON1 · video portları arasında da", 19, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to([3.2, 0.2, 0])
+        res = VGroup(T("yalıtım = P_i − P_j", 26, ACC, BOLD), T("geri dönüş kaybı > 50 dB\nyönlülük > 50 dB (Ek VIII örnek)", 18, TXT, line_spacing=0.9),
+                     T("CEx: G-PON · XG-PON1 · video\nportları arasında da", 18, GOLD, BOLD, line_spacing=0.9)).arrange(DOWN, aligned_edge=LEFT, buff=0.25).move_to([3.0, 0.2, 0])
         self.play(FadeIn(src), FadeIn(wm), Create(pi_), run_time=0.7)
         self.play(FadeIn(pj), FadeIn(lbl), FadeIn(res[0]), run_time=0.7)
         self.at(self.cue("Ek sekizdeki", 2))
@@ -340,6 +376,13 @@ class E3LabB(Act3):
         self.play(LaggedStart(*[Create(d) for d in deg], lag_ratio=0.4), FadeIn(lg[1]), run_time=1.4)
         self.at(self.cue("Düşük frekanslı", 3))
         self.play(FadeIn(lo), run_time=0.5)
+        self.end(pad=0.05)
+
+        self.beat("g7a")
+        wc = pill("en kötü koşul: her ↓ kanal en büyük başlatma gücünde", WARN, 21).move_to(UP * 1.6)
+        self.play(FadeIn(wc, shift=DOWN * 0.1), run_time=0.5)
+        self.at(self.cue("Daha düşük güçte", 3))
+        self.play(Indicate(deg[-1], color=WARN), run_time=0.8)
         self.end(pad=0.05)
 
         self.engineer_note("g8", [("1", "Raporunuza yazın", "Frekans doğruluğu ve çözünürlük (RBW) düzeltmesi.", 1),
@@ -399,9 +442,13 @@ class E3End(Act3):
         self.play(FadeIn(nxt[0]), Write(nxt[1]), run_time=1.2)
         self.play(FadeIn(nxt[2]), run_time=0.5)
         eye = VGroup()
-        for s in range(6):
-            pts_ = [[-2.0 + x, -1.6 + (0.55 if (s >> (int(x * 2) % 3)) & 1 else -0.55) * np.tanh(3 * np.sin(np.pi * x)), 0] for x in np.linspace(0, 4, 60)]
-            eye.add(VMobject(color=TW_DS, stroke_width=2).set_points_smoothly(pts_).set_opacity(0.6))
+        st = lambda u: 0.5 - 0.5 * np.cos(np.pi * np.clip(u, 0, 1))
+        for a in (0, 1):
+            for b in (0, 1):
+                for c in (0, 1):
+                    lvl = lambda x, a=a, b=b, c=c: a + (b - a) * st((x + 0.25) / 0.5) + (c - b) * st((x - 0.75) / 0.5)
+                    pts_ = [[-1.6 + 1.6 * (x + 0.5), -2.4 + 1.2 * lvl(x), 0] for x in np.linspace(-0.5, 1.5, 80)]
+                    eye.add(VMobject(stroke_color=TW_DS, stroke_width=2.5, stroke_opacity=0.7, fill_opacity=0).set_points_smoothly(pts_))
         self.play(LaggedStart(*[Create(e) for e in eye], lag_ratio=0.1), run_time=1.2)
         self.end(pad=0.6)
         self.play(FadeOut(VGroup(nxt, eye)), FadeOut(self.hdr), run_time=0.7)

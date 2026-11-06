@@ -15,5 +15,5 @@ for sp in specs:
 cols = 3; args = []
 for f in fr: args += ["-i", str(f)]
 lay = "|".join(f"{(j % cols) * 640}_{(j // cols) * 360}" for j in range(len(fr)))
-subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *args, "-filter_complex", f"xstack=inputs={len(fr)}:layout={lay}:fill=black", out], check=True)
+subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *args, *(["-filter_complex", f"xstack=inputs={len(fr)}:layout={lay}:fill=black"] if len(fr) > 1 else []), out], check=True)
 print(out)

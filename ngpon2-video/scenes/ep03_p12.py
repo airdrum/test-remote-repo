@@ -86,17 +86,15 @@ class E3P1B(Act3):
         self.clear(h)
         h = self.show_heading("Ek VIII örnek ızgaraları (Tablo VIII.5)", h)
         axg, X = nm_axis(1526, 1542, y=-2.0, step=1, label_every=2)
-        red = outline_band(X, 1528, 1540, -0.45, 1.0, TW_US, "azaltılmış 1528–1540", lsize=15)
-        nar = outline_band(X, 1532, 1540, -0.45, 0.62, GOLD, "dar 1532–1540", lsize=15, where="down")
-        g200 = comb(X, [thz_to_nm(f) for f in (196.1, 195.9, 195.7, 195.5, 195.3, 195.1, 194.9, 194.7)], -1.35, 0.5, TW_US, 3)
-        g50 = comb(X, [thz_to_nm(f) for f in (195.25, 195.2, 195.15, 195.1, 195.05, 195.0, 194.95, 194.9)], -0.45, 0.4, GOLD, 2.5)
-        t200 = T("200 GHz: 1528,8 … 1539,8 nm", 17, TW_US, BOLD).next_to(g200, LEFT, buff=0.25)
-        t50 = T("50 GHz: ≈ 2,8 nm", 17, GOLD, BOLD).move_to([X(1530), 0.65, 0])
+        red = outline_band(X, 1528, 1540, 0.35, 0.7, TW_US, "azaltılmış bant 1528–1540  ·  200 GHz ızgara: 1528,8 … 1539,8 nm", lsize=16)
+        nar = outline_band(X, 1532, 1540, -1.05, 0.7, GOLD, "dar bant 1532–1540  ·  50 GHz ızgara ≈ 2,8 nm", lsize=16, where="down")
+        g200 = comb(X, [thz_to_nm(f) for f in (196.1, 195.9, 195.7, 195.5, 195.3, 195.1, 194.9, 194.7)], 0.35, 0.5, TW_US, 3)
+        g50 = comb(X, [thz_to_nm(f) for f in (195.25, 195.2, 195.15, 195.1, 195.05, 195.0, 194.95, 194.9)], -1.05, 0.5, GOLD, 2.5)
         self.play(Create(axg[0]), FadeIn(axg[1:]), Create(red[0]), FadeIn(red[1]), self.set_src("G.989.2 Ek VIII.4, Tablo VIII.5"), run_time=0.8)
-        self.play(LaggedStart(*[Create(l) for l in g200], lag_ratio=0.1), FadeIn(t200), run_time=1.0)
+        self.play(LaggedStart(*[Create(l) for l in g200], lag_ratio=0.1), run_time=1.0)
         self.at(self.cue("Elli gigahertz", 6))
         self.play(Create(nar[0]), FadeIn(nar[1]), run_time=0.5)
-        self.play(LaggedStart(*[Create(l) for l in g50], lag_ratio=0.1), FadeIn(t50), run_time=0.9)
+        self.play(LaggedStart(*[Create(l) for l in g50], lag_ratio=0.1), run_time=0.9)
         self.end(pad=0.05)
 
         self.beat("b4")
@@ -107,7 +105,7 @@ class E3P1B(Act3):
         ghost = VGroup(band(X, 1524, 1544, -1.45, 0.6, TW_US, None, op=0.3), band(X, 1596, 1603, -1.45, 0.6, TW_DS, None, op=0.3))
         sh = band(X, 1603, 1625, -0.6, 0.6, PTP, None)
         sht = T("paylaşılan 1603–1625 nm", 18, PTP, BOLD).next_to(sh, UP, buff=0.1)
-        ex = outline_band(X, 1524, 1625, 0.6, 0.6, PTP, "genişletilmiş 1524–1625 nm — bir eski sistem yoksa", lsize=18)
+        ex = outline_band(X, 1524, 1625, 0.2, 0.6, PTP, "genişletilmiş 1524–1625 nm — bir eski sistem yoksa", lsize=18)
         self.play(Create(axg[0]), FadeIn(axg[1:]), FadeIn(ghost), run_time=0.6)
         self.at(self.cue("Paylaşılan", 2))
         self.play(GrowFromEdge(sh, DOWN), FadeIn(sht), run_time=0.6)
@@ -118,7 +116,7 @@ class E3P1B(Act3):
         self.beat("b4a")
         p1 = pill("genişletilmiş spektrum: G.694.1 / G.698.3 DWDM ızgaraları", ACC, 19)
         p2 = pill("Not 1: boş alt bant serbest — ama yalıtım hesaba katılmalı", WARN, 19)
-        ps = VGroup(p1, p2).arrange(DOWN, buff=0.22).move_to([0.4, 2.0, 0])
+        ps = VGroup(p1, p2).arrange(DOWN, buff=0.15).move_to([0.4, 1.72, 0])
         self.play(FadeOut(sht), FadeIn(p1, shift=DOWN * 0.1), run_time=0.5)
         self.at(self.cue("Birinci not", 4))
         self.play(FadeIn(p2, shift=DOWN * 0.1), run_time=0.5)
@@ -209,7 +207,7 @@ class E3P1C(Act3):
 
 
 LEG = [(1260, 1280, LEGACY, "XG-PON1 ↑", 0), (1290, 1330, LEGACY, "G-PON ↑", 1), (1480, 1500, LEGACY, "G-PON ↓", 0),
-       (1575, 1580, LEGACY, "XG-PON1 ↓", 1)]
+       (1575, 1580, LEGACY, "XG-PON1 ↓", 2)]
 
 
 class E3P2A(Act3):
@@ -229,6 +227,7 @@ class E3P2A(Act3):
         self.end(pad=0.05)
 
         self.beat("c2")
+        self.play(FadeOut(sysp), run_time=0.4)
         bands = VGroup()
         for a, b, c, lab, up in LEG:
             g = band(X, a, b, -1.35, 0.6, c, None, op=0.9)
@@ -241,7 +240,7 @@ class E3P2A(Act3):
         self.end(pad=0.05)
 
         self.beat("c2b")
-        old = outline_band(X, 1260, 1360, -0.35, 0.5, WARN, "G-PON ↑ ilk tanım 1260–1360", lsize=15)
+        old = outline_band(X, 1260, 1360, 0.6, 0.5, WARN, "G-PON ↑ ilk tanım 1260–1360", lsize=15)
         new = T("→ birlikte çalışma için 1290–1330 nm", 17, GOOD, BOLD).next_to(old, RIGHT, buff=0.25)
         self.play(Create(old[0]), FadeIn(old[1]), run_time=0.7)
         self.at(self.cue("XG-PON1'in", 3))
@@ -253,7 +252,7 @@ class E3P2A(Act3):
 
         self.beat("c2a")
         vid = band(X, 1550, 1560, -1.35, 0.6, VIDEO, None)
-        vt = T("RF video 1550–1560", 15, VIDEO, BOLD).next_to(vid, UP, buff=0.42)
+        vt = T("RF video", 15, VIDEO, BOLD).next_to(vid, UP, buff=0.42).shift(RIGHT * 0.45)
         ot = outline_band(X, 1625, 1675, -1.35, 0.6, MUTED, "OTDR · U bandı (L.313)", lsize=15)
         self.play(GrowFromEdge(vid, DOWN), FadeIn(vt), run_time=0.6)
         self.at(self.cue("OTDR", 2))
@@ -262,9 +261,10 @@ class E3P2A(Act3):
 
         self.beat("c3")
         ng = VGroup(band(X, 1524, 1544, -1.35, 0.6, TW_US, None), band(X, 1596, 1603, -1.35, 0.6, TW_DS, None), band(X, 1603, 1625, -1.35, 0.6, PTP, None))
-        ngl = VGroup(T("TWDM ↑", 15, TW_US, BOLD).next_to(ng[0], DOWN, buff=0.55), T("TWDM ↓", 15, TW_DS, BOLD).next_to(ng[1], DOWN, buff=0.55).shift(LEFT * 0.3), T("PtP", 15, PTP, BOLD).next_to(ng[2], DOWN, buff=0.55).shift(RIGHT * 0.2))
-        g6 = VGroup(DoubleArrow([X(1544), -0.85, 0], [X(1550), -0.85, 0], buff=0, color=WARN, stroke_width=2, tip_length=0.07), T("6 nm", 15, WARN, BOLD).move_to([X(1547), -0.6, 0]))
-        g16 = VGroup(DoubleArrow([X(1580), -0.85, 0], [X(1596), -0.85, 0], buff=0, color=GOOD, stroke_width=2, tip_length=0.08), T("16 nm", 15, GOOD, BOLD).move_to([X(1588), -0.6, 0]))
+        ngl = VGroup(T("TWDM ↑", 15, TW_US, BOLD).move_to([X(1534), -2.55, 0]), T("TWDM ↓", 15, TW_DS, BOLD).move_to([X(1594), -2.55, 0]), T("PtP", 15, PTP, BOLD).move_to([X(1622), -2.55, 0]))
+        g6 = VGroup(Line([X(1544), -1.0, 0], [X(1544), 0.45, 0], color=WARN, stroke_width=1.5), Line([X(1550), -1.0, 0], [X(1550), 0.45, 0], color=WARN, stroke_width=1.5),
+                    T("6 nm", 17, WARN, BOLD).move_to([X(1530), 0.6, 0]))
+        g16 = VGroup(DoubleArrow([X(1580), 0.45, 0], [X(1596), 0.45, 0], buff=0, color=GOOD, stroke_width=2, tip_length=0.08), T("16 nm", 17, GOOD, BOLD).move_to([X(1588), 0.7, 0]))
         self.play(LaggedStart(*[GrowFromEdge(b, DOWN) for b in ng], lag_ratio=0.25), FadeIn(ngl), run_time=1.1)
         self.at(self.cue("altı nanometre", 4))
         self.play(FadeIn(g6), run_time=0.5)
@@ -274,7 +274,7 @@ class E3P2A(Act3):
 
         self.beat("c3a")
         self.set_badge("fiz")
-        logic = VGroup(T("en az çakışma · en geniş koruma bandı", 22, GOOD, BOLD), T("dar bant (1532–1540) → videoya 10 nm", 19, TW_US, BOLD)).arrange(DOWN, buff=0.18).move_to(UP * 1.4)
+        logic = VGroup(T("en az çakışma · en geniş koruma bandı", 22, GOOD, BOLD), T("dar bant (1532–1540) → videoya 10 nm", 19, TW_US, BOLD)).arrange(DOWN, buff=0.18).move_to(UP * 1.75)
         self.play(FadeIn(logic[0], shift=UP * 0.1), run_time=0.6)
         self.at(self.cue("Yukarı yönün üç", 5))
         self.play(FadeIn(logic[1], shift=UP * 0.1), run_time=0.5)
@@ -360,7 +360,7 @@ class E3P2B(Act3):
         self.beat("c6a")
         self.clear(h)
         h = self.show_heading("Toplam güç: bir fiber, çok sistem", h)
-        parts = [("RF video yükselteci", VIDEO, 2.6), ("8 × TWDM ↓", TW_DS, 2.0), ("G-PON ↓", LEGACY, 0.9), ("XG-PON1 ↓", LEGACY, 0.9)]
+        parts = [("RF video yükselteci", VIDEO, 2.8), ("8 × TWDM ↓", TW_DS, 2.2), ("G-PON ↓", LEGACY, 1.5), ("XG-PON1 ↓", LEGACY, 1.7)]
         stack, x = VGroup(), -4.8
         for name, c, w in parts:
             r = Rectangle(width=w, height=0.7, stroke_width=0, fill_color=c, fill_opacity=0.85).move_to([x + w / 2, 0.4, 0])

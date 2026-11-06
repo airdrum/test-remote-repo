@@ -21,6 +21,10 @@
    "text": "Sistem profilinde bir parametre daha dikkat çeker: gevşek kalibrasyon sınırı. Bir ONU'nun ne kadar kaba kalibre edilmiş olabileceği çoklayıcının özelliklerine bağlıdır. Bunu standart değil OLT belirler, ve ONU'ya çalışma sırasında bildirir."
   },
   {
+   "id": "f2b",
+   "text": "Kalibrasyon doğruluğu ise bir ONU'nun bant içi aktivasyona geçebilmesi için sağlaması gereken en küçük doğruluktur. Bunu sağlamayan bir ONU için standart başka bir yol bırakır: AMCC. Kanal profilindeki seri numarası grant tipi alanı, bant içi ve AMCC seri numarası grantlarının sunulup sunulmadığını gösterir."
+  },
+  {
    "id": "f3",
    "text": "Kanal profili mesajı ise tek bir kanal çiftini tarif eder. Başında dört bitlik kanal profili kimliği ve üç bayrak vardır: bu kanal mı, aşağı yön tanımı geçersiz mi, yukarı yön tanımı geçersiz mi. Ardından profil sürümü gelir; içerik değişirse sürüm de değişir, böylece ONU yalnızca sürüme bakarak güncellemeyi fark eder."
   },
@@ -47,6 +51,10 @@
   {
    "id": "f5",
    "text": "En basit durumda her kanal profili, aşağı ve yukarı yön kanalları arasında birebir ve sabit bir eşleme kurar: bu aşağı yön kanalını dinleyen ONU, şu yukarı yön kanalında cevap verir. Ama standart daha esnek bir yapıya da izin verir: bire çok ya da çoğa bir eşlemeler. O durumda profil yalnızca bir adlandırma kuralıdır; eşlemeyi varsayılan yanıt kanalı alanı ve ayar kontrol mesajı belirler."
+  },
+  {
+   "id": "f5a",
+   "text": "Noktadan noktaya WDM için ayrı bir kanal profili biçimi vardır. Orada bir bayrak öne çıkar: kanalın bir ONU ile eşleşip eşleşmediğini, yani artık başka ONU'lara kapalı olup olmadığını gösteren bayrak. Noktadan noktaya WDM'i dokuzuncu bölümde ayrıntılı işleyeceğiz."
   },
   {
    "id": "f6",

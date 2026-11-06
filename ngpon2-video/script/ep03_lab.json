@@ -21,6 +21,10 @@
    "text": "Frekans doğruluğu ikinci konudur. Aşağı yönde artı eksi yirmi gigahertzlik sapma sınırı, bin altı yüz nanometre civarında yaklaşık artı eksi yüz yetmiş pikometreye karşılık gelir. Tipik bir OSA'nın dalga boyu doğruluğu on ile yirmi pikometredir; sınırın onda biri kadar, yeterli. Ama OSA'yı bir referans kaynakla düzenli olarak doğrulayın; ölçüm hatası doğrudan sapma payınızdan yer."
   },
   {
+   "id": "g4a",
+   "text": "Bir pratik ipucu: OSA'nın dalga boyu eksenini kararlı bir referans lazerle doğrulayın. Ölçtüğünüz aşağı yön frekansını, kanal profilinde duyurulan frekans kaymasıyla karşılaştırmak, OLT'nin kendi bildirdiği değerin doğruluğunu da test eder."
+  },
+  {
    "id": "g5",
    "text": "Yukarı yönde ONU'yu sırayla her kanala ayarlayın ve her kanalda frekansı bir ayar döngüsü boyunca izleyin. Sapma sınırı kanal aralığıyla ölçeklenir: elli gigahertz aralıkta artı eksi on iki buçuk gigahertz, yani bu bantta yaklaşık artı eksi yüz pikometre. Burst içindeki dalga boyu kaymasını ölçmek daha ince bir iştir; onu yedinci bölüme bırakıyoruz."
   },
@@ -39,6 +43,10 @@
   {
    "id": "g7",
    "text": "Üçüncü ölçüm Raman. RF video varsa, video alıcısının çıkışında taşıyıcı karışma oranını ölçün: önce yalnızca video, sonra TWDM aşağı yön kanallarını birer birer açarak. Düşük frekanslı kanallarda bir bozulma görüyorsanız, bu Raman karışmasıdır. Aynı testi farklı fiber uzunluklarıyla tekrarlamak, etkinin mesafeyle değişimini gösterir."
+  },
+  {
+   "id": "g7a",
+   "text": "Raman testinde bir noktaya dikkat edin: karışma, girişimci kanalların gücüyle doğrudan büyür. Testi en kötü koşulda, yani her aşağı yön kanalı en büyük başlatma gücündeyken yapın. Daha düşük güçte yapılan bir test, sahadaki durumu olduğundan iyi gösterir."
   },
   {
    "id": "g8",

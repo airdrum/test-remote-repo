@@ -11,7 +11,7 @@ def tr(x, fmt):
 def mini_axes(x0, y0, w, h, xl, yl, color=MUTED):
     o = np.array([x0, y0, 0])
     return VGroup(Line(o, o + [w, 0, 0], color=color, stroke_width=2), Line(o, o + [0, h, 0], color=color, stroke_width=2),
-                  T(xl, 15, color).next_to(o + [w, 0, 0], DOWN, buff=0.12).shift(LEFT * 0.3), T(yl, 15, color).next_to(o + [0, h, 0], UP, buff=0.08))
+                  T(xl, 15, color).next_to(o + [w / 2, 0, 0], DOWN, buff=0.42), T(yl, 15, color).next_to(o + [0, h, 0], UP, buff=0.08))
 
 
 class E3P3A(Act3):
@@ -41,14 +41,14 @@ class E3P3A(Act3):
         mse = pill("↓ MSE ± 20 GHz", GOLD, 20).move_to([4.6, 1.9, 0])
         self.play(FadeIn(b1), FadeIn(t1), run_time=0.5)
         self.at(self.cue("Beşten sekize", 2))
-        self.play(FadeIn(b2), FadeIn(t2), *[r.animate.set_opacity(0.55) for r in tb[5:]], run_time=0.6)
+        self.play(FadeIn(b2), FadeIn(t2), *[VGroup(*r[:4]).animate.set_opacity(0.55) for r in tb[5:]], run_time=0.6)
         self.at(self.cue("en büyük spektral", 5))
         self.play(FadeIn(mse, shift=DOWN * 0.1), run_time=0.5)
         self.end(pad=0.05)
 
         self.beat("d2")
         self.set_badge("tc")
-        self.play(*[FadeOut(m) for m in (b1, b2, t1, t2, mse)], *[r.animate.set_opacity(1) for r in tb[5:]], run_time=0.4)
+        self.play(*[FadeOut(m) for m in (b1, b2, t1, t2, mse)], *[VGroup(*r[:4]).animate.set_opacity(1) for r in tb[5:]], run_time=0.4)
         self.play(tb[0][4].animate.set_opacity(1), *[r[4].animate.set_opacity(1) for r in tb[1:]], run_time=0.7)
         W = 3.8
         pid = VGroup(Rectangle(width=W * 28 / 32, height=0.55, stroke_color=MUTED, stroke_width=2, fill_color=PANEL, fill_opacity=1),
@@ -330,7 +330,7 @@ class E3P4A(Act3):
         self.g, self.gax = VGroup(ax, tk, g, tag, rng), (x0, y0, sx, sy)
 
         self.beat("e1a")
-        self.play(self.g.animate.set_opacity(0.15), run_time=0.4)
+        self.play(FadeOut(self.g), run_time=0.4)
         c1 = card("Modülasyon karışması", "bir sinyalin modülasyonu\ndiğerinin üzerine biner\nyalnızca AYNI yönde", None, WARN, w=5.4, h=2.3, tsize=24, bsize=19).move_to([-3.0, 0.0, 0])
         c2 = card("Güç tüketimi", "kısa λ pompa gibi davranır,\nuzun λ'yı güçlendirir\nAYNI ve KARŞI yönde", None, GOLD, w=5.4, h=2.3, tsize=24, bsize=19).move_to([3.0, 0.0, 0])
         a1 = VGroup(Arrow([-4.6, -1.6, 0], [-3.4, -1.6, 0], buff=0, color=WARN), Arrow([-2.6, -1.6, 0], [-1.4, -1.6, 0], buff=0, color=WARN))
@@ -342,13 +342,13 @@ class E3P4A(Act3):
         self.end(pad=0.05)
 
         self.beat("e1b")
-        self.play(*[FadeOut(m) for m in (c1, c2, a1, a2)], self.g.animate.set_opacity(1), run_time=0.5)
+        self.play(*[FadeOut(m) for m in (c1, c2, a1, a2)], FadeIn(VGroup(*self.g[:4])), run_time=0.5)
         x0, y0, sx, sy = self.gax
         pk = VGroup(DashedLine([x0 + 13.2 * sx, y0, 0], [x0 + 13.2 * sx, y0 + 3.05, 0], color=WARN, stroke_width=2),
                     T("tepe ≈ 13 THz ≈ 100 nm @ 1550 nm", 18, WARN, BOLD).move_to([x0 + 24 * sx, y0 + 3.15, 0]))
         reg = Rectangle(width=5 * sx, height=3.2, stroke_width=0, fill_color=ACC, fill_opacity=0.18).move_to([x0 + 7.5 * sx, y0 + 1.6, 0])
-        rt = T("NG-PON2 bantları arası\n≈ 5 … 10 THz", 16, ACC, BOLD, line_spacing=0.9).next_to(reg, LEFT, buff=0.1).shift(UP * 0.9)
-        self.play(FadeOut(self.g[4]), Create(pk[0]), FadeIn(pk[1]), run_time=0.6)
+        rt = T("NG-PON2\n5–10 THz", 15, ACC, BOLD, line_spacing=0.85).move_to([x0 + 7.5 * sx, y0 + 0.55, 0])
+        self.play(Create(pk[0]), FadeIn(pk[1]), run_time=0.6)
         self.at(self.cue("NG-PON2'nin kendi", 2))
         self.play(FadeIn(reg), FadeIn(rt), run_time=0.6)
         self.end(pad=0.05)
@@ -444,7 +444,7 @@ class E3P4B(Act3):
         gp = band(X, 1480, 1500, -1.35, 0.7, LEGACY, "G-PON ↓", lsize=14, lcolor=TXT)
         vd = band(X, 1550, 1560, -1.35, 0.7, VIDEO, "video", lsize=14)
         xg = band(X, 1575, 1580, -1.35, 0.7, LEGACY, None)
-        xgt = T("XG ↓", 14, MUTED, BOLD).next_to(xg, DOWN, buff=0.45)
+        xgt = T("XG ↓", 14, MUTED, BOLD).next_to(xg, UP, buff=0.08)
         a1 = CurvedArrow([X(1490), -0.85, 0], [X(1530), -0.85, 0], angle=-1.0, color=GOOD, stroke_width=3)
         t1 = T("pompalar: ↑ kazanır", 17, GOOD, BOLD).next_to(a1, UP, buff=0.08)
         a2 = CurvedArrow([X(1538), -0.85, 0], [X(1577), -0.85, 0], angle=-1.0, color=WARN, stroke_width=3)
@@ -474,10 +474,10 @@ class E3P4B(Act3):
 
         self.beat("e4a")
         self.play(cards[0].animate.set_opacity(0.3), cards[1].animate.set_opacity(1), FadeOut(res), run_time=0.4)
-        pol = VGroup(*[Arrow(ORIGIN, (UP if i % 4 in (1, 2) else RIGHT) * 0.55, buff=0, color=CH[i % 4], stroke_width=4).move_to([-4.4 + i * 0.8, -1.4, 0]) for i in range(6)])
+        pol = VGroup(*[Arrow(ORIGIN, (UP if i % 4 in (1, 2) else RIGHT) * 0.55, buff=0, color=CH[i % 4], stroke_width=4).move_to([-5.0 + i * 0.7, -1.4, 0]) for i in range(6)])
         pt = T("kanal 1: 0° · 2–3: 90° · 4–5: 0° …", 16, MUTED).next_to(pol, DOWN, buff=0.2)
-        r = VGroup(T("paralel (DoP = 1) yerine DoP = 0 → −6 dB karışma", 20, GOLD, BOLD), T("2 : 1 elektriksel/optik dB → +3 dB optik güç", 20, TXT),
-                   T("PM fiber · polarizasyon kontrollü WM", 18, MUTED)).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to([2.7, -1.6, 0])
+        r = VGroup(T("paralel (DoP = 1) yerine DoP = 0 → −6 dB karışma", 19, GOLD, BOLD), T("2 : 1 elektriksel/optik dB → +3 dB optik güç", 19, TXT),
+                   T("PM fiber · polarizasyon kontrollü WM", 17, MUTED)).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to([3.3, -1.6, 0])
         self.play(LaggedStart(*[GrowArrow(a) for a in pol], lag_ratio=0.1), FadeIn(pt), run_time=0.9)
         self.at(self.cue("Hepsinin paralel", 2))
         self.play(FadeIn(r[0]), run_time=0.5)
@@ -521,7 +521,8 @@ class E3P4C(Act3):
         cn = VMobject(color=MUTED, stroke_width=3).set_points_smoothly([[x0 + f * sx, y0 + v * sy, 0] for f, v in zip(fs, nrz)])
         cm = VMobject(color=GOLD, stroke_width=3.5).set_points_smoothly([[x0 + f * sx, y0 + v * sy, 0] for f, v in zip(fs, mil)])
         lg = VGroup(T("NRZ", 18, MUTED, BOLD), T("Miller", 18, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.1).move_to([x0 + 1.75 * sx, y0 + 2.6, 0])
-        lf = T("alçak frekansta az enerji", 16, GOLD, BOLD).move_to([x0 + 0.45 * sx, y0 + 0.55, 0])
+        lf = VGroup(T("Miller: alçak frekansta az enerji", 16, GOLD, BOLD).move_to([x0 + 1.25 * sx, y0 + 1.35, 0]))
+        lf.add(Arrow(lf[0].get_bottom() + LEFT * 0.9, [x0 + 0.12 * sx, y0 + 0.3, 0], buff=0.05, color=GOLD, stroke_width=2.5, max_tip_length_to_length_ratio=0.12))
         b8 = card("8B10B", "DC dengeli kod\nMAC alt katmanı · aç / kapa", None, ACC, w=4.6, h=1.7, tsize=24, bsize=18).move_to([3.9, 0.9, 0])
         self.play(Create(ax), FadeIn(tk), self.set_src("G.989.2 Ek IX"), run_time=0.6)
         self.at(self.cue("8B10B kodu", 1))
