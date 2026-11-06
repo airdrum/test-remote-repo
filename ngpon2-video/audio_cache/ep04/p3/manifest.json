@@ -32,10 +32,10 @@
   },
   {
    "id": "d2a",
-   "file": "d2a_ga1dc3314d4.wav",
-   "duration": 14.832,
-   "text": "OLT gerçek frekansını biliyorsa bunu duyurabilir: kanal profilindeki aşağı yön frekans kayması alanı, nominal değerden farkı sıfır virgül bir gigahertz birimiyle taşır. Bu, ONU'nun ayarlanabilir alıcısı için yararlı bir ipucudur.",
-   "qa": "ok"
+   "file": "d2a_fix.wav",
+   "duration": 17.651,
+   "text": "OLT gerçek frekansını biliyorsa bunu duyurabilir: kanal profilindeki aşağı yön frekans kayması alanı, nominal değerden farkı sıfır virgül bir gigahertz birimiyle taşır. Bu, abone tarafındaki ayarlanabilir alıcı için yararlı bir ipucudur.",
+   "qa": "ok(regenerated)"
   },
   {
    "id": "d2b",
@@ -108,5 +108,5 @@
    "qa": "ok"
   }
  ],
- "total": 306.05
+ "total": 308.87
 }

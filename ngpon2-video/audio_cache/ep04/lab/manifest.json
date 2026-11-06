@@ -1,0 +1,77 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "g1_gc4d87fb27f.wav",
+   "duration": 12.958,
+   "text": "Laboratuvarda: verici testleri. İki ana cihaz var: göz ve sönüm oranı için dijital iletişim analizörü, yani DCA; spektrum için OSA. Bir de kalibre bir güç ölçer.",
+   "qa": "ok"
+  },
+  {
+   "id": "g2",
+   "file": "g2_gc4d87fb27f.wav",
+   "duration": 18.573,
+   "text": "Sönüm oranını CG noktasında ölçüyorsanız, DCA'nın önüne ayarlanabilir bir bant geçiren filtre koyun ve ölçülen kanala ayarlayın. Filtre komşu kanalları bastırmalı, ama ölçülen kanalın modülasyonunu bozmamalıdır. CP noktasında ise vericinin çıkışını doğrudan DCA'ya bağlayabilirsiniz.",
+   "qa": "ok"
+  },
+  {
+   "id": "g3",
+   "file": "g3_g086e7b2ee1.wav",
+   "duration": 20.907,
+   "text": "DCA'da referans alıcı filtresini seçin: dördüncü dereceden Thomson, nominal hızın sıfır virgül yetmiş beş katı. Göz maskesini uygulayın, ve maske ihlali olmadan maskeyi ne kadar büyütebildiğinizi, yani marjı kaydedin. Standart marjı tanımlamaz, ama üretimde bu sayı vericinin sağlığını izlemenin en hızlı yoludur.",
+   "qa": "ok"
+  },
+  {
+   "id": "g4",
+   "file": "g4_g086e7b2ee1.wav",
+   "duration": 17.784,
+   "text": "Sönüm oranı ölçümünde DCA'nın karanlık düzey kalibrasyonunu yapın. Sıfır düzeyindeki küçük bir hata, büyük bir ölçüm hatasına dönüşür: sekiz virgül iki desibellik bir oranda, sıfır düzeyi bir düzeyinin yalnızca yüzde on beşi kadardır; küçük bir ofset bu oranı belirgin biçimde değiştirir.",
+   "qa": "ok"
+  },
+  {
+   "id": "g5",
+   "file": "g5_g2da8b99c6e.wav",
+   "duration": 19.736,
+   "text": "OSA ile SMSR'yi lazer çıkışında, yani CP noktasında ölçün: ana mod ile en güçlü yan mod arasındaki fark otuz desibelin üstünde olmalıdır. Merkez frekansı ölçüp Tablo on bir iki'deki değerle karşılaştırın; fark artı eksi yirmi gigahertzin içinde kalmalıdır. Bu ölçümü sıcaklık aralığının iki ucunda tekrarlayın.",
+   "qa": "ok"
+  },
+  {
+   "id": "g5a",
+   "file": "g5a_g2da8b99c6e.wav",
+   "duration": 16.275,
+   "text": "Dalga boyu kararlılığı için OLT kartını sıcaklık kabininde, çalışma aralığının iki ucuna götürün ve merkez frekansı sürekli kaydedin. Kart açılıştan kararlı duruma gelirken de frekansı izleyin; artı eksi yirmi gigahertzlik sınır, ısınma süreci dahil her an sağlanmalıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "g6",
+   "file": "g6_gfdba6dfee2.wav",
+   "duration": 26.047,
+   "text": "Güç yoğunluğu sınırları için OSA ölçümünü CG noktasında, yani çoklayıcının çıkışında yapın, ve yalnızca ölçülen kanalı açık tutun. Okuduğunuz değeri on beş gigahertzlik banda çevirin; üçüncü bölümde gördüğümüz gibi, sıfır virgül bir nanometrelik çözünürlükte yaklaşık bir desibel eklenir. Komşu kanal frekanslarında ve PtP bandında gücü okuyup tablo sınırlarıyla karşılaştırın.",
+   "qa": "ok"
+  },
+  {
+   "id": "g6a",
+   "file": "g6a_gfdba6dfee2.wav",
+   "duration": 20.164,
+   "text": "SMSR ölçümünde OSA çözünürlüğü, yan modları ana modun eteğinden ayırabilecek kadar ince olmalıdır. Tipik bir DFB'nin yan modları, ana moddan yaklaşık bir nanometre uzaktadır. Çözünürlük çok kaba seçilirse, ana modun eteği yan modu örter ve SMSR olduğundan kötü görünür.",
+   "qa": "ok"
+  },
+  {
+   "id": "g7",
+   "file": "g7_g68956a9e60.wav",
+   "duration": 15.026,
+   "text": "Başlatma gücünü kalibre bir güç ölçerle, her kanal için ayrı ayrı CG noktasında ölçün; çok kanallı noktada toplam gücü okumamak için yine bir filtre ya da OSA kullanın. Ölçtüğünüz değeri, OLT'nin TOL alanında bildirdiği değerle karşılaştırın.",
+   "qa": "ok"
+  },
+  {
+   "id": "g8",
+   "file": "g8_g68956a9e60.wav",
+   "duration": 15.465,
+   "text": "Mühendis notu. Bir: her ölçümde referans noktayı raporunuza yazın: CG mi, CP mi. Aynı vericinin iki noktada farklı sonuç vermesi normaldir. İki: göz marjını üretim boyunca izleyin; marjdaki yavaş düşüş, lazerin yaşlandığının ilk işaretidir.",
+   "qa": "ok"
+  }
+ ],
+ "total": 182.94
+}

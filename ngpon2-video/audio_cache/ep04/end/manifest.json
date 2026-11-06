@@ -1,0 +1,35 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "h1_ge73e331a14.wav",
+   "duration": 23.872,
+   "text": "Bölüm dördün özeti. Bir: OLT bütün PON'un saatidir; normal çalışmada Stratum-1'e izlenir, ve ONU'lar yukarı yönde onun frekans doğruluğunu kullanır. İki: başlatma gücü her sınıfta dört desibellik bir penceredir; on gigabit E2'de bu pencere iki desibele daralır. Sönüm oranı en az sekiz virgül iki desibeldir, ve güçle takas edilebilir.",
+   "qa": "ok"
+  },
+  {
+   "id": "h2",
+   "file": "h2_ge73e331a14.wav",
+   "duration": 26.539,
+   "text": "Üç: SMSR lazerin, bant dışı ve kanal dışı güç yoğunluğu ise arayüzün özelliğidir; ilki PtP WDM'i, ikincisi diğer TWDM kanallarını korur. Dört: göz maskesi ve titreşim sınırları, OTN ve SDH mirasıdır. Beş: yüz yirmi beş mikrosaniyelik çerçeve PSBd ile başlar; FEC karıştırmadan önce uygulanır, ve OLT gücünü TOL alanında her çerçevede yayınlar.",
+   "qa": "ok"
+  },
+  {
+   "id": "h3",
+   "file": "h3_g380431748d.wav",
+   "duration": 28.083,
+   "text": "Kendini test et. Birinci soru: on gigabitlik bir OLT, N1 sınıfında en küçük başlatma gücünde çalışıyorsa, TOL alanında hangi sayıyı gönderir? İkinci soru: on gigabit E2 sınıfında, en büyük güç ile dört kanallı kanal dışı sınır arasındaki fark kaç desibeldir? Üçüncü soru: iki buçuk gigabitlik aşağı yön çerçevesindeki son kod sözcüğü neden kısadır? Cevaplar, bir sonraki bölümün başında.",
+   "qa": "ok"
+  },
+  {
+   "id": "h4",
+   "file": "h4_fix.wav",
+   "duration": 10.891,
+   "text": "Ayarlanabilir Kulak. Abone tarafındaki alıcı: hassasiyet ve aşırı yük, kalabalık bir spektrumda duyabilmek, ve bir terminalin ilk adımları. Görüşmek üzere.",
+   "qa": "ok(regenerated)"
+  }
+ ],
+ "total": 89.39
+}

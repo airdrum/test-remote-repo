@@ -22,7 +22,7 @@
   },
   {
    "id": "d2a",
-   "text": "OLT gerçek frekansını biliyorsa bunu duyurabilir: kanal profilindeki aşağı yön frekans kayması alanı, nominal değerden farkı sıfır virgül bir gigahertz birimiyle taşır. Bu, ONU'nun ayarlanabilir alıcısı için yararlı bir ipucudur."
+   "text": "OLT gerçek frekansını biliyorsa bunu duyurabilir: kanal profilindeki aşağı yön frekans kayması alanı, nominal değerden farkı sıfır virgül bir gigahertz birimiyle taşır. Bu, abone tarafındaki ayarlanabilir alıcı için yararlı bir ipucudur."
   },
   {
    "id": "d2b",
