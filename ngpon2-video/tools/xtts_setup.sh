@@ -3,6 +3,7 @@
 # usage (from ngpon2-video/): bash tools/xtts_setup.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
+export PYTHONUTF8=1   # Windows (Git Bash): Turkish text/JSON as UTF-8
 VENV=${XTTS_VENV:-.venv-xtts}
 MODEL_DIR=${XTTS_MODEL_DIR:-$HOME/.cache/xtts_v2}
 
@@ -12,17 +13,21 @@ if ! command -v nvidia-smi >/dev/null || ! nvidia-smi; then
 fi
 
 echo "== 2) venv + coqui-tts"
-if [ ! -x "$VENV/bin/python" ]; then
-  if command -v uv >/dev/null; then uv venv "$VENV" --python 3.12; else python3.12 -m venv "$VENV"; fi
+vpy() { if [ -x "$VENV/bin/python" ]; then echo "$VENV/bin/python"; elif [ -x "$VENV/Scripts/python.exe" ]; then echo "$VENV/Scripts/python.exe"; fi; }
+if [ -z "$(vpy)" ]; then
+  if command -v uv >/dev/null; then uv venv "$VENV" --python 3.12
+  elif command -v python3.12 >/dev/null; then python3.12 -m venv "$VENV"
+  else py -3.12 -m venv "$VENV"; fi   # Windows launcher
 fi
-PIP=(uv pip install --python "$VENV/bin/python"); command -v uv >/dev/null || PIP=("$VENV/bin/python" -m pip install)
+VPY=$(vpy); echo "venv python: $VPY"
+PIP=(uv pip install --python "$VPY"); command -v uv >/dev/null || PIP=("$VPY" -m pip install)
 "${PIP[@]}" "coqui-tts[cuda,codec]==0.28.0" six soundfile   # six is missing from coqui-tts 0.28.0's deps
-if [ "$("$VENV/bin/python" -c 'import torch; print(torch.cuda.is_available())')" != "True" ]; then
+if [ "$("$VPY" -c 'import torch; print(torch.cuda.is_available())')" != "True" ]; then
   echo "torch CUDA görmüyor (PyPI torch'un CUDA sürümü sürücüden yeni olabilir) → cu128 index'inden yeniden kuruluyor"
   "${PIP[@]}" --reinstall torch torchaudio --index-url https://download.pytorch.org/whl/cu128
 fi
-"$VENV/bin/python" -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
-[ "$("$VENV/bin/python" -c 'import torch; print(torch.cuda.is_available())')" = "True" ] || { echo "DUR: torch.cuda.is_available() hâlâ False" >&2; exit 3; }
+"$VPY" -c "import torch; print('torch', torch.__version__, 'cuda', torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
+[ "$("$VPY" -c 'import torch; print(torch.cuda.is_available())')" = "True" ] || { echo "DUR: torch.cuda.is_available() hâlâ False" >&2; exit 3; }
 
 echo "== 3) model (~1.87 GB) → $MODEL_DIR"
 mkdir -p "$MODEL_DIR"
@@ -35,7 +40,8 @@ check speakers_xtts.pth f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e
 
 echo "== 4) test (Damien Black, tr, CUDA zorunlu)"
 mkdir -p build
-XTTS_REQUIRE_GPU=1 XTTS_MODEL_DIR="$MODEL_DIR" "$VENV/bin/python" - <<'PY'
+NATIVE_DIR=$(command -v cygpath >/dev/null && cygpath -w "$MODEL_DIR" || echo "$MODEL_DIR")   # Git Bash → C:\...
+XTTS_REQUIRE_GPU=1 XTTS_MODEL_DIR="$NATIVE_DIR" "$VPY" - <<'PY'
 import sys, time; sys.path.insert(0, "tools")
 import xtts_backend as x
 from tr_text import normalize_tr

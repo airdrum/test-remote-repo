@@ -3,11 +3,13 @@
 # Default backend = local XTTS-v2 (Damien Black, tr, CUDA) — see ../CLAUDE.md. Gemini only with TTS_BACKEND=gemini:
 # then each part falls back across TTS models and waits for the daily reset if all are spent.
 cd "$(dirname "$0")/.."
+export PYTHONUTF8=1   # Windows (Git Bash): Turkish text/JSON as UTF-8
 EP=$1; PARTS=$2
 export TTS_BACKEND=${TTS_BACKEND:-xtts}
 if [ "$TTS_BACKEND" = xtts ]; then
-  export XTTS_REQUIRE_GPU=${XTTS_REQUIRE_GPU:-1} XTTS_SPEAKER=${XTTS_SPEAKER:-Damien Black} XTTS_MODEL_DIR=${XTTS_MODEL_DIR:-$HOME/.cache/xtts_v2}
-  PY=${PY:-.venv-xtts/bin/python}; [ -x "$PY" ] || { echo "XTTS venv yok: önce bash tools/xtts_setup.sh" >&2; exit 2; }
+  export XTTS_REQUIRE_GPU=${XTTS_REQUIRE_GPU:-1} XTTS_SPEAKER=${XTTS_SPEAKER:-Damien Black} XTTS_MODEL_DIR=${XTTS_MODEL_DIR:-$(command -v cygpath >/dev/null && cygpath -w "$HOME/.cache/xtts_v2" || echo "$HOME/.cache/xtts_v2")}
+  [ -x .venv-xtts/Scripts/python.exe ] && DEF=.venv-xtts/Scripts/python.exe || DEF=.venv-xtts/bin/python
+  PY=${PY:-$DEF}; [ -x "$PY" ] || { echo "XTTS venv yok: önce bash tools/xtts_setup.sh" >&2; exit 2; }
   [ -n "${GEMINI_API_KEY:-}" ] || [ -n "${HTTPS_PROXY:-}" ] || { export TTS_QA=${TTS_QA:-0}; echo "GEMINI_API_KEY yok → transkripsiyon QA kapalı (TTS_QA=0)"; }
 else
   PY=${PY:-python3}
