@@ -1,0 +1,2012 @@
+1
+00:00:00,000 --> 00:00:02,480
+Bölüm üç: Renk Haritası.
+
+2
+00:00:02,530 --> 00:00:09,040
+NG-PON2'nin dalga boyları rastgele seçilmedi; fiberde zaten başka ışıklar vardı.
+
+3
+00:00:09,090 --> 00:00:12,111
+Bu bölümde o haritayı açıyoruz.
+
+4
+00:00:13,033 --> 00:00:14,303
+Önce spektrum: aşağı yön,
+
+5
+00:00:14,353 --> 00:00:21,253
+yukarı yön ve noktadan noktaya kanallar için Tablo dokuz bir'deki bantlar,
+
+6
+00:00:21,303 --> 00:00:23,677
+ve yukarı yöndeki üç bant seçeneği.
+
+7
+00:00:24,600 --> 00:00:29,670
+Sonra komşular: G-PON, XG-PON1, RF video ve OTDR.
+
+8
+00:00:29,720 --> 00:00:37,375
+NG-PON2, bu sistemlerin arasındaki boşluklara yerleştirildi.
+
+9
+00:00:38,300 --> 00:00:43,960
+Ardından ızgaralar: yüz gigahertzlik aşağı yön ızgarası,
+
+10
+00:00:44,010 --> 00:00:49,230
+elli ile iki yüz gigahertz arasındaki yukarı yön kanal aralığı,
+
+11
+00:00:49,280 --> 00:00:52,932
+en büyük spektral sapma ve ayar penceresi.
+
+12
+00:00:53,867 --> 00:00:55,637
+Sonra Raman:
+
+13
+00:00:55,687 --> 00:01:02,007
+ışığın ışığı pompaladığı ve video yayınını bozabilen doğrusal olmayan bir etkileşim.
+
+14
+00:01:02,057 --> 00:01:08,041
+Ve TC köprüsü: kanal profilleri bu haritayı ONU'ya nasıl anlatır?
+
+15
+00:01:08,967 --> 00:01:12,857
+Laboratuvarda ise OSA ile kanal haritasını çıkaracak,
+
+16
+00:01:12,907 --> 00:01:16,941
+çoklayıcının yalıtımını ve Raman karışmasını ölçeceğiz.
+
+17
+00:01:29,193 --> 00:01:35,743
+Önceki bölümde ODN'in üç parçasını, dört yol kaybı sınıfını, bütçe denklemini,
+
+18
+00:01:35,793 --> 00:01:41,323
+dispersiyon ve yansıma sınırlarını, ve mesafenin zaman yüzünü gördük.
+
+19
+00:01:41,373 --> 00:01:43,630
+Şimdi sorduğumuz üç sorunun cevapları.
+
+20
+00:01:45,060 --> 00:01:50,480
+Birinci soru: yirmi kilometre fiber ve bire yüz yirmi sekiz ayırıcı.
+
+21
+00:01:50,530 --> 00:01:55,980
+Ayırıcı yaklaşık yirmi üç buçuk, fiber beş, ekler bir buçuk desibel;
+
+22
+00:01:56,030 --> 00:01:58,910
+toplam yaklaşık otuz desibel.
+
+23
+00:01:58,960 --> 00:02:02,130
+Bu, N1'in üst sınırı olan yirmi dokuzu aşar,
+
+24
+00:02:02,180 --> 00:02:07,300
+N2'nin otuz birine ise bir desibel payla sığar.
+
+25
+00:02:07,350 --> 00:02:07,721
+Cevap: N2.
+
+26
+00:02:08,693 --> 00:02:12,903
+İkinci soru: yükselteçli OLT alıcısı, yani B tipi bağlantı.
+
+27
+00:02:12,953 --> 00:02:22,773
+İki buçuk gigabitlik yukarı yönde ONU'nun en küçük başlatma gücü artı dörtten sıfır dBm'e iner:
+
+28
+00:02:22,823 --> 00:02:22,773
+dört desibel.
+
+29
+00:02:22,823 --> 00:02:29,208
+On gigabitlik yukarı yönde ise artı dörtten artı ikiye: iki desibel.
+
+30
+00:02:30,193 --> 00:02:31,613
+Üçüncü soru:
+
+31
+00:02:31,663 --> 00:02:39,183
+kırk kilometrelik diferansiyel mesafede gidiş dönüş gecikmesinin değişimi yaklaşık dört yüz mikrosaniyedir.
+
+32
+00:02:39,233 --> 00:02:46,833
+Buna iki mikrosaniyelik yanıt süresi değişimi ve kırk sekiz mikrosaniyelik rastgele gecikme eklenir.
+
+33
+00:02:46,883 --> 00:02:50,480
+Önerilen sessiz pencere: dört yüz elli mikrosaniye.
+
+34
+00:02:52,060 --> 00:02:54,690
+Perde bir: spektrum haritası.
+
+35
+00:02:54,740 --> 00:02:59,530
+Bir NG-PON2 sistemi kurmadan önce şu soruyu sormalıyız:
+
+36
+00:02:59,580 --> 00:03:02,830
+bu fiberde başka hangi ışıklar var? Standart,
+
+37
+00:03:02,880 --> 00:03:09,380
+dalga boyu planını bu soruya göre kurar ve hepsini tek bir tabloda toplar:
+
+38
+00:03:09,430 --> 00:03:10,761
+Tablo dokuz bir.
+
+39
+00:03:11,693 --> 00:03:17,963
+Aşağı yönde TWDM kanalları bin beş yüz doksan altı ile bin altı yüz üç nanometre arasındadır,
+
+40
+00:03:18,013 --> 00:03:19,973
+yani L bandının başında.
+
+41
+00:03:20,023 --> 00:03:24,413
+Bu yedi nanometrelik pencere, yüz gigahertz aralıkla sekiz kanalı taşır.
+
+42
+00:03:25,360 --> 00:03:27,610
+İkinci bölümde gördüğümüz gibi,
+
+43
+00:03:27,660 --> 00:03:35,540
+G.652 fiberde dispersiyon katsayısı burada kilometre başına yirmi bir pikosaniye bölü nanometreye kadar çıkar;
+
+44
+00:03:35,590 --> 00:03:37,880
+C bandına göre daha yüksektir.
+
+45
+00:03:37,930 --> 00:03:42,880
+On gigabitlik aşağı yön tablosundaki iki desibellik yol cezası,
+
+46
+00:03:42,930 --> 00:03:45,001
+kısmen bu seçimin karşılığıdır.
+
+47
+00:03:45,927 --> 00:03:51,027
+Yukarı yönde C bandına iniyoruz, ve standart burada üç seçenek sunar.
+
+48
+00:03:51,077 --> 00:03:55,807
+Geniş bant: bin beş yüz yirmi dört ile bin beş yüz kırk dört nanometre.
+
+49
+00:03:55,857 --> 00:04:00,107
+Azaltılmış bant: bin beş yüz yirmi sekiz ile bin beş yüz kırk.
+
+50
+00:04:00,157 --> 00:04:03,623
+Dar bant: bin beş yüz otuz iki ile bin beş yüz kırk.
+
+51
+00:04:05,093 --> 00:04:08,213
+Neden üç seçenek? Çünkü bant genişliği,
+
+52
+00:04:08,263 --> 00:04:14,303
+kanal aralığı ve ONU lazerinin ayar yeteneği birlikte düşünülmelidir.
+
+53
+00:04:14,353 --> 00:04:19,173
+Dar bant yaklaşık sekiz nanometre, yani bin gigahertz civarındadır.
+
+54
+00:04:19,223 --> 00:04:23,293
+İki yüz gigahertz aralıklı sekiz kanalı,
+
+55
+00:04:23,343 --> 00:04:26,327
+sapma payıyla birlikte bu banda sığdıramazsınız.
+
+56
+00:04:27,260 --> 00:04:30,450
+Ek sekizdeki iki yüz gigahertzlik örnek ızgara,
+
+57
+00:04:30,500 --> 00:04:37,420
+yaklaşık bin beş yüz yirmi sekiz virgül sekiz ile bin beş yüz otuz dokuz virgül sekiz nanometre arasını kaplar;
+
+58
+00:04:37,470 --> 00:04:40,890
+azaltılmış bandın içine ancak sığar.
+
+59
+00:04:40,940 --> 00:04:47,623
+Elli gigahertz aralıklı sekiz kanal ise yaklaşık üç nanometre yer tutar ve dar banda rahatça yerleşir.
+
+60
+00:04:48,560 --> 00:04:52,760
+Noktadan noktaya WDM kanalları için iki seçenek vardır.
+
+61
+00:04:52,810 --> 00:04:52,760
+Paylaşılan spektrum,
+
+62
+00:04:52,810 --> 00:05:01,990
+bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasıdır ve bütün eski sistemlerle tam birlikte çalışmaya izin verir.
+
+63
+00:05:02,040 --> 00:05:07,990
+Genişletilmiş spektrum ise bin beş yüz yirmi dört ile bin altı yüz yirmi beş arasını kapsar;
+
+64
+00:05:08,040 --> 00:05:12,442
+ama yalnızca bu bantları kullanan sistemlerden biri ortamda yoksa.
+
+65
+00:05:13,360 --> 00:05:16,150
+Genişletilmiş spektrumda standart,
+
+66
+00:05:16,200 --> 00:05:22,660
+G.694.1 ya da G.698.3'teki yoğun WDM ızgaralarının kullanılabileceğini söyler.
+
+67
+00:05:22,710 --> 00:05:28,580
+Birinci not ise bir uyarı ekler: boş bir alt bandı kullanmak serbesttir,
+
+68
+00:05:28,630 --> 00:05:32,760
+ama TWDM ve eski sistemlere karşı gereken yalıtım,
+
+69
+00:05:32,810 --> 00:05:39,350
+hangi dalga boylarının kullanılacağı belirlenirken mutlaka hesaba katılmalıdır.
+
+70
+00:05:40,293 --> 00:05:45,313
+Tablonun ikinci notu, iki teknoloji yan yana olduğunda kuralı koyar:
+
+71
+00:05:45,363 --> 00:05:50,883
+TWDM ve noktadan noktaya kanallar komşu bantlarda olabilir, ama iç içe geçemez.
+
+72
+00:05:50,933 --> 00:05:58,083
+Ayrı çoklayıcılar kullanılıyorsa aradaki koruma bandı en az üç nanometredir;
+
+73
+00:05:58,133 --> 00:06:01,073
+tek bir cihaz kullanılıyorsa en az yüz gigahertz.
+
+74
+00:06:01,123 --> 00:06:08,014
+Paylaşılan spektrumda noktadan noktaya yukarı yön kanalları kısa dalga boylarını kullanır.
+
+75
+00:06:09,493 --> 00:06:13,953
+Bir ayrıntı daha: aşağı yönde frekanslar normatiftir,
+
+76
+00:06:14,003 --> 00:06:16,713
+dalga boyları ise yalnızca bilgi içindir.
+
+77
+00:06:16,763 --> 00:06:19,963
+Standart ızgarayı terahertz cinsinden tanımlar;
+
+78
+00:06:20,013 --> 00:06:23,803
+nanometre değerleri hesaplanmış karşılıklardır.
+
+79
+00:06:23,853 --> 00:06:27,847
+Ölçüm yaparken bu yüzden frekansla düşünmek daha doğrudur.
+
+80
+00:06:28,793 --> 00:06:30,613
+Bunun pratik bir nedeni var.
+
+81
+00:06:30,663 --> 00:06:34,713
+Sabit bir frekans aralığı, dalga boyunda sabit değildir.
+
+82
+00:06:34,763 --> 00:06:40,033
+Yüz gigahertz, bin beş yüz otuz nanometrede yaklaşık sıfır virgül yetmiş sekiz,
+
+83
+00:06:40,083 --> 00:06:46,083
+bin altı yüz nanometrede ise yaklaşık sıfır virgül seksen beş nanometreye karşılık gelir.
+
+84
+00:06:46,133 --> 00:06:50,835
+Nanometreyle düşünen biri, iki bant arasında bu farkı kaçırabilir.
+
+85
+00:06:51,760 --> 00:06:55,920
+Aşağı yöndeki sekiz kanal bandın tamamını kullanmaz.
+
+86
+00:06:55,970 --> 00:06:59,100
+Birinci kanal bin beş yüz doksan altı virgül üç dört,
+
+87
+00:06:59,150 --> 00:07:03,860
+sekizinci kanal bin altı yüz iki virgül üç bir nanometrededir.
+
+88
+00:07:03,910 --> 00:07:06,210
+Bandın iki kenarındaki küçük boşluklar,
+
+89
+00:07:06,260 --> 00:07:09,444
+sapma payını ve filtre kenarlarını barındırır.
+
+90
+00:07:10,393 --> 00:07:17,453
+Sıradaki soru: bu bantlar neden tam burada? Cevap, fiberi paylaştığımız komşularda.
+
+91
+00:07:19,227 --> 00:07:21,417
+Perde iki: komşular.
+
+92
+00:07:21,467 --> 00:07:28,257
+Standardın birinci eki, birlikte çalışmada dikkate alınan sistemleri sayar: G-PON,
+
+93
+00:07:28,307 --> 00:07:31,067
+RF video yayını, XG-PON1 ve OTDR.
+
+94
+00:07:31,117 --> 00:07:34,777
+Her birinin fiberde kendi bandı vardır,
+
+95
+00:07:34,827 --> 00:07:39,360
+ve NG-PON2 bu bantların arasına yerleştirilmiştir.
+
+96
+00:07:40,294 --> 00:07:46,154
+G-PON aşağı yönde bin dört yüz seksen ile bin beş yüz nanometre arasını kullanır.
+
+97
+00:07:46,204 --> 00:07:46,154
+Yukarı yönde,
+
+98
+00:07:46,204 --> 00:07:53,224
+birlikte çalışma için daraltılmış bandı bin iki yüz doksan ile bin üç yüz otuz nanometredir.
+
+99
+00:07:53,274 --> 00:07:56,774
+XG-PON1 ise yukarı yönde bin iki yüz altmış ile bin iki yüz seksen,
+
+100
+00:07:56,824 --> 00:08:01,995
+aşağı yönde bin beş yüz yetmiş beş ile bin beş yüz seksen nanometre arasındadır.
+
+101
+00:08:02,927 --> 00:08:09,197
+G-PON'un ilk tanımında yukarı yön bandı bin iki yüz altmış ile bin üç yüz altmış nanometreydi.
+
+102
+00:08:09,247 --> 00:08:15,067
+XG-PON1'in yukarı yönü bin iki yüz altmış ile bin iki yüz seksen arasına yerleşince,
+
+103
+00:08:15,117 --> 00:08:21,177
+birlikte çalışma için G-PON bandı bin iki yüz doksan ile bin üç yüz otuza daraltıldı.
+
+104
+00:08:21,227 --> 00:08:25,751
+Bu, yeni bir sisteme yer açmak için verilen tavizin tipik bir örneğidir.
+
+105
+00:08:27,094 --> 00:08:32,994
+RF video yayını bin beş yüz elli ile bin beş yüz altmış nanometre arasında taşınır.
+
+106
+00:08:33,044 --> 00:08:38,634
+Bakım için kullanılan OTDR ise genellikle bin altı yüz yirmi beşin üstünde,
+
+107
+00:08:38,684 --> 00:08:40,414
+U bandında çalışır.
+
+108
+00:08:40,464 --> 00:08:45,293
+Standart bakım dalga boyu için ITU-T L.313'e yönlendirir.
+
+109
+00:08:46,227 --> 00:08:49,777
+Şimdi NG-PON2'yi bu haritaya yerleştirelim.
+
+110
+00:08:49,827 --> 00:08:51,747
+TWDM yukarı yön bandı,
+
+111
+00:08:51,797 --> 00:08:58,097
+G-PON aşağı yön bandının üstünde ve RF videonun hemen altında kalır;
+
+112
+00:08:58,147 --> 00:09:03,427
+geniş bant seçeneğinde videoya yalnızca altı nanometre mesafe vardır.
+
+113
+00:09:03,477 --> 00:09:09,757
+TWDM aşağı yön bandı ise XG-PON1 aşağı yönünün on altı nanometre üstünde,
+
+114
+00:09:09,807 --> 00:09:14,811
+ve noktadan noktaya paylaşılan spektrumun hemen altındadır.
+
+115
+00:09:15,760 --> 00:09:18,420
+Bu yerleşimin bir mantığı var.
+
+116
+00:09:18,470 --> 00:09:19,850
+Eski sistemlerin alıcıları,
+
+117
+00:09:19,900 --> 00:09:24,800
+kendi bantları dışındaki ışığı bastıracak filtrelerle tasarlanmıştı;
+
+118
+00:09:24,850 --> 00:09:27,260
+ama o filtrelerin de bir sınırı vardı.
+
+119
+00:09:27,310 --> 00:09:32,660
+NG-PON2, en az çakışma ve en geniş koruma bandını veren boşlukları seçti.
+
+120
+00:09:32,710 --> 00:09:37,380
+Yukarı yönün üç bant seçeneği de kısmen bu yüzden var: dar bant,
+
+121
+00:09:37,430 --> 00:09:39,848
+videoya daha fazla mesafe bırakır.
+
+122
+00:09:41,327 --> 00:09:45,697
+Bu dar boşlukları ayıran eleman, birlikte çalışma elemanıdır;
+
+123
+00:09:45,747 --> 00:09:47,907
+standart onu CEx olarak anar.
+
+124
+00:09:47,957 --> 00:09:52,447
+Filtrenin kenar dikliği, koruma bandının genişliğine bağlıdır.
+
+125
+00:09:52,497 --> 00:09:54,607
+Altı nanometrelik bir boşluk,
+
+126
+00:09:54,657 --> 00:09:58,787
+birkaç düzine nanometrelik boşluklara göre çok daha dik,
+
+127
+00:09:58,837 --> 00:10:01,987
+ve genellikle daha pahalı bir filtre ister.
+
+128
+00:10:02,927 --> 00:10:06,977
+Dalga boyu çoklayıcı için de Ek sekiz örnek değerler verir.
+
+129
+00:10:07,027 --> 00:10:12,827
+Konnektörsüz ekleme kaybı iki sınıfta tanımlanır: düşük sınıfta iki desibelin,
+
+130
+00:10:12,877 --> 00:10:15,697
+yüksek sınıfta dört desibelin altında.
+
+131
+00:10:15,747 --> 00:10:19,417
+Geri dönüş kaybı ve yönlülük elli desibelin üstünde;
+
+132
+00:10:19,467 --> 00:10:24,832
+herhangi bir portta izin verilen en büyük optik güç ise artı yirmi üç dBm.
+
+133
+00:10:25,760 --> 00:10:30,540
+Artı yirmi üç dBm sınırının nereden geldiğini kabaca görebiliriz.
+
+134
+00:10:30,590 --> 00:10:36,370
+E2 sınıfında bir aşağı yön kanalının en büyük gücü artı on dBm'dir.
+
+135
+00:10:36,420 --> 00:10:40,730
+Sekiz kanal birlikte yaklaşık artı on dokuz dBm eder.
+
+136
+00:10:40,780 --> 00:10:45,168
+Çoklayıcının sınırı, bunun üstünde birkaç desibellik bir pay bırakır.
+
+137
+00:10:46,094 --> 00:10:48,644
+Kayıp sınıfı teknolojiye bağlıdır;
+
+138
+00:10:48,694 --> 00:10:53,084
+örneğin AWG ile ince film filtre arasında fark vardır.
+
+139
+00:10:53,134 --> 00:10:57,774
+OLT alıcı vericileri, hangi kayıp sınıfıyla uyumlu olduklarını belirtir.
+
+140
+00:10:57,824 --> 00:10:57,774
+Bu,
+
+141
+00:10:57,824 --> 00:11:04,824
+birinci bölümdeki S bölü R CP noktasının neden bir alternatif olarak var olduğunu da açıklar:
+
+142
+00:11:04,874 --> 00:11:08,661
+CP ile CG arasındaki fark, çoklayıcının kaybıdır.
+
+143
+00:11:09,594 --> 00:11:14,454
+Aynı fiberde birden çok sistem olduğunda toplam optik güç de artar.
+
+144
+00:11:14,504 --> 00:11:20,214
+Altıncı ek bu yüzden doğrusal olmayan etkileri ve göz güvenliğini birlikte ele alır.
+
+145
+00:11:20,264 --> 00:11:26,554
+Bir video yükselteci, sekiz TWDM kanalı ve eski PON sinyalleri aynı fiberdeyse,
+
+146
+00:11:26,604 --> 00:11:30,191
+toplam güç tek bir sistemin çok üstüne çıkabilir.
+
+147
+00:11:31,127 --> 00:11:32,017
+Mühendis notu.
+
+148
+00:11:32,067 --> 00:11:36,857
+Birlikte çalışma bir lisans meselesi değil, bir filtre meselesidir.
+
+149
+00:11:36,907 --> 00:11:41,237
+Sahada yeni bir sistem eklerken önce mevcut bantların listesini çıkarın,
+
+150
+00:11:41,287 --> 00:11:45,522
+sonra her bant kenarında hangi yalıtımın gerektiğini hesaplayın.
+
+151
+00:11:46,560 --> 00:11:49,110
+Sıradaki: bantların içindeki ızgara.
+
+152
+00:11:49,160 --> 00:11:52,276
+Kanallar nereye oturur, ve ne kadar kayabilir?
+
+153
+00:11:54,060 --> 00:11:55,280
+Perde üç: ızgaralar.
+
+154
+00:11:55,330 --> 00:11:59,760
+Aşağı yön ızgarası Tablo on bir iki'de sabittir: sekiz kanal,
+
+155
+00:11:59,810 --> 00:12:09,080
+yüz seksen yedi virgül sekiz terahertzten başlayarak yüzer gigahertz aşağı iner ve yüz seksen yedi virgül bir terahertzte biter.
+
+156
+00:12:09,130 --> 00:12:10,250
+Dalga boyu olarak,
+
+157
+00:12:10,300 --> 00:12:16,499
+bin beş yüz doksan altı virgül üç dört ile bin altı yüz iki virgül üç bir nanometre.
+
+158
+00:12:17,427 --> 00:12:21,567
+İlk dört kanal, dört dalga boylu TWDM sistemine aittir.
+
+159
+00:12:21,617 --> 00:12:24,987
+Beşten sekize kadar olanlar isteğe bağlıdır;
+
+160
+00:12:25,037 --> 00:12:33,507
+TWDM genişlemesi için ayrılmamışlarsa noktadan noktaya WDM ya da başka sistemler tarafından kullanılabilir.
+
+161
+00:12:33,557 --> 00:12:38,340
+Aşağı yönde en büyük spektral sapma artı eksi yirmi gigahertzdir.
+
+162
+00:12:39,260 --> 00:12:44,870
+G.989.3 bu sekiz kanala bir kimlik verir: aşağı yön dalga boyu kanal kimliği.
+
+163
+00:12:44,920 --> 00:12:50,080
+Dört bitlik bu sayı, kanal sırasının sıfırdan yediye çevrilmiş halidir.
+
+164
+00:12:50,130 --> 00:12:54,750
+Otuz iki bitlik PON kimliğinin son dört bitini oluşturur;
+
+165
+00:12:54,800 --> 00:12:58,560
+ilk yirmi sekiz bit ise operatörün verdiği yönetim etiketidir.
+
+166
+00:12:58,610 --> 00:13:03,110
+PON kimliği her aşağı yön çerçevesinde taşınır; yani ONU,
+
+167
+00:13:03,160 --> 00:13:06,011
+dinlediği kanalı çerçeveden okuyabilir.
+
+168
+00:13:06,960 --> 00:13:10,470
+Tablo on bir dört'ün ikinci notu küçük bir esneklik tanır:
+
+169
+00:13:10,520 --> 00:13:17,520
+birleşik bir çoklayıcı ve ayırıcı cihazı kullanabilmek için yüz gigahertzlik aralıktan küçük sapmalara izin verilir.
+
+170
+00:13:17,570 --> 00:13:21,010
+Kanal profili de bunu taşır: aşağı yön frekans kaymasını,
+
+171
+00:13:21,060 --> 00:13:24,815
+sıfır virgül bir gigahertz birimiyle bildiren bir alan vardır.
+
+172
+00:13:26,293 --> 00:13:29,923
+Yukarı yönde ise standart sabit frekans vermez.
+
+173
+00:13:29,973 --> 00:13:34,783
+Kanal aralığı elli ile iki yüz gigahertz arasında seçilebilir,
+
+174
+00:13:34,833 --> 00:13:39,003
+ve en büyük spektral sapma bu aralığa göre ölçeklenir:
+
+175
+00:13:39,053 --> 00:13:43,933
+elli gigahertz için artı eksi on iki buçuk, yüz için yirmi,
+
+176
+00:13:43,983 --> 00:13:46,733
+iki yüz için yirmi beş gigahertz.
+
+177
+00:13:46,783 --> 00:13:49,830
+Aradaki değerler bu üç noktadan hesaplanabilir.
+
+178
+00:13:50,760 --> 00:13:55,070
+Bu sapma, bir OLT ONU ayar döngüsü boyunca tanımlanır;
+
+179
+00:13:55,120 --> 00:14:00,330
+yani lazer ayarlanırken ve kilitlenirken geçen süreyi de kapsar.
+
+180
+00:14:00,380 --> 00:14:05,500
+Ayrıca verici gücünün dalga boyuna bağımlılığı sınırlanır:
+
+181
+00:14:05,550 --> 00:14:10,850
+iki buçuk gigabitte gigahertz başına artı eksi sıfır virgül sıfır beş,
+
+182
+00:14:10,900 --> 00:14:15,320
+on gigabitte artı eksi sıfır virgül sıfır iki desibel.
+
+183
+00:14:15,370 --> 00:14:21,389
+Bu sınır, ayar için OLT'nin geri bildirimine ihtiyaç duyan ONU'lar içindir.
+
+184
+00:14:22,326 --> 00:14:30,736
+Peki ONU lazeri ne kadar geniş bir aralıkta ayarlanabilmeli? Tablo on bir altı iki formül verir.
+
+185
+00:14:30,786 --> 00:14:32,786
+Döngüsel ızgara kullanılmıyorsa,
+
+186
+00:14:32,836 --> 00:14:37,296
+en küçük ayar penceresi N eksi bir çarpı kanal aralığı,
+
+187
+00:14:37,346 --> 00:14:40,416
+artı iki kat en büyük sapmadır.
+
+188
+00:14:40,466 --> 00:14:44,353
+Dört kanal ve yüz gigahertz için: üç yüz kırk gigahertz.
+
+189
+00:14:45,293 --> 00:14:51,373
+Döngüsel ızgara kullanılıyorsa formül N artı bir çarpı kanal aralığıdır:
+
+190
+00:14:51,423 --> 00:14:55,273
+dört kanal ve yüz gigahertz için beş yüz gigahertz.
+
+191
+00:14:55,323 --> 00:14:57,253
+Döngüsel çoklayıcıda kanal seti,
+
+192
+00:14:57,303 --> 00:15:01,873
+serbest spektral aralık kadar ötede kendini tekrarlar.
+
+193
+00:15:01,923 --> 00:15:01,873
+Formül,
+
+194
+00:15:01,923 --> 00:15:08,727
+ayar penceresinin en az bir tam tekrar aralığını ve bir kanal payını kapsamasını ister.
+
+195
+00:15:09,660 --> 00:15:14,520
+Sekiz kanal için aynı formüller yedi yüz kırk ve dokuz yüz gigahertz verir.
+
+196
+00:15:14,570 --> 00:15:19,800
+Elli gigahertz aralıkta ise dört kanal için yüz yetmiş beş ve iki yüz elli,
+
+197
+00:15:19,850 --> 00:15:23,763
+sekiz kanal için üç yüz yetmiş beş ve dört yüz elli gigahertz.
+
+198
+00:15:24,693 --> 00:15:27,523
+Bu pencereleri lazer diline çevirelim.
+
+199
+00:15:27,573 --> 00:15:28,643
+Beş yüz gigahertz,
+
+200
+00:15:28,693 --> 00:15:33,403
+bin beş yüz otuz altı nanometre civarında yaklaşık dört nanometredir.
+
+201
+00:15:33,453 --> 00:15:34,993
+Tipik bir DFB lazer,
+
+202
+00:15:35,043 --> 00:15:40,343
+sıcaklıkla kelvin başına yaklaşık sıfır virgül bir nanometre kayar;
+
+203
+00:15:40,393 --> 00:15:44,423
+dört nanometre için kırk derecelik bir sıcaklık aralığı gerekir.
+
+204
+00:15:44,473 --> 00:15:49,983
+Dokuz yüz gigahertz, yani yaklaşık yedi nanometre, ısıl ayarla zorlanır;
+
+205
+00:15:50,033 --> 00:15:54,691
+çok bölümlü ya da harici kaviteli ayarlanabilir lazerlere yönelmek gerekir.
+
+206
+00:15:56,160 --> 00:16:00,820
+Standardın döngüsel AWG örneklerine ayrılmış yedinci eki,
+
+207
+00:16:00,870 --> 00:16:04,060
+iki bin on dokuz sürümünde yürürlükten kaldırılmıştır.
+
+208
+00:16:04,110 --> 00:16:08,050
+Ama fikir, Ek sekizdeki ızgara örneklerinde yaşar.
+
+209
+00:16:08,100 --> 00:16:13,010
+Izgara dışı örnekte yukarı yön kanal aralığı yüz dört virgül iki gigahertzdir.
+
+210
+00:16:13,060 --> 00:16:15,926
+Bu tuhaf sayının fiziksel bir nedeni var.
+
+211
+00:16:16,860 --> 00:16:22,040
+Bir AWG'de kanal aralığı, dalga boyunda göreli olarak sabittir;
+
+212
+00:16:22,090 --> 00:16:25,880
+frekans cinsinden ise optik frekansla birlikte büyür.
+
+213
+00:16:25,930 --> 00:16:28,640
+Aşağı yöndeki yüz gigahertzlik aralık,
+
+214
+00:16:28,690 --> 00:16:31,860
+yüz seksen yedi virgül sekiz terahertzte tanımlıdır.
+
+215
+00:16:31,910 --> 00:16:32,240
+Aynı AWG,
+
+216
+00:16:32,290 --> 00:16:41,510
+yüz doksan beş virgül altı terahertzteki yukarı yön kanallarında yaklaşık yüz dört virgül iki gigahertz aralık üretir.
+
+217
+00:16:41,560 --> 00:16:45,929
+Böylece tek bir çift yönlü AWG, iki yönü birden çoklayabilir.
+
+218
+00:16:46,860 --> 00:16:52,570
+Son olarak, çoklayıcının filtresi ile ONU'nun kilitlenmesi arasındaki ilişki.
+
+219
+00:16:52,620 --> 00:16:57,850
+Ek sekiz, en büyük ayar hatasını tanımlar: en büyük spektral sapmadan,
+
+220
+00:16:57,900 --> 00:17:03,250
+sinyalin eksi on beş desibeldeki tek yanlı spektral genişliği çıkarılır;
+
+221
+00:17:03,300 --> 00:17:06,500
+bu yaklaşık olarak veri hızına eşittir.
+
+222
+00:17:06,550 --> 00:17:12,490
+Yüz gigahertz aralıkta, iki buçuk gigabitlik bir ONU için yaklaşık on yedi buçuk,
+
+223
+00:17:12,540 --> 00:17:16,244
+on gigabitlik bir ONU için yaklaşık on gigahertz.
+
+224
+00:17:17,193 --> 00:17:21,013
+OLT tarafındaki alıcı filtresi için üç şart konur.
+
+225
+00:17:21,063 --> 00:17:27,353
+Bir artı X desibellik bant genişliği, iki kat ayar hatasından küçük olmalıdır; X,
+
+226
+00:17:27,403 --> 00:17:31,003
+verici gücünün dalga boyu bağımlılığıdır.
+
+227
+00:17:31,053 --> 00:17:36,083
+Filtre eğrisi, kanal merkezinden iki yana doğru tekdüze azalmalıdır.
+
+228
+00:17:36,133 --> 00:17:41,363
+Ve kalan dalgalanma, OLT'nin güç ölçüm çözünürlüğünden küçük olmalıdır.
+
+229
+00:17:41,413 --> 00:17:43,093
+Amaç basit: ONU dalga boyunu,
+
+230
+00:17:43,143 --> 00:17:49,290
+OLT'nin ölçtüğü güce bakarak her zaman kanal merkezine doğru kaydırabilmek.
+
+231
+00:17:50,227 --> 00:17:54,567
+Ek sekiz, kanal dışı emisyonu da iki düzeyde inceler.
+
+232
+00:17:54,617 --> 00:17:56,167
+Birinci düzey,
+
+233
+00:17:56,217 --> 00:18:00,807
+girişim ışığının kurban kanalın bant genişliği dışında kaldığı durumdur;
+
+234
+00:18:00,857 --> 00:18:03,167
+burada karışma uyumsuzdur.
+
+235
+00:18:03,217 --> 00:18:09,577
+İkinci düzey ise girişim ışığının kurban kanalın içine düştüğü durumdur;
+
+236
+00:18:09,627 --> 00:18:14,973
+burada karışma uyumludur, yani çok daha zararlıdır, ve sınır daha sıkıdır.
+
+237
+00:18:15,893 --> 00:18:16,943
+Sayılara bakalım.
+
+238
+00:18:16,993 --> 00:18:22,623
+İki buçuk gigabitlik yukarı yönde birinci düzey sınır, on beş gigahertz başına,
+
+239
+00:18:22,673 --> 00:18:26,253
+elli gigahertz aralıkta eksi otuz altı virgül yedi,
+
+240
+00:18:26,303 --> 00:18:28,893
+yüz gigahertzde eksi kırk virgül beş,
+
+241
+00:18:28,943 --> 00:18:32,593
+iki yüz gigahertzde eksi kırk dört virgül dört dBm'dir.
+
+242
+00:18:32,643 --> 00:18:38,233
+İkinci düzey sınır ise sekiz kanal için eksi kırk sekiz virgül sekiz dBm.
+
+243
+00:18:38,283 --> 00:18:43,086
+Bu ayrıntıları yedinci bölümde, ayarlanabilir lazerle birlikte açacağız.
+
+244
+00:18:44,027 --> 00:18:45,627
+Mühendis notu.
+
+245
+00:18:45,677 --> 00:18:50,147
+Bir: yukarı yön ızgarası bir sistem kararıdır; onu standart değil,
+
+246
+00:18:50,197 --> 00:18:53,597
+operatör ve OLT üreticisi belirler.
+
+247
+00:18:53,647 --> 00:18:57,117
+İki: ızgarayı seçerken ONU lazerinin ayar penceresini,
+
+248
+00:18:57,167 --> 00:19:02,257
+sapma sınırını ve çoklayıcı teknolojisini birlikte değerlendirin.
+
+249
+00:19:03,293 --> 00:19:04,363
+Sıradaki:
+
+250
+00:19:04,413 --> 00:19:11,333
+aynı fiberde yan yana yürüyen bu ışıklar birbirini rahat bırakır mı? Cevap: hayır.
+
+251
+00:19:11,383 --> 00:19:11,845
+Raman.
+
+252
+00:19:13,625 --> 00:19:14,775
+Perde dört: Raman.
+
+253
+00:19:14,825 --> 00:19:16,615
+Uyarılmış Raman saçılması,
+
+254
+00:19:16,665 --> 00:19:23,135
+fiberde birlikte yayılan ışık dalgaları arasında bir enerji aktarımıdır.
+
+255
+00:19:23,185 --> 00:19:30,335
+Silika fiberde Raman kazanç spektrumu yaklaşık elli terahertze kadar uzanır;
+
+256
+00:19:30,385 --> 00:19:32,275
+etkiler bir terahertz kadar yakın,
+
+257
+00:19:32,325 --> 00:19:37,510
+ya da kırk terahertz kadar uzak sinyaller arasında görülebilir.
+
+258
+00:19:38,458 --> 00:19:41,648
+Raman iki istenmeyen sonuç doğurur.
+
+259
+00:19:41,698 --> 00:19:45,838
+Birincisi modülasyon karışmasıdır: bir sinyalin modülasyonu,
+
+260
+00:19:45,888 --> 00:19:49,548
+başka bir dalga boyundaki sinyalin üzerine biner.
+
+261
+00:19:49,598 --> 00:19:54,098
+Bu yalnızca aynı yönde yayılan sinyaller arasında olur.
+
+262
+00:19:54,148 --> 00:19:59,128
+İkincisi güç tüketimidir: kısa dalga boyları pompa gibi davranır,
+
+263
+00:19:59,178 --> 00:20:04,118
+uzun dalga boylarını güçlendirirken kendileri güç kaybeder.
+
+264
+00:20:04,168 --> 00:20:09,011
+Bu ise hem aynı yönde hem karşı yönde yayılan sinyallerde görülür.
+
+265
+00:20:09,958 --> 00:20:12,078
+Raman kazancının tepe noktası,
+
+266
+00:20:12,128 --> 00:20:16,498
+silika fiberde yaklaşık on üç terahertzlik frekans farkındadır;
+
+267
+00:20:16,548 --> 00:20:19,538
+bin beş yüz elli nanometre civarında bu,
+
+268
+00:20:19,588 --> 00:20:23,198
+yaklaşık yüz nanometrelik bir kaymaya karşılık gelir.
+
+269
+00:20:23,248 --> 00:20:28,978
+NG-PON2'nin kendi bantları arasındaki farklar, beş ile on terahertz arasında;
+
+270
+00:20:29,028 --> 00:20:31,780
+yani kazanç eğrisinin yükselen kısmında.
+
+271
+00:20:32,725 --> 00:20:36,455
+NG-PON2'de en hassas kurban RF video yayınıdır.
+
+272
+00:20:36,505 --> 00:20:40,705
+Video, bin beş yüz elli ile bin beş yüz altmış nanometrede,
+
+273
+00:20:40,755 --> 00:20:43,965
+TWDM aşağı yön kanallarıyla aynı yönde yayılır.
+
+274
+00:20:44,015 --> 00:20:47,895
+Aralarındaki fark yaklaşık beş ile altı terahertz;
+
+275
+00:20:47,945 --> 00:20:51,425
+Raman kazanç eğrisinin etkili bölgesinde.
+
+276
+00:20:51,475 --> 00:20:57,382
+TWDM sinyallerinin modülasyonu, video taşıyıcısının üzerine gürültü olarak biner.
+
+277
+00:20:58,325 --> 00:21:01,695
+Bu gürültü en çok RF spektrumunun alt ucunda,
+
+278
+00:21:01,745 --> 00:21:05,405
+yani alçak frekanslı TV kanallarında hissedilir.
+
+279
+00:21:05,455 --> 00:21:09,725
+Çünkü farklı dalga boyları fiberde farklı hızlarda ilerler; bu kayma,
+
+280
+00:21:09,775 --> 00:21:14,825
+yüksek frekanslı bileşenlerin etkisini ortalayarak söndürür,
+
+281
+00:21:14,875 --> 00:21:16,235
+düşük frekanslılar ise birikir.
+
+282
+00:21:16,285 --> 00:21:17,475
+Standarda göre,
+
+283
+00:21:17,525 --> 00:21:24,641
+on ile yirmi kilometrelik sistemlerde en doğrudan etkiyi üç yüz megahertze kadar olan frekanslar yapar.
+
+284
+00:21:26,125 --> 00:21:30,045
+Güç tüketimi tarafında ise yukarı yön kanalları etkilenir.
+
+285
+00:21:30,095 --> 00:21:33,145
+TWDM yukarı yön kanalları C bandında,
+
+286
+00:21:33,195 --> 00:21:37,085
+aşağı yön kanallarından daha kısa dalga boyundadır.
+
+287
+00:21:37,135 --> 00:21:40,285
+OLT'nin yakınında aşağı yön sinyalleri güçlü,
+
+288
+00:21:40,335 --> 00:21:45,025
+yukarı yön sinyalleri ise ODN'den geçtiği için zayıftır.
+
+289
+00:21:45,075 --> 00:21:45,025
+Yukarı yön sinyali,
+
+290
+00:21:45,075 --> 00:21:50,774
+karşı yönde ilerleyen güçlü aşağı yön kanallarına enerji kaptırır.
+
+291
+00:21:51,692 --> 00:21:57,662
+Bu yüzden Tablo on bir altı'daki yukarı yön yol cezası Raman etkisini içerir.
+
+292
+00:21:57,712 --> 00:22:01,012
+Notu açıktır: ceza, sınıfa özgü verici gücünü,
+
+293
+00:22:01,062 --> 00:22:05,192
+mesafeyi ve dalga boyu sayısını hesaba katar.
+
+294
+00:22:05,242 --> 00:22:09,992
+En kötü durum, OLT tarafında ayırıcı olmayan ve fiber kaybı düşük ağdır;
+
+295
+00:22:10,042 --> 00:22:14,942
+çünkü orada aşağı yön gücü uzun bir mesafe boyunca yüksek kalır.
+
+296
+00:22:14,992 --> 00:22:21,680
+Sekiz kanal ve kırk kilometrede cezanın iki virgül sekiz desibele çıkması bu yüzdendir.
+
+297
+00:22:22,625 --> 00:22:25,255
+Birlikte çalışma bu tabloyu karmaşıklaştırır.
+
+298
+00:22:25,305 --> 00:22:29,745
+Bin dört yüz doksan nanometredeki G-PON aşağı yön sinyali,
+
+299
+00:22:29,795 --> 00:22:34,415
+TWDM yukarı yön kanallarından daha kısa dalga boyundadır;
+
+300
+00:22:34,465 --> 00:22:37,535
+yani onları pompalar ve güçlendirir.
+
+301
+00:22:37,585 --> 00:22:45,815
+XG-PON1 aşağı yönü ve video ise daha uzun dalga boyundadır ve yukarı yön kanallarından güç çeker.
+
+302
+00:22:45,865 --> 00:22:49,239
+Net etki, ağda hangi sistemlerin bulunduğuna bağlıdır.
+
+303
+00:22:50,158 --> 00:22:54,558
+Raman fiziğin bir parçasıdır; kaçınılamaz, ama azaltılabilir.
+
+304
+00:22:54,608 --> 00:22:57,138
+Altıncı ek dört yöntem sayar.
+
+305
+00:22:57,188 --> 00:22:59,138
+Birincisi yüksek geçiren RF süzgeç:
+
+306
+00:22:59,188 --> 00:23:04,718
+veri modülasyonunun alçak frekanslı kısmı iletimden önce bastırılır;
+
+307
+00:23:04,768 --> 00:23:09,148
+örneğin on gigabitlik bir sinyalde iki yüz megahertzin altı.
+
+308
+00:23:09,198 --> 00:23:13,227
+Bu, Raman karışmasında on iki desibele kadar azalma sağlayabilir.
+
+309
+00:23:14,158 --> 00:23:19,718
+İkincisi sıfır polarizasyon derecesi: girişimci sinyallerin polarizasyonları,
+
+310
+00:23:19,768 --> 00:23:24,798
+birleşik polarizasyon derecesi sıfır olacak şekilde dizilir.
+
+311
+00:23:24,848 --> 00:23:30,088
+Hepsinin paralel olduğu en kötü duruma göre karışma altı desibel azalır.
+
+312
+00:23:30,138 --> 00:23:34,858
+Elektriksel ve optik desibeller arasındaki ikiye bir ilişki nedeniyle bu,
+
+313
+00:23:34,908 --> 00:23:39,648
+fibere üç desibel daha fazla optik güç verebilmek demektir.
+
+314
+00:23:39,698 --> 00:23:44,238
+Bunun için OLT lazerleri ve çoklayıcı polarizasyon kontrollü olmalı,
+
+315
+00:23:44,288 --> 00:23:48,081
+aralarda polarizasyon koruyan fiber kullanılmalıdır.
+
+316
+00:23:49,025 --> 00:23:52,505
+Üçüncüsü özel bir bastırma vericisidir:
+
+317
+00:23:52,555 --> 00:23:57,405
+girişimci modülasyonların bant sınırlı bir kopyasını taşıyan ek bir lazer,
+
+318
+00:23:57,455 --> 00:24:00,475
+Raman gürültüsünü yıkıcı girişimle söndürür;
+
+319
+00:24:00,525 --> 00:24:06,955
+videonun taşıyıcı karışma oranında on iki ila on dört desibel iyileşme mümkündür.
+
+320
+00:24:07,005 --> 00:24:13,945
+Dördüncüsü ise spektrum şekillendirme: sayısal işaret işleme ile veri spektrumu,
+
+321
+00:24:13,995 --> 00:24:17,177
+video bölgesiyle örtüşmeyecek şekilde biçimlendirilir.
+
+322
+00:24:18,659 --> 00:24:22,729
+Dokuzuncu ek bu fikri hat koduna taşır ve iki örnek verir.
+
+323
+00:24:22,779 --> 00:24:23,839
+8B10B kodu,
+
+324
+00:24:23,889 --> 00:24:30,749
+DC dengeli bir koddur ve MAC katmanında açılıp kapatılabilen bir alt katman olarak tanımlanır.
+
+325
+00:24:30,799 --> 00:24:39,769
+Miller kodu ve onun DC dengeli türevi ise NRZ'ye göre daha dar bantlıdır ve alçak frekanslarda daha az enerji taşır.
+
+326
+00:24:40,692 --> 00:24:43,972
+8B10B'nin bedeli yüzde yirmi beşlik ek yüktür:
+
+327
+00:24:44,022 --> 00:24:48,392
+on gigabitlik veri için hat hızı on iki buçuk gigabite çıkar.
+
+328
+00:24:48,442 --> 00:24:49,362
+Standart,
+
+329
+00:24:49,412 --> 00:24:56,852
+on gigabit uyumlu bileşenlerle on iki buçuk gigabitte çalışmanın alıcı hassasiyetine etkisini de not eder;
+
+330
+00:24:56,902 --> 00:24:58,743
+yani bu kod bedava değildir.
+
+331
+00:24:59,692 --> 00:25:03,772
+Miller kodunun bir yan faydası daha var: daha dar spektrum,
+
+332
+00:25:03,822 --> 00:25:06,272
+dispersiyon cezasını da azaltır.
+
+333
+00:25:06,322 --> 00:25:06,272
+Standart,
+
+334
+00:25:06,322 --> 00:25:14,742
+bu sayede on gigabitlik aşağı yönde EML yerine doğrudan modüle edilen bir lazer kullanılabileceğini belirtir.
+
+335
+00:25:14,792 --> 00:25:19,672
+Bedeli ise alıcıda faz belirsizliğidir: yüz seksen derece kaymış bir saat,
+
+336
+00:25:19,722 --> 00:25:21,882
+bitleri ters çözer.
+
+337
+00:25:21,932 --> 00:25:24,878
+Kod ihlalleri bu hatayı yakalamak için kullanılabilir.
+
+338
+00:25:25,826 --> 00:25:29,636
+TC katmanında bu seçim için bir yer ayrılmıştır.
+
+339
+00:25:29,686 --> 00:25:34,776
+Kanal profili mesajında aşağı yön hat kodu için dört bitlik bir alan vardır.
+
+340
+00:25:34,826 --> 00:25:39,146
+Bugün yalnızca sıfır değeri, yani NRZ tanımlıdır;
+
+341
+00:25:39,196 --> 00:25:43,415
+diğer kod noktaları ileride çalışılacak konular olarak bırakılmıştır.
+
+342
+00:25:44,359 --> 00:25:46,139
+Mühendis notu.
+
+343
+00:25:46,189 --> 00:25:50,609
+Bir: RF video olan bir ağda NG-PON2'yi devreye almadan önce,
+
+344
+00:25:50,659 --> 00:25:57,009
+video alıcısında taşıyıcı gürültü oranını ölçün ve kayıt altına alın.
+
+345
+00:25:57,059 --> 00:25:57,009
+İki:
+
+346
+00:25:57,059 --> 00:26:04,069
+TWDM kanallarını tek tek açarak alçak frekanslı TV kanallarındaki değişimi izleyin;
+
+347
+00:26:04,119 --> 00:26:06,659
+Raman karışması orada görünür.
+
+348
+00:26:07,692 --> 00:26:13,499
+Sıradaki: bütün bu harita ONU'ya nasıl anlatılır? Kanal profilleri.
+
+349
+00:26:15,292 --> 00:26:18,152
+Perde beş: kanal profilleri.
+
+350
+00:26:18,202 --> 00:26:23,622
+Yeni açılan bir ONU, sistemin dalga boyu haritasını bilmez.
+
+351
+00:26:23,672 --> 00:26:31,512
+G.989.3'ün on yedinci maddesi, OLT'nin bu haritayı nasıl duyurduğunu tanımlar:
+
+352
+00:26:31,562 --> 00:26:38,109
+her aşağı yön kanalında, onaysız yayın PLOAM mesajları dizisi halinde.
+
+353
+00:26:39,059 --> 00:26:43,819
+Duyuru üç parçadan oluşur: tek bir sistem profili mesajı;
+
+354
+00:26:43,869 --> 00:26:48,699
+her kanal çifti için bir kanal profili mesajı, yani en çok sekiz;
+
+355
+00:26:48,749 --> 00:26:54,059
+ve her burst profili için bir mesaj, kanal başına en çok sekiz,
+
+356
+00:26:54,109 --> 00:26:55,749
+toplamda altmış dört.
+
+357
+00:26:55,799 --> 00:27:01,706
+Bütün set, bir ile beş saniye arasında ayarlanabilen bir periyotla tekrarlanır.
+
+358
+00:27:02,625 --> 00:27:07,645
+Sistem profili, sistemin tamamına ait parametreleri taşır: kanal sayısı,
+
+359
+00:27:07,695 --> 00:27:12,025
+yukarı yön kanal aralığı, en büyük spektral sapma,
+
+360
+00:27:12,075 --> 00:27:15,925
+döngüsel çoklayıcı varsa serbest spektral aralık,
+
+361
+00:27:15,975 --> 00:27:19,895
+yukarı yön bant seçeneği ve kalibrasyon doğruluğu.
+
+362
+00:27:19,945 --> 00:27:26,245
+Burada önemli bir not var: kanal aralığı, sistemin tasarlandığı ızgarayı gösterir;
+
+363
+00:27:26,295 --> 00:27:29,743
+kanalların sahada nasıl dağıtıldığını değil.
+
+364
+00:27:30,692 --> 00:27:36,482
+Sistem profilinde bir parametre daha dikkat çeker: gevşek kalibrasyon sınırı.
+
+365
+00:27:36,532 --> 00:27:42,922
+Bir ONU'nun ne kadar kaba kalibre edilmiş olabileceği çoklayıcının özelliklerine bağlıdır.
+
+366
+00:27:42,972 --> 00:27:48,475
+Bunu standart değil OLT belirler, ve ONU'ya çalışma sırasında bildirir.
+
+367
+00:27:49,392 --> 00:27:57,582
+Kalibrasyon doğruluğu ise bir ONU'nun bant içi aktivasyona geçebilmesi için sağlaması gereken en küçük doğruluktur.
+
+368
+00:27:57,632 --> 00:28:02,232
+Bunu sağlamayan bir ONU için standart başka bir yol bırakır: AMCC.
+
+369
+00:28:02,282 --> 00:28:06,622
+Kanal profilindeki seri numarası grant tipi alanı,
+
+370
+00:28:06,672 --> 00:28:12,254
+bant içi ve AMCC seri numarası grantlarının sunulup sunulmadığını gösterir.
+
+371
+00:28:13,725 --> 00:28:18,035
+Kanal profili mesajı ise tek bir kanal çiftini tarif eder.
+
+372
+00:28:18,085 --> 00:28:23,645
+Başında dört bitlik kanal profili kimliği ve üç bayrak vardır: bu kanal mı,
+
+373
+00:28:23,695 --> 00:28:28,235
+aşağı yön tanımı geçersiz mi, yukarı yön tanımı geçersiz mi.
+
+374
+00:28:28,285 --> 00:28:32,865
+Ardından profil sürümü gelir; içerik değişirse sürüm de değişir,
+
+375
+00:28:32,915 --> 00:28:37,325
+böylece ONU yalnızca sürüme bakarak güncellemeyi fark eder.
+
+376
+00:28:38,258 --> 00:28:44,578
+Aşağı yön tanımında PON kimliği, gerçek verici frekansının nominal değerden farkı,
+
+377
+00:28:44,628 --> 00:28:47,998
+hat hızı, FEC durumu ve hat kodu bulunur.
+
+378
+00:28:48,048 --> 00:28:54,038
+Yukarı yön tanımında ise yukarı yön kanal kimliği ve yukarı yön frekansı vardır.
+
+379
+00:28:54,088 --> 00:28:58,478
+Frekanslar sıfır virgül bir gigahertz birimiyle yazılır.
+
+380
+00:28:58,528 --> 00:29:01,208
+Döngüsel çoklayıcıda yukarı yön frekansı,
+
+381
+00:29:01,258 --> 00:29:04,606
+tekrar eden frekans setinin kök frekansıdır.
+
+382
+00:29:05,525 --> 00:29:09,855
+Aşağı yön frekans kayması alanının bir özel değeri vardır:
+
+383
+00:29:09,905 --> 00:29:15,765
+bir sıfır sıfır sıfır sıfır sıfır sıfır sıfır, yani kaymanın bilinmediği durum.
+
+384
+00:29:15,815 --> 00:29:21,005
+Aşağı yön hız alanında ise iki bit önemlidir: biri hat hızını,
+
+385
+00:29:21,055 --> 00:29:26,044
+on ya da iki buçuk gigabit; diğeri FEC'in açık mı kapalı mı olduğunu söyler.
+
+386
+00:29:26,992 --> 00:29:32,612
+ONU, yüz seksen yedi virgül yedi terahertzlik kanalı dinliyor.
+
+387
+00:29:32,662 --> 00:29:37,902
+Çerçevedeki PON kimliğinin son dört biti sıfır sıfır sıfır bir; yani ikinci kanal.
+
+388
+00:29:37,952 --> 00:29:46,062
+Kendi kanalının profilinde yukarı yön frekansı bir milyon dokuz yüz elli beş bin olarak yazılmış.
+
+389
+00:29:46,112 --> 00:29:49,262
+Sıfır virgül bir gigahertz birimiyle bu,
+
+390
+00:29:49,312 --> 00:29:52,868
+yüz doksan beş virgül beş terahertz demektir.
+
+391
+00:29:53,792 --> 00:29:58,982
+Profil ayrıca bağlantı tipini de söyler: A tipi, B tipi ya da ikisi.
+
+392
+00:29:59,032 --> 00:30:03,592
+İkinci bölümdeki yükselteçli ve yükselteçsiz alıcı ayrımı,
+
+393
+00:30:03,642 --> 00:30:06,112
+burada TC katmanına taşınır.
+
+394
+00:30:06,162 --> 00:30:11,062
+Bir de varsayılan ONU zayıflatması vardır: üç desibellik adımlarla,
+
+395
+00:30:11,112 --> 00:30:16,388
+ONU'nun ilk yanıtında gücünü ne kadar kısması gerektiğini belirtir.
+
+396
+00:30:17,325 --> 00:30:24,275
+Burst profilleri ayrı bir mesajla duyurulur ve bant haritası her burst için bunlardan birini seçer.
+
+397
+00:30:24,325 --> 00:30:30,215
+Profil, önsözün uzunluğunu ve desenini, sınırlayıcıyı ve FEC kullanımını tanımlar.
+
+398
+00:30:30,265 --> 00:30:32,205
+Bunları altıncı bölümde,
+
+399
+00:30:32,255 --> 00:30:36,686
+ONU vericisinin burst modunu işlerken ayrıntısıyla göreceğiz.
+
+400
+00:30:37,625 --> 00:30:39,915
+En basit durumda her kanal profili,
+
+401
+00:30:39,965 --> 00:30:44,525
+aşağı ve yukarı yön kanalları arasında birebir ve sabit bir eşleme kurar:
+
+402
+00:30:44,575 --> 00:30:49,735
+bu aşağı yön kanalını dinleyen ONU, şu yukarı yön kanalında cevap verir.
+
+403
+00:30:49,785 --> 00:30:55,385
+Ama standart daha esnek bir yapıya da izin verir: bire çok ya da çoğa bir eşlemeler.
+
+404
+00:30:55,435 --> 00:30:58,795
+O durumda profil yalnızca bir adlandırma kuralıdır;
+
+405
+00:30:58,845 --> 00:31:03,239
+eşlemeyi varsayılan yanıt kanalı alanı ve ayar kontrol mesajı belirler.
+
+406
+00:31:04,158 --> 00:31:09,618
+Noktadan noktaya WDM için ayrı bir kanal profili biçimi vardır.
+
+407
+00:31:09,668 --> 00:31:15,648
+Orada bir bayrak öne çıkar: kanalın bir ONU ile eşleşip eşleşmediğini,
+
+408
+00:31:15,698 --> 00:31:21,398
+yani artık başka ONU'lara kapalı olup olmadığını gösteren bayrak.
+
+409
+00:31:21,448 --> 00:31:26,835
+Noktadan noktaya WDM'i dokuzuncu bölümde ayrıntılı işleyeceğiz.
+
+410
+00:31:27,758 --> 00:31:28,948
+Mühendis notu.
+
+411
+00:31:28,998 --> 00:31:35,108
+Bir: kanal profili, fiziksel katman ile TC katmanının buluştuğu yerdir;
+
+412
+00:31:35,158 --> 00:31:38,818
+ölçtüğünüz frekans ile duyurulan frekans uyuşmuyorsa,
+
+413
+00:31:38,868 --> 00:31:42,938
+sorun ya kalibrasyonda ya da konfigürasyondadır.
+
+414
+00:31:42,988 --> 00:31:42,938
+İki:
+
+415
+00:31:42,988 --> 00:31:50,002
+protokol analizörüyle profil duyurularını yakalayın ve OSA ölçümünüzle karşılaştırın.
+
+416
+00:31:51,025 --> 00:31:54,643
+Şimdi bu haritayı laboratuvarda gerçekten görelim.
+
+417
+00:31:56,325 --> 00:32:00,235
+Laboratuvarda: kanal haritası ve yalıtım.
+
+418
+00:32:00,285 --> 00:32:06,095
+Bu bölümün ölçümleri iki soruya cevap verir: kanallar olması gereken yerde mi,
+
+419
+00:32:06,145 --> 00:32:09,606
+ve komşu sistemler birbirinden yeterince ayrılmış mı?
+
+420
+00:32:10,525 --> 00:32:13,715
+Birinci araç optik spektrum analizörü.
+
+421
+00:32:13,765 --> 00:32:20,125
+Kanal haritasını S bölü R CG noktasında, yani çoklayıcının ortak portunda çıkarın.
+
+422
+00:32:20,175 --> 00:32:26,125
+Burada bütün aşağı yön kanalları ve geri gelen yukarı yön kanalları tek ekranda görünür;
+
+423
+00:32:26,175 --> 00:32:30,294
+bir yönlü kuplörle iki yönü ayırmak ölçümü kolaylaştırır.
+
+424
+00:32:31,225 --> 00:32:33,825
+Çözünürlük bant genişliğine dikkat.
+
+425
+00:32:33,875 --> 00:32:39,915
+Standardın güç spektral yoğunluğu sınırları on beş gigahertzlik bant için verilir.
+
+426
+00:32:39,965 --> 00:32:42,945
+OSA'da sıfır virgül bir nanometre seçerseniz,
+
+427
+00:32:42,995 --> 00:32:49,715
+bin beş yüz doksan sekiz nanometrede bu yaklaşık on bir virgül yetmiş beş gigahertzdir.
+
+428
+00:32:49,765 --> 00:32:55,451
+Okuduğunuz değeri on beş gigahertze çevirmek için yaklaşık bir desibel eklemelisiniz.
+
+429
+00:32:56,392 --> 00:32:58,872
+Frekans doğruluğu ikinci konudur.
+
+430
+00:32:58,922 --> 00:33:02,652
+Aşağı yönde artı eksi yirmi gigahertzlik sapma sınırı,
+
+431
+00:33:02,702 --> 00:33:08,702
+bin altı yüz nanometre civarında yaklaşık artı eksi yüz yetmiş pikometreye karşılık gelir.
+
+432
+00:33:08,752 --> 00:33:13,612
+Tipik bir OSA'nın dalga boyu doğruluğu on ile yirmi pikometredir;
+
+433
+00:33:13,662 --> 00:33:16,212
+sınırın onda biri kadar, yeterli.
+
+434
+00:33:16,262 --> 00:33:20,502
+Ama OSA'yı bir referans kaynakla düzenli olarak doğrulayın;
+
+435
+00:33:20,552 --> 00:33:23,620
+ölçüm hatası doğrudan sapma payınızdan yer.
+
+436
+00:33:24,558 --> 00:33:26,078
+Bir pratik ipucu:
+
+437
+00:33:26,128 --> 00:33:30,268
+OSA'nın dalga boyu eksenini kararlı bir referans lazerle doğrulayın.
+
+438
+00:33:30,318 --> 00:33:32,438
+Ölçtüğünüz aşağı yön frekansını,
+
+439
+00:33:32,488 --> 00:33:36,578
+kanal profilinde duyurulan frekans kaymasıyla karşılaştırmak,
+
+440
+00:33:36,628 --> 00:33:40,508
+OLT'nin kendi bildirdiği değerin doğruluğunu da test eder.
+
+441
+00:33:41,458 --> 00:33:50,958
+Yukarı yönde ONU'yu sırayla her kanala ayarlayın ve her kanalda frekansı bir ayar döngüsü boyunca izleyin.
+
+442
+00:33:51,008 --> 00:33:53,508
+Sapma sınırı kanal aralığıyla ölçeklenir:
+
+443
+00:33:53,558 --> 00:33:58,198
+elli gigahertz aralıkta artı eksi on iki buçuk gigahertz,
+
+444
+00:33:58,248 --> 00:34:03,028
+yani bu bantta yaklaşık artı eksi yüz pikometre.
+
+445
+00:34:03,078 --> 00:34:07,338
+Burst içindeki dalga boyu kaymasını ölçmek daha ince bir iştir;
+
+446
+00:34:07,388 --> 00:34:09,892
+onu yedinci bölüme bırakıyoruz.
+
+447
+00:34:11,392 --> 00:34:14,702
+Çoklayıcının kendisini de karakterize edin.
+
+448
+00:34:14,752 --> 00:34:20,902
+Ayarlanabilir bir lazer ve güç ölçerle her portun geçirgenlik eğrisini tarayın.
+
+449
+00:34:20,952 --> 00:34:24,232
+Ek sekizdeki üç şartı tek tek kontrol edin:
+
+450
+00:34:24,282 --> 00:34:29,682
+bir artı X desibellik bant genişliği iki kat ayar hatasından küçük mü,
+
+451
+00:34:29,732 --> 00:34:33,732
+eğri kanal merkezinden iki yana tekdüze azalıyor mu,
+
+452
+00:34:33,782 --> 00:34:38,260
+ve dalgalanma OLT'nin güç ölçüm çözünürlüğünün altında mı?
+
+453
+00:34:39,192 --> 00:34:40,832
+İkinci ölçüm yalıtım.
+
+454
+00:34:40,882 --> 00:34:47,332
+Çoklayıcının bir portuna kalibre bir kaynak verin ve komşu portlardaki sızıntıyı ölçün;
+
+455
+00:34:47,382 --> 00:34:49,912
+kanal yalıtımını böyle bulursunuz.
+
+456
+00:34:49,962 --> 00:34:52,042
+Ek sekizdeki örnek değerler,
+
+457
+00:34:52,092 --> 00:34:56,282
+geri dönüş kaybı ve yönlülük için elli desibelin üstündedir.
+
+458
+00:34:56,332 --> 00:35:00,232
+Aynı yöntemle, birlikte çalışma elemanının G-PON,
+
+459
+00:35:00,282 --> 00:35:04,787
+XG-PON1 ve video portları arasındaki yalıtımı da doğrulayın.
+
+460
+00:35:05,725 --> 00:35:09,465
+Birlikte çalışma testinin asıl sorusu ise şudur:
+
+461
+00:35:09,515 --> 00:35:18,715
+NG-PON2 açıldığında eski sistemler bundan etkileniyor mu? G-PON ya da XG-PON1 bağlantısını çalışır halde bırakın,
+
+462
+00:35:18,765 --> 00:35:23,905
+bit hata oranını izleyin, sonra NG-PON2 kanallarını devreye alın.
+
+463
+00:35:23,955 --> 00:35:26,981
+Hata oranında bir değişim olmamalıdır.
+
+464
+00:35:27,925 --> 00:35:29,855
+Üçüncü ölçüm Raman.
+
+465
+00:35:29,905 --> 00:35:34,895
+RF video varsa, video alıcısının çıkışında taşıyıcı karışma oranını ölçün:
+
+466
+00:35:34,945 --> 00:35:40,385
+önce yalnızca video, sonra TWDM aşağı yön kanallarını birer birer açarak.
+
+467
+00:35:40,435 --> 00:35:46,855
+Düşük frekanslı kanallarda bir bozulma görüyorsanız, bu Raman karışmasıdır.
+
+468
+00:35:46,905 --> 00:35:49,925
+Aynı testi farklı fiber uzunluklarıyla tekrarlamak,
+
+469
+00:35:49,975 --> 00:35:52,823
+etkinin mesafeyle değişimini gösterir.
+
+470
+00:35:53,759 --> 00:35:57,169
+Raman testinde bir noktaya dikkat edin: karışma,
+
+471
+00:35:57,219 --> 00:36:00,329
+girişimci kanalların gücüyle doğrudan büyür.
+
+472
+00:36:00,379 --> 00:36:02,019
+Testi en kötü koşulda,
+
+473
+00:36:02,069 --> 00:36:07,079
+yani her aşağı yön kanalı en büyük başlatma gücündeyken yapın.
+
+474
+00:36:07,129 --> 00:36:12,018
+Daha düşük güçte yapılan bir test, sahadaki durumu olduğundan iyi gösterir.
+
+475
+00:36:12,959 --> 00:36:14,419
+Mühendis notu.
+
+476
+00:36:14,469 --> 00:36:14,419
+Bir:
+
+477
+00:36:14,469 --> 00:36:21,209
+spektrum ölçümünde frekans doğruluğunu ve çözünürlük düzeltmesini raporunuza yazın.
+
+478
+00:36:21,259 --> 00:36:24,899
+İki: yalıtım ölçümünü yalnızca kanal merkezinde değil,
+
+479
+00:36:24,949 --> 00:36:29,496
+sapma sınırının iki ucunda da yapın; en kötü durum oradadır.
+
+480
+00:36:31,325 --> 00:36:33,135
+Bölüm üçün özeti.
+
+481
+00:36:33,185 --> 00:36:40,675
+Bir: TWDM aşağı yönü bin beş yüz doksan altı ile bin altı yüz üç nanometrededir;
+
+482
+00:36:40,725 --> 00:36:48,115
+yukarı yön için geniş, azaltılmış ve dar olmak üzere üç bant seçeneği vardır.
+
+483
+00:36:48,165 --> 00:36:56,165
+Noktadan noktaya kanallar paylaşılan ya da genişletilmiş spektrumu kullanır.
+
+484
+00:36:56,215 --> 00:36:57,475
+İki: NG-PON2, G-PON, XG-PON1,
+
+485
+00:36:57,525 --> 00:37:04,857
+RF video ve OTDR bantlarının arasındaki boşluklara yerleştirilmiştir.
+
+486
+00:37:05,792 --> 00:37:10,642
+Üç: aşağı yön ızgarası yüz gigahertz aralıkla sabittir;
+
+487
+00:37:10,692 --> 00:37:20,252
+yukarı yön aralığı elli ile iki yüz gigahertz arasında seçilir ve sapma sınırı aralıkla ölçeklenir.
+
+488
+00:37:20,302 --> 00:37:24,162
+Dört: Raman etkisi videoyu modülasyon karışmasıyla,
+
+489
+00:37:24,212 --> 00:37:28,242
+yukarı yön kanallarını güç tüketimiyle etkiler;
+
+490
+00:37:28,292 --> 00:37:32,702
+azaltma yöntemleri altıncı ve dokuzuncu eklerdedir.
+
+491
+00:37:32,752 --> 00:37:39,141
+Beş: bütün bu harita, ONU'ya sistem ve kanal profilleriyle duyurulur.
+
+492
+00:37:40,158 --> 00:37:41,658
+Kendini test et.
+
+493
+00:37:41,708 --> 00:37:44,438
+Birinci soru: dört kanallı, döngüsel olmayan,
+
+494
+00:37:44,488 --> 00:37:54,618
+yüz gigahertz aralıklı bir yukarı yön ızgarası için en küçük ayar penceresi kaç gigahertzdir? İkinci soru:
+
+495
+00:37:54,668 --> 00:37:59,238
+yüz doksan beş virgül bir terahertzlik bir yukarı yön kanalı,
+
+496
+00:37:59,288 --> 00:38:03,278
+kanal profilinde hangi sayıyla yazılır? Üçüncü soru:
+
+497
+00:38:03,328 --> 00:38:07,868
+Raman kaynaklı modülasyon karışması, aynı yönde mi,
+
+498
+00:38:07,918 --> 00:38:13,368
+yoksa karşı yönde yayılan sinyaller arasında mı oluşur? Cevaplar,
+
+499
+00:38:13,418 --> 00:38:15,743
+bir sonraki bölümün başında.
+
+500
+00:38:16,725 --> 00:38:17,445
+Kaynak.
+
+501
+00:38:17,495 --> 00:38:22,825
+OLT vericisinden çıkan aşağı yön sinyali: sönüm oranı, göz maskesi,
+
+502
+00:38:22,875 --> 00:38:28,725
+yan mod bastırma, ve yüz yirmi beş mikrosaniyelik çerçevenin içi.
+
+503
+00:38:28,775 --> 00:38:29,570
+Görüşmek üzere.
+
