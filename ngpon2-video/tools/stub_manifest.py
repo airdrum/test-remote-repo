@@ -1,11 +1,11 @@
 """Silent stand-in manifest (estimated durations) so scenes can be laid out before TTS exists.
-usage: stub_manifest.py NN part [cps=13.4] → build/epNN/part/audio_proc/manifest.json (only if no real one exists, unless --force)"""
+usage: stub_manifest.py NN part [cps=13.4] → build/epNN/part/stub/manifest.json (render with AUDIO_DIR=stub)"""
 import json, re, sys, wave
 from pathlib import Path
 ep, part = sys.argv[1], sys.argv[2]
 cps = float(next((a for a in sys.argv[3:] if not a.startswith("--")), 13.4))
 root = Path(__file__).resolve().parent.parent
-out = root / f"build/ep{ep}/{part}/audio_proc/manifest.json"
+out = root / f"build/ep{ep}/{part}/stub/manifest.json"
 if out.exists() and not json.loads(out.read_text()).get("stub") and "--force" not in sys.argv:
     sys.exit(0)
 sil = root / "build/silence1s.wav"
