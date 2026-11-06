@@ -1,0 +1,91 @@
+{
+ "voice": "Sadaltager",
+ "model": "gemini-2.5-flash-preview-tts",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "g1_g48598f87dc.wav",
+   "duration": 12.231,
+   "text": "Laboratuvarda: kanal haritası ve yalıtım. Bu bölümün ölçümleri iki soruya cevap verir: kanallar olması gereken yerde mi, ve komşu sistemler birbirinden yeterince ayrılmış mı?",
+   "qa": "ok"
+  },
+  {
+   "id": "g2",
+   "file": "g2_g48598f87dc.wav",
+   "duration": 17.66,
+   "text": "Birinci araç optik spektrum analizörü. Kanal haritasını S bölü R CG noktasında, yani çoklayıcının ortak portunda çıkarın. Burada bütün aşağı yön kanalları ve geri gelen yukarı yön kanalları tek ekranda görünür; bir yönlü kuplörle iki yönü ayırmak ölçümü kolaylaştırır.",
+   "qa": "ok"
+  },
+  {
+   "id": "g3",
+   "file": "b97d9f64d8d_0.wav",
+   "duration": 21.411,
+   "text": "Çözünürlük bant genişliğine dikkat. Standardın güç spektral yoğunluğu sınırları on beş gigahertzlik bant için verilir. OSA'da sıfır virgül bir nanometre seçerseniz, bin beş yüz doksan sekiz nanometrede bu yaklaşık on bir virgül yetmiş beş gigahertzdir. Okuduğunuz değeri on beş gigahertze çevirmek için yaklaşık bir desibel eklemelisiniz.",
+   "qa": "ok"
+  },
+  {
+   "id": "g4",
+   "file": "g4_gb4be77e52e.wav",
+   "duration": 24.026,
+   "text": "Frekans doğruluğu ikinci konudur. Aşağı yönde artı eksi yirmi gigahertzlik sapma sınırı, bin altı yüz nanometre civarında yaklaşık artı eksi yüz yetmiş pikometreye karşılık gelir. Tipik bir OSA'nın dalga boyu doğruluğu on ile yirmi pikometredir; sınırın onda biri kadar, yeterli. Ama OSA'yı bir referans kaynakla düzenli olarak doğrulayın; ölçüm hatası doğrudan sapma payınızdan yer.",
+   "qa": "ok"
+  },
+  {
+   "id": "g4a",
+   "file": "g4a_gb4be77e52e.wav",
+   "duration": 14.145,
+   "text": "Bir pratik ipucu: OSA'nın dalga boyu eksenini kararlı bir referans lazerle doğrulayın. Ölçtüğünüz aşağı yön frekansını, kanal profilinde duyurulan frekans kaymasıyla karşılaştırmak, OLT'nin kendi bildirdiği değerin doğruluğunu da test eder.",
+   "qa": "ok"
+  },
+  {
+   "id": "g5",
+   "file": "bee719889a1_0.wav",
+   "duration": 25.131,
+   "text": "Yukarı yönde ONU'yu sırayla her kanala ayarlayın ve her kanalda frekansı bir ayar döngüsü boyunca izleyin. Sapma sınırı kanal aralığıyla ölçeklenir: elli gigahertz aralıkta artı eksi on iki buçuk gigahertz, yani bu bantta yaklaşık artı eksi yüz pikometre. Burst içindeki dalga boyu kaymasını ölçmek daha ince bir iştir; onu yedinci bölüme bırakıyoruz.",
+   "qa": "ok"
+  },
+  {
+   "id": "g5a",
+   "file": "g5a_g5d27c41b5b.wav",
+   "duration": 24.447,
+   "text": "Çoklayıcının kendisini de karakterize edin. Ayarlanabilir bir lazer ve güç ölçerle her portun geçirgenlik eğrisini tarayın. Ek sekizdeki üç şartı tek tek kontrol edin: bir artı X desibellik bant genişliği iki kat ayar hatasından küçük mü, eğri kanal merkezinden iki yana tekdüze azalıyor mu, ve dalgalanma OLT'nin güç ölçüm çözünürlüğünün altında mı?",
+   "qa": "ok"
+  },
+  {
+   "id": "g6",
+   "file": "g6_g5d27c41b5b.wav",
+   "duration": 22.564,
+   "text": "İkinci ölçüm yalıtım. Çoklayıcının bir portuna kalibre bir kaynak verin ve komşu portlardaki sızıntıyı ölçün; kanal yalıtımını böyle bulursunuz. Ek sekizdeki örnek değerler, geri dönüş kaybı ve yönlülük için elli desibelin üstündedir. Aynı yöntemle, birlikte çalışma elemanının G-PON, XG-PON1 ve video portları arasındaki yalıtımı da doğrulayın.",
+   "qa": "ok"
+  },
+  {
+   "id": "g6a",
+   "file": "g6a_g971b330f83.wav",
+   "duration": 18.805,
+   "text": "Birlikte çalışma testinin asıl sorusu ise şudur: NG-PON2 açıldığında eski sistemler bundan etkileniyor mu? G-PON ya da XG-PON1 bağlantısını çalışır halde bırakın, bit hata oranını izleyin, sonra NG-PON2 kanallarını devreye alın. Hata oranında bir değişim olmamalıdır.",
+   "qa": "ok"
+  },
+  {
+   "id": "g7",
+   "file": "g7_g971b330f83.wav",
+   "duration": 21.926,
+   "text": "Üçüncü ölçüm Raman. RF video varsa, video alıcısının çıkışında taşıyıcı karışma oranını ölçün: önce yalnızca video, sonra TWDM aşağı yön kanallarını birer birer açarak. Düşük frekanslı kanallarda bir bozulma görüyorsanız, bu Raman karışmasıdır. Aynı testi farklı fiber uzunluklarıyla tekrarlamak, etkinin mesafeyle değişimini gösterir.",
+   "qa": "ok"
+  },
+  {
+   "id": "g7a",
+   "file": "g7a_g2bfada4b74.wav",
+   "duration": 16.149,
+   "text": "Raman testinde bir noktaya dikkat edin: karışma, girişimci kanalların gücüyle doğrudan büyür. Testi en kötü koşulda, yani her aşağı yön kanalı en büyük başlatma gücündeyken yapın. Daha düşük güçte yapılan bir test, sahadaki durumu olduğundan iyi gösterir.",
+   "qa": "ok"
+  },
+  {
+   "id": "g8",
+   "file": "g8_g2bfada4b74.wav",
+   "duration": 14.622,
+   "text": "Mühendis notu. Bir: spektrum ölçümünde frekans doğruluğunu ve çözünürlük düzeltmesini raporunuza yazın. İki: yalıtım ölçümünü yalnızca kanal merkezinde değil, sapma sınırının iki ucunda da yapın; en kötü durum oradadır.",
+   "qa": "ok"
+  }
+ ],
+ "total": 233.12
+}
