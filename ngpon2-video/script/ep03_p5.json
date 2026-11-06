@@ -1,7 +1,7 @@
 {
  "title": "B03 Perde 5 — Kanal profilleri",
  "voice": "Sadaltager",
- "model": "gemini-3.8-flash-lite-tts",
+ "model": "gemini-2.5-flash-preview-tts",
  "style": "",
  "beats": [
   {

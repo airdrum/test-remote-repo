@@ -18,10 +18,10 @@
   },
   {
    "id": "b2b",
-   "file": "b2b_g171696a1dc.wav",
-   "duration": 19.83,
-   "text": "L bandının bir bedeli var. İkinci bölümde gördüğümüz gibi, G.652 fiberde dispersiyon katsayısı burada kilometre başına yirmi bir pikosaniye bölü nanometreye kadar çıkar; C bandına göre daha yüksektir. On gigabitlik aşağı yön tablosundaki iki desibellik yol cezası, kısmen bu seçimin karşılığıdır.",
-   "qa": "ok"
+   "file": "b2b_g171696a1dc_trim.wav",
+   "duration": 17.68,
+   "text": "İkinci bölümde gördüğümüz gibi, G.652 fiberde dispersiyon katsayısı burada kilometre başına yirmi bir pikosaniye bölü nanometreye kadar çıkar; C bandına göre daha yüksektir. On gigabitlik aşağı yön tablosundaki iki desibellik yol cezası, kısmen bu seçimin karşılığıdır.",
+   "qa": "ok(trimmed)"
   },
   {
    "id": "b2a",
@@ -94,5 +94,5 @@
    "qa": "ok"
   }
  ],
- "total": 229.12
+ "total": 226.97
 }

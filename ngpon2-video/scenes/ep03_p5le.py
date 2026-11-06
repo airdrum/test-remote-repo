@@ -454,7 +454,8 @@ class E3End(Act3):
         self.play(FadeOut(VGroup(nxt, eye)), FadeOut(self.hdr), run_time=0.7)
         cr = VGroup(T("LAMBDA · Bölüm 3 · Renk Haritası", 30, TXT, BOLD),
                     T("Senaryo, animasyon ve görseller: Claude (Anthropic)", 22, TXT),
-                    T("Seslendirme: Google Gemini TTS (3.8 Flash Lite) — ses: Sadaltager", 22, ACC, BOLD),
+                    T("Seslendirme: Google Gemini TTS — ses: Sadaltager", 22, ACC, BOLD),
+                    T("(3.8 Flash Lite · Perde 5'ten itibaren 2.5 Flash)", 18, ACC),
                     T("Intro müziği: Google Lyria", 22, TXT),
                     T("Kaynaklar: ITU-T G.989.2 (2019)/Amd.1 (2020) · ITU-T G.989.3 (2021)/Amd.2 (2025)", 18, MUTED)).arrange(DOWN, buff=0.3)
         self.play(FadeIn(cr, shift=UP * 0.2), run_time=1.0)
