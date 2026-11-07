@@ -861,12 +861,12 @@ class E15P2C(Act15):
         self.beat("c10")
         self.set_badge("std")
         h = self.show_heading("Mesaj başına anahtar")
-        pa = frame_box("duruma göre", GOLD, 3.5, 4.55, 17).move_to([-4.85, -0.45, 0])
-        pb = frame_box("her zaman ONU'ya özgü", SKC, 3.0, 4.55, 17).move_to([-1.35, -0.45, 0])
-        pc = frame_box("her zaman varsayılan", DKC, 6.2, 4.55, 17).move_to([3.5, -0.45, 0])
+        pa = frame_box("duruma göre", GOLD, 3.4, 4.55, 16).move_to([-4.9, -0.45, 0])
+        pb = frame_box("her zaman ONU'ya özgü", SKC, 3.2, 4.55, 16).move_to([-1.35, -0.45, 0])
+        pc = frame_box("her zaman varsayılan", DKC, 6.1, 4.55, 16).move_to([3.55, -0.45, 0])
         rule = VGroup(VGroup(T("yayın →", 15, BCC, BOLD), T("varsayılan", 15, DKC, BOLD)).arrange(RIGHT, buff=0.1),
                       VGroup(T("yönlendirilmiş →", 15, UCC, BOLD), T("ONU'ya özgü", 15, SKC, BOLD)).arrange(RIGHT, buff=0.1)).arrange(DOWN, aligned_edge=LEFT, buff=0.06)
-        rule.next_to(pa[1], DOWN, buff=0.12).align_to(pa[1], LEFT)
+        fit(rule, 2.95).next_to(pa[1], DOWN, buff=0.12).align_to(pa[1], LEFT)
         la = ["Burst_Profile", "Ranging_Time", "Key_Control", "Sleep_Allow", "Protection_Control", "Change_Power_Level", "Power_Consumption_Inquire"]
         lb = ["↓ Assign_Alloc-ID (yönl.)", "↑ Key_Report", "↑ Acknowledgement", "↑ Sleep_Request"]
         lc = ["Assign_ONU-ID", "Deactivate_ONU-ID", "Disable_Serial_Number", "Request_Registration", "Calibration_Request", "Adjust_Tx_Wavelength",
@@ -874,7 +874,7 @@ class E15P2C(Act15):
               "↑ Serial_Number_ONU", "↑ Registration", "↑ Tuning_Response", "↑ Power_Consumption_Report", "↑ Rate_Response"]
         A = VGroup(*[T(s, 15, TXT, SEMIBOLD) for s in la]).arrange(DOWN, aligned_edge=LEFT, buff=0.12)
         A.next_to(rule, DOWN, buff=0.18).align_to(rule, LEFT)
-        fit(A, 3.15)
+        fit(A, 3.05)
         B = VGroup(*[T(s, 15, TXT, SEMIBOLD) for s in lb]).arrange(DOWN, aligned_edge=LEFT, buff=0.16)
         B.next_to(pb[1], DOWN, buff=0.3).align_to(pb[1], LEFT)
         fit(B, 2.7)

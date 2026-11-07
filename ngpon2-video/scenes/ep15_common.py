@@ -181,7 +181,10 @@ def keychip(default=True, size=15, text=None):
 
 def inst(kind, label, w=1.9, h=1.35, l1=None, l2=None, c1=ACC):
     """Instrument tile with our own caption (lib.instrument's caption replaced)."""
-    g = instr(kind, w, h, l1, l2, c1)
+    g = instr(kind, w, h)
+    if l1 is not None:
+        scr = g[1]
+        g.submobjects[2] = VGroup(fit(T(l1, 20, c1, BOLD), scr.width - 0.15).move_to(scr))
     g.submobjects[4] = T(label, 16, TXT, SEMIBOLD).next_to(g[0], DOWN, buff=0.1)
     return g
 

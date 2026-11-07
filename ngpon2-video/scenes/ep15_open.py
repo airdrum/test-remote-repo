@@ -75,7 +75,7 @@ class Ep15Open(Act15):
 
         # o3 — the 48 bytes, SeqNo and MIC, the public key, the misspelled label
         self.beat("o3")
-        bar = bar_to(p48(6.0, 0.5, 15, octs=False), CX, PY + 1.65)
+        bar = bar_to(p48(5.6, 0.5, 15, octs=False, wl=False), CX + 0.2, PY + 1.65)
         bl = T("kırk sekiz bayt", 15, MUTED, BOLD).next_to(bar, DOWN, buff=0.3)
         gs = VGroup(glow(bar[2][0], SQC, 0.04), glow(bar[4][0], MICC, 0.04))
         key = VGroup(T("anahtar:", 16, MUTED, BOLD), HX("0x55 × 16", 22, DKC, BOLD), T("herkes bilir", 16, DKC, BOLD)).arrange(RIGHT, buff=0.2).move_to([CX, PY - 0.25, 0])
