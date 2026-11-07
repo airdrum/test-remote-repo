@@ -1,0 +1,84 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "bf2701db968_0.wav",
+   "duration": 16.44,
+   "text": "Laboratuvarda. Bu bölümde renk değiştiren lazeri üç açıdan ölçeceğiz: ayar süresi, burst içi dalga boyu kayması, ve ayar sırasındaki kanal dışı güç. Üçünün ortak aracı, zamanda ve dalga boyunda aynı anda görebilen bir düzenektir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g1a",
+   "file": "b0044af1df2_0.wav",
+   "duration": 22.723,
+   "text": "Çekirdek düzenek: ayarlanabilir ONU, bir OLT öykünücüsüyle sürülür; çıkışı bir kuplörle ikiye ayrılır. Bir kol hızlı bir dalga boyu ölçere ya da ayrımlı bir süzgeç-fotodiyot çiftine gider; diğer kol bir güç ölçere ve bir optik spektrum çözümleyiciye. Böylece dalga boyunu ve gücü zamanla birlikte izleriz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "b5b514020da_0.wav",
+   "duration": 20.152,
+   "text": "Birinci ölçüm: ayar süresi. OLT öykünücüsünden bir ayar denetimi komutu veririz ve iki anı işaretleriz: komutun verildiği an, ve ONU'nun hedef kanalda ilk geçerli burst'ü gönderdiği an. Arasındaki süre, TC katmanı ayar süresidir; hazırlık, fiziksel ayar ve yeniden senkronun toplamı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2a",
+   "file": "b88cefa9c9d_0.wav",
+   "duration": 20.743,
+   "text": "Yalnızca fiziksel süreyi görmek isterseniz, dalga boyu ölçerle lazerin hedef dalga boyuna, spektral sapma penceresi içine oturduğu anı işaretlersiniz. Bu iki sayı arasındaki fark, yeniden senkron ve hazırlığın payıdır; çoğu zaman fiziksel ayardan daha uzundur, ve sistem tasarımında asıl önemli olan odur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b33bf479727_0.wav",
+   "duration": 26.26,
+   "text": "İkinci ölçüm: burst içi dalga boyu kayması. Bir ONU vericisi her burst'te lazer akımını sıfırdan çalışma noktasına çıkarır; bu, lazeri ısıtır ve dalga boyunu burst boyunca kaydırır. Buna ısıl cırlama deriz. Dalga boyu ölçeri tek bir burst'e kapılayıp, burst'ün başı ile sonu arasındaki dalga boyu farkını okuruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3a",
+   "file": "b95c0c55478_0.wav",
+   "duration": 22.669,
+   "text": "Bu kayma neden önemli? Çünkü burst'ün sonu, başından farklı bir renge kaymışsa, spektral sapma penceresinden taşabilir, ya da komşu kanala sızabilir. Özellikle uzun burst'lerde bu etki büyür; ölçümü en uzun izin verilen burst süresinde yapmak, en kötü durumu yakalar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "b9ce857de2f_0.wav",
+   "duration": 22.296,
+   "text": "Üçüncü ölçüm: ayar sırasında kanal dışı güç. Vericiyi bir kanaldan diğerine geçirirken, bir komşu kanalın bandına düşen gücü, o bandı seçen dar bir süzgecin ardındaki güç ölçerle izleriz. Bu değeri durağan maskeyle değil, D ekindeki ayar gevşemesiyle karşılaştırırız; çünkü verici o an tanımı gereği geçiş halindedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4a",
+   "file": "befd9572906_0.wav",
+   "duration": 19.928,
+   "text": "Aynı ölçümün bir de süre boyutu var: komşu kanal ne kadar süre rahatsız edildi? Ayar ne kadar hızlıysa, bu pencere o kadar kısadır. Yani hızlı ayar yalnızca verimlilik değil, komşuya nezaket demektir; birinci sınıf bir lazer, ikinci sınıftan hem daha çabuk hem daha kibardır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "b8d3ad7e718_0.wav",
+   "duration": 16.839,
+   "text": "Üç ölçüm bir arada, ayarlanabilir bir vericinin olgunluğunu gösterir. Ayar süresi ne kadar hızlı, burst içi kayma ne kadar küçük, ve ayar sırasındaki sızıntı ne kadar sınırlıysa, o ONU kalabalık ve dinamik bir ağda o kadar güvenle renk değiştirebilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "bdb4768ccaa_0.wav",
+   "duration": 23.971,
+   "text": "Mühendis notu. Bir: ayar süresini her zaman yeniden senkrona kadar ölçün, lazerin oturduğu ana kadar değil; sistemin gördüğü süre budur. İki: burst içi kaymayı en uzun burst'te ölçün, ve dalga boyu ölçerinizi gerçekten tek bir burst'e kapılayın; ortalama alan bir alet, cırlama hakkında dürüst değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "b3eb9b67f38_0.wav",
+   "duration": 14.279,
+   "text": "Bu bölümle ONU tarafını tamamladık: vericisi, alıcısı, burst modu ve ayarı. Sekizinci bölümde ağacın tepesine, OLT'ye çıkıyoruz; onlarca ONU'nun patlamalarını dinleyen, ayırt eden ve dengeleyen tarafa.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 226.3
+}

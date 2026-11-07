@@ -1,0 +1,84 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b8c5c9a10f5_0.wav",
+   "duration": 23.363,
+   "text": "Perde iki: ayar sırasında spektrum. Dördüncü ve altıncı bölümde vericinin kendi kanalı dışına ne yaydığını konuşmuştuk. Burada aynı soruyu, verici bir kanaldan diğerine geçerken soruyoruz; çünkü ayarlanabilir bir lazer, durağanken temiz olsa bile, hareket halindeyken spektrumda gezinir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c1a",
+   "file": "bafa4d7867a_0.wav",
+   "duration": 30.16,
+   "text": "Önce durağan durumun kuralı: kanal dışı güç yoğunluğu maskesi. Standart bunu, nominal merkez frekansına göre iki bölgeyle tanımlar. Her kanalın artı eksi en büyük spektral sapma aralığının içi: bu, ikinci kanal dışı sınır, OOC-iki. Bu aralıkların arası: birinci kanal dışı sınır, OOC-bir. Hedef kanalda ise sınır, en büyük güç eksi on beş desibeldir, sıfır virgül sıfır bir nanometre çözünürlükte.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "bf1cc140191_0.wav",
+   "duration": 24.717,
+   "text": "Sayılarla: on gigabitlik yukarı yönde OOC-bir, elli gigahertz aralıkta eksi otuz altı virgül yedi, yüzde eksi kırk virgül beş, iki yüzde eksi kırk dört virgül dört dBm. OOC-iki ise dört kanalda eksi kırk bir virgül altı, sekiz kanalda eksi kırk sekiz virgül beş. Verici, kendi penceresi içinde nereye ayarlanırsa ayarlansın bu maskeye uymalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "b12a38b23ef_0.wav",
+   "duration": 25.769,
+   "text": "Şimdi hareket. Verici bir dalga boyundan diğerine geçerken, fiziksel olarak aradaki kanalların üstünden süpürülür. O kısa an boyunca, başka bir ONU'nun kanalına tam gücünde ışık düşebilir. Durağan maskeyi bu ana da uygularsak, hiçbir gerçek lazer geçemez; çünkü ayar, tanımı gereği spektrumda yürümektir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3a",
+   "file": "be93da35158_0.wav",
+   "duration": 26.548,
+   "text": "Standart bu çıkmazı yasaklayarak değil, sınırlayarak çözer. G.989.2'nin D eki, ayar sırasında kanal dışı ve bant dışı güç yoğunluğu için bir gevşeme tanımlar. Mantık şudur: ayar kısadır, OLT tarafından koordine edilir, ve ONU zaten geçiş halinde olduğunu bilir. Dolayısıyla komşulara verilen rahatsızlık, hem zamanda hem düzeyde sınırlı ve öngörülebilir kalır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "bf4a88423b9_0.wav",
+   "duration": 25.855,
+   "text": "Bu gevşemenin sınırını kim belirler? Dolaylı olarak OLT. Sistem profilinde bir gevşek kalibrasyon sınırı duyurulur: bir ONU'nun, hangi spektral sapmanın altında gevşek kalibre sayılabileceği. Bu değer dalga boyu çoklayıcısının özelliklerine bağlıdır, o yüzden standart tek bir sayı dayatmaz; OLT, kendi ODN'sine göre ONU'ya bildirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "bfbb7294d23_0.wav",
+   "duration": 26.271,
+   "text": "Rogue, yani kekeme davranış, burada kilit kavramdır. Kendi sırası olmayan bir anda, ya da yanlış dalga boyunda ışıyan bir ONU, başka bir aboneyi tamamen sağır edebilir. Ayarlanabilirlik bu riski artırır: yanlış ayarlanmış bir lazer, bir komşunun kanalına tam gücünde oturabilir. Bu yüzden standart, ayar boyunca bile optik sınırların sağlanmasında ısrarcıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5a",
+   "file": "b25390f963b_0.wav",
+   "duration": 26.271,
+   "text": "Kekeme davranışa karşı sistemin birkaç katmanlı savunması vardır. Fiziksel katmanda gevşeme sınırlıdır; TC katmanında OLT, ayarı zamanlar ve yanlış giden ONU'yu susturabilir; ve G.989.3'ün on dokuzuncu maddesi, kekeme ONU'ların tespiti ve yalıtımı için ayrı bir çerçeve tanımlar. Sekizinci bölümde OLT alıcısını işlerken bu savunmaya geri döneceğiz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "b3cdb26fe48_0.wav",
+   "duration": 24.813,
+   "text": "Bir denge daha: gevşeme ne kadar cömert olursa, ayar o kadar kolay; ama komşulara düşen geçici gürültü o kadar büyük. Standart bu dengeyi OLT'nin eline verir, çünkü ayar fırsatlarını zaten OLT zamanlar. Boş ya da yük altındaki bir ağda OLT, ayarları trafiğin seyrek olduğu anlara koyarak gevşemenin etkisini en aza indirebilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "b635e0ab892_0.wav",
+   "duration": 22.531,
+   "text": "Mühendis notu. Bir: ayar sırasındaki kanal dışı gücü, durağan maskeyle değil, D ekindeki gevşemeyle karşılaştırın; ikisini karıştırmak sağlam bir vericiyi başarısız gösterir. İki: gevşek kalibrasyon sınırını ODN'nizin çoklayıcısına göre doğrulayın; bu bir sistem parametresidir, evrensel bir sabit değil.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "b4ac8e494fb_0.wav",
+   "duration": 8.007,
+   "text": "Sıradaki: ONU hangi iç ayar değerinin hangi renge karşılık geldiğini nereden bilir? Kalibrasyon.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 264.31
+}

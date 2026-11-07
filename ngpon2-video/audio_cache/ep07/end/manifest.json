@@ -1,0 +1,35 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "b08c3b609da_0.wav",
+   "duration": 28.792,
+   "text": "Bölüm yedinin özeti. Bir: NG-PON2 ONU'su hem vericisini hem alıcısını dalga boyunda ayarlar; ayar süresi Tablo dokuz iki'de üç sınıfa, ve iki kısıtlı türe bölünür, ama hiçbir teknoloji ya da sınıf dayatılmaz. İki: durağan durumda kanal dışı güç yoğunluğu maskesi geçerlidir; ayar sırasında ise D ekindeki sınırlı bir gevşeme, çünkü lazer spektrumda yürümek zorundadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h2",
+   "file": "b2de7ad91ed_0.wav",
+   "duration": 30.964,
+   "text": "Üç: kalibrasyon, iç ayar değeri ile dalga boyu arasındaki eşlemedir; aşağı yönde otonom, yukarı yönde OLT geri beslemesiyle kurulur ve dithering ile güncel tutulur. Dört: kanal yönetimi profil duyurusuyla başlar, bir ile beş saniyelik periyotla; devir ise zamanlanmış süper çerçeve sayacıyla, ayar denetimi ve yanıtı mesajlarıyla, güvenli bir geri alma yoluyla yapılır. Beş: her devir, yeni bir dalga boyu kadar yeni bir kriptografik bağlamdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h3",
+   "file": "b43306fe958_0.wav",
+   "duration": 29.915,
+   "text": "Kendini test et. Birinci soru: OLT burst alıcısı, her yeni ONU'nun burst'üne güçte ve fazda ne kadar hızlı kilitlenmeli, ve bu süreyi hangi ek tanımlar? İkinci soru: burst modu bir alıcının göz açıklığını ölçmek, neden sürekli mod ölçümünden farklıdır? Üçüncü soru: güç dengeleme neden gereklidir; farklı uzaklıktaki iki ONU'nun gücü OLT'de neden sorun olur? Cevaplar, bir sonraki bölümün başında.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h4",
+   "file": "bf7393aa2ba_0.wav",
+   "duration": 15.231,
+   "text": "Bir sonraki bölüm: Kalabalığı Dinlemek. OLT burst alıcısı, ONU etkinleştirme ve mesafe ölçümü, ve güç dengeleme. Ağacın tepesinden, onlarca sesi birden dinleyen tarafa. Görüşmek üzere.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 104.9
+}

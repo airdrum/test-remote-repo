@@ -1,0 +1,98 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "b1",
+   "file": "b96e3335d7a_0.wav",
+   "duration": 22.836,
+   "text": "Perde bir: ayarlanabilirlik. NG-PON2'de her ONU, hem vericisini hem alıcısını dalga boyunda ayarlayabilir. Verici, istenen yukarı yön kanalında ışımak üzere ayarlanır; alıcı, istenen aşağı yön kanalını seçmek üzere. Bu, önceki PON'larda olmayan bir serbestliktir, ve beraberinde bir sorumluluk getirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b1a",
+   "file": "b86c26da1ca_0.wav",
+   "duration": 32.517,
+   "text": "Standart iki denetim mekanizmasına izin verir. Birincisinde dalga boyunu OLT yönetir; ONU ve OLT etkileşir. İkincisinde ONU dalga boyunu tümüyle kendi denetler. Ayar sürecinin mekanizması standardın kapsamı dışındadır; ama standart şunu ister: ayar boyunca onuncu ve on birinci maddedeki bütün optik sınırlar sağlanmalı, yani ONU hiçbir anda kekeme, yani rogue, davranmamalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2",
+   "file": "be28cf6eaec_0.wav",
+   "duration": 23.92,
+   "text": "Ayarın ne kadar sürdüğü kullanım durumunu belirler. Standart, dalga boyu kanalı ayar süresini Tablo dokuz iki'de sınıflara böler. Birinci sınıf: on mikrosaniyenin altında, herhangi bir kanaldan herhangi bir kanala. İkinci sınıf: on mikrosaniye ile yirmi beş milisaniye arası. Üçüncü sınıf: yirmi beş milisaniye ile bir saniye arası.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2a",
+   "file": "b6d378a8035_0.wav",
+   "duration": 26.836,
+   "text": "İkinci sınıfın iki kısıtlı türü daha var. İki-R-bir: on mikrosaniye ile yirmi beş milisaniye, ama yalnızca en çok yüz gigahertz uzaktaki bir kanala. İki-R-iki: aynı süre, en çok iki yüz gigahertz uzağa. Bu kısıtlı sınıflar, dar bir aralıkta hızlı ayar yapabilen, ama tüm bandı hızlı tarayamayan vericileri tanımlar; koruma ve yük dengeleme gibi senaryolar için yeterli olabilirler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3",
+   "file": "bb286e3716b_0.wav",
+   "duration": 25.52,
+   "text": "Neden bir aralık, tek bir değer değil? Çünkü süre teknolojiye bağlıdır. Isıl ayarlanan bir lazer yavaştır; başka yöntemler mikrosaniyelere iner. Standart bir teknolojiyi dayatmaz, sınıfları tanımlar ve kullanım durumlarını açık bırakır. Tablolar da alıcı ya da verici için belirli bir sınıfı zorunlu kılmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3a",
+   "file": "beffc41779d_0.wav",
+   "duration": 23.181,
+   "text": "Ayarın uzaydaki karşılığı spektral sapmadır. En büyük spektral sapma, nominal merkez dalga boyundan tek yönlü sapmadır: elli gigahertzlik kanal aralığında artı eksi on iki buçuk, yüzde artı eksi yirmi, iki yüzde artı eksi yirmi beş gigahertz. Bu sayı, ayar hatasını, spektral genişliği, kısa süreli kaymayı ve denetim hatalarını bir arada kapsar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3b",
+   "file": "b7acecf956f_0.wav",
+   "duration": 20.135,
+   "text": "Ayarlanabilir bir verici için bu sapma yalnızca durağan kanal durumunda uygulanır; yani verici bir kanalda yerleşmişken. Geçiş anında, yani bir kanaldan diğerine giderken, verici bu pencerenin dışına çıkar; bir sonraki perdede göreceğimiz gevşetilmiş maske tam da bu an içindir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4",
+   "file": "bf7cb72e9c1_0.wav",
+   "duration": 19.288,
+   "text": "Ayar granülerliği de sınırlıdır: en büyük ayar granülerliği kanal aralığının yirmide biridir. Yani elli gigahertzlik aralıkta iki buçuk gigahertzlik adımlarla ayarlayabilirsiniz. Alıcı tarafında da benzer biçimde, beşinci bölümde gördüğümüz gibi en çok beş gigahertzlik adımlar istenir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4a",
+   "file": "b7347bf0c78_0.wav",
+   "duration": 22.669,
+   "text": "Bir incelik daha: verici gücünün dalga boyuna bağımlılığı. Standart, bu bağımlılığı gigahertz başına artı eksi sıfır virgül sıfır iki desibelle sınırlar. Yani lazeri ayarladıkça çıkış gücünüz biraz kayar; bu kaymanın ölçülü kalması, tüm kanallarda güç bütçesinin tutması için gereklidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b5",
+   "file": "b0e2a08ddb0_0.wav",
+   "duration": 27.988,
+   "text": "Ayarlanabilirliğin sistem düzeyindeki karşılığı en küçük ayar penceresidir. Döngüsel bir dalga boyu çoklayıcı kullanılıyorsa bu pencere, N artı bir çarpı kanal aralığıdır; kullanılmıyorsa N eksi bir çarpı kanal aralığı artı iki çarpı en büyük spektral sapma. N, kanal sayısıdır. Yani ne kadar çok kanal, o kadar geniş bir ayar aralığı gerekir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b6",
+   "file": "bcc7da3c772_0.wav",
+   "duration": 21.368,
+   "text": "Bütün bunları birlikte düşünün: bir ONU vericisi, belki yirmi gigahertzlik bir pencereyi dört ya da sekiz kanala, gigahertzler mertebesinde bir adımla, mikrosaniyeler ya da milisaniyeler içinde yerleştirebilmeli; ve her kanalda güç, sönüm oranı ve spektral sınırları aynı anda sağlamalı. Renk değiştiren lazerin zorluğu buradadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7",
+   "file": "b6bf49de6d0_0.wav",
+   "duration": 24.248,
+   "text": "Mühendis notu. Bir: bir ONU'nun ayar sınıfını, uygulamanızın ihtiyacına göre seçin; koruma için birinci ya da iki-R sınıfı gerekebilir, ama tam band tarama için üçüncü sınıf yeterlidir. İki: spektral sapmayı durağan durumda ölçün; geçiş anındaki değer bu sınırın dışındadır ve ayrı değerlendirilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b8",
+   "file": "bb8d46ce4b6_0.wav",
+   "duration": 7.147,
+   "text": "Sıradaki: lazer bir renkten diğerine geçerken tam olarak ne yayar, ve bunu neden hoş görüyoruz?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 297.65
+}

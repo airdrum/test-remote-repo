@@ -1,0 +1,49 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "bb6acfd4752_0.wav",
+   "duration": 16.483,
+   "text": "Bölüm yedi: Renk Değiştiren Lazer. Bu bölümde NG-PON2'yi diğer bütün PON'lardan ayıran özelliği inceliyoruz: ONU'nun dalga boyunu, yani rengini değiştirebilmesi. Ayarlanabilirlik, hem fırsat hem yüktür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "bdd7c0f7ada_0.wav",
+   "duration": 14.609,
+   "text": "Önce ayarın kendisi: ayarlanabilir verici ve alıcı, ayar süresi sınıfları, en büyük spektral sapma ve ayar granülerliği. Standart ayar süresini üç sınıfa böler, ama bir mekanizmayı dayatmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b6d5d42650d_0.wav",
+   "duration": 14.279,
+   "text": "Sonra ayar sırasında spektrum: lazer bir renkten diğerine geçerken komşu kanallara ne yayar? Kanal dışı güç yoğunluğu maskesi, ve bu maskenin ayar anında neden gevşetildiği.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b2b1aeedd17_0.wav",
+   "duration": 14.347,
+   "text": "Ardından kalibrasyon: ONU'nun hangi iç ayar değerinin hangi dalga boyuna karşılık geldiğini nasıl öğrendiği ve koruduğu; aşağı yönde otonom, yukarı yönde OLT geri beslemesiyle.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b7fa5d953eb_0.wav",
+   "duration": 12.839,
+   "text": "TC köprüsünde kanal yönetimi: profil duyurusu, bir kanaldan diğerine planlı devir, ayar isteği ve yanıtı, ve yeni kanala kilitlenme. Burada O-sekiz ve O-dokuz durumlarıyla tanışacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b34bf429e0f_0.wav",
+   "duration": 7.189,
+   "text": "Laboratuvarda ayar süresini, burst içi dalga boyu kaymasını, ve ayar sırasındaki kanal dışı gücü ölçeceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 79.75
+}
