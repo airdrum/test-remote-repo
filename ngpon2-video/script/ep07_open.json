@@ -1,0 +1,32 @@
+{
+ "title": "B07 açılış",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm yedi: Renk Değiştiren Lazer. Bu bölümde NG-PON2'yi diğer bütün PON'lardan ayıran özelliği inceliyoruz: ONU'nun dalga boyunu, yani rengini değiştirebilmesi. Ayarlanabilirlik, hem fırsat hem yüktür."
+  },
+  {
+   "id": "o2",
+   "text": "Önce ayarın kendisi: ayarlanabilir verici ve alıcı, ayar süresi sınıfları, en büyük spektral sapma ve ayar granülerliği. Standart ayar süresini üç sınıfa böler, ama bir mekanizmayı dayatmaz."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra ayar sırasında spektrum: lazer bir renkten diğerine geçerken komşu kanallara ne yayar? Kanal dışı güç yoğunluğu maskesi, ve bu maskenin ayar anında neden gevşetildiği."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından kalibrasyon: ONU'nun hangi iç ayar değerinin hangi dalga boyuna karşılık geldiğini nasıl öğrendiği ve koruduğu; aşağı yönde otonom, yukarı yönde OLT geri beslemesiyle."
+  },
+  {
+   "id": "o5",
+   "text": "TC köprüsünde kanal yönetimi: profil duyurusu, bir kanaldan diğerine planlı devir, ayar isteği ve yanıtı, ve yeni kanala kilitlenme. Burada O-sekiz ve O-dokuz durumlarıyla tanışacağız."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda ayar süresini, burst içi dalga boyu kaymasını, ve ayar sırasındaki kanal dışı gücü ölçeceğiz."
+  }
+ ]
+}

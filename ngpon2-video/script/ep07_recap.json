@@ -1,0 +1,20 @@
+{
+ "title": "B07 özet",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: ayar sırasında ONU'nun kanal dışı güç maskesi neden gevşetilir? Çünkü lazer bir dalga boyundan diğerine fiziksel olarak süpürülürken, kaçınılmaz biçimde arada kalan kanalların üstünden geçer. Standart bu kısa geçişi yasaklamak yerine, D ekinde sınırlı bir gevşeme tanımlar; ayar kısadır ve OLT tarafından koordine edilir, böylece komşu kanallara verilen geçici rahatsızlık sınırlı kalır."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: ayar süresi neden tek bir değerle değil, bir aralıkla tanımlanır? Çünkü ayar süresi mekanizmaya bağlıdır: ısıl ayar yavaş, başka yöntemler hızlıdır. Standart bir teknolojiyi dayatmak yerine, kullanım durumlarını mümkün kılan sınıflar tanımlar. Birinci sınıf on mikrosaniyenin altı; ikinci sınıf on mikrosaniye ile yirmi beş milisaniye; üçüncü sınıf yirmi beş milisaniye ile bir saniye. Aralık, aynı sınıf içinde farklı gerçeklemelere yer bırakır."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: fiziksel katman ayar süresiyle TC katmanı ayar süresi neden farklıdır? Fiziksel süre yalnızca lazerin ya da filtrenin oturmasıdır. TC katmanı süresi ise üç parçanın toplamıdır: hazırlık, fiziksel ayar, ve yeniden senkron. ONU, yeni kanalda çerçeve senkronunu kurup atama aldığında ayarını tamamlamış sayılır; lazer ne kadar hızlı olursa olsun, bu üç adım bitmeden geçiş tamamlanmaz. Şimdi bu bölüme."
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "title": "B07 Perde 1 — Ayarlanabilirlik",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: ayarlanabilirlik. NG-PON2'de her ONU, hem vericisini hem alıcısını dalga boyunda ayarlayabilir. Verici, istenen yukarı yön kanalında ışımak üzere ayarlanır; alıcı, istenen aşağı yön kanalını seçmek üzere. Bu, önceki PON'larda olmayan bir serbestliktir, ve beraberinde bir sorumluluk getirir."
+  },
+  {
+   "id": "b1a",
+   "text": "Standart iki denetim mekanizmasına izin verir. Birincisinde dalga boyunu OLT yönetir; ONU ve OLT etkileşir. İkincisinde ONU dalga boyunu tümüyle kendi denetler. Ayar sürecinin mekanizması standardın kapsamı dışındadır; ama standart şunu ister: ayar boyunca onuncu ve on birinci maddedeki bütün optik sınırlar sağlanmalı, yani ONU hiçbir anda kekeme, yani rogue, davranmamalıdır."
+  },
+  {
+   "id": "b2",
+   "text": "Ayarın ne kadar sürdüğü kullanım durumunu belirler. Standart, dalga boyu kanalı ayar süresini Tablo dokuz iki'de sınıflara böler. Birinci sınıf: on mikrosaniyenin altında, herhangi bir kanaldan herhangi bir kanala. İkinci sınıf: on mikrosaniye ile yirmi beş milisaniye arası. Üçüncü sınıf: yirmi beş milisaniye ile bir saniye arası."
+  },
+  {
+   "id": "b2a",
+   "text": "İkinci sınıfın iki kısıtlı türü daha var. İki-R-bir: on mikrosaniye ile yirmi beş milisaniye, ama yalnızca en çok yüz gigahertz uzaktaki bir kanala. İki-R-iki: aynı süre, en çok iki yüz gigahertz uzağa. Bu kısıtlı sınıflar, dar bir aralıkta hızlı ayar yapabilen, ama tüm bandı hızlı tarayamayan vericileri tanımlar; koruma ve yük dengeleme gibi senaryolar için yeterli olabilirler."
+  },
+  {
+   "id": "b3",
+   "text": "Neden bir aralık, tek bir değer değil? Çünkü süre teknolojiye bağlıdır. Isıl ayarlanan bir lazer yavaştır; başka yöntemler mikrosaniyelere iner. Standart bir teknolojiyi dayatmaz, sınıfları tanımlar ve kullanım durumlarını açık bırakır. Tablolar da alıcı ya da verici için belirli bir sınıfı zorunlu kılmaz."
+  },
+  {
+   "id": "b3a",
+   "text": "Ayarın uzaydaki karşılığı spektral sapmadır. En büyük spektral sapma, nominal merkez dalga boyundan tek yönlü sapmadır: elli gigahertzlik kanal aralığında artı eksi on iki buçuk, yüzde artı eksi yirmi, iki yüzde artı eksi yirmi beş gigahertz. Bu sayı, ayar hatasını, spektral genişliği, kısa süreli kaymayı ve denetim hatalarını bir arada kapsar."
+  },
+  {
+   "id": "b3b",
+   "text": "Ayarlanabilir bir verici için bu sapma yalnızca durağan kanal durumunda uygulanır; yani verici bir kanalda yerleşmişken. Geçiş anında, yani bir kanaldan diğerine giderken, verici bu pencerenin dışına çıkar; bir sonraki perdede göreceğimiz gevşetilmiş maske tam da bu an içindir."
+  },
+  {
+   "id": "b4",
+   "text": "Ayar granülerliği de sınırlıdır: en büyük ayar granülerliği kanal aralığının yirmide biridir. Yani elli gigahertzlik aralıkta iki buçuk gigahertzlik adımlarla ayarlayabilirsiniz. Alıcı tarafında da benzer biçimde, beşinci bölümde gördüğümüz gibi en çok beş gigahertzlik adımlar istenir."
+  },
+  {
+   "id": "b4a",
+   "text": "Bir incelik daha: verici gücünün dalga boyuna bağımlılığı. Standart, bu bağımlılığı gigahertz başına artı eksi sıfır virgül sıfır iki desibelle sınırlar. Yani lazeri ayarladıkça çıkış gücünüz biraz kayar; bu kaymanın ölçülü kalması, tüm kanallarda güç bütçesinin tutması için gereklidir."
+  },
+  {
+   "id": "b5",
+   "text": "Ayarlanabilirliğin sistem düzeyindeki karşılığı en küçük ayar penceresidir. Döngüsel bir dalga boyu çoklayıcı kullanılıyorsa bu pencere, N artı bir çarpı kanal aralığıdır; kullanılmıyorsa N eksi bir çarpı kanal aralığı artı iki çarpı en büyük spektral sapma. N, kanal sayısıdır. Yani ne kadar çok kanal, o kadar geniş bir ayar aralığı gerekir."
+  },
+  {
+   "id": "b6",
+   "text": "Bütün bunları birlikte düşünün: bir ONU vericisi, belki yirmi gigahertzlik bir pencereyi dört ya da sekiz kanala, gigahertzler mertebesinde bir adımla, mikrosaniyeler ya da milisaniyeler içinde yerleştirebilmeli; ve her kanalda güç, sönüm oranı ve spektral sınırları aynı anda sağlamalı. Renk değiştiren lazerin zorluğu buradadır."
+  },
+  {
+   "id": "b7",
+   "text": "Mühendis notu. Bir: bir ONU'nun ayar sınıfını, uygulamanızın ihtiyacına göre seçin; koruma için birinci ya da iki-R sınıfı gerekebilir, ama tam band tarama için üçüncü sınıf yeterlidir. İki: spektral sapmayı durağan durumda ölçün; geçiş anındaki değer bu sınırın dışındadır ve ayrı değerlendirilir."
+  },
+  {
+   "id": "b8",
+   "text": "Sıradaki: lazer bir renkten diğerine geçerken tam olarak ne yayar, ve bunu neden hoş görüyoruz?"
+  }
+ ]
+}

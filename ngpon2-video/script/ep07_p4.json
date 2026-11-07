@@ -1,0 +1,60 @@
+{
+ "title": "B07 Perde 4 — TC Köprüsü: kanal yönetimi",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört, TC köprüsü. Fiziksel katmanda ayarın ne olduğunu gördük. Şimdi G.989.3'e geçip kanal yönetimini işleyelim: ONU kanalları nereden öğrenir, bir kanaldan diğerine nasıl taşınır, ve yeni kanalda nasıl kilitlenir."
+  },
+  {
+   "id": "e1a",
+   "text": "Her şey profil duyurusuyla başlar. OLT, her aşağı yön kanalında onaysız yayın PLOAM mesajlarıyla profilleri sürekli yayınlar: tek bir sistem profili, her kanal çifti için bir kanal profili, ve bant genişliği haritalarında anılan her burst profili için bir burst profili. Kanal başına sekize kadar burst profili olabilir."
+  },
+  {
+   "id": "e2",
+   "text": "Bu profiller belirli aralıklarla, bir ile beş saniye arasında bir periyotla tekrarlanır. Böylece yeni gelen bir ONU, kaçırdığı bir profili kısa sürede yeniden yakalar. ONU, etkinleşme durum makinesinde O-bir-iki durumuna ulaşınca profilleri öğrenmeye başlar, ve aşağı yön senkronunu koruduğu sürece öğrenmeyi sürdürür."
+  },
+  {
+   "id": "e2a",
+   "text": "Kanal profili, bir kanalın kimliğini, aşağı ve yukarı yön tanımlayıcılarını, hat hızını, FEC durumunu ve kanal bölümü indeksini taşır. Kanal bölümü önemlidir: ONU'lar çalışma sırasında bir bölüm içindeki kanallar arasında yeniden ayarlanabilir, ama bölüm sınırlarını aşamaz. Operatör, ağı bu bölümlerle parçalara ayırır."
+  },
+  {
+   "id": "e3",
+   "text": "Şimdi devir. Planlı bir kanal devri; yük dengeleme, OLT güç tasarrufu, kademeli büyüme, ya da kekeme ONU yalıtımı için yapılabilir. OLT, ONU'ya bir ayar denetimi PLOAM mesajı gönderir: hedef aşağı ve yukarı yön kanalları, ayarın başlayacağı zamanı belirten bir zamanlanmış süper çerçeve sayacı değeri, ve geri alma desteği."
+  },
+  {
+   "id": "e3a",
+   "text": "ONU, isteği değerlendirir. Kabul ederse ayar yanıtı onay mesajıyla yanıtlar ve hazırlığa başlar. Kabul edemezse, örneğin zamanlanmış sayaç çok yakınsa, bir ret mesajıyla uygun bir kodla geri çevirir. Ret kodları standarttadır: iç kısıt, hedef kanalın geçersiz tanımı, bölüm uyuşmazlığı, ayar aralığının dışında olması, hat hızı ya da hat kodu uyuşmazlığı."
+  },
+  {
+   "id": "e4",
+   "text": "Zamanlama zariftir. ONU, kendi yerel süper çerçeve sayacının en düşük on altı biti, zamanlanmış değere eşit olunca ayara başlar. Yani OLT, gelecekteki kesin bir çerçeveyi işaret eder; hem OLT hem ONU aynı sayaçla çalıştığı için, ayar ikisinde de tam aynı anda başlar."
+  },
+  {
+   "id": "e4a",
+   "text": "Arka planda iki OLT kanal sonlandırması, kanallar arası sonlandırma protokolüyle el sıkışır: kaynak sonlandırma ayar-çıkış, hedef sonlandırma ayar-giriş indikasyonunu alır. ONU, kaynağın gözetiminden hedefin gözetimine geçer. Durum makinesinde ONU O-beş'ten O-sekiz'e, oradan O-dokuz'a geçer; başarıyla tamamlarsa yeni kanalda yeniden hizmet durumuna döner."
+  },
+  {
+   "id": "e5",
+   "text": "ONU yeni kanalda aşağı yön senkronunu kurunca, bant genişliği haritasını ayrıştırır ve bir tamamlandı yanıtı gönderir. Ayar başarısız olursa, ve OLT geri almayı desteklediyse, ONU vericisini eski kanala döndürüp bir geri alma yanıtıyla kaynağa döndüğünü bildirir. Yani devir, güvenli bir geri çekilme yoluyla tasarlanmıştır."
+  },
+  {
+   "id": "e5a",
+   "text": "Devir tamamlandığında güvenlik anahtarları da yenilenir. ONU, aşağı yön burst profili mesajındaki kriptografik etiketi değiştiğinde oturum anahtarını, bütünlük anahtarlarını ve anahtar şifreleme anahtarını yeniden türetir. Böylece yeni kanal, yalnızca dalga boyu değil, kriptografik bağlam olarak da yeni bir başlangıçtır."
+  },
+  {
+   "id": "e6",
+   "text": "Son olarak kilitleme. On yedinci maddenin dördüncü alt bölümü, ONU'nun dalga boyu kanalına kilitlenmesini tanımlar: ONU, hedef kanalda oturup orada kararlı kalmayı güvence altına alır. TC katmanı ayar süresi de buradan anlam kazanır; beşinci bölümde dediğimiz gibi, hazırlık, fiziksel ayar ve yeniden senkronun toplamıdır. Lazer ne kadar hızlı olursa olsun, kilitleme bitmeden geçiş tamamlanmaz."
+  },
+  {
+   "id": "e7",
+   "text": "Mühendis notu. Bir: bir devri incelerken zamanlanmış süper çerçeve sayacına bakın; ayarın OLT ile ONU'da aynı anda başlaması buna bağlıdır, ve çoğu başarısız devir burada, çok yakın zamanlanmış bir sayaçta kırılır. İki: geri alma desteğini her zaman açık tutun; başarısız bir devirde ONU'nun eski kanala dönebilmesi, bir aboneyi kaybetmekle kurtarmak arasındaki farktır."
+  },
+  {
+   "id": "e8",
+   "text": "Sıradaki: laboratuvar. Ayar süresini, burst içi dalga boyu kaymasını, ve ayar sırasındaki kanal dışı gücü nasıl ölçeriz?"
+  }
+ ]
+}

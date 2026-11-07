@@ -1,0 +1,52 @@
+{
+ "title": "B07 Perde 3 — Kalibrasyon",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: kalibrasyon. Ayarlanabilir bir ONU'nun içinde, lazeri ve filtreyi süren bir denetim parametresi vardır: bir akım, bir sıcaklık, bir gerilim. Kalibrasyon, bu iç parametrenin hangi değerinin hangi dalga boyu kanalına karşılık geldiğini bilmektir. Bu eşlemeye kalibrasyon kaydı denir."
+  },
+  {
+   "id": "d1a",
+   "text": "Kalibrasyon önceden ya da hizmet sırasında yapılabilir. Standart üç tür ONU'ya yer açar: önceden kalibre edilmiş ve dalga boyunu kendi kararlı tutan; önceden kalibre edilmiş ama dışarıdan ayarlanabilen; ve hiç önceden kalibre edilmemiş. TC katmanı, bu geniş yelpazeyi destekleyecek bir araç kutusu sunar."
+  },
+  {
+   "id": "d2",
+   "text": "Aşağı yön kalibrasyonu kolaydır, çünkü geri besleme döngüsünü ONU tek başına kapatabilir. Önceden kalibre edilmemiş bir ONU, alıcı ayar aralığını tarar; sinyal bulduğu yerde senkronize olur; kanal profili duyurusundan o kanalın parametrelerini okur; ve bu parametrelerle kendi iç ayar değerini eşleyip kaydeder. OLT'den özel bir yardım gerekmez."
+  },
+  {
+   "id": "d2a",
+   "text": "Hizmet sırasında ince ayar için zarif bir yöntem önerilir: dithering. ONU, iç ayar parametresine küçük genlikli bir titreşim ekler, ve alınan sinyal kalitesini en iyi yapan noktayı izler. Böylece sıcaklık ya da yaşlanma dalga boyunu kaydırdıkça, ONU kendini sessizce yeniden ortalar."
+  },
+  {
+   "id": "d3",
+   "text": "Yukarı yön kalibrasyonu daha zordur, çünkü ONU kendi yukarı yön ışığını duyamaz; geri beslemeyi yalnızca OLT verebilir. ONU, etkinleşme sırasında O-iki-üç durumunda, ya da ayar sırasında O-dokuz durumunda, OLT'nin seçtiği bir kanala en iyi çabayla ayarlanır, gönderir, ve OLT'den dönüş bekler. OLT'nin geri beslemesiyle kalibrasyon kaydını düzeltir."
+  },
+  {
+   "id": "d3a",
+   "text": "Burada bir tavuk-yumurta sorunu var: yeterince kalibre olmamış bir ONU, yukarı yönde denerken komşuları rahatsız edebilir. Standardın çözümü şudur: OLT, bu riskli ilk denemeleri bant içi yerine yardımcı yönetim ve denetim kanalı üzerinden yaptırabilir. Sistem profilinde ise, bant içi denemelere izin vermek için ONU'nun sağlaması gereken en düşük kalibrasyon doğruluğunu duyurur."
+  },
+  {
+   "id": "d4",
+   "text": "İki sistem parametresi bu süreci yönetir. Kalibrasyon doğruluğu: bant içi etkinleşmeye geçmek için bir ONU'nun ulaşması gereken en düşük doğruluk. Gevşek kalibrasyon sınırı: bir ONU'nun hangi spektral sapmanın altında gevşek kalibre sayılacağı. İkisi de dalga boyu çoklayıcısının özelliklerine bağlıdır ve OLT tarafından duyurulur."
+  },
+  {
+   "id": "d4a",
+   "text": "Döngüsel bir dalga boyu çoklayıcı kullanılıyorsa, serbest spektral aralık da sistem profilinde duyurulur. Döngüsel çoklayıcı, aynı iç ayarla birden çok periyodik frekansa denk gelebilir; ONU hangi periyotta çalıştığını bilmelidir. Kullanılmıyorsa bu alan sıfırdır."
+  },
+  {
+   "id": "d5",
+   "text": "Kalibrasyonun özü güvendir: OLT, bir ONU'ya bir kanala geç dediğinde, ONU'nun gerçekten o kanala, kabul edilebilir bir doğrulukla gideceğine güvenebilmelidir. Kalibrasyon kaydı bu güvenin karşılığıdır; ne kadar iyi tutulursa, ayar o kadar hızlı ve güvenli olur."
+  },
+  {
+   "id": "d6",
+   "text": "Mühendis notu. Bir: kalibrasyon kaydını statik bir tablo değil, yaşayan bir kayıt olarak düşünün; dithering ile hizmet sırasında güncellenmelidir. İki: bir kanal devre dışı bırakıldığında ONU, o kanalın kalibrasyon kaydını geçersiz kılmalıdır; eski bir kayda güvenmek, yanlış dalga boyuna gitmenin en kolay yoludur."
+  },
+  {
+   "id": "d7",
+   "text": "Sıradaki: ONU kalibreli ve hazır. Peki OLT, onu bir kanaldan diğerine nasıl, hangi sözcüklerle taşır?"
+  }
+ ]
+}
