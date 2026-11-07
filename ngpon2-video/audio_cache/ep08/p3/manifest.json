@@ -1,0 +1,84 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "b4bb871453f_0.wav",
+   "duration": 23.167,
+   "text": "Perde üç: güç dengeleme. Birinci perdede OLT'nin yirmi bir desibellik bir dinamik aralıkla boğuştuğunu gördük. Bu aralığı alıcıyı daha iyi yaparak kapatabiliriz; ama daha zarif bir yol var: yakın ONU'ya, zaten fazla olan gücünü kısmasını söylemek. Buna güç dengeleme, kısaca PL denir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d1a",
+   "file": "b3c0330da1c_0.wav",
+   "duration": 22.879,
+   "text": "Fikir basit. En yakın ONU OLT'ye güçlü gelir, en uzak ONU zayıf. Eğer yakın ONU gücünü, fazlalığı kadar kısarsa, ikisi OLT'ye daha yakın düzeylerde varır. Böylece OLT'nin görünür diferansiyel yol kaybı, yani kaldırması gereken aralık daralır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "b831bc9b871_0.wav",
+   "duration": 16.799,
+   "text": "ONU bunu kendi başına nasıl yapar? Aşağı yönde aldığı gücü, yani RSSI'yi ölçerek. Yüksek RSSI, OLT'ye yakın olduğunu gösterir. Standardın D eki, otonom güç dengeleme için örnek bir kural verir, üç desibellik adımlarla.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2a",
+   "file": "b0e4d5f2df5_0.wav",
+   "duration": 24.929,
+   "text": "Kurallar şöyle. Alınan güç eksi yedi dBm'den büyük ya da eşitse, on iki desibel kısma. Eksi yedi ile eksi on arasında, dokuz desibel. Eksi on ile eksi on üç arasında, altı. Eksi on üç ile eksi on altı arasında, üç. Eksi on altının altında ise sıfır; yani uzak ONU tam gücünde gönderir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "b0e3a55bdc3_0.wav",
+   "duration": 30.079,
+   "text": "Neden en fazla on iki desibel, on beş değil? Çünkü diferansiyel yol kaybı on beş desibel olsa da, ONU'nun RSSI okuması artı eksi üç desibel belirsizdir. Bu belirsizlikten emin olmak için en büyük kısma, on beş eksi üç, yani on iki desibelde tutulur. ONU asla, yanlış bir okumayla kendini OLT'nin hassasiyetinin altına düşürmemelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3a",
+   "file": "b8767ff5a1b_0.wav",
+   "duration": 24.649,
+   "text": "Güç dengelemenin bir yan faydası daha var. Yakın ONU'lar gücünü kıstığında, kanal dışı ve bant dışı güç yoğunlukları da düşer. Bu yüzden D eki, güç dengeleme yapan ONU'lar için bu maskelerin gevşetilebileceğini söyler. Örnek: on iki desibellik kısma, yan mod bastırma gereksinimini elli dört virgül yediden kırk iki virgül yediye indirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "bef54e00fbe_0.wav",
+   "duration": 20.412,
+   "text": "Önemli bir koşul: bu gevşeme yalnızca bütün ONU'lar güç dengeleme yaparsa tam işler. Ağda dengeleme yapan ve yapmayan ONU'lar karışıksa, yalnızca güç yoğunluğu gereksinimleri gevşetilebilir; aşırı yük ve yalıtım gibi sınırlar, en kötü ONU'ya göre kalır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4a",
+   "file": "b1e9b12bf52_0.wav",
+   "duration": 23.96,
+   "text": "On iki desibelden fazlası gerekirse, OLT yönlendirmesi devreye girer. OLT, aşağı yön mesajlarıyla ONU'ya gücünü artır ya da azalt der; bu, otonom yöntemin üstüne altı ila dokuz desibel daha kazandırabilir. Bu yönlendirmeli kip TC katmanı yeteneği gerektirir ve G.989.3'e dayanır; standartta bir kısmı hâlâ incelemeye açıktır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "b03bfb3bf09_0.wav",
+   "duration": 24.205,
+   "text": "Güç dengeleme tamamlandığında ONU, mesafe ölçümünden sonra OLT'ye bir mesaj gönderip hangi kipte ve hangi düzeyde dengeleme yaptığını bildirir. Böylece OLT, o ONU'dan beklediği güç düzeyini bilir ve alıcısını ona göre hazırlar. Dengeleme, ONU ile OLT arasında sessiz bir anlaşmadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "b2f55a1548f_0.wav",
+   "duration": 25.993,
+   "text": "Mühendis notu. Bir: güç dengelemeyi RSSI doğruluğuyla birlikte düşünün; artı eksi üç desibellik belirsizlik, neden on iki desibelde durulduğunu açıklar, ve sahada güç ölçerinizin ek kaybının ONU'yu bir üst adıma atlatabileceğini unutmayın. İki: dengeleme yapan ve yapmayan ONU'ları aynı ağda karıştırıyorsanız, hangi gevşemelerin geçerli olduğunu dikkatle ayırın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "baf42749748_0.wav",
+   "duration": 10.332,
+   "text": "Sıradaki: alıcı hazır, güçler dengeli. Peki yepyeni bir ONU ağa ilk kez katıldığında, bu kalabalığa nasıl, kekeme olmadan karışır?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 247.4
+}

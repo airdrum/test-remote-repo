@@ -1,0 +1,91 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "b1",
+   "file": "b8eafdd9d69_0.wav",
+   "duration": 22.793,
+   "text": "Perde bir: OLT burst alıcısı. ONU alıcısı sürekli bir sinyali dinler; bir kez oturur, öyle kalır. OLT alıcısı ise tam tersi bir dünyada yaşar: her yüz yirmi beş mikrosaniyede, farklı ONU'lardan gelen bir dizi kısa patlama; her biri farklı güçte, farklı fazda, aralarında karanlık boşluklarla.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b1a",
+   "file": "bca36fa5e40_0.wav",
+   "duration": 22.036,
+   "text": "İki zorluk var. Birincisi dinamik aralık: en yakın ile en uzak ONU arasındaki güç farkını tek bir alıcıyla kaldırmak. İkincisi edinim: her burst'ün başında, önceki burst'ü unutup yeni güce ve faza sıfırdan kilitlenmek. İkisi de sürekli bir alıcının hiç karşılaşmadığı sorunlardır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2",
+   "file": "b9cc1fb9e20_0.wav",
+   "duration": 31.227,
+   "text": "Önce dinamik aralık. Yukarı yön tablosunda OLT alıcısının iki sınırı var: hassasiyet ve aşırı yük. On gigabitte, A tipi bağlantıda, hassasiyet N1 için eksi yirmi altı, N2 için eksi yirmi sekiz, E1 için eksi otuz buçuk dBm. Aşırı yük ise N1'de eksi beş, N2'de eksi yedi, E1'de eksi dokuz. İkisi arasındaki fark, alıcının kaldırması gereken güç penceresidir: yaklaşık yirmi bir desibel.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2a",
+   "file": "baf931ea3bf_0.wav",
+   "duration": 26.036,
+   "text": "Bu yirmi bir desibel nereden gelir? On beş desibeli diferansiyel yol kaybından: en yakın ve en uzak ONU, kendi sınıfının en küçük ve en büyük yol kaybındadır. Üstüne ONU vericileri arasındaki güç farkı ve çeşitli paylar eklenir. Önemli olan: bu fark burst'ten burst'e, yani mikrosaniyeler içinde değişebilir; alıcı kazancını her patlamaya göre yeniden ayarlamalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3",
+   "file": "b32ec0b4881_0.wav",
+   "duration": 26.309,
+   "text": "Referans hata oranına dikkat edin: yukarı yönde on üzeri eksi üç, FEC öncesi. Bu, aşağı yöndeki on üzeri eksi dörtten gevşektir. Neden? Çünkü burst modu alıcının işi zaten zordur; standart, farkı FEC'in kapatmasına güvenir. Altıncı bölümdeki Reed-Solomon kodu, bu ham hata oranını hizmet kalitesine çevirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3a",
+   "file": "b8869e3e56a_0.wav",
+   "duration": 19.885,
+   "text": "Üçüncü bir sınır daha var: bant içi karışma toleransı. On gigabitte yaklaşık yirmi dört ile yirmi altı desibel, on beş gigahertz başına. Bu, hedef ONU'nun burst'üne kendi bandında binen istenmeyen ışığa karşı toleranstır; özellikle kekeme ya da yanlış ayarlanmış bir ONU'nun katkısını sınırlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4",
+   "file": "b0f8a14ce31_0.wav",
+   "duration": 25.712,
+   "text": "Şimdi edinim. OLT alıcısı her burst'ün önsözünü iki iş için kullanır. Önce seviye kurtarma: bu burst'ün bir ve sıfır düzeylerini ölçüp karar eşiğini ayarlamak. Sonra saat kurtarma: önsözün değişen bitlerinden faz ve frekansı çıkarmak. Ancak bu ikisi tamamlandıktan sonra alıcı veriyi doğru okuyabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4a",
+   "file": "bb1dc6ea093_0.wav",
+   "duration": 27.945,
+   "text": "Edinim tasarımı bir denge sorunudur. Çok hızlı alıcılar vardır, ama dış tetik sinyali gerektirir ve hata başarımı daha kötüdür. Daha yavaş alıcılar sıfırlama sinyali gerektirmez ve normal dağılımlı hatalar üretir. Her tasarım, önsözün desenine ve uzunluğuna farklı taleplerle gelir; işte bu yüzden önsöz sabit değil, OLT tarafından profil olarak ayarlanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b5",
+   "file": "bf08b8d0a37_0.wav",
+   "duration": 22.559,
+   "text": "Burada altıncı bölümdeki burst profili geri döner. OLT, kendi alıcısının ihtiyacına göre önsöz ve sınırlayıcı uzunluğunu seçer. Oturmuş, gücü bilinen bir ONU'ya kısa önsöz; yeni etkinleşen, henüz hizalanmamış bir ONU'ya uzun önsöz verir. Alıcının zorluğu, doğrudan önsöz bütçesine yazılır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b6",
+   "file": "b476115083c_0.wav",
+   "duration": 24.568,
+   "text": "OLT'nin alınan gücü ölçmesi de özeldir. Standart, OLT'nin ölçtüğü değerin burst sırasındaki ortalama güç olduğunu söyler; yani OLT, ölçümü gelen burst'e göre doğru anda, yeterince uzun bir burst üzerinde yapmalıdır. Yanıt süresi üç yüz nanosaniye, doğruluk artı eksi iki desibel mertebesindedir; düşük doluluk oranının getirdiği sapma bu doğruluğa yazılmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7",
+   "file": "b0822e246b7_0.wav",
+   "duration": 25.368,
+   "text": "Mühendis notu. Bir: dinamik aralığı tek bir güçte değil, hem aşırı yük hem hassasiyet ucunda, burst'ten burst'e sıçrayan gerçek bir desende doğrulayın. İki: edinim süresini önsöz uzunluğuyla birlikte düşünün; alıcınız ne kadar hızlıysa, OLT o kadar kısa önsöz atayıp yukarı yön verimini artırabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b8",
+   "file": "b40984f63c8_0.wav",
+   "duration": 6.36,
+   "text": "Sıradaki: önsöz ne kadar uzun olmalı? Sınırlayıcı kaç bit? Bu bütçeyi standart nasıl böler?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 280.8
+}

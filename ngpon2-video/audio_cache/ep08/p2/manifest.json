@@ -1,0 +1,91 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b2ca24b798c_0.wav",
+   "duration": 20.756,
+   "text": "Perde iki: önsöz ekonomisi. Her burst'ün başındaki ek yük, veriye ayrılmayan zamandır; ne kadar kısa olursa yukarı yön o kadar verimli. Ama çok kısa olursa alıcı kilitlenemez. Standardın üçüncü eki bu dengeyi, fiziksel katman ek yük zamanı Tplo adıyla ele alır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c1a",
+   "file": "b75093927de_0.wav",
+   "duration": 17.767,
+   "text": "Tplo beş fiziksel işe yer açar: lazer açılma ve kapanma, zamanlama sürüklenmesi toleransı, seviye kurtarma, saat kurtarma, ve burst başlangıcının sınırlanması. Bu süre üçe bölünür: gard süresi, önsöz süresi, ve sınırlayıcı süresi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "bf0ad21ca43_0.wav",
+   "duration": 23.64,
+   "text": "Gard süresinde ONU hiçbir şey göndermez, nominal sıfır düzeyinde kalır; bu, iki burst'ün çakışmasını önler. Önsöz süresinde ONU, hızlı seviye ve saat kurtarma için önceden belli bir desen gönderir. Sınırlayıcı süresinde ise, OLT'nin gövdenin tam başlangıcını bulmasını sağlayan, iyi özbağlaşımlı özel bir sözcük gönderir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "b49f1edf257_0.wav",
+   "duration": 24.44,
+   "text": "Gard süresinin sınırı iki kısıttan gelir. Birincisi: gard, bir sonraki burst'ün açılma süresi artı zamanlama belirsizliğinden büyük olmalı, ki yeni lazerin açılması önceki burst'ün verisine binmesin. İkincisi: gard, önceki burst'ün kapanma süresi artı belirsizlikten büyük olmalı, ki eski lazerin sönme kuyruğu yeni önsöze düşmesin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3a",
+   "file": "ba939a4e8b4_0.wav",
+   "duration": 24.109,
+   "text": "Sayılarla, on gigabitte iki uç. En kötü durum tahsisi: toplam sekiz bin yüz doksan iki bit, yani sekiz yüz yirmi üç nanosaniye; bunun iki bin kırk sekizi gard, altı bin sekseni önsöz, altmış dördü sınırlayıcı. Hedef tahsis ise çok daha sıkı: toplam iki bin kırk sekiz bit, iki yüz altı nanosaniye; beş yüz on iki gard, bin iki yüz seksen önsöz, otuz iki sınırlayıcı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3b",
+   "file": "b3bbb5c6413_0.wav",
+   "duration": 20.067,
+   "text": "Aradaki uçurum dikkat çekicidir: en kötü önsöz altı bin seksen bit, hedef önsöz bin iki yüz seksen. Dört kattan fazla fark. Bu, alıcı teknolojisinin doğrudan karşılığıdır: iyi tasarlanmış, hızlı kilitlenen bir OLT alıcısı, önsözü dörtte bire indirip yukarı yön verimini belirgin biçimde artırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "b00293d6602_0.wav",
+   "duration": 24.937,
+   "text": "Sınırlayıcının uzunluğu da hesaplıdır. Sınırlayıcı, bir bit hata deseni içinde bile güvenle bulunabilmelidir. Bit sayısı N ile tolere edilen hata sayısı E arasında yaklaşık bir ilişki vardır: E, N bölü dördün tam kısmı, eksi bir. Yani sınırlayıcı uzadıkça, daha fazla hataya rağmen bulunabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4a",
+   "file": "b8f6e23ba6b_0.wav",
+   "duration": 23.913,
+   "text": "Ne kadar uzun yeter? Standart, on üzeri eksi dört hata oranında ciddi hatalı burst olasılığını N'ye göre tablolar. Sonuç: sınırlayıcının en az on altı bit olması gerekir; on altı bitte bu olasılık on üzeri eksi on üç mertebesine iner. On altının altında, sınırlayıcının kendisi güvenilmez bir kilit noktası olur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "bd7a40e991c_0.wav",
+   "duration": 23.373,
+   "text": "Bütün bu ayrıntılar, altıncı bölümdeki burst profilinde toplanır. Profil, önsözün uzunluğunu ve desenini, sınırlayıcının uzunluğunu ve desenini, ve FEC'in açık olup olmadığını birlikte belirler. OLT bu profilleri önceden kurar ve her bursta birini seçer; önsöz ekonomisi, işte bu seçimle her çerçevede yeniden yapılır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "b534fac9019_0.wav",
+   "duration": 30.879,
+   "text": "Bir operasyonel incelik: OLT, bağlama göre farklı profiller isteyebilir. Yeni etkinleşen bir ONU'nun mesafe ölçüm burst'ünü yakalamak, oturmuş bir ONU'yu dinlemekten zordur; ona uzun önsözlü, belki FEC'li bir profil verilir. Yüksek güçlü, kolay yakalanan bir ONU'ya ise kısa ve FEC'siz profil yeter. Önsöz ve sınırlayıcı desenleri bursta göre değişince, OLT bunu burst'ün biçimini bant içinde tanımak için de kullanabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "b87b9f76235_0.wav",
+   "duration": 22.392,
+   "text": "Mühendis notu. Bir: önsöz ve sınırlayıcıyı en kötü değerlerle sabitlemeyin; alıcınızın gerçek edinim süresini ölçün ve profilleri ona göre kısaltın, her kısalan bit yukarı yön verimine yazılır. İki: sınırlayıcıyı on altı bitin altına indirmeyin; birkaç bit tasarruf, güvenilmez bir kilit noktasına değmez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "b4e160d8940_0.wav",
+   "duration": 9.319,
+   "text": "Sıradaki: alıcıyı rahatlatmanın bir yolu da vericiden geçer. Yakın bir ONU, gücünü kısarak OLT'ye yardım edebilir mi?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 265.59
+}
