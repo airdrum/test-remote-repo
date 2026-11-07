@@ -28,6 +28,13 @@ Kullanıcı "ses üretelim" dediğinde **her zaman** yerel XTTS-v2 kullanılır;
   Kısaltma takası riski için `tools/acro_check.py`.
 - Lisans: Coqui Public Model License — **ticari kullanım yok**. Jeneriklerde seslendirme "Coqui XTTS-v2 — ses: <konuşmacı>" olarak yazılır.
 
+## Yerel tam üretim (GPU'lu PC'de, tek komut)
+
+Sahne kodu git'te hazır olan bölümler için: `cd ngpon2-video && git pull && bash tools/local_all.sh 09 10 11 …`
+→ her bölüm için sırayla XTTS seslendirme → `audio_cache` (commit + push) → ses hazırlama (tempo 0.93) → 1080p30 render →
+birleştirilmiş MP4 `deliverables/B<NN>/` altında. `PY` = manim'li python (Windows'ta gerekirse `PY=/c/Python310/python.exe`).
+Hata olursa betik durur ve hangi log'a bakılacağını yazar. Sahneleri biten bölümler: `plan/epNN_order.json` olanlar.
+
 ## Diğer kurallar
 
 - Commit'lerde model adı yazma. 100 MB üstü MP4'ler git'e girmez (kullanıcıya dosya olarak gönderilir).
