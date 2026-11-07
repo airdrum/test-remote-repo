@@ -138,6 +138,43 @@ def brace_lbl(m, text, color=MUTED, direction=DOWN, size=16, buff=0.06):
     return VGroup(b, t)
 
 
+# ---------- pipeline rows ---------------------------------------------------------------
+def seg(x0, w, y, color, label=None, h=0.5, op=0.22, size=15, lcolor=TXT, dashed=False):
+    """Left-anchored labelled segment (pipeline rows)."""
+    r = Rectangle(width=w, height=h, stroke_color=color, stroke_width=2, fill_color=color, fill_opacity=op).move_to([x0 + w / 2, y, 0])
+    if dashed:
+        r = VGroup(DashedVMobject(Rectangle(width=w, height=h, stroke_color=color, stroke_width=2), num_dashes=int(6 + 6 * w)).move_to(r))
+    g = VGroup(r)
+    if label:
+        g.add(tf(label, size, lcolor, BOLD, w=w - 0.08).move_to([x0 + w / 2, y, 0]))
+    return g
+
+
+def row_label(s, y, color=MUTED, size=17):
+    return T(s, size, color, BOLD).move_to([-6.45, y, 0], aligned_edge=LEFT)
+
+
+def xgem_run(x0, y, pays, h=0.5, hw=0.32, size=14):
+    """[H|payload] … starting at x0; pays = [(w, label)]. Returns VGroup of VGroup(H, P)."""
+    g = VGroup()
+    x = x0
+    for w, lab in pays:
+        hh = seg(x, hw, y, SAC, "H", h, 0.55, size)
+        pp = seg(x + hw, w, y, SAC, lab, h, 0.14, size)
+        g.add(VGroup(hh, pp))
+        x += hw + w
+    return g
+
+
+def scramble(rect, n=46, seed=7, color=PHC):
+    rng = np.random.default_rng(seed)
+    x0, x1 = rect.get_left()[0] + 0.05, rect.get_right()[0] - 0.05
+    y0, y1 = rect.get_bottom()[1] + 0.08, rect.get_top()[1] - 0.08
+    return VGroup(*[Line([x, y0, 0], [x, y1, 0], color=color, stroke_width=1.5, stroke_opacity=0.55)
+                    for x in np.sort(rng.uniform(x0, x1, n))])
+
+
+
 # ---------- ID range bars ---------------------------------------------------------------
 def range_bar(segs, w, h=0.6, size=16, lsize=14):
     """segs = [(label, lo, hi, color, rel_width)] → VGroup of segments; each = VGroup(rect, label, lo_tick, hi_tick)."""
@@ -149,11 +186,13 @@ def range_bar(segs, w, h=0.6, size=16, lsize=14):
         r = Rectangle(width=cw, height=h, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=0.25).move_to([x + cw / 2, 0, 0])
         t = tf(lab, size, TXT, BOLD, w=cw - 0.1).move_to(r)
         lo_t = T(lo, lsize, c, BOLD).next_to(r.get_corner(DL), DOWN, buff=0.08)
-        lo_t.align_to(r, LEFT)
+        lo_t.align_to(r, LEFT).shift(RIGHT * 0.04)
+        if hi is None:
+            lo_t.set_x(r.get_x())
         parts = [r, t, lo_t]
         if hi is not None and hi != lo:
             hi_t = T(hi, lsize, c, BOLD).next_to(r.get_corner(DR), DOWN, buff=0.08)
-            hi_t.align_to(r, RIGHT)
+            hi_t.align_to(r, RIGHT).shift(LEFT * 0.04)
             parts.append(hi_t)
         g.add(VGroup(*parts))
         x += cw
@@ -203,14 +242,22 @@ def kv(k, v, ksize=16, vsize=17, kcolor=MUTED, vcolor=TXT, kw=2.2):
     return g
 
 
+def _scr_rows(scr, rows):
+    """Abstract 'text lines' on an instrument screen (no tiny glyphs)."""
+    W = scr.width - 0.2
+    g = VGroup()
+    for c, ws in rows:
+        line = VGroup(*[Rectangle(width=W * w / 1.6, height=0.07, stroke_width=0, fill_color=c, fill_opacity=0.85) for w in ws]).arrange(RIGHT, buff=0.06)
+        g.add(line)
+    g.arrange(DOWN, aligned_edge=LEFT, buff=0.1)
+    fit(g, W)
+    return g.move_to(scr)
+
+
 def pa_icon(w=2.15, h=1.55, label="Protokol analizörü"):
     body = RoundedRectangle(corner_radius=0.1, width=w, height=h, stroke_color="#475569", stroke_width=2, fill_color="#0D1426", fill_opacity=1)
     scr = Rectangle(width=w * 0.82, height=h * 0.56, stroke_color="#334155", stroke_width=1.5, fill_color="#050810", fill_opacity=1).move_to(body).shift(UP * h * 0.1)
-    rows = VGroup(*[HX(s, 10, c) for s, c in (("C5E51840 FD59BB49", GOLD), ("PON-ID 12345673", ACC), ("PLOAM 0x17 ·3FF", TXT))]).arrange(DOWN, aligned_edge=LEFT, buff=0.05)
-    fit(rows, scr.width - 0.12)
-    if rows.height > scr.height - 0.08:
-        rows.scale_to_fit_height(scr.height - 0.08)
-    rows.move_to(scr)
+    rows = _scr_rows(scr, [(GOLD, [0.35, 0.35, 0.35, 0.35]), (ACC, [0.5, 0.5, 0.25]), (TXT, [0.3, 0.6, 0.2])])
     leds = VGroup(*[Dot(radius=0.025, color=c) for c in (GOOD, ACC, "#64748B")]).arrange(RIGHT, buff=0.06)
     leds.move_to(body).shift(DOWN * h * 0.33 + LEFT * w * 0.3)
     ports = VGroup(*[Square(0.09, stroke_color="#94A3B8", stroke_width=1.5) for _ in range(2)]).arrange(RIGHT, buff=0.08).move_to(body).shift(DOWN * h * 0.33 + RIGHT * w * 0.3)
@@ -221,11 +268,7 @@ def pa_icon(w=2.15, h=1.55, label="Protokol analizörü"):
 def emu_icon(w=2.15, h=1.55, label="OLT emülatörü"):
     body = RoundedRectangle(corner_radius=0.1, width=w, height=h, stroke_color="#475569", stroke_width=2, fill_color="#0D1426", fill_opacity=1)
     scr = Rectangle(width=w * 0.82, height=h * 0.56, stroke_color="#334155", stroke_width=1.5, fill_color="#050810", fill_opacity=1).move_to(body).shift(UP * h * 0.1)
-    rows = VGroup(*[HX(s, 10, c) for s, c in (("▶ Assign_ONU-ID", GOLD), ("▶ SN grant 1021", ACC), ("▶ BWmap …", TXT))]).arrange(DOWN, aligned_edge=LEFT, buff=0.05)
-    fit(rows, scr.width - 0.12)
-    if rows.height > scr.height - 0.08:
-        rows.scale_to_fit_height(scr.height - 0.08)
-    rows.move_to(scr)
+    rows = _scr_rows(scr, [(GOLD, [0.12, 0.9]), (ACC, [0.12, 0.7, 0.3]), (TXT, [0.12, 0.5])])
     keys = VGroup(*[RoundedRectangle(corner_radius=0.03, width=0.16, height=0.1, stroke_color="#94A3B8", stroke_width=1.2) for _ in range(4)]).arrange(RIGHT, buff=0.06)
     keys.move_to(body).shift(DOWN * h * 0.33)
     lab = T(label, 16, TXT, SEMIBOLD).next_to(body, DOWN, buff=0.1)

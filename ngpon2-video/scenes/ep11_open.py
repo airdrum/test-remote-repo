@@ -149,7 +149,7 @@ class Ep11Open(Act11):
 
         # o6 — lab bench 2.0
         self.beat("o6")
-        pm = instr("PM", 1.6, 1.15, "−18,2 dBm", None, ACC).move_to([cx - 1.6, PY + 1.45, 0])
+        pm = instr("PM", 1.6, 1.15, "P · dBm", None, ACC).move_to([cx - 1.6, PY + 1.45, 0])
         osa = instrument("OSA", 1.6, 1.15).move_to([cx + 1.6, PY + 1.45, 0])
         pa = pa_icon(2.2, 1.45).move_to([cx - 1.4, PY - 1.2, 0])
         em = emu_icon(2.2, 1.45).move_to([cx + 1.4, PY - 1.2, 0])

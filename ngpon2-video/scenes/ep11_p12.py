@@ -2,41 +2,6 @@
 from ep11_common import *
 
 
-def seg(x0, w, y, color, label=None, h=0.5, op=0.22, size=15, lcolor=TXT, dashed=False):
-    """Left-anchored labelled segment (pipeline rows)."""
-    r = Rectangle(width=w, height=h, stroke_color=color, stroke_width=2, fill_color=color, fill_opacity=op).move_to([x0 + w / 2, y, 0])
-    if dashed:
-        r = VGroup(DashedVMobject(Rectangle(width=w, height=h, stroke_color=color, stroke_width=2), num_dashes=int(6 + 6 * w)).move_to(r))
-    g = VGroup(r)
-    if label:
-        g.add(tf(label, size, lcolor, BOLD, w=w - 0.08).move_to([x0 + w / 2, y, 0]))
-    return g
-
-
-def row_label(s, y, color=MUTED, size=17):
-    return T(s, size, color, BOLD).move_to([-6.45, y, 0], aligned_edge=LEFT)
-
-
-def xgem_run(x0, y, pays, h=0.5, hw=0.32, size=14):
-    """[H|payload] … starting at x0; pays = [(w, label)]. Returns VGroup of VGroup(H, P)."""
-    g = VGroup()
-    x = x0
-    for w, lab in pays:
-        hh = seg(x, hw, y, SAC, "H", h, 0.55, size)
-        pp = seg(x + hw, w, y, SAC, lab, h, 0.14, size)
-        g.add(VGroup(hh, pp))
-        x += hw + w
-    return g
-
-
-def scramble(rect, n=46, seed=7, color=PHC):
-    rng = np.random.default_rng(seed)
-    x0, x1 = rect.get_left()[0] + 0.05, rect.get_right()[0] - 0.05
-    y0, y1 = rect.get_bottom()[1] + 0.08, rect.get_top()[1] - 0.08
-    return VGroup(*[Line([x, y0, 0], [x, y1, 0], color=color, stroke_width=1.5, stroke_opacity=0.55)
-                    for x in np.sort(rng.uniform(x0, x1, n))])
-
-
 # ================================ PERDE 1 ======================================
 class E11P1A(Act11):
     HDR, MANIFEST, FIRST = H11[1], M11("p1"), True
@@ -913,7 +878,7 @@ class E11P2C(Act11):
         taps = VGroup(*[Line(c.get_right(), [-4.25, c.get_y(), 0], color=ICT, stroke_width=3) for c in cts])
         bl = T("ICTP", 20, ICT, BOLD).next_to(bus, DOWN, buff=0.15)
         nonu = T("ONU yok", 15, MUTED, BOLD).next_to(cts, DOWN, buff=0.55)
-        pur = VGroup(*[tag(s, ICT, 16) for s in ("kanal profili yapılandırması · durum paylaşımı", "ONU aktivasyonu", "dalga boyu kanalı devri", "başıboş ONU'larla mücadele")])
+        pur = VGroup(*[tag(s, ICT, 16) for s in ("kanal profili · durum paylaşımı", "ONU aktivasyonu", "dalga boyu kanalı devri", "başıboş ONU'larla mücadele")])
         for p in pur:
             fit(p, 4.0)
         pur.arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to([-3.7, 0.45, 0], aligned_edge=LEFT)
