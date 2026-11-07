@@ -1,0 +1,91 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "b76af4a9c1d_0.wav",
+   "duration": 20.163,
+   "text": "Perde üç: burst'ün şekli. Güç yettiğinde ve sızıntı sınırlandığında bile, bir ve sıfırların zaman içindeki biçimi önemlidir. Standart bunu verici göz diyagramının maskesiyle tanımlar: gözün açıklığını, ama aynı zamanda aşımı ve alt aşımı sınırlayan bir şekil.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d1a",
+   "file": "b5ba04420fb_0.wav",
+   "duration": 26.395,
+   "text": "Maske bir dikdörtgen ile iki yatay banttan oluşur. Dikdörtgenin yatay genişliği: x üç eksi x iki, sıfır virgül iki birim aralık. Dikey kenarları: y bir ve y iki, sıfır virgül yirmi beş ile sıfır virgül yetmiş beş. Üstteki ve alttaki yasak bantlar da sıfır virgül yirmi beş birim aralık içeri taşar. Bu değerler iki buçuk ve on gigabitte aynıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "be86bf030e6_0.wav",
+   "duration": 22.516,
+   "text": "Burada burst moduna özgü bir incelik var. Maske, burst'ün ilk bitinden, yani önsözün ilk bitinden, son bitine kadar geçerlidir. Yani vericinin daha yeni açıldığı, lazerin ısıl olarak oturmadığı o ilk bitlerde de göz, maskeyi ihlal etmemelidir. Sürekli bir vericide hiç karşılaşmadığınız bir sınavdır bu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2a",
+   "file": "b422e640b91_0.wav",
+   "duration": 22.904,
+   "text": "Ölçüm düzeni de tanımlıdır. Optik sinyal bir O-E dönüştürücüden, ardından dördüncü dereceden bir Thomson filtresinden geçer; filtrenin üç desibel kesim frekansı, nominal bit hızının sıfır virgül yetmiş beş katıdır. Yani maske, ideal bir alıcı değil, belirli bir referans alıcı bandı varsayar; ölçtüğünüz göz, bu filtreden sonraki gözdür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "b730a6d7fe5_0.wav",
+   "duration": 21.176,
+   "text": "İkinci biçim ölçütü titreşimdir. Titreşim toleransı, giriş sinyaline uygulanan ve alıcıda bir desibellik güç cezasına yol açan sinüzoidal titreşimin tepeden tepeye genliğidir. Beşinci bölümdeki gibi ölçüt, hata oranı çöküşü değil, bir desibellik ceza; bu bir stres testidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3a",
+   "file": "bacc76aa8f1_0.wav",
+   "duration": 26.52,
+   "text": "On gigabitte maske iki seviyelidir: dört yüz kilohertzin altında sıfır virgül yetmiş beş, dört megahertzin üstünde sıfır virgül sıfır yetmiş beş birim aralık, aradaki eğim eksi yirmi desibel bölü dekad. Üretim tarafında ise ONU, yirmi kilohertz ile seksen megahertz arasında en çok sıfır virgül üç, dört megahertz üstünde sıfır virgül bir birim aralıktan fazla titreşim üretmemelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3b",
+   "file": "b294c61a4b7_0.wav",
+   "duration": 26.659,
+   "text": "ONU'ya özgü üçüncü bir titreşim parametresi daha var: titreşim aktarımı, tepe kazancı sıfır virgül bir desibelle sınırlı. Hatırlayın, ONU yukarı yönde aşağı yönden çıkardığı saati kullanır. Burst modunda bu daha da kritiktir: her burst'ün önsözü, aşağı yönden türetilmiş bu saatle üretilir; saat titreşimi büyütürse, her burst biraz daha bozuk başlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b68237b5862_0.wav",
+   "duration": 22.655,
+   "text": "Spektral temizlik: en küçük yan mod bastırma oranı otuz desibeldir. Ölçüm, herhangi bir filtreden önce doğrudan lazer çıkışında yapılır. Neden? Çünkü yan modlar, fiber dispersiyonuyla etkileşince mod bölüşüm gürültüsü yaratır; bunu kaynakta bastırmak, yolda düzeltmekten ucuzdur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4a",
+   "file": "b55824e8eb3_0.wav",
+   "duration": 28.141,
+   "text": "Dispersiyon aralığı sıfır ile üç yüz elli beş ps bölü nanometre arasıdır; bu, yirmi kilometrelik DD20 sınıfına karşılık gelir. Yukarı yön dalga boyları bin beş yüz yirmi dört ile bin beş yüz kırk dört nanometre bandındadır; bu bantta tek modlu fiberin dispersiyonu, aşağı yöndeki bin altı yüz nanometre bölgesine göre daha ılımlıdır, ve bu, yukarı yön vericisinin işini bir nebze kolaylaştırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "b37219dafe2_0.wav",
+   "duration": 21.24,
+   "text": "Bütün bu biçim ölçütlerini birlikte düşünün. Göz maskesi uzayda, titreşim maskesi zamanda, yan mod bastırması spektrumda aynı şeyi söyler: burst, ilk bitinden itibaren temiz olmalı. Sürekli bir verici ısınıp oturmak için zaman bulur; burst vericisi her seferinde sıfırdan, mikrosaniyeler içinde temiz bir göz açmak zorundadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "b888d74c869_0.wav",
+   "duration": 22.712,
+   "text": "Mühendis notu. Bir: göz maskesini burst'ün ortasında değil, ilk bitlerinde ölçün; ihlaller neredeyse her zaman önsözün başında, lazer henüz oturmadan olur. İki: yan mod bastırmasını lazer çıkışında ölçün, alıcı filtresinden sonra değil; aksi halde mod bölüşüm gürültüsünü gizlersiniz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "b1a506eeaa2_0.wav",
+   "duration": 9.489,
+   "text": "Sıradaki: fiziksel burst'ü gördük. Peki TC katmanı bu burst'ün içini nasıl dolduruyor, ve zamanlamasını kim veriyor?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 270.57
+}

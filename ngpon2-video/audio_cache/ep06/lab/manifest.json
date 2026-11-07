@@ -1,0 +1,84 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "b615f685819_0.wav",
+   "duration": 17.229,
+   "text": "Laboratuvarda. Bu bölümde ONU vericisinin burst'ünü ölçeceğiz: üç şey, kapılı göz, açılma ve kapanma zamanlaması, ve karanlıktaki güç. Hepsinin ortak zorluğu aynı: sinyal sürekli değil, yanıp sönüyor; o yüzden her ölçüm aleti, doğru ana tetiklenmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g1a",
+   "file": "bc5a7249cea_0.wav",
+   "duration": 31.188,
+   "text": "Düzeneğin kalbi sayısal haberleşme çözümleyicisidir; kısaca DCA. Önüne, yukarı yön kanalını seçen ısıl ayarlı bir filtre, bir O-E dönüştürücü, ve standardın istediği dördüncü dereceden Thomson filtresi koyarız; kesim frekansı bit hızının sıfır virgül yetmiş beş katı. ONU'yu da gerçek bir OLT ya da bir burst üreteci ile sürekli burst gönderecek biçimde çalıştırırız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "bf219016d27_0.wav",
+   "duration": 19.501,
+   "text": "Birinci ölçüm: kapılı göz. DCA'yı serbest çalıştırırsanız, burst'ler arasındaki karanlık anlar gözü aşağı çeker ve maskeyi anlamsız kılar. Çözüm, aleti burst'ün başlangıcına kapılamaktır: yalnızca verici açıkken, hatta yalnızca önsözün ilk bitlerinde örnek alır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2a",
+   "file": "b0aa0fe5460_0.wav",
+   "duration": 21.603,
+   "text": "Göz maskesini tam da burada, burst'ün ilk bitlerinde uygularız: dikdörtgen genişliği sıfır virgül iki birim aralık, dikey kenarları sıfır virgül yirmi beş ile yetmiş beş. İhlaller neredeyse her zaman burada, lazer henüz oturmadan görülür. Kapıyı burst'ün ortasına kaydırıp maskeyi geçmek kolaydır; dürüst ölçüm, ilk bitleri sınar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b195a24951b_0.wav",
+   "duration": 24.564,
+   "text": "İkinci ölçüm: açılma ve kapanma zamanlaması. Aynı tetiklenmiş izlemede, vericinin gücünü zamanda izleriz. Açılma geçiş süresi, gücün karanlık düzeyden tam güce çıkması; kapanma, tam güçten karanlığa inmesi. Standardın sınırı her ikisi için bin iki yüz seksen bit, yani on gigabitte yüz yirmi sekiz virgül altı nanosaniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3a",
+   "file": "bd4abcdad70_0.wav",
+   "duration": 22.115,
+   "text": "Burada iki eşiği karıştırmamak gerekir. Geçiş süresi, karanlık düzey ile çalışma düzeyi arasında tanımlıdır; ölçüm için standardın belirttiği bir ve sıfır düzeyleriyle karanlık düzeyi referans alın. Ölçtüğünüz bu süre, doğrudan koruma süresi bütçenize girer; dört ONU'nun geçişleri çakışırsa, kaybedilen zaman katlanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "bfaec51ebcf_0.wav",
+   "duration": 27.405,
+   "text": "Üçüncü ölçüm: karanlıktaki güç, yani etkin değilken güç yoğunluğu. Vericiyi, kendisine ait olmayan bir burst'ü taklit edecek biçimde kapatırız; ama kritik nokta şu: lazeri gerçek çalışma ön gerilimiyle kapatın. Sahada ONU hızlı açılmak için eşiğe yakın tutulur; tamamen söndürülmüş bir lazer, sahadaki karanlığı temsil etmez ve sizi iyimser bir sonuca götürür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4a",
+   "file": "b4d7d3e8820_0.wav",
+   "duration": 22.044,
+   "text": "Karanlık gücü, on beş gigahertzlik bir çözünürlük bandında bir optik spektrum çözümleyici ya da kalibre güç ölçerle okuruz; sınır, on gigabitte eksi altmış iki virgül altı dBm. Aynı düzenekte bant dışı ve kanal dışı maskeleri de tarayabiliriz: bandın tümüyle dışı için eksi elli yedi virgül dört, komşu kanal için elli gigahertzde eksi otuz altı virgül yedi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "b175e8c645d_0.wav",
+   "duration": 18.861,
+   "text": "Üç ölçüm bir arada bir hikaye anlatır. Kapılı göz, burst'ün temiz başlayıp başlamadığını; zamanlama, ne kadar hızlı açılıp kapandığını; karanlık güç, kapalıyken ne kadar sessiz olduğunu söyler. Bir ONU bu üçünü birden geçmeden, kalabalık bir yukarı yöne güvenle katılamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "b1f207f8f38_0.wav",
+   "duration": 26.019,
+   "text": "Mühendis notu. Bir: her ölçümü tetiklenmiş yapın ve tetiği burst'ün başına koyun; serbest çalışan hiçbir alet, patlamalı bir sinyal hakkında dürüst değildir. İki: karanlık ölçümünü gerçek ön gerilimle yapın, ve bir değil çok sayıda ardışık sessiz pencerede tekrarlayın; sahada sizi altmış üç komşunun toplamı bulur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "b5ec6bdb10e_0.wav",
+   "duration": 16.327,
+   "text": "Bu bölümün ölçümleri, sekizinci bölümün zeminini kurar: orada aynı burst'ü gönderen değil, alan tarafı, yani OLT burst alıcısı olacak. Önsözü ne kadar hızlı çözdüğü, bizim bugün ölçtüğümüz açılma ve karanlık değerlerine bağlıdır.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 246.86
+}

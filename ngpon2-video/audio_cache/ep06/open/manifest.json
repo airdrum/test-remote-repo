@@ -1,0 +1,49 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "bdbbc4dd1c6_0.wav",
+   "duration": 17.671,
+   "text": "Bölüm altı: Patlama. Bu bölümde ONU vericisini inceliyoruz; ama sürekli gönderen bir vericiyi değil, kalabalık bir yukarı yönde yalnızca kendi sırası geldiğinde yanıp sönen bir vericiyi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b0678a83cf7_0.wav",
+   "duration": 11.563,
+   "text": "Önce burst modunun temeli: neden sürekli değil de patlamalı gönderdiğimiz, vericinin açılma ve kapanma geçişleri, ve her burst'ün başındaki önsöz ile sınırlayıcı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b72277e72e0_0.wav",
+   "duration": 12.935,
+   "text": "Sonra karanlık: kapalı bir vericinin bile fiber'e sızdırdığı güç. Etkin değilken yayılan güç yoğunluğu, bant dışı ve kanal dışı yoğunluk, ve sönüm oranıyla gücün birlikte çizdiği izin verilen bölge.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b2ae05559ff_0.wav",
+   "duration": 8.821,
+   "text": "Ardından burst'ün şekli: verici göz maskesi, titreşim toleransı ve üretimi, kaynak yan mod bastırması ve dispersiyon.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "bc92206ac04_0.wav",
+   "duration": 14.748,
+   "text": "TC köprüsünde ise yukarı yön burst'ünün yapısı: fiziksel senkron bloğu, önsöz ve sınırlayıcıdan oluşan burst profili, yukarı yön hata düzeltmesi, ve bütün bunların zamanlamasını kuran bant genişliği haritası.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "ba985267d49_0.wav",
+   "duration": 7.755,
+   "text": "Laboratuvarda kapılı bir göz diyagramıyla açılma ve kapanma zamanlamasını, ve karanlıktaki güç yoğunluğunu ölçeceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 73.49
+}

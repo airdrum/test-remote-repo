@@ -1,0 +1,98 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b8dd679afb8_0.wav",
+   "duration": 19.085,
+   "text": "Perde iki: karanlıkta güç. İki ONU aynı anda gönderemez; ama bir ONU gönderirken, geri kalan onlarca ONU gerçekten sessiz mi? Standart bunun hayır olduğunu kabul eder, ve kapalı bir vericinin yayabileceği en büyük gücü açıkça sınırlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c1a",
+   "file": "bd3857e2d7c_0.wav",
+   "duration": 20.521,
+   "text": "Neden karanlık tam karanlık değildir? Bir yarı iletken lazer, eşik akımının altında bile kendiliğinden ışıma yayar. Üstelik birçok ONU vericisi, hızlı açılabilmek için eşiğe yakın bir ön gerilimde tutulur. Sonuç: kapalı olması gereken verici, fiber'e zayıf ama sıfır olmayan bir ışık sızdırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "b1ff8e880db_0.wav",
+   "duration": 20.287,
+   "text": "Bu neden sorun? NG-PON2'de bir kanalda altmış dörde kadar ONU olabilir. Biri konuşurken diğer altmış üçü dinlemede, ama hepsinin sızıntısı toplanır. Bu toplam, konuşan ONU'nun sinyaline binen bir gürültü tabanıdır; yeterince yükselirse, meşru burst'ün hata oranını bozar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "ba1d64c2037_0.wav",
+   "duration": 20.621,
+   "text": "Standart bunu etkin değilken güç yoğunluğu, kısaca W-N-E-P-S-D ile sınırlar. On gigabitlik yukarı yönde bu değer, on beş gigahertz başına eksi altmış iki virgül altı dBm'dir. Bu, bir ONU'nun kendisine ayrılmamış burst'ler sırasında fiber'e yayabileceği en büyük güç yoğunluğudur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3a",
+   "file": "b4579b5eb65_0.wav",
+   "duration": 26.239,
+   "text": "Geçiş anlarında kural değişir. Vericinin açılma geçişi, kendi burst'ünden hemen önce lazeri ön gerilimlemek için kullanılabilir; kapanma geçişi hemen sonra gelir. Bu iki pencerede izin verilen en büyük düzey, etkin değilken güç yoğunluğu değil, en küçük sönüm oranındaki sıfır düzeyidir. Yani verici tam kapanmadan önce, kısa bir an daha parlak olabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "bb25b11e43f_0.wav",
+   "duration": 22.307,
+   "text": "Sızıntının iki ekseni vardır: bant dışı ve kanal dışı. Bant dışı güç yoğunluğu, yukarı yön bandının tamamen dışına düşen ışıktır; dört kanalda on beş gigahertz başına eksi elli yedi virgül dört, sekiz kanalda eksi altmış dört virgül altı dBm. Bu, eski sistemlerle ve noktadan noktaya WDM ile birlikte yaşayabilmek içindir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4a",
+   "file": "b6614015de4_0.wav",
+   "duration": 34.303,
+   "text": "Kanal dışı güç yoğunluğu ise yukarı yön bandının içindeki, ama bu ONU'nun kanalı olmayan yerlere düşen ışıktır. İki maske var. Birinci maske komşu kanal aralığına bakar: elli gigahertz aralıkta eksi otuz altı virgül yedi, yüz gigahertzde eksi kırk virgül beş, iki yüz gigahertzde eksi kırk dört virgül dört dBm. İkinci maske daha uzağa bakar: dört kanalda eksi kırk bir virgül altı, sekiz kanalda eksi kırk sekiz virgül beş.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "b341b749b39_0.wav",
+   "duration": 20.44,
+   "text": "Bu üç sınır, dördüncü bölümdeki X bölü S toleransının öbür yüzüdür. Orada alıcının kalabalıkta duyabilmesini istemiştik; burada ise her vericinin, kalabalığa kendi payından fazla gürültü katmamasını istiyoruz. Biri alıcı tarafın, diğeri verici tarafın sözleşmesidir; ikisi birlikte sistemi ayakta tutar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "b2301354e4f_0.wav",
+   "duration": 23.817,
+   "text": "Şimdi ilginç bir gerilim: sönüm oranı ile güç. Sönüm oranı, bir ile sıfır bitinin güç oranıdır; en az altı desibel istenir. Ama sıfır biti hiç sıfır değildir, ve düşük sönüm oranı demek, daha parlak sıfırlar, yani daha fazla kanal dışı sızıntı demektir. Öte yandan yüksek sönüm oranı lazeri zorlar ve maliyeti artırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6a",
+   "file": "bbd857a1fc1_0.wav",
+   "duration": 27.167,
+   "text": "Standart bu gerilimi tek bir sayı yerine izin verilen bir bölgeyle çözer. Ortalama güç ile sönüm oranı birlikte, bir bölgenin içinde kalmalıdır. B tipi verici için alt sınır şu çiftlerle çizilir: artı bir dBm'de sekiz desibel, artı iki'de altı, artı üç buçukta beş, artı beşte dört, artı yedide dört desibel. Yani daha düşük güçte daha yüksek sönüm oranı istenir; güç arttıkça sönüm oranından ödün verilebilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6b",
+   "file": "b228245adc0_0.wav",
+   "duration": 24.301,
+   "text": "Bu bölgenin mantığı fizikseldir. Düşük güçte çalışıyorsanız, sıfır düzeyiniz zaten gürültü tabanına yakındır; kanal dışı güç küçüktür, ama alıcı hassasiyeti için net bir göz istersiniz, o yüzden yüksek sönüm oranı. Yüksek güçte ise sıfır düzeyi yukarı kayar; sönüm oranını yüksek tutmak sızıntıyı patlatır, o yüzden bir tavan konur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "b32d46660bf_0.wav",
+   "duration": 26.061,
+   "text": "Mühendis notu. Bir: sönüm oranını güçten bağımsız düşünmeyin; vericinizi çalıştıracağınız güç noktasında, izin verilen bölgenin içinde kaldığınızı doğrulayın. İki: etkin değilken güç yoğunluğunu ölçerken vericiyi gerçek çalışma ön gerilimiyle kapatın; laboratuvarda tamamen söndürülmüş bir lazer, sahadaki karanlığı temsil etmez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "bd511609481_0.wav",
+   "duration": 8.849,
+   "text": "Sıradaki: güç ve sızıntı tamam. Peki burst'ün dalga biçimi; bir ve sıfırların şekli ne kadar temiz olmalı?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 294.0
+}

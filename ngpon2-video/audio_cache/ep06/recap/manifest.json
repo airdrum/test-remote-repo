@@ -1,0 +1,28 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "bd050c66983_0.wav",
+   "duration": 27.131,
+   "text": "Önce geçen bölümün soruları. Birinci soru: on gigabitlik aşağı yönde E2 sınıfında aşırı yük neden eksi dokuz dBm'dir? Çünkü E2'de OLT'nin en büyük başlatma gücü, E1 ile aynı, artı on bir dBm'de sınırlıdır. Yirmi desibellik en küçük yol kaybını çıkarın: artı on bir eksi yirmi, eksi dokuz. Aşırı yük bir verici güç tavanının izidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a2",
+   "file": "b611119d543_0.wav",
+   "duration": 27.668,
+   "text": "İkinci soru: iki buçuk gigabitlik bir ONU için S, X ve Z düzeyleri. Hassasiyet eksi otuz, yol cezası bir desibel; yani S, eksi yirmi dokuz dBm. Her TWDM girişimcisi S artı dört, eksi yirmi beş. Aşağı yöndeki noktadan noktaya kanallar, iki buçuk gigabit için S artı yedi, eksi yirmi iki dBm.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a3",
+   "file": "b70856eb663_0.wav",
+   "duration": 26.243,
+   "text": "Üçüncü soru: senkron durumundaki bir ONU kaç ardışık kötü çerçeveden sonra senkron kaybı ilan eder? Önerilen M değeri üç'tür; yani üç ardışık çerçevede fiziksel senkron ya da süper çerçeve sayacı doğrulaması başarısız olursa, ONU aşağı yön senkron kaybını ilan eder ve arama durumuna döner. Şimdi bu bölüme: ONU konuşmaya başladığında ne olur?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 81.04
+}
