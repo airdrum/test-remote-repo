@@ -1,0 +1,1424 @@
+1
+00:00:00,000 --> 00:00:03,460
+Bölüm sekiz: Kalabalığı Dinlemek.
+
+2
+00:00:03,510 --> 00:00:06,270
+Şimdiye kadar hep ONU tarafındaydık.
+
+3
+00:00:06,320 --> 00:00:12,510
+Bu bölümde ağacın tepesine, OLT'ye çıkıyoruz; onlarca farklı ONU'nun,
+
+4
+00:00:12,560 --> 00:00:19,836
+farklı uzaklıklardan, farklı güçlerde gelen patlamalarını tek tek dinleyen tarafa.
+
+5
+00:00:20,767 --> 00:00:26,857
+Önce OLT burst alıcısı: her yeni burst'te güce ve faza sıfırdan kilitlenmek,
+
+6
+00:00:26,907 --> 00:00:32,057
+ve en yakın ile en uzak ONU arasındaki geniş güç farkını,
+
+7
+00:00:32,107 --> 00:00:34,279
+yani dinamik aralığı kaldırmak.
+
+8
+00:00:35,200 --> 00:00:39,580
+Sonra önsöz ekonomisi: fiziksel katman ek yük zamanının gard,
+
+9
+00:00:39,630 --> 00:00:44,190
+önsöz ve sınırlayıcı arasında nasıl bölündüğü;
+
+10
+00:00:44,240 --> 00:00:47,071
+ve sınırlayıcının kaç bit olması gerektiği.
+
+11
+00:00:48,000 --> 00:00:53,150
+Ardından güç dengeleme: yakın bir ONU'nun gücünü kısarak,
+
+12
+00:00:53,200 --> 00:00:57,210
+OLT'nin gördüğü dinamik aralığı daraltması.
+
+13
+00:00:57,260 --> 00:01:01,994
+Alıcının işini, vericinin nezaketiyle kolaylaştırmak.
+
+14
+00:01:02,933 --> 00:01:09,133
+TC köprüsünde ise bir ONU'nun ilk adımları: sessiz pencere, seri numarası,
+
+15
+00:01:09,183 --> 00:01:12,423
+mesafe ölçümü ve eşitleme gecikmesi;
+
+16
+00:01:12,473 --> 00:01:18,192
+ve bir ONU yanlış anda konuşursa devreye giren kekeme ONU savunması.
+
+17
+00:01:19,133 --> 00:01:23,243
+Laboratuvarda burst edinim süresini ve göz açıklığını,
+
+18
+00:01:23,293 --> 00:01:29,473
+iki ONU öykünücüsüyle dinamik aralığı, ve burst modu hata oranını ölçeceğiz.
+
+19
+00:01:41,727 --> 00:01:43,807
+Geçen bölümün soruları.
+
+20
+00:01:43,857 --> 00:01:52,117
+Birinci soru: OLT burst alıcısı her yeni burst'e ne kadar hızlı kilitlenmeli,
+
+21
+00:01:52,167 --> 00:01:59,737
+ve bu süreyi hangi ek tanımlar? Kilitlenme, burst'ün önsözü boyunca tamamlanmalıdır:
+
+22
+00:01:59,787 --> 00:02:02,947
+önce güç düzeyi, sonra saat fazı.
+
+23
+00:02:02,997 --> 00:02:10,047
+Bu sürenin bütçesi G.989.2'nin üçüncü ekinde, önsöz zamanı olarak verilir;
+
+24
+00:02:10,097 --> 00:02:16,219
+ölçüm yöntemi ise beşinci ekte, G.987.2'ye atıfla tanımlanır.
+
+25
+00:02:17,194 --> 00:02:18,664
+İkinci soru:
+
+26
+00:02:18,714 --> 00:02:28,194
+burst modu bir alıcının göz açıklığı neden sürekli moddan farklı ölçülür? Çünkü OLT alıcısı her burst'te,
+
+27
+00:02:28,244 --> 00:02:33,964
+farklı bir ONU'nun farklı gücüne ve fazına yeniden kilitlenir.
+
+28
+00:02:34,014 --> 00:02:41,354
+Göz ancak kilitlenmeden sonra, ve yalnızca burst'ün gövdesi boyunca anlamlıdır.
+
+29
+00:02:41,404 --> 00:02:48,394
+Bu yüzden ölçüm, önsözden sonraki gövdeye kapılanır ve edinim kalitesine bağlıdır;
+
+30
+00:02:48,444 --> 00:02:53,043
+sürekli bir alıcının oturmuş gözünden farklıdır.
+
+31
+00:02:54,027 --> 00:02:55,407
+Üçüncü soru:
+
+32
+00:02:55,457 --> 00:03:06,947
+güç dengeleme neden gereklidir? Çünkü en yakın ile en uzak ONU arasında on beş desibele varan diferansiyel yol kaybı vardır.
+
+33
+00:03:06,997 --> 00:03:14,837
+Bu, OLT'ye gelen burst'lerin birinden diğerine, aşırı yük ile hassasiyet arasında,
+
+34
+00:03:14,887 --> 00:03:19,207
+çok farklı güçlerde gelmesi demektir.
+
+35
+00:03:19,257 --> 00:03:20,117
+Güç dengeleme,
+
+36
+00:03:20,167 --> 00:03:31,627
+yakın ONU'ya gücünü on iki desibele kadar kısdırarak bu aralığı daraltır ve OLT alıcısının işini kolaylaştırır.
+
+37
+00:03:31,677 --> 00:03:33,326
+Şimdi bu bölüme.
+
+38
+00:03:34,893 --> 00:03:37,473
+Perde bir: OLT burst alıcısı.
+
+39
+00:03:37,523 --> 00:03:43,493
+ONU alıcısı sürekli bir sinyali dinler; bir kez oturur, öyle kalır.
+
+40
+00:03:43,543 --> 00:03:50,523
+OLT alıcısı ise tam tersi bir dünyada yaşar: her yüz yirmi beş mikrosaniyede,
+
+41
+00:03:50,573 --> 00:03:57,683
+farklı ONU'lardan gelen bir dizi kısa patlama; her biri farklı güçte, farklı fazda,
+
+42
+00:03:57,733 --> 00:04:00,865
+aralarında karanlık boşluklarla.
+
+43
+00:04:01,793 --> 00:04:02,403
+İki zorluk var.
+
+44
+00:04:02,453 --> 00:04:05,193
+Birincisi dinamik aralık:
+
+45
+00:04:05,243 --> 00:04:11,343
+en yakın ile en uzak ONU arasındaki güç farkını tek bir alıcıyla kaldırmak.
+
+46
+00:04:11,393 --> 00:04:15,533
+İkincisi edinim: her burst'ün başında,
+
+47
+00:04:15,583 --> 00:04:20,873
+önceki burst'ü unutup yeni güce ve faza sıfırdan kilitlenmek.
+
+48
+00:04:20,923 --> 00:04:26,946
+İkisi de sürekli bir alıcının hiç karşılaşmadığı sorunlardır.
+
+49
+00:04:27,893 --> 00:04:29,723
+Önce dinamik aralık.
+
+50
+00:04:29,773 --> 00:04:37,083
+Yukarı yön tablosunda OLT alıcısının iki sınırı var: hassasiyet ve aşırı yük.
+
+51
+00:04:37,133 --> 00:04:43,653
+On gigabitte, A tipi bağlantıda, hassasiyet N1 için eksi yirmi altı,
+
+52
+00:04:43,703 --> 00:04:48,553
+N2 için eksi yirmi sekiz, E1 için eksi otuz buçuk dBm.
+
+53
+00:04:48,603 --> 00:04:53,803
+Aşırı yük ise N1'de eksi beş, N2'de eksi yedi, E1'de eksi dokuz.
+
+54
+00:04:53,853 --> 00:05:01,373
+İkisi arasındaki fark, alıcının kaldırması gereken güç penceresidir:
+
+55
+00:05:01,423 --> 00:05:03,579
+yaklaşık yirmi bir desibel.
+
+56
+00:05:04,526 --> 00:05:11,466
+Bu yirmi bir desibel nereden gelir? On beş desibeli diferansiyel yol kaybından:
+
+57
+00:05:11,516 --> 00:05:17,416
+en yakın ve en uzak ONU, kendi sınıfının en küçük ve en büyük yol kaybındadır.
+
+58
+00:05:17,466 --> 00:05:23,276
+Üstüne ONU vericileri arasındaki güç farkı ve çeşitli paylar eklenir.
+
+59
+00:05:23,326 --> 00:05:29,446
+Önemli olan: bu fark burst'ten burst'e, yani mikrosaniyeler içinde değişebilir;
+
+60
+00:05:29,496 --> 00:05:34,319
+alıcı kazancını her patlamaya göre yeniden ayarlamalıdır.
+
+61
+00:05:35,793 --> 00:05:43,253
+Referans hata oranına dikkat edin: yukarı yönde on üzeri eksi üç, FEC öncesi.
+
+62
+00:05:43,303 --> 00:05:47,913
+Bu, aşağı yöndeki on üzeri eksi dörtten gevşektir.
+
+63
+00:05:47,963 --> 00:05:54,423
+Neden? Çünkü burst modu alıcının işi zaten zordur; standart,
+
+64
+00:05:54,473 --> 00:05:57,723
+farkı FEC'in kapatmasına güvenir.
+
+65
+00:05:57,773 --> 00:06:05,876
+Altıncı bölümdeki Reed-Solomon kodu, bu ham hata oranını hizmet kalitesine çevirir.
+
+66
+00:06:06,793 --> 00:06:10,773
+Üçüncü bir sınır daha var: bant içi karışma toleransı.
+
+67
+00:06:10,823 --> 00:06:17,063
+On gigabitte yaklaşık yirmi dört ile yirmi altı desibel, on beş gigahertz başına.
+
+68
+00:06:17,113 --> 00:06:23,833
+Bu, hedef ONU'nun burst'üne kendi bandında binen istenmeyen ışığa karşı toleranstır;
+
+69
+00:06:23,883 --> 00:06:29,464
+özellikle kekeme ya da yanlış ayarlanmış bir ONU'nun katkısını sınırlar.
+
+70
+00:06:30,393 --> 00:06:31,333
+Şimdi edinim.
+
+71
+00:06:31,383 --> 00:06:37,493
+OLT alıcısı her burst'ün önsözünü iki iş için kullanır.
+
+72
+00:06:37,543 --> 00:06:40,123
+Önce seviye kurtarma:
+
+73
+00:06:40,173 --> 00:06:47,103
+bu burst'ün bir ve sıfır düzeylerini ölçüp karar eşiğini ayarlamak.
+
+74
+00:06:47,153 --> 00:06:53,493
+Sonra saat kurtarma: önsözün değişen bitlerinden faz ve frekansı çıkarmak.
+
+75
+00:06:53,543 --> 00:06:59,750
+Ancak bu ikisi tamamlandıktan sonra alıcı veriyi doğru okuyabilir.
+
+76
+00:07:00,693 --> 00:07:04,343
+Edinim tasarımı bir denge sorunudur.
+
+77
+00:07:04,393 --> 00:07:06,413
+Çok hızlı alıcılar vardır,
+
+78
+00:07:06,463 --> 00:07:12,263
+ama dış tetik sinyali gerektirir ve hata başarımı daha kötüdür.
+
+79
+00:07:12,313 --> 00:07:20,093
+Daha yavaş alıcılar sıfırlama sinyali gerektirmez ve normal dağılımlı hatalar üretir.
+
+80
+00:07:20,143 --> 00:07:26,103
+Her tasarım, önsözün desenine ve uzunluğuna farklı taleplerle gelir;
+
+81
+00:07:26,153 --> 00:07:32,618
+işte bu yüzden önsöz sabit değil, OLT tarafından profil olarak ayarlanır.
+
+82
+00:07:34,093 --> 00:07:37,963
+Burada altıncı bölümdeki burst profili geri döner.
+
+83
+00:07:38,013 --> 00:07:45,263
+OLT, kendi alıcısının ihtiyacına göre önsöz ve sınırlayıcı uzunluğunu seçer.
+
+84
+00:07:45,313 --> 00:07:50,803
+Oturmuş, gücü bilinen bir ONU'ya kısa önsöz; yeni etkinleşen,
+
+85
+00:07:50,853 --> 00:07:54,953
+henüz hizalanmamış bir ONU'ya uzun önsöz verir.
+
+86
+00:07:55,003 --> 00:07:59,816
+Alıcının zorluğu, doğrudan önsöz bütçesine yazılır.
+
+87
+00:08:00,760 --> 00:08:03,620
+OLT'nin alınan gücü ölçmesi de özeldir.
+
+88
+00:08:03,670 --> 00:08:10,530
+Standart, OLT'nin ölçtüğü değerin burst sırasındaki ortalama güç olduğunu söyler;
+
+89
+00:08:10,580 --> 00:08:14,260
+yani OLT, ölçümü gelen burst'e göre doğru anda,
+
+90
+00:08:14,310 --> 00:08:17,700
+yeterince uzun bir burst üzerinde yapmalıdır.
+
+91
+00:08:17,750 --> 00:08:23,800
+Yanıt süresi üç yüz nanosaniye, doğruluk artı eksi iki desibel mertebesindedir;
+
+92
+00:08:23,850 --> 00:08:28,815
+düşük doluluk oranının getirdiği sapma bu doğruluğa yazılmaz.
+
+93
+00:08:29,793 --> 00:08:30,993
+Mühendis notu.
+
+94
+00:08:31,043 --> 00:08:38,693
+Bir: dinamik aralığı tek bir güçte değil, hem aşırı yük hem hassasiyet ucunda,
+
+95
+00:08:38,743 --> 00:08:44,183
+burst'ten burst'e sıçrayan gerçek bir desende doğrulayın.
+
+96
+00:08:44,233 --> 00:08:52,693
+İki: edinim süresini önsöz uzunluğuyla birlikte düşünün; alıcınız ne kadar hızlıysa,
+
+97
+00:08:52,743 --> 00:08:58,806
+OLT o kadar kısa önsöz atayıp yukarı yön verimini artırabilir.
+
+98
+00:08:59,826 --> 00:09:00,926
+Sıradaki:
+
+99
+00:09:00,976 --> 00:09:06,953
+önsöz ne kadar uzun olmalı? Sınırlayıcı kaç bit? Bu bütçeyi standart nasıl böler?
+
+100
+00:09:08,727 --> 00:09:10,357
+Perde iki: önsöz ekonomisi.
+
+101
+00:09:10,407 --> 00:09:17,217
+Her burst'ün başındaki ek yük, veriye ayrılmayan zamandır;
+
+102
+00:09:17,267 --> 00:09:21,497
+ne kadar kısa olursa yukarı yön o kadar verimli.
+
+103
+00:09:21,547 --> 00:09:24,727
+Ama çok kısa olursa alıcı kilitlenemez.
+
+104
+00:09:24,777 --> 00:09:27,687
+Standardın üçüncü eki bu dengeyi,
+
+105
+00:09:27,737 --> 00:09:32,374
+fiziksel katman ek yük zamanı Tplo adıyla ele alır.
+
+106
+00:09:33,294 --> 00:09:38,094
+Tplo beş fiziksel işe yer açar: lazer açılma ve kapanma,
+
+107
+00:09:38,144 --> 00:09:43,844
+zamanlama sürüklenmesi toleransı, seviye kurtarma, saat kurtarma,
+
+108
+00:09:43,894 --> 00:09:46,554
+ve burst başlangıcının sınırlanması.
+
+109
+00:09:46,604 --> 00:09:53,521
+Bu süre üçe bölünür: gard süresi, önsöz süresi, ve sınırlayıcı süresi.
+
+110
+00:09:54,460 --> 00:10:00,530
+Gard süresinde ONU hiçbir şey göndermez, nominal sıfır düzeyinde kalır; bu,
+
+111
+00:10:00,580 --> 00:10:03,400
+iki burst'ün çakışmasını önler.
+
+112
+00:10:03,450 --> 00:10:04,840
+Önsöz süresinde ONU,
+
+113
+00:10:04,890 --> 00:10:10,650
+hızlı seviye ve saat kurtarma için önceden belli bir desen gönderir.
+
+114
+00:10:10,700 --> 00:10:17,590
+Sınırlayıcı süresinde ise, OLT'nin gövdenin tam başlangıcını bulmasını sağlayan,
+
+115
+00:10:17,640 --> 00:10:21,445
+iyi özbağlaşımlı özel bir sözcük gönderir.
+
+116
+00:10:22,927 --> 00:10:26,637
+Gard süresinin sınırı iki kısıttan gelir.
+
+117
+00:10:26,687 --> 00:10:28,137
+Birincisi: gard,
+
+118
+00:10:28,187 --> 00:10:34,527
+bir sonraki burst'ün açılma süresi artı zamanlama belirsizliğinden büyük olmalı,
+
+119
+00:10:34,577 --> 00:10:39,167
+ki yeni lazerin açılması önceki burst'ün verisine binmesin.
+
+120
+00:10:39,217 --> 00:10:46,377
+İkincisi: gard, önceki burst'ün kapanma süresi artı belirsizlikten büyük olmalı,
+
+121
+00:10:46,427 --> 00:10:50,824
+ki eski lazerin sönme kuyruğu yeni önsöze düşmesin.
+
+122
+00:10:51,760 --> 00:10:54,840
+Sayılarla, on gigabitte iki uç.
+
+123
+00:10:54,890 --> 00:10:58,320
+En kötü durum tahsisi: toplam sekiz bin yüz doksan iki bit,
+
+124
+00:10:58,370 --> 00:11:03,300
+yani sekiz yüz yirmi üç nanosaniye; bunun iki bin kırk sekizi gard,
+
+125
+00:11:03,350 --> 00:11:08,270
+altı bin sekseni önsöz, altmış dördü sınırlayıcı.
+
+126
+00:11:08,320 --> 00:11:12,110
+Hedef tahsis ise çok daha sıkı: toplam iki bin kırk sekiz bit,
+
+127
+00:11:12,160 --> 00:11:17,510
+iki yüz altı nanosaniye; beş yüz on iki gard, bin iki yüz seksen önsöz,
+
+128
+00:11:17,560 --> 00:11:19,290
+otuz iki sınırlayıcı.
+
+129
+00:11:20,227 --> 00:11:25,567
+Aradaki uçurum dikkat çekicidir: en kötü önsöz altı bin seksen bit,
+
+130
+00:11:25,617 --> 00:11:28,197
+hedef önsöz bin iki yüz seksen.
+
+131
+00:11:28,247 --> 00:11:29,457
+Dört kattan fazla fark.
+
+132
+00:11:29,507 --> 00:11:34,277
+Bu, alıcı teknolojisinin doğrudan karşılığıdır: iyi tasarlanmış,
+
+133
+00:11:34,327 --> 00:11:37,317
+hızlı kilitlenen bir OLT alıcısı,
+
+134
+00:11:37,367 --> 00:11:43,059
+önsözü dörtte bire indirip yukarı yön verimini belirgin biçimde artırır.
+
+135
+00:11:44,527 --> 00:11:48,587
+Sınırlayıcının uzunluğu da hesaplıdır.
+
+136
+00:11:48,637 --> 00:11:55,277
+Sınırlayıcı, bir bit hata deseni içinde bile güvenle bulunabilmelidir.
+
+137
+00:11:55,327 --> 00:12:03,057
+Bit sayısı N ile tolere edilen hata sayısı E arasında yaklaşık bir ilişki vardır: E,
+
+138
+00:12:03,107 --> 00:12:06,937
+N bölü dördün tam kısmı, eksi bir.
+
+139
+00:12:06,987 --> 00:12:13,042
+Yani sınırlayıcı uzadıkça, daha fazla hataya rağmen bulunabilir.
+
+140
+00:12:13,960 --> 00:12:15,970
+Ne kadar uzun yeter? Standart,
+
+141
+00:12:16,020 --> 00:12:23,960
+on üzeri eksi dört hata oranında ciddi hatalı burst olasılığını N'ye göre tablolar.
+
+142
+00:12:24,010 --> 00:12:28,760
+Sonuç: sınırlayıcının en az on altı bit olması gerekir;
+
+143
+00:12:28,810 --> 00:12:34,020
+on altı bitte bu olasılık on üzeri eksi on üç mertebesine iner.
+
+144
+00:12:34,070 --> 00:12:41,201
+On altının altında, sınırlayıcının kendisi güvenilmez bir kilit noktası olur.
+
+145
+00:12:42,127 --> 00:12:47,407
+Bütün bu ayrıntılar, altıncı bölümdeki burst profilinde toplanır.
+
+146
+00:12:47,457 --> 00:12:53,977
+Profil, önsözün uzunluğunu ve desenini, sınırlayıcının uzunluğunu ve desenini,
+
+147
+00:12:54,027 --> 00:12:58,477
+ve FEC'in açık olup olmadığını birlikte belirler.
+
+148
+00:12:58,527 --> 00:13:04,057
+OLT bu profilleri önceden kurar ve her bursta birini seçer; önsöz ekonomisi,
+
+149
+00:13:04,107 --> 00:13:08,845
+işte bu seçimle her çerçevede yeniden yapılır.
+
+150
+00:13:09,794 --> 00:13:15,564
+Bir operasyonel incelik: OLT, bağlama göre farklı profiller isteyebilir.
+
+151
+00:13:15,614 --> 00:13:20,904
+Yeni etkinleşen bir ONU'nun mesafe ölçüm burst'ünü yakalamak,
+
+152
+00:13:20,954 --> 00:13:25,094
+oturmuş bir ONU'yu dinlemekten zordur; ona uzun önsözlü,
+
+153
+00:13:25,144 --> 00:13:28,154
+belki FEC'li bir profil verilir.
+
+154
+00:13:28,204 --> 00:13:33,994
+Yüksek güçlü, kolay yakalanan bir ONU'ya ise kısa ve FEC'siz profil yeter.
+
+155
+00:13:34,044 --> 00:13:39,304
+Önsöz ve sınırlayıcı desenleri bursta göre değişince,
+
+156
+00:13:39,354 --> 00:13:45,123
+OLT bunu burst'ün biçimini bant içinde tanımak için de kullanabilir.
+
+157
+00:13:46,094 --> 00:13:47,294
+Mühendis notu.
+
+158
+00:13:47,344 --> 00:13:52,424
+Bir: önsöz ve sınırlayıcıyı en kötü değerlerle sabitlemeyin;
+
+159
+00:13:52,474 --> 00:13:59,164
+alıcınızın gerçek edinim süresini ölçün ve profilleri ona göre kısaltın,
+
+160
+00:13:59,214 --> 00:14:02,334
+her kısalan bit yukarı yön verimine yazılır.
+
+161
+00:14:02,384 --> 00:14:08,974
+İki: sınırlayıcıyı on altı bitin altına indirmeyin; birkaç bit tasarruf,
+
+162
+00:14:09,024 --> 00:14:11,655
+güvenilmez bir kilit noktasına değmez.
+
+163
+00:14:12,694 --> 00:14:18,244
+Sıradaki: alıcıyı rahatlatmanın bir yolu da vericiden geçer.
+
+164
+00:14:18,294 --> 00:14:23,213
+Yakın bir ONU, gücünü kısarak OLT'ye yardım edebilir mi?
+
+165
+00:14:24,993 --> 00:14:27,683
+Perde üç: güç dengeleme.
+
+166
+00:14:27,733 --> 00:14:35,263
+Birinci perdede OLT'nin yirmi bir desibellik bir dinamik aralıkla boğuştuğunu gördük.
+
+167
+00:14:35,313 --> 00:14:41,933
+Bu aralığı alıcıyı daha iyi yaparak kapatabiliriz; ama daha zarif bir yol var:
+
+168
+00:14:41,983 --> 00:14:47,843
+yakın ONU'ya, zaten fazla olan gücünü kısmasını söylemek.
+
+169
+00:14:47,893 --> 00:14:51,446
+Buna güç dengeleme, kısaca PL denir.
+
+170
+00:14:52,393 --> 00:14:53,543
+Fikir basit.
+
+171
+00:14:53,593 --> 00:14:59,913
+En yakın ONU OLT'ye güçlü gelir, en uzak ONU zayıf.
+
+172
+00:14:59,963 --> 00:15:05,353
+Eğer yakın ONU gücünü, fazlalığı kadar kısarsa,
+
+173
+00:15:05,403 --> 00:15:09,013
+ikisi OLT'ye daha yakın düzeylerde varır.
+
+174
+00:15:09,063 --> 00:15:14,233
+Böylece OLT'nin görünür diferansiyel yol kaybı,
+
+175
+00:15:14,283 --> 00:15:18,545
+yani kaldırması gereken aralık daralır.
+
+176
+00:15:19,493 --> 00:15:26,193
+ONU bunu kendi başına nasıl yapar? Aşağı yönde aldığı gücü, yani RSSI'yi ölçerek.
+
+177
+00:15:26,243 --> 00:15:30,643
+Yüksek RSSI, OLT'ye yakın olduğunu gösterir.
+
+178
+00:15:30,693 --> 00:15:36,023
+Standardın D eki, otonom güç dengeleme için örnek bir kural verir,
+
+179
+00:15:36,073 --> 00:15:38,141
+üç desibellik adımlarla.
+
+180
+00:15:39,060 --> 00:15:40,610
+Kurallar şöyle.
+
+181
+00:15:40,660 --> 00:15:47,540
+Alınan güç eksi yedi dBm'den büyük ya da eşitse, on iki desibel kısma.
+
+182
+00:15:47,590 --> 00:15:51,550
+Eksi yedi ile eksi on arasında, dokuz desibel.
+
+183
+00:15:51,600 --> 00:15:55,950
+Eksi on ile eksi on üç arasında, altı.
+
+184
+00:15:56,000 --> 00:16:00,270
+Eksi on üç ile eksi on altı arasında, üç.
+
+185
+00:16:00,320 --> 00:16:07,520
+Eksi on altının altında ise sıfır; yani uzak ONU tam gücünde gönderir.
+
+186
+00:16:08,993 --> 00:16:11,063
+Neden en fazla on iki desibel,
+
+187
+00:16:11,113 --> 00:16:19,363
+on beş değil? Çünkü diferansiyel yol kaybı on beş desibel olsa da,
+
+188
+00:16:19,413 --> 00:16:24,533
+ONU'nun RSSI okuması artı eksi üç desibel belirsizdir.
+
+189
+00:16:24,583 --> 00:16:31,783
+Bu belirsizlikten emin olmak için en büyük kısma, on beş eksi üç,
+
+190
+00:16:31,833 --> 00:16:34,813
+yani on iki desibelde tutulur.
+
+191
+00:16:34,863 --> 00:16:43,393
+ONU asla, yanlış bir okumayla kendini OLT'nin hassasiyetinin altına düşürmemelidir.
+
+192
+00:16:44,326 --> 00:16:47,446
+Güç dengelemenin bir yan faydası daha var.
+
+193
+00:16:47,496 --> 00:16:55,326
+Yakın ONU'lar gücünü kıstığında, kanal dışı ve bant dışı güç yoğunlukları da düşer.
+
+194
+00:16:55,376 --> 00:16:57,046
+Bu yüzden D eki,
+
+195
+00:16:57,096 --> 00:17:02,736
+güç dengeleme yapan ONU'lar için bu maskelerin gevşetilebileceğini söyler.
+
+196
+00:17:02,786 --> 00:17:05,816
+Örnek: on iki desibellik kısma,
+
+197
+00:17:05,866 --> 00:17:12,497
+yan mod bastırma gereksinimini elli dört virgül yediden kırk iki virgül yediye indirir.
+
+198
+00:17:13,426 --> 00:17:20,456
+Önemli bir koşul: bu gevşeme yalnızca bütün ONU'lar güç dengeleme yaparsa tam işler.
+
+199
+00:17:20,506 --> 00:17:25,686
+Ağda dengeleme yapan ve yapmayan ONU'lar karışıksa,
+
+200
+00:17:25,736 --> 00:17:30,536
+yalnızca güç yoğunluğu gereksinimleri gevşetilebilir;
+
+201
+00:17:30,586 --> 00:17:36,731
+aşırı yük ve yalıtım gibi sınırlar, en kötü ONU'ya göre kalır.
+
+202
+00:17:37,660 --> 00:17:43,390
+On iki desibelden fazlası gerekirse, OLT yönlendirmesi devreye girer.
+
+203
+00:17:43,440 --> 00:17:49,320
+OLT, aşağı yön mesajlarıyla ONU'ya gücünü artır ya da azalt der; bu,
+
+204
+00:17:49,370 --> 00:17:54,790
+otonom yöntemin üstüne altı ila dokuz desibel daha kazandırabilir.
+
+205
+00:17:54,840 --> 00:18:00,890
+Bu yönlendirmeli kip TC katmanı yeteneği gerektirir ve G.989.3'e dayanır;
+
+206
+00:18:00,940 --> 00:18:05,024
+standartta bir kısmı hâlâ incelemeye açıktır.
+
+207
+00:18:06,493 --> 00:18:10,253
+Güç dengeleme tamamlandığında ONU,
+
+208
+00:18:10,303 --> 00:18:19,813
+mesafe ölçümünden sonra OLT'ye bir mesaj gönderip hangi kipte ve hangi düzeyde dengeleme yaptığını bildirir.
+
+209
+00:18:19,863 --> 00:18:29,563
+Böylece OLT, o ONU'dan beklediği güç düzeyini bilir ve alıcısını ona göre hazırlar.
+
+210
+00:18:29,613 --> 00:18:34,156
+Dengeleme, ONU ile OLT arasında sessiz bir anlaşmadır.
+
+211
+00:18:35,126 --> 00:18:36,326
+Mühendis notu.
+
+212
+00:18:36,376 --> 00:18:40,966
+Bir: güç dengelemeyi RSSI doğruluğuyla birlikte düşünün;
+
+213
+00:18:41,016 --> 00:18:48,156
+artı eksi üç desibellik belirsizlik, neden on iki desibelde durulduğunu açıklar,
+
+214
+00:18:48,206 --> 00:18:54,916
+ve sahada güç ölçerinizin ek kaybının ONU'yu bir üst adıma atlatabileceğini unutmayın.
+
+215
+00:18:54,966 --> 00:19:00,516
+İki: dengeleme yapan ve yapmayan ONU'ları aynı ağda karıştırıyorsanız,
+
+216
+00:19:00,566 --> 00:19:04,822
+hangi gevşemelerin geçerli olduğunu dikkatle ayırın.
+
+217
+00:19:05,860 --> 00:19:09,510
+Sıradaki: alıcı hazır, güçler dengeli.
+
+218
+00:19:09,560 --> 00:19:15,750
+Peki yepyeni bir ONU ağa ilk kez katıldığında, bu kalabalığa nasıl,
+
+219
+00:19:15,800 --> 00:19:17,551
+kekeme olmadan karışır?
+
+220
+00:19:19,327 --> 00:19:21,647
+Perde dört, TC köprüsü.
+
+221
+00:19:21,697 --> 00:19:23,727
+Yepyeni bir ONU takıldı.
+
+222
+00:19:23,777 --> 00:19:29,397
+Henüz ne zaman konuşacağını, ne kadar uzakta olduğunu,
+
+223
+00:19:29,447 --> 00:19:34,587
+hatta OLT'nin onu tanıdığını bile bilmiyor.
+
+224
+00:19:34,637 --> 00:19:36,517
+G.989.3'ün on ikinci maddesi,
+
+225
+00:19:36,567 --> 00:19:44,265
+bu ONU'yu kalabalığa kekeme olmadan katacak etkinleştirme döngüsünü tanımlar.
+
+226
+00:19:45,194 --> 00:19:50,254
+İlk sorun şudur: ONU ne zaman konuşabilir? Normalde OLT,
+
+227
+00:19:50,304 --> 00:19:56,314
+her ONU'ya bant genişliği haritasıyla zaman dilimi verir.
+
+228
+00:19:56,364 --> 00:19:58,444
+Ama yeni ONU henüz haritada yok.
+
+229
+00:19:58,494 --> 00:20:06,374
+Çözüm sessiz penceredir: OLT, kısa bir süre için bütün yerleşik ONU'ları susturur,
+
+230
+00:20:06,424 --> 00:20:11,047
+ve bu boşlukta yalnızca yeni gelenler konuşabilir.
+
+231
+00:20:11,994 --> 00:20:16,654
+Sessiz pencerede OLT bir seri numarası isteği yayınlar.
+
+232
+00:20:16,704 --> 00:20:21,774
+Yeni ONU, kendi seri numarasını bir burst olarak gönderir.
+
+233
+00:20:21,824 --> 00:20:26,834
+Birden çok yeni ONU aynı anda yanıtlarsa burst'leri çakışır;
+
+234
+00:20:26,884 --> 00:20:31,844
+OLT bunu fark eder ve çakışmayı çözen bir yordam işletir,
+
+235
+00:20:31,894 --> 00:20:35,564
+ta ki her yeni ONU'yu tek tek duyana kadar.
+
+236
+00:20:36,494 --> 00:20:45,734
+Sessiz pencere ne kadar uzun olmalı? En yakın ile en uzak ONU arasındaki mesafe farkını örtecek kadar.
+
+237
+00:20:45,784 --> 00:20:51,214
+Çünkü OLT, ONU'nun tam uzaklığını daha bilmiyor; yanıt,
+
+238
+00:20:51,264 --> 00:20:55,024
+beklenen aralığın herhangi bir yerinden gelebilir.
+
+239
+00:20:55,074 --> 00:20:59,954
+Bu pencere boyunca yukarı yön tamamen durur; yani etkinleştirme,
+
+240
+00:21:00,004 --> 00:21:04,482
+yukarı yön bant genişliğinden ödün alır.
+
+241
+00:21:05,960 --> 00:21:10,950
+Seri numarası alındıktan sonra sıra mesafe ölçümünde.
+
+242
+00:21:11,000 --> 00:21:19,160
+OLT, ONU'ya bir mesafe ölçüm burst'ü gönderttirir ve gidiş dönüş gecikmesini ölçer.
+
+243
+00:21:19,210 --> 00:21:24,570
+Sonra ONU'ya bir eşitleme gecikmesi atar: yakın ONU daha çok,
+
+244
+00:21:24,620 --> 00:21:26,270
+uzak ONU daha az bekler.
+
+245
+00:21:26,320 --> 00:21:34,207
+Böylece bütün ONU'lar OLT'ye, sanki aynı mantıksal uzaklıktaymış gibi görünür.
+
+246
+00:21:35,127 --> 00:21:41,637
+Eşitleme gecikmesi neden kritiktir? Çünkü bant genişliği haritası,
+
+247
+00:21:41,687 --> 00:21:45,277
+zaman dilimlerini bite kadar sıkı diziler.
+
+248
+00:21:45,327 --> 00:21:50,127
+Eğer her ONU kendi fiziksel uzaklığıyla gönderseydi,
+
+249
+00:21:50,177 --> 00:21:55,377
+yakın ONU'nun burst'ü uzak ONU'nunkine çarpardı.
+
+250
+00:21:55,427 --> 00:22:02,117
+Eşitleme gecikmesi, bütün burst'leri ortak bir zaman eksenine hizalar; bu,
+
+251
+00:22:02,167 --> 00:22:08,131
+ikinci bölümdeki mesafe ölçümünün burada karşılığıdır.
+
+252
+00:22:09,060 --> 00:22:14,150
+ONU ilk mesafe ölçüm burst'ünü gönderirken en savunmasız anındadır:
+
+253
+00:22:14,200 --> 00:22:18,810
+henüz eşitleme gecikmesi yok, kalibrasyonu belki gevşek.
+
+254
+00:22:18,860 --> 00:22:22,330
+Bu yüzden OLT, bu ilk burst'ü yakalamak için uzun önsözlü,
+
+255
+00:22:22,380 --> 00:22:25,880
+belki FEC'li özel bir burst profili kullanır;
+
+256
+00:22:25,930 --> 00:22:29,772
+ikinci perdedeki en kötü durum tahsisi, tam da bu an içindir.
+
+257
+00:22:31,260 --> 00:22:37,660
+Peki bir ONU kurallara uymazsa? Kendi sırası olmayan bir anda,
+
+258
+00:22:37,710 --> 00:22:46,030
+ya da yanlış dalga boyunda ışıyan bir ONU, bütün bir kanalı sağır edebilir.
+
+259
+00:22:46,080 --> 00:22:49,090
+Buna kekeme, yani rogue ONU denir,
+
+260
+00:22:49,140 --> 00:22:57,503
+ve G.989.3'ün on dokuzuncu maddesi buna ayrı bir savunma çerçevesi ayırır.
+
+261
+00:22:58,427 --> 00:23:00,847
+Savunma çok katmanlıdır.
+
+262
+00:23:00,897 --> 00:23:05,497
+OLT, bir kanalı periyodik olarak boşaltıp dinleyebilir:
+
+263
+00:23:05,547 --> 00:23:12,157
+eğer boş olması gereken bir anda hâlâ ışık varsa, ortada kekeme bir ONU vardır.
+
+264
+00:23:12,207 --> 00:23:18,207
+Bu boş pencere yöntemiyle sorunlu ONU'nun varlığı saptanır; sonra OLT,
+
+265
+00:23:18,257 --> 00:23:26,342
+şüpheli ONU'ları tek tek susturarak ya da farklı dalga boylarına taşıyarak suçluyu yalıtır.
+
+266
+00:23:27,260 --> 00:23:30,000
+Ayarlanabilirlik bu riski büyütür.
+
+267
+00:23:30,050 --> 00:23:32,630
+Yedinci bölümde gördüğümüz gibi,
+
+268
+00:23:32,680 --> 00:23:38,320
+yanlış ayarlanmış bir lazer bir komşunun kanalına tam gücünde oturabilir.
+
+269
+00:23:38,370 --> 00:23:44,320
+Bu yüzden etkinleştirme ve ayar boyunca optik sınırların sağlanması, kozmetik değil,
+
+270
+00:23:44,370 --> 00:23:47,740
+bütün ağın hayatta kalma koşuludur.
+
+271
+00:23:47,790 --> 00:23:51,870
+OLT'nin burst alıcısı, aynı zamanda ağın bekçisidir.
+
+272
+00:23:52,860 --> 00:23:54,060
+Mühendis notu.
+
+273
+00:23:54,110 --> 00:24:01,700
+Bir: sessiz pencereyi ODN'nizin gerçek mesafe aralığına göre boyutlandırın;
+
+274
+00:24:01,750 --> 00:24:08,090
+çok kısa pencere yeni ONU'yu kaçırır, çok uzun pencere yukarı yön verimini yakar.
+
+275
+00:24:08,140 --> 00:24:15,340
+İki: etkinleştirme burst'lerini yakalamak için en sağlam burst profilini ayırın;
+
+276
+00:24:15,390 --> 00:24:21,315
+bir ONU'yu ağa alırken cimrilik, onu hiç alamamakla sonuçlanabilir.
+
+277
+00:24:22,360 --> 00:24:24,740
+Sıradaki: laboratuvar.
+
+278
+00:24:24,790 --> 00:24:27,510
+Burst edinim süresini, göz açıklığını,
+
+279
+00:24:27,560 --> 00:24:34,065
+ve iki ONU öykünücüsüyle dinamik aralığı nasıl ölçeriz?
+
+280
+00:24:35,860 --> 00:24:37,700
+Laboratuvarda.
+
+281
+00:24:37,750 --> 00:24:44,210
+OLT burst alıcısını ölçmek, ONU vericisini ölçmekten daha zordur,
+
+282
+00:24:44,260 --> 00:24:52,220
+çünkü tek bir sinyal değil, bir kalabalık üretmemiz gerekir.
+
+283
+00:24:52,270 --> 00:25:00,450
+Çekirdek düzenek: iki ONU öykünücüsü, farklı güçlerde ve farklı gecikmelerle,
+
+284
+00:25:00,500 --> 00:25:08,768
+sırayla burst gönderir; çıkışları birleştirilip OLT alıcısına verilir.
+
+285
+00:25:09,693 --> 00:25:16,833
+İki öykünücü neden şart? Çünkü asıl sınav, art arda gelen iki farklı güçtür.
+
+286
+00:25:16,883 --> 00:25:23,863
+Birinci öykünücüyü aşırı yük düzeyinde, yani en yakın ONU gibi;
+
+287
+00:25:23,913 --> 00:25:29,623
+ikincisini hassasiyet düzeyinde, yani en uzak ONU gibi ayarlarız.
+
+288
+00:25:29,673 --> 00:25:35,463
+Gürültülü bir burst'ün hemen ardından gelen sessiz bir burst,
+
+289
+00:25:35,513 --> 00:25:39,913
+alıcının kazanç denetimi için en zorlu andır.
+
+290
+00:25:40,860 --> 00:25:43,550
+Birinci ölçüm: burst edinim süresi.
+
+291
+00:25:43,600 --> 00:25:50,100
+Burst'ün başladığı an ile alıcının veriyi güvenilir okumaya başladığı anı işaretleriz;
+
+292
+00:25:50,150 --> 00:25:53,700
+arasındaki süre edinim süresidir.
+
+293
+00:25:53,750 --> 00:25:58,880
+Yöntem, standardın beşinci ekinde, G.987.2'ye atıfla tanımlanır.
+
+294
+00:25:58,930 --> 00:25:58,880
+Bu süre,
+
+295
+00:25:58,930 --> 00:26:05,427
+ikinci perdedeki önsöz bütçesinin gerçekte ne kadarının kullanıldığını söyler.
+
+296
+00:26:06,360 --> 00:26:09,090
+İkinci ölçüm: göz açıklığı.
+
+297
+00:26:09,140 --> 00:26:15,110
+Göz, ancak alıcı kilitlendikten sonra, yani önsözden sonraki gövdede anlamlıdır.
+
+298
+00:26:15,160 --> 00:26:20,160
+O yüzden göz ölçümünü burst'ün gövdesine kapılarız, önsöze değil.
+
+299
+00:26:20,210 --> 00:26:26,900
+Burada edinim kalitesi doğrudan göze yansır: kötü kilitlenen bir alıcı,
+
+300
+00:26:26,950 --> 00:26:29,831
+temiz bir sinyalde bile kapalı bir göz görür.
+
+301
+00:26:31,327 --> 00:26:34,657
+Üçüncü ölçüm: dinamik aralık.
+
+302
+00:26:34,707 --> 00:26:39,147
+İki öykünücüyü, biri aşırı yükte biri hassasiyette,
+
+303
+00:26:39,197 --> 00:26:45,947
+sırayla gönderecek biçimde çalıştırırız, ve her iki burst'ü de aynı anda,
+
+304
+00:26:45,997 --> 00:26:52,807
+aynı alıcıyla hata oranı referansında çözebildiğini doğrularız.
+
+305
+00:26:52,857 --> 00:26:59,467
+Sonra güçleri birkaç desibel oynatıp sınırları ararız; alıcının gerçek penceresi,
+
+306
+00:26:59,517 --> 00:27:03,399
+tablodaki yirmi bir desibeli karşılamalıdır.
+
+307
+00:27:04,327 --> 00:27:07,767
+Dördüncü ölçüm: burst modu hata oranı.
+
+308
+00:27:07,817 --> 00:27:11,347
+Sürekli mod bir alıcıda hata oranı kararlıdır;
+
+309
+00:27:11,397 --> 00:27:15,927
+burst modunda ise her burst'ün ilk bitleri, edinim henüz tam oturmadan,
+
+310
+00:27:15,977 --> 00:27:17,577
+daha risklidir.
+
+311
+00:27:17,627 --> 00:27:21,537
+Bu yüzden hata oranını burst boyunca konuma göre de inceleriz;
+
+312
+00:27:21,587 --> 00:27:25,247
+hatalar genellikle burst'ün başında yoğunlaşır.
+
+313
+00:27:25,297 --> 00:27:28,330
+Referans, FEC öncesi on üzeri eksi üçtür.
+
+314
+00:27:29,260 --> 00:27:32,330
+Bir ölçüm daha: güç dengelemenin etkisi.
+
+315
+00:27:32,380 --> 00:27:37,780
+İkinci öykünücünün gücünü, üçüncü perdedeki kurala göre kısıp,
+
+316
+00:27:37,830 --> 00:27:44,100
+OLT'nin gördüğü dinamik aralığın gerçekten daraldığını doğrularız.
+
+317
+00:27:44,150 --> 00:27:49,180
+Böylece dengelemenin alıcıya ne kazandırdığını sayıyla görürüz;
+
+318
+00:27:49,230 --> 00:27:53,932
+teorideki on iki desibel, tezgahta ölçülen bir rahatlamaya dönüşür.
+
+319
+00:27:55,427 --> 00:28:01,777
+Bütün bu ölçümler bir araya gelince, OLT alıcısının karakteri ortaya çıkar:
+
+320
+00:28:01,827 --> 00:28:07,357
+ne kadar hızlı kilitleniyor, ne kadar geniş bir aralığı kaldırıyor,
+
+321
+00:28:07,407 --> 00:28:14,117
+ve art arda gelen gürültülü ve sessiz burst'ler arasında ne kadar çabuk toparlanıyor.
+
+322
+00:28:14,167 --> 00:28:17,287
+Kalabalığı dinlemenin sınavı budur.
+
+323
+00:28:18,260 --> 00:28:19,460
+Mühendis notu.
+
+324
+00:28:19,510 --> 00:28:26,130
+Bir: dinamik aralığı her zaman art arda, gürültülüden sessize geçişle sınayın;
+
+325
+00:28:26,180 --> 00:28:33,110
+iki burst'ü ayrı ayrı ölçmek, kazanç denetiminin gerçek sınavını atlar.
+
+326
+00:28:33,160 --> 00:28:37,540
+İki: göz ve hata oranını burst içindeki konuma göre inceleyin;
+
+327
+00:28:37,590 --> 00:28:43,940
+bir alıcının zayıflığı neredeyse her zaman önsözün hemen ardında,
+
+328
+00:28:43,990 --> 00:28:46,235
+gövdenin ilk bitlerinde saklıdır.
+
+329
+00:28:47,260 --> 00:28:54,280
+Bu bölümle TWDM PON'un kalbini tamamladık: aşağı yön, yukarı yön, verici, alıcı,
+
+330
+00:28:54,330 --> 00:28:57,750
+ayar ve etkinleştirme.
+
+331
+00:28:57,800 --> 00:29:00,880
+Dokuzuncu bölümde ağacın bir başka dalına,
+
+332
+00:29:00,930 --> 00:29:07,765
+noktadan noktaya WDM'e ve yardımcı yönetim kanalına geçeceğiz.
+
+333
+00:29:09,560 --> 00:29:11,610
+Bölüm sekizin özeti.
+
+334
+00:29:11,660 --> 00:29:15,130
+Bir: OLT burst alıcısı iki zorlukla yaşar;
+
+335
+00:29:15,180 --> 00:29:19,960
+yaklaşık yirmi bir desibellik dinamik aralık,
+
+336
+00:29:20,010 --> 00:29:23,810
+ve her burst'te sıfırdan güç ve faz edinimi.
+
+337
+00:29:23,860 --> 00:29:28,170
+Referans hata oranı, FEC öncesi on üzeri eksi üçtür.
+
+338
+00:29:28,220 --> 00:29:35,220
+İki: fiziksel katman ek yük zamanı gard, önsöz ve sınırlayıcı arasında bölünür;
+
+339
+00:29:35,270 --> 00:29:39,360
+on gigabitte hedef toplam iki bin kırk sekiz bit,
+
+340
+00:29:39,410 --> 00:29:43,489
+ve sınırlayıcı en az on altı bit olmalıdır.
+
+341
+00:29:44,427 --> 00:29:46,487
+Üç: güç dengeleme,
+
+342
+00:29:46,537 --> 00:29:56,997
+yakın ONU'nun gücünü aşağı yön RSSI'sine göre en çok on iki desibel kısarak OLT'nin dinamik aralığını daraltır,
+
+343
+00:29:57,047 --> 00:29:59,597
+ve kanal dışı maskeleri gevşetir.
+
+344
+00:29:59,647 --> 00:30:06,947
+Dört: yeni bir ONU ağa, sessiz pencere, seri numarası ve mesafe ölçümüyle katılır;
+
+345
+00:30:06,997 --> 00:30:14,297
+eşitleme gecikmesi bütün ONU'ları ortak bir zaman eksenine hizalar.
+
+346
+00:30:14,347 --> 00:30:20,887
+Beş: kekeme ONU'lar, boş pencere yöntemiyle saptanır ve susturularak yalıtılır.
+
+347
+00:30:21,927 --> 00:30:23,597
+Kendini test et.
+
+348
+00:30:23,647 --> 00:30:27,247
+Birinci soru: noktadan noktaya WDM kanalları,
+
+349
+00:30:27,297 --> 00:30:34,477
+neden TWDM'den farklı bir banda ve mimariye yerleştirilir? İkinci soru:
+
+350
+00:30:34,527 --> 00:30:37,437
+yardımcı yönetim ve denetim kanalı, yani AMCC,
+
+351
+00:30:37,487 --> 00:30:45,367
+nedir ve neden gereklidir? Üçüncü soru: düşük kayıplı noktadan noktaya WDM,
+
+352
+00:30:45,417 --> 00:30:52,583
+neden ayrı bir ek olarak tanımlanır? Cevaplar, bir sonraki bölümün başında.
+
+353
+00:30:53,560 --> 00:30:56,960
+Bir sonraki bölüm: Özel Hat.
+
+354
+00:30:57,010 --> 00:31:03,610
+Noktadan noktaya WDM ve yardımcı yönetim kanalı; TWDM ağacından,
+
+355
+00:31:03,660 --> 00:31:09,160
+her aboneye kendi dalga boyunu veren özel hatlara.
+
+356
+00:31:09,210 --> 00:31:11,141
+Görüşmek üzere.
+
