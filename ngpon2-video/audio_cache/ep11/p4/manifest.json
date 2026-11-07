@@ -1,0 +1,84 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b1048d8887a_0.wav",
+   "duration": 27.892,
+   "text": "Perde dört: ortam erişimi. Kural basittir: OLT her yüz yirmi beş mikrosaniyede bir aşağı yön çerçevesi gönderir, ve her çerçeve bir bant genişliği haritası içerir. Harita, ilgili yukarı yön çerçevesinde her ONU'nun ne zaman göndereceğini söyler. Aşağı yön merkezidir: OLT bütün XGEM çerçevelerini port kimliğiyle çoğullar, her ONU kendine ait olanları süzer.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "ba53a4cf05e_0.wav",
+   "duration": 26.452,
+   "text": "Yukarı yön ise dağıtıktır. Tahsisler tahsis kimliklerine verilir, ve her tahsisin içinde ONU, XGEM port kimliğini çoğullama anahtarı olarak kullanır. Bir ONU'ya ait, art arda gönderilecek tahsislerin dizisi, bir burst tahsis serisidir. Serinin yalnızca ilk girdisi bir başlangıç zamanı taşır; sonrakiler yalnızca boyutlarını taşır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "bbceda4ffa8_0.wav",
+   "duration": 24.12,
+   "text": "Bütün ONU'ların aynı zaman referansını paylaşabilmesi mesafe ölçümüne bağlıdır. Mesafe ölçümünde belirlenen bireysel eşitleme gecikmeleri, aynı ofsette gönderen iki ONU'nun burst'lerinin OLT'ye aynı anda ulaşmasını sağlar. Birinci sezonun ikinci bölümünde bu fikri fiberin uzunluğuyla kurduk; altıncı bölümde mesajlarıyla açacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "b90a744070e_0.wav",
+   "duration": 27.764,
+   "text": "Başlangıç zamanının birimi hıza göre değişir: iki buçuk gigabitte dört baytlık bir sözcük, on gigabitte on altı baytlık bir blok. Ama ikisi de aynı süredir: on iki virgül sekiz altı nanosaniye, bir zaman kuantumu. Bu sayede iki hız, yüz yirmi beş mikrosaniyede dokuz bin yedi yüz yirmi yuvalık aynı ızgarayı paylaşır. Ayrıntısı bir sonraki bölümde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "bf2b6813c8c_0.wav",
+   "duration": 26.377,
+   "text": "Şimdi noktadan noktaya WDM. Birinci sezonun dokuzuncu bölümünde PtP WDM'in yönetim kanalını, AMCC'yi, optik tarafından gördük. TC tarafında kural şudur: PtP WDM'de kullanıcı verisi ile işletme verisi TC katmanında ayrıdır. Kullanıcı verisine TC katmanı dokunmaz; yalnızca işletme verisi, AMCC TC katmanında işlenir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "b3114cb3726_0.wav",
+   "duration": 30.687,
+   "text": "İki mod vardır. Şeffaf modda kullanıcı verisi ve AMCC verisi doğrudan PMD'ye gider, ve PMD'nin iki ayrı arayüzü vardır. Kod dönüştürmeli modda ikisi bir kod dönüştürücünün iki portuna girer, ve tek bir akış olarak PMD'ye çıkar. AMCC TC katmanı da üç alt katmandır, ve TWDM'deki sistem kimliği, PON kimliği ve ONU kimliği kavramlarını yeniden kullanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "b39c67a8cf7_0.wav",
+   "duration": 26.424,
+   "text": "Bir fark: PtP WDM'de PON kimliği yirmi iki bitlik bir etiket ve on bitlik bir ONU kimliğidir. Yani bir PtP PON kimliği, bir kanal sonlandırıcısını değil, bir sonlandırıcı ile bir ONU'nun çiftini adlandırır. AMCC TC'nin işlev bloklarında güç, kanal ve koruma yönetimi yoktur; yalnızca başarım izleme ve güvenlik anahtar yönetimi vardır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8",
+   "file": "bf300ad251b_0.wav",
+   "duration": 34.036,
+   "text": "Sekizinci ek, kimliklerin nasıl kodlanabileceğine örnekler verir. PON kimliği için: operatör, merkez ofis, OLT şasisi, kart, dalga boyu portu ve aşağı yön dalga boyu, giderek daralan bir kapsamla. Sistem kimliği için: operatör, bölge, kasaba, hizmet alanı ve hizmet profili; yirmi biti tam doldurur. Ama bu ek bilgilendiricidir, ve normatif yerleşimle çelişir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8a",
+   "file": "bbade4a6bc6_0.wav",
+   "duration": 22.687,
+   "text": "Örnek on altı aşağı yön dalga boyu önerir; normatif tablo sekiz kullanır. Örnek dalga boyu alanını sözcüğün ortasına koyar; normatif metin onu en anlamsız dört bite yerleştirir. Ve ek, hiçbir yerde tanımlanmamış bir ODN kimliğinden söz eder. Bir PON kimliği planı tasarlarken örneği değil, normatif yerleşimi izleyin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e9",
+   "file": "b9e5ae0876f_0.wav",
+   "duration": 24.387,
+   "text": "Mühendis notu. Bir: bir haritayı çözerken başlangıç zamanının yalnızca serinin ilk girdisinde olduğunu unutmayın. İki: PtP WDM ONU'larının kimliklerini planlarken, PON kimliğinin on bitinin ONU kimliği olduğunu hesaba katın; etiket için yalnızca yirmi iki bit kalır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e10",
+   "file": "b38aadf88d3_0.wav",
+   "duration": 5.041,
+   "text": "Sıradaki: dil tanımlandı. Şimdi laboratuvarda onu okuyalım.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 275.87
+}

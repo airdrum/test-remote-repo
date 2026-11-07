@@ -1,0 +1,84 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b68766717ec_0.wav",
+   "duration": 31.476,
+   "text": "Perde iki: yönetim kanalları. Bir TWDM sisteminde ONU'nun denetim, işletme ve yönetim bilgisi üç kanalda taşınır: gömülü işletme kanalı, PLOAM ve OMCC. İlk ikisi PMD ve TC katmanlarının işlevlerini yönetir. OMCC ise OMCI protokolünün mesajlarını taşır; OMCI, üst katmanları, yani servisleri tanımlayan katmanları yönetmek için tek tip bir sistemdir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "b50a01882a3_0.wav",
+   "duration": 26.047,
+   "text": "Gömülü işletme kanalı, aşağı yön çerçevesinin ve yukarı yön burst'ünün başlık alanlarıdır. Ayrı bir mesajı yoktur: her bilgi parçası belirli bir alana doğrudan eşlenir. Bu yüzden zamana duyarlı denetim için düşük gecikmeli bir yoldur. Taşıdıkları: yukarı yön burst zamanlaması ve profili, bant genişliği tahsisi, dinamik tahsis sinyalleşmesi, zorunlu uyandırma, ve son nefes bildirimi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "be1405e2df3_0.wav",
+   "duration": 25.88,
+   "text": "PLOAM, gömülü kanalla gönderilmeyen bütün PMD ve çerçeveleme yönetim bilgisini taşır. Mesajları sabit kırk sekiz bayttır: iki bayt ONU kimliği, bir bayt mesaj türü, bir bayt sıra numarası, otuz altı bayt içerik, ve sekiz baytlık bir mesaj bütünlük kodu. PLOAM normalde çerçevenin ve burst'ün içinde, kendi bölmesinde taşınır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "b72a39fcdc7_0.wav",
+   "duration": 24.429,
+   "text": "Ama PLOAM'ın ikinci bir taşıma seçeneği de vardır: AMCC. Bu seçenek yalnızca yukarı yönde ve yalnızca iki mesaj içindir: seri numarası mesajı ve ayar yanıtı mesajı. Amacı, yeterince kalibre edilmemiş ONU'ları, çalışan TWDM kanallarına zararlı girişim riski olmadan, düşük bir hızla keşfetmektir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4a",
+   "file": "b8ee1b5e59d_0.wav",
+   "duration": 33.044,
+   "text": "Akış şöyledir. OLT, sistem profilinde AMCC seçeneğinin olup olmadığını ve bant içi aktivasyon için gereken en küçük kalibrasyon doğruluğunu duyurur: kalibre edilmemiş, gevşek ya da yeterli. Yeterince kalibre edilmemiş bir ONU, seri numarasını AMCC ile göndermek zorundadır; AMCC yoksa susmalıdır. OLT cevabı aldıktan sonra ONU'yu belirli bir TWDM kanalında aktivasyona yönlendirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "b370217f39c_0.wav",
+   "duration": 36.809,
+   "text": "PMD Köprüsü. Bu, birinci sezonun yedinci bölümündeki sorunun TC tarafındaki cevabıdır: dalga boyu henüz doğru olmayan bir verici, başkalarının kanalında ışık vermemelidir. Ama bir gerilim var: G.989.3'ün E eki, TWDM kanalları için AMCC'nin uygulama ayrıntılarını henüz çalışma konusu olarak bırakır. G.989.2'nin B eki de AMCC'yi yalnızca PtP WDM bindirme kanallarında zorunlu kılar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "b7457923160_0.wav",
+   "duration": 32.223,
+   "text": "Üçüncü kanal OMCC'dir. TC katmanı, OMCI trafiği için XGEM tabanlı bir taşıma arayüzü sağlar. OMCI'ın kendisi G.988'de tanımlıdır, ve bu sezonun kapsamı dışındadır; biz yalnızca taşındığı kanalı göreceğiz. ONU'daki OMCI uyarlayıcısı, aşağı yönde OMCI taşıyan XGEM çerçevelerini süzer ve açar, yukarı yönde paketler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "b17444ba4fb_0.wav",
+   "duration": 26.243,
+   "text": "Dördüncü bir kanal ONU ile değil, OLT kanal sonlandırıcıları arasındadır: kanal sonlandırıcıları arası protokol, ICTP. Kanal profili yapılandırması ve durum paylaşımı, ONU aktivasyonu, dalga boyu kanalı devri ve başıboş ONU'larla mücadele için kullanılır. Standart on dört kullanım durumu sayar, ama protokolün kendisini kapsam dışı bırakır ve bir sektör belgesine atıf yapar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "bb4e9bd2f27_0.wav",
+   "duration": 17.283,
+   "text": "ICTP'nin bir kuralı ilginçtir: PON arayüzünden ve ICTP'den gelen sistem görünümleri çelişirse, kanal sonlandırıcısı çelişkiyi yönetim sistemine bildirir, ve PON işletimini bozabilecek eylemlerden kaçınır. Yani şüphede kalındığında, hiçbir şeyi bozma.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c9",
+   "file": "bf3058b47ab_0.wav",
+   "duration": 26.505,
+   "text": "Mühendis notu. Bir: bir sorunu ararken önce hangi kanalda yaşadığını bulun. Zamanlama ve tahsis gömülü alanlardadır; profiller ve ayar komutları PLOAM'dadır; servis yapılandırması OMCI'dadır. İki: AMCC ile keşif isteğe bağlıdır; kalibre edilmemiş ONU'lar kullanıyorsanız OLT'nizin bu seçeneği gerçekten sunduğunu doğrulayın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c10",
+   "file": "be85d404025_0.wav",
+   "duration": 5.763,
+   "text": "Sıradaki: kanallar hazır. Ama mesajlar kime gidiyor? Kimlikler.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 285.7
+}

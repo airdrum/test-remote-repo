@@ -1,0 +1,84 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "b46b2d2db92_0.wav",
+   "duration": 21.535,
+   "text": "Laboratuvarda. Birinci sezonun tezgâhında bir güç ölçer, bir OSA, bir hata oranı test cihazı ve bir ayarlı zayıflatıcı vardı. Bu sezona iki cihaz ekliyoruz: aşağı ve yukarı yönü izleyen bir protokol analizörü, ve mesajları istediğimiz gibi üreten bir OLT emülatörü. Bu bölümde ikisiyle kimlikleri okuyacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "bbd55f47bbd_0.wav",
+   "duration": 22.851,
+   "text": "İlk adım: aşağı yön çerçevesinin senkron bloğunu bulmak. Analizör, on gigabitte her yüz elli beş bin beş yüz yirmi baytta, iki buçuk gigabitte her otuz sekiz bin sekiz yüz seksen baytta sabit senkron desenini bulmalıdır. Sonra işletim denetimi yapısını sabit desenle geri açın, hata denetimini kontrol edin, ve alanlarına ayırın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b920444ca12_0.wav",
+   "duration": 28.969,
+   "text": "İkinci adım: PON kimliği ile optiği karşılaştırmak. PON kimliğinin en anlamsız dört biti, aşağı yön kanal kimliğidir. Bunu OSA ya da dalga boyu ölçerle ölçtüğünüz frekansla, ve frekans tablosuyla karşılaştırın. Örneğin PON kimliği on altılık tabanda bir iki üç dört beş altı yedi üç ise, kanal kimliği sıfır sıfır bir bir, yani dördüncü kanaldır: yüz seksen yedi virgül beş terahertz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "bd3cb98b75a_0.wav",
+   "duration": 23.252,
+   "text": "Üçüncü adım: sistem kimliği. Sistem profili mesajını yakalayın; yirmi bitlik sistem kimliğini okuyun. Aynı sistemin bütün kanal sonlandırıcılarında aynı olmalıdır. Bir profil penceresi boyunca, kanal profili mesajlarının sayısını da sayın: sistem profilinde duyurulan kanal sayısına eşit olmalı, ve her biri bir PON kimliği taşımalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "b419935c4d2_0.wav",
+   "duration": 22.089,
+   "text": "Dördüncü adım: ONU kimliği kuralları. PLOAM mesajlarında bin yirmi üç yalnızca aşağı yönde yayın, yukarı yönde atanmamış ONU anlamında görünmelidir. Bin yirmi bir ve bin yirmi iki hiç görünmemelidir. Seri numarası cevaplarında yukarı yön başlığının ONU kimliği bin yirmi üç olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "bd38e7aaaee_0.wav",
+   "duration": 21.119,
+   "text": "Beşinci adım: varsayılan üçlü. Emülatörle bir ONU'ya kimlik atayın, diyelim on dokuz. Mesafe ölçüm tahsisinin tahsis kimliği on dokuz, OMCI çerçevelerinin portu da on dokuz olmalıdır. Sonra kimliği iptal edin; ONU bu üç numarayı kullanmayı bırakmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "b8edb0d4c0e_0.wav",
+   "duration": 24.5,
+   "text": "Altıncı adım: hız kapısı. Emülatörle yalnızca bin yirmi iki numaralı seri numarası tahsisleri verin: iki buçuk gigabit yukarı yönlü bir ONU sessiz kalmalıdır. Yalnızca bin yirmi üç verin: on gigabitlik ONU sessiz kalmalıdır. Çift hızlı bir kanalda bin yirmi bir, ikisinin de cevap vermesine izin verir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "b597c9c005b_0.wav",
+   "duration": 24.095,
+   "text": "Yedinci adım: altın vektör. Dördüncü ekte bir tahsis kimliği atama mesajı vardır: ONU kimliği on dokuz, tahsis kimliği bin doksan üç. Ekte bu mesajın bütünlük kodu da verilmiştir. Analizörünüzün PLOAM çözücüsünü ve bütünlük kontrolünü bu vektörle doğrulayın; ayrıntısını beşinci bölümde açacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g9",
+   "file": "b4d7c9e2843_0.wav",
+   "duration": 17.187,
+   "text": "Sekizinci adım: boş XGEM. Yüksüz bir aşağı yönde, çerçeve yükünü port kimliği altmış beş bin beş yüz otuz beş olan boş XGEM çerçeveleri doldurur, ve alıcı bunları atar. Trafiği açınca boş çerçevelerin yerini veri almalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g10",
+   "file": "b449eb69b15_0.wav",
+   "duration": 20.479,
+   "text": "Dokuzuncu adım: bölümleme indeksi. OMCI ile bir ONU'nun indeksini beşe ayarlayın, ve yalnızca başka bir bölümün kanallarını sunun. ONU'nun indeksini sıfıra döndürene kadar geçen süreyi ölçün: önerilen değer beş dakikadır. Sonra gücü kesip açın; indeks korunmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g11",
+   "file": "b6d6d8edc9e_0.wav",
+   "duration": 20.013,
+   "text": "Laboratuvar notu. Bir: analizörünüzün iki bin yirmi bir metnine göre yazılmış çözücüleri bu bölümün alanları için geçerlidir; altıncı madde o günden beri değişmedi. İki: bütün ölçümleri birinci sezonun optik ölçümleriyle aynı defterde tutun; bir PON kimliği ile bir frekans ölçümü aynı satırda durmalıdır.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 246.09
+}

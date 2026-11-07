@@ -1,0 +1,112 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "b1",
+   "file": "b80a111a396_0.wav",
+   "duration": 30.911,
+   "text": "Perde bir: katmanlar. G.989.3'ün kapsam cümlesi şudur: bu tavsiye, kırk gigabit kapasiteli pasif optik ağ sistemlerinin, yani NG-PON2'nin iletim yakınsama katmanını tanımlar. TC katmanı, fiziksel ortama bağlı katman ile servis istemcileri arasında durur. Özetteki bir cümle de önemlidir: G.989.3, XG-PON'un TC katmanı olan G.987.3'ün üstüne kurulur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b1a",
+   "file": "b3c0508a7fd_0.wav",
+   "duration": 32.585,
+   "text": "Kapsamda yirmi altı madde vardır: on beşi TWDM, on biri noktadan noktaya WDM ve AMCC içindir. TWDM tarafı servis uyarlaması, çerçeveleme, fiziksel uyarlama, PLOAM, aktivasyon, zamanlama, başarım izleme, güvenlik, güç yönetimi, kanal yönetimi, koruma ve başıboş ONU'ları kapsar. Bu sezonun on bölümü bu listeyi izler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2",
+   "file": "bd003eae4c2_0.wav",
+   "duration": 32.944,
+   "text": "Sürüm geçmişi kısadır ama önemlidir. İlk baskı iki bin on beşte çıktı; ardından üç değişiklik geldi. İkinci baskı iki bin yirmi bir mayısında yayımlandı. İki bin yirmi üçteki birinci değişiklik, acil durdurma durumunu anlatan yeni bir ek, devre dışı bırakma mesajına bir neden kodu ve bir zamanlayıcı düzeltmesi getirdi. İki bin yirmi beşteki ikinci değişiklik, PON tavsiyeleri arasında tutarlılık güncellemeleri ve bakım düzeltmeleri yaptı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2a",
+   "file": "b71c3e7b888_0.wav",
+   "duration": 16.589,
+   "text": "Bu sezon en güncel metni, iki bin yirmi beş sürümünü kullanıyoruz, ve değişen her maddeyi ekranda işaretleyeceğiz. İyi bir haber: bu bölümün konusu olan altıncı madde, iki bin yirmi birden bu yana hiç değişmedi. Yalnızca beş şeklin numarası kaydı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3",
+   "file": "b62ab8a03b9_0.wav",
+   "duration": 25.535,
+   "text": "Hat hızları. OLT kanal sonlandırıcısı dört kombinasyonu destekleyebilir: aşağı ve yukarı yönde iki buçuk gigabit; aşağıda on, yukarıda iki buçuk; iki yönde de on; ve dördüncüsü, aşağıda on gigabit, yukarıda aynı kanalda hem on hem iki buçuk gigabit. Bu çift hızlı bir yukarı yön kanalıdır: farklı hızlardaki ONU'lar aynı fiziksel çerçeve içinde gönderebilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3a",
+   "file": "b36b3369bd6_0.wav",
+   "duration": 23.476,
+   "text": "ONU ise bir aktivasyon süresince ilk üç kombinasyondan birini kullanır. Hızını değiştirebilen bir ONU da tanımlıdır: aşağı yön hızı, yalnızca başka bir kanala ayarlanarak değişebilir; yukarı yön hızı ise ya kanal değiştirerek ya da tek bir çift hızlı kanalın içinde değişebilir. Yukarı yön hızının dinamik değişim mekanizması ise henüz çalışma konusudur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4",
+   "file": "bbfb0ca2856_0.wav",
+   "duration": 29.332,
+   "text": "PMD Köprüsü. Birinci sezonda G.989.2'nin hat hızı tablosunu gördük: temel seçenek on ve iki buçuk, birinci seçenek on ve on, ikinci seçenek iki buçuk ve iki buçuk. Dikkat: G.989.2'de çift hızlı satır yoktur. Çift hızlı yukarı yön kanalı yalnızca TC katmanında tanımlıdır, ve çift hızlı bir OLT burst alıcısının optik spesifikasyonu kaynaklarda bulunmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b5",
+   "file": "be6806006e2_0.wav",
+   "duration": 36.901,
+   "text": "Hızlar tesadüf değildir. İki virgül dört sekiz sekiz üç iki gigabit, yüz elli beş virgül elli iki megabitin on altı katı; dokuz virgül dokuz beş üç iki sekiz, altmış dört katıdır. İkisi de sekiz kilohertzin katıdır, yani yüz yirmi beş mikrosaniyelik bir çerçeveye tam sayıda bit sığar: iki buçuk gigabitte üç yüz on bir bin kırk, on gigabitte bir milyon iki yüz kırk dört bin yüz altmış bit. Dört on gigabitlik kanal, her yönde yaklaşık kırk gigabit eder; adındaki kırk buradan gelir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b6",
+   "file": "b1e2334689c_0.wav",
+   "duration": 25.993,
+   "text": "Şimdi yapı. TWDM TC katmanı üç alt katmandan oluşur: servis uyarlama, çerçeveleme ve fiziksel uyarlama. PMD ile arayüzü aşağı yönde, nominal hızda, yüz yirmi beş mikrosaniyelik çerçevelere bölünmüş sürekli bir bit akışıdır. Yukarı yönde ise hassas biçimde zamanlanmış bir burst dizisidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7",
+   "file": "b5993092092_0.wav",
+   "duration": 31.419,
+   "text": "Aşağı yönde bir paketin yolunu izleyelim. Servis verisi birimleri, gerekirse parçalanarak XGEM çerçevelerine konur: bir XGEM başlığı ve bir yük. Bir dizi XGEM çerçevesi, çerçeveleme alt katmanının yükünü oluşturur. Başlık, yük ve kuyruk birlikte bir çerçeveleme çerçevesidir. Sonra FEC kod sözcüklerine bölünür, karıştırılır, ve önüne fiziksel senkron bloğu eklenir: yüz yirmi beş mikrosaniyelik fiziksel çerçeve.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7a",
+   "file": "b34188f008e_0.wav",
+   "duration": 29.567,
+   "text": "Yukarı yönde yol benzerdir, ama sonuç bir burst'tür. Her tahsise bir yük düşer; parçalanan bir paketin kalanı, aynı tahsis kimliğinin bir sonraki tahsisinde gönderilir. Tahsis yükleri, bir başlık ve kuyrukla birlikte bir çerçeveleme burst'ü oluşturur. FEC, sonda kısalmış bir kod sözcüğüyle uygulanır, karıştırılır, ve önüne yukarı yön senkron bloğu eklenir: ONU'ya özgü bir fiziksel burst.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b8",
+   "file": "b0d9b0f5bdb_0.wav",
+   "duration": 32.265,
+   "text": "Alt katmanların işleri bellidir. Servis uyarlama, paketleri kapsüller, çoğullar ve sınırlar; XGEM motoru ve iki uyarlayıcıdan oluşur: kullanıcı verisi uyarlayıcısı ve OMCI uyarlayıcısı. Çerçeveleme, yönetim için gereken ek yük alanlarını kurar ve çözer; çerçeveleri olabildiğince dört baytlık sözcük sınırlarına hizalar. Fiziksel uyarlama ise FEC, karıştırma, senkron blokları ve zaman hizalamasıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b8a",
+   "file": "b2e910acf2a_0.wav",
+   "duration": 30.672,
+   "text": "PMD Köprüsü. Fiziksel uyarlama alt katmanının iki cümlesi doğrudan birinci sezona bağlanır. FEC, artıklık ekleyerek optik alıcının etkin hassasiyetini ve aşırı yük davranışını iyileştirir, ve alıcının daha yüksek bir hata oranında çalışmasına izin verir. Karıştırma ise iletimi rastgeleleştirir ve ardışık özdeş rakam toleransının sağlanmasına yardım eder. Hat kodları ise G.989.2'ye bırakılmıştır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b9",
+   "file": "b725d4633c0_0.wav",
+   "duration": 22.765,
+   "text": "Mühendis notu. Bir: G.989.3'ü okurken G.987.3'ü de elinizin altında tutun; bazı ekler, örneğin FEC, yalnızca ona atıf yapar. İki: çift hızlı bir kanal tasarlıyorsanız, optik tarafın standartta tanımlı olmadığını bilin; alıcı spesifikasyonu sizin sorumluluğunuzdadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b10",
+   "file": "b0f7cf31ded_0.wav",
+   "duration": 4.337,
+   "text": "Sıradaki: veri yolu belli. Peki bu sistem nasıl yönetilir?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 405.29
+}

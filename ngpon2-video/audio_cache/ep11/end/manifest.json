@@ -1,0 +1,35 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "bdb2de0a6b2_0.wav",
+   "duration": 35.327,
+   "text": "Bölümün özeti. Bir: G.989.3, G.987.3'ün üstüne kurulmuş üç alt katmanlı bir TC katmanıdır: servis uyarlama, çerçeveleme ve fiziksel uyarlama. İki: dört hız kombinasyonundan dördüncüsü, çift hızlı bir yukarı yön kanalıdır, ve yalnızca TC katmanında tanımlıdır. Üç: yönetim üç kanaldan geçer: gömülü alanlar, PLOAM ve OMCC; kanal sonlandırıcıları ise ICTP ile konuşur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h2",
+   "file": "b251432cd98_0.wav",
+   "duration": 19.431,
+   "text": "Dört: dokuz kimlik vardır; ONU kimliği, varsayılan tahsis kimliği ve OMCC portu aynı numaradır, ve bir kanal devrinde korunur. Beş: hız farkına rağmen iki hız, on iki virgül sekiz altı nanosaniyelik aynı zaman kuantumunu paylaşır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h3",
+   "file": "be5435bf858_0.wav",
+   "duration": 38.917,
+   "text": "Kendini test et. Birinci soru: tahsis kimliği bin yirmi iki, boyutu sıfır olan ve PLOAM isteyen bir tahsis nedir, hangi ONU'lar cevap verebilir, ve hangi ONU kimliğiyle? İkinci soru: bir PSBd'de PON kimliği on altılık tabanda bir iki üç dört beş altı yedi üç ise, bu hangi aşağı yön kanalıdır? Üçüncü soru: ONU kimliği on dokuz olan bir ONU'nun hangi kimlikleri bir kanal devrinde, hangileri ilk duruma dönüşte korunur? Cevaplar, bir sonraki bölümün başında.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h4",
+   "file": "bbbd4853a90_0.wav",
+   "duration": 13.475,
+   "text": "Bir sonraki bölüm: Çerçeve. Senkron bloğundan bant genişliği haritasına, aşağı yön çerçevesini ve yukarı yön burst'ünü bit bit açıyoruz. Görüşmek üzere.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 107.15
+}

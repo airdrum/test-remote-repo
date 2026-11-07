@@ -1,0 +1,112 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "bcb3cf83b99_0.wav",
+   "duration": 23.429,
+   "text": "Perde üç: kimlikler. NG-PON2'nin zaman ve dalga boyu bölmeli mimarisinde birden fazla OLT kanal sonlandırıcısı vardır, her biri belirli bir TWDM kanalına bağlıdır. ONU'lar kanallar arasında devredilebilir. Bir kanalın içinde ise zaman bölmeli çoğullama geçerlidir. Bu yapıda kimin kim olduğunu dokuz numara söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "bfcdbfbc899_0.wav",
+   "duration": 29.965,
+   "text": "En geniş kimlik sistem kimliğidir, NG2SYS ID: yirmi bitlik bir sayı. Ortak yönetim altındaki NG-PON2 sistemlerinden birini tanımlar; operatör adı, coğrafi konum, servis profili gibi yönetim bilgisini kodlayabilir. Bir sistemin bütün TWDM ve PtP WDM kanallarında aynıdır, ve OLT bunu sistem profili mesajında bütün ONU'lara duyurur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "bf444379627_0.wav",
+   "duration": 30.036,
+   "text": "Sonra PON kimliği: bir kanal sonlandırıcısını bir alan içinde benzersiz biçimde tanımlayan otuz iki bitlik bir sayı. TWDM'de yirmi sekiz bitlik bir yönetim etiketi ve dört bitlik aşağı yön dalga boyu kanalı kimliğinden oluşur. Etiketi yönetim sistemi verir, OLT ona dokunmaz. PON kimliği her yüz yirmi beş mikrosaniyede, fiziksel senkron bloğunda taşınır; bunu bir sonraki bölümde bit bit göreceğiz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b3b9576c8dc_0.wav",
+   "duration": 17.929,
+   "text": "Bir zamanlama farkına dikkat edin. Hangi kanal sorusunun cevabı her çerçevede gelir, PON kimliğiyle. Hangi sistem sorusunun cevabı ise yalnızca sistem profilindedir, ve profiller bir ile beş saniye arasında bir aralıkla tekrarlanır. Hangi kanal hızlı, hangi sistem yavaş öğrenilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "bb65f7790cb_0.wav",
+   "duration": 31.988,
+   "text": "Aşağı yön dalga boyu kanalı kimliği, G.989.2'nin frekans tablosundaki kanal numarasının bir eksiğidir: sıfırdan yediye, yüz seksen yedi virgül sekizden yüz seksen yedi virgül bir terahertze. Yukarı yön kanal kimliği de dört bittir, ama sabit bir tablosu yoktur: yukarı yön frekanslarını ve kimliklerini operatör atar, ve kanal profilinde sıfır virgül bir gigahertzlik birimlerle duyurulur. Aşağı yönü fizik, yukarı yönü operatör belirler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5a",
+   "file": "b93266a20ee_0.wav",
+   "duration": 19.224,
+   "text": "PMD Köprüsü. Bunun nedeni birinci sezonun üçüncü bölümündeydi: yukarı yön bandının üç genişlik seçeneği vardır, geniş, daraltılmış ve dar; ve döngüsel çoğullayıcılar kullanılabilir. Sabit bir yukarı yön tablosu bu esnekliği öldürürdü.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "b11ef9812b0_0.wav",
+   "duration": 25.396,
+   "text": "Şimdi ONU'nun kendi numaraları. ONU kimliği on bittir: sıfırdan bin yirmiye kadar atanabilir, bin yirmi bir ve bin yirmi iki ayrılmıştır ve asla kullanılmaz, bin yirmi üç ise yayın adresidir, ya da yukarı yönde henüz kimliği olmayan bir ONU demektir. OLT bunu aktivasyon sırasında atar, ve kimlik bütün ODN boyunca benzersizdir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "b153083d3a6_0.wav",
+   "duration": 36.336,
+   "text": "Tahsis kimliği on dört bittir, ve bant genişliği haritasındaki bir tahsisin alıcısını söyler: bir ONU'nun içindeki bir trafik taşıyıcısı, ya da birden fazla ONU'nun kullanabileceği bir çekişmeli işlev. Sıfırdan bin yirmiye kadar olan değerler varsayılandır ve ONU kimliğine eşittir. Bin yirmi bir, bin yirmi iki ve bin yirmi üç, seri numarası tahsisleri için ayrılmış yayın adresleridir. Bin yirmi dörtten on altı bin üç yüz seksen üçe kadar olanlar açıkça atanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7a",
+   "file": "b25a06f0e59_0.wav",
+   "duration": 24.956,
+   "text": "Üç yayın değerinin ayrımı hızdır: bin yirmi bir her hıza, bin yirmi iki yalnızca on gigabit, bin yirmi üç yalnızca iki buçuk gigabit yukarı yönlü ONU'lara açıktır. Standart nedenini de yazar: tek hızlı bir kanalda, yanlış hızla gönderen yanlışlıkla bağlanmış ONU'ları engellemek; çift hızlı bir kanalda ise iki hızın birlikte kaydolmasına izin vermek.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "bfb87c0e164_0.wav",
+   "duration": 30.409,
+   "text": "XGEM port kimliği on altı bittir, ve tek bir mantıksal bağlantıyı tanımlar. Sıfırdan bin yirmiye kadar olanlar varsayılandır ve OMCC trafiğini taşır; bin yirmi birden altmış beş bin beş yüz otuz dörde kadar olanlar atanabilir; altmış beş bin beş yüz otuz beş ise boş XGEM çerçeveleri içindir. OMCC dışındaki bütün port atamaları OMCC'nin kendisi üzerinden yapılır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "b19a9e23bc6_0.wav",
+   "duration": 28.639,
+   "text": "Burada zarif bir kural var: aynı numara üç kapıyı açar. ONU kimliği on dokuz olan bir ONU'nun varsayılan tahsis kimliği on dokuz, OMCC portu da on dokuzdur. Bir analizör, hiçbir OMCI yapılandırması bilmeden, OMCI trafiğini doğru ONU'ya eşleyebilir. Ayrılmış değerler ise simetrik değildir: bin yirmi bir bir port olabilir, ama asla bir ONU kimliği olamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "bcb55dc2b80_0.wav",
+   "duration": 28.635,
+   "text": "Son kimlik, kanal bölümleme indeksidir. Operatör, kanalları hizmet profili, donanım ya da konum gibi bir ölçütle örtüşmeyen bölümlere ayırabilir. ONU'nun indeksi kalıcı bellektedir, ve güç kesintisinde bile korunur. Belirli bir indeksi olan ONU yalnızca eşleşen bölümde aktive olur; eşleşen bir kanal bulamazsa bir zamanlayıcı başlatır, ve süre dolunca indeksini sıfıra döndürür. Önerilen süre beş dakikadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "b3bb80173d0_0.wav",
+   "duration": 23.405,
+   "text": "Peki hangi kimlik ne zaman unutulur? Bir kanal devrinde ONU yalnızca burst profillerini unutur; ONU kimliği, tahsis kimlikleri ve portlar kalır. ONU ilk duruma dönerse ise ONU kimliğini, varsayılan ve atanmış tahsis kimliklerini ve varsayılan portu unutur; ama OMCC ile atanmış portları ve bölümleme indeksini korur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d12",
+   "file": "bcfc166d7f7_0.wav",
+   "duration": 24.056,
+   "text": "Mühendis notu. Bir: bir ONU kanal değiştirdiğinde kimliklerinin değişmesini beklemeyin; ONU kimliği ve tahsis kimlikleri bütün kanallar boyunca benzersizdir. İki: bölümleme indeksi kalıcıdır ve bir sahada ONU'nun hiçbir kanala bağlanmamasının sessiz nedenlerinden biri olabilir; beş dakikalık bekleme süresini aklınızda tutun.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d13",
+   "file": "b11333febed_0.wav",
+   "duration": 5.041,
+   "text": "Sıradaki: kim kim belli. Peki kim, ne zaman konuşur?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 379.44
+}
