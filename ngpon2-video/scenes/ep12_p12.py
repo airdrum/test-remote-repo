@@ -150,6 +150,7 @@ class E12P1A(Act12):
             fr.add(VGroup(p, q, lab))
         fr.arrange(RIGHT, buff=0.12).move_to([0, 0.5, 0])
         inc = VGroup(*[T("+1", 18, GOOD, BOLD).move_to([(fr[i][0].get_x() + fr[i + 1][0].get_x()) / 2, -0.15, 0]) for i in range(2)])
+        inc.add(T("örnek sayaç değerleri", 14, MUTED).next_to(fr, DOWN, buff=0.08).align_to(fr, RIGHT))
         wr = VGroup(HX("0x7 FFFF FFFF FFFF", 22, GOLD, BOLD), T("→", 26, MUTED, BOLD), HX("0x0 0000 0000 0000", 22, GOOD, BOLD)).arrange(RIGHT, buff=0.3).move_to([0, -0.95, 0])
         wl = T("hepsi 1 → sonraki çerçevede 0", 17, MUTED, BOLD).next_to(wr, DOWN, buff=0.12)
         calc = T("2⁵¹ × 125 µs ≈ 8 919 yıl", 34, TXT, BOLD).move_to([-2.3, -2.5, 0])

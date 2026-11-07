@@ -375,7 +375,7 @@ class E12P3C(Act12):
         bad = seg(0, 2.25, 0, WARN, "ONU 3 (ikinci)", 0.62, 0.12, 16).next_to(msgs, RIGHT, buff=0.08)
         badx = xmark(bad[0], WARN, 4, 0.0)
         sz = VGroup(*[T("48 B", 15, MUTED, BOLD).next_to(m, UP, buff=0.08) for m in msgs])
-        pl = T("P = 4", 18, PLDC, BOLD).next_to(msgs, LEFT, buff=0.2)
+        pl = VGroup(T("P = 4", 18, PLDC, BOLD), T("örnek", 14, MUTED)).arrange(DOWN, buff=0.04).next_to(msgs, LEFT, buff=0.2)
         fw = VGroup(tag("alan", MUTED, 17), T("PLOAM sayısı 8 bit → P ≤ 255", 20, TXT, BOLD)).arrange(RIGHT, buff=0.25)
         rk = VGroup(tag("kural", GOLD, 17), T("çerçeve başına ≤ 1 yayın + ONU başına ≤ 1 tek alıcılı mesaj", 20, TXT, BOLD)).arrange(RIGHT, buff=0.25)
         fr = VGroup(fw, rk).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to([0, 0.05, 0])
