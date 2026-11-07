@@ -238,7 +238,7 @@ class E9LabB(Act9):
         ax, X, Y = ber_axes((-5.6, -2.55, 0), 6.2, 4.5, 0, 10)
         l1, d1 = ber_curve(X, Y, 5.0, Q12, 0.55, 0.4, 5.7, GOOD, seed=2)
         l2, d2 = ber_curve(X, Y, 6.6, Q12, 0.55, 2.0, 7.3, GOLD, seed=3)
-        t1 = T("arka arkaya", 16, GOOD, BOLD).next_to(l1.point_from_proportion(0.4), LEFT, buff=0.2)
+        t1 = T("arka arkaya", 16, GOOD, BOLD).next_to(l1.point_from_proportion(0.72), LEFT, buff=0.25)
         t2 = T("fiberli (DD20 / DD40)", 16, GOLD, BOLD).next_to(l2.point_from_proportion(0.45), RIGHT, buff=0.2)
         ref = DashedLine([X(0), Y(Q12), 0], [X(10), Y(Q12), 0], color=MUTED, stroke_width=1.5)
         gap = DoubleArrow([X(5.0), Y(Q12) + 0.25, 0], [X(6.6), Y(Q12) + 0.25, 0], buff=0, color=WARN, stroke_width=2.5, tip_length=0.12)
@@ -386,7 +386,7 @@ class E9LabC(Act9):
         ax, X, Y = ber_axes((-5.6, -2.55, 0), 6.0, 4.5, 0, 10)
         l1, d1 = ber_curve(X, Y, 5.0, Q12, 0.55, 0.4, 5.7, GOOD, seed=4)
         l2, d2 = ber_curve(X, Y, 5.9, Q12, 0.55, 1.3, 6.6, AMC, seed=5)
-        t1 = T("AMCC kapalı", 16, GOOD, BOLD).next_to(l1.point_from_proportion(0.4), LEFT, buff=0.2)
+        t1 = T("AMCC kapalı", 16, GOOD, BOLD).next_to(l1.point_from_proportion(0.72), LEFT, buff=0.25)
         t2 = T("AMCC açık", 16, AMC, BOLD).next_to(l2.point_from_proportion(0.45), RIGHT, buff=0.2)
         ref = DashedLine([X(0), Y(Q12), 0], [X(10), Y(Q12), 0], color=MUTED, stroke_width=1.5)
         reft = T("referans BER", 14, MUTED).next_to(ref, RIGHT, buff=0.08)
@@ -454,14 +454,15 @@ class E9End(Act9):
         self.at(1.5)
         self.to_header(tc)
         self.set_badge("ozet")
-        pts = ["PtP WDM: her ONU'ya kendi sürekli λ çifti · paylaşılan 1603–1625 nm · TWDM'den ≥ 3 nm / ≥ 100 GHz koruma bandı",
+        pts = ["PtP WDM: her ONU'ya kendi sürekli λ çifti · paylaşılan 1603–1625 nm\nTWDM'den ≥ 3 nm ya da ≥ 100 GHz koruma bandıyla ayrılır",
                "Ek A: üç hız sınıfı · ODN sınıfını iki yönde de OLT taşır, ONU sınıftan bağımsız",
                "FEC'i PMD eklemez: FEC sütunları istemci protokolüne ya da kod dönüştürmeye dayanır",
-               "AMCC zorunlu: 115 kb/s üst modülasyon ya da 128 kb/s pilot ton · %10 indeks · cezası tanımsız",
+               "AMCC zorunlu: 115 kb/s üst modülasyon ya da 128 kb/s pilot ton\n%10 indeks · cezası tanımlı değil",
                "Ek C: AWG'li, düşük kayıplı (L1 8–17 · L2 16–25 dB), 16 kanallı başka bir tasarım noktası"]
-        items = VGroup(*[VGroup(T(f"{i + 1}", 30, ACC, BOLD), T(s, 19, TXT)).arrange(RIGHT, buff=0.35) for i, s in enumerate(pts)]).arrange(DOWN, aligned_edge=LEFT, buff=0.42).move_to(DOWN * 0.3)
+        items = VGroup(*[VGroup(T(f"{i + 1}", 30, ACC, BOLD), T(s, 20, TXT, line_spacing=0.9)).arrange(RIGHT, buff=0.35) for i, s in enumerate(pts)])
         for it in items:
-            fit(it, 13.2)
+            fit(it, 12.8)
+        items.arrange(DOWN, aligned_edge=LEFT, buff=0.36).move_to(DOWN * 0.3)
         self.at(self.cue("Bir:", 1.5))
         self.play(FadeIn(items[0], shift=RIGHT * 0.2), run_time=0.6)
         self.at(self.cue("İki:", 20.9))
