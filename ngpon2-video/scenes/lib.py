@@ -12,7 +12,7 @@ CH = ["#8B5CF6", "#22D3EE", "#34D399", "#F59E0B"]  # λ1..λ4 — fixed for the 
 LEGACY = "#64748B"
 FONT = "Inter"
 config.background_color = BG
-SERIES = json.loads((ROOT / "plan/episodes.json").read_text())
+SERIES = json.loads((ROOT / "plan/episodes.json").read_text(encoding="utf-8"))
 
 
 def T(s, size=28, color=TXT, weight=NORMAL, **kw):
@@ -46,7 +46,7 @@ class Narrated(Scene):
         mp = self.MANIFEST
         if mp and __import__('os').environ.get('AUDIO_DIR'):
             mp = mp.replace('audio_proc', __import__('os').environ['AUDIO_DIR'])
-        self.man = json.loads((ROOT / mp).read_text()) if mp else None
+        self.man = json.loads((ROOT / mp).read_text(encoding="utf-8")) if mp else None
         self.bmap = {b["id"]: b for b in self.man["beats"]} if self.man else {}
         self.timeline, self.bi = [], -1
 
@@ -69,7 +69,7 @@ class Narrated(Scene):
         self.at(self.bdur + pad + self.EXTRA_PAD)
 
     def save_timeline(self, name):
-        (ROOT / f"build/{name}_timeline.json").write_text(json.dumps(self.timeline, ensure_ascii=False, indent=1))
+        (ROOT / f"build/{name}_timeline.json").write_text(json.dumps(self.timeline, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 # ---------- reusable instrument tiles (test bench) ----------

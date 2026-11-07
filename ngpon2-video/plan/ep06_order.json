@@ -1,0 +1,21 @@
+[
+ ["Ep06Open", "ep06_open", "ep06_open", "open"],
+ ["Intro", null, null, null],
+ ["Ep06Recap", "ep06_open", "ep06_recap", "recap"],
+ ["E6P1A", "ep06_p12", "ep06_p1A", "p1"],
+ ["E6P1B", "ep06_p12", "ep06_p1B", "p1"],
+ ["E6P1C", "ep06_p12", "ep06_p1C", "p1"],
+ ["E6P2A", "ep06_p12", "ep06_p2A", "p2"],
+ ["E6P2B", "ep06_p12", "ep06_p2B", "p2"],
+ ["E6P2C", "ep06_p12", "ep06_p2C", "p2"],
+ ["E6P3A", "ep06_p34", "ep06_p3A", "p3"],
+ ["E6P3B", "ep06_p34", "ep06_p3B", "p3"],
+ ["E6P3C", "ep06_p34", "ep06_p3C", "p3"],
+ ["E6P4A", "ep06_p34", "ep06_p4A", "p4"],
+ ["E6P4B", "ep06_p34", "ep06_p4B", "p4"],
+ ["E6P4C", "ep06_p34", "ep06_p4C", "p4"],
+ ["E6LabA", "ep06_le", "ep06_labA", "lab"],
+ ["E6LabB", "ep06_le", "ep06_labB", "lab"],
+ ["E6LabC", "ep06_le", "ep06_labC", "lab"],
+ ["E6End", "ep06_le", "ep06_end", "end"]
+]

@@ -1,0 +1,1624 @@
+1
+00:00:00,000 --> 00:00:01,670
+Bölüm altı: Patlama.
+
+2
+00:00:01,720 --> 00:00:11,200
+Bu bölümde ONU vericisini inceliyoruz; ama sürekli gönderen bir vericiyi değil,
+
+3
+00:00:11,250 --> 00:00:20,119
+kalabalık bir yukarı yönde yalnızca kendi sırası geldiğinde yanıp sönen bir vericiyi.
+
+4
+00:00:21,067 --> 00:00:27,607
+Önce burst modunun temeli: neden sürekli değil de patlamalı gönderdiğimiz,
+
+5
+00:00:27,657 --> 00:00:30,847
+vericinin açılma ve kapanma geçişleri,
+
+6
+00:00:30,897 --> 00:00:34,162
+ve her burst'ün başındaki önsöz ile sınırlayıcı.
+
+7
+00:00:35,100 --> 00:00:40,080
+Sonra karanlık: kapalı bir vericinin bile fiber'e sızdırdığı güç.
+
+8
+00:00:40,130 --> 00:00:45,270
+Etkin değilken yayılan güç yoğunluğu, bant dışı ve kanal dışı yoğunluk,
+
+9
+00:00:45,320 --> 00:00:49,723
+ve sönüm oranıyla gücün birlikte çizdiği izin verilen bölge.
+
+10
+00:00:50,667 --> 00:00:57,087
+Ardından burst'ün şekli: verici göz maskesi, titreşim toleransı ve üretimi,
+
+11
+00:00:57,137 --> 00:01:00,584
+kaynak yan mod bastırması ve dispersiyon.
+
+12
+00:01:01,533 --> 00:01:07,303
+TC köprüsünde ise yukarı yön burst'ünün yapısı: fiziksel senkron bloğu,
+
+13
+00:01:07,353 --> 00:01:13,253
+önsöz ve sınırlayıcıdan oluşan burst profili, yukarı yön hata düzeltmesi,
+
+14
+00:01:13,303 --> 00:01:18,310
+ve bütün bunların zamanlamasını kuran bant genişliği haritası.
+
+15
+00:01:19,233 --> 00:01:24,633
+Laboratuvarda kapılı bir göz diyagramıyla açılma ve kapanma zamanlamasını,
+
+16
+00:01:24,683 --> 00:01:27,954
+ve karanlıktaki güç yoğunluğunu ölçeceğiz.
+
+17
+00:01:40,227 --> 00:01:42,647
+Önce geçen bölümün soruları.
+
+18
+00:01:42,697 --> 00:01:44,007
+Birinci soru:
+
+19
+00:01:44,057 --> 00:01:54,767
+on gigabitlik aşağı yönde E2 sınıfında aşırı yük neden eksi dokuz dBm'dir? Çünkü E2'de OLT'nin en büyük başlatma gücü,
+
+20
+00:01:54,817 --> 00:01:59,687
+E1 ile aynı, artı on bir dBm'de sınırlıdır.
+
+21
+00:01:59,737 --> 00:02:06,367
+Yirmi desibellik en küçük yol kaybını çıkarın: artı on bir eksi yirmi, eksi dokuz.
+
+22
+00:02:06,417 --> 00:02:11,230
+Aşırı yük bir verici güç tavanının izidir.
+
+23
+00:02:12,227 --> 00:02:19,677
+İkinci soru: iki buçuk gigabitlik bir ONU için S, X ve Z düzeyleri.
+
+24
+00:02:19,727 --> 00:02:27,887
+Hassasiyet eksi otuz, yol cezası bir desibel; yani S, eksi yirmi dokuz dBm.
+
+25
+00:02:27,937 --> 00:02:32,977
+Her TWDM girişimcisi S artı dört, eksi yirmi beş.
+
+26
+00:02:33,027 --> 00:02:42,097
+Aşağı yöndeki noktadan noktaya kanallar, iki buçuk gigabit için S artı yedi,
+
+27
+00:02:42,147 --> 00:02:43,864
+eksi yirmi iki dBm.
+
+28
+00:02:44,860 --> 00:02:46,450
+Üçüncü soru:
+
+29
+00:02:46,500 --> 00:02:56,390
+senkron durumundaki bir ONU kaç ardışık kötü çerçeveden sonra senkron kaybı ilan eder? Önerilen M değeri üç'tür;
+
+30
+00:02:56,440 --> 00:03:04,650
+yani üç ardışık çerçevede fiziksel senkron ya da süper çerçeve sayacı doğrulaması başarısız olursa,
+
+31
+00:03:04,700 --> 00:03:10,430
+ONU aşağı yön senkron kaybını ilan eder ve arama durumuna döner.
+
+32
+00:03:10,480 --> 00:03:14,839
+Şimdi bu bölüme: ONU konuşmaya başladığında ne olur?
+
+33
+00:03:16,427 --> 00:03:18,077
+Perde bir: burst modu.
+
+34
+00:03:18,127 --> 00:03:25,787
+Aşağı yön tek bir OLT'den sürekli akar; yukarı yön ise paylaşımlıdır.
+
+35
+00:03:25,837 --> 00:03:32,737
+Bir fiberde çok sayıda ONU vardır, ama aynı anda yalnızca biri gönderebilir.
+
+36
+00:03:32,787 --> 00:03:40,507
+Her ONU yalnızca kendisine ayrılan zaman diliminde vericisini açar, gönderir,
+
+37
+00:03:40,557 --> 00:03:41,397
+ve kapatır.
+
+38
+00:03:41,447 --> 00:03:46,201
+İşte yukarı yöndeki her gönderime bir burst diyoruz.
+
+39
+00:03:47,127 --> 00:03:49,397
+Bunun bedeli zamandır.
+
+40
+00:03:49,447 --> 00:03:53,187
+İki ONU'nun burst'leri çakışırsa ikisi de kaybolur.
+
+41
+00:03:53,237 --> 00:03:57,817
+O yüzden OLT, her bursta bir başlangıç ve bir süre atar,
+
+42
+00:03:57,867 --> 00:04:00,917
+ve aralarına koruma boşlukları koyar.
+
+43
+00:04:00,967 --> 00:04:04,777
+Vericinin ne kadar hızlı açılıp kapandığı,
+
+44
+00:04:04,827 --> 00:04:10,917
+bu boşlukların ne kadar dar olabileceğini doğrudan belirler; yani burst modu,
+
+45
+00:04:10,967 --> 00:04:14,131
+güç bütçesi kadar zaman bütçesidir.
+
+46
+00:04:15,060 --> 00:04:17,640
+Standart iki geçiş süresi tanımlar.
+
+47
+00:04:17,690 --> 00:04:23,530
+Verici etkinleştirme geçiş süresi: vericinin kapalıdan tam güce çıkması.
+
+48
+00:04:23,580 --> 00:04:29,830
+Verici devre dışı bırakma geçiş süresi: tam güçten kapalıya inmesi.
+
+49
+00:04:29,880 --> 00:04:34,480
+On gigabitlik yukarı yönde her ikisi de en çok bin iki yüz seksen bittir,
+
+50
+00:04:34,530 --> 00:04:37,839
+yani yüz yirmi sekiz virgül altı nanosaniye.
+
+51
+00:04:38,760 --> 00:04:43,670
+Bin iki yüz seksen bit neden anlamlı bir sayı? Çünkü bu süre,
+
+52
+00:04:43,720 --> 00:04:47,050
+gerçek verilerden çalınan zamandır.
+
+53
+00:04:47,100 --> 00:04:51,930
+Lazer akımı sıfırdan çalışma noktasına çıkarken, ya da inerken,
+
+54
+00:04:51,980 --> 00:04:54,180
+o bitler güvenilir taşınamaz.
+
+55
+00:04:54,230 --> 00:04:59,640
+Koruma boşluğu en azından bu açılma ve kapanma sürelerini,
+
+56
+00:04:59,690 --> 00:05:03,905
+artı ONU'ların zamanlama sürüklenmesini örtmelidir.
+
+57
+00:05:05,393 --> 00:05:10,063
+Burst'ün kendisi de sade bir veri bloğu değildir.
+
+58
+00:05:10,113 --> 00:05:10,063
+Standart,
+
+59
+00:05:10,113 --> 00:05:17,353
+ONU güç düzeyleri ile burst zamanları arasındaki ilişkiyi bir şekille verir.
+
+60
+00:05:17,403 --> 00:05:23,473
+Sırasıyla: verici etkinleştirme, önsöz, sınırlayıcı, burst'ün geri kalanı,
+
+61
+00:05:23,523 --> 00:05:26,135
+ve verici devre dışı bırakma.
+
+62
+00:05:27,126 --> 00:05:28,046
+Önsöz,
+
+63
+00:05:28,096 --> 00:05:35,186
+OLT alıcısının bu ONU'nun güç düzeyine ve fazına hızla kilitlenmesi için konan,
+
+64
+00:05:35,236 --> 00:05:38,796
+önceden bilinen bir bit desenidir.
+
+65
+00:05:38,846 --> 00:05:48,176
+Sınırlayıcı ise yük verilerinin tam olarak nerede başladığını işaretleyen benzersiz bir sözcüktür.
+
+66
+00:05:48,226 --> 00:05:54,196
+OLT önce önsözle ayarını yapar, sonra sınırlayıcıyı bulur,
+
+67
+00:05:54,246 --> 00:05:57,509
+ve ondan sonrasını veri olarak okur.
+
+68
+00:05:58,493 --> 00:06:03,973
+Dikkat edin: önsöz ve sınırlayıcının uzunluğu ile deseni sabit değildir.
+
+69
+00:06:04,023 --> 00:06:10,253
+Bunları OLT belirler ve her bursta hangisinin kullanılacağını seçer.
+
+70
+00:06:10,303 --> 00:06:17,783
+Bu yüzden önsöz, en kötü ONU'ya göre değil, o anki koşullara göre ayarlanabilir;
+
+71
+00:06:17,833 --> 00:06:23,829
+sekizinci bölümde OLT alıcısını işlerken bunun neden önemli olduğunu göreceğiz.
+
+72
+00:06:24,826 --> 00:06:28,186
+Önsözün bir görevi de saat çıkarımıdır.
+
+73
+00:06:28,236 --> 00:06:36,296
+Beşinci bölümde sürekli aşağı yön için ardışık özdeş rakam bağışıklığını konuşmuştuk:
+
+74
+00:06:36,346 --> 00:06:38,206
+her iki hızda yetmiş iki bit.
+
+75
+00:06:38,256 --> 00:06:40,836
+Burst alıcısı ise saati sıfırdan,
+
+76
+00:06:40,886 --> 00:06:46,406
+yalnızca önsözdeki değişen bitlerden kurmak zorundadır; o yüzden önsöz,
+
+77
+00:06:46,456 --> 00:06:50,566
+hem güç hem faz kilidi için yeterince uzun olmalıdır.
+
+78
+00:06:51,560 --> 00:06:56,500
+Burst içinde de aynı yetmiş iki bitlik bağışıklık geçerlidir.
+
+79
+00:06:56,550 --> 00:06:58,760
+Veriler karıştırıcıdan geçer,
+
+80
+00:06:58,810 --> 00:07:04,390
+böylece uzun sıfır ya da bir dizileri olasılıksal olarak kırılır;
+
+81
+00:07:04,440 --> 00:07:08,590
+kalan riski yetmiş iki bitlik bağışıklık karşılar.
+
+82
+00:07:08,640 --> 00:07:11,020
+Yani OLT alıcısının saat devresi,
+
+83
+00:07:11,070 --> 00:07:17,781
+burst boyunca geçişsiz en çok yetmiş iki biti fazını kaybetmeden taşıyabilmelidir.
+
+84
+00:07:19,260 --> 00:07:24,480
+Burst'ün ortalama gücü nasıl ölçülür? Standart açıkça uyarır:
+
+85
+00:07:24,530 --> 00:07:28,010
+ONU'nun S noktasındaki başlatma gücü ölçümü,
+
+86
+00:07:28,060 --> 00:07:32,350
+yukarı yön trafiğinin patlamalı doğasını hesaba katmalıdır.
+
+87
+00:07:32,400 --> 00:07:37,230
+Yani ortalama gücü, vericinin açık olduğu süre üzerinden,
+
+88
+00:07:37,280 --> 00:07:40,870
+kapalı aralıkları dışarıda bırakarak ölçersiniz;
+
+89
+00:07:40,920 --> 00:07:44,481
+yoksa düşük doluluk oranı sizi yanıltır.
+
+90
+00:07:45,427 --> 00:07:52,587
+On gigabitlik ONU vericisinin ortalama kanal başlatma gücü, B tipi bağlantıda N1,
+
+91
+00:07:52,637 --> 00:08:00,307
+N2 ve E1 için artı iki ile artı yedi dBm arasıdır; E2'de artı dört ile artı dokuz.
+
+92
+00:08:00,357 --> 00:08:06,597
+Bu bir aralıktır: alt sınır sağlanması gereken en az güç,
+
+93
+00:08:06,647 --> 00:08:10,647
+üst sınır asla aşılmaması gereken tavandır.
+
+94
+00:08:10,697 --> 00:08:16,179
+Maliyet, ölçüm toleransı ve yaşlanma, bu aralığın içinde yaşar.
+
+95
+00:08:17,160 --> 00:08:21,030
+Zaman bütçesinin öbür ucu fiziksel katman ek yüküdür.
+
+96
+00:08:21,080 --> 00:08:26,350
+On gigabitlik yukarı yönde bu ek yük iki bin kırk sekiz bittir;
+
+97
+00:08:26,400 --> 00:08:28,790
+iki buçuk gigabitte beş yüz on iki.
+
+98
+00:08:28,840 --> 00:08:33,760
+Bu bitler önsöz, sınırlayıcı ve geçiş sürelerinin toplam cebidir,
+
+99
+00:08:33,810 --> 00:08:38,706
+ve standardın üçüncü eki bu sürenin nasıl dağıtılacağını tartışır.
+
+100
+00:08:39,627 --> 00:08:42,587
+Bu ek yükü sezgiyle yerleştirin.
+
+101
+00:08:42,637 --> 00:08:47,857
+İki bin kırk sekiz bit, on gigabitte yaklaşık iki yüz nanosaniyedir.
+
+102
+00:08:47,907 --> 00:08:53,087
+Her burst'ün başında ödenir; ne kadar çok, ama kısa burst olursa,
+
+103
+00:08:53,137 --> 00:08:57,157
+ek yükün toplam yukarı yöne oranı o kadar artar.
+
+104
+00:08:57,207 --> 00:09:00,307
+Verimlilik ile gecikme arasındaki denge,
+
+105
+00:09:00,357 --> 00:09:05,532
+OLT'nin bant genişliği atayıcısının her an verdiği karardır.
+
+106
+00:09:06,527 --> 00:09:07,727
+Mühendis notu.
+
+107
+00:09:07,777 --> 00:09:13,767
+Bir: açılma ve kapanma geçişlerini bitlerle değil, nanosaniyeyle düşünün;
+
+108
+00:09:13,817 --> 00:09:20,057
+bin iki yüz seksen bit on gigabitte yüz yirmi sekiz virgül altı nanosaniyedir,
+
+109
+00:09:20,107 --> 00:09:23,347
+ve koruma boşluğu bütçenizi bu belirler.
+
+110
+00:09:23,397 --> 00:09:30,637
+İki: ortalama gücü her zaman kapılı ölçün; vericinin yalnızca açık olduğu pencerede.
+
+111
+00:09:31,660 --> 00:09:37,080
+Sıradaki: verici kapalıyken bile tamamen karanlık değildir.
+
+112
+00:09:37,130 --> 00:09:41,320
+O sızan güç nereden gelir, ve neden önemlidir?
+
+113
+00:09:43,093 --> 00:09:45,793
+Perde iki: karanlıkta güç.
+
+114
+00:09:45,843 --> 00:09:50,443
+İki ONU aynı anda gönderemez; ama bir ONU gönderirken,
+
+115
+00:09:50,493 --> 00:09:57,453
+geri kalan onlarca ONU gerçekten sessiz mi? Standart bunun hayır olduğunu kabul eder,
+
+116
+00:09:57,503 --> 00:10:04,890
+ve kapalı bir vericinin yayabileceği en büyük gücü açıkça sınırlar.
+
+117
+00:10:05,826 --> 00:10:11,196
+Neden karanlık tam karanlık değildir? Bir yarı iletken lazer,
+
+118
+00:10:11,246 --> 00:10:14,786
+eşik akımının altında bile kendiliğinden ışıma yayar.
+
+119
+00:10:14,836 --> 00:10:16,346
+Üstelik birçok ONU vericisi,
+
+120
+00:10:16,396 --> 00:10:22,846
+hızlı açılabilmek için eşiğe yakın bir ön gerilimde tutulur.
+
+121
+00:10:22,896 --> 00:10:24,926
+Sonuç: kapalı olması gereken verici,
+
+122
+00:10:24,976 --> 00:10:29,208
+fiber'e zayıf ama sıfır olmayan bir ışık sızdırır.
+
+123
+00:10:30,126 --> 00:10:36,806
+Bu neden sorun? NG-PON2'de bir kanalda altmış dörde kadar ONU olabilir.
+
+124
+00:10:36,856 --> 00:10:42,556
+Biri konuşurken diğer altmış üçü dinlemede, ama hepsinin sızıntısı toplanır.
+
+125
+00:10:42,606 --> 00:10:48,126
+Bu toplam, konuşan ONU'nun sinyaline binen bir gürültü tabanıdır;
+
+126
+00:10:48,176 --> 00:10:53,261
+yeterince yükselirse, meşru burst'ün hata oranını bozar.
+
+127
+00:10:54,760 --> 00:11:00,930
+Standart bunu etkin değilken güç yoğunluğu, kısaca W-N-E-P-S-D ile sınırlar.
+
+128
+00:11:00,980 --> 00:11:04,170
+On gigabitlik yukarı yönde bu değer,
+
+129
+00:11:04,220 --> 00:11:09,260
+on beş gigahertz başına eksi altmış iki virgül altı dBm'dir.
+
+130
+00:11:09,310 --> 00:11:09,260
+Bu,
+
+131
+00:11:09,310 --> 00:11:18,289
+bir ONU'nun kendisine ayrılmamış burst'ler sırasında fiber'e yayabileceği en büyük güç yoğunluğudur.
+
+132
+00:11:19,227 --> 00:11:22,657
+Geçiş anlarında kural değişir.
+
+133
+00:11:22,707 --> 00:11:23,957
+Vericinin açılma geçişi,
+
+134
+00:11:24,007 --> 00:11:30,157
+kendi burst'ünden hemen önce lazeri ön gerilimlemek için kullanılabilir;
+
+135
+00:11:30,207 --> 00:11:33,417
+kapanma geçişi hemen sonra gelir.
+
+136
+00:11:33,467 --> 00:11:39,877
+Bu iki pencerede izin verilen en büyük düzey, etkin değilken güç yoğunluğu değil,
+
+137
+00:11:39,927 --> 00:11:44,577
+en küçük sönüm oranındaki sıfır düzeyidir.
+
+138
+00:11:44,627 --> 00:11:49,131
+Yani verici tam kapanmadan önce, kısa bir an daha parlak olabilir.
+
+139
+00:11:50,060 --> 00:11:54,360
+Sızıntının iki ekseni vardır: bant dışı ve kanal dışı.
+
+140
+00:11:54,410 --> 00:12:01,140
+Bant dışı güç yoğunluğu, yukarı yön bandının tamamen dışına düşen ışıktır;
+
+141
+00:12:01,190 --> 00:12:06,110
+dört kanalda on beş gigahertz başına eksi elli yedi virgül dört,
+
+142
+00:12:06,160 --> 00:12:09,400
+sekiz kanalda eksi altmış dört virgül altı dBm.
+
+143
+00:12:09,450 --> 00:12:15,466
+Bu, eski sistemlerle ve noktadan noktaya WDM ile birlikte yaşayabilmek içindir.
+
+144
+00:12:16,393 --> 00:12:21,683
+Kanal dışı güç yoğunluğu ise yukarı yön bandının içindeki,
+
+145
+00:12:21,733 --> 00:12:27,303
+ama bu ONU'nun kanalı olmayan yerlere düşen ışıktır.
+
+146
+00:12:27,353 --> 00:12:27,983
+İki maske var.
+
+147
+00:12:28,033 --> 00:12:33,013
+Birinci maske komşu kanal aralığına bakar:
+
+148
+00:12:33,063 --> 00:12:37,203
+elli gigahertz aralıkta eksi otuz altı virgül yedi,
+
+149
+00:12:37,253 --> 00:12:40,133
+yüz gigahertzde eksi kırk virgül beş,
+
+150
+00:12:40,183 --> 00:12:45,503
+iki yüz gigahertzde eksi kırk dört virgül dört dBm.
+
+151
+00:12:45,553 --> 00:12:51,333
+İkinci maske daha uzağa bakar: dört kanalda eksi kırk bir virgül altı,
+
+152
+00:12:51,383 --> 00:12:55,674
+sekiz kanalda eksi kırk sekiz virgül beş.
+
+153
+00:12:57,160 --> 00:13:02,990
+Bu üç sınır, dördüncü bölümdeki X bölü S toleransının öbür yüzüdür.
+
+154
+00:13:03,040 --> 00:13:08,720
+Orada alıcının kalabalıkta duyabilmesini istemiştik; burada ise her vericinin,
+
+155
+00:13:08,770 --> 00:13:13,660
+kalabalığa kendi payından fazla gürültü katmamasını istiyoruz.
+
+156
+00:13:13,710 --> 00:13:17,990
+Biri alıcı tarafın, diğeri verici tarafın sözleşmesidir;
+
+157
+00:13:18,040 --> 00:13:20,477
+ikisi birlikte sistemi ayakta tutar.
+
+158
+00:13:21,427 --> 00:13:25,567
+Şimdi ilginç bir gerilim: sönüm oranı ile güç.
+
+159
+00:13:25,617 --> 00:13:31,797
+Sönüm oranı, bir ile sıfır bitinin güç oranıdır; en az altı desibel istenir.
+
+160
+00:13:31,847 --> 00:13:39,267
+Ama sıfır biti hiç sıfır değildir, ve düşük sönüm oranı demek, daha parlak sıfırlar,
+
+161
+00:13:39,317 --> 00:13:43,197
+yani daha fazla kanal dışı sızıntı demektir.
+
+162
+00:13:43,247 --> 00:13:48,604
+Öte yandan yüksek sönüm oranı lazeri zorlar ve maliyeti artırır.
+
+163
+00:13:49,527 --> 00:13:54,627
+Standart bu gerilimi tek bir sayı yerine izin verilen bir bölgeyle çözer.
+
+164
+00:13:54,677 --> 00:14:01,057
+Ortalama güç ile sönüm oranı birlikte, bir bölgenin içinde kalmalıdır.
+
+165
+00:14:01,107 --> 00:14:06,207
+B tipi verici için alt sınır şu çiftlerle çizilir: artı bir dBm'de sekiz desibel,
+
+166
+00:14:06,257 --> 00:14:13,267
+artı iki'de altı, artı üç buçukta beş, artı beşte dört, artı yedide dört desibel.
+
+167
+00:14:13,317 --> 00:14:17,317
+Yani daha düşük güçte daha yüksek sönüm oranı istenir;
+
+168
+00:14:17,367 --> 00:14:20,584
+güç arttıkça sönüm oranından ödün verilebilir.
+
+169
+00:14:21,527 --> 00:14:24,087
+Bu bölgenin mantığı fizikseldir.
+
+170
+00:14:24,137 --> 00:14:30,907
+Düşük güçte çalışıyorsanız, sıfır düzeyiniz zaten gürültü tabanına yakındır;
+
+171
+00:14:30,957 --> 00:14:37,217
+kanal dışı güç küçüktür, ama alıcı hassasiyeti için net bir göz istersiniz,
+
+172
+00:14:37,267 --> 00:14:40,337
+o yüzden yüksek sönüm oranı.
+
+173
+00:14:40,387 --> 00:14:43,587
+Yüksek güçte ise sıfır düzeyi yukarı kayar;
+
+174
+00:14:43,637 --> 00:14:49,259
+sönüm oranını yüksek tutmak sızıntıyı patlatır, o yüzden bir tavan konur.
+
+175
+00:14:50,227 --> 00:14:51,427
+Mühendis notu.
+
+176
+00:14:51,477 --> 00:14:55,917
+Bir: sönüm oranını güçten bağımsız düşünmeyin;
+
+177
+00:14:55,967 --> 00:15:00,137
+vericinizi çalıştıracağınız güç noktasında,
+
+178
+00:15:00,187 --> 00:15:04,907
+izin verilen bölgenin içinde kaldığınızı doğrulayın.
+
+179
+00:15:04,957 --> 00:15:04,907
+İki:
+
+180
+00:15:04,957 --> 00:15:13,797
+etkin değilken güç yoğunluğunu ölçerken vericiyi gerçek çalışma ön gerilimiyle kapatın;
+
+181
+00:15:13,847 --> 00:15:20,049
+laboratuvarda tamamen söndürülmüş bir lazer, sahadaki karanlığı temsil etmez.
+
+182
+00:15:21,093 --> 00:15:24,813
+Sıradaki: güç ve sızıntı tamam.
+
+183
+00:15:24,863 --> 00:15:31,078
+Peki burst'ün dalga biçimi; bir ve sıfırların şekli ne kadar temiz olmalı?
+
+184
+00:15:32,860 --> 00:15:34,440
+Perde üç: burst'ün şekli.
+
+185
+00:15:34,490 --> 00:15:40,030
+Güç yettiğinde ve sızıntı sınırlandığında bile,
+
+186
+00:15:40,080 --> 00:15:44,560
+bir ve sıfırların zaman içindeki biçimi önemlidir.
+
+187
+00:15:44,610 --> 00:15:51,380
+Standart bunu verici göz diyagramının maskesiyle tanımlar: gözün açıklığını,
+
+188
+00:15:51,430 --> 00:15:55,837
+ama aynı zamanda aşımı ve alt aşımı sınırlayan bir şekil.
+
+189
+00:15:56,760 --> 00:16:00,950
+Maske bir dikdörtgen ile iki yatay banttan oluşur.
+
+190
+00:16:01,000 --> 00:16:08,620
+Dikdörtgenin yatay genişliği: x üç eksi x iki, sıfır virgül iki birim aralık.
+
+191
+00:16:08,670 --> 00:16:15,300
+Dikey kenarları: y bir ve y iki, sıfır virgül yirmi beş ile sıfır virgül yetmiş beş.
+
+192
+00:16:15,350 --> 00:16:23,320
+Üstteki ve alttaki yasak bantlar da sıfır virgül yirmi beş birim aralık içeri taşar.
+
+193
+00:16:23,370 --> 00:16:26,880
+Bu değerler iki buçuk ve on gigabitte aynıdır.
+
+194
+00:16:27,827 --> 00:16:31,807
+Burada burst moduna özgü bir incelik var.
+
+195
+00:16:31,857 --> 00:16:35,807
+Maske, burst'ün ilk bitinden, yani önsözün ilk bitinden,
+
+196
+00:16:35,857 --> 00:16:37,267
+son bitine kadar geçerlidir.
+
+197
+00:16:37,317 --> 00:16:40,467
+Yani vericinin daha yeni açıldığı,
+
+198
+00:16:40,517 --> 00:16:47,977
+lazerin ısıl olarak oturmadığı o ilk bitlerde de göz, maskeyi ihlal etmemelidir.
+
+199
+00:16:48,027 --> 00:16:53,538
+Sürekli bir vericide hiç karşılaşmadığınız bir sınavdır bu.
+
+200
+00:16:54,460 --> 00:16:56,940
+Ölçüm düzeni de tanımlıdır.
+
+201
+00:16:56,990 --> 00:16:59,730
+Optik sinyal bir O-E dönüştürücüden,
+
+202
+00:16:59,780 --> 00:17:03,650
+ardından dördüncü dereceden bir Thomson filtresinden geçer;
+
+203
+00:17:03,700 --> 00:17:07,040
+filtrenin üç desibel kesim frekansı,
+
+204
+00:17:07,090 --> 00:17:11,160
+nominal bit hızının sıfır virgül yetmiş beş katıdır.
+
+205
+00:17:11,210 --> 00:17:17,470
+Yani maske, ideal bir alıcı değil, belirli bir referans alıcı bandı varsayar;
+
+206
+00:17:17,520 --> 00:17:20,583
+ölçtüğünüz göz, bu filtreden sonraki gözdür.
+
+207
+00:17:22,060 --> 00:17:25,230
+İkinci biçim ölçütü titreşimdir.
+
+208
+00:17:25,280 --> 00:17:26,860
+Titreşim toleransı,
+
+209
+00:17:26,910 --> 00:17:36,740
+giriş sinyaline uygulanan ve alıcıda bir desibellik güç cezasına yol açan sinüzoidal titreşimin tepeden tepeye genliğidir.
+
+210
+00:17:36,790 --> 00:17:44,120
+Beşinci bölümdeki gibi ölçüt, hata oranı çöküşü değil, bir desibellik ceza;
+
+211
+00:17:44,170 --> 00:17:46,275
+bu bir stres testidir.
+
+212
+00:17:47,193 --> 00:17:50,043
+On gigabitte maske iki seviyelidir:
+
+213
+00:17:50,093 --> 00:17:53,803
+dört yüz kilohertzin altında sıfır virgül yetmiş beş,
+
+214
+00:17:53,853 --> 00:17:59,343
+dört megahertzin üstünde sıfır virgül sıfır yetmiş beş birim aralık,
+
+215
+00:17:59,393 --> 00:18:02,673
+aradaki eğim eksi yirmi desibel bölü dekad.
+
+216
+00:18:02,723 --> 00:18:04,983
+Üretim tarafında ise ONU,
+
+217
+00:18:05,033 --> 00:18:11,113
+yirmi kilohertz ile seksen megahertz arasında en çok sıfır virgül üç,
+
+218
+00:18:11,163 --> 00:18:17,482
+dört megahertz üstünde sıfır virgül bir birim aralıktan fazla titreşim üretmemelidir.
+
+219
+00:18:18,427 --> 00:18:24,737
+ONU'ya özgü üçüncü bir titreşim parametresi daha var: titreşim aktarımı,
+
+220
+00:18:24,787 --> 00:18:29,507
+tepe kazancı sıfır virgül bir desibelle sınırlı.
+
+221
+00:18:29,557 --> 00:18:34,867
+Hatırlayın, ONU yukarı yönde aşağı yönden çıkardığı saati kullanır.
+
+222
+00:18:34,917 --> 00:18:39,957
+Burst modunda bu daha da kritiktir: her burst'ün önsözü,
+
+223
+00:18:40,007 --> 00:18:46,157
+aşağı yönden türetilmiş bu saatle üretilir; saat titreşimi büyütürse,
+
+224
+00:18:46,207 --> 00:18:48,904
+her burst biraz daha bozuk başlar.
+
+225
+00:18:50,393 --> 00:18:56,503
+Spektral temizlik: en küçük yan mod bastırma oranı otuz desibeldir.
+
+226
+00:18:56,553 --> 00:19:03,173
+Ölçüm, herhangi bir filtreden önce doğrudan lazer çıkışında yapılır.
+
+227
+00:19:03,223 --> 00:19:05,433
+Neden? Çünkü yan modlar,
+
+228
+00:19:05,483 --> 00:19:11,793
+fiber dispersiyonuyla etkileşince mod bölüşüm gürültüsü yaratır;
+
+229
+00:19:11,843 --> 00:19:16,255
+bunu kaynakta bastırmak, yolda düzeltmekten ucuzdur.
+
+230
+00:19:17,193 --> 00:19:23,703
+Dispersiyon aralığı sıfır ile üç yüz elli beş ps bölü nanometre arasıdır; bu,
+
+231
+00:19:23,753 --> 00:19:28,323
+yirmi kilometrelik DD20 sınıfına karşılık gelir.
+
+232
+00:19:28,373 --> 00:19:36,023
+Yukarı yön dalga boyları bin beş yüz yirmi dört ile bin beş yüz kırk dört nanometre bandındadır;
+
+233
+00:19:36,073 --> 00:19:39,563
+bu bantta tek modlu fiberin dispersiyonu,
+
+234
+00:19:39,613 --> 00:19:45,213
+aşağı yöndeki bin altı yüz nanometre bölgesine göre daha ılımlıdır, ve bu,
+
+235
+00:19:45,263 --> 00:19:49,353
+yukarı yön vericisinin işini bir nebze kolaylaştırır.
+
+236
+00:19:50,293 --> 00:19:54,023
+Bütün bu biçim ölçütlerini birlikte düşünün.
+
+237
+00:19:54,073 --> 00:19:57,413
+Göz maskesi uzayda, titreşim maskesi zamanda,
+
+238
+00:19:57,463 --> 00:20:01,673
+yan mod bastırması spektrumda aynı şeyi söyler: burst,
+
+239
+00:20:01,723 --> 00:20:03,823
+ilk bitinden itibaren temiz olmalı.
+
+240
+00:20:03,873 --> 00:20:08,303
+Sürekli bir verici ısınıp oturmak için zaman bulur;
+
+241
+00:20:08,353 --> 00:20:10,533
+burst vericisi her seferinde sıfırdan,
+
+242
+00:20:10,583 --> 00:20:14,526
+mikrosaniyeler içinde temiz bir göz açmak zorundadır.
+
+243
+00:20:15,493 --> 00:20:16,693
+Mühendis notu.
+
+244
+00:20:16,743 --> 00:20:22,043
+Bir: göz maskesini burst'ün ortasında değil, ilk bitlerinde ölçün;
+
+245
+00:20:22,093 --> 00:20:29,063
+ihlaller neredeyse her zaman önsözün başında, lazer henüz oturmadan olur.
+
+246
+00:20:29,113 --> 00:20:36,783
+İki: yan mod bastırmasını lazer çıkışında ölçün, alıcı filtresinden sonra değil;
+
+247
+00:20:36,833 --> 00:20:41,437
+aksi halde mod bölüşüm gürültüsünü gizlersiniz.
+
+248
+00:20:42,460 --> 00:20:46,110
+Sıradaki: fiziksel burst'ü gördük.
+
+249
+00:20:46,160 --> 00:20:53,174
+Peki TC katmanı bu burst'ün içini nasıl dolduruyor, ve zamanlamasını kim veriyor?
+
+250
+00:20:54,960 --> 00:20:57,310
+Perde dört, TC köprüsü.
+
+251
+00:20:57,360 --> 00:21:04,730
+Fiziksel burst'ün dışını gördük: açılma, önsöz, sınırlayıcı, kapanma.
+
+252
+00:21:04,780 --> 00:21:08,640
+Şimdi G.989.3'e geçip içini dolduralım.
+
+253
+00:21:08,690 --> 00:21:16,970
+TC katmanında yukarı yön burst'ü iki parçadır: yukarı yön fiziksel senkron bloğu,
+
+254
+00:21:17,020 --> 00:21:18,690
+ve onu izleyen yük.
+
+255
+00:21:19,627 --> 00:21:23,487
+Fiziksel senkron bloğu, kısaca PSBu,
+
+256
+00:21:23,537 --> 00:21:29,527
+tam da perde birde konuştuğumuz önsöz ile sınırlayıcıdan oluşur.
+
+257
+00:21:29,577 --> 00:21:36,187
+Standart bu ikisinin uzunluğunu ve desenini birlikte burst profili diye adlandırır.
+
+258
+00:21:36,237 --> 00:21:41,437
+Yani fiziksel katmanda gördüğümüz o ayarlanabilir önsöz,
+
+259
+00:21:41,487 --> 00:21:46,723
+TC katmanında bir profil olarak isimlendirilir ve yönetilir.
+
+260
+00:21:47,660 --> 00:21:49,720
+Profili kim seçer? OLT.
+
+261
+00:21:49,770 --> 00:21:54,810
+Önce izin verilen burst profillerini, her birine bir indeks vererek,
+
+262
+00:21:54,860 --> 00:21:59,070
+burst profili PLOAM mesajlarıyla önceden duyurur.
+
+263
+00:21:59,120 --> 00:22:01,640
+Sonra her yukarı yön ayırması için,
+
+264
+00:22:01,690 --> 00:22:11,550
+bant genişliği haritasındaki burst profili alanına bir indeks yazarak hangi profilin kullanılacağını söyler.
+
+265
+00:22:11,600 --> 00:22:18,069
+Böylece aynı ONU, koşullara göre farklı bursta farklı önsöz kullanabilir.
+
+266
+00:22:18,993 --> 00:22:22,173
+Bu neden güçlüdür? Yeni etkinleşen,
+
+267
+00:22:22,223 --> 00:22:27,453
+henüz hizalanmamış bir ONU uzun bir önsöz gerektirir;
+
+268
+00:22:27,503 --> 00:22:31,173
+OLT ona uzun profilli bir indeks verir.
+
+269
+00:22:31,223 --> 00:22:37,563
+Oturmuş, zamanlaması bilinen bir ONU'ya ise kısa önsözlü bir profil yeter.
+
+270
+00:22:37,613 --> 00:22:44,973
+Önsöz artık en kötü duruma değil, o anki duruma göre ödenir; kazanılan her bit,
+
+271
+00:22:45,023 --> 00:22:48,246
+yukarı yön verimliliğine yazılır.
+
+272
+00:22:49,727 --> 00:22:51,437
+Yükün kendisi de korunur.
+
+273
+00:22:51,487 --> 00:22:58,627
+Yukarı yön hata düzeltmesi Reed-Solomon kodudur: on gigabitte iki yüz kırk sekiz,
+
+274
+00:22:58,677 --> 00:23:05,267
+iki yüz on altı; iki buçuk gigabitte iki yüz kırk sekiz, iki yüz otuz iki.
+
+275
+00:23:05,317 --> 00:23:10,897
+İkisi de iki yüz elli beş sembollük tam koddan kısaltılmıştır;
+
+276
+00:23:10,947 --> 00:23:16,278
+yedi sıfır sembol başa eklenir, ama iletilmez, alıcıda yeniden konur.
+
+277
+00:23:17,227 --> 00:23:21,487
+Aşağı yönde FEC statik olarak açık ya da kapalıdır;
+
+278
+00:23:21,537 --> 00:23:25,997
+yukarı yönde ise OLT'nin dinamik denetimindedir.
+
+279
+00:23:26,047 --> 00:23:31,547
+Bir ONU'nun ardışık ayırmaları tek bir veri bloğu gibi kodlanır,
+
+280
+00:23:31,597 --> 00:23:35,327
+sona en çok bir kısaltılmış kod sözcüğü düşer.
+
+281
+00:23:35,377 --> 00:23:38,287
+Yani FEC de, önsöz gibi,
+
+282
+00:23:38,337 --> 00:23:43,054
+burst profilinin parçası olarak bursta göre açılıp kapanabilir.
+
+283
+00:23:43,994 --> 00:23:44,834
+Şimdi zamanlama.
+
+284
+00:23:44,884 --> 00:23:52,394
+Yukarı yön fiziksel çerçevesi de aşağı yön gibi yüz yirmi beş mikrosaniyedir,
+
+285
+00:23:52,444 --> 00:23:54,404
+ama kimse sürekli göndermez.
+
+286
+00:23:54,454 --> 00:24:02,594
+OLT, her aşağı yön çerçevesiyle birlikte bir bant genişliği haritası gönderir;
+
+287
+00:24:02,644 --> 00:24:09,284
+bu harita, o yukarı yön çerçevesinde hangi ONU'nun, hangi ayırma kimliğiyle,
+
+288
+00:24:09,334 --> 00:24:13,042
+ne zaman ve ne kadar göndereceğini bite kadar belirler.
+
+289
+00:24:13,960 --> 00:24:18,410
+Bu, dinamik bant genişliği atamasının kalbidir.
+
+290
+00:24:18,460 --> 00:24:22,960
+ONU'lar doldukları tamponları bildirir; OLT talebi görür,
+
+291
+00:24:23,010 --> 00:24:30,580
+adil ve gecikmeye duyarlı biçimde zaman dilimlerini dağıtır, ve haritayı yayınlar.
+
+292
+00:24:30,630 --> 00:24:36,400
+Yukarı yön, aşağı yönün tersine, merkezden zamanlanan bir orkestradır;
+
+293
+00:24:36,450 --> 00:24:40,151
+her ONU yalnızca kendi ölçüsünde çalar.
+
+294
+00:24:41,627 --> 00:24:47,367
+Burst'leri çakışmadan dizmek için OLT, aralarına koruma süresi koyar.
+
+295
+00:24:47,417 --> 00:24:51,067
+Önerilen en az koruma süresi altmış dört bittir.
+
+296
+00:24:51,117 --> 00:24:55,357
+Bu süre, perde birdeki açılma ve kapanma geçişlerini,
+
+297
+00:24:55,407 --> 00:25:00,397
+artı ONU'ların zamanlama sürüklenmesini örtmelidir.
+
+298
+00:25:00,447 --> 00:25:04,517
+İşte fiziksel katmandaki o bin iki yüz seksen bitlik geçiş,
+
+299
+00:25:04,567 --> 00:25:08,588
+burada TC katmanının koruma bütçesine dönüşür.
+
+300
+00:25:09,527 --> 00:25:11,857
+İki katmanı birlikte okuyun.
+
+301
+00:25:11,907 --> 00:25:17,537
+Fiziksel katman der ki: açılmam yüz yirmi sekiz nanosaniye sürer,
+
+302
+00:25:17,587 --> 00:25:24,537
+karanlıkta şu kadar sızdırırım, gözüm ilk bitten temiz olur.
+
+303
+00:25:24,587 --> 00:25:32,297
+TC katmanı bunu duyar ve der ki: o halde sana şu kadar koruma, şu uzunlukta önsöz,
+
+304
+00:25:32,347 --> 00:25:35,877
+ve şu profille FEC veriyorum.
+
+305
+00:25:35,927 --> 00:25:40,235
+Burst profili, bu iki katmanın el sıkıştığı yerdir.
+
+306
+00:25:41,160 --> 00:25:43,820
+Verimlilik hesabı da buradan çıkar.
+
+307
+00:25:43,870 --> 00:25:50,730
+Perde birdeki iki bin kırk sekiz bitlik fiziksel katman ek yükü, artı koruma süresi,
+
+308
+00:25:50,780 --> 00:25:54,630
+artı her ayırmanın FEC payı; bunların toplamı,
+
+309
+00:25:54,680 --> 00:25:57,800
+her burst'te veriye ayrılmayan zamandır.
+
+310
+00:25:57,850 --> 00:26:04,110
+Kısa ve çok burst, düşük gecikme ama yüksek ek yük demektir; uzun ve seyrek burst,
+
+311
+00:26:04,160 --> 00:26:05,360
+tersi.
+
+312
+00:26:05,410 --> 00:26:08,370
+OLT bu dengeyi her çerçevede yeniden kurar.
+
+313
+00:26:09,360 --> 00:26:10,560
+Mühendis notu.
+
+314
+00:26:10,610 --> 00:26:17,040
+Bir: bir ONU'nun yukarı yön verimini ölçerken yalnızca hattı değil,
+
+315
+00:26:17,090 --> 00:26:22,070
+ona atanan burst profilini de bakın; gereğinden uzun bir önsöz,
+
+316
+00:26:22,120 --> 00:26:25,650
+sessizce bant genişliği yakar.
+
+317
+00:26:25,700 --> 00:26:29,780
+İki: koruma süresini ONU'nun gerçek açılma,
+
+318
+00:26:29,830 --> 00:26:34,940
+kapanma ve sürüklenme ölçümlerinden türetin;
+
+319
+00:26:34,990 --> 00:26:41,548
+standardın altmış dört biti bir alt sınırdır, güvenli bir varsayılan değil.
+
+320
+00:26:42,594 --> 00:26:44,974
+Sıradaki: laboratuvar.
+
+321
+00:26:45,024 --> 00:26:52,013
+Kapalı bir vericinin karanlığını, ve açılıp kapanma zamanlamasını nasıl ölçeriz?
+
+322
+00:26:53,793 --> 00:26:55,643
+Laboratuvarda.
+
+323
+00:26:55,693 --> 00:27:00,163
+Bu bölümde ONU vericisinin burst'ünü ölçeceğiz: üç şey, kapılı göz,
+
+324
+00:27:00,213 --> 00:27:04,363
+açılma ve kapanma zamanlaması, ve karanlıktaki güç.
+
+325
+00:27:04,413 --> 00:27:09,383
+Hepsinin ortak zorluğu aynı: sinyal sürekli değil, yanıp sönüyor;
+
+326
+00:27:09,433 --> 00:27:13,399
+o yüzden her ölçüm aleti, doğru ana tetiklenmelidir.
+
+327
+00:27:14,326 --> 00:27:20,626
+Düzeneğin kalbi sayısal haberleşme çözümleyicisidir; kısaca DCA.
+
+328
+00:27:20,676 --> 00:27:28,356
+Önüne, yukarı yön kanalını seçen ısıl ayarlı bir filtre, bir O-E dönüştürücü,
+
+329
+00:27:28,406 --> 00:27:34,886
+ve standardın istediği dördüncü dereceden Thomson filtresi koyarız;
+
+330
+00:27:34,936 --> 00:27:40,446
+kesim frekansı bit hızının sıfır virgül yetmiş beş katı.
+
+331
+00:27:40,496 --> 00:27:50,008
+ONU'yu da gerçek bir OLT ya da bir burst üreteci ile sürekli burst gönderecek biçimde çalıştırırız.
+
+332
+00:27:50,926 --> 00:27:52,536
+Birinci ölçüm: kapılı göz.
+
+333
+00:27:52,586 --> 00:27:56,076
+DCA'yı serbest çalıştırırsanız,
+
+334
+00:27:56,126 --> 00:28:03,536
+burst'ler arasındaki karanlık anlar gözü aşağı çeker ve maskeyi anlamsız kılar.
+
+335
+00:28:03,586 --> 00:28:09,456
+Çözüm, aleti burst'ün başlangıcına kapılamaktır: yalnızca verici açıkken,
+
+336
+00:28:09,506 --> 00:28:13,171
+hatta yalnızca önsözün ilk bitlerinde örnek alır.
+
+337
+00:28:14,093 --> 00:28:18,523
+Göz maskesini tam da burada, burst'ün ilk bitlerinde uygularız:
+
+338
+00:28:18,573 --> 00:28:22,523
+dikdörtgen genişliği sıfır virgül iki birim aralık,
+
+339
+00:28:22,573 --> 00:28:26,303
+dikey kenarları sıfır virgül yirmi beş ile yetmiş beş.
+
+340
+00:28:26,353 --> 00:28:32,353
+İhlaller neredeyse her zaman burada, lazer henüz oturmadan görülür.
+
+341
+00:28:32,403 --> 00:28:37,603
+Kapıyı burst'ün ortasına kaydırıp maskeyi geçmek kolaydır; dürüst ölçüm,
+
+342
+00:28:37,653 --> 00:28:38,737
+ilk bitleri sınar.
+
+343
+00:28:40,227 --> 00:28:43,877
+İkinci ölçüm: açılma ve kapanma zamanlaması.
+
+344
+00:28:43,927 --> 00:28:49,417
+Aynı tetiklenmiş izlemede, vericinin gücünü zamanda izleriz.
+
+345
+00:28:49,467 --> 00:28:55,817
+Açılma geçiş süresi, gücün karanlık düzeyden tam güce çıkması; kapanma,
+
+346
+00:28:55,867 --> 00:28:58,947
+tam güçten karanlığa inmesi.
+
+347
+00:28:58,997 --> 00:29:03,227
+Standardın sınırı her ikisi için bin iki yüz seksen bit,
+
+348
+00:29:03,277 --> 00:29:08,271
+yani on gigabitte yüz yirmi sekiz virgül altı nanosaniyedir.
+
+349
+00:29:09,194 --> 00:29:12,584
+Burada iki eşiği karıştırmamak gerekir.
+
+350
+00:29:12,634 --> 00:29:17,364
+Geçiş süresi, karanlık düzey ile çalışma düzeyi arasında tanımlıdır;
+
+351
+00:29:17,414 --> 00:29:24,094
+ölçüm için standardın belirttiği bir ve sıfır düzeyleriyle karanlık düzeyi referans alın.
+
+352
+00:29:24,144 --> 00:29:29,034
+Ölçtüğünüz bu süre, doğrudan koruma süresi bütçenize girer;
+
+353
+00:29:29,084 --> 00:29:34,439
+dört ONU'nun geçişleri çakışırsa, kaybedilen zaman katlanır.
+
+354
+00:29:35,360 --> 00:29:41,100
+Üçüncü ölçüm: karanlıktaki güç, yani etkin değilken güç yoğunluğu.
+
+355
+00:29:41,150 --> 00:29:48,110
+Vericiyi, kendisine ait olmayan bir burst'ü taklit edecek biçimde kapatırız;
+
+356
+00:29:48,160 --> 00:29:53,380
+ama kritik nokta şu: lazeri gerçek çalışma ön gerilimiyle kapatın.
+
+357
+00:29:53,430 --> 00:30:01,720
+Sahada ONU hızlı açılmak için eşiğe yakın tutulur; tamamen söndürülmüş bir lazer,
+
+358
+00:30:01,770 --> 00:30:06,714
+sahadaki karanlığı temsil etmez ve sizi iyimser bir sonuca götürür.
+
+359
+00:30:07,660 --> 00:30:08,690
+Karanlık gücü,
+
+360
+00:30:08,740 --> 00:30:16,460
+on beş gigahertzlik bir çözünürlük bandında bir optik spektrum çözümleyici ya da kalibre güç ölçerle okuruz;
+
+361
+00:30:16,510 --> 00:30:20,400
+sınır, on gigabitte eksi altmış iki virgül altı dBm.
+
+362
+00:30:20,450 --> 00:30:24,720
+Aynı düzenekte bant dışı ve kanal dışı maskeleri de tarayabiliriz:
+
+363
+00:30:24,770 --> 00:30:28,650
+bandın tümüyle dışı için eksi elli yedi virgül dört,
+
+364
+00:30:28,700 --> 00:30:32,786
+komşu kanal için elli gigahertzde eksi otuz altı virgül yedi.
+
+365
+00:30:34,260 --> 00:30:37,810
+Üç ölçüm bir arada bir hikaye anlatır.
+
+366
+00:30:37,860 --> 00:30:41,980
+Kapılı göz, burst'ün temiz başlayıp başlamadığını; zamanlama,
+
+367
+00:30:42,030 --> 00:30:45,760
+ne kadar hızlı açılıp kapandığını; karanlık güç,
+
+368
+00:30:45,810 --> 00:30:49,750
+kapalıyken ne kadar sessiz olduğunu söyler.
+
+369
+00:30:49,800 --> 00:30:55,759
+Bir ONU bu üçünü birden geçmeden, kalabalık bir yukarı yöne güvenle katılamaz.
+
+370
+00:30:56,727 --> 00:30:57,927
+Mühendis notu.
+
+371
+00:30:57,977 --> 00:31:04,197
+Bir: her ölçümü tetiklenmiş yapın ve tetiği burst'ün başına koyun;
+
+372
+00:31:04,247 --> 00:31:11,127
+serbest çalışan hiçbir alet, patlamalı bir sinyal hakkında dürüst değildir.
+
+373
+00:31:11,177 --> 00:31:15,967
+İki: karanlık ölçümünü gerçek ön gerilimle yapın,
+
+374
+00:31:16,017 --> 00:31:21,647
+ve bir değil çok sayıda ardışık sessiz pencerede tekrarlayın;
+
+375
+00:31:21,697 --> 00:31:25,908
+sahada sizi altmış üç komşunun toplamı bulur.
+
+376
+00:31:26,927 --> 00:31:31,367
+Bu bölümün ölçümleri, sekizinci bölümün zeminini kurar:
+
+377
+00:31:31,417 --> 00:31:37,857
+orada aynı burst'ü gönderen değil, alan tarafı, yani OLT burst alıcısı olacak.
+
+378
+00:31:37,907 --> 00:31:40,067
+Önsözü ne kadar hızlı çözdüğü,
+
+379
+00:31:40,117 --> 00:31:45,502
+bizim bugün ölçtüğümüz açılma ve karanlık değerlerine bağlıdır.
+
+380
+00:31:47,293 --> 00:31:49,033
+Bölüm altının özeti.
+
+381
+00:31:49,083 --> 00:31:54,443
+Bir: yukarı yön paylaşımlıdır, o yüzden ONU burst modunda gönderir;
+
+382
+00:31:54,493 --> 00:31:57,673
+verici yalnızca sırası gelince açılır,
+
+383
+00:31:57,723 --> 00:32:02,473
+ve açılma ile kapanma geçişi on gigabitte bin iki yüz seksen bit,
+
+384
+00:32:02,523 --> 00:32:06,663
+yani yüz yirmi sekiz virgül altı nanosaniyedir.
+
+385
+00:32:06,713 --> 00:32:10,233
+İki: kapalı verici karanlık değildir;
+
+386
+00:32:10,283 --> 00:32:14,773
+etkin değilken güç yoğunluğu eksi altmış iki virgül altı dBm'le,
+
+387
+00:32:14,823 --> 00:32:18,814
+bant dışı ve kanal dışı maskelerle sınırlanır.
+
+388
+00:32:19,760 --> 00:32:24,070
+Üç: burst ilk bitinden temiz olmalıdır; göz maskesi,
+
+389
+00:32:24,120 --> 00:32:29,780
+titreşim ve en az otuz desibellik yan mod bastırması bunu güvence altına alır.
+
+390
+00:32:29,830 --> 00:32:36,530
+Dört: TC katmanında burst'ün önsözü ile sınırlayıcısı bir burst profilidir;
+
+391
+00:32:36,580 --> 00:32:42,460
+OLT bunu PLOAM ile duyurur, bant genişliği haritasıyla burst başına seçer,
+
+392
+00:32:42,510 --> 00:32:44,910
+ve yük Reed-Solomon ile korunur.
+
+393
+00:32:44,960 --> 00:32:51,018
+Beş: yukarı yönün tamamı merkezden, bant genişliği haritasıyla zamanlanır.
+
+394
+00:32:52,060 --> 00:32:53,730
+Kendini test et.
+
+395
+00:32:53,780 --> 00:32:53,730
+Birinci soru:
+
+396
+00:32:53,780 --> 00:33:01,570
+ayar sırasında bir ONU'nun kanal dışı güç maskesi neden gevşetilir? İkinci soru:
+
+397
+00:33:01,620 --> 00:33:06,540
+ayarlanabilir bir ONU vericisinin ayar süresi sınıfları,
+
+398
+00:33:06,590 --> 00:33:10,540
+Tablo dokuz iki'de neden tek bir değerle değil,
+
+399
+00:33:10,590 --> 00:33:14,680
+bir aralıkla tanımlanır? Üçüncü soru:
+
+400
+00:33:14,730 --> 00:33:18,620
+bir ONU bir dalga boyu kanalından diğerine geçerken,
+
+401
+00:33:18,670 --> 00:33:25,380
+bu geçişin fiziksel katman süresiyle TC katmanı süresi neden farklıdır? Cevaplar,
+
+402
+00:33:25,430 --> 00:33:28,491
+bir sonraki bölümün başında.
+
+403
+00:33:29,460 --> 00:33:33,980
+Bir sonraki bölüm: Renk Değiştiren Lazer.
+
+404
+00:33:34,030 --> 00:33:42,530
+ONU'nun ayarlanabilirliği ve kanal yönetimi: ayar sınıfları, kanal dışı maske,
+
+405
+00:33:42,580 --> 00:33:46,560
+kalibrasyon, kanal devri ve kilitleme.
+
+406
+00:33:46,610 --> 00:33:48,537
+Görüşmek üzere.
+
