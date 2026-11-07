@@ -1,0 +1,1884 @@
+1
+00:00:00,000 --> 00:00:03,310
+Sezon iki, bölüm dokuz: Enerji ve Sağlık.
+
+2
+00:00:03,360 --> 00:00:08,310
+Bir ağın iki gündelik sorusu var: ne kadar enerji harcıyor,
+
+3
+00:00:08,360 --> 00:00:14,970
+ve sağlığı nasıl? G.989.3 iki maddeyle cevap verir: güç yönetimi ve başarım izleme.
+
+4
+00:00:15,020 --> 00:00:20,770
+İkisinde de iki bin yirmi birden beri tek bir sözcük değişmedi;
+
+5
+00:00:20,820 --> 00:00:24,241
+değişen yalnızca çevrelerindeki atıflar.
+
+6
+00:00:25,167 --> 00:00:29,297
+Önce dikkatli uyku: standardın bıraktığı tek uyku kipi,
+
+7
+00:00:29,347 --> 00:00:34,447
+ONU'nun ve OLT'nin yalnızca kısmen hizalı iki durum makinesi,
+
+8
+00:00:34,497 --> 00:00:36,670
+ve hiçbirinin değeri olmayan parametreler.
+
+9
+00:00:37,600 --> 00:00:42,990
+Sonra tasarrufun hesabı ve iki yol daha: daha az tüketen bir kanala geçmek,
+
+10
+00:00:43,040 --> 00:00:46,300
+ve noktadan noktaya WDM'de hattı yavaşlatmak;
+
+11
+00:00:46,350 --> 00:00:50,273
+zamanlayıcıları hâlâ çalışma konusu olan bir prosedür.
+
+12
+00:00:51,200 --> 00:00:56,670
+Ardından sayaçlar: yüz on bir satırlık bir tablo, hangisi zorunlu, kim tutar,
+
+13
+00:00:56,720 --> 00:01:00,995
+ve on gigabitte saniyeler içinde taşabilecek sayılar.
+
+14
+00:01:01,933 --> 00:01:06,933
+Sonra kusurlar ve son nefes: OLT'nin dokuz kusuru, ONU'nun tek kusuru,
+
+15
+00:01:06,983 --> 00:01:10,573
+temizlenme koşulu yazılmamış üç kusur,
+
+16
+00:01:10,623 --> 00:01:13,553
+ve ölmekte olan bir ONU'nun geride bıraktığı kayıt.
+
+17
+00:01:14,500 --> 00:01:17,220
+Laboratuvarda gücü durumlara göre ölçecek,
+
+18
+00:01:17,270 --> 00:01:20,990
+uyanma gecikmesini ve zorunlu uyandırma bitini sınayacak,
+
+19
+00:01:21,040 --> 00:01:26,403
+hata ve kusur enjekte edip sayaçları doğrulayacak, ve bir son nefesi yakalayacağız.
+
+20
+00:01:38,660 --> 00:01:40,210
+Geçen bölümün soruları.
+
+21
+00:01:40,260 --> 00:01:45,250
+Birinci soru: aynı anahtar akışını yukarı yön sayaç bloğu engeller:
+
+22
+00:01:45,300 --> 00:01:46,730
+alt altmış dört biti,
+
+23
+00:01:46,780 --> 00:01:54,020
+süper çerçeve sayacının alt elli biti ile çerçeve içi sayacın bit bit tümleyenidir.
+
+24
+00:01:54,070 --> 00:01:56,670
+Standardın notu iki zayıf değer anar,
+
+25
+00:01:56,720 --> 00:02:02,330
+birin ardından kırk dokuz sıfır ve sıfırın ardından kırk dokuz bir:
+
+26
+00:02:02,380 --> 00:02:07,120
+dört bin yılda bir, yaklaşık iki yüz elli mikrosaniye; çaresi,
+
+27
+00:02:07,170 --> 00:02:10,340
+sayacı küçük bir değerle başlatmak.
+
+28
+00:02:10,390 --> 00:02:13,190
+Bizim çıkarımımız: yalnızca birincisine ulaşılır,
+
+29
+00:02:13,240 --> 00:02:18,856
+alanın sıfırı da üçüncü zayıf çerçevedir; küçük, en az bir olmalı.
+
+30
+00:02:19,827 --> 00:02:25,487
+İkinci soru: kayıt kimliği varsayılansa ana oturum anahtarı herkesçe bilinir.
+
+31
+00:02:25,537 --> 00:02:34,807
+Seri numarası mesajının beşinci ile on ikinci baytları ve burst profili mesajındaki PON etiketiyle oturum anahtarı,
+
+32
+00:02:34,857 --> 00:02:40,857
+ondan da anahtar şifreleme anahtarı hesaplanır; ikisi de AES-CMAC'tir.
+
+33
+00:02:40,907 --> 00:02:40,857
+Veri anahtarı,
+
+34
+00:02:40,907 --> 00:02:48,847
+yukarı yön anahtar raporundaki parçanın bu anahtarla elektronik kod defteri kipinde çözülmesidir.
+
+35
+00:02:48,897 --> 00:02:53,766
+Üç mesaj yeter: seri numarası, burst profili ve anahtar raporu.
+
+36
+00:02:54,760 --> 00:03:00,050
+Üçüncü soru: onay bekleme zamanlayıcısı, önerilen on milisaniye,
+
+37
+00:03:00,100 --> 00:03:03,620
+dolunca OLT onay isteğini yeniden gönderir.
+
+38
+00:03:03,670 --> 00:03:10,560
+Bütün deneme yüz milisaniyelik anahtar değişimi bekleme zamanlayıcısını aşarsa OLT,
+
+39
+00:03:10,610 --> 00:03:14,950
+hiçbir anahtarın geçerli olmadığı duruma döner.
+
+40
+00:03:15,000 --> 00:03:22,950
+İki bin yirmi bir metni burada ve istek durumunda yanlış zamanlayıcı adlarını yazıyordu;
+
+41
+00:03:23,000 --> 00:03:27,600
+birinci değişiklik adları düzeltti, değerlere dokunmadı.
+
+42
+00:03:27,650 --> 00:03:28,639
+Şimdi bu bölüme.
+
+43
+00:03:30,227 --> 00:03:32,967
+Perde bir: uyanık ve uykulu.
+
+44
+00:03:33,017 --> 00:03:35,867
+On altıncı madde bir gözlemle başlar:
+
+45
+00:03:35,917 --> 00:03:40,217
+bir abone arayüzü boştaysa ve ONU bunu anlayabiliyorsa,
+
+46
+00:03:40,267 --> 00:03:46,607
+etkinliği algılamayı sürdürerek o arayüzün devrelerini kapatması istenir.
+
+47
+00:03:46,657 --> 00:03:49,727
+Ama hemen bir kapsam cümlesi gelir:
+
+48
+00:03:49,777 --> 00:03:53,847
+bu teknikler ONU tasarımının ve işletme pratiğinin işidir.
+
+49
+00:03:53,897 --> 00:04:01,660
+G.989.3 yalnızca protokolü standartlaştırır: tasarrufun OLT ile nasıl konuşulduğunu.
+
+50
+00:04:02,594 --> 00:04:06,004
+Ve tek bir uyku kipi bırakır: dikkatli uyku.
+
+51
+00:04:06,054 --> 00:04:10,434
+Uyku isteği mesajında sıfır uyanık, üç dikkatli uyku demektir;
+
+52
+00:04:10,484 --> 00:04:12,354
+bir ve iki ayrılmıştır.
+
+53
+00:04:12,404 --> 00:04:17,494
+Uyuklama ya da döngüsel uyku, üç baskının hiçbirinde yoktur.
+
+54
+00:04:17,544 --> 00:04:19,584
+Bizim yorumumuz: bu boşluk,
+
+55
+00:04:19,634 --> 00:04:26,096
+G.989.3'ün üstüne kurulduğu XG-PON'un daha geniş uyku ailesinden kalan bir izdir.
+
+56
+00:04:27,027 --> 00:04:28,277
+Kurallar.
+
+57
+00:04:28,327 --> 00:04:33,457
+OLT, ONU'nun güç yönetimini OMCI ile keşfeder ve yapılandırır;
+
+58
+00:04:33,507 --> 00:04:38,587
+etkinleştirilmemiş bir ONU uyku iznini yok sayar.
+
+59
+00:04:38,637 --> 00:04:44,837
+İki taraf birer durum makinesi tutar, ama yalnızca kısmen hizalı;
+
+60
+00:04:44,887 --> 00:04:48,457
+adım adım eşleşme hedef değildir.
+
+61
+00:04:48,507 --> 00:04:54,297
+PLOAM mesajları yalnızca geçişlerde üretilir, ve bir zamanlayıcı,
+
+62
+00:04:54,347 --> 00:04:57,547
+mesaj gerçekten gönderilince başlar.
+
+63
+00:04:57,597 --> 00:05:00,151
+ONU yalnızca O5'te uyur.
+
+64
+00:05:01,094 --> 00:05:02,884
+Parametreler.
+
+65
+00:05:02,934 --> 00:05:06,404
+OLT dört aralık belirler: düşük güç durumunda en uzun kalış;
+
+66
+00:05:06,454 --> 00:05:08,854
+farkında durumunda en kısa kalış;
+
+67
+00:05:08,904 --> 00:05:14,584
+uyandırma kararından ONU tam çalışır olana kadar beklenebilecek en uzun süre;
+
+68
+00:05:14,634 --> 00:05:17,484
+ve etkin tutulan durumda en kısa kalış.
+
+69
+00:05:17,534 --> 00:05:18,584
+Beşincisini ONU bildirir:
+
+70
+00:05:18,634 --> 00:05:24,434
+uykudan sonra verici ve alıcısının tam işleve dönme süresi.
+
+71
+00:05:24,484 --> 00:05:26,856
+Sıfır, beklemeden cevap verebilir demektir.
+
+72
+00:05:27,794 --> 00:05:31,304
+Şimdi bu bölümün en önemli cümlesi:
+
+73
+00:05:31,354 --> 00:05:36,484
+bu parametrelerin hiçbirinin sayısal değeri yoktur; ne varsayılan, ne sınır.
+
+74
+00:05:36,534 --> 00:05:43,084
+Birim yüz yirmi beş mikrosaniyelik çerçevedir, birinin birimi hiç yazılmamıştır,
+
+75
+00:05:43,134 --> 00:05:45,874
+ve değerler OMCI ile gelir.
+
+76
+00:05:45,924 --> 00:05:49,034
+Bu yüzden bu bölümdeki her sayı örnektir:
+
+77
+00:05:49,084 --> 00:05:52,010
+örnek olarak bir milisaniye sekiz çerçevedir.
+
+78
+00:05:52,927 --> 00:05:56,077
+ONU makinesinin dört durumu vardır.
+
+79
+00:05:56,127 --> 00:06:01,827
+Etkin tutulan durum başlangıçtır: verici ve alıcı açık, güç yönetimi geçişi yok.
+
+80
+00:06:01,877 --> 00:06:05,437
+Etkin serbest durumda uyumak ONU'nun yerel kararıdır.
+
+81
+00:06:05,487 --> 00:06:09,937
+Farkında durumunda verici ve alıcı açıktır, ONU her tahsise cevap verir.
+
+82
+00:06:09,987 --> 00:06:14,697
+Düşük güç durumunda verici kapalıdır; alıcı yalnızca ara ara bakar,
+
+83
+00:06:14,747 --> 00:06:18,005
+ONU tahsislere cevap vermez ve trafik iletmez.
+
+84
+00:06:18,927 --> 00:06:19,917
+PMD Köprüsü.
+
+85
+00:06:19,967 --> 00:06:27,347
+Birinci sezonun altıncı bölümünden biliyoruz ki kapalı verici karanlık değildir.
+
+86
+00:06:27,397 --> 00:06:27,347
+G.989.2,
+
+87
+00:06:27,397 --> 00:06:35,847
+etkin değilken güç yoğunluğunu on beş gigahertzde eksi altmış iki virgül altı dBm ile sınırlar;
+
+88
+00:06:35,897 --> 00:06:39,417
+bir kanaldaki altmış üç komşunun toplamı,
+
+89
+00:06:39,467 --> 00:06:43,767
+sıfır virgül bir desibellik bir cezaya denk gelir.
+
+90
+00:06:43,817 --> 00:06:50,383
+Uyuyan ONU için ayrı bir optik kural yoktur; aynı karanlık kuralı geçerlidir.
+
+91
+00:06:51,327 --> 00:06:51,947
+Geçişler.
+
+92
+00:06:51,997 --> 00:06:57,517
+Tutma süresi dolduğunda saklanan izin açıksa ONU etkin serbest olur, mesajsız.
+
+93
+00:06:57,567 --> 00:07:03,107
+Yerel uyku göstergesiyle farkında durumuna geçer ve dikkatli uyku ister.
+
+94
+00:07:03,157 --> 00:07:07,397
+Oradan zamanlayıcılarla düşük güce ve geri gider.
+
+95
+00:07:07,447 --> 00:07:09,097
+Bu iki durumdayken kapalı izin,
+
+96
+00:07:09,147 --> 00:07:14,797
+zorunlu uyandırma biti ya da yerel bir uyanma göstergesi gelirse,
+
+97
+00:07:14,847 --> 00:07:17,177
+etkin tutulan duruma döner ve uyanık ister.
+
+98
+00:07:18,127 --> 00:07:21,527
+Hangi geçişin mesaj ürettiğini şeklin notu söyler:
+
+99
+00:07:21,577 --> 00:07:24,587
+durumlar sarı ve gri iki alt çizgedir,
+
+100
+00:07:24,637 --> 00:07:27,957
+ve mesaj yalnızca sınırı geçen geçişte üretilir.
+
+101
+00:07:28,007 --> 00:07:29,777
+Bu bir çelişkiyi açıklar.
+
+102
+00:07:29,827 --> 00:07:34,707
+Durum tablosuna göre etkin tutulan duruma her girişte uyanık isteği gönderilir;
+
+103
+00:07:34,757 --> 00:07:38,887
+ama etkin serbestten oraya dönüş sarının içinde kalır,
+
+104
+00:07:38,937 --> 00:07:41,207
+ve normatif geçiş tablosunda mesaj yoktur.
+
+105
+00:07:41,257 --> 00:07:45,403
+Bizim okumamız: sınır, uykuya izin olup olmamasıdır.
+
+106
+00:07:46,327 --> 00:07:48,347
+OLT'nin de dört durumu vardır.
+
+107
+00:07:48,397 --> 00:07:52,507
+Zorla uyanık durum başlangıçtır: her tahsise cevap bekler,
+
+108
+00:07:52,557 --> 00:07:56,517
+kaçırılan burst'leri kusura sayar, girerken uyku iznini kapatır.
+
+109
+00:07:56,567 --> 00:07:59,877
+Serbest uyanık durumda izni açar.
+
+110
+00:07:59,927 --> 00:08:04,907
+Düşük güç gözetiminde normal tahsis verir ama yalnızca ara sıra cevap bekler;
+
+111
+00:08:04,957 --> 00:08:08,567
+aşağı yön trafiğini atabilir ya da tamponlayabilir.
+
+112
+00:08:08,617 --> 00:08:12,074
+Uyarılmış durumda ise ONU'yu uyandırmaya çalışır.
+
+113
+00:08:12,994 --> 00:08:15,064
+Döngü şöyle kurulur.
+
+114
+00:08:15,114 --> 00:08:21,194
+OLT'nin yerel uyanma göstergesi kalkınca OLT serbest uyanık olur ve izni açar.
+
+115
+00:08:21,244 --> 00:08:23,974
+ONU tutma süresinden sonra etkin serbest olur,
+
+116
+00:08:24,024 --> 00:08:26,884
+etkinliği bitince dikkatli uyku ister;
+
+117
+00:08:26,934 --> 00:08:32,394
+OLT düşük güç gözetimine geçer ve bir el sıkışma zamanlayıcısı başlatır.
+
+118
+00:08:32,444 --> 00:08:37,414
+ONU artık farkında ile düşük güç arasında gidip gelir;
+
+119
+00:08:37,464 --> 00:08:41,353
+her uyanışında tahsislere cevap verir, ve zamanlayıcı tazelenir.
+
+120
+00:08:42,294 --> 00:08:44,104
+Üç çıkış vardır.
+
+121
+00:08:44,154 --> 00:08:48,374
+ONU'da trafik başlarsa uyanık ister, OLT serbest uyanığa döner.
+
+122
+00:08:48,424 --> 00:08:53,794
+OLT'de ONU'yu uyandırmak için yerel bir neden doğarsa, örneğin trafik,
+
+123
+00:08:53,844 --> 00:08:57,514
+OLT uyarılmış duruma geçer: izni bir kez kapatır,
+
+124
+00:08:57,564 --> 00:09:01,494
+sonra her tahsiste zorunlu uyandırma bitini kurar.
+
+125
+00:09:01,544 --> 00:09:06,754
+ONU susarsa el sıkışma zamanlayıcısı dolar, OLT zorla uyanığa döner.
+
+126
+00:09:06,804 --> 00:09:11,634
+Bizim yorumumuz: kapalı izin bir fısıltıdır, uyuyan alıcı onu kaçırabilir;
+
+127
+00:09:11,684 --> 00:09:16,178
+her tahsiste tekrarlanan bit ise bir bağırıştır.
+
+128
+00:09:17,127 --> 00:09:19,187
+Uyuyan ONU'yu yönetmek.
+
+129
+00:09:19,237 --> 00:09:23,587
+Düşük güçte, alıcısı kapalıyken ONU komut alamaz;
+
+130
+00:09:23,637 --> 00:09:28,557
+durum raporu ve PLOAM isteklerini de yok sayar.
+
+131
+00:09:28,607 --> 00:09:28,557
+OLT,
+
+132
+00:09:28,607 --> 00:09:36,447
+normalde yedi yüz elli mikrosaniyede beklediği PLOAM cevabı için ek süre tanımalıdır;
+
+133
+00:09:36,497 --> 00:09:42,626
+standardın tavsiyesi, yönetim işleminden önce ONU'yu uyandırmaktır.
+
+134
+00:09:43,560 --> 00:09:45,010
+Mühendis notu.
+
+135
+00:09:45,060 --> 00:09:52,640
+Bir: zorunlu uyandırma biti yalnızca bir tahsis serisinin ilk yapısında geçerlidir;
+
+136
+00:09:52,690 --> 00:09:55,370
+sonrakilerde ONU onu yok sayar.
+
+137
+00:09:55,420 --> 00:09:59,890
+İki: tablo, düşük güç gözetiminde normal tahsis der;
+
+138
+00:09:59,940 --> 00:10:04,290
+yedinci madde ise tahsisi en aza indirmekten söz eder.
+
+139
+00:10:04,340 --> 00:10:08,750
+Bizim yorumumuz: tahsisleri uzun süre keserseniz,
+
+140
+00:10:08,800 --> 00:10:12,965
+tahsisle yeniden başlayan on saniyelik TO6 dolabilir.
+
+141
+00:10:13,994 --> 00:10:17,234
+Sıradaki: uyumanın kuralları belli.
+
+142
+00:10:17,284 --> 00:10:20,411
+Peki bu uyku ne kazandırır, ve ne kadar geciktirir?
+
+143
+00:10:22,193 --> 00:10:23,653
+Perde iki: tasarrufun hesabı.
+
+144
+00:10:23,703 --> 00:10:29,983
+Standart hiçbir durum için güç değeri vermez; bu model bizimdir.
+
+145
+00:10:30,033 --> 00:10:34,163
+Uyurken ONU'nun tam gücün beşte birini çektiğini varsayalım.
+
+146
+00:10:34,213 --> 00:10:39,093
+Yüz milisaniye düşük güç, iki milisaniye farkındalık,
+
+147
+00:10:39,143 --> 00:10:45,723
+on milisaniyede bir alıcı kontrolü ve iki milisaniyelik uyanmayla tasarruf yüzde yetmiş altıdır.
+
+148
+00:10:45,773 --> 00:10:52,023
+Bir saniyelik uyku ve on milisaniyelik farkındalıkla bile ancak yüzde yetmiş sekiz.
+
+149
+00:10:52,073 --> 00:10:57,494
+Tavanı uyku süresi değil, uyurken açık kalan devreler belirler.
+
+150
+00:10:58,426 --> 00:11:00,996
+Uyanma gecikmesi, aynı örnekle.
+
+151
+00:11:01,046 --> 00:11:07,146
+OLT uyandırmak isterse ONU biti en geç bir sonraki alıcı kontrolünde görür;
+
+152
+00:11:07,196 --> 00:11:11,546
+sonra uyanma süresi, bir tahsis ve gidiş dönüş eklenir.
+
+153
+00:11:11,596 --> 00:11:15,136
+On milisaniyelik kontrol aralığı,
+
+154
+00:11:15,186 --> 00:11:22,986
+iki milisaniyelik uyanma ve yirmi kilometreyle bu en az on iki virgül üç altı milisaniyedir:
+
+155
+00:11:23,036 --> 00:11:26,196
+uyarı zamanlayıcısı bundan kısa olamaz.
+
+156
+00:11:26,246 --> 00:11:31,301
+ONU kendi trafiğiyle uyanırsa yaklaşık iki virgül iki milisaniye yeter.
+
+157
+00:11:32,226 --> 00:11:33,536
+Bir metin sorunu.
+
+158
+00:11:33,586 --> 00:11:39,516
+Uyandırma aralığı, ONU tam çalışır olana kadarki bütün süre diye tanımlanır;
+
+159
+00:11:39,566 --> 00:11:45,736
+ama uyarı zamanlayıcısının alt sınırı, bu aralığa uyanma süresini ayrıca ekler,
+
+160
+00:11:45,786 --> 00:11:48,726
+ve aralığın adını yanlış yazar.
+
+161
+00:11:48,776 --> 00:11:53,586
+Aralığın satırı da bir virgülle yarım kalır; üç baskıda da.
+
+162
+00:11:53,636 --> 00:11:58,428
+Bizim okumamız: uyanma süresi iki kez sayılabilir, ve metin bunu çözmez.
+
+163
+00:11:59,360 --> 00:12:00,200
+PMD Köprüsü.
+
+164
+00:12:00,250 --> 00:12:04,650
+Uyanmayı burst başına verici açmayla karıştırmayın.
+
+165
+00:12:04,700 --> 00:12:10,950
+Birinci sezonun altıncı bölümündeki açılma geçişi on gigabitte bin iki yüz seksen bit,
+
+166
+00:12:11,000 --> 00:12:13,820
+yüz yirmi sekiz virgül altı nanosaniyedir;
+
+167
+00:12:13,870 --> 00:12:18,560
+tek çerçevelik bir uyanma süresi bunun yaklaşık dokuz yüz yetmiş katıdır.
+
+168
+00:12:18,610 --> 00:12:24,860
+Alıcıda, birinci sezonun beşinci bölümündeki geleneksel saat çıkarımı geçerlidir,
+
+169
+00:12:24,910 --> 00:12:28,350
+ama G.989.2 bir kilitlenme süresi vermez.
+
+170
+00:12:28,400 --> 00:12:31,613
+Bizim yorumumuz: o süre uyanma süresinin içindedir.
+
+171
+00:12:32,560 --> 00:12:35,310
+Şimdi ikinci yol: kanal seçimi.
+
+172
+00:12:35,360 --> 00:12:37,650
+Maddenin tamamı iki cümledir:
+
+173
+00:12:37,700 --> 00:12:42,510
+ONU'nun tüketimi kendi bileşenlerine bağlı olarak kanaldan kanala değişebilir;
+
+174
+00:12:42,560 --> 00:12:49,870
+OLT bunu güç tüketimi raporlarıyla toplar, ve ONU'yu daha az tüketen kanala ayarlar.
+
+175
+00:12:49,920 --> 00:12:56,090
+OLT, kendi takdiriyle, bir ONU'ya ya da hepsine bir güç sorgusu gönderir;
+
+176
+00:12:56,140 --> 00:12:58,040
+içeriği yalnızca dolgudur.
+
+177
+00:12:58,090 --> 00:13:00,901
+Taşıma, yedinci bölümdeki olağan devirdir.
+
+178
+00:13:01,827 --> 00:13:05,707
+ONU sekiz girdiyle cevap verir: her biri dört bit aşağı,
+
+179
+00:13:05,757 --> 00:13:11,057
+dört bit yukarı yön kanal kimliği, ve miliwatt cinsinden on altı bitlik güç;
+
+180
+00:13:11,107 --> 00:13:15,787
+en çok altmış beş virgül beş üç beş vat, sıfır bilinmiyor demektir.
+
+181
+00:13:15,837 --> 00:13:17,907
+Değer mutlak ya da göreli olabilir.
+
+182
+00:13:17,957 --> 00:13:23,337
+Çelişkiler: bir tablo tek rapor der, öteki sekizden fazla kanal için iki;
+
+183
+00:13:23,387 --> 00:13:27,120
+girdi on altı bit diye anılır, oysa yirmi dört bittir.
+
+184
+00:13:28,060 --> 00:13:30,840
+Üçüncü yol noktadan noktaya WDM'dedir.
+
+185
+00:13:30,890 --> 00:13:35,390
+Orada OLT ve ONU sürekli kipte, birden çok hızda çalışır;
+
+186
+00:13:35,440 --> 00:13:42,360
+OLT bağlantının az kullanıldığını görünce iki yönde daha düşük bir hıza geçilmesini ister.
+
+187
+00:13:42,410 --> 00:13:45,050
+Mesajlar AMCC'de gider.
+
+188
+00:13:45,100 --> 00:13:49,060
+İstek, planlı süper çerçeve sayacının en düşük on altı bitini,
+
+189
+00:13:49,110 --> 00:13:55,190
+bir geri alma bayrağını ve iki yön için ayrı hız kodlarını taşır: on, iki buçuk,
+
+190
+00:13:55,240 --> 00:13:56,758
+bir ve altı gigabit.
+
+191
+00:13:57,693 --> 00:13:59,163
+Akış beş adımdır.
+
+192
+00:13:59,213 --> 00:13:59,163
+OLT ister.
+
+193
+00:13:59,213 --> 00:14:03,643
+ONU onaylar, ya da reddeder: aşağı yön hızı alıcısının,
+
+194
+00:14:03,693 --> 00:14:10,913
+yukarı yön hızı vericisinin aralığı dışında, ya da planlı sayaca kadar hazır olamaz.
+
+195
+00:14:10,963 --> 00:14:14,843
+İki taraf hızı planlı sayaçta birlikte değiştirir.
+
+196
+00:14:14,893 --> 00:14:20,553
+ONU yeni hızda aşağı yön senkronunu kurunca tamamlandı yanıtı gönderir,
+
+197
+00:14:20,603 --> 00:14:23,323
+OLT tamamlandı denetimiyle kapatır.
+
+198
+00:14:23,373 --> 00:14:27,250
+Şekilde bu yanıtın adı, üç baskıda da, yanlış yazılmıştır.
+
+199
+00:14:28,193 --> 00:14:31,123
+Parametre tablosunun dört satırı vardır.
+
+200
+00:14:31,173 --> 00:14:36,413
+Ayar süresi, ONU'nun çerçeve alıp gönderemediği en uzun süredir;
+
+201
+00:14:36,463 --> 00:14:39,073
+değeri ONU'da önceden tanımlı.
+
+202
+00:14:39,123 --> 00:14:41,623
+Planlı sayacın en küçük değeri,
+
+203
+00:14:41,673 --> 00:14:47,413
+OLT'nin ve ONU'nun bekleme zaman aşımları ise çalışma konusudur;
+
+204
+00:14:47,463 --> 00:14:50,673
+OLT'ninkinin tanımı cümlenin ortasında biter.
+
+205
+00:14:50,723 --> 00:14:55,436
+PtP için ne sayaç, ne kusur, ne de bir uyku prosedürü vardır.
+
+206
+00:14:56,360 --> 00:14:57,320
+PMD Köprüsü.
+
+207
+00:14:57,370 --> 00:15:03,880
+Birinci sezonun dokuzuncu bölümünde G.989.2'nin A ekinde üç hız sınıfı gördük,
+
+208
+00:15:03,930 --> 00:15:08,260
+ve iki yönün hızı aynıydı; altı ile on gigabit aynı sınıftadır.
+
+209
+00:15:08,310 --> 00:15:12,890
+Mesaj ise dört hızı iki yön için ayrı kodlar.
+
+210
+00:15:12,940 --> 00:15:17,830
+Aynı bölümün AMCC'siyle bizim hesabımız: istek ve onay, işlemesiz,
+
+211
+00:15:17,880 --> 00:15:21,640
+seksen dört ile doksan üç çerçeve sürer.
+
+212
+00:15:21,690 --> 00:15:27,533
+Bizim yorumumuz: planlı sayacın en küçük değeri bundan büyük olmalıdır.
+
+213
+00:15:28,460 --> 00:15:29,960
+Mühendis notu.
+
+214
+00:15:30,010 --> 00:15:34,930
+Bir: uyku parametrelerini tasarrufa göre değil, uyanma bütçesine göre seçin;
+
+215
+00:15:34,980 --> 00:15:37,380
+bizim modelimizde tasarruf hızla doyar,
+
+216
+00:15:37,430 --> 00:15:40,340
+gecikme ise kontrol aralığıyla birlikte büyür.
+
+217
+00:15:40,390 --> 00:15:46,420
+İki: PtP hız uyarlamasının çalışma konusu değerlerini üreticiden yazılı isteyin;
+
+218
+00:15:46,470 --> 00:15:50,436
+ve bizim yorumumuzla, iki yön için aynı sınıftan hız isteyin.
+
+219
+00:15:51,460 --> 00:15:55,730
+Sıradaki: ne kadar harcadığımızı konuştuk.
+
+220
+00:15:55,780 --> 00:15:58,120
+Şimdi ağın sağlığını sayan sayılara.
+
+221
+00:15:59,893 --> 00:16:01,293
+Perde üç: sayaçlar.
+
+222
+00:16:01,343 --> 00:16:02,733
+On dördüncü madde,
+
+223
+00:16:02,783 --> 00:16:09,033
+bağlantı arızasını saptama ve bağlantıların sağlığını izleme mekanizmalarına odaklanır;
+
+224
+00:16:09,083 --> 00:16:12,133
+bu bilgiyi kullanan işlevleri,
+
+225
+00:16:12,183 --> 00:16:17,193
+eşik uyarılarını ve alarmları büyük ölçüde kapsam dışı bırakır.
+
+226
+00:16:17,243 --> 00:16:23,861
+Optik güç izleme G.988'e bırakılmıştır, ve ONU'nun sayaçları OLT'ye OMCI ile ulaşır.
+
+227
+00:16:24,793 --> 00:16:32,283
+Tablo üç sütunla okunur: her ONU, her TWDM kanalı için; OLT, her ONU için; ve OLT,
+
+228
+00:16:32,333 --> 00:16:35,123
+bütün ONU'ların toplamı için.
+
+229
+00:16:35,173 --> 00:16:41,093
+Bizim saymamızla yüz on bir satır vardır: otuz yedisi zorunlu,
+
+230
+00:16:41,143 --> 00:16:45,163
+yetmiş dördü isteğe bağlı, on bir grupta.
+
+231
+00:16:45,213 --> 00:16:51,958
+Hepsi TWDM içindir; noktadan noktaya WDM için tek bir sayaç bile yoktur.
+
+232
+00:16:52,893 --> 00:16:58,623
+Fiziksel katman grubunun altı zorunlu satırı: FEC ile düzeltilen baytlar,
+
+233
+00:16:58,673 --> 00:17:02,713
+düzeltilen, düzeltilemeyen ve toplam kod sözcükleri;
+
+234
+00:17:02,763 --> 00:17:06,503
+BIP-32 ile korunan sözcükler ve BIP-32 hataları.
+
+235
+00:17:06,553 --> 00:17:12,313
+Not aynıdır: BIP-32, ancak FEC kapalıyken hata oranı tahmini verir.
+
+236
+00:17:12,363 --> 00:17:16,103
+İsteğe bağlı üçü, PSBd ve çerçeve başlığı HEC hataları,
+
+237
+00:17:16,153 --> 00:17:18,593
+ve bilinmeyen profil sayısıdır.
+
+238
+00:17:19,526 --> 00:17:25,776
+Senkron kaybı grubu yedi satırdır, hepsi zorunlu, hepsi ONU'nun yerel olayı:
+
+239
+00:17:25,826 --> 00:17:29,566
+toplam LODS olayları; çalışan kanalda,
+
+240
+00:17:29,616 --> 00:17:34,466
+koruma kanalında ya da ONU'nun seçtiği bir kanalda geri gelenler;
+
+241
+00:17:34,516 --> 00:17:40,946
+aşağı yön dönmeden TO2, ya da TO3 ile TO4 dolduğu için yeniden aktivasyonlar;
+
+242
+00:17:40,996 --> 00:17:46,307
+ve TO5 ile yukarı yön el sıkışması başarısız olunca yapılanlar.
+
+243
+00:17:47,227 --> 00:17:52,977
+XGEM grubunun dört zorunlu sayacı: gönderilen ve alınan XGEM çerçeveleri,
+
+244
+00:17:53,027 --> 00:17:56,787
+başlık HEC hataları ve anahtar hataları.
+
+245
+00:17:56,837 --> 00:18:02,157
+Bir tuhaflık: alınan çerçeve sayacı zorunludur, ama yalnızca OLT toplamında;
+
+246
+00:18:02,207 --> 00:18:05,057
+ONU sütununda hayır yazar.
+
+247
+00:18:05,107 --> 00:18:10,057
+Kullanım grubunun iki zorunlu sayacı boş olmayan çerçevelerdeki baytlardır;
+
+248
+00:18:10,107 --> 00:18:12,067
+isteğe bağlı üçüncüsü,
+
+249
+00:18:12,117 --> 00:18:17,621
+talep varken garantili bant genişliğinin atanamadığı durumları sayar.
+
+250
+00:18:18,560 --> 00:18:23,240
+PLOAM grubu otuz dört satırdır, yalnızca dördü zorunlu:
+
+251
+00:18:23,290 --> 00:18:29,220
+eşitleme gecikmesi mesajlarının sayısı, kayma tahmininin temeli;
+
+252
+00:18:29,270 --> 00:18:31,820
+koruma denetimi mesajlarının sayısı;
+
+253
+00:18:31,870 --> 00:18:36,110
+dalga boyu ayarı mesajlarının sayısı ve genliği.
+
+254
+00:18:36,160 --> 00:18:40,520
+Geri kalanı mesaj başına isteğe bağlıdır; uyku izni,
+
+255
+00:18:40,570 --> 00:18:44,160
+uyku isteği ve güç tüketimi raporu dahil.
+
+256
+00:18:44,210 --> 00:18:48,186
+Güç sorgusu ve hız mesajlarının sayacı yoktur.
+
+257
+00:18:49,127 --> 00:18:53,777
+Ayar denetimi grubu da otuz dört satırdır, on üçü zorunlu; aktivasyon,
+
+258
+00:18:53,827 --> 00:18:59,457
+güç dengeleme ve OMCI grupları ise tamamen isteğe bağlıdır.
+
+259
+00:18:59,507 --> 00:19:04,607
+Zorunlu tek optik satır, OLT'nin gönderdiği optik güç düzeyidir.
+
+260
+00:19:04,657 --> 00:19:11,397
+Güç yönetimine ait tek satır ise isteğe bağlıdır: düşük güç durumlarında geçen süre.
+
+261
+00:19:11,447 --> 00:19:13,357
+Mesaj sayaçları dışında,
+
+262
+00:19:13,407 --> 00:19:19,404
+zorunlu uyandırmaları ya da el sıkışma ihlallerini sayan bir satır yoktur.
+
+263
+00:19:20,327 --> 00:19:21,497
+PMD Köprüsü.
+
+264
+00:19:21,547 --> 00:19:30,997
+Birinci sezonun onuncu bölümünde G.989.2'nin ikinci ekindeki izleme tablosunu gördük:
+
+265
+00:19:31,047 --> 00:19:39,067
+ONU'nun alınan güç doğruluğu artı eksi üç desibel, eksi otuz beş dBm'in altında beş;
+
+266
+00:19:39,117 --> 00:19:43,587
+OLT'nin gönderdiği güç artı eksi iki desibel.
+
+267
+00:19:43,637 --> 00:19:49,717
+G.989.3 ölçümü G.988'e, doğruluğu bilgilendirici bir eke bırakır.
+
+268
+00:19:49,767 --> 00:19:58,073
+Bizim yorumumuz: zorunlu tek optik sayaç bile iki desibellik bir belirsizlik taşır.
+
+269
+00:19:58,993 --> 00:20:04,743
+Sayaçların genişliği ve toplama aralıkları G.989.3'te yoktur.
+
+270
+00:20:04,793 --> 00:20:12,643
+Bizim hesabımızla on gigabitte saniyede beş milyon on altı bin FEC kod sözcüğü sayılır:
+
+271
+00:20:12,693 --> 00:20:17,903
+otuz iki bitlik bir sayaç on dört dakikada taşar.
+
+272
+00:20:17,953 --> 00:20:24,013
+BIP-32 sözcükleri FEC kapalıyken on üç virgül sekiz saniyede,
+
+273
+00:20:24,063 --> 00:20:29,433
+boş olmayan XGEM baytları yaklaşık dört saniyede taşar.
+
+274
+00:20:29,483 --> 00:20:36,353
+Altmış dört bitlik bir kod sözcüğü sayacı ise yüz yirmi bin yıl dayanır.
+
+275
+00:20:37,293 --> 00:20:39,603
+Hata sayaçları ise yavaştır.
+
+276
+00:20:39,653 --> 00:20:44,293
+On üzeri eksi on ikilik hata oranında on gigabitlik bir hat,
+
+277
+00:20:44,343 --> 00:20:50,413
+on bit hatasını ancak bin beş saniyede biriktirir; on üzeri eksi onda on saniyede.
+
+278
+00:20:50,463 --> 00:20:57,833
+Aynı tabloda saniyeler içinde taşan sayaçlarla saatlerce sıfır kalan sayaçlar yan yana durur;
+
+279
+00:20:57,883 --> 00:21:00,238
+okuma aralığını her biri için ayrı seçin.
+
+280
+00:21:01,160 --> 00:21:02,330
+Mühendis notu.
+
+281
+00:21:02,380 --> 00:21:08,060
+Bir: test planınızı otuz yedi zorunlu satıra dayandırın; enerji sayacı da,
+
+282
+00:21:08,110 --> 00:21:10,640
+son nefes sayacı da isteğe bağlıdır.
+
+283
+00:21:10,690 --> 00:21:18,120
+İki: on yedinci madde bir PLOAM kanalı kaybı sayacının artırılmasından söz eder;
+
+284
+00:21:18,170 --> 00:21:20,490
+böyle bir sayaç tabloda yoktur.
+
+285
+00:21:20,540 --> 00:21:23,418
+Sayaç adlarını metinden değil, tablodan alın.
+
+286
+00:21:24,460 --> 00:21:28,320
+Sıradaki: sayılar bir eğilim söyler.
+
+287
+00:21:28,370 --> 00:21:31,961
+Peki bir şey bozulduğunda, standart neyi kusur sayar?
+
+288
+00:21:33,760 --> 00:21:35,100
+Perde dört: kusurlar.
+
+289
+00:21:35,150 --> 00:21:40,580
+Madde amacını açıkça yazar: TC katmanında zorunlu eylemleri,
+
+290
+00:21:40,630 --> 00:21:43,450
+uygulayıcıya kalanlardan ayırmak.
+
+291
+00:21:43,500 --> 00:21:49,390
+OLT'nin dokuz kusuru, ONU'nun tek kusuru vardır: ikinci bölümde gördüğümüz LODS.
+
+292
+00:21:49,440 --> 00:21:55,390
+OLT kusurlarında eylemlerin çoğu takdire kalır: ek bekleme süresi,
+
+293
+00:21:55,440 --> 00:22:00,930
+tahsis planını değiştirmek, ONU'yu devre dışı bırakmak,
+
+294
+00:22:00,980 --> 00:22:03,103
+ya da başıboş ONU tanılaması.
+
+295
+00:22:04,027 --> 00:22:05,867
+İlki burst kaybıdır:
+
+296
+00:22:05,917 --> 00:22:11,737
+bir ONU'nun planlanmış ve art arda belirli sayıda burst'ü sınırlanamazsa,
+
+297
+00:22:11,787 --> 00:22:15,287
+ve güç yönetimi makinesi onu muaf tutmuyorsa.
+
+298
+00:22:15,337 --> 00:22:19,157
+Eşik yapılandırılabilir, varsayılanı dörttür;
+
+299
+00:22:19,207 --> 00:22:25,357
+güç tasarrufunda OLT onu tolere edilen kayıp sayısına göre ayrıca kurmalıdır.
+
+300
+00:22:25,407 --> 00:22:28,647
+Tek bir başarılı burst temizler, ve rapor,
+
+301
+00:22:28,697 --> 00:22:33,008
+alınan son nefes bildirimleriyle nitelenmelidir.
+
+302
+00:22:33,927 --> 00:22:36,307
+Sinyal kaybı bütün PON içindir: OLT,
+
+303
+00:22:36,357 --> 00:22:42,187
+yukarı yönde beklediği hiçbir iletimi art arda dört çerçeve almazsa.
+
+304
+00:22:42,237 --> 00:22:43,987
+Tek bir iletim temizler.
+
+305
+00:22:44,037 --> 00:22:45,547
+Bizim hesabımızla,
+
+306
+00:22:45,597 --> 00:22:50,767
+çerçeve başına bir burst'le iki kusur da beş yüz mikrosaniyede ilan edilir;
+
+307
+00:22:50,817 --> 00:22:54,877
+B tipi korumanın sessizlik süresi de yarım milisaniyedir.
+
+308
+00:22:54,927 --> 00:22:57,257
+Ama burst kaybı burst sayar:
+
+309
+00:22:57,307 --> 00:23:02,036
+on altı çerçevede bir burst alan bir ONU için sekiz milisaniyedir.
+
+310
+00:23:02,960 --> 00:23:07,270
+İletim girişimi uyarısı: zamanlama kayması dış eşiği aşar,
+
+311
+00:23:07,320 --> 00:23:12,850
+ve eşitleme gecikmesi mesajıyla üç düzeltmeden sonra da dışarıda kalırsa;
+
+312
+00:23:12,900 --> 00:23:15,980
+kayma iç eşiğin altına inince temizlenir.
+
+313
+00:23:16,030 --> 00:23:21,930
+Önerilen dış eşik yaklaşık artı eksi altı virgül dört nanosaniyedir.
+
+314
+00:23:21,980 --> 00:23:27,440
+PMD Köprüsü: bu, birinci sezonun altıncı bölümündeki en kötü durum koruma süresinin,
+
+315
+00:23:27,490 --> 00:23:32,105
+iki yüz beş virgül sekiz nanosaniyenin, yalnızca yüzde üçüdür.
+
+316
+00:23:33,027 --> 00:23:36,707
+Başlatma başarısızlığı: OLT seri numarasını görür,
+
+317
+00:23:36,757 --> 00:23:39,677
+ama ONU bağlanma dizisini tamamlayamaz.
+
+318
+00:23:39,727 --> 00:23:45,487
+Tablodaki tek zorunlu eylem buradadır: kimlik iptali mesajı gönder.
+
+319
+00:23:45,537 --> 00:23:47,847
+Devre dışı bırakma başarısızlığı:
+
+320
+00:23:47,897 --> 00:23:51,967
+devre dışı bırakılan ONU tahsislere cevap vermeyi sürdürür.
+
+321
+00:23:52,017 --> 00:23:56,107
+OLT bunu ancak tahsis vermeyi sürdürürse görebilir;
+
+322
+00:23:56,157 --> 00:23:59,634
+o ONU'nun kimlikleri yeniden atanmaktan alıkonabilir.
+
+323
+00:24:00,560 --> 00:24:03,100
+Üç kusur yönetimden gelir.
+
+324
+00:24:03,150 --> 00:24:09,900
+PLOAM kanalı kaybı: kalıcı bütünlük hatası ya da gelmeyen onaylar; kalıcı,
+
+325
+00:24:09,950 --> 00:24:13,390
+aynı düzensizliğin art arda en az üç kez görülmesidir.
+
+326
+00:24:13,440 --> 00:24:17,370
+OMCC kanalı kaybını OMCI motoru tanır.
+
+327
+00:24:17,420 --> 00:24:21,030
+Verici dalga boyu kayması uyarısı,
+
+328
+00:24:21,080 --> 00:24:25,800
+ayar isteklerinin sayısı ya da genliği eşikleri aşınca gelir.
+
+329
+00:24:25,850 --> 00:24:29,610
+Ve bu üçünün iptal koşulu hücreleri boştur:
+
+330
+00:24:29,660 --> 00:24:33,696
+standart ne zaman temizleneceklerini söylemez.
+
+331
+00:24:34,627 --> 00:24:38,267
+Dokuzuncusu zayıflatma düzeyi isteği başarısızlığıdır:
+
+332
+00:24:38,317 --> 00:24:44,227
+ONU'nun onayladığı bir güç düzeyi değişikliğinden sonra OLT'nin aldığı güç değişmez.
+
+333
+00:24:44,277 --> 00:24:45,877
+PMD Köprüsü.
+
+334
+00:24:45,927 --> 00:24:51,997
+Birinci sezonun sekizinci bölümünde düzeyler üç desibellik adımlarla değişiyordu;
+
+335
+00:24:52,047 --> 00:24:59,247
+aynı sezonun onuncu bölümündeki tabloda alınan güç tekrarlanabilirliği artı eksi yarım desibeldi.
+
+336
+00:24:59,297 --> 00:25:04,357
+Bizim hesabımızla adım, bunun altı katıdır: değişim olarak görülür.
+
+337
+00:25:04,407 --> 00:25:06,364
+Değişim eşiği ise yazılı değildir.
+
+338
+00:25:07,294 --> 00:25:10,124
+Kusurlar uykuyu bilmek zorundadır.
+
+339
+00:25:10,174 --> 00:25:11,644
+Geçiş tablosunda,
+
+340
+00:25:11,694 --> 00:25:18,344
+düşük güç gözetiminde ve uyarılmış durumda kaçırılan tahsisler kendine dönen geçişlerdir;
+
+341
+00:25:18,394 --> 00:25:20,604
+bizim okumamızla muafiyet budur.
+
+342
+00:25:20,654 --> 00:25:26,444
+Serbest uyanık durumda ise tek bir kaçırma OLT'yi zorla uyanık duruma atar,
+
+343
+00:25:26,494 --> 00:25:29,244
+ve burst kaybı orada ilan edilebilir.
+
+344
+00:25:29,294 --> 00:25:33,244
+Ama bu kaçırma girdisi hiçbir yerde tanımlanmaz,
+
+345
+00:25:33,294 --> 00:25:37,398
+ve eşiğin ONU'ya nasıl bildirildiği de yazılı değildir.
+
+346
+00:25:38,327 --> 00:25:42,597
+Ölüm sonrası tanı için acil durum anlık görüntüsü vardır.
+
+347
+00:25:42,647 --> 00:25:42,597
+ONU,
+
+348
+00:25:42,647 --> 00:25:49,547
+OLT ile iletişimi tehlikeye girince durumunu ve kusurlarını kalıcı belleğe yazar:
+
+349
+00:25:49,597 --> 00:25:54,177
+son nefes dizisinde, ve yazılımı vericiyi her kapattığında.
+
+350
+00:25:54,227 --> 00:25:58,717
+En az on kayıt sığmalıdır; biçimi ve okuma yolu yazılı değildir.
+
+351
+00:25:58,767 --> 00:26:03,577
+Bizim okumamız: harfiyen, her düşük güç girişi de bir kayıttır;
+
+352
+00:26:03,627 --> 00:26:07,785
+örnek olarak yüz milisaniyelik döngüde saatte otuz altı bin yazım.
+
+353
+00:26:08,727 --> 00:26:10,697
+Son nefes adım adım.
+
+354
+00:26:10,747 --> 00:26:15,907
+ONU, tahsislere cevap vermesini engelleyebilecek yerel bir durum saptar,
+
+355
+00:26:15,957 --> 00:26:21,277
+yukarı yön başlığındaki son nefes bitini kurar ve anlık görüntüyü kaydeder.
+
+356
+00:26:21,327 --> 00:26:26,247
+Bu bir susma sözü değildir: durum geçerse bildirimi geri alır.
+
+357
+00:26:26,297 --> 00:26:29,587
+OLT bu burst'leri ONU başına sayabilir,
+
+358
+00:26:29,637 --> 00:26:32,897
+ama yalnızca bu bitle tahsisleri geri çekmez.
+
+359
+00:26:32,947 --> 00:26:38,543
+Güç geri gelince seri numarası mesajı on üç kodunu taşıyabilir: güç kesildi.
+
+360
+00:26:39,460 --> 00:26:40,360
+PMD Köprüsü.
+
+361
+00:26:40,410 --> 00:26:47,420
+Son nefes, fiber sorunlarını abone tarafındaki sorunlardan ayırmaya yardım eder;
+
+362
+00:26:47,470 --> 00:26:52,530
+birinci sezonun onuncu bölümünde bunu bir arıza vakası olarak gördük.
+
+363
+00:26:52,580 --> 00:26:57,240
+Ama G.989.2'de ne sinyal kaybının ne de son nefesin tanımı vardır.
+
+364
+00:26:57,290 --> 00:27:02,760
+B tipi korumanın nitelikli sinyal kaybı da son nefesleri hesaba katar;
+
+365
+00:27:02,810 --> 00:27:07,968
+atıf yaptığı dışlama kuralları ise hiçbir maddede yazılı değildir.
+
+366
+00:27:08,894 --> 00:27:10,394
+Mühendis notu.
+
+367
+00:27:10,444 --> 00:27:10,394
+Bir:
+
+368
+00:27:10,444 --> 00:27:16,084
+ONU'ları uyutuyorsanız burst kaybı eşiğini tahsis aralığıyla birlikte ayarlayın;
+
+369
+00:27:16,134 --> 00:27:20,824
+dörtlük varsayılan, seyrek tahsisli bir ONU'da milisaniyeler sürer.
+
+370
+00:27:20,874 --> 00:27:25,224
+İki: temizlenme koşulu olmayan üç kusur için kendi kuralınızı yazın;
+
+371
+00:27:25,274 --> 00:27:29,654
+yoksa bir kez ilan edilen PLOAM kanalı kaybı,
+
+372
+00:27:29,704 --> 00:27:31,996
+yönetim sisteminde süresiz açık kalabilir.
+
+373
+00:27:33,027 --> 00:27:36,837
+Sıradaki: enerji ve sağlık tanımlandı.
+
+374
+00:27:36,887 --> 00:27:39,153
+Şimdi laboratuvarda ölçelim.
+
+375
+00:27:40,927 --> 00:27:42,067
+Laboratuvarda.
+
+376
+00:27:42,117 --> 00:27:49,197
+Düzenek: bir OLT ve ONU emülatörü, bir protokol analizörü, bir trafik üreteci,
+
+377
+00:27:49,247 --> 00:27:55,457
+bir BERT ve ayarlı zayıflatıcı, besleyici fiberde bir optik anahtar,
+
+378
+00:27:55,507 --> 00:28:00,597
+ve ONU'nun besleme akımını kaydeden bir veri kaydedici.
+
+379
+00:28:00,647 --> 00:28:07,892
+Değeri standartta olmayan her parametreyi emülatörde açıkça kurun ve kaydedin.
+
+380
+00:28:08,827 --> 00:28:11,647
+İlk test: çözücünün öz sınaması.
+
+381
+00:28:11,697 --> 00:28:17,437
+Dördüncü ekin onuncu örneği tam olarak bir dikkatli uyku isteğidir:
+
+382
+00:28:17,487 --> 00:28:21,417
+ONU kimliği on dokuz, sıra numarası sıfır, etkinlik düzeyi üç;
+
+383
+00:28:21,467 --> 00:28:25,017
+bütünlük kodu ekteki sekiz baytla tutmalıdır.
+
+384
+00:28:25,067 --> 00:28:31,707
+Sonra kendi hesapladığımız kodları deneyin: uyanık isteği, açık ve kapalı uyku izni,
+
+385
+00:28:31,757 --> 00:28:33,607
+yayın güç sorgusu.
+
+386
+00:28:33,657 --> 00:28:35,341
+Bunlar altın vektör değildir.
+
+387
+00:28:36,260 --> 00:28:38,900
+İkinci test: izin kapısı.
+
+388
+00:28:38,950 --> 00:28:44,960
+Güç yönetimi OMCI ile etkinleştirilmemişken açık uyku izni gönderin:
+
+389
+00:28:45,010 --> 00:28:45,950
+ONU yok saymalıdır.
+
+390
+00:28:45,000 --> 00:28:53,680
+Etkinleştirip tekrarlayın: dikkatli uyku isteği tutma aralığından önce gelmemelidir.
+
+391
+00:28:53,730 --> 00:28:59,030
+Sonra uyku izni ve uyku isteği sayaçlarını okuyun; isteğe bağlıdırlar,
+
+392
+00:28:59,080 --> 00:29:01,214
+ama varsa artmalıdırlar.
+
+393
+00:29:02,160 --> 00:29:04,940
+Üçüncü test: durumlara göre güç.
+
+394
+00:29:04,990 --> 00:29:08,340
+Burst günlüğünde farkında dönemleri burst'lerle,
+
+395
+00:29:08,390 --> 00:29:14,530
+düşük güç dönemleri boşluklarla görünür; süreleri aralıklarla karşılaştırın.
+
+396
+00:29:14,580 --> 00:29:19,490
+Alıcı kontrolleri optikte değil, besleme akımında görünür.
+
+397
+00:29:19,540 --> 00:29:23,360
+Her durumun ortalama gücünü ölçün, bizim modelimizle,
+
+398
+00:29:23,410 --> 00:29:26,780
+ve varsa düşük güç süresi sayacıyla karşılaştırın.
+
+399
+00:29:27,727 --> 00:29:30,007
+Dördüncü test: uyuyan ONU.
+
+400
+00:29:30,057 --> 00:29:37,077
+Düşük güçteyken PLOAM ve durum raporu isteyen tahsisler verin: cevap gelmemelidir.
+
+401
+00:29:37,127 --> 00:29:41,697
+ONU'ya aşağı yön trafiği gönderin: iletilmemelidir.
+
+402
+00:29:41,747 --> 00:29:48,547
+Bir PLOAM isteği gönderin, ve OLT'nizin ek süre tanıyıp tanımadığını,
+
+403
+00:29:48,597 --> 00:29:53,209
+ya da önce ONU'yu uyandırıp uyandırmadığını görün.
+
+404
+00:29:54,127 --> 00:29:58,867
+Beşinci test: uyanma gecikmesi ve zorunlu uyandırma biti.
+
+405
+00:29:58,917 --> 00:30:03,337
+Biti serinin ilk tahsis yapısında kurun: uyanık isteği, kontrol aralığı,
+
+406
+00:30:03,387 --> 00:30:06,737
+uyanma süresi ve gidiş dönüşün toplamı içinde gelmelidir.
+
+407
+00:30:06,787 --> 00:30:11,427
+Biti yalnızca sonraki yapılarda kurun: ONU uyanmamalıdır.
+
+408
+00:30:11,477 --> 00:30:16,607
+Bit olmadan yalnızca kapalı izin gönderin, ve kaçırma oranını ölçün.
+
+409
+00:30:16,657 --> 00:30:19,208
+Sonra ONU tarafında trafik başlatın.
+
+410
+00:30:20,127 --> 00:30:23,107
+Altıncı test: OLT makinesi, bir ONU emülatörüyle.
+
+411
+00:30:23,157 --> 00:30:29,737
+Düşük güç gözetiminde susun: el sıkışma zamanlayıcısı dolunca kapalı izin,
+
+412
+00:30:29,787 --> 00:30:34,537
+eşik kadar kaçırmadan sonra burst kaybı gelmelidir.
+
+413
+00:30:34,587 --> 00:30:36,657
+Uyandırma bitini yok sayın:
+
+414
+00:30:36,707 --> 00:30:41,487
+uyarı zamanlayıcısından sonra OLT mesajsız zorla uyanığa dönmelidir.
+
+415
+00:30:41,537 --> 00:30:46,657
+Zorla uyanık OLT'ye gecikmiş bir uyku isteği yollayın:
+
+416
+00:30:46,707 --> 00:30:49,865
+standardın notuna göre kapalı izin yinelenmelidir.
+
+417
+00:30:50,794 --> 00:30:54,784
+Yedinci test: sayaçlar ve hata enjeksiyonu.
+
+418
+00:30:54,834 --> 00:30:59,764
+Bilinen sayıda çerçeve gönderin: XGEM sayaçları birebir tutmalıdır.
+
+419
+00:30:59,814 --> 00:31:03,244
+FEC kapalıyken zayıflatıcıyla hata oranını artırın:
+
+420
+00:31:03,294 --> 00:31:06,864
+BIP-32 hataları BERT'le uyuşmalıdır.
+
+421
+00:31:06,914 --> 00:31:11,874
+FEC açıkken düzeltilenler artmalı, düzeltilemeyenler sıfır kalmalıdır.
+
+422
+00:31:11,924 --> 00:31:15,953
+Sayaçları taşma sürelerinden sık okuyun.
+
+423
+00:31:16,893 --> 00:31:19,953
+Sekizinci test: kusur enjeksiyonu.
+
+424
+00:31:20,003 --> 00:31:23,883
+Art arda burst'leri bastırın: burst kaybı dördüncüde gelmeli,
+
+425
+00:31:23,933 --> 00:31:28,403
+tek bir burst'le temizlenmelidir; son nefes bitiyle tekrarlayın.
+
+426
+00:31:28,453 --> 00:31:32,963
+Besleyici fiberi açın: sinyal kaybı beş yüz mikrosaniyede.
+
+427
+00:31:33,013 --> 00:31:36,513
+Güç düzeyi değişikliğini onaylayıp gücü değiştirmeyin:
+
+428
+00:31:36,563 --> 00:31:39,393
+zayıflatma düzeyi isteği başarısızlığı;
+
+429
+00:31:39,443 --> 00:31:44,410
+OLT'nin güç okumasını yarım desibellik tekrarlanabilirlikle karşılaştırın.
+
+430
+00:31:45,360 --> 00:31:48,170
+Dokuzuncu test: kalan kusurlar.
+
+431
+00:31:48,220 --> 00:31:52,990
+Düzeltmeleri yok sayarak kayın, seri numarasına cevap verip bağlanmayın,
+
+432
+00:31:53,040 --> 00:31:59,100
+devre dışı bırakmayı yok sayın, art arda üç PLOAM bütünlük kodunu bozun,
+
+433
+00:31:59,150 --> 00:32:02,950
+dalga boyunu kaydırın, aşağı yönde üç senkron desenini bozun.
+
+434
+00:32:03,000 --> 00:32:08,572
+Temizlenme koşulu yazılı olmayan üç kusurun ne zaman kapandığını kaydedin.
+
+435
+00:32:09,493 --> 00:32:10,663
+Onuncu test: son nefes.
+
+436
+00:32:10,713 --> 00:32:13,173
+ONU'nun şebeke gücünü kesin.
+
+437
+00:32:13,223 --> 00:32:16,543
+Son nefes biti kurulmuş burst'leri yakalayın;
+
+438
+00:32:16,593 --> 00:32:23,333
+OLT'nin son nefes sayacını ve burst kaybı raporunun nitelenmesini kontrol edin.
+
+439
+00:32:23,383 --> 00:32:25,843
+Güç gelince seri numarası mesajında on üç kodunu arayın,
+
+440
+00:32:25,893 --> 00:32:29,853
+ve anlık görüntü kayıtlarını okuyun.
+
+441
+00:32:29,903 --> 00:32:33,865
+Okuma yöntemi standartta yoktur; üreticinin yolunu belgeleyin.
+
+442
+00:32:34,793 --> 00:32:36,153
+Laboratuvar notu.
+
+443
+00:32:36,203 --> 00:32:40,723
+Bir: her ölçümün yanına güç yönetimi parametrelerini yazın;
+
+444
+00:32:40,773 --> 00:32:46,473
+standart değer vermediği için bir sonuç, ancak parametreleriyle birlikte anlamlıdır.
+
+445
+00:32:46,523 --> 00:32:49,773
+İki: kusur enjekte ederken sayaçları da okuyun; bir kusurun ilanı,
+
+446
+00:32:49,823 --> 00:32:55,556
+temizlenmesi ve ilgili sayacın artışı aynı zaman çizgisinde durmalıdır.
+
+447
+00:32:57,393 --> 00:32:59,063
+Bölümün özeti.
+
+448
+00:32:59,113 --> 00:33:02,403
+Bir: G.989.3'te tek uyku kipi dikkatli uykudur;
+
+449
+00:33:02,453 --> 00:33:07,853
+ONU'nun ve OLT'nin dört durumlu iki makinesi kısmen hizalıdır,
+
+450
+00:33:07,903 --> 00:33:13,633
+ve mesaj yalnızca sarı ile gri arasındaki sınır geçilince üretilir.
+
+451
+00:33:13,683 --> 00:33:18,713
+İki: güç yönetimi parametrelerinin hiçbirinin değeri yoktur;
+
+452
+00:33:18,763 --> 00:33:23,023
+PtP hız uyarlamasının üç değeri çalışma konusudur,
+
+453
+00:33:23,073 --> 00:33:28,880
+ve bizim modelimizde tasarrufu uyurken açık kalan devreler sınırlar.
+
+454
+00:33:29,826 --> 00:33:34,876
+Üç: başarım tablosu yüz on bir satırdır, otuz yedisi zorunlu;
+
+455
+00:33:34,926 --> 00:33:39,986
+PtP için hiçbiri yoktur, genişlikler de yazılı değildir.
+
+456
+00:33:40,036 --> 00:33:45,846
+Dört: OLT dokuz, ONU bir kusur tanır; burst kaybının varsayılanı dört burst,
+
+457
+00:33:45,896 --> 00:33:52,106
+sinyal kaybınınki dört çerçevedir, ve üç kusurun temizlenme koşulu yoktur.
+
+458
+00:33:52,156 --> 00:33:58,958
+Beş: son nefes bir ipucudur, bir komut değil; anlık görüntü en az on kayıt tutar.
+
+459
+00:33:59,993 --> 00:34:02,233
+Kendini test et.
+
+460
+00:34:02,283 --> 00:34:04,903
+Birinci soru: düşük güç gözetimindeki OLT,
+
+461
+00:34:04,953 --> 00:34:11,253
+el sıkışma zamanlayıcısı dolana kadar ONU'dan hiç burst almazsa ne yapar,
+
+462
+00:34:11,303 --> 00:34:14,213
+ve ardından ne gelebilir? İkinci soru:
+
+463
+00:34:14,263 --> 00:34:19,083
+varsayılan ayarlarla ve çerçeve başına bir burst'le,
+
+464
+00:34:19,133 --> 00:34:23,953
+burst kaybı ve sinyal kaybı ne kadar sürede ilan edilir,
+
+465
+00:34:24,003 --> 00:34:30,483
+ve aralarındaki fark nedir? Üçüncü soru: G.989.3 hangi uyku kipini tanımlar,
+
+466
+00:34:30,533 --> 00:34:37,103
+ONU onu nasıl ister, ve OLT uyuyan bir ONU'yu nasıl zorla uyandırır? Cevaplar,
+
+467
+00:34:37,153 --> 00:34:39,620
+bir sonraki bölümün başında.
+
+468
+00:34:40,593 --> 00:34:44,573
+Bir sonraki bölüm, sezon finali: Ayakta Kalmak.
+
+469
+00:34:44,623 --> 00:34:49,633
+Koruma, başıboş ONU ve acil durdurma; ve sezonun son hikayesi, bir paketin hayatı:
+
+470
+00:34:49,683 --> 00:34:54,113
+bir Ethernet çerçevesinin XGEM'den ışığa ve geri yolculuğu.
+
+471
+00:34:54,163 --> 00:34:55,053
+Görüşmek üzere.
+

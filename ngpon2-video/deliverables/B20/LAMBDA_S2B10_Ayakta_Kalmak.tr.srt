@@ -1,0 +1,1908 @@
+1
+00:00:00,000 --> 00:00:02,030
+Sezon iki, bölüm on: Ayakta Kalmak.
+
+2
+00:00:02,080 --> 00:00:03,450
+Sezon finali.
+
+3
+00:00:03,500 --> 00:00:09,310
+Dokuz bölümde bir NG-PON2 sisteminin nasıl konuştuğunu kurduk.
+
+4
+00:00:09,360 --> 00:00:15,280
+Şimdi bozulduğunda nasıl ayakta kaldığını soruyoruz: bir fiber kesildiğinde,
+
+5
+00:00:15,330 --> 00:00:20,060
+bir ONU yanlış zamanda ya da yanlış renkte konuştuğunda,
+
+6
+00:00:20,110 --> 00:00:22,735
+ve bir ONU'yu susturmak gerektiğinde.
+
+7
+00:00:23,667 --> 00:00:27,567
+Önce B tipi koruma, bu kez TC derinliğinde: iki kanal sonlandırıcısı,
+
+8
+00:00:27,617 --> 00:00:32,257
+on durumlu bir makine, değeri yazılmamış zamanlayıcılar,
+
+9
+00:00:32,307 --> 00:00:35,231
+ve kırk kilometrede tutmayan tek bir sayı.
+
+10
+00:00:36,167 --> 00:00:41,317
+Sonra ONU tarafında koruma: önceden yapılandırılmış bir kanala kaçış,
+
+11
+00:00:41,367 --> 00:00:45,677
+çekişmeli bir varış tahsisi, ve sonlandırıcılar arasındaki protokolün,
+
+12
+00:00:45,727 --> 00:00:48,185
+adları birbirini tutmayan ilkelleri.
+
+13
+00:00:49,133 --> 00:00:54,163
+Ardından başıboş ONU ve acil durdurma: üç başıboşluk modeli,
+
+14
+00:00:54,213 --> 00:00:58,123
+eski nesil ONU'larla birlikte yaşamanın zorunlu olmayan kuralları,
+
+15
+00:00:58,173 --> 00:01:01,665
+ve güç kesintisinden bile sağ çıkan bir susturma.
+
+16
+00:01:02,600 --> 00:01:04,850
+Ve sezonun son hikâyesi: bir paketin hayatı.
+
+17
+00:01:04,900 --> 00:01:12,300
+Bin beş yüz on sekiz baytlık tek bir Ethernet çerçevesini iki sezonun bütün katmanlarında,
+
+18
+00:01:12,350 --> 00:01:14,642
+aşağı ve yukarı yönde izliyoruz.
+
+19
+00:01:15,567 --> 00:01:20,847
+Laboratuvarda anahtarlamayı ölçecek, ICTP'siz bir sistemi zorlayacak,
+
+20
+00:01:20,897 --> 00:01:24,557
+zamanda ve dalga boyunda başıboş ONU'lar üretecek,
+
+21
+00:01:24,607 --> 00:01:28,380
+acil durdurmanın kalıcılığını ve boş pencereyi sınayacağız.
+
+22
+00:01:40,627 --> 00:01:42,447
+Geçen bölümün soruları.
+
+23
+00:01:42,497 --> 00:01:45,397
+Birinci soru: düşük güç gözetimindeki OLT,
+
+24
+00:01:45,447 --> 00:01:52,257
+el sıkışma zamanlayıcısı dolana kadar burst almazsa el sıkışma ihlali ilan eder,
+
+25
+00:01:52,307 --> 00:01:57,617
+zorla uyanık duruma geçer ve kapalı uyku izni gönderir.
+
+26
+00:01:57,667 --> 00:02:02,647
+Orada her tahsise cevap bekler; art arda kaçırılan planlı burst'ler eşiğe,
+
+27
+00:02:02,697 --> 00:02:06,807
+varsayılan dörde ulaşınca burst kaybı ilan eder.
+
+28
+00:02:06,857 --> 00:02:11,734
+Rapor son nefeslerle nitelenmeli; eylemler OLT'nin takdirindedir.
+
+29
+00:02:12,727 --> 00:02:18,627
+İkinci soru: çerçeve başına bir burst'le ikisi de beş yüz mikrosaniyede ilan edilir.
+
+30
+00:02:18,677 --> 00:02:26,157
+Burst kaybı ONU başınadır: güç yönetimi muaf tutmuyorsa art arda dört planlı burst;
+
+31
+00:02:26,207 --> 00:02:31,087
+bizim hesabımızla on altı çerçevede bir burst'te sekiz milisaniyeye uzar.
+
+32
+00:02:31,137 --> 00:02:37,197
+Sinyal kaybı bütün PON içindir: dört çerçeve boyunca beklenen hiçbir iletim yok;
+
+33
+00:02:37,247 --> 00:02:40,697
+B tipinin yarım milisaniyesine eşittir.
+
+34
+00:02:40,747 --> 00:02:44,856
+Birini tek bir planlı burst, ötekini tek bir iletim temizler.
+
+35
+00:02:45,827 --> 00:02:48,977
+Üçüncü soru: yalnızca dikkatli uyku.
+
+36
+00:02:49,027 --> 00:02:51,837
+İzin, izin biti bir olan uyku iznidir;
+
+37
+00:02:51,887 --> 00:02:54,657
+güç yönetimi OMCI ile açılmamışsa yok sayılır.
+
+38
+00:02:54,707 --> 00:02:58,647
+İstek, etkinlik düzeyi üç olan uyku isteğidir.
+
+39
+00:02:58,697 --> 00:03:03,837
+Zorla uyandırmada OLT uyarılmış duruma girer, bir kez kapalı izin gönderir,
+
+40
+00:03:03,887 --> 00:03:09,787
+sonra her tahsiste PLOAM bayrağıyla zorunlu uyandırma bitini kurar;
+
+41
+00:03:09,837 --> 00:03:13,417
+bit yalnızca serinin ilk yapısında geçerlidir.
+
+42
+00:03:13,467 --> 00:03:16,897
+ONU etkin tutulan duruma geçip uyanık ister;
+
+43
+00:03:16,947 --> 00:03:22,367
+bu istek ya da uyarı süresinin dolması OLT'yi zorla uyanık yapar.
+
+44
+00:03:22,417 --> 00:03:23,293
+Şimdi bu bölüme.
+
+45
+00:03:24,860 --> 00:03:27,800
+Perde bir: B tipi koruma.
+
+46
+00:03:27,850 --> 00:03:33,980
+Birinci sezonun onuncu bölümünde korumayı optikten gördük: ONU yeniden ayarlanmaz,
+
+47
+00:03:34,030 --> 00:03:37,670
+G.989.2 korumayı tanımlamaz,
+
+48
+00:03:37,720 --> 00:03:44,680
+ve oradaki B tipi bağlantı yalnızca yükselteçli bir OLT alıcısıdır.
+
+49
+00:03:44,730 --> 00:03:46,020
+Bu kez TC tarafındayız.
+
+50
+00:03:46,070 --> 00:03:51,246
+On sekizinci madde iki bin yirmi birden beri değişmedi.
+
+51
+00:03:52,193 --> 00:03:59,483
+Her kanal çiftinin iki OLT kanal sonlandırıcısı vardır, birbirinin B tipi eşi;
+
+52
+00:03:59,533 --> 00:04:01,413
+ayrı ya da aynı şasilerde.
+
+53
+00:04:01,463 --> 00:04:05,683
+Korunanlar: bağlantı fiberi, besleyici, WM, sonlandırıcı ve şasi.
+
+54
+00:04:05,733 --> 00:04:11,013
+Besleyici, WM ya da şasi arızasında gruptaki bütün çiftler birlikte,
+
+55
+00:04:11,063 --> 00:04:18,413
+sonlandırıcı ya da bağlantı fiberi arızasında yalnızca o çift anahtarlanır.
+
+56
+00:04:18,463 --> 00:04:22,333
+Bizim yorumumuz: ayırıcı ve dağıtım fiberleri korunmaz.
+
+57
+00:04:23,260 --> 00:04:24,560
+Roller.
+
+58
+00:04:24,610 --> 00:04:30,320
+En az bir sonlandırıcı sağlamken tam olarak biri etkindir: aşağı yönde yayın yapar,
+
+59
+00:04:30,370 --> 00:04:32,110
+ONU'lara hizmet verir.
+
+60
+00:04:32,160 --> 00:04:35,960
+Öteki beklemededir: vericisi kapalı, yukarı yönü dinler.
+
+61
+00:04:36,010 --> 00:04:41,840
+Varsayılan roller birincil ve ikincildir, ICTP el sıkışmasında çözülür;
+
+62
+00:04:41,890 --> 00:04:44,720
+geri dönüşlü yapılandırmada kalıcıdır.
+
+63
+00:04:44,770 --> 00:04:47,887
+Ve makine ICTP'siz de ilerleyebilir.
+
+64
+00:04:48,827 --> 00:04:50,417
+On durum.
+
+65
+00:04:50,467 --> 00:04:55,017
+Vericisi kapalı dört bekleme durumu: başlatma, koruma öncesi, koruyan,
+
+66
+00:04:55,067 --> 00:04:58,357
+ve koruyan tarafta sinyal kaybı.
+
+67
+00:04:58,407 --> 00:05:03,167
+Vericisi açık üç etkin durum: çalışma öncesi, çalışan,
+
+68
+00:05:03,217 --> 00:05:05,817
+ve çalışan tarafta sinyal kaybı.
+
+69
+00:05:05,867 --> 00:05:11,847
+Ve üç ayrıksı durum: yardım isteme, vericiyi kapatıp eşine devral der;
+
+70
+00:05:11,897 --> 00:05:17,197
+iletişim arızası, beklenen yukarı yön gelmez; donanım arızası,
+
+71
+00:05:17,247 --> 00:05:22,502
+eşi korumasız mesajı alır ve koruma arızasını sonsuza kurar.
+
+72
+00:05:23,427 --> 00:05:24,007
+Olaylar.
+
+73
+00:05:24,057 --> 00:05:29,667
+Basit sinyal kaybı, yayın yapmayan durumlarda yarım milisaniyelik,
+
+74
+00:05:29,717 --> 00:05:32,487
+dört çerçevelik yukarı yön sessizliğidir.
+
+75
+00:05:32,537 --> 00:05:34,227
+Nitelikli sinyal kaybı,
+
+76
+00:05:34,277 --> 00:05:41,527
+yayın yapan durumlarda dört çerçeve sessizlik artı bütün ilgili ONU'lar için burst kaybıdır;
+
+77
+00:05:41,577 --> 00:05:47,487
+ONU sayısına, güç yönetimine ve son nefeslere göre dışlamalara tabidir.
+
+78
+00:05:47,537 --> 00:05:52,915
+Temizlenme tek bir burst'tür; etkin durumlarda haritayla tutarlı olmalıdır.
+
+79
+00:05:53,893 --> 00:05:58,323
+Altı zamanlayıcı: sessiz başlangıç, koruma arızası, onay, tutma,
+
+80
+00:05:58,373 --> 00:06:00,113
+çalışma arızası ve ICTP.
+
+81
+00:06:00,163 --> 00:06:04,063
+Tek sayı, onay için makul başlangıç değeridir: yarım milisaniye.
+
+82
+00:06:04,113 --> 00:06:07,753
+Gerisinin değeri yok, sıralaması var.
+
+83
+00:06:07,803 --> 00:06:12,953
+Koruma arızası tutmadan ve çalışma arızasından büyük olmalı; yoksa koruyan,
+
+84
+00:06:13,003 --> 00:06:15,413
+çalışan susmadan konuşabilir.
+
+85
+00:06:15,463 --> 00:06:19,523
+Tutma çalışma arızasından büyük olmalı; aksi tutmayı kapatır.
+
+86
+00:06:19,573 --> 00:06:24,154
+ICTP yoksa sessiz başlangıç ve koruma arızası en büyük kalır.
+
+87
+00:06:25,093 --> 00:06:27,523
+Geçiş tablosu, bekleme tarafı.
+
+88
+00:06:27,573 --> 00:06:31,253
+Başlatmada yukarı yön duyulursa koruma öncesine;
+
+89
+00:06:31,303 --> 00:06:35,683
+sessiz başlangıç dolar ya da etkin mesajı gelirse çalışma öncesine;
+
+90
+00:06:35,733 --> 00:06:38,793
+bekleme mesajı gelirse koruyana geçilir.
+
+91
+00:06:38,843 --> 00:06:41,963
+Koruma öncesinde basit kayıp başlatmaya,
+
+92
+00:06:42,013 --> 00:06:46,993
+bekleme mesajı ya da ICTP zamanlayıcısı koruyana götürür.
+
+93
+00:06:47,043 --> 00:06:51,613
+Koruyan ile kaybı arasında basit kayıp ve temizlenme gidip gelir.
+
+94
+00:06:51,663 --> 00:06:55,623
+Kayıpta koruma arızası ya da etkin mesajı çalışma öncesine,
+
+95
+00:06:55,673 --> 00:07:00,353
+bekleme ve temiz mesajı iletişim arızasına götürür;
+
+96
+00:07:00,403 --> 00:07:02,951
+bekleme ve kayıp mesajı zamanlayıcıyı tazeler.
+
+97
+00:07:03,893 --> 00:07:05,693
+Etkin taraf.
+
+98
+00:07:05,743 --> 00:07:09,993
+Çalışma öncesinde haritayla tutarlı ilk burst çalışana,
+
+99
+00:07:10,043 --> 00:07:13,213
+onay zamanlayıcısı iletişim arızasına götürür.
+
+100
+00:07:13,263 --> 00:07:18,933
+Çalışan ile kaybı arasında nitelikli kayıp ve temizlenme gidip gelir;
+
+101
+00:07:18,983 --> 00:07:23,073
+kayıpta tutma ve çalışma arızası birlikte dolunca,
+
+102
+00:07:23,123 --> 00:07:28,713
+ya da çalışanda yönetimin zorlama komutuyla, yardım istemeye geçilir.
+
+103
+00:07:28,763 --> 00:07:35,013
+Oradan temizlenme, bekleme ve kayıp mesajı ya da ICTP zamanlayıcısı koruyana;
+
+104
+00:07:35,063 --> 00:07:38,583
+bekleme ve temiz mesajı iletişim arızasına.
+
+105
+00:07:38,633 --> 00:07:45,213
+Oradan bir burst koruma öncesine çıkarır; donanım arızasından yalnızca sıfırlama.
+
+106
+00:07:46,160 --> 00:07:49,200
+Besleyiciyi keselim; ICTP çalışıyor.
+
+107
+00:07:49,250 --> 00:07:54,010
+ONU'lar üç çerçevede senkronu kaybedip O6'ya geçer, TO6 durur.
+
+108
+00:07:54,060 --> 00:07:59,090
+Çalışan taraf nitelikli kayba geçer ama yayına devam eder;
+
+109
+00:07:59,140 --> 00:08:03,300
+bekleme tarafı yarım milisaniyede basit kayba.
+
+110
+00:08:03,350 --> 00:08:08,660
+Tutma ve çalışma arızası dolunca çalışan susar ve etkin mesajı yollar;
+
+111
+00:08:08,710 --> 00:08:10,830
+bekleme tarafı vericisini açar.
+
+112
+00:08:10,880 --> 00:08:17,970
+ONU'lar en az iki çerçevede senkron olup O5'e döner, TO6 kaldığı yerden sürer.
+
+113
+00:08:18,020 --> 00:08:22,519
+Haritayla tutarlı ilk burst yeni tarafı çalışan yapar.
+
+114
+00:08:23,493 --> 00:08:29,913
+ICTP yoksa ICTP zamanlayıcısı sıfıra kurulabilir, ve iki durum geçiş durumu olur.
+
+115
+00:08:29,963 --> 00:08:33,093
+Metin bunlara çalışma öncesi ve yardım isteme der,
+
+116
+00:08:33,143 --> 00:08:38,903
+şekil koruma öncesini kesik çizer; bizim okumamızla metin hatalıdır,
+
+117
+00:08:38,953 --> 00:08:42,883
+çünkü onay zamanlayıcısı çalışma öncesinde çalışır.
+
+118
+00:08:42,933 --> 00:08:47,423
+Çalışan taraf tutma ve çalışma arızasından sonra susar,
+
+119
+00:08:47,473 --> 00:08:51,213
+bekleme tarafı koruma arızasından sonra konuşur:
+
+120
+00:08:51,263 --> 00:08:53,543
+iki vericiyi yalnızca sıralama ayırır.
+
+121
+00:08:54,460 --> 00:08:55,400
+PMD Köprüsü.
+
+122
+00:08:55,450 --> 00:09:01,730
+Birinci sezonun onuncu bölümünde B tipinin ONU optiğine dokunmadığını gördük;
+
+123
+00:09:01,780 --> 00:09:05,020
+ama onay zamanlayıcısı mesafeye dokunur.
+
+124
+00:09:05,070 --> 00:09:10,360
+Bizim çıkarımımız: verici açılınca ONU ilk çerçevede senkron olur,
+
+125
+00:09:10,410 --> 00:09:17,470
+ikincisinin haritasıyla gönderir; yaklaşık yüz yirmi beş mikrosaniye artı T eqd.
+
+126
+00:09:17,520 --> 00:09:22,890
+Birinci sezonun ikinci bölümündeki yirmi kilometre sınıfında üç yüz altmış bir,
+
+127
+00:09:22,940 --> 00:09:29,690
+kırk kilometrede beş yüz altmış bir mikrosaniye: yarım milisaniyeyi aşar,
+
+128
+00:09:29,740 --> 00:09:31,497
+sahte bir iletişim arızası.
+
+129
+00:09:32,426 --> 00:09:34,086
+İkinci çıkarımımız.
+
+130
+00:09:34,136 --> 00:09:38,406
+Arıza eski taraftaki sessiz bir alıcıysa fiber sağlamdır.
+
+131
+00:09:38,456 --> 00:09:44,536
+ICTP'siz makinede o taraf koruyan durumda basit kayıp görür, koruma arızası dolar,
+
+132
+00:09:44,586 --> 00:09:49,656
+ve vericisini yeni çalışanın yanında açar; onay zamanlayıcısı dolana kadar,
+
+133
+00:09:49,706 --> 00:09:51,606
+yaklaşık yarım milisaniye.
+
+134
+00:09:51,656 --> 00:09:57,226
+Sadeleşmiş makine, hiçbir an birlikte yayın yapmama hedefini tam karşılayamaz.
+
+135
+00:09:57,276 --> 00:10:02,306
+ICTP varsa eşi bekleme ve temiz mesajıyla cevap verir,
+
+136
+00:10:02,356 --> 00:10:04,335
+arızalı taraf karanlıkta kalır.
+
+137
+00:10:05,260 --> 00:10:06,760
+Mühendis notu.
+
+138
+00:10:06,810 --> 00:10:12,720
+Bir: elli milisaniye gibi bir hedef de, herhangi bir anahtarlama süresi de yoktur.
+
+139
+00:10:12,770 --> 00:10:18,370
+Koruma, senkron ONU yeniden ayarlanmaya karar vermeden dönerse işe yarar;
+
+140
+00:10:18,420 --> 00:10:23,690
+bu yarışın iki tarafı da, B tipi zamanlayıcıları ile TO2 ve TO3, değersizdir;
+
+141
+00:10:23,740 --> 00:10:26,300
+hepsini üreticiden yazılı isteyin.
+
+142
+00:10:26,350 --> 00:10:31,660
+İki: nitelikli kaybın dışlama kurallarını hiçbir madde yazmaz;
+
+143
+00:10:31,710 --> 00:10:35,503
+toplu bir son nefeste yanlış kural, gereksiz anahtarlamadır.
+
+144
+00:10:36,526 --> 00:10:39,856
+Sıradaki: OLT tarafı kendini korudu.
+
+145
+00:10:39,906 --> 00:10:44,022
+Peki bütün bir kanal kaybolursa, ONU kendini nasıl kurtarır?
+
+146
+00:10:45,793 --> 00:10:49,303
+Perde iki: ONU tarafında koruma.
+
+147
+00:10:49,353 --> 00:10:56,433
+On yedinci madde dalga boyu kanalı korumasını on sekizinci maddeye bırakır;
+
+148
+00:10:56,483 --> 00:10:59,753
+ama orada yalnızca B tipi vardır.
+
+149
+00:10:59,803 --> 00:11:07,313
+ONU tarafının mekanizması dağınıktır: bir PLOAM mesajı, aktivasyon tabloları,
+
+150
+00:11:07,363 --> 00:11:09,129
+sayaçlar ve J eki.
+
+151
+00:11:10,060 --> 00:11:17,590
+Koruma denetimi mesajı tek bir ONU'ya ya da bir dalga boyundaki bütün ONU'lara gider.
+
+152
+00:11:17,640 --> 00:11:19,260
+Otuz iki bitlik iki PON kimliği,
+
+153
+00:11:19,310 --> 00:11:24,160
+koruma kanalının aşağı ve yukarı yön profillerini gösterir.
+
+154
+00:11:24,210 --> 00:11:28,400
+Bayrak sıfırsa koruma açılır, başka her değer kapatır.
+
+155
+00:11:28,450 --> 00:11:31,250
+ONU bilgiyi saklar ve onaylar;
+
+156
+00:11:31,300 --> 00:11:34,821
+bu kimlikleri yalnızca acil durdurmadan çıkış sildirir.
+
+157
+00:11:35,760 --> 00:11:37,140
+ONU'nun yolu.
+
+158
+00:11:37,190 --> 00:11:42,370
+O5'te senkron kaybolunca O6'ya geçer: koruma açıksa TO3'ü,
+
+159
+00:11:42,420 --> 00:11:44,670
+kapalıysa TO2'yi başlatır.
+
+160
+00:11:44,720 --> 00:11:49,370
+Senkron süre dolmadan dönerse O5'e döner; B tipinin başarısı budur.
+
+161
+00:11:49,420 --> 00:11:52,060
+TO2 dolarsa O1'e düşer.
+
+162
+00:11:52,110 --> 00:11:58,970
+TO3 dolarsa burst profillerini unutur ve O8'e geçer; yeni kanal hedef, önceki,
+
+163
+00:11:59,020 --> 00:12:02,580
+koruma ya da eşleşen bir kanal olabilir.
+
+164
+00:12:02,630 --> 00:12:06,352
+Kanal uygun bulununca O9'a geçer, TO5 başlar.
+
+165
+00:12:07,293 --> 00:12:08,133
+O9'da ONU,
+
+166
+00:12:08,183 --> 00:12:14,913
+her yönlü PLOAM tahsisinde ya da yayınlanan çekişmeli bir koruma tahsisinde,
+
+167
+00:12:14,963 --> 00:12:17,953
+tamamlandı kipinde ayar yanıtı gönderir;
+
+168
+00:12:18,003 --> 00:12:21,653
+geri bildirim gelene ya da TO5 dolana kadar.
+
+169
+00:12:21,703 --> 00:12:27,693
+Yönlü bir onay TO6'yı baştan başlatır, ONU O5'e döner.
+
+170
+00:12:27,743 --> 00:12:31,580
+TO2'den TO5'e hiçbir zamanlayıcının değeri yoktur.
+
+171
+00:12:32,560 --> 00:12:35,590
+Koruma tarafı için J eki bir çözüm verir.
+
+172
+00:12:35,640 --> 00:12:39,040
+Korunan ONU'lara yönlü tahsis vermek israftır;
+
+173
+00:12:39,090 --> 00:12:43,330
+sonlandırıcı onları geri tutup tek bir çekişmeli tahsis verebilir,
+
+174
+00:12:43,380 --> 00:12:46,840
+ve anahtarlamada her ONU varlığını onunla bildirir.
+
+175
+00:12:46,890 --> 00:12:52,000
+Bu tahsis zorunlu olarak önceden mesafesi ölçülmüştür ve sık verilmelidir.
+
+176
+00:12:52,050 --> 00:12:54,680
+Başarıda o ONU'nun,
+
+177
+00:12:54,730 --> 00:12:59,430
+çarpışmada bütün korunanların yönlü tahsisleri hemen geri verilir.
+
+178
+00:12:59,480 --> 00:13:02,372
+Atama mesajı bir yeniden iletim zaman aşımı taşır.
+
+179
+00:13:03,293 --> 00:13:08,873
+Bir değer daha: koruma anahtarlama gecikme toleransı, sıfırdan büyük.
+
+180
+00:13:08,923 --> 00:13:15,953
+ONU'nun koruma kanalında senkron olduğu andan ilk varsayılan tahsisine kadarki en uzun beklemedir,
+
+181
+00:13:16,003 --> 00:13:20,703
+ve koruma sonlandırıcısının tahsis sıklığını belirler.
+
+182
+00:13:20,753 --> 00:13:23,727
+Değeri yoktur; yeniden iletim zaman aşımının da.
+
+183
+00:13:24,660 --> 00:13:27,320
+Karşılaştırma bizim derlememiz.
+
+184
+00:13:27,370 --> 00:13:34,190
+B tipi besleyiciyi, WM'i, sonlandırıcıyı ve şasiyi korur; ONU kanal değiştirmez,
+
+185
+00:13:34,240 --> 00:13:36,360
+kararı sonlandırıcılar verir.
+
+186
+00:13:36,410 --> 00:13:42,550
+ONU tarafı koruma ONU'nun kanalını korur; ONU kanal değiştirir,
+
+187
+00:13:42,600 --> 00:13:45,190
+kararı TO3 dolunca ONU verir.
+
+188
+00:13:45,240 --> 00:13:48,970
+B tipinin üç sayısı vardır, ONU tarafının hiç.
+
+189
+00:13:49,020 --> 00:13:53,100
+Sayaçlar kaybın hangi kanalda geri geldiğini sayar;
+
+190
+00:13:53,150 --> 00:13:57,149
+B tipi anahtarlamaları sayan tek satır yoktur.
+
+191
+00:13:58,093 --> 00:13:58,943
+PMD Köprüsü.
+
+192
+00:13:58,993 --> 00:14:05,063
+Birinci sezonun yedinci bölümündeki ayar sınıfları burada süreye dönüşür:
+
+193
+00:14:05,113 --> 00:14:07,773
+birinci sınıf on mikrosaniyenin altında,
+
+194
+00:14:07,823 --> 00:14:12,843
+üçüncü sınıf yirmi beş milisaniye ile bir saniye arasında ayarlanır.
+
+195
+00:14:12,893 --> 00:14:16,693
+Ama bizim yorumumuzla süreye profiller de hükmedebilir:
+
+196
+00:14:16,743 --> 00:14:20,433
+TO3 dolunca ONU burst profillerini unutur,
+
+197
+00:14:20,483 --> 00:14:23,497
+ve profil gelmeden hiçbir tahsise cevap veremez.
+
+198
+00:14:24,427 --> 00:14:27,177
+Şimdi ICTP, altıncı ek, bilgilendirici.
+
+199
+00:14:27,227 --> 00:14:32,807
+Sonlandırıcılar birden fazla şasiye, merkez ofise,
+
+200
+00:14:32,857 --> 00:14:35,497
+hatta servis sağlayıcıya yayılabilir.
+
+201
+00:14:35,547 --> 00:14:43,487
+Protokolün kendisi Broadband Forum'un üç yüz elli iki numaralı teknik raporundadır,
+
+202
+00:14:43,537 --> 00:14:45,717
+kaynaklarımızda yoktur.
+
+203
+00:14:45,767 --> 00:14:52,306
+Ek, profil paylaşımından koruma ve yük paylaşımına, on dört kullanım durumu sayar.
+
+204
+00:14:53,227 --> 00:14:58,907
+İlkeller ya tek bir mesajdır ya bölünmez bir işlem; on dört tanedir.
+
+205
+00:14:58,957 --> 00:15:01,657
+Ama on sekizinci maddenin eşleşme, etkin,
+
+206
+00:15:01,707 --> 00:15:05,417
+bekleme ve korumasız mesajları tabloda yoktur;
+
+207
+00:15:05,467 --> 00:15:11,247
+tablodaki koruma el sıkışması ONU başınadır ve kimlik doğrulamaya bağlanır.
+
+208
+00:15:11,297 --> 00:15:14,857
+Sayaç ve yük paylaşımının ilkeli de yoktur.
+
+209
+00:15:14,907 --> 00:15:20,030
+Beşinci ek, koruma örnekleri ise, üç baskıda da kasıtlı olarak boştur.
+
+210
+00:15:20,960 --> 00:15:22,580
+Mühendis notu.
+
+211
+00:15:22,630 --> 00:15:26,480
+Bir: ONU tarafı korumanın her değerini, TO2'den TO5'e,
+
+212
+00:15:26,530 --> 00:15:31,200
+toleransı ve zaman aşımını yapılandırma belgenize yazın,
+
+213
+00:15:31,250 --> 00:15:35,840
+ve koruma kanalının burst profilini önceden ulaştırın.
+
+214
+00:15:35,890 --> 00:15:40,300
+İki: iki üreticinin sonlandırıcılarını eş yapacaksanız,
+
+215
+00:15:40,350 --> 00:15:46,544
+mesaj adlarını standarttan değil, uyguladıkları ICTP sürümünden doğrulayın.
+
+216
+00:15:47,594 --> 00:15:51,594
+Sıradaki: kendi ONU'larımızı kurtardık.
+
+217
+00:15:51,644 --> 00:15:54,848
+Peki kurallara uymayan bir ONU'yla ne yapacağız?
+
+218
+00:15:56,627 --> 00:15:58,197
+Perde üç: başıboş ONU.
+
+219
+00:15:58,247 --> 00:15:59,227
+On dokuzuncu madde,
+
+220
+00:15:59,277 --> 00:16:08,217
+çok dalga boylu yapıya bağlı başıboşluk modellerini ve G-PON ile XG-PON ONU'larıyla birlikte yaşamayı ele alır;
+
+221
+00:16:08,267 --> 00:16:12,997
+ama OLT ile ONU arasında hiçbir birlikte çalışmayı tanımlamaz.
+
+222
+00:16:13,047 --> 00:16:18,017
+Teknikler için G serisinin kırk dokuzuncu ekine gönderir;
+
+223
+00:16:18,067 --> 00:16:19,786
+o belge kaynaklarımızda yoktur.
+
+224
+00:16:20,727 --> 00:16:22,417
+Üç model vardır.
+
+225
+00:16:22,467 --> 00:16:26,927
+A modelinde ONU kendi kanalında yanlış zaman diliminde gönderir;
+
+226
+00:16:26,977 --> 00:16:29,427
+OLT o kanalda burst kaybı görür.
+
+227
+00:16:29,477 --> 00:16:34,667
+B modelinde vericisi atlar ve yanlış yukarı yön kanalında gönderir:
+
+228
+00:16:34,717 --> 00:16:38,847
+kendi sonlandırıcısı burst kaybı, etkilenenler girişim görür.
+
+229
+00:16:38,897 --> 00:16:43,997
+C modelinde vericisi hedef olmayan bir kanala ayarlanır:
+
+230
+00:16:44,047 --> 00:16:48,847
+kaynak da hedef de onu bulamaz, etkilenen bir sonlandırıcı girişim görür.
+
+231
+00:16:48,897 --> 00:16:52,326
+PtP WDM'de yalnızca B ve C geçerlidir.
+
+232
+00:16:53,260 --> 00:16:54,180
+PMD Köprüsü.
+
+233
+00:16:54,230 --> 00:17:00,420
+B ve C, birinci sezonun yedinci bölümündeki dalga boyu alanında başıboşluktur:
+
+234
+00:17:00,470 --> 00:17:03,710
+G.989.2 optik tabloların ayar boyunca,
+
+235
+00:17:03,760 --> 00:17:07,220
+tam da bunu önlemek için karşılanmasını ister;
+
+236
+00:17:07,270 --> 00:17:13,210
+yüz gigahertzlik aralıkta yukarı yön kayması artı eksi yirmi gigahertzdir.
+
+237
+00:17:13,260 --> 00:17:16,450
+A ise birinci sezonun altıncı bölümüdür:
+
+238
+00:17:16,500 --> 00:17:22,120
+verici en çok yüz yirmi sekiz virgül altı nanosaniyede açılıp kapanır,
+
+239
+00:17:22,170 --> 00:17:27,952
+karanlıkken on beş gigahertzde eksi altmış iki virgül altı dBm'i aşamaz.
+
+240
+00:17:28,894 --> 00:17:30,394
+Birlikte yaşama.
+
+241
+00:17:30,444 --> 00:17:35,584
+Kontrol edilmeyen bir sistemin ONU'ları izinsiz gönderebiliyorsa,
+
+242
+00:17:35,634 --> 00:17:38,864
+arızalı olmasalar da başıboşluk yaratabilir.
+
+243
+00:17:38,914 --> 00:17:38,864
+Önerilen,
+
+244
+00:17:38,914 --> 00:17:44,654
+sonlandırıcının yeni kanalda ve her yeniden başlatmada sessiz başlamasıdır;
+
+245
+00:17:44,704 --> 00:17:48,504
+birinci perdenin başlatma durumu bunu yapar.
+
+246
+00:17:48,554 --> 00:17:51,784
+Yabancıları yalıtmak zor ya da imkânsız olabilir.
+
+247
+00:17:51,834 --> 00:17:58,034
+Eski ONU'lara karşı normatif hiçbir şey yoktur: tek kural bir öneridir; prosedür,
+
+248
+00:17:58,084 --> 00:17:59,932
+parametre ya da mesaj yoktur.
+
+249
+00:18:00,927 --> 00:18:04,187
+Maddenin tek zorunlu cümlesi yabancı ışık hakkındadır:
+
+250
+00:18:04,237 --> 00:18:10,017
+sessiz pencerede AMCC olmayan bir sinyal alan sonlandırıcı,
+
+251
+00:18:10,067 --> 00:18:13,597
+onu ancak PSBu yapısı geçerliyse geçerli saymalıdır.
+
+252
+00:18:13,647 --> 00:18:20,437
+Değilse saat ve veri kurtarmasını o sinyali yalıtacak biçimde ayarlamayı deneyebilir,
+
+253
+00:18:20,487 --> 00:18:23,327
+ya da beklenmeyen ışık rapor edebilir.
+
+254
+00:18:23,377 --> 00:18:25,934
+Bu olayın adı, sayacı ve eşiği yoktur.
+
+255
+00:18:26,860 --> 00:18:28,350
+Boş pencere.
+
+256
+00:18:28,400 --> 00:18:33,770
+Sonlandırıcı bütün tahsisleri, seri numarası ve mesafe ölçümü dahil,
+
+257
+00:18:33,820 --> 00:18:35,780
+geçici olarak geri tutabilir.
+
+258
+00:18:35,830 --> 00:18:37,970
+Amaç, fibere yanlış bağlanmış,
+
+259
+00:18:38,020 --> 00:18:43,350
+sessiz başlamayı bilmeyen noktadan noktaya modemleri yakalamaktır;
+
+260
+00:18:43,400 --> 00:18:45,960
+genellikle koşulsuz gönderirler.
+
+261
+00:18:46,010 --> 00:18:50,480
+Pencerede alınan her güç yanlış bağlanmış bir verici sayılır.
+
+262
+00:18:50,530 --> 00:18:54,120
+Süre, sıklık, eşik ve alarm adı yoktur.
+
+263
+00:18:54,170 --> 00:18:59,812
+Bizim yorumumuz: OLT yayın yaptığı için ışık bekleyen modem de yakalanır.
+
+264
+00:19:00,760 --> 00:19:05,340
+Asıl araçlar on ikinci maddededir: gecikmeyi yeniden ayarlamak,
+
+265
+00:19:05,390 --> 00:19:10,470
+ONU kimliğini iptal etmek, seri numarasını devre dışı bırakmak.
+
+266
+00:19:10,520 --> 00:19:16,510
+Uç durumda sonlandırıcı kanaldaki bütün ONU'ları kapatıp uyumluları tek tek açabilir.
+
+267
+00:19:16,560 --> 00:19:21,760
+Yayın mesajının beşinci baytı seçeneği taşır: ef ef bir seri numarasını kapatır,
+
+268
+00:19:21,810 --> 00:19:26,990
+sıfır sıfır açar; sıfır ef kanaldaki herkesi kapatır, ef sıfır açar;
+
+269
+00:19:27,040 --> 00:19:30,256
+üç ef yalnızca O2-3'teki ONU'ları kapatır.
+
+270
+00:19:31,193 --> 00:19:36,943
+İkinci değişiklik on dördüncü ve on beşinci baytlara bir neden kodu ekledi:
+
+271
+00:19:36,993 --> 00:19:43,923
+belirtilmemişse sıfır, önerilen değerler G serisinin seksen dördüncü ekinde;
+
+272
+00:19:43,973 --> 00:19:45,103
+ONU yalnızca kaydeder.
+
+273
+00:19:45,153 --> 00:19:51,713
+Kapatılan ONU lazerini söndürür ve O7'ye, acil durdurmaya geçer:
+
+274
+00:19:51,763 --> 00:19:56,793
+senkronu ve PLOAM okumayı sürdürür, ama ne veri iletir ne gönderir.
+
+275
+00:19:56,843 --> 00:20:00,183
+Bu durum güç kesintisini aşar.
+
+276
+00:20:00,233 --> 00:20:04,382
+Çıkarmak için açma komutu bütün kanallarda gönderilmelidir.
+
+277
+00:20:05,326 --> 00:20:11,556
+Birinci değişikliğin on birinci eki, OLT'ye görünmeyen iki alt durum tanımlar:
+
+278
+00:20:11,606 --> 00:20:13,416
+O7.1 senkronlu, O7.2 senkronsuz.
+
+279
+00:20:13,466 --> 00:20:19,866
+Yeniden başlayan ONU O7.2'de uyanır, her kanalda bir arama süresi bekler:
+
+280
+00:20:19,916 --> 00:20:24,646
+önce koruma kanalı gibi olası kanallar, sonra sırayla hepsi.
+
+281
+00:20:24,696 --> 00:20:28,856
+Bulamazsa süreyi, örneğin her turda ikiye katlayarak,
+
+282
+00:20:28,906 --> 00:20:33,556
+yaklaşık bir dakikaya çıkarabilir; başlangıç değeri yoktur.
+
+283
+00:20:33,606 --> 00:20:39,151
+Bizim yorumumuzla sekiz kanallık bir tur sekiz dakikaya yaklaşabilir.
+
+284
+00:20:40,093 --> 00:20:41,753
+Mühendis notu.
+
+285
+00:20:41,803 --> 00:20:46,633
+Bir: acil durdurma yapışkandır, kanala yereldir ve kimlik doğrulamasızdır:
+
+286
+00:20:46,683 --> 00:20:51,143
+güç kesintisini aşar, açma bütün kanallarda gönderilmelidir,
+
+287
+00:20:51,193 --> 00:20:55,923
+ve mesaj herkesin bildiği varsayılan anahtarla imzalanır;
+
+288
+00:20:55,973 --> 00:21:00,013
+bizim yorumumuzla sahte bir sıfır ef kanalı susturur.
+
+289
+00:21:00,063 --> 00:21:00,013
+İki:
+
+290
+00:21:00,063 --> 00:21:06,770
+devre dışı bırakma başarısızlığını ancak o ONU'ya tahsis vermeyi sürdürürseniz görürsünüz.
+
+291
+00:21:07,793 --> 00:21:13,203
+Sıradaki: sistemi korumanın bütün yollarını gördük.
+
+292
+00:21:13,253 --> 00:21:18,097
+Şimdi sezonun son hikâyesi: bir paketin hayatı.
+
+293
+00:21:19,893 --> 00:21:21,233
+Perde dört: bir paketin hayatı.
+
+294
+00:21:21,283 --> 00:21:28,313
+Bin beş yüz on sekiz baytlık bir Ethernet çerçevesini her katmandan geçireceğiz.
+
+295
+00:21:28,363 --> 00:21:34,173
+Yapılandırma bizim seçimimiz: birinci kanal çifti, iki yönde on gigabit, FEC açık,
+
+296
+00:21:34,223 --> 00:21:40,423
+N1 sınıfı, yirmi kilometre; ONU kimliği beş, tahsis kimliği ve port bin yirmi dört.
+
+297
+00:21:40,473 --> 00:21:45,993
+Başlık ve hata denetimi değerlerini biz hesapladık; altın vektör değildirler.
+
+298
+00:21:46,926 --> 00:21:48,556
+Aşağı yön.
+
+299
+00:21:48,606 --> 00:21:54,636
+Bu sezonun üçüncü bölümündeki gibi önsöz atılır, denetim dizisi kalır; çerçeve,
+
+300
+00:21:54,686 --> 00:21:59,596
+birinci bölümün kimlikleriyle port bin yirmi dörde gider.
+
+301
+00:21:59,646 --> 00:22:05,176
+Yük dördün katına yuvarlanır: bin beş yüz yirmi bayt, iki dolgu baytı.
+
+302
+00:22:05,226 --> 00:22:12,346
+Sekizinci bölümün AES-CTR şifrelemesi yalnızca yükü, doksan beş sayaç bloğunu örter.
+
+303
+00:22:12,396 --> 00:22:18,906
+Sekiz baytlık başlık, bizim hesabımızla on altılık tabanda bir yedi be dokuz,
+
+304
+00:22:18,956 --> 00:22:23,309
+sıfır dört sıfır sıfır, dört sıfır, iki sıfır a yedi.
+
+305
+00:22:24,226 --> 00:22:26,706
+On gigabitte, FEC açıkken,
+
+306
+00:22:26,756 --> 00:22:31,726
+çerçeve yükü yüz otuz beş bin dört yüz yirmi dört bayta kadardır:
+
+307
+00:22:31,776 --> 00:22:39,256
+bizim hesabımızla seksen sekiz çerçeve tam sığar, seksen dokuzuncusu bölünür.
+
+308
+00:22:39,306 --> 00:22:42,946
+Önüne HLend, harita ve PLOAM'lar, arkasına BIP-32 gelir:
+
+309
+00:22:42,996 --> 00:22:45,336
+dördüncü ve beşinci bölümler.
+
+310
+00:22:45,386 --> 00:22:52,936
+Sonra ikinci bölümün, birinci sezonun dördüncü bölümüne bağlanan adımları:
+
+311
+00:22:52,986 --> 00:22:55,386
+Reed Solomon, karıştırma ve PSBd.
+
+312
+00:22:55,436 --> 00:23:00,240
+Çerçevemiz hatta bir virgül kırk bir mikrosaniye sürer.
+
+313
+00:23:01,160 --> 00:23:02,140
+PMD Köprüsü.
+
+314
+00:23:02,190 --> 00:23:06,160
+Birinci sezonun üçüncü ve dördüncü bölümleri:
+
+315
+00:23:06,210 --> 00:23:10,330
+OLT vericisi yüz seksen yedi virgül sekiz terahertzde,
+
+316
+00:23:10,380 --> 00:23:14,180
+artı üç ile artı yedi dBm arasında gönderir.
+
+317
+00:23:14,230 --> 00:23:21,940
+İkinci bölümü: N1 sınıfında kayıp on dört ile yirmi dokuz desibel, yirmi kilometre,
+
+318
+00:23:21,990 --> 00:23:23,430
+yaklaşık yüz mikrosaniye.
+
+319
+00:23:23,480 --> 00:23:25,130
+Beşinci bölümü: ONU alıcısı,
+
+320
+00:23:25,180 --> 00:23:31,679
+FEC öncesi on üzeri eksi üç hata oranında eksi yirmi sekiz dBm ister.
+
+321
+00:23:32,660 --> 00:23:38,660
+ONU'da bu sezonun ikinci bölümü işler: av, ön senkron ve senkron;
+
+322
+00:23:38,710 --> 00:23:44,170
+karıştırma çözülür, FEC kod sözcüğü başına on altı bayta kadar düzeltir.
+
+323
+00:23:44,220 --> 00:23:47,650
+ONU haritadaki kendi tahsislerini saklar,
+
+324
+00:23:47,700 --> 00:23:52,210
+beşinci bölümdeki gibi PLOAM bütünlüğünü denetler.
+
+325
+00:23:52,260 --> 00:23:55,180
+XGEM sınırlarını bulur, portu süzer, yükü çözer,
+
+326
+00:23:55,230 --> 00:23:59,850
+dolguyu atar ve çerçeveyi abone arayüzüne verir;
+
+327
+00:23:59,900 --> 00:24:02,847
+dokuzuncu bölümün sayaçları her adımı sayar.
+
+328
+00:24:03,793 --> 00:24:05,303
+Yukarı yön.
+
+329
+00:24:05,353 --> 00:24:08,453
+Aynı boyda bir çerçeve ONU'ya girer;
+
+330
+00:24:08,503 --> 00:24:14,833
+OMCI'ın kurduğu eşleme onu port bin yirmi dörde ve aynı numaralı T-CONT'a koyar:
+
+331
+00:24:14,883 --> 00:24:16,793
+birinci ve dördüncü bölümler.
+
+332
+00:24:16,843 --> 00:24:22,423
+ONU kuyruğunu DBRu ile bildirir: dört baytlık birimlerle üç yüz seksen,
+
+333
+00:24:22,473 --> 00:24:29,543
+başlıklar hariç; bizim CRC hesabımızla, on altılık tabanda sıfır sıfır, sıfır bir,
+
+334
+00:24:29,593 --> 00:24:30,435
+yedi ce, altı altı.
+
+335
+00:24:31,360 --> 00:24:37,760
+Dördüncü bölümün DBA'sı tahsisi boyutlar: XGEM çerçevesi artı dört baytlık rapor,
+
+336
+00:24:37,810 --> 00:24:40,130
+bin beş yüz otuz iki bayt.
+
+337
+00:24:40,180 --> 00:24:45,580
+On gigabitte tahsis on altı baytlık bloklarla verilir: doksan altı blok;
+
+338
+00:24:45,630 --> 00:24:49,930
+artan dört bayt, üçüncü bölümün kısa boş çerçevesidir.
+
+339
+00:24:49,980 --> 00:24:55,390
+Harita girdisi ikinci bölümün yapısıdır: tahsis kimliği bin yirmi dört,
+
+340
+00:24:55,440 --> 00:25:00,405
+rapor bayrağı bir, başlangıç zamanı iki bin, boyut doksan altı.
+
+341
+00:25:01,327 --> 00:25:06,527
+Zamanlama: bu sezonun altıncı, birinci sezonun ikinci bölümü.
+
+342
+00:25:06,577 --> 00:25:06,527
+ONU,
+
+343
+00:25:06,577 --> 00:25:14,697
+haritayı taşıyan çerçeveden otuz beş mikrosaniyelik cevap süresi artı eşitleme gecikmesi kadar sonra gönderir.
+
+344
+00:25:14,747 --> 00:25:20,817
+Yirmi kilometre sınıfında T eqd en az iki yüz otuz altı mikrosaniyedir;
+
+345
+00:25:20,867 --> 00:25:26,157
+on kilometredeki ONU'nun gecikmesi yaklaşık yüz bir mikrosaniye.
+
+346
+00:25:26,207 --> 00:25:30,927
+Başlangıç zamanı iki bin, yirmi beş virgül yetmiş iki mikrosaniye.
+
+347
+00:25:31,860 --> 00:25:36,620
+İkinci bölümün burst'ü kurulur: başlık, tahsis ve BIP-32;
+
+348
+00:25:36,670 --> 00:25:38,840
+bin beş yüz kırk dört bayt.
+
+349
+00:25:38,890 --> 00:25:46,130
+FEC yedi tam ve bir kısaltılmış kod sözcüğüyle bin sekiz yüz bayta çıkarır.
+
+350
+00:25:46,180 --> 00:25:48,470
+Önsöz, sınırlayıcı ve koruma süresi,
+
+351
+00:25:48,520 --> 00:25:54,550
+birinci sezonun altıncı bölümündeki tabloyla iki yüz elli altı bayt.
+
+352
+00:25:54,600 --> 00:25:58,580
+Bütün dilim bir virgül altmış beş mikrosaniye:
+
+353
+00:25:58,630 --> 00:26:03,563
+bizim hesabımızla çerçevenin yüzde bir virgül otuz ikisi.
+
+354
+00:26:04,493 --> 00:26:05,453
+PMD Köprüsü.
+
+355
+00:26:05,503 --> 00:26:10,123
+Birinci sezonun altıncı ve yedinci bölümleri:
+
+356
+00:26:10,173 --> 00:26:14,383
+ONU vericisi yüz yirmi sekiz virgül altı nanosaniyede açılır,
+
+357
+00:26:14,433 --> 00:26:20,433
+A tipi bağlantıda artı dört ile artı dokuz dBm arasında gönderir,
+
+358
+00:26:20,483 --> 00:26:22,513
+burst'ü dışında karanlıktır.
+
+359
+00:26:22,563 --> 00:26:27,353
+Sekizinci bölümü: OLT burst alıcısı eksi yirmi altı dBm ister.
+
+360
+00:26:27,403 --> 00:26:27,853
+Burst,
+
+361
+00:26:27,903 --> 00:26:35,763
+haritayı taşıyan çerçeveden iki yüz altmış bir virgül yetmiş iki mikrosaniye sonra varır;
+
+362
+00:26:35,813 --> 00:26:39,056
+OLT onu geri açar ve servis arayüzüne verir.
+
+363
+00:26:39,993 --> 00:26:43,623
+Ve bütün bu dilin altında bir denklem durur.
+
+364
+00:26:43,673 --> 00:26:49,293
+Aşağı yönde en zayıf verici artı üç dBm, en kötü kayıp yirmi dokuz desibel:
+
+365
+00:26:49,343 --> 00:26:51,523
+alıcıya eksi yirmi altı ulaşır,
+
+366
+00:26:51,573 --> 00:26:56,643
+yani eksi yirmi sekizlik hassasiyet artı iki desibellik yol cezası.
+
+367
+00:26:56,693 --> 00:27:03,313
+Yukarı yönde artı dört eksi yirmi dokuz, eksi yirmi beş: eksi yirmi altı artı bir.
+
+368
+00:27:03,363 --> 00:27:06,813
+İki yönde de pay sıfırdır, tasarım gereği.
+
+369
+00:27:06,863 --> 00:27:11,498
+Bir paketin hayatı, sıfır marjla kapanan bir bütçenin üstünde yaşanır.
+
+370
+00:27:12,493 --> 00:27:14,153
+Mühendis notu.
+
+371
+00:27:14,203 --> 00:27:18,323
+Bir: bu yolculuğu ne durdurabilir? Besleyici kesiği B tipine,
+
+372
+00:27:18,373 --> 00:27:24,043
+kanal kaybı ONU tarafı korumaya, yabancı bir burst başıboşluk araçlarına,
+
+373
+00:27:24,093 --> 00:27:29,933
+yanlış anahtar şifreleme sayaçlarına, FEC sınırını aşan hata senkron kaybına gider;
+
+374
+00:27:29,983 --> 00:27:32,343
+her biri bir bölümdür.
+
+375
+00:27:32,393 --> 00:27:37,723
+İki: analizördeki başlıkları bizim değerlerimizle karşılaştırın,
+
+376
+00:27:37,773 --> 00:27:39,376
+ama altın vektör saymayın.
+
+377
+00:27:40,393 --> 00:27:43,793
+Sıradaki: paket evine ulaştı.
+
+378
+00:27:43,843 --> 00:27:45,673
+Şimdi son kez laboratuvara.
+
+379
+00:27:47,460 --> 00:27:48,820
+Laboratuvarda.
+
+380
+00:27:48,870 --> 00:27:54,440
+Düzenek: iki OLT kanal sonlandırıcısı ya da çift sonlandırıcılı bir emülatör,
+
+381
+00:27:54,490 --> 00:27:57,720
+iki WM, iki girişli bir ayırıcı ve ONU'lar;
+
+382
+00:27:57,770 --> 00:28:02,950
+bağlantı fiberlerinde ve besleyicilerde optik anahtarlar;
+
+383
+00:28:03,000 --> 00:28:08,240
+aşağı yön çıkışlarında fotodiyot ve osiloskop; bir protokol analizörü,
+
+384
+00:28:08,290 --> 00:28:11,550
+bir ONU emülatörü ve bir trafik üreteci.
+
+385
+00:28:11,600 --> 00:28:13,967
+Değeri olmayan her zamanlayıcıyı kaydedin.
+
+386
+00:28:14,893 --> 00:28:16,923
+İlk test: anahtarlama.
+
+387
+00:28:16,973 --> 00:28:21,983
+Bağlantı fiberini, besleyiciyi ve sonlandırıcının gücünü sırayla kesin;
+
+388
+00:28:22,033 --> 00:28:23,183
+kaybın ilanını, verici açmayı,
+
+389
+00:28:23,233 --> 00:28:28,703
+ONU senkronunu ve haritayla tutarlı ilk burst'ü kaydedin.
+
+390
+00:28:28,753 --> 00:28:34,623
+Metinden çıkan tek geçme ölçütü: iki aşağı yön çıkışı hiçbir an çakışmamalı.
+
+391
+00:28:34,673 --> 00:28:37,983
+Sonra koruma arızasını bilerek tutmaya eşit kurun:
+
+392
+00:28:38,033 --> 00:28:40,253
+osiloskop çakışmayı göstermelidir.
+
+393
+00:28:41,193 --> 00:28:43,603
+İkinci test: ICTP'siz sistem.
+
+394
+00:28:43,653 --> 00:28:50,223
+ICTP'yi kesip zamanlayıcısını sıfırlayın: anahtarlama koruma arızasını beklemelidir.
+
+395
+00:28:50,273 --> 00:28:55,453
+Sonra yalnızca bekleme tarafının yukarı yön girişini zayıflatın:
+
+396
+00:28:55,503 --> 00:29:01,343
+ICTP varken karanlıkta iletişim arızasına geçmeli; yokken bir çakışma bekleriz.
+
+397
+00:29:01,393 --> 00:29:08,123
+Kırk kilometrelik makarayla yarım milisaniyelik onay zamanlayıcısını deneyin:
+
+398
+00:29:08,173 --> 00:29:10,413
+iki çıkarımımızı da sınayın.
+
+399
+00:29:11,360 --> 00:29:14,250
+Üçüncü test: dışlamalar ve ihlaller.
+
+400
+00:29:14,300 --> 00:29:20,430
+Bütün ONU'lara son nefes gönderttirin: etkin taraf nitelikli kayıp ilan etmemeli,
+
+401
+00:29:20,480 --> 00:29:24,280
+eşine periyodik bekleme ve kayıp mesajı göndermelidir.
+
+402
+00:29:24,330 --> 00:29:30,610
+Çalışan tarafa bekleme mesajı enjekte edin: raporlamalı, vericiyi kapatmalı,
+
+403
+00:29:30,660 --> 00:29:31,840
+başlatmaya dönmelidir.
+
+404
+00:29:31,890 --> 00:29:37,334
+Eşi çalışırken bir sonlandırıcıyı yeniden başlatın: karanlık kalmalıdır.
+
+405
+00:29:38,260 --> 00:29:41,290
+Dördüncü test: ONU tarafı koruma.
+
+406
+00:29:41,340 --> 00:29:45,620
+Koruma kanalını mesajla kurun, sonra çalışan kanalı söndürün:
+
+407
+00:29:45,670 --> 00:29:50,130
+ONU O6'dan O8'e geçmeli, koruma kanalında senkron olmalı,
+
+408
+00:29:50,180 --> 00:29:53,820
+çekişmeli tahsise ayar yanıtı göndermelidir.
+
+409
+00:29:53,870 --> 00:29:58,320
+İlk yönlü tahsise kadarki süreyi gecikme toleransı olarak ölçün.
+
+410
+00:29:58,370 --> 00:30:05,349
+İki ONU'yu birlikte geçirin: çarpışmada OLT herkese yönlü tahsisi geri vermelidir.
+
+411
+00:30:06,293 --> 00:30:09,243
+Beşinci test: başıboş ONU'lar.
+
+412
+00:30:09,293 --> 00:30:14,823
+Emülatörle başlangıç zamanının dışında gönderin: kurbanlarda burst kaybı,
+
+413
+00:30:14,873 --> 00:30:17,913
+üç düzeltmeden sonra iletim girişimi uyarısı.
+
+414
+00:30:17,963 --> 00:30:25,193
+Komşu yukarı yön kanalında gönderin: ev sahibinde burst kaybı, komşuda girişim,
+
+415
+00:30:25,243 --> 00:30:25,193
+ICTP uyarıları.
+
+416
+00:30:25,243 --> 00:30:31,678
+Sonra uç durumu uygulayın: kanalı topluca kapatın, ONU'ları tek tek açın.
+
+417
+00:30:32,627 --> 00:30:35,777
+Altıncı test: yabancı ışık ve boş pencere.
+
+418
+00:30:35,827 --> 00:30:40,787
+Boş bir ayırıcı portuna sürekli kipte gönderen bir on gigabit modülü bağlayın:
+
+419
+00:30:40,837 --> 00:30:46,227
+sessiz pencerede sonlandırıcı onu geçersiz PSBu yüzünden reddetmelidir.
+
+420
+00:30:46,277 --> 00:30:53,837
+Sonra bütün tahsisleri geri tutup bir boş pencere açın ve OLT'nin alınan gücünü okuyun;
+
+421
+00:30:53,887 --> 00:30:58,495
+birinci sezonun onuncu bölümündeki çözünürlük sıfır virgül bir desibeldi.
+
+422
+00:30:59,427 --> 00:31:02,307
+Yedinci test: acil durdurma.
+
+423
+00:31:02,357 --> 00:31:07,387
+Bir ONU'yu sıfırdan farklı bir neden koduyla kapatın; kodu kaydetmeli.
+
+424
+00:31:07,437 --> 00:31:16,017
+OSA ile lazerin eksi altmış iki virgül altı dBm sınırının altında olduğunu doğrulayın.
+
+425
+00:31:16,067 --> 00:31:22,867
+Gücü kesip açın: O7'de kalmalı; kanalı karanlıksa önce koruma kanalını arayabilir.
+
+426
+00:31:22,917 --> 00:31:27,227
+Açmayı yalnızca dinlemediği kanalda gönderin: kapalı kalmalı.
+
+427
+00:31:27,277 --> 00:31:33,852
+Bütün kanallarda gönderin: O1'e dönmeli, seri numarasında beş kodunu taşımalı.
+
+428
+00:31:34,794 --> 00:31:37,384
+Sekizinci test: keşif durdurma ve inatçı ONU.
+
+429
+00:31:37,434 --> 00:31:42,654
+Seri numarası alımı sırasında üç ef seçeneğini gönderin:
+
+430
+00:31:42,704 --> 00:31:48,964
+O2-3'teki ONU'lar O7'ye düşmeli, ve güç döngüsünden sonra da orada kalmalıdır.
+
+431
+00:31:49,014 --> 00:31:53,444
+Kapatmayı yok sayan bir emülatöre tahsis vermeyi sürdürün:
+
+432
+00:31:53,494 --> 00:31:56,866
+devre dışı bırakma başarısızlığı ilan edilmelidir.
+
+433
+00:31:57,794 --> 00:31:59,144
+Dokuzuncu test: bir paketin hayatı.
+
+434
+00:31:59,194 --> 00:32:03,664
+Tek bir bin beş yüz on sekiz baytlık çerçeve gönderin.
+
+435
+00:32:03,714 --> 00:32:07,024
+Analizör aşağı yönde başlığı ve iki dolgu baytını;
+
+436
+00:32:07,074 --> 00:32:11,454
+yukarı yönde raporun üç yüz seksenini, doksan altı blokluk tahsisi,
+
+437
+00:32:11,504 --> 00:32:16,767
+bin sekiz yüz baytlık burst'ü ve dört baytlık kısa boş çerçeveyi göstermelidir.
+
+438
+00:32:17,694 --> 00:32:19,164
+Laboratuvar notu.
+
+439
+00:32:19,214 --> 00:32:22,984
+Bir: koruma sürelerini tek bir zaman tabanında toplayın;
+
+440
+00:32:23,034 --> 00:32:27,924
+analizörün zaman damgası ile fotodiyotun kenarı aynı eksende durmalıdır.
+
+441
+00:32:27,974 --> 00:32:32,134
+İki: sezon boyunca tuttuğunuz defter artık bir kabul test planıdır;
+
+442
+00:32:32,184 --> 00:32:34,964
+her satırda madde numarası, ölçülen değer,
+
+443
+00:32:35,014 --> 00:32:39,520
+ve standardın vermediği her değer için sizin seçiminiz yazmalıdır.
+
+444
+00:32:41,360 --> 00:32:43,230
+Sezonun özeti.
+
+445
+00:32:43,280 --> 00:32:49,800
+Bir: G.989.3, G.987.3'ün üstüne kurulmuş üç alt katmanlı bir dildir;
+
+446
+00:32:49,850 --> 00:32:57,810
+dokuz kimlik ve yüz yirmi beş mikrosaniyelik bir çerçeve üzerinde konuşur.
+
+447
+00:32:57,860 --> 00:33:04,960
+İki: veri XGEM ile taşınır, DBA ile paylaşılır, PLOAM ve OMCC ile yönetilir.
+
+448
+00:33:05,010 --> 00:33:12,740
+Üç: bir ONU'nun hayatı bir durum makinesidir: aktivasyon, mesafe ölçümü,
+
+449
+00:33:12,790 --> 00:33:15,814
+kanal devri ve acil durdurma.
+
+450
+00:33:16,760 --> 00:33:22,200
+Dört: güven ve sağlık da protokoldür: AES anahtarları, dikkatli uyku,
+
+451
+00:33:22,250 --> 00:33:25,230
+yüz on bir sayaç ve on kusur.
+
+452
+00:33:25,280 --> 00:33:29,940
+Beş: koruma ve başıboşluk, sezonun en az sayı içeren maddeleridir;
+
+453
+00:33:29,990 --> 00:33:35,760
+B tipinin on durumu ve altı zamanlayıcısı var, ama yalnızca bir değeri.
+
+454
+00:33:35,810 --> 00:33:42,171
+Standardın sustuğu her yer, mühendisin bir değer seçip yazması gereken yerdir.
+
+455
+00:33:43,193 --> 00:33:46,533
+Kendini test et; cevaplar hemen ardından.
+
+456
+00:33:46,583 --> 00:33:52,343
+Birinci soru: B tipi makinenin üç sinyal olayı nedir? Cevap: basit kayıp,
+
+457
+00:33:52,393 --> 00:33:58,603
+yayın yapmayan durumlarda yarım milisaniye sessizlik; nitelikli kayıp,
+
+458
+00:33:58,653 --> 00:34:03,973
+yayın yapan durumlarda dört çerçeve sessizlik ve bütün ONU'larda burst kaybı;
+
+459
+00:34:04,023 --> 00:34:07,583
+temizlenme, haritayla tutarlı bir burst.
+
+460
+00:34:07,633 --> 00:34:14,383
+İkinci soru: koruma arızası neden tutmadan ve çalışma arızasından büyüktür? Cevap:
+
+461
+00:34:14,433 --> 00:34:17,463
+koruyan, çalışan susmadan konuşmasın diye.
+
+462
+00:34:17,513 --> 00:34:23,353
+Üçüncü soru: acil durdurmadaki ONU karanlıkta yeniden başlarsa? Cevap:
+
+463
+00:34:23,403 --> 00:34:29,375
+O7.2'de kanal tarar; yalnızca bütün kanallarda gönderilen açmayla çıkar.
+
+464
+00:34:30,360 --> 00:34:32,850
+İki sezonda iki yarıyı kurduk.
+
+465
+00:34:32,900 --> 00:34:39,130
+Birinci sezon fizikti: G.989.2, dalga boyları, güç bütçeleri, burst'ler.
+
+466
+00:34:39,180 --> 00:34:46,850
+İkinci sezon dildi: G.989.3, bitlerin hangi sırayla ve neden taşındığı.
+
+467
+00:34:46,900 --> 00:34:54,000
+Kaynaklar komşu işleri de adlandırır: NG-PON2'nin üyesi olduğu G.9802 ailesi;
+
+468
+00:34:54,050 --> 00:35:00,560
+OMCI'ın G.988'i; temelimiz G.987.3; birlikte yaşadığımız G.984 ailesi;
+
+469
+00:35:00,610 --> 00:35:07,570
+ve G serisinin kırk beş, kırk dokuz, seksen bir ve seksen dördüncü ekleri.
+
+470
+00:35:07,620 --> 00:35:15,446
+Bir sonraki nesli adlandırmazlar; özet yalnızca yüz gigabit ve ötesinden söz eder.
+
+471
+00:35:16,427 --> 00:35:18,307
+LAMBDA burada bitiyor.
+
+472
+00:35:18,357 --> 00:35:23,207
+Yirmi bölüm boyunca bir ışık darbesinden bir PLOAM mesajına,
+
+473
+00:35:23,257 --> 00:35:28,447
+bir fiber kesiğinden bir paketin hayatına kadar geldik:
+
+474
+00:35:28,497 --> 00:35:33,617
+standardın söylediğini okumayı, söylemediğini görmeyi,
+
+475
+00:35:33,667 --> 00:35:36,507
+ve ikisini laboratuvarda sınamayı.
+
+476
+00:35:36,557 --> 00:35:39,237
+İzlediğiniz için teşekkürler.
+
+477
+00:35:39,287 --> 00:35:40,161
+Görüşmek üzere.
+
