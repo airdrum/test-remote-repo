@@ -57,12 +57,41 @@ CCODES = [("0x00", "OK"), ("0x01", "gönderecek mesaj yok"), ("0x02", "meşgul �
           ("0x03", "bilinmeyen mesaj türü"), ("0x04", "parametre hatası"), ("0x05", "işleme hatası")]
 
 
-def p48(w=12.4, h=0.6, size=17, wsize=14, octs=True, show_w=True, lpos=UP):
-    """The 48-byte PLOAM message, widths proportional to bytes; octet ranges under the cells (optional)."""
-    g = fields(P48, w, h, size, wsize, show_w=show_w, unit=" B", lpos=lpos, wpos=UP)
-    if octs:
-        for c, o in zip(g, P48_OCT):
-            c.add(T(o, 14, MUTED, BOLD).next_to(c[0], DOWN, buff=0.08))
+def p48(w=12.4, h=0.6, size=17, octs=True, wl=True, osize=14):
+    """The 48-byte PLOAM message (Table 11-1), widths proportional to bytes, the byte count written in each label.
+    Narrow header cells get their labels above (ONU-ID left, tür one tier up, SeqNo right) with leader lines.
+    Each cell = VGroup(rect, label[, octet range])."""
+    x = -w / 2
+    cells = VGroup()
+    for i, (lab, n, c) in enumerate(P48):
+        cw = w * n / 48
+        r = Rectangle(width=cw, height=h, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=0.22).move_to([x + cw / 2, 0, 0])
+        x += cw
+        s = f"{lab} · {n} B" if wl else lab
+        t = T(s, size, TXT, BOLD)
+        if t.width <= cw - 0.12:
+            lb = t.move_to(r)
+        else:
+            t = T(s, 15, c, BOLD)
+            y = h / 2 + 0.1 + t.height / 2 + (0.36 if i == 1 else 0)
+            if i == 0:
+                t.move_to([r.get_right()[0] - t.width / 2 + 0.02, y, 0])
+            elif i == 2:
+                t.move_to([r.get_left()[0] + t.width / 2 - 0.02, y, 0])
+            else:
+                t.move_to([r.get_x(), y, 0])
+            lb = VGroup(t, Line([r.get_x(), h / 2, 0], [r.get_x(), t.get_bottom()[1] - 0.03, 0], color=c, stroke_width=1.2))
+        cell = VGroup(r, lb)
+        if octs:
+            cell.add(T(P48_OCT[i], osize, MUTED, BOLD).next_to(r, DOWN, buff=0.08))
+        cells.add(cell)
+    return cells
+
+
+def bar_to(g, x, y):
+    """Move a p48/fields-style group so that its row of cell rectangles (not the outside labels) is centred at (x, y)."""
+    r = VGroup(*[c[0] for c in g])
+    g.shift(np.array([x, y, 0]) - r.get_center())
     return g
 
 

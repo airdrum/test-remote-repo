@@ -75,7 +75,7 @@ class Ep15Open(Act15):
 
         # o3 — the 48 bytes, SeqNo and MIC, the public key, the misspelled label
         self.beat("o3")
-        bar = p48(6.0, 0.5, 15, 14, octs=False).move_to([CX, PY + 1.65, 0])
+        bar = bar_to(p48(6.0, 0.5, 15, octs=False), CX, PY + 1.65)
         bl = T("kırk sekiz bayt", 15, MUTED, BOLD).next_to(bar, DOWN, buff=0.3)
         gs = VGroup(glow(bar[2][0], SQC, 0.04), glow(bar[4][0], MICC, 0.04))
         key = VGroup(T("anahtar:", 16, MUTED, BOLD), HX("0x55 × 16", 22, DKC, BOLD), T("herkes bilir", 16, DKC, BOLD)).arrange(RIGHT, buff=0.2).move_to([CX, PY - 0.25, 0])
@@ -123,7 +123,7 @@ class Ep15Open(Act15):
 
         # o5 — OMCC teaser: OMCI inside XGEM, its own 4-byte MIC, G.988, conflicts
         self.beat("o5")
-        st = strip([(1.2, "XGEM başlığı · 8 B", SAC, 0.55), (3.6, "OMCI mesajı · 48 B", OMC, 0.2), (0.8, "MIC 4 B", MICC, 0.45)], CX - 2.8, PY + 1.6, 0.6, 14)
+        st = strip([(1.4, "başlık · 8 B", SAC, 0.55), (3.3, "OMCI mesajı · 48 B", OMC, 0.2), (0.9, "MIC 4 B", MICC, 0.45)], CX - 2.8, PY + 1.6, 0.6, 14)
         pid = T("Port-ID = ONU-ID", 16, PIDC, BOLD).next_to(st[0], UP, buff=0.12)
         mg = glow(st[2], MICC, 0.04)
         dc = doc_card("G.988", ["OMCI'ın anlamı"], GOLD, 2.4, 1.2, 19, 15).move_to([CX - 1.4, PY - 0.35, 0])
@@ -280,17 +280,17 @@ class Ep15Recap(Act15):
         q3 = self.qhead(3, "Yalnızca Ek J varsa: boştaki ONU, T-CONT'unun tahsislerini nasıl geri ister?", CH[3])
         conds = VGroup(*[chk(s, True, 17) for s in ("O5 durumunda", "T-CONT'una yönlendirilmiş tahsis yok", "trafiği var",
                                                      "zaman aşımı içinde başka çekişmeli tahsise cevap vermedi")]).arrange(DOWN, aligned_edge=LEFT, buff=0.22)
-        conds.move_to([-3.6, 0.35, 0])
+        fit(conds, 6.3).move_to([-3.35, 0.35, 0])
         cl = T("uygun ONU", 16, MUTED, BOLD).next_to(conds, UP, buff=0.15).align_to(conds, LEFT)
         ca = tile("boştaki ONU desteği · işlev 0x03", GOLD, 4.2, 0.5, 16, 0.18).move_to([-3.5, -1.55, 0])
-        p = apanel(5.6, 2.6, "Acknowledgement · tek PLOAM", ACC).move_to([3.4, 0.45, 0])
+        p = apanel(5.0, 2.6, "Acknowledgement · tek PLOAM", ACC).move_to([3.75, 0.2, 0])
         rows = VGroup(kv("Completion", "0x06", kw=2.1), kv("anlamı", "istenmemiş trafik", kw=2.1), kv("Busy Alloc-ID", "oktet 8–9", kw=2.1),
                       kv("oktet 8 = 0xC0", "hepsi", kw=2.1)).arrange(DOWN, aligned_edge=LEFT, buff=0.18)
         rows.move_to(p[0]).shift(DOWN * 0.2)
         rows[0][1].set_color(GOLD)
         rows[3][1].set_color(GOOD)
         ar = arrow(ca.get_right(), p[0].get_left() + DOWN * 0.6, ACC, 2.2, 0.12)
-        back = VGroup(T("OLT", 18, OLTC, BOLD), T("→ tahsisleri geri verir", 18, GOOD, BOLD)).arrange(RIGHT, buff=0.15).move_to([3.4, -1.6, 0])
+        back = VGroup(T("OLT", 18, OLTC, BOLD), T("→ tahsisleri geri verir", 18, GOOD, BOLD)).arrange(RIGHT, buff=0.15).move_to([3.75, -1.85, 0])
         self.play(FadeIn(q3, shift=RIGHT * 0.2), self.set_src("G.989.3 Ek J · Tablo J.1 · Tablo J.3"), run_time=0.6)
         self.at(self.cue("O5'teki", 2.8))
         self.play(FadeIn(cl), FadeIn(conds[0], shift=RIGHT * 0.06), run_time=0.4)
