@@ -1,0 +1,119 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "b1",
+   "file": "b282ddb6c65_0.wav",
+   "duration": 26.228,
+   "text": "Perde bir: fiziksel senkron bloğu. Çalışan bir OLT kanal sonlandırıcısı aşağı yönde sürekli gönderir. Akış yüz yirmi beş mikrosaniyelik çerçevelere bölünür: on gigabitte yüz elli beş bin beş yüz yirmi bayt, iki buçuk gigabitte otuz sekiz bin sekiz yüz seksen bayt. Her çerçeve yirmi dört baytlık bir blokla başlar: aşağı yön fiziksel senkron bloğu, kısaca PSBd.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b1a",
+   "file": "b3914fa2f20_0.wav",
+   "duration": 19.807,
+   "text": "PMD Köprüsü. Birinci sezonun dördüncü bölümünde PSBd'yi dışarıdan, optik bir sinyal olarak gördük. G.989.2'ye göre hat hızı sekiz kilohertzin katıdır; yüz yirmi beş mikrosaniye, sekiz kilohertzin periyodudur. Bu bölümde bloğun içine giriyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2",
+   "file": "b39ec665f9f_0.wav",
+   "duration": 22.004,
+   "text": "PSBd üç parçadır, her biri sekiz bayt. Birincisi senkron deseni, PSync: sabit, altmış dört bitlik bir sözcük. Otuz iki biri ve otuz iki sıfırı vardır, ve en uzun özdeş bit dizisi altı bittir. Desen ne karıştırılır, ne de FEC ile korunur; ONU'nun çerçeveyi bulmak için aradığı tek sabit işarettir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3",
+   "file": "b8927f8fdb3_0.wav",
+   "duration": 22.477,
+   "text": "İkincisi süper çerçeve sayacı yapısı: elli bir bitlik bir sayaç ve on üç bitlik bir başlık hata denetimi alanı. Sayaç her çerçevede bir artar, ve hepsi bir olduktan sonraki çerçevede sıfıra döner. Elli bir bit, yüz yirmi beş mikrosaniyelik adımlarla yaklaşık sekiz bin dokuz yüz yıl eder; sayaç pratikte hiç taşmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4",
+   "file": "b0e57f1159a_0.wav",
+   "duration": 33.012,
+   "text": "Üçüncüsü işletim denetimi yapısı, kısaca OC: yine elli bir bitlik bir gövde ve on üç bitlik hata denetimi. Gövde, OLT'nin her çerçevede bütün ONU'lara söylediği şeydir. İlk sekiz bit PON kimlik türüdür: bir bit güç değerinin bir yeniden üreteçten mi geldiğini, üç bit ODN sınıfını, bir bit aşağı yön FEC'inin açık olup olmadığını, bir bit bu TC katmanının G.989.3 mü yoksa XG-PON mu olduğunu, iki bit de bağlantı tipini söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4a",
+   "file": "bbf127d5094_0.wav",
+   "duration": 17.905,
+   "text": "Sonra otuz iki bitlik PON kimliği gelir: yirmi sekiz bitlik bir yönetim etiketi, operatörün verdiği ve OLT'nin dokunmadan taşıdığı bir değer; ve dört bitlik aşağı yön dalga boyu kanalı kimliği, sıfırdan yediye, yüz seksen yedi virgül sekizden yüz seksen yedi virgül bir terahertze sekiz kanal.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4b",
+   "file": "be2616f471f_0.wav",
+   "duration": 23.071,
+   "text": "Son on bir bit güç içindir. Bir ayrılmış bit; bir bit, gücün hangi referans noktasında verildiğini, S/R-CG mi S/R-CP mi olduğunu söyler; ve dokuz bitlik TOL alanı, OLT'nin başlatma gücünü, eksi otuz dBm'den başlayarak sıfır virgül bir desibellik adımlarla taşır. En büyük kod, desteklenmiyor anlamına gelir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b5",
+   "file": "bdaff236260_0.wav",
+   "duration": 26.036,
+   "text": "PMD Köprüsü. Bu alanların her biri birinci sezonda bir tabloydu. ODN sınıf kodu ikinci bölümdeki yol kaybı sınıflarıdır; kanal kimliği üçüncü bölümdeki frekans planıdır; bağlantı tipi, sekizinci bölümdeki yükselteçsiz ve yükselteçli OLT alıcısıdır; TOL'un sıfır virgül bir desibellik adımı ise onuncu bölümdeki izleme çözünürlüğüyle aynıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b6",
+   "file": "b9c3a041965_0.wav",
+   "duration": 19.0,
+   "text": "Bir ayrıntı daha: hata denetimi hesaplandıktan sonra, sayaç ve OC yapıları sabit bir desenle, sıfır ef sıfır ef dizisiyle özel veya işlemine sokulur. Neredeyse tamamı sıfır olan bir sayaca geçiş ekler. Senkron deseni bu işleme girmez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7",
+   "file": "bc69f4660dd_0.wav",
+   "duration": 18.616,
+   "text": "Şimdi ONU'nun kilitlenmesi. Standart bir referans durum makinesi verir, ve ayrıntıların ONU'ya ait olduğunu, ama başarımın bu makineyle eşleşmesi gerektiğini söyler. Makinenin dört durumu vardır: av, ön senkron, senkron ve yeniden senkron.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7a",
+   "file": "b5b86ca67b5_0.wav",
+   "duration": 29.385,
+   "text": "Av durumunda ONU, bütün bit ve bayt hizalamalarında senkron desenini arar, ve birebir eşleşme ister. Eşleşmeden sonraki altmış dört bit geçerli bir sayaç oluşturuyorsa ön senkrona geçer. Bir sonraki çerçevede hem desen hem sayaç doğrulanırsa senkron olur. Doğrulama artık daha hoşgörülüdür: desenin altmış dört bitinden en az altmış ikisi tutmalı, ve sayaç, yerel kopyanın bir fazlası olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7b",
+   "file": "bb7813695d2_0.wav",
+   "duration": 24.18,
+   "text": "Senkrondayken tek bir hatalı çerçeve, makineyi yeniden senkron durumuna atar. Orada tek bir iyi çerçeve senkrona geri döndürür. M eksi bir ardışık hatalı çerçeve ise ava, yani senkron kaybına götürür. Önerilen M değeri üçtür: senkrondan çıkıp ava düşmek için toplam üç kötü çerçeve, yani üç yüz yetmiş beş mikrosaniye.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7c",
+   "file": "bb69931e4c4_0.wav",
+   "duration": 16.024,
+   "text": "Dikkat: senkron kaybı kusuru, makine yalnızca av ya da ön senkron durumundayken ilan edilir. Yeniden senkron hâlâ senkron sayılır. Bu, birinci sezonun beşinci bölümünde sorduğumuz sorunun tam cevabıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b8",
+   "file": "bc8e44a0c62_0.wav",
+   "duration": 26.531,
+   "text": "Makine, rastgele bir bit akışına yanlış kilitlenmeye ve on üzeri eksi üçe kadar yüksek hata oranında yanlış senkron kaybına karşı dayanıklı olacak biçimde tasarlanmıştır. Bu hata oranı, G.989.2'nin on gigabitlik aşağı yön referans hata oranıyla aynıdır. Kaba bir hesapla, on üzeri eksi üçte bile yanlış bir senkron kaybı yılda bir kereden çok daha seyrektir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b9",
+   "file": "b6636d3e269_0.wav",
+   "duration": 20.856,
+   "text": "Mühendis notu. Bir: PSBd'yi koruyan şey FEC değil, üç ayrı mekanizmadır: altmış dört bitlik birebir eşleşme, sayaç ve OC üstündeki hata denetimi, ve sıfır ef deseni. İki: bir protokol analizöründe OC alanlarını çözerken önce bu deseni geri alın; yoksa her hata denetimi başarısız görünür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b10",
+   "file": "b27f473915b_0.wav",
+   "duration": 7.729,
+   "text": "Sıradaki: çerçeveyi bulduk. Şimdi içindeki bitleri neyin koruduğuna bakalım.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 352.86
+}

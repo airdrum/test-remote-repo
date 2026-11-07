@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b52ef223767_0.wav",
+   "duration": 10.62,
+   "text": "Sezon iki, bölüm iki: Çerçeve. Bu bölümde ışığın taşıdığı bitleri çerçeveye dönüştüren katmanı, fiziksel uyarlamayı ve çerçevelemeyi, bit bit açıyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b35a8ac4377_0.wav",
+   "duration": 14.001,
+   "text": "Önce fiziksel senkron bloğu: altmış dört bitlik senkron deseni, süper çerçeve sayacı ve OLT'nin her çerçevede yayınladığı kimlik ve güç bilgisi. Ve ONU'nun bu bloğa nasıl kilitlendiği.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b2d4c233711_0.wav",
+   "duration": 8.849,
+   "text": "Sonra koruma katmanları: Reed Solomon kodları, karıştırıcı ve başlık hata denetimi. Hangisi neyi korur, ve neyi korumaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b3b270a9f54_0.wav",
+   "duration": 10.62,
+   "text": "Ardından aşağı yön çerçevesinin içi: bant genişliği haritası, PLOAM bölmesi ve yük. Ve iki hızı tek bir zaman ızgarasında buluşturan birim.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b854d5ff9fd_0.wav",
+   "duration": 11.701,
+   "text": "Sonra yukarı yön burst'ü: önsöz ve sınırlayıcı, burst profilleri, ONU başlığı, durum raporu ve FEC'in burst sonunda nasıl kısaldığı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b34b9b62a0e_0.wav",
+   "duration": 4.821,
+   "text": "Laboratuvarda standardın altın vektörleriyle bir çerçeve çözücüyü doğrulayacağız.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 60.61
+}

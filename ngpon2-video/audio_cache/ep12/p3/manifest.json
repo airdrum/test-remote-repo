@@ -1,0 +1,98 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "b7129e6f4a1_0.wav",
+   "duration": 25.119,
+   "text": "Perde üç: aşağı yön çerçeveleme alt katmanı çerçevesi. FEC kapalıyken on gigabitte yüz elli beş bin dört yüz doksan altı, FEC açıkken yüz otuz beş bin dört yüz otuz iki bayttır. Üç bölümden oluşur: başlık, yük ve kuyruk. Başlık sabit dört baytlık bir yapıyla ve iki değişken bölmeyle gelir: bant genişliği haritası ve aşağı yön PLOAM bölmesi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "b6f883a0a04_0.wav",
+   "duration": 24.067,
+   "text": "Sabit yapı HLend'dir: on bir bitlik bir harita uzunluğu, sekiz bitlik bir PLOAM sayısı ve on üç bitlik HEC. Harita uzunluğu N ise harita sekiz çarpı N bayttır; PLOAM sayısı P ise PLOAM bölmesi kırk sekiz çarpı P bayttır. Kuyruk ise bütün çerçeve üzerinden hesaplanan dört baytlık BIP'tir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "b0dad5ab563_0.wav",
+   "duration": 33.637,
+   "text": "Haritanın her girdisi sekiz baytlık bir tahsis yapısıdır, ve yukarı yönün bütün zamanlaması bu altmış dört bitte yazılıdır. On dört bitlik tahsis kimliği, alıcıyı söyler. İki bayrak gelir: biri o tahsiste bir durum raporu ister, diğeri burst başlığında bir PLOAM mesajı ister. Sonra on altı bitlik başlangıç zamanı ve on altı bitlik tahsis boyu. Bir bit zorunlu uyandırma, iki bit burst profili indeksi, ve on üç bitlik HEC.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b26a96d3aa9_0.wav",
+   "duration": 28.916,
+   "text": "Tahsis kimliğinin değer aralığı anlamlıdır. Sıfırdan bin yirmiye kadar olan değerler, ONU kimliğine eşit olan varsayılan tahsislerdir. Bin yirmi bir, her hızdan ONU'ya açık bir seri numarası tahsisidir; bin yirmi iki yalnızca on gigabit, bin yirmi üç yalnızca iki buçuk gigabit yukarı yönlü ONU'lar içindir. Bin yirmi dörtten itibaren açıkça atanan tahsisler gelir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "beefbf8735f_0.wav",
+   "duration": 27.017,
+   "text": "Şimdi bu bölümün en zarif fikri: zaman birimi. Başlangıç zamanı ve tahsis boyu, hıza göre değişmeyen bir birimle sayılır: bir zaman kuantumu, yani yüz yirmi beş mikrosaniyenin dokuz bin yedi yüz yirmide biri, on iki virgül sekiz altı nanosaniye. Bu süre iki buçuk gigabitte dört bayt, on gigabitte on altı bayttır. Böylece tek bir harita, aynı kanalda iki buçuk ve on gigabitlik ONU'ları birlikte zamanlayabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5a",
+   "file": "b4af15d512f_0.wav",
+   "duration": 28.969,
+   "text": "Başlangıç zamanı sıfırdan dokuz bin yedi yüz on dokuza kadardır, ve burst'ün önsözünü değil, çerçeveleme başlığının ilk baytını gösterir. Bu yüzden bir burst'ün önsözü önceki çerçeveye taşabilir. Tahsis boyu ise yükü ve durum raporunu sayar; başlığı, kuyruğu ve FEC'i saymaz. Sıfır boyutlu bir tahsis yalnızca PLOAM taşır: seri numarası ve mesafe ölçümü tahsisleri böyledir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "b9cc5200d71_0.wav",
+   "duration": 29.481,
+   "text": "Haritanın on bir kuralı vardır. Seriler artan başlangıç zamanıyla dizilir. Bir haritada en çok beş yüz on iki tahsis yapısı, bir seride en çok on altı, bir ONU için en çok altmış dört yapı ve on altı seri olabilir. Ve başlangıç zamanı ile tahsis boylarının toplamı on dört bin beş yüz sekseni aşamaz: bir burst, bir sonraki çerçeveye en çok yarım çerçeve, altmış iki virgül beş mikrosaniye taşabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6a",
+   "file": "b1dc75672b1_0.wav",
+   "duration": 19.789,
+   "text": "Tahsis boyunun en büyük değerinde ilginç bir asimetri var: iki buçuk gigabitte dokuz bin yedi yüz on sekiz, on gigabitte dokuz bin yedi yüz on dokuz. Neden? Dört baytlık başlık ve dört baytlık kuyruk, iki buçuk gigabitte iki zaman kuantumu tutar; on gigabitte ise ikisi birlikte tek bir on altı baytlık bloğa sığar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "b1e3cd31e56_0.wav",
+   "duration": 26.241,
+   "text": "ONU hatalı haritalara ne yapar? Kural açıktır: yukarı yön çarpışması olasılığını en aza indirecek biçimde davranır. Bir tahsis yapısında düzeltilemeyen bir hata varsa burst'ün kalanını bastırır. Başlangıç zamanı sınırın dışındaysa hiç göndermez. Diğer kurallar ihlal edilmişse, kurallar sağlanmış gibi gönderimi kısa keser. Kendi serisinde bilmediği bir tahsis kimliği görürse, kalanı bastırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "bc04d3057cf_0.wav",
+   "duration": 25.176,
+   "text": "PLOAM bölmesi, her biri kırk sekiz baytlık sıfır ya da daha fazla mesaj taşır. Alan sekiz bit olduğu için iki yüz elli beşe kadar mesaj yazılabilir; ama standart bir çerçevede en çok bir yayın mesajına ve her ONU için en çok bir tek alıcılı mesaja izin verir. PLOAM mesajlarının içini beşinci bölümde açacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "b87f5bfae26_0.wav",
+   "duration": 21.925,
+   "text": "Kapasite hesabı. Başlık yükü sekiz artı sekiz N artı kırk sekiz P bayttır. On gigabitte bu ihmal edilebilir. Ama beş yüz on iki girdili tam bir harita, iki buçuk gigabitlik FEC açık bir çerçevenin yüzde on birinden fazlasını yer. İki buçuk gigabitlik kanallar daha hafif haritalarla çalışmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "b9b9255e07d_0.wav",
+   "duration": 22.089,
+   "text": "Mühendis notu. Bir: alan genişlikleri ile kurallar aynı şeyi söylemez; harita uzunluğu iki bin kırk yedi girdiye izin verir, kural beş yüz on ikide keser. Çözücünüzü kurala göre yazın. İki: başlangıç zamanının önsözü değil başlığı gösterdiğini unutmayın; zamanlama hatalarının yarısı buradan çıkar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "b09f1b2645b_0.wav",
+   "duration": 9.681,
+   "text": "Sıradaki: aşağı yön harita gönderdi. Şimdi ONU'nun cevabına, yukarı yön burst'üne bakalım.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 322.11
+}

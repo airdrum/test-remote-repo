@@ -1,0 +1,91 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "b904b9e7271_0.wav",
+   "duration": 17.187,
+   "text": "Laboratuvarda. Bu bölümün düzeneği bir protokol analizörü, bir OLT emülatörü ve standardın dördüncü ekindeki altın vektörler. Altın vektörler, bir uygulamanın standarda bit bit uyduğunu doğrulamak için verilmiş hazır giriş ve çıkış çiftleridir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "bf7a9825a2c_0.wav",
+   "duration": 19.971,
+   "text": "İlk test: FEC kodlayıcısı. Ekteki beş vektör, on gigabitlik tam ve kısa kod sözcüğünü, iki buçuk gigabitlik tam sözcüğü, aşağı yönün yüz elli yedinci kısa sözcüğünü ve yukarı yönün kısa sözcüğünü verir. Yükü kodlayıcıya verin; eşlik baytları vektördekiyle bayt bayt aynı olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "bee9ba67560_0.wav",
+   "duration": 18.723,
+   "text": "Standardın kendisi FEC'in polinomlarını yazmaz; G.987.3'e atıf yapar. Ama beş vektör, iki yüz elli altı elemanlı Galois cisminde standart bir Reed Solomon kodlayıcısıyla tam olarak yeniden üretilebilir. Biz bunu yaptık: beş vektörün beşi de tutuyor.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "b8799cceca5_0.wav",
+   "duration": 16.259,
+   "text": "Çözücü testi: her kod sözcüğüne rastgele sembol hataları ekleyin. On gigabitte on altıya, iki buçuk gigabitte sekize kadar hata düzeltilmelidir. Bir fazlası, düzeltilemeyen kod sözcüğü sayacını artırmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "b55cb589135_0.wav",
+   "duration": 18.612,
+   "text": "İkinci test: HEC. A ekindeki elli yedi test sözcüğü hatasız çözülmelidir. Sonra bir, iki ve üç bit çevirin, ve eşlik bitini de çevirin: dört durumun tablosuyla karşılaştırın. Üç bit hata ile eşlik başarısızlığı, düzeltilemez olarak işaretlenmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "ba25bd4bcc7_0.wav",
+   "duration": 22.932,
+   "text": "Üçüncü test: karıştırıcı. Emülatörde süper çerçeve sayacını sıfıra ayarlayın. PSBd'den sonraki ilk iki yüz elli altı karıştırıcı biti, A ekindeki tabloyla aynı olmalıdır. Sayacı küçük bir değerle başlatmak, şifreleme bölümünde göreceğimiz bir nedenle standardın da önerdiği bir durumdur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "bcc0aaf096b_0.wav",
+   "duration": 23.832,
+   "text": "Dördüncü test: çerçeve çözücü. Senkron desenine kilitlenin, sayacın her çerçevede bir arttığını doğrulayın, sıfır ef desenini geri alın ve OC'yi çözün: PON kimliği, kanal kimliği, ODN sınıfı, FEC biti, TOL. Sonra HLend'den N ve P'yi okuyun, ve sekiz N artı kırk sekiz P artı sekizin çerçeve boyunu aşmadığını kontrol edin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "b3f20c78550_0.wav",
+   "duration": 28.777,
+   "text": "Beşinci test: senkron makinesi. Bir hata enjektörüyle senkron desenine iki bit hata ekleyin; durum değişmemelidir. Üç bit ekleyin; makine yeniden senkrona geçmelidir. Sonraki iki çerçeveyi de bozun; ONU senkron kaybı ilan etmeli ve çalışma durumundan aralıklı senkron kaybı durumuna geçmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g9",
+   "file": "b9f83febca5_0.wav",
+   "duration": 26.064,
+   "text": "Altıncı test: hata oranı sayaçları. ONU'nun alıcısına ayarlı bir zayıflatıcı koyup gücü referans hata oranına kadar düşürün. FEC açıkken ham hata oranını düzeltilen bitlerden, kapalıyken BIP-32 hatalarından hesaplayın. On gigabitte saniyede beş milyon on altı bin kod sözcüğü sayılmalıdır. Ama canlı bir kanalda aşağı yön FEC'ini asla açıp kapamayın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g10",
+   "file": "bf386ec6540_0.wav",
+   "duration": 22.584,
+   "text": "Yedinci test: hatalı haritalar. Emülatöre kuralları ihlal eden haritalar ürettirin: sınır dışı başlangıç zamanı, seride on altıdan fazla yapı, bozuk bir HEC, bilinmeyen bir tahsis kimliği. ONU'nun optik çıkışını hızlı bir fotodiyot ve osiloskopla, çerçeve tetiğine kilitli olarak izleyin: burst ya hiç gelmemeli, ya da kısa kesilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g11",
+   "file": "b7bd585929d_0.wav",
+   "duration": 23.416,
+   "text": "Sekizinci test: burst anatomisi. OLT tarafında bir burst analizörüyle önsözün uzunluğunu ve desenini, sınırlayıcıyı ve FEC açık ve kapalı sınırlayıcı çiftini, etkin profille karşılaştırın. Verici açma ve kapama geçişlerini G.989.2'nin sınırlarıyla, gerçek koruma süresini de haritadaki aralıkla karşılaştırın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g12",
+   "file": "b274437ff30_0.wav",
+   "duration": 20.248,
+   "text": "Laboratuvar notu. Bir: altın vektörler bir kalibrasyon kaynağı gibidir; her yeni firmware sürümünde yeniden çalıştırın. İki: dördüncü ekin kalan vektörleri şifreleme ve PLOAM bütünlüğü içindir; onları beşinci ve sekizinci bölümlerde kullanacağız.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 258.61
+}
