@@ -1,0 +1,61 @@
+{
+ "title": "S2B02 Perde 2 — FEC, karıştırıcı ve HEC",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: koruma katmanları. Önce FEC. NG-PON2 Reed Solomon kodları kullanır, ve kod sözcüğü iki yüz kırk sekiz bayttır. On gigabitte RS iki yüz kırk sekiz, iki yüz on altı: otuz iki eşlik baytı, sözcük başına on altı bayt düzeltme. İki buçuk gigabitte RS iki yüz kırk sekiz, iki yüz otuz iki: on altı eşlik baytı, sekiz bayt düzeltme. İkisi de iki yüz elli beş baytlık kodun, yedi sıfır baytla kısaltılmış biçimidir."
+  },
+  {
+   "id": "c2",
+   "text": "Bedel ikiye katlanır: on gigabitte eşlik payı yüzde on iki virgül dokuz, iki buçuk gigabitte yüzde altı virgül beş. Net olarak, FEC açıkken on gigabitlik çerçeve saniyede sekiz virgül altı altı yedi gigabit, iki buçuk gigabitlik çerçeve iki virgül üç iki altı gigabit taşır. FEC kapalıyken bu sayılar dokuz virgül dokuz beş ve iki virgül dört sekiz yediye çıkar."
+  },
+  {
+   "id": "c3",
+   "text": "Kod sözcükleri PSBd'den sonra başlar; yirmi dört baytlık blok FEC'e dahil değildir. On gigabitte bir çerçeve tam altı yüz yirmi yedi kod sözcüğüdür. İki buçuk gigabitte ise yüz elli altı tam sözcük ve sonda yüz altmış sekiz baytlık kısa bir sözcük vardır. Kısa sözcüğün yüz elli iki baytlık verisi, kodlamadan önce başına seksen sıfır bayt eklenerek tamamlanır; bu sıfırlar gönderilmez, alıcıda geri eklenir."
+  },
+  {
+   "id": "c4",
+   "text": "FEC'in iki yöndeki kuralı farklıdır, ve bu farkı iyi bilmek gerekir. Aşağı yönde FEC, bütün ONU'lar için statik olarak ya açık ya kapalıdır, ve OC'deki bitle duyurulur. OLT'nin bunu canlı bir kanalda değiştirmesi beklenmez; standart, değişikliğin aralıklı trafik kaybına yol açabileceğini açıkça yazar. Yukarı yönde ise FEC, her ONU için, burst profiliyle dinamik olarak seçilir."
+  },
+  {
+   "id": "c5",
+   "text": "FEC açıkken hata oranı FEC çözücünün düzeltmelerinden tahmin edilir. Kapalıyken çerçevenin sonundaki otuz iki bitlik bit ayrımlı eşlik alanından, BIP-32'den. Standart açıkça söyler: BIP tabanlı tahmin yalnızca FEC kapalıyken geçerlidir."
+  },
+  {
+   "id": "c6",
+   "text": "Sonra karıştırıcı. Polinom x üzeri elli sekiz artı x üzeri otuz dokuz artı birdir. Aşağı yönde karıştırıcı çerçeveye senkrondur: PSBd'den sonraki ilk bitte yeniden yüklenir, ve çerçevenin sonuna kadar çalışır. Elli sekiz bitlik başlangıç değerinin elli bir biti o çerçevenin süper çerçeve sayacıdır; kalan yedi bit birdir."
+  },
+  {
+   "id": "c6a",
+   "text": "Yukarı yönde karıştırıcı burst'e senkrondur: önsöz ve sınırlayıcıdan sonraki ilk bitte başlar. Başlangıç değeri, o burst'ü tahsis eden aşağı yön çerçevesinin sayacıdır. Sıra her iki yönde aynıdır: önce çerçeveleme, sonra FEC, en son karıştırma. Senkron blokları hiçbir zaman karıştırılmaz."
+  },
+  {
+   "id": "c7",
+   "text": "PMD Köprüsü. Birinci sezonda G.989.2'nin hat kodunu karıştırılmış NRZ olarak gördük, ve alıcının yetmiş iki bitlik ardışık özdeş rakam bağışıklığını. Karıştırıcı, iletimi rastgeleleştirir ve bu bağışıklık sınırının sağlanmasına yardım eder. Optik tablo ile TC katmanı burada birbirine dayanır."
+  },
+  {
+   "id": "c8",
+   "text": "Son katman başlık hata denetimi, HEC. İki boyu vardır. Altmış dört bitlik biçim elli bir bitlik bir alanı korur: sayaç, OC, bant genişliği haritasının tahsis yapıları ve XGEM başlığı. Otuz iki bitlik biçim on dokuz bitlik bir alanı korur: çerçeve başlığı ve ONU'nun yukarı yön başlığı. İkisinde de on iki bitlik bir BCH kodu ve bir eşlik biti vardır."
+  },
+  {
+   "id": "c9",
+   "text": "BCH kodu iki hatayı düzeltir, üç hatayı algılar. Eşlik biti kodla birlikte okunur: hata yok, tek hata, çift hata düzeltilebilir; tek bir BCH hatası ile eşlik hatası birlikte de düzeltilebilir. Ama çift BCH hatası ve eşlik başarısızlığı birlikteyse, bu üçlü bir hatadır ve düzeltilemez. Standart bu dört durumu bir tabloda verir."
+  },
+  {
+   "id": "c10",
+   "text": "Küçük bir tarih notu. A ekindeki HEC test vektörleri, ASCII olarak okunduğunda, XG-PON'u yazan editörlere teşekkür eden bir cümle çıkarır. B eki ise tek cümledir: G.987.3'ün B ekiyle aynıdır. Yani NG-PON2'nin bu katmanları XG-PON'dan miras kalmıştır, ve iki bin yirmi üç ve iki bin yirmi beş değişikliklerinde hiç değişmemiştir."
+  },
+  {
+   "id": "c11",
+   "text": "Mühendis notu. Bir: on gigabitte FEC'i açmak, kapasitenin sekizde birinden fazlasına mal olur; ama G.989.2'nin on üzeri eksi üçlük referans hata oranı FEC varsayar. İki: altyapı kodunuzu yeniden kullanıyorsanız dikkat edin; bu katman XG-PON ile birebir aynıdır, ama başka yerlerde küçük farklar vardır."
+  },
+  {
+   "id": "c12",
+   "text": "Sıradaki: bitler korunuyor. Şimdi aşağı yön çerçevesinin içinde neyin taşındığına bakalım."
+  }
+ ]
+}

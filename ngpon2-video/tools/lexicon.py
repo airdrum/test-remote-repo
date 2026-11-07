@@ -1,6 +1,7 @@
 """Turkish read-aloud spellings for acronyms (applied only to the text sent to TTS; subtitles keep the original)."""
 import re
 LEX = [
+    (r"NG2SYS ID", "en ci iki sis ay di"), (r"\bHLend", "eyç el end"), (r"\bPSBu", "pi es bi yu"),
     (r"S/R-CG", "es ar si ci"), (r"S/R-CP", "es ar si pi"), (r"\bR/S\b", "ar es"),
     ("ITU-T", "ay ti yu ti"),
     ("NG-PON2", "en ci pon iki"), ("XGS-PON", "eks ci es pon"), ("XG-PON1", "eks ci pon bir"), ("XG-PON", "eks ci pon"), ("G-PON", "ci pon"), ("GPON", "ci pon"),
@@ -42,6 +43,8 @@ LEX = [
     (r"\bL([12])\b", lambda m: "el " + ["", "bir", "iki"][int(m.group(1))]),
     (r"\bO([1-9])\b", lambda m: "o " + ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"][int(m.group(1))]),
     (r"\bB\b", "be"), (r"\bC\b", "ce"), (r"\bD\b", "de"), (r"\bG\b", "ge"),
+    (r"\bOC\b", "o si"), (r"\bCRC\b", "si ar si"), (r"\bATM\b", "ey ti em"), (r"\bASCII\b", "aski"),
+    (r"\bM\b", "em"), (r"\bN\b", "en"), (r"\bP\b", "pi"),
 ]
 
 def speak(text):

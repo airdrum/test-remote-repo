@@ -1,0 +1,21 @@
+{
+ "title": "S2B01 Önceki bölümde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Birinci sezonun finalindeki soruların cevapları. Birinci soru: B tipi korumada ONU neden yeniden ayarlanmaz? Çünkü anahtarlama OLT tarafında olur: aynı kanal çiftine bakan iki OLT kanal sonlandırıcısından bekleme tarafındaki devralır, ve ONU aynı kanal çiftinde kalır. Korumanın etkili olması için koşul, aşağı yön senkronunun, ONU yeniden ayarlanmaya karar vermeden önce geri gelmesidir."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: OLT'nin alınan güç ölçümü neden burst'ün uzunluğuna bağlıdır? Çünkü bu ölçüm bir burst sırasındaki ortalama güçtür, ve dedektörün tepki süresi üç yüz nanosaniyedir: iki buçuk gigabitte yedi yüz kırk altı bit, on gigabitte yaklaşık üç bin bit. Ölçüm burst'e göre doğru anda yapılmalı, ve burst bu süreye yetecek kadar uzun olmalıdır."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: acil durdurma durumundaki bir ONU, gücü kesilip geri geldiğinde ne yapar? Acil durdurmada kalır; bu durum yeniden başlatmayı ve güç kesintisini aşar. Vericisi kapalı kalır, kanalları tarar, ve her başarısız turda bekleme süresini ikiye katlayarak yaklaşık bir dakikaya kadar çıkar. Onu yalnızca OLT'nin yeniden etkinleştirme komutu serbest bırakır. Şimdi ikinci sezona."
+  }
+ ]
+}

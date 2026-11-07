@@ -1,0 +1,33 @@
+{
+ "title": "S2B02 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm iki: Çerçeve. Bu bölümde ışığın taşıdığı bitleri çerçeveye dönüştüren katmanı, fiziksel uyarlamayı ve çerçevelemeyi, bit bit açıyoruz."
+  },
+  {
+   "id": "o2",
+   "text": "Önce fiziksel senkron bloğu: altmış dört bitlik senkron deseni, süper çerçeve sayacı ve OLT'nin her çerçevede yayınladığı kimlik ve güç bilgisi. Ve ONU'nun bu bloğa nasıl kilitlendiği."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra koruma katmanları: Reed Solomon kodları, karıştırıcı ve başlık hata denetimi. Hangisi neyi korur, ve neyi korumaz."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından aşağı yön çerçevesinin içi: bant genişliği haritası, PLOAM bölmesi ve yük. Ve iki hızı tek bir zaman ızgarasında buluşturan birim."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra yukarı yön burst'ü: önsöz ve sınırlayıcı, burst profilleri, ONU başlığı, durum raporu ve FEC'in burst sonunda nasıl kısaldığı."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda standardın altın vektörleriyle bir çerçeve çözücüyü doğrulayacağız."
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "title": "S2B02 Önceki bölümde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: tahsis kimliği bin yirmi iki, boyutu sıfır olan ve PLOAM isteyen bir tahsis nedir? Bu, yalnızca on gigabit yukarı yönlü ONU'lara açık, bant içi bir seri numarası tahsisidir. İki buçuk gigabitlik ONU'lar cevap vermemelidir. Cevap veren ONU'nun henüz kimliği yoktur; yukarı yön başlığında atanmamış değeri, bin yirmi üçü kullanır, ve seri numarası mesajını gönderir."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: PON kimliği on altılık tabanda bir iki üç dört beş altı yedi üç ise, hangi kanaldır? En anlamsız dört bit, sıfır sıfır bir bir, aşağı yön kanal kimliğidir: dördüncü kanal, yüz seksen yedi virgül beş terahertz, yaklaşık bin beş yüz doksan sekiz virgül dokuz nanometre. Kalan yirmi sekiz bit, OLT'nin dokunmadan taşıdığı yönetim etiketidir."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: ONU kimliği on dokuz olan bir ONU'nun varsayılan tahsis kimliği ve OMCC portu da on dokuzdur. Bir kanal devrinde yalnızca burst profilleri unutulur; ONU kimliği, tahsis kimlikleri ve portlar kalır. İlk duruma dönüşte ise ONU kimliği, bütün tahsis kimlikleri ve varsayılan port unutulur; OMCC ile atanmış portlar ve bölümleme indeksi korunur. Şimdi bu bölüme."
+  }
+ ]
+}

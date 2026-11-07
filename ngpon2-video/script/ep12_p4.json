@@ -1,0 +1,69 @@
+{
+ "title": "S2B02 Perde 4 — Yukarı yön burst'ü",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: yukarı yön. Önce iki tür yüz yirmi beş mikrosaniye olduğunu kabul edelim. Aşağı yön çerçeve sınırı fiziksel bir olaydır: PSBd'nin ilk biti. Yukarı yön çerçevesi ise sanal bir ızgaradır; OLT ve her ONU onu farklı anlara yerleştirir. Bunu altıncı bölümde, mesafe ölçümüyle birlikte açacağız."
+  },
+  {
+   "id": "e2",
+   "text": "Yukarı yön fiziksel burst'ü iki parçadır: önsöz ve sınırlayıcıdan oluşan yukarı yön senkron bloğu, PSBu; ve FEC ile korunmuş, karıştırılmış burst yükü. Burst'ler arasında ONU vericisini kapatır ve sessiz kalır. PSBu'nun görevi, OLT'nin optik alıcısının sinyal düzeyine uyum sağlaması ve burst'ün sınırını bulmasıdır."
+  },
+  {
+   "id": "e3",
+   "text": "PMD Köprüsü. Birinci sezonun altıncı bölümünde, G.989.2'nin yukarı yön fiziksel katman ek yükünü gördük: iki buçuk gigabitte beş yüz on iki, on gigabitte iki bin kırk sekiz bit. İkisi de aynı süredir: iki yüz beş virgül yedi altı nanosaniye, yani tam on altı zaman kuantumu. Koruma süresi, önsöz ve sınırlayıcı bu bütçenin içindedir."
+  },
+  {
+   "id": "e4",
+   "text": "Önsözün ve sınırlayıcının uzunluğu ve deseni, burst'ün profilini oluşturur. OLT profilleri önceden bir PLOAM mesajıyla gönderir, ve her tahsis iki bitlik indeksle birini seçer. Mesajda bir sürüm alanı, profilin hangi hız için olduğu, yukarı yön FEC'in açık mı kapalı mı olduğu, sıfır ile sekiz bayt arası sınırlayıcı, ve bir ile sekiz bayt arası, iki yüz elli beş kereye kadar tekrarlanabilen bir önsöz deseni vardır."
+  },
+  {
+   "id": "e4a",
+   "text": "Profil kuralları sezgiseldir. OLT profili yüzlerce milisaniyelik aralıklarla tekrar gönderir, ve değiştirdiği bir profili her ONU'nun en az iki kez alma fırsatı olmadan kullanmaz. Profiller aktivasyonlar arasında saklanmaz; ONU, karşılık gelen profili almadan bir tahsise cevap veremez."
+  },
+  {
+   "id": "e5",
+   "text": "Üçüncü ek önerilerde bulunur. İki buçuk gigabitte iki zaman kuantumluk koruma süresi, yüz altmış bitlik önsöz ve otuz iki bitlik sınırlayıcı: toplam iki yüz elli altı bit, yüz iki virgül dokuz nanosaniye. Yüksek hata oranında altmış dört bitlik sınırlayıcı önerilir. Ve bir çift farklı sınırlayıcı, FEC'in açık mı kapalı mı olduğunu da söyleyebilir. Tablodaki bütün desenler tam olarak doğru akım dengelidir."
+  },
+  {
+   "id": "e6",
+   "text": "Burada standartlar arasında bir tutarsızlık var, ve sahada önemlidir. G.989.3 koruma süresi için tek bir sayı verir: altmış dört bit, hız belirtmeden. Üçüncü ek iki zaman kuantumu der: on gigabitte bu iki yüz elli altı bittir. G.989.2 ise korumanın verici açma süresinden büyük olmasını ister; ve verici açma süresi on gigabitte bin iki yüz seksen bite kadar çıkabilir. Altmış dört bitlik bir koruma, ancak çok hızlı açılan vericilerle güvenlidir."
+  },
+  {
+   "id": "e6a",
+   "text": "Bir tutarsızlık daha: G.989.3, iki buçuk gigabitlik yüz altmış bitlik önsöz için G.989.2'nin üçüncü ekine atıf yapar; ama orada önsöz üç yüz yirmi bittir. Üstelik G.989.2'deki hedef satırları toplanınca beş yüz on ikiyi vermez; yalnızca en kötü durum satırları tutar. Bunları birinci sezonun altıncı bölümünde görmüştük."
+  },
+  {
+   "id": "e7",
+   "text": "Sonra yukarı yön çerçeveleme başlığı: on bitlik ONU kimliği, dokuz bitlik gösterge alanı ve on üç bitlik HEC. Henüz kimliği olmayan bir ONU, seri numarası tahsisine bin yirmi üç değeriyle cevap verir. Gösterge alanının en anlamlı biti, bekleyen başka PLOAM mesajları olduğunu; en az anlamlı biti ise son nefes, yani dying gasp durumunu söyler. İstenmişse başlığa kırk sekiz baytlık bir PLOAM mesajı eklenir."
+  },
+  {
+   "id": "e8",
+   "text": "Her tahsis, istenmişse dört baytlık bir durum raporuyla başlar: yirmi dört bitlik tampon doluluğu ve sekiz bitlik bir CRC. Doluluk dört baytlık birimlerle sayılır; en büyük değer yaklaşık altmış dört mebibayttır. CRC, ATM başlık hata denetiminin aynı polinomunu kullanır, ama bir farkla: sonuç sıfır elli beş deseniyle özel veya işlemine sokulmaz. Eski bir ATM kodunu kopyalayan bir uygulama, her raporu reddeder."
+  },
+  {
+   "id": "e9",
+   "text": "Burst dört baytlık bir BIP kuyruğuyla biter. FEC açıksa, bir ONU'nun bütün tahsisleri tek bir blok olarak kodlanır, ve en fazla bir kısa kod sözcüğü kalır: burst'ün sonunda. Örnek: on gigabitte, kimliği olmayan bir ONU'nun seri numarası cevabı. Dört bayt başlık, kırk sekiz bayt PLOAM, dört bayt kuyruk: elli altı bayt; FEC ile seksen sekiz bayt; artı profilin önsözü ve sınırlayıcısı."
+  },
+  {
+   "id": "e10",
+   "text": "Verimlilik bir sayı sorusudur. Burst başına fiziksel ek yük, iki hızda da zaman olarak aynıdır; on gigabit bunu dört kat bayt olarak öder. Çerçeve başına bir burst gönderen altmış dört ONU ile, on gigabitlik bir yukarı yön kanalı FEC kapalıyken kapasitesinin yaklaşık yüzde seksen dokuzunu, FEC açıkken yaklaşık yüzde yetmiş yedisini yüke ayırabilir. Küçük ve çok sayıda burst'te ek yükü FEC değil, burst sayısı belirler."
+  },
+  {
+   "id": "e11",
+   "text": "PMD Köprüsü, kısaca: PtP WDM'in yönetim çerçevesini birinci sezonun dokuzuncu bölümünde gördük. Aynı senkron bloğu, altmış dört bitlik bir başlık ve bir BIP kuyruğu; ama esnek bir çerçeve süresi. Oradaki senkron makinesi, sayacın yalnızca HEC geçerliliğine bakar; bir fazla olmasını beklemez."
+  },
+  {
+   "id": "e12",
+   "text": "Mühendis notu. Bir: koruma süresini G.989.2'deki verici açma ve kapama sürelerinden türetin, G.989.3'teki altmış dört bitten değil. İki: yukarı yön FEC'i burst profiline bağlı olduğundan, aynı kanalda FEC'li ve FEC'siz ONU'lar birlikte yaşayabilir; analizörünüz profili her burst için ayrı çözmelidir."
+  },
+  {
+   "id": "e13",
+   "text": "Sıradaki: çerçeveler hazır. Şimdi laboratuvarda bir çözücüyü standardın kendi vektörleriyle sınayalım."
+  }
+ ]
+}

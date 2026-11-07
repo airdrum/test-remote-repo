@@ -1,0 +1,53 @@
+{
+ "title": "S2B01 Laboratuvarda — Test tezgâhı 2.0",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Birinci sezonun tezgâhında bir güç ölçer, bir OSA, bir hata oranı test cihazı ve bir ayarlı zayıflatıcı vardı. Bu sezona iki cihaz ekliyoruz: aşağı ve yukarı yönü izleyen bir protokol analizörü, ve mesajları istediğimiz gibi üreten bir OLT emülatörü. Bu bölümde ikisiyle kimlikleri okuyacağız."
+  },
+  {
+   "id": "g2",
+   "text": "İlk adım: aşağı yön çerçevesinin senkron bloğunu bulmak. Analizör, on gigabitte her yüz elli beş bin beş yüz yirmi baytta, iki buçuk gigabitte her otuz sekiz bin sekiz yüz seksen baytta sabit senkron desenini bulmalıdır. Sonra işletim denetimi yapısını sabit desenle geri açın, hata denetimini kontrol edin, ve alanlarına ayırın."
+  },
+  {
+   "id": "g3",
+   "text": "İkinci adım: PON kimliği ile optiği karşılaştırmak. PON kimliğinin en anlamsız dört biti, aşağı yön kanal kimliğidir. Bunu OSA ya da dalga boyu ölçerle ölçtüğünüz frekansla, ve frekans tablosuyla karşılaştırın. Örneğin PON kimliği on altılık tabanda bir iki üç dört beş altı yedi üç ise, kanal kimliği sıfır sıfır bir bir, yani dördüncü kanaldır: yüz seksen yedi virgül beş terahertz."
+  },
+  {
+   "id": "g4",
+   "text": "Üçüncü adım: sistem kimliği. Sistem profili mesajını yakalayın; yirmi bitlik sistem kimliğini okuyun. Aynı sistemin bütün kanal sonlandırıcılarında aynı olmalıdır. Bir profil penceresi boyunca, kanal profili mesajlarının sayısını da sayın: sistem profilinde duyurulan kanal sayısına eşit olmalı, ve her biri bir PON kimliği taşımalıdır."
+  },
+  {
+   "id": "g5",
+   "text": "Dördüncü adım: ONU kimliği kuralları. PLOAM mesajlarında bin yirmi üç yalnızca aşağı yönde yayın, yukarı yönde atanmamış ONU anlamında görünmelidir. Bin yirmi bir ve bin yirmi iki hiç görünmemelidir. Seri numarası cevaplarında yukarı yön başlığının ONU kimliği bin yirmi üç olmalıdır."
+  },
+  {
+   "id": "g6",
+   "text": "Beşinci adım: varsayılan üçlü. Emülatörle bir ONU'ya kimlik atayın, diyelim on dokuz. Mesafe ölçüm tahsisinin tahsis kimliği on dokuz, OMCI çerçevelerinin portu da on dokuz olmalıdır. Sonra kimliği iptal edin; ONU bu üç numarayı kullanmayı bırakmalıdır."
+  },
+  {
+   "id": "g7",
+   "text": "Altıncı adım: hız kapısı. Emülatörle yalnızca bin yirmi iki numaralı seri numarası tahsisleri verin: iki buçuk gigabit yukarı yönlü bir ONU sessiz kalmalıdır. Yalnızca bin yirmi üç verin: on gigabitlik ONU sessiz kalmalıdır. Çift hızlı bir kanalda bin yirmi bir, ikisinin de cevap vermesine izin verir."
+  },
+  {
+   "id": "g8",
+   "text": "Yedinci adım: altın vektör. Dördüncü ekte bir tahsis kimliği atama mesajı vardır: ONU kimliği on dokuz, tahsis kimliği bin doksan üç. Ekte bu mesajın bütünlük kodu da verilmiştir. Analizörünüzün PLOAM çözücüsünü ve bütünlük kontrolünü bu vektörle doğrulayın; ayrıntısını beşinci bölümde açacağız."
+  },
+  {
+   "id": "g9",
+   "text": "Sekizinci adım: boş XGEM. Yüksüz bir aşağı yönde, çerçeve yükünü port kimliği altmış beş bin beş yüz otuz beş olan boş XGEM çerçeveleri doldurur, ve alıcı bunları atar. Trafiği açınca boş çerçevelerin yerini veri almalıdır."
+  },
+  {
+   "id": "g10",
+   "text": "Dokuzuncu adım: bölümleme indeksi. OMCI ile bir ONU'nun indeksini beşe ayarlayın, ve yalnızca başka bir bölümün kanallarını sunun. ONU'nun indeksini sıfıra döndürene kadar geçen süreyi ölçün: önerilen değer beş dakikadır. Sonra gücü kesip açın; indeks korunmalıdır."
+  },
+  {
+   "id": "g11",
+   "text": "Laboratuvar notu. Bir: analizörünüzün iki bin yirmi bir metnine göre yazılmış çözücüleri bu bölümün alanları için geçerlidir; altıncı madde o günden beri değişmedi. İki: bütün ölçümleri birinci sezonun optik ölçümleriyle aynı defterde tutun; bir PON kimliği ile bir frekans ölçümü aynı satırda durmalıdır."
+  }
+ ]
+}

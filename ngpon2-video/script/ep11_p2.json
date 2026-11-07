@@ -1,0 +1,53 @@
+{
+ "title": "S2B01 Perde 2 — Yönetim kanalları",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: yönetim kanalları. Bir TWDM sisteminde ONU'nun denetim, işletme ve yönetim bilgisi üç kanalda taşınır: gömülü işletme kanalı, PLOAM ve OMCC. İlk ikisi PMD ve TC katmanlarının işlevlerini yönetir. OMCC ise OMCI protokolünün mesajlarını taşır; OMCI, üst katmanları, yani servisleri tanımlayan katmanları yönetmek için tek tip bir sistemdir."
+  },
+  {
+   "id": "c2",
+   "text": "Gömülü işletme kanalı, aşağı yön çerçevesinin ve yukarı yön burst'ünün başlık alanlarıdır. Ayrı bir mesajı yoktur: her bilgi parçası belirli bir alana doğrudan eşlenir. Bu yüzden zamana duyarlı denetim için düşük gecikmeli bir yoldur. Taşıdıkları: yukarı yön burst zamanlaması ve profili, bant genişliği tahsisi, dinamik tahsis sinyalleşmesi, zorunlu uyandırma, ve son nefes bildirimi."
+  },
+  {
+   "id": "c3",
+   "text": "PLOAM, gömülü kanalla gönderilmeyen bütün PMD ve çerçeveleme yönetim bilgisini taşır. Mesajları sabit kırk sekiz bayttır: iki bayt ONU kimliği, bir bayt mesaj türü, bir bayt sıra numarası, otuz altı bayt içerik, ve sekiz baytlık bir mesaj bütünlük kodu. PLOAM normalde çerçevenin ve burst'ün içinde, kendi bölmesinde taşınır."
+  },
+  {
+   "id": "c4",
+   "text": "Ama PLOAM'ın ikinci bir taşıma seçeneği de vardır: AMCC. Bu seçenek yalnızca yukarı yönde ve yalnızca iki mesaj içindir: seri numarası mesajı ve ayar yanıtı mesajı. Amacı, yeterince kalibre edilmemiş ONU'ları, çalışan TWDM kanallarına zararlı girişim riski olmadan, düşük bir hızla keşfetmektir."
+  },
+  {
+   "id": "c4a",
+   "text": "Akış şöyledir. OLT, sistem profilinde AMCC seçeneğinin olup olmadığını ve bant içi aktivasyon için gereken en küçük kalibrasyon doğruluğunu duyurur: kalibre edilmemiş, gevşek ya da yeterli. Yeterince kalibre edilmemiş bir ONU, seri numarasını AMCC ile göndermek zorundadır; AMCC yoksa susmalıdır. OLT cevabı aldıktan sonra ONU'yu belirli bir TWDM kanalında aktivasyona yönlendirir."
+  },
+  {
+   "id": "c5",
+   "text": "PMD Köprüsü. Bu, birinci sezonun yedinci bölümündeki sorunun TC tarafındaki cevabıdır: dalga boyu henüz doğru olmayan bir verici, başkalarının kanalında ışık vermemelidir. Ama bir gerilim var: G.989.3'ün E eki, TWDM kanalları için AMCC'nin uygulama ayrıntılarını henüz çalışma konusu olarak bırakır. G.989.2'nin B eki de AMCC'yi yalnızca PtP WDM bindirme kanallarında zorunlu kılar."
+  },
+  {
+   "id": "c6",
+   "text": "Üçüncü kanal OMCC'dir. TC katmanı, OMCI trafiği için XGEM tabanlı bir taşıma arayüzü sağlar. OMCI'ın kendisi G.988'de tanımlıdır, ve bu sezonun kapsamı dışındadır; biz yalnızca taşındığı kanalı göreceğiz. ONU'daki OMCI uyarlayıcısı, aşağı yönde OMCI taşıyan XGEM çerçevelerini süzer ve açar, yukarı yönde paketler."
+  },
+  {
+   "id": "c7",
+   "text": "Dördüncü bir kanal ONU ile değil, OLT kanal sonlandırıcıları arasındadır: kanal sonlandırıcıları arası protokol, ICTP. Kanal profili yapılandırması ve durum paylaşımı, ONU aktivasyonu, dalga boyu kanalı devri ve başıboş ONU'larla mücadele için kullanılır. Standart on dört kullanım durumu sayar, ama protokolün kendisini kapsam dışı bırakır ve bir sektör belgesine atıf yapar."
+  },
+  {
+   "id": "c8",
+   "text": "ICTP'nin bir kuralı ilginçtir: PON arayüzünden ve ICTP'den gelen sistem görünümleri çelişirse, kanal sonlandırıcısı çelişkiyi yönetim sistemine bildirir, ve PON işletimini bozabilecek eylemlerden kaçınır. Yani şüphede kalındığında, hiçbir şeyi bozma."
+  },
+  {
+   "id": "c9",
+   "text": "Mühendis notu. Bir: bir sorunu ararken önce hangi kanalda yaşadığını bulun. Zamanlama ve tahsis gömülü alanlardadır; profiller ve ayar komutları PLOAM'dadır; servis yapılandırması OMCI'dadır. İki: AMCC ile keşif isteğe bağlıdır; kalibre edilmemiş ONU'lar kullanıyorsanız OLT'nizin bu seçeneği gerçekten sunduğunu doğrulayın."
+  },
+  {
+   "id": "c10",
+   "text": "Sıradaki: kanallar hazır. Ama mesajlar kime gidiyor? Kimlikler."
+  }
+ ]
+}

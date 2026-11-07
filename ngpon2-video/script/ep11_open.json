@@ -1,0 +1,33 @@
+{
+ "title": "S2B01 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm bir: Işığın Dili. Birinci sezonda ışığın kendisini konuştuk: dalga boyları, güç bütçeleri, burst'ler. Bu sezon ışığın taşıdığı dili konuşuyoruz: G.989.3, NG-PON2'nin iletim yakınsama katmanı."
+  },
+  {
+   "id": "o2",
+   "text": "Önce katmanlar: TC katmanının üç alt katmanı, hat hızı kombinasyonları, ve bir kullanıcı paketinin ışığa dönüşene kadar geçtiği yol."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra yönetim kanalları: gömülü işletme alanları, PLOAM, OMCC ve kanal sonlandırıcıları arasındaki protokol."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından kimlikler: bir NG-PON2 sisteminde kimin kim olduğunu söyleyen numaralar, genişlikleri, ayrılmış değerleri, ve hangisinin ne zaman unutulduğu."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra ortam erişimi, noktadan noktaya WDM'in yönetim katmanı, ve standardın sürüm geçmişi."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda test tezgâhını yeniden kuruyoruz: bu kez bir güç ölçer ve bir OSA'nın yanında, bir protokol analizörü ve bir OLT emülatörüyle."
+  }
+ ]
+}

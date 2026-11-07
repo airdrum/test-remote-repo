@@ -1,0 +1,25 @@
+{
+ "title": "S2B02 Kapanış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölümün özeti. Bir: her aşağı yön çerçevesi yirmi dört baytlık PSBd ile başlar: altmış dört bitlik senkron deseni, elli bir bitlik sayaç ve OLT'nin kimlik ve güç bilgisini taşıyan OC. İki: ONU dört durumlu bir makineyle kilitlenir; önerilen M değeri üç, ve senkron kaybı yalnızca av ve ön senkronda ilan edilir."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: FEC aşağı yönde statik, yukarı yönde burst profiline bağlıdır; on gigabitte bedeli yüzde on üç. Dört: bant genişliği haritası, on iki virgül sekiz altı nanosaniyelik ortak bir zaman kuantumuyla iki hızı aynı ızgarada zamanlar. Beş: koruma süresi için G.989.3'ün altmış dört bitine değil, G.989.2'nin verici geçiş sürelerine bakın."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: iki buçuk gigabitlik aşağı yön çerçevesi kaç kod sözcüğüne bölünür, ve sonuncusuna ne olur? İkinci soru: senkrondaki bir ONU, senkron deseninde üç bit hatalı bir çerçeve alırsa hangi duruma geçer, ve senkron kaybı ne zaman ilan edilir? Üçüncü soru: kimliği olmayan on gigabitlik bir ONU, FEC açıkken seri numarası tahsisine kaç baytlık bir burst ile cevap verir? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: XGEM. Kullanıcı verisinin bu çerçevelere nasıl paketlendiği, parçalandığı ve servislerin nasıl eşlendiği. Görüşmek üzere."
+  }
+ ]
+}
