@@ -199,7 +199,7 @@ class Ep11Recap(Act11):
     def construct(self):
         # a1 — Type B protection: why no retuning, and the condition
         self.beat("a1")
-        tc = self.title_card("ÖNCEKİ BÖLÜMDE", "Sezon 1 · Bölüm 10 · Sahaya İniş")
+        tc = self.title_card("ÖNCEKİ BÖLÜMDE", "S1 · Bölüm 10 · Sahaya İniş")
         self.at(self.cue("Birinci soru", 4.0))
         self.to_header(tc)
         self.set_badge("ozet")

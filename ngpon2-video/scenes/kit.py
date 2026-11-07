@@ -86,6 +86,8 @@ class Act(Narrated):
     def title_card(self, kick, title):
         k = T(kick, 26, ACC, BOLD)
         t = T(title, 72, TXT, BOLD)
+        if t.width > 12.8:  # long titles must stay inside the 14.2-unit frame
+            t.scale_to_fit_width(12.8)
         g = VGroup(k, t).arrange(DOWN, buff=0.2).move_to(UP * 0.3)
         self.play(FadeIn(k, shift=UP * 0.2), Write(t), run_time=1.3)
         return g
