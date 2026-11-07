@@ -1,0 +1,53 @@
+{
+ "title": "S2B03 Laboratuvarda — Başlıklar, boş çerçeveler, parçalama ve verim",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Düzenek: iki yönü izleyen bir protokol analizörü, harita yazan bir OLT emülatörü, altmış dört ile dokuz bin bayt arası çerçeve üreten bir trafik üreteci, ve sınanan ONU. Standardın verdiği hazır vektörler A ekindeki HEC sözcükleri ve dördüncü ekteki örneklerdir; diğer yöntemler mühendislik pratiğidir."
+  },
+  {
+   "id": "g2",
+   "text": "İlk test: başlık çözücü. Kendi altın başlıklarımızı ürettik; standartta yoklar. Örneğin yalnızca başlıktan oluşan bir boş çerçeve, on altılık tabanda: sıfır sıfır sıfır sıfır, ef ef ef ef, sıfır sıfır sıfır sıfır, iki dokuz dokuz e. Sonra bir, iki ve üç bit çevirin: bir ve iki bit düzeltilmeli, eşlik hatalı üç bit ise yükün kalanını attırıp HEC hata sayacını artırmalıdır."
+  },
+  {
+   "id": "g3",
+   "text": "İkinci test: boş çerçeveler. Göstergesi dört olan bir boş çerçeve enjekte edin; çözücü on altı değil, on iki bayt atlamalıdır. Sonra trafiksiz bir kanalda boş çerçeveleri sayın. Bizim hesabımız: on gigabitte FEC kapalıyken, en büyük boş yük on altı bin üç yüz seksen baytsa en az on, dokuz bin baytsa en az on sekiz boş çerçeve gerekir."
+  },
+  {
+   "id": "g4",
+   "text": "Üçüncü test: verim taraması. Aşağı yönde altmış dört ile dokuz bin bayt arası akışlar gönderin. Bizim tablomuz, en hafif başlıkla, on gigabitte FEC kapalıyken altmış dört baytta sekiz virgül sekiz dört beş, bin beş yüz on sekiz baytta dokuz virgül sekiz sekiz altı gigabit; FEC açıkken yedi virgül yedi sıfır dört ve sekiz virgül altı bir verir. Sonucu, boş olmayan bayt sayaçlarıyla karşılaştırın."
+  },
+  {
+   "id": "g5",
+   "text": "Dikkat: altmış dört baytta bu, saniyede on yedi milyondan fazla çerçevedir; tek bir on gigabitlik Ethernet portu ise yaklaşık on dört virgül dokuz milyon verir. Bizim çıkarımımız: küçük paketlerde aşağı yönü doyurmak için üretecin birden fazla portu gerekir; yoksa ölçtüğünüz şey üreteçtir."
+  },
+  {
+   "id": "g6",
+   "text": "Dördüncü test: aşağı yön parçalaması. Bin beş yüz on sekiz ve dokuz bin baytlık akışlarda, her çerçevenin son XGEM çerçevesinin son parça biti sıfır olmalı ve yükü bayt bayt doldurmalıdır; bir sonraki yük, aynı porttan devamla başlamalıdır. Bizim benzetimimize göre parçalama sayacı saniyede yaklaşık sekiz bin artar. Aşağı yön yükü asla kısa boş çerçeveyle bitmemelidir."
+  },
+  {
+   "id": "g7",
+   "text": "Beşinci test: küçük tahsisler. Emülatörle iki buçuk gigabitte, rapor isteyen, bir, iki, üç ve dört sözcüklük tahsisler verin: sırasıyla yalnızca rapor, kısa boş çerçeve, göstergesi sıfır ve dört olan boş çerçeveler görülmelidir. Kuyrukta bin beş yüz on sekiz baytlık bir çerçeve olsa bile, on altı bayttan küçük bir yükte parçalama olmamalıdır."
+  },
+  {
+   "id": "g8",
+   "text": "Altıncı test: doluluk ve başlık. ONU'ya bilinen bir kuyruk yükleyin: on tane altmış dört baytlık çerçeve yüz altmış sözcük, tek bir bin beş yüz on sekiz baytlık çerçeve üç yüz seksen sözcük raporlamalıdır. Sonra bir sonraki tahsiste alınan baytların, raporun dört katını her birim için sekiz bayt aştığını doğrulayın."
+  },
+  {
+   "id": "g9",
+   "text": "Yedinci test: anahtar indeksi. İndeksi bir bir olan, kurulmamış bir anahtarı gösteren, ya da şifre için yapılandırılmamış bir portta sıfırdan farklı olan çerçeveler enjekte edin: yük atılmalı, zorunlu anahtar hatası sayacı artmalıdır. Sonra şifre çözücüyü dördüncü ekteki iki örnekle doğrulayın: aşağı yönde çerçeve içi sayaç yüz yirmi, yukarı yönde iki bin dört yüz yirmi sekiz."
+  },
+  {
+   "id": "g10",
+   "text": "Sekizinci test: hat deseni. Bu yöntem bizimdir, çünkü birinci ekin gövdesi elimizde yok. A ekindeki karıştırıcı modeliyle ve senkron bloğunda yayınlanan sayaçla bir konumun anahtar akışını hesaplayın, ve şifresiz bir boş ya da çoklu yayın yükünü ona eşit gönderin. Yetmiş iki bite kadar dizilerde ONU senkronunu ve hata oranını korumalıdır; daha uzunlarda payınızı ölçün."
+  },
+  {
+   "id": "g11",
+   "text": "Laboratuvar notu. Bir: XGEM sayaçlarının çoğu isteğe bağlıdır; test planınızı zorunlu olanlara dayandırın: HEC hata sayacı, anahtar hata sayacı ve boş olmayan bayt sayaçları. İki: her verim ölçümünü FEC durumuyla birlikte kaydedin; on gigabitte aynı akış, FEC açıkken yaklaşık yüzde on üç daha az taşır."
+  }
+ ]
+}

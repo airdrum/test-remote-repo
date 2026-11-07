@@ -1,0 +1,65 @@
+{
+ "title": "S2B03 Perde 1 — XGEM çerçevesi",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: XGEM çerçevesi. Dokuzuncu madde şöyle başlar: kullanıcı çerçeveleri ve OMCI mesajları, aşağı yön çerçevelerinin ve yukarı yön burst'lerinin yükünde, XG-PON'dan gelen kapsülleme yöntemiyle, XGEM ile taşınır. XGEM iki yönde de parçalamayı, kapsüllemeyi ve sınırlamayı destekler. Bu metin iki bin yirmi birden bu yana hiç değişmedi."
+  },
+  {
+   "id": "b2",
+   "text": "Verici bir birimi gerekirse parçalar, ona bir XGEM port kimliği atar, kapsüller, ve isterse yükü şifreler; alıcı tersini yapar. Aşağı yönde tek çoğullama anahtarı port kimliğidir. Yukarı yönde iki düzey vardır: tahsis kimliği kimin göndereceğini, port kimliği ise o tahsisin içinde hangi akışın taşındığını söyler."
+  },
+  {
+   "id": "b3",
+   "text": "PMD Köprüsü. Birinci sezonun birinci bölümünde aşağı yönün yayın doğasını gördük: güç bölücü, kanalın her bitini her ONU'ya götürür. Port kimliğiyle süzme bunun TC katmanındaki karşılığıdır: her ONU kanaldaki her XGEM başlığını okur, ama yalnızca kendi portlarının yükünü işler. Gizlilik süzmeden değil, dördüncü perdedeki yük şifrelemesinden gelir."
+  },
+  {
+   "id": "b4",
+   "text": "XGEM çerçeveleri yük bölümlerini doldurur: aşağı yönde, çerçeveden başlık ve kuyruk çıkınca kalan alan; yukarı yönde her tahsisin kendi alanı, istenmişse dört baytlık durum raporu düşülerek. Bizim hesabımız: bu boyların hepsi ve her XGEM çerçevesi dördün katıdır. Çerçeveler yükü tam döşer, ve her başlık bir sözcük sınırında başlar."
+  },
+  {
+   "id": "b5",
+   "text": "Başlık altmış dört bittir, altı alan. On dört bitlik yük uzunluğu göstergesi, iki bitlik anahtar indeksi, on altı bitlik XGEM port kimliği, on sekiz bitlik seçenekler alanı, bir bitlik son parça biti, ve on üç bitlik HEC. İlk beş alan elli bir bit eder, ve HEC onları geçen bölümde gördüğümüz kodla korur: tahsis yapısı, sayaç ve OC ile aynı biçim."
+  },
+  {
+   "id": "b6",
+   "text": "Yük uzunluğu göstergesi, başlıktan sonra gelen birimin ya da parçanın bayt cinsinden uzunluğudur: sıfırdan on altı bin üç yüz seksen üçe. Standarda göre bu, iki bin baytlık genişletilmiş Ethernet çerçevesine de, dokuz bin baytlık jumbo çerçeveye de yeter. Değer bayta kadar doğrudur, ama yükün boyu değildir: yük dört bayta hizalanır."
+  },
+  {
+   "id": "b7",
+   "text": "Anahtar indeksini dördüncü perdede açacağız. Seçenekler alanı hâlâ çalışma konusudur: verici sıfır yazar, alıcı yok sayar. Metin bu sıfırı beş haneli bir on altılık sayı, yani yirmi bit olarak yazar; alan on sekiz bittir. Son parça biti, taşınan şey bir birimin son parçası ya da tamamıysa bir, değilse sıfırdır."
+  },
+  {
+   "id": "b8",
+   "text": "Yükün boyunu bir formül verir. Uzunluk sekiz ya da daha fazlaysa yük, uzunluğun dördün katına yukarı yuvarlanmışıdır. Bir ile yedi arasındaysa yük sekiz bayttır. Sıfırsa yük de sıfırdır. Dolgu yükün sonuna eklenir, ve verici her dolgu baytına on altılık tabanda beş beş yazar: sıfırlar ve birler dönüşümlü. Alıcı dolguyu atar."
+  },
+  {
+   "id": "b9",
+   "text": "Örnekler, bizim hesabımızla. Altmış dört baytlık bir Ethernet çerçevesi, dolgusuz, yetmiş iki baytlık bir XGEM çerçevesi olur; bin beş yüz on sekiz bayt, iki bayt dolguyla, bin beş yüz yirmi sekiz. En küçük dolu XGEM çerçevesi on altı, en büyüğü on altı bin üç yüz doksan iki bayttır. Dört ile yedi baytlık dolgu, yalnızca dört bayt ya da daha kısa birimlerde çıkar."
+  },
+  {
+   "id": "b10",
+   "text": "Boş XGEM çerçeveleri. Vericinin gönderecek birimi yoksa, ya da sıradaki birim kalan yere sığmıyor ve onu bölmek kuralları çiğneyecekse, verici yükün kalanını boş çerçevelerle doldurur. Boş çerçeve, port kimliği altmış beş bin beş yüz otuz beş olan her XGEM çerçevesidir. Şifresiz gider, son parça biti birdir; alıcı onun indeksini, son parça bitini ve yükünü yok sayar."
+  },
+  {
+   "id": "b11",
+   "text": "Boş çerçevenin göstergesi formüle uymaz: yükün gerçek boyunu taşır, ve dördün herhangi bir katı olabilir, sıfır ve dört de dahil. Göstergesi dört olan bir boş çerçeve on iki bayttır; formül on altı derdi. Yani çözücü, yük boyunu hesaplamadan önce port kimliğine bakmalıdır. Boş yükün içeriğini verici seçer, ama hat desenini ve ardışık özdeş rakamları gözeterek."
+  },
+  {
+   "id": "b12",
+   "text": "Bir özel durum: yük bölümünün sonunda tam dört bayt kalırsa, verici dört sıfır bayttan oluşan kısa bir boş çerçeve üretir; ama yalnızca yukarı yönde. OLT bundan kaçınır, çünkü XG-PON'un TC katmanı aşağı yön çerçevesinin BIP kuyruğunu zaten kısa bir boş çerçeve sanar. Bizim yorumumuz: OLT bir de kendi kısa boş çerçevesini ekleseydi, XG-PON motoru sekiz artık bayt görür, ve onları bir başlık gibi çözmeye çalışırdı."
+  },
+  {
+   "id": "b13",
+   "text": "Mühendis notu. Bir: gösterge yükün boyu değildir, ve boş çerçeveler formülü bozar; formülü göstergesi dört olan bir boş çerçeveye uygulayan bir çözücü, on altı bayt atlar ve sınırlamayı kaybeder. İki: on altı sihirli sayıdır. En küçük dolu çerçeve on altı bayttır; on altıdan küçük artıklar boş çerçeve olur; sekizden kısa son parçalar sekize doldurulur."
+  },
+  {
+   "id": "b14",
+   "text": "Sıradaki: çerçeve belli. Peki alıcı bu çerçevelerin sınırlarını nasıl bulur?"
+  }
+ ]
+}

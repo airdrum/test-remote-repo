@@ -43,7 +43,7 @@ LEX = [
     (r"\bL([12])\b", lambda m: "el " + ["", "bir", "iki"][int(m.group(1))]),
     (r"\bO([1-9])\b", lambda m: "o " + ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"][int(m.group(1))]),
     (r"\bB\b", "be"), (r"\bC\b", "ce"), (r"\bD\b", "de"), (r"\bG\b", "ge"),
-    (r"\bOC\b", "o si"), (r"\bCRC\b", "si ar si"), (r"\bATM\b", "ey ti em"), (r"\bASCII\b", "aski"),
+    (r"\bDBRu", "di bi ar yu"), (r"\bDBA\b", "di bi ey"), (r"\bT-CONT", "ti kont"), (r"\bOC\b", "o si"), (r"\bCRC\b", "si ar si"), (r"\bATM\b", "ey ti em"), (r"\bASCII\b", "aski"),
     (r"\bM\b", "em"), (r"\bN\b", "en"), (r"\bP\b", "pi"),
 ]
 

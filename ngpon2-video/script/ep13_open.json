@@ -1,0 +1,33 @@
+{
+ "title": "S2B03 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm üç: XGEM. Geçen bölümde çerçeveyi kurduk. Şimdi yükünü açıyoruz: kullanıcı verisinin ve yönetim mesajlarının XGEM çerçevelerine nasıl paketlendiğini, bölündüğünü ve korunduğunu."
+  },
+  {
+   "id": "o2",
+   "text": "Önce XGEM çerçevesi: sekiz baytlık başlık, yükün dört bayta yuvarlanma kuralı, boş çerçeveler, ve yalnızca yukarı yönde var olan kısa boş çerçeve."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra sınırlama: alıcının çerçeve sınırlarını hiç aramadan nasıl bulduğu, bir başlık bozulunca ne kaybedildiği, ve bunu hangi sayaçların söylediği."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından parçalama: aşağı ve yukarı yönün farklı kuralları, son parça biti, yeniden birleştirme, ve çok küçük tahsisler."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra servisler ve şifreleme: Ethernet ve OMCI'ın eşlenmesi, çalışma konusu olarak kalanlar, ve şifrelemenin XGEM başlığına dokunduğu yerler."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda bir trafik üreteci ve bir protokol analizörüyle başlıkları çözeceğiz, boş çerçeveleri sayacağız, parçalamayı sınayacağız ve verimi ölçeceğiz."
+  }
+ ]
+}
