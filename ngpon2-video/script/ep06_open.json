@@ -1,0 +1,32 @@
+{
+ "title": "B06 açılış",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm altı: Patlama. Bu bölümde ONU vericisini inceliyoruz; ama sürekli gönderen bir vericiyi değil, kalabalık bir yukarı yönde yalnızca kendi sırası geldiğinde yanıp sönen bir vericiyi."
+  },
+  {
+   "id": "o2",
+   "text": "Önce burst modunun temeli: neden sürekli değil de patlamalı gönderdiğimiz, vericinin açılma ve kapanma geçişleri, ve her burst'ün başındaki önsöz ile sınırlayıcı."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra karanlık: kapalı bir vericinin bile fiber'e sızdırdığı güç. Etkin değilken yayılan güç yoğunluğu, bant dışı ve kanal dışı yoğunluk, ve sönüm oranıyla gücün birlikte çizdiği izin verilen bölge."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından burst'ün şekli: verici göz maskesi, titreşim toleransı ve üretimi, kaynak yan mod bastırması ve dispersiyon."
+  },
+  {
+   "id": "o5",
+   "text": "TC köprüsünde ise yukarı yön burst'ünün yapısı: fiziksel senkron bloğu, önsöz ve sınırlayıcıdan oluşan burst profili, yukarı yön hata düzeltmesi, ve bütün bunların zamanlamasını kuran bant genişliği haritası."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda kapılı bir göz diyagramıyla açılma ve kapanma zamanlamasını, ve karanlıktaki güç yoğunluğunu ölçeceğiz."
+  }
+ ]
+}

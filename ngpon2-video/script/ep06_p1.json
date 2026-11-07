@@ -1,0 +1,68 @@
+{
+ "title": "B06 Perde 1 — Burst modunun temeli",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: burst modu. Aşağı yön tek bir OLT'den sürekli akar; yukarı yön ise paylaşımlıdır. Bir fiberde çok sayıda ONU vardır, ama aynı anda yalnızca biri gönderebilir. Her ONU yalnızca kendisine ayrılan zaman diliminde vericisini açar, gönderir, ve kapatır. İşte yukarı yöndeki her gönderime bir burst diyoruz."
+  },
+  {
+   "id": "b1a",
+   "text": "Bunun bedeli zamandır. İki ONU'nun burst'leri çakışırsa ikisi de kaybolur. O yüzden OLT, her bursta bir başlangıç ve bir süre atar, ve aralarına koruma boşlukları koyar. Vericinin ne kadar hızlı açılıp kapandığı, bu boşlukların ne kadar dar olabileceğini doğrudan belirler; yani burst modu, güç bütçesi kadar zaman bütçesidir."
+  },
+  {
+   "id": "b2",
+   "text": "Standart iki geçiş süresi tanımlar. Verici etkinleştirme geçiş süresi: vericinin kapalıdan tam güce çıkması. Verici devre dışı bırakma geçiş süresi: tam güçten kapalıya inmesi. On gigabitlik yukarı yönde her ikisi de en çok bin iki yüz seksen bittir, yani yüz yirmi sekiz virgül altı nanosaniye."
+  },
+  {
+   "id": "b2a",
+   "text": "Bin iki yüz seksen bit neden anlamlı bir sayı? Çünkü bu süre, gerçek verilerden çalınan zamandır. Lazer akımı sıfırdan çalışma noktasına çıkarken, ya da inerken, o bitler güvenilir taşınamaz. Koruma boşluğu en azından bu açılma ve kapanma sürelerini, artı ONU'ların zamanlama sürüklenmesini örtmelidir."
+  },
+  {
+   "id": "b3",
+   "text": "Burst'ün kendisi de sade bir veri bloğu değildir. Standart, ONU güç düzeyleri ile burst zamanları arasındaki ilişkiyi bir şekille verir. Sırasıyla: verici etkinleştirme, önsöz, sınırlayıcı, burst'ün geri kalanı, ve verici devre dışı bırakma."
+  },
+  {
+   "id": "b3a",
+   "text": "Önsöz, OLT alıcısının bu ONU'nun güç düzeyine ve fazına hızla kilitlenmesi için konan, önceden bilinen bir bit desenidir. Sınırlayıcı ise yük verilerinin tam olarak nerede başladığını işaretleyen benzersiz bir sözcüktür. OLT önce önsözle ayarını yapar, sonra sınırlayıcıyı bulur, ve ondan sonrasını veri olarak okur."
+  },
+  {
+   "id": "b3b",
+   "text": "Dikkat edin: önsöz ve sınırlayıcının uzunluğu ile deseni sabit değildir. Bunları OLT belirler ve her bursta hangisinin kullanılacağını seçer. Bu yüzden önsöz, en kötü ONU'ya göre değil, o anki koşullara göre ayarlanabilir; sekizinci bölümde OLT alıcısını işlerken bunun neden önemli olduğunu göreceğiz."
+  },
+  {
+   "id": "b4",
+   "text": "Önsözün bir görevi de saat çıkarımıdır. Beşinci bölümde sürekli aşağı yön için ardışık özdeş rakam bağışıklığını konuşmuştuk: her iki hızda yetmiş iki bit. Burst alıcısı ise saati sıfırdan, yalnızca önsözdeki değişen bitlerden kurmak zorundadır; o yüzden önsöz, hem güç hem faz kilidi için yeterince uzun olmalıdır."
+  },
+  {
+   "id": "b4a",
+   "text": "Burst içinde de aynı yetmiş iki bitlik bağışıklık geçerlidir. Veriler karıştırıcıdan geçer, böylece uzun sıfır ya da bir dizileri olasılıksal olarak kırılır; kalan riski yetmiş iki bitlik bağışıklık karşılar. Yani OLT alıcısının saat devresi, burst boyunca geçişsiz en çok yetmiş iki biti fazını kaybetmeden taşıyabilmelidir."
+  },
+  {
+   "id": "b5",
+   "text": "Burst'ün ortalama gücü nasıl ölçülür? Standart açıkça uyarır: ONU'nun S noktasındaki başlatma gücü ölçümü, yukarı yön trafiğinin patlamalı doğasını hesaba katmalıdır. Yani ortalama gücü, vericinin açık olduğu süre üzerinden, kapalı aralıkları dışarıda bırakarak ölçersiniz; yoksa düşük doluluk oranı sizi yanıltır."
+  },
+  {
+   "id": "b5a",
+   "text": "On gigabitlik ONU vericisinin ortalama kanal başlatma gücü, B tipi bağlantıda N1, N2 ve E1 için artı iki ile artı yedi dBm arasıdır; E2'de artı dört ile artı dokuz. Bu bir aralıktır: alt sınır sağlanması gereken en az güç, üst sınır asla aşılmaması gereken tavandır. Maliyet, ölçüm toleransı ve yaşlanma, bu aralığın içinde yaşar."
+  },
+  {
+   "id": "b6",
+   "text": "Zaman bütçesinin öbür ucu fiziksel katman ek yüküdür. On gigabitlik yukarı yönde bu ek yük iki bin kırk sekiz bittir; iki buçuk gigabitte beş yüz on iki. Bu bitler önsöz, sınırlayıcı ve geçiş sürelerinin toplam cebidir, ve standardın üçüncü eki bu sürenin nasıl dağıtılacağını tartışır."
+  },
+  {
+   "id": "b6a",
+   "text": "Bu ek yükü sezgiyle yerleştirin. İki bin kırk sekiz bit, on gigabitte yaklaşık iki yüz nanosaniyedir. Her burst'ün başında ödenir; ne kadar çok, ama kısa burst olursa, ek yükün toplam yukarı yöne oranı o kadar artar. Verimlilik ile gecikme arasındaki denge, OLT'nin bant genişliği atayıcısının her an verdiği karardır."
+  },
+  {
+   "id": "b7",
+   "text": "Mühendis notu. Bir: açılma ve kapanma geçişlerini bitlerle değil, nanosaniyeyle düşünün; bin iki yüz seksen bit on gigabitte yüz yirmi sekiz virgül altı nanosaniyedir, ve koruma boşluğu bütçenizi bu belirler. İki: ortalama gücü her zaman kapılı ölçün; vericinin yalnızca açık olduğu pencerede."
+  },
+  {
+   "id": "b8",
+   "text": "Sıradaki: verici kapalıyken bile tamamen karanlık değildir. O sızan güç nereden gelir, ve neden önemlidir?"
+  }
+ ]
+}

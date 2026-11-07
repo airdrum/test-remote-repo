@@ -1,0 +1,24 @@
+{
+ "title": "B06 Kapanış",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölüm altının özeti. Bir: yukarı yön paylaşımlıdır, o yüzden ONU burst modunda gönderir; verici yalnızca sırası gelince açılır, ve açılma ile kapanma geçişi on gigabitte bin iki yüz seksen bit, yani yüz yirmi sekiz virgül altı nanosaniyedir. İki: kapalı verici karanlık değildir; etkin değilken güç yoğunluğu eksi altmış iki virgül altı dBm'le, bant dışı ve kanal dışı maskelerle sınırlanır."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: burst ilk bitinden temiz olmalıdır; göz maskesi, titreşim ve en az otuz desibellik yan mod bastırması bunu güvence altına alır. Dört: TC katmanında burst'ün önsözü ile sınırlayıcısı bir burst profilidir; OLT bunu PLOAM ile duyurur, bant genişliği haritasıyla burst başına seçer, ve yük Reed-Solomon ile korunur. Beş: yukarı yönün tamamı merkezden, bant genişliği haritasıyla zamanlanır."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: ayar sırasında bir ONU'nun kanal dışı güç maskesi neden gevşetilir? İkinci soru: ayarlanabilir bir ONU vericisinin ayar süresi sınıfları, Tablo dokuz iki'de neden tek bir değerle değil, bir aralıkla tanımlanır? Üçüncü soru: bir ONU bir dalga boyu kanalından diğerine geçerken, bu geçişin fiziksel katman süresiyle TC katmanı süresi neden farklıdır? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Renk Değiştiren Lazer. ONU'nun ayarlanabilirliği ve kanal yönetimi: ayar sınıfları, kanal dışı maske, kalibrasyon, kanal devri ve kilitleme. Görüşmek üzere."
+  }
+ ]
+}

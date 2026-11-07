@@ -1,0 +1,60 @@
+{
+ "title": "B06 Perde 2 — Karanlıkta güç",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: karanlıkta güç. İki ONU aynı anda gönderemez; ama bir ONU gönderirken, geri kalan onlarca ONU gerçekten sessiz mi? Standart bunun hayır olduğunu kabul eder, ve kapalı bir vericinin yayabileceği en büyük gücü açıkça sınırlar."
+  },
+  {
+   "id": "c1a",
+   "text": "Neden karanlık tam karanlık değildir? Bir yarı iletken lazer, eşik akımının altında bile kendiliğinden ışıma yayar. Üstelik birçok ONU vericisi, hızlı açılabilmek için eşiğe yakın bir ön gerilimde tutulur. Sonuç: kapalı olması gereken verici, fiber'e zayıf ama sıfır olmayan bir ışık sızdırır."
+  },
+  {
+   "id": "c2",
+   "text": "Bu neden sorun? NG-PON2'de bir kanalda altmış dörde kadar ONU olabilir. Biri konuşurken diğer altmış üçü dinlemede, ama hepsinin sızıntısı toplanır. Bu toplam, konuşan ONU'nun sinyaline binen bir gürültü tabanıdır; yeterince yükselirse, meşru burst'ün hata oranını bozar."
+  },
+  {
+   "id": "c3",
+   "text": "Standart bunu etkin değilken güç yoğunluğu, kısaca W-N-E-P-S-D ile sınırlar. On gigabitlik yukarı yönde bu değer, on beş gigahertz başına eksi altmış iki virgül altı dBm'dir. Bu, bir ONU'nun kendisine ayrılmamış burst'ler sırasında fiber'e yayabileceği en büyük güç yoğunluğudur."
+  },
+  {
+   "id": "c3a",
+   "text": "Geçiş anlarında kural değişir. Vericinin açılma geçişi, kendi burst'ünden hemen önce lazeri ön gerilimlemek için kullanılabilir; kapanma geçişi hemen sonra gelir. Bu iki pencerede izin verilen en büyük düzey, etkin değilken güç yoğunluğu değil, en küçük sönüm oranındaki sıfır düzeyidir. Yani verici tam kapanmadan önce, kısa bir an daha parlak olabilir."
+  },
+  {
+   "id": "c4",
+   "text": "Sızıntının iki ekseni vardır: bant dışı ve kanal dışı. Bant dışı güç yoğunluğu, yukarı yön bandının tamamen dışına düşen ışıktır; dört kanalda on beş gigahertz başına eksi elli yedi virgül dört, sekiz kanalda eksi altmış dört virgül altı dBm. Bu, eski sistemlerle ve noktadan noktaya WDM ile birlikte yaşayabilmek içindir."
+  },
+  {
+   "id": "c4a",
+   "text": "Kanal dışı güç yoğunluğu ise yukarı yön bandının içindeki, ama bu ONU'nun kanalı olmayan yerlere düşen ışıktır. İki maske var. Birinci maske komşu kanal aralığına bakar: elli gigahertz aralıkta eksi otuz altı virgül yedi, yüz gigahertzde eksi kırk virgül beş, iki yüz gigahertzde eksi kırk dört virgül dört dBm. İkinci maske daha uzağa bakar: dört kanalda eksi kırk bir virgül altı, sekiz kanalda eksi kırk sekiz virgül beş."
+  },
+  {
+   "id": "c5",
+   "text": "Bu üç sınır, dördüncü bölümdeki X bölü S toleransının öbür yüzüdür. Orada alıcının kalabalıkta duyabilmesini istemiştik; burada ise her vericinin, kalabalığa kendi payından fazla gürültü katmamasını istiyoruz. Biri alıcı tarafın, diğeri verici tarafın sözleşmesidir; ikisi birlikte sistemi ayakta tutar."
+  },
+  {
+   "id": "c6",
+   "text": "Şimdi ilginç bir gerilim: sönüm oranı ile güç. Sönüm oranı, bir ile sıfır bitinin güç oranıdır; en az altı desibel istenir. Ama sıfır biti hiç sıfır değildir, ve düşük sönüm oranı demek, daha parlak sıfırlar, yani daha fazla kanal dışı sızıntı demektir. Öte yandan yüksek sönüm oranı lazeri zorlar ve maliyeti artırır."
+  },
+  {
+   "id": "c6a",
+   "text": "Standart bu gerilimi tek bir sayı yerine izin verilen bir bölgeyle çözer. Ortalama güç ile sönüm oranı birlikte, bir bölgenin içinde kalmalıdır. B tipi verici için alt sınır şu çiftlerle çizilir: artı bir dBm'de sekiz desibel, artı iki'de altı, artı üç buçukta beş, artı beşte dört, artı yedide dört desibel. Yani daha düşük güçte daha yüksek sönüm oranı istenir; güç arttıkça sönüm oranından ödün verilebilir."
+  },
+  {
+   "id": "c6b",
+   "text": "Bu bölgenin mantığı fizikseldir. Düşük güçte çalışıyorsanız, sıfır düzeyiniz zaten gürültü tabanına yakındır; kanal dışı güç küçüktür, ama alıcı hassasiyeti için net bir göz istersiniz, o yüzden yüksek sönüm oranı. Yüksek güçte ise sıfır düzeyi yukarı kayar; sönüm oranını yüksek tutmak sızıntıyı patlatır, o yüzden bir tavan konur."
+  },
+  {
+   "id": "c7",
+   "text": "Mühendis notu. Bir: sönüm oranını güçten bağımsız düşünmeyin; vericinizi çalıştıracağınız güç noktasında, izin verilen bölgenin içinde kaldığınızı doğrulayın. İki: etkin değilken güç yoğunluğunu ölçerken vericiyi gerçek çalışma ön gerilimiyle kapatın; laboratuvarda tamamen söndürülmüş bir lazer, sahadaki karanlığı temsil etmez."
+  },
+  {
+   "id": "c8",
+   "text": "Sıradaki: güç ve sızıntı tamam. Peki burst'ün dalga biçimi; bir ve sıfırların şekli ne kadar temiz olmalı?"
+  }
+ ]
+}

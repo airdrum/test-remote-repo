@@ -1,0 +1,60 @@
+{
+ "title": "B06 Perde 4 — TC Köprüsü: burst'ün içi",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört, TC köprüsü. Fiziksel burst'ün dışını gördük: açılma, önsöz, sınırlayıcı, kapanma. Şimdi G.989.3'e geçip içini dolduralım. TC katmanında yukarı yön burst'ü iki parçadır: yukarı yön fiziksel senkron bloğu, ve onu izleyen yük."
+  },
+  {
+   "id": "e1a",
+   "text": "Fiziksel senkron bloğu, kısaca PSBu, tam da perde birde konuştuğumuz önsöz ile sınırlayıcıdan oluşur. Standart bu ikisinin uzunluğunu ve desenini birlikte burst profili diye adlandırır. Yani fiziksel katmanda gördüğümüz o ayarlanabilir önsöz, TC katmanında bir profil olarak isimlendirilir ve yönetilir."
+  },
+  {
+   "id": "e2",
+   "text": "Profili kim seçer? OLT. Önce izin verilen burst profillerini, her birine bir indeks vererek, burst profili PLOAM mesajlarıyla önceden duyurur. Sonra her yukarı yön ayırması için, bant genişliği haritasındaki burst profili alanına bir indeks yazarak hangi profilin kullanılacağını söyler. Böylece aynı ONU, koşullara göre farklı bursta farklı önsöz kullanabilir."
+  },
+  {
+   "id": "e2a",
+   "text": "Bu neden güçlüdür? Yeni etkinleşen, henüz hizalanmamış bir ONU uzun bir önsöz gerektirir; OLT ona uzun profilli bir indeks verir. Oturmuş, zamanlaması bilinen bir ONU'ya ise kısa önsözlü bir profil yeter. Önsöz artık en kötü duruma değil, o anki duruma göre ödenir; kazanılan her bit, yukarı yön verimliliğine yazılır."
+  },
+  {
+   "id": "e3",
+   "text": "Yükün kendisi de korunur. Yukarı yön hata düzeltmesi Reed-Solomon kodudur: on gigabitte iki yüz kırk sekiz, iki yüz on altı; iki buçuk gigabitte iki yüz kırk sekiz, iki yüz otuz iki. İkisi de iki yüz elli beş sembollük tam koddan kısaltılmıştır; yedi sıfır sembol başa eklenir, ama iletilmez, alıcıda yeniden konur."
+  },
+  {
+   "id": "e3a",
+   "text": "Aşağı yönde FEC statik olarak açık ya da kapalıdır; yukarı yönde ise OLT'nin dinamik denetimindedir. Bir ONU'nun ardışık ayırmaları tek bir veri bloğu gibi kodlanır, sona en çok bir kısaltılmış kod sözcüğü düşer. Yani FEC de, önsöz gibi, burst profilinin parçası olarak bursta göre açılıp kapanabilir."
+  },
+  {
+   "id": "e4",
+   "text": "Şimdi zamanlama. Yukarı yön fiziksel çerçevesi de aşağı yön gibi yüz yirmi beş mikrosaniyedir, ama kimse sürekli göndermez. OLT, her aşağı yön çerçevesiyle birlikte bir bant genişliği haritası gönderir; bu harita, o yukarı yön çerçevesinde hangi ONU'nun, hangi ayırma kimliğiyle, ne zaman ve ne kadar göndereceğini bite kadar belirler."
+  },
+  {
+   "id": "e4a",
+   "text": "Bu, dinamik bant genişliği atamasının kalbidir. ONU'lar doldukları tamponları bildirir; OLT talebi görür, adil ve gecikmeye duyarlı biçimde zaman dilimlerini dağıtır, ve haritayı yayınlar. Yukarı yön, aşağı yönün tersine, merkezden zamanlanan bir orkestradır; her ONU yalnızca kendi ölçüsünde çalar."
+  },
+  {
+   "id": "e5",
+   "text": "Burst'leri çakışmadan dizmek için OLT, aralarına koruma süresi koyar. Önerilen en az koruma süresi altmış dört bittir. Bu süre, perde birdeki açılma ve kapanma geçişlerini, artı ONU'ların zamanlama sürüklenmesini örtmelidir. İşte fiziksel katmandaki o bin iki yüz seksen bitlik geçiş, burada TC katmanının koruma bütçesine dönüşür."
+  },
+  {
+   "id": "e5a",
+   "text": "İki katmanı birlikte okuyun. Fiziksel katman der ki: açılmam yüz yirmi sekiz nanosaniye sürer, karanlıkta şu kadar sızdırırım, gözüm ilk bitten temiz olur. TC katmanı bunu duyar ve der ki: o halde sana şu kadar koruma, şu uzunlukta önsöz, ve şu profille FEC veriyorum. Burst profili, bu iki katmanın el sıkıştığı yerdir."
+  },
+  {
+   "id": "e6",
+   "text": "Verimlilik hesabı da buradan çıkar. Perde birdeki iki bin kırk sekiz bitlik fiziksel katman ek yükü, artı koruma süresi, artı her ayırmanın FEC payı; bunların toplamı, her burst'te veriye ayrılmayan zamandır. Kısa ve çok burst, düşük gecikme ama yüksek ek yük demektir; uzun ve seyrek burst, tersi. OLT bu dengeyi her çerçevede yeniden kurar."
+  },
+  {
+   "id": "e7",
+   "text": "Mühendis notu. Bir: bir ONU'nun yukarı yön verimini ölçerken yalnızca hattı değil, ona atanan burst profilini de bakın; gereğinden uzun bir önsöz, sessizce bant genişliği yakar. İki: koruma süresini ONU'nun gerçek açılma, kapanma ve sürüklenme ölçümlerinden türetin; standardın altmış dört biti bir alt sınırdır, güvenli bir varsayılan değil."
+  },
+  {
+   "id": "e8",
+   "text": "Sıradaki: laboratuvar. Kapalı bir vericinin karanlığını, ve açılıp kapanma zamanlamasını nasıl ölçeriz?"
+  }
+ ]
+}
