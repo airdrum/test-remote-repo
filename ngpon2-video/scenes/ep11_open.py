@@ -304,9 +304,9 @@ class Ep11Recap(Act11):
             bars.add(VGroup(r, T(s, 14, GOLD, BOLD).next_to(r, DOWN, buff=0.08)))
         dots = T("…", 24, GOLD, BOLD).move_to([bx0 + 4 * 1.1 - 0.2, by0 + 0.3, 0])
         cap = tag("≈ 1 dk", GOLD, 18).move_to([bx0 + 5 * 1.1 - 0.1, by0 + 0.35, 0])
-        bt = T("her başarısız turda bekleme ×2", 17, GOLD, BOLD).move_to([2.9, 0.95, 0])
-        rel = msg(6.2, -1.95, -0.05, "", GOOD)[0]
-        rlt = T("OLT: yeniden etkinleştirme komutu", 17, GOOD, BOLD).move_to([2.6, 0.2, 0])
+        bt = T("her başarısız turda bekleme ×2", 17, GOLD, BOLD).move_to([2.9, -0.15, 0])
+        rel = Arrow([6.3, 0.45, 0], o7.get_right(), buff=0.08, color=GOOD, stroke_width=3, tip_length=0.18, max_tip_length_to_length_ratio=0.1)
+        rlt = T("yalnızca OLT: yeniden etkinleştirme komutu", 17, GOOD, BOLD).next_to(rel, UP, buff=0.1)
         s2 = pill("→ Sezon 2", ACC, 20).move_to([5.3, 2.2, 0])
         self.play(FadeIn(q3, shift=RIGHT * 0.2), self.set_src("G.989.3 Tablo 12-1 (O7) · Ek XI (Amd.1, 2023) · §11.3.3.5"), run_time=0.6)
         self.play(FadeIn(o7, shift=UP * 0.1), run_time=0.5)
