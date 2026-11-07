@@ -1,0 +1,25 @@
+{
+ "title": "S2B05 Kapanış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölümün özeti. Bir: PLOAM, sabit kırk sekiz baytlık mesajlardır; bant içinde taşınır, yalnızca iki yukarı yön mesajı AMCC'yi kullanabilir. Çerçeve başına bir yayın ve ONU başına bir tek alıcılı mesaj, sekiz mesajlık kuyruk, yedi yüz elli mikrosaniye. İki: sıra numaraları aşağı yönde birden başlar ve sıfırı atlar; yukarı yön yalnızca yansıtır, ve sıfır sırasız demektir."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: bütünlük kodu, yön baytı ve kırk bayt üzerinden altmış dört bittir; yayın ve aktivasyon mesajları herkesin bildiği anahtarı kullanır. Dört: iki değişiklik dolguya iki neden kodu koydu, ve burst profillerinde en son gelen kazanır. Beş: OMCC, ONU kimliğiyle aynı numaralı port ve tahsis kimliğinde taşınır; dört baytlık kendi kodu vardır, varsayılan anahtarı yoktur."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: yakalanan bir yayın kanal profilinin bütünlük kodunu hangi anahtarla doğrularsınız, hesaba hangi baytlar girer, ve sonuç kaç bittir? İkinci soru: boştaki bir ONU'ya N numaralı çerçevede yönlendirilmiş bir mesaj geliyor. Cevap en geç ne zaman hazırdır, hangi sıra numarasını taşır, ve ONU hâlâ işlerken tahsis gelirse ne gönderir? Üçüncü soru: zayıflatması sıfır olan bir ONU'ya gücü artır komutu gelirse ne olur? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Uyanış. ONU aktivasyonu, ranging ve günün saati. Bu bölümde adlarını koyduğumuz seri numarası, kimlik atama ve eşitleme gecikmesi mesajlarını, bir ONU'nun O1'den O5'e uyanışında, zamanlayıcılarıyla birlikte izleyeceğiz. Görüşmek üzere."
+  }
+ ]
+}

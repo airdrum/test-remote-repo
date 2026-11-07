@@ -1,0 +1,61 @@
+{
+ "title": "S2B05 Perde 4 — OMCC",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: OMCC. ONU yönetim ve denetim kanalı, TC katmanının üstündeki servis katmanlarını yönetmek için OMCI mesajlarını kullanır; TC katmanı da bunun için, port kimlikleri dahil, XGEM tabanlı bir taşıma sağlamak zorundadır. G.989.3 kanalın biçimini ve aktarımını tanımlar; mesajların anlamı G.988'in işidir."
+  },
+  {
+   "id": "e2",
+   "text": "Taşıma zinciri dört halkadır. OMCC portu sayıca ONU kimliğine eşittir, ve kimlik atama mesajıyla örtük olarak kurulur. Yukarı yön bant genişliğini, yine ONU kimliğine eşit olan varsayılan tahsis kimliği verir. Mesajlar sıradan XGEM yükleridir. Ve ONU'nun diğer bütün port atamaları, OMCC'nin kendisi üzerinden yapılır."
+  },
+  {
+   "id": "e3",
+   "text": "Sonucu zariftir: tek bir yayın PLOAM mesajından sonra ONU'nun iki yönlü bir yönetim kanalı vardır, hiçbir OMCI yapılandırması olmadan. Ömrü de bellidir: O1'de ONU varsayılan portu unutur. Kanal bağlamada her etkin PON arayüzü için ayrı bir OMCC kurulur, ama bilgi tabanı tektir; ONU, komutun geldiği arayüzden cevap verir."
+  },
+  {
+   "id": "e4",
+   "text": "Mesaj biçiminden G.989.3 yalnızca bütünlük için gerekeni çizer: işlem kimliği, mesaj türü, cihaz kimliği, dört baytlık yönetim varlığı kimliği, içerik, ve sonda dört baytlık bütünlük kodu. Dördüncü ekin on ikinci örneği temel biçimde bir okuma isteğidir; bizim hesabımızla kırk sekiz bayt, yani elli altı baytlık bir XGEM çerçevesi."
+  },
+  {
+   "id": "e5",
+   "text": "Standartta olmayanlar da var. Genişletilmiş biçimin cihaz kimliği, uzunluk alanı ve en büyük boyu G.989.3'te yoktur; yalnızca şekildeki bir ibare ve iki isteğe bağlı sayaç vardır. On ikinci örnekteki dört baytlık kuyruğun anlamı açıklanmaz. OMCC çerçevelerinin şifrelenip şifrelenmediği de açıkça yazılmaz."
+  },
+  {
+   "id": "e6",
+   "text": "OMCI bütünlük kodu dört bayttır. Hesap PLOAM'dakine benzer: anahtar OMCI bütünlük anahtarı, girdi yön baytı ile son dört bayt hariç bütün mesaj, çıkış otuz iki bit. Bizim hesabımızla temel biçimde bu, kırk beş baytlık bir girdidir. On ikinci örneğin kodunu yeniden ürettik; tutuyor."
+  },
+  {
+   "id": "e7",
+   "text": "Öğretici bir fark: OMCI anahtarının varsayılanı yoktur. Gerekçe: ana oturum anahtarı kurulmadan OMCI alışverişi yapılmaz, ve yayın OMCC kanalı desteklenmez. PLOAM aktivasyonu taşıdığı için herkesin bildiği bir anahtarla başlar; OMCI ise yalnızca türetilmiş anahtarla konuşur. Anahtar değişiminde iki kanal el ele verir; ayrıntısı sekizinci bölümde."
+  },
+  {
+   "id": "e8",
+   "text": "Bütünlük hataları rastgele olabilir; standart onları bit hata oranıyla ilişkili seyrek olaylar sayar. Kalıcıysa büyük olasılıkla anahtar uyuşmazlığıdır, ve iki kusurdan birini doğurur: PLOAM kanalı kaybı ya da OMCC kanalı kaybı. Önlemler OLT'ye kalmıştır: yeniden kimlik doğrulama, trafiği engelleme, devre dışı bırakma, başıboş ONU tanılaması."
+  },
+  {
+   "id": "e9",
+   "text": "Şimdi metindeki çelişkiler. Kanal profilinde varsayılan yanıt kanalı otuz iki bitlik bir PON kimliğidir; on yedinci maddedeki tablo ise onu yukarı yön kanal kimliği diye anar. Güç tüketimi raporunun girdileri yirmi dört bittir, metin on altı bitten söz eder. Bir özet tabloda iki mesaj adı birbirine yapışmış, bir şekilde ONU kimliği yanlış yazılmıştır."
+  },
+  {
+   "id": "e10",
+   "text": "PMD Köprüsü. Birinci sezonun dokuzuncu bölümünde G.989.2'nin PtP WDM hız sınıflarını gördük: üç sınıf, ve üçüncüsü hem altı hem on gigabiti kapsıyordu. G.989.3 bunu dörde böler. Üstelik kanal profilinde, seri numarası mesajında ve hız denetiminde aynı dört hız üç farklı sırayla kodlanır."
+  },
+  {
+   "id": "e11",
+   "text": "Değişikliklerin toplamı küçüktür: eski dolguda iki neden kodu, yeniden yazılmış bir burst profili kuralı, ve bir yukarı yön mesajında düzeltilmiş bir satır. Hiçbir tür ya da alan yer değiştirmedi; yalnızca iki bin yirmi beşte, yeniden başlatma mesajından itibaren tablo numaraları kaydı. OMCC, bütünlük maddeleri ve altın vektörler hiç değişmedi."
+  },
+  {
+   "id": "e12",
+   "text": "Mühendis notu. Bir: OMCI'ı izlemek için port kimliği ONU kimliğine eşit olan çerçeveleri süzmek yeter; bütünlüğü doğrulamak içinse o ONU'nun anahtarı gerekir. İki: hata raporlarında tabloya numarasıyla değil, mesaj adıyla atıf yapın; onay mesajının tablosu iki bin yirmi bir metninde on bir tire yirmi yedi, iki bin yirmi beşte on bir tire yirmi sekizdir."
+  },
+  {
+   "id": "e13",
+   "text": "Sıradaki: kanallar ve mesajlar tamam. Şimdi laboratuvarda onları yakalayalım."
+  }
+ ]
+}

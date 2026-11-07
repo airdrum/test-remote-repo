@@ -1,0 +1,65 @@
+{
+ "title": "S2B05 Perde 1 — PLOAM kanalı",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: PLOAM kanalı. Tanımı: OLT kanal sonlandırıcıları ile ONU'lar arasında, sabit bir kırk sekiz baytlık mesaj kümesine dayanan bir işletme ve yönetim aracı. Gömülü alanlarla gönderilmeyen bütün PMD ve çerçeveleme yönetim bilgisi buradan geçer: profiller, aktivasyon, kayıt, anahtarlar, koruma, güç yönetimi ve kanal devri. Gömülü kanaldan daha esnek, OMCC'den genellikle daha hızlıdır."
+  },
+  {
+   "id": "b3",
+   "text": "İki taşıma seçeneği vardır. Bant içinde, aşağı yön mesajları çerçeve başlığının PLOAM bölmesinde durur: başlıktaki sekiz bitlik sayı P ise, bölme kırk sekiz çarpı P bayttır. Yukarı yönde, burst'ün ilk tahsis yapısında PLOAM bayrağı kuruluysa, başlığa tek bir mesaj eklenir. Bant içi destek zorunludur."
+  },
+  {
+   "id": "b4",
+   "text": "İkinci seçenek AMCC'dir, ve bilerek dar tutulmuştur: yalnızca yukarı yönde, ve yalnızca seri numarası mesajı ile ayar yanıtı mesajı için. Kalibrasyon kısıtlarını karşılamayan ONU'lar için zorunlu, karşılayanlar için isteğe bağlıdır. Amaç, yeterince kalibre edilmemiş bir vericinin çalışan bir kanalda ışık vermemesidir."
+  },
+  {
+   "id": "b4a",
+   "text": "PMD Köprüsü. Birinci sezonun dokuzuncu bölümünde AMCC'yi saniyede yüz on beş ya da yüz yirmi sekiz kilobitlik bir kanal olarak gördük. Bizim hesabımızla, PtP WDM'in yönetim çerçevesiyle tek bir PLOAM beş ile altı milisaniye sürer; bant içinde bir çerçeveye sığar. TWDM kanallarında AMCC'nin ayrıntıları ise hâlâ çalışma konusudur."
+  },
+  {
+   "id": "b5",
+   "text": "Hız sınırları. Aşağı yön mesajları iki sınıftır: kanala ayarlı bütün ONU'lara yayın, ve ONU kimliğiyle tek bir ONU'ya tek alıcılı. Kural: bir çerçevede OLT en çok bir yayın mesajı, ve her ONU'ya en çok bir tek alıcılı mesaj gönderebilir. Bizim hesabımızla bu, akış başına saniyede sekiz bin mesaj, yani üç virgül sıfır yedi iki megabittir."
+  },
+  {
+   "id": "b6",
+   "text": "İşleme süresi. ONU sekiz aşağı yön mesajını kuyrukta tutabilmeli, ve onları tek iş parçacığıyla işlemelidir. Normatif süre yedi yüz elli mikrosaniyedir: boş kuyruğa N numaralı aşağı yön çerçevesinde gelen mesajın cevabı, en geç N artı altıncı yukarı yön çerçevesinde hazırdır. Kuyrukta başka mesaj varsa, her biri için altı çerçeve daha."
+  },
+  {
+   "id": "b7",
+   "text": "Neden? Standardın notu: bu gereksinimlerle OLT, bir ONU'ya yönelik onaylanmamış en fazla mesaj sayısını ve beklenen cevap süresini hesaplayabilir. Bizim hesabımızla dolu bir kuyruk kırk sekiz çerçevede, altı milisaniyede boşalır. Dokuzuncu mesaja ne olacağını metin yazmaz; bizim okumamızla OLT, oraya hiç varmamalıdır."
+  },
+  {
+   "id": "b8",
+   "text": "Yukarı yönde ONU kendiliğinden konuşamaz: OLT, tahsis yapısındaki PLOAM bayrağını açıkça kurar, ve her ONU'ya düzenli fırsatlar vermelidir. Sıklığı ONU'nun geri bildirimine göre ayarlayabilir; yukarı yön başlığındaki gösterge alanının en anlamlı biti, bekleyen mesaj olduğunu söyler. Ama düzenlinin sayısal karşılığı yoktur."
+  },
+  {
+   "id": "b9",
+   "text": "Sağlamlık kuralları. Tek alıcılı bir mesajın işlenmesi sonunda ONU O5'e girer ya da orada kalırsa, sonucu onaylar: ya o protokole özgü bir cevapla, ya da genel onay mesajıyla. Biçim ya da işleme hatasında da onay gönderilir. İkisi de onayladığı mesajın sıra numarasını taşır; onay mesajı buna bir tamamlama kodu ekler."
+  },
+  {
+   "id": "b10",
+   "text": "Onay mesajının ikinci görevi canlılıktır. PLOAM tahsisi alan ama gönderecek mesajı olmayan ONU, sıra numarası sıfır, tamamlama kodu bir olan bir onay gönderir: gönderecek mesaj yok. Bir mesajı hâlâ işliyorsa kod ikidir: meşgul, cevap hazırlanıyor. OLT, boştaki bir ONU'yu düşünen bir ONU'dan böyle ayırır."
+  },
+  {
+   "id": "b11",
+   "text": "Onaylanmayanlar da bellidir: cevap gerektirmeyen yayınlar, ama anahtar denetimi yayın olsa bile cevap ister; bütünlük denetiminden geçemeyen her mesaj; ve katalogda onaysız işaretlenen sekiz tür, kimlik atamadan yeniden başlatmaya. Bizim yorumumuz: bunlardan dalga boyu ayarı, O5'teki bir ONU'ya da onaysız gider; ilk kurala bir istisnadır."
+  },
+  {
+   "id": "b12",
+   "text": "Sessizlik bilgi taşır. Cevap beklerken yalnızca canlılık onayı alan OLT, ONU'nun mesajı işleyemediği sonucuna varabilir. ONU tekrar tekrar onaylamazsa OLT, PLOAM kanalı kaybı kusurunu ilan eder: aynı düzensiz durum art arda en az üç kez. Ama metinde ne yeniden gönderim zamanlayıcısı, ne de deneme sayısı vardır; yalnızca bir zaman aşımı sayacı."
+  },
+  {
+   "id": "b13",
+   "text": "Mühendis notu. Bir: PLOAM zaman aşımını standart vermez; altı çerçeveden ve sekiz mesajlık kuyruktan kendiniz türetin, ve yeniden gönderim politikasını üreticiden yazılı isteyin. İki: bir canlılık onayını başarı sanmayın; sıra numarası sıfır olan bir onay, hiçbir mesajı onaylamaz."
+  },
+  {
+   "id": "b14",
+   "text": "Sıradaki: kanal belli. Şimdi tek bir mesajın kırk sekiz baytına bakalım."
+  }
+ ]
+}

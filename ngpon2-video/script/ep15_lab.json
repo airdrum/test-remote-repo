@@ -1,0 +1,61 @@
+{
+ "title": "S2B05 Laboratuvarda — PLOAM yakalama ve bütünlük doğrulama",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Düzenek: iki yönü bir ayırıcıdan dinleyen bir protokol analizörü, bir OLT emülatörü ve bir ONU emülatörü; yanlarında bir güç ölçer ve bir dalga boyu ölçer. Standart yalnızca altın vektörler için bir yöntem verir; testlerin geri kalanı mühendislik pratiğidir, ölçütleri ise standarttandır."
+  },
+  {
+   "id": "g2",
+   "text": "İlk test: PLOAM bölmesini bulmak. Çerçeve başlığından PLOAM sayısını okuyun, ve haritadan sonraki kırk sekiz çarpı P baytı mesajlara bölün. Her çerçevede en çok bir yayın ve her ONU için en çok bir tek alıcılı mesaj olmalıdır. Kimlik alanının üstteki altı biti sıfır olmalı; bin yirmi bir ve bin yirmi iki hiç görünmemelidir."
+  },
+  {
+   "id": "g3",
+   "text": "İkinci test: altın vektörler. Dördüncü ekin dokuzuncu örneğinin kodu, on altılık tabanda dört altı, üç dokuz ile başlar; bizim hesabımızla yalnızca kapsam alanı ve dolgu sıfırken tutar. Onuncu örnek yön baytı ikiyle hesaplanır. Sonra yön baytını bilerek değiştirin: kod tamamen değişmeli, ve çözücünüz mesajı reddetmelidir."
+  },
+  {
+   "id": "g4",
+   "text": "Üçüncü test: yayınları sır bilmeden doğrulamak. Anahtar on altı kez beş beş, yön baytı bir, girdi ilk kırk bayt. Bu, profilleri, kimlik atamayı, seri numarası engellemeyi ve her zaman varsayılan anahtarlı tek alıcılı mesajları kapsar. Kendi hesapladığımız örnekler ekranda; altın vektör değildirler."
+  },
+  {
+   "id": "g5",
+   "text": "Dördüncü test: tek alıcılı mesajlar ONU'nun anahtarını ister. Bizim çıkarımımız: anahtarlar kayıt tabanlıysa, aktivasyonu baştan görmüş bir analizör onu türetebilir; kayıt kimliği, seri numarası ve burst profilindeki PON etiketi yeter. Diğer iki kimlik doğrulama yönteminde bu yapılamaz."
+  },
+  {
+   "id": "g6",
+   "text": "Beşinci test: sıra numaraları. Yayın akışı her mesajda bir artmalı, iki yüz elli beşten bire dönmeli, sıfır görünmemelidir; tek istisna kalibrasyon isteğidir. ONU başına akış, kimlik atamadan ve kanal devri tamamlandıktan sonra birden başlamalıdır. Cevaplar aşağı yön numarasını yansıtmalı, canlılık onayları sıfır taşımalıdır."
+  },
+  {
+   "id": "g7",
+   "text": "Altıncı test: işleme süresi. OLT emülatörü N numaralı çerçevede yönlendirilmiş bir mesaj göndersin, ve ONU'ya her çerçevede PLOAM tahsisi versin. Cevap en geç N artı altıncı yukarı yön çerçevesinde gelmelidir. Sonra sekiz mesajı art arda gönderin: cevaplar arası en çok altı çerçeve olmalıdır."
+  },
+  {
+   "id": "g8",
+   "text": "Yedinci test: canlılık. Kuyruk boşken verilen PLOAM tahsisi, sıra numarası sıfır ve kodu bir olan bir onay getirmeli; bir mesaj işlenirken verilen tahsis, kodu iki olan bir onay. Aynı anda yukarı yön başlığındaki gösterge alanının en anlamlı bitini izleyin: bekleyen mesaj varken bir olmalıdır."
+  },
+  {
+   "id": "g9",
+   "text": "Sekizinci test: olumsuz durumlar. ONU'nun kimliğine bilinmeyen bir tür gönderin: kodu üç olan bir onay gelmeli. Aynı türü yayınla gönderin: sessizlik. Bütünlük kodunda tek bir biti çevirin: onay gelmemeli, bütünlük hatası sayacı artmalıdır. Yukarı yönde aynı hatayı art arda üç kez üretin: OLT, PLOAM kanalı kaybını ilan etmelidir."
+  },
+  {
+   "id": "g10",
+   "text": "Dokuzuncu test: güç dengeleme. ONU çıkışına güç ölçeri koyun, OLT'nin alınan güç okumasını da kaydedin. Gücü azalt komutu üç desibellik bir adım, ya da desteklenen bir sonraki düzeyi getirmeli; tamam onayındaki zayıflatma baytı ölçtüğünüz düşüşle uyuşmalıdır. Sınırdaki bir istekte kod dört gelmeli, güç değişmemelidir."
+  },
+  {
+   "id": "g11",
+   "text": "Onuncu test: profiller ve optik. Kanal profilindeki frekansları dalga boyu ölçerle, önsözü ve sınırlayıcıyı kapılı bir osiloskopla karşılaştırın. Sonra yeni kuralı sınayın: bir indeks için önce yayın, sonra yeni sürümlü tek alıcılı bir profil, sonra yine yayın gönderin. ONU her seferinde en son geleni kullanmalıdır."
+  },
+  {
+   "id": "g12",
+   "text": "On birinci test: neden kodları ve OMCI. Sıfırdan farklı neden kodlu bir devre dışı bırakma ve engelleme gönderin: haberdar ONU kaydetmeli, eski ONU sıfırdaki gibi davranmalıdır. Sonra port kimliği ONU kimliğine eşit olan çerçeveleri süzün: temel OMCI mesajları kırk sekiz bayt olmalı, kodları da doğrulanmalıdır."
+  },
+  {
+   "id": "g13",
+   "text": "Laboratuvar notu. Bir: varsayılan anahtarla doğrulama, bir analizörün en ucuz ve en güçlü testidir; her yayında çalıştırın, ve tek bir uyuşmazlığı uygulama hatası sayın. İki: aktivasyonu kaydeden bir analizör o ağın anahtarlarını türetebilir; bu kayıtları test ortamı dışında saklamayın."
+  }
+ ]
+}

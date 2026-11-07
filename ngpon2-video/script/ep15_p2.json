@@ -1,0 +1,65 @@
+{
+ "title": "S2B05 Perde 2 — Mesaj biçimi ve bütünlük",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: mesaj biçimi ve bütünlük. Her PLOAM mesajı kırk sekiz bayttır. İlk iki bayt ONU kimliğidir: en anlamsız uca hizalı on bit, üstteki altı bit ayrılmış. Üçüncü bayt mesaj türü, dördüncü bayt sıra numarası. Beşinciden kırkıncıya otuz altı bayt içerik, son sekiz bayt bütünlük kodu: her mesajın altıda biri. Kimlik olarak bin yirmi bir ve bin yirmi iki hiç görünmez."
+  },
+  {
+   "id": "c2",
+   "text": "Mesaj türü sekiz bittir, ve tanımsız her değer ayrılmıştır; hiçbir üretici onu kullanmamalıdır. Desteklemediği bir yukarı yön türü alan OLT, mesajı sıra numarasıyla birlikte yok sayar. Bilmediği bir aşağı yön türü alan ONU, mesaj yayınsa susar; kendi kimliğine gelmişse olumsuz onaylar: tamamlama kodu üç, bilinmeyen mesaj türü."
+  },
+  {
+   "id": "c3",
+   "text": "Sıra numaraları. Aşağı yönde yayın akışının tek bir sayacı vardır; OLT kanal sonlandırıcısı yeniden başlarken bire kurulur. Her ONU'nun tek alıcılı sayacı ise, kimlik atandığında ya da kanal devrinde ayar tamamlandı yanıtı alındığında bire kurulur. Her gönderimde sayaç bir artar, iki yüz elli beşten bire döner. Sıfır, aşağı yönde kullanılmaz."
+  },
+  {
+   "id": "c4",
+   "text": "Yukarı yönde ONU sayı üretmez, yansıtır: cevap, aşağı yön mesajının sıra numarasını taşır. Seri numarası mesajı gibi kendiliğinden gönderilenlerde ve canlılık onayında değer sıfırdır. Yani sıfır, sırasız demektir. ONU'nun sıra numarasıyla çift ya da sırası bozuk mesaj yakaladığına dair bir kural ise metinde yoktur."
+  },
+  {
+   "id": "c5",
+   "text": "Bir çelişki: kalibrasyon isteği bir aşağı yön mesajıdır, ama tablosu sıra numarasını sıfır tanımlar. Metin nedenini söylemez; bizim yorumumuz, mesajın henüz kimliği ve tek alıcılı akışı olmayan bir ONU'ya gitmesidir. Bir de hesap: en yüksek tek alıcılı hızda bir ONU'nun sayacı otuz bir virgül dokuz milisaniyede döner."
+  },
+  {
+   "id": "c6",
+   "text": "İçerikte kullanılmayan baytlar sıfırla doldurulur ve alıcıda yok sayılır; ama dolgu da bütünlük koduna girer. Standart, kanalın geriye uyumlu biçimde genişleyebilmesini ister; bizim yorumumuzla araçları ayrılmış tür kimlikleri, sürüm alanları ve bu dolgudur. İki değişiklik de yeni alanlarını dolguya koydu."
+  },
+  {
+   "id": "c7",
+   "text": "Şimdi bütünlük kodu. Amacı göndericinin kimliğini doğrulamak ve sahte mesaj saldırısını önlemektir. Hesap AES-CMAC'tir: girdi, bir yön baytı, aşağıda bir, yukarıda iki, ve mesajın ilk kırk baytı. Yüz yirmi sekiz bitlik anahtarla işlenen kırk bir baytın çıkışı altmış dört bite kesilir; uyuşmazsa mesaj atılır. Bizim yorumumuz: yön baytı, ters yönde tekrar oynatmayı engeller."
+  },
+  {
+   "id": "c8",
+   "text": "Anahtar ne? Varsayılan PLOAM bütünlük anahtarı, on altı baytın her biri on altılık tabanda beş beş olan bir değerdir, ve standardın içinde yazılıdır. Yayın mesajlarında ve kayıt tabanlı ana anahtar oluşmadan önceki aktivasyon mesajlarında kullanılır. Gerekçe: bu mesajlar, OLT ile ONU türetilmiş anahtarlarda anlaşmamışken de geçebilmelidir."
+  },
+  {
+   "id": "c9",
+   "text": "Bizim yorumumuz: herkesin bildiği bir anahtar sır değildir. Devre dışı bırakma, seri numarası engelleme, ayar denetimi ve dalga boyu ayarı hep bu anahtarla korunur; onlarda kod sahteciliğe karşı değil, hataya karşı korur. Kanal devrinin dört mesajı da bu anahtarı kullanır; çünkü ONU başka bir kanal sonlandırıcısına geçince kendi anahtarları yeniden türetilir."
+  },
+  {
+   "id": "c10",
+   "text": "Mesaj başına anahtar şöyledir. Yayınsa varsayılan, yönlendirilmişse ONU'ya özgü: burst profili, eşitleme gecikmesi, anahtar denetimi, uyku izni, koruma, güç seviyesi ve güç sorgusu. Her zaman ONU'ya özgü olan yalnızca dört mesaj: yönlendirilmiş tahsis kimliği ataması, anahtar raporu, onay ve uyku isteği. Geri kalanlar hep varsayılan anahtarı kullanır."
+  },
+  {
+   "id": "c11",
+   "text": "ONU'ya özgü anahtar, oturum anahtarıyla bir AES-CMAC'tir; girdi on altı baytlık sabit bir ASCII etiketidir: PLOAM, integrity ve key sözcüklerinin bitişik yazımı. Ama integrity'nin ikinci i harfi eksiktir; etiket böylece tam on altı bayta sığar. Dördüncü ekin sekizinci örneği yalnızca bu yanlış yazımla tutar. OMCI'ın etiketi ise doğru yazılmıştır."
+  },
+  {
+   "id": "c12",
+   "text": "Aynı ekin dokuzuncu örneği bir aşağı yön tahsis kimliği atamasıdır, onuncu örneği bir yukarı yön uyku isteği; ikisinin de bütünlük kodu verilmiştir. Ekteki beş vektörün beşini de yeniden hesapladık; hepsi bit bit tutuyor. Bir çözücüyü sahaya çıkarmadan önce bu vektörlerden geçirin."
+  },
+  {
+   "id": "c13",
+   "text": "Mühendis notu. Bir: etiketin yazım hatasını düzeltmeyin; düzelten bir uygulama, standarda uyan hiçbir karşı tarafla anlaşamaz. İki: bir analizör, hiçbir sır bilmeden bütün yayın mesajlarını ve varsayılan anahtarlı tek alıcılı mesajları doğrulayabilir; doğrulayamadığı her mesaj ya ONU'ya özgü anahtarlıdır, ya da bozuktur."
+  },
+  {
+   "id": "c14",
+   "text": "Sıradaki: biçim belli. Şimdi yirmi sekiz mesajın ne söylediğine bakalım."
+  }
+ ]
+}
