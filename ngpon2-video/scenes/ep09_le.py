@@ -311,7 +311,7 @@ class E9LabC(Act9):
     def construct(self):
         self.beat("g8")
         h = self.show_heading("Düzenek 3: AMCC indeksi (üst modülasyon)")
-        boxes, arrs = chain([("Tx + AMCC", "üst modülasyon", PTP), ("kuplör", None, MUTED), ("dedektör", "DC kuplajlı · BW ≪ yük hızı", AMC)], 1.6, -6.3, 2.2, h=0.85, size=17, ssize=13)
+        boxes, arrs = chain([("Tx + AMCC", "üst modülasyon", PTP), ("kuplör", None, MUTED), ("dedektör", "DC kuplajlı\nBW ≪ yük hızı", AMC)], 1.5, -6.3, 2.2, h=1.0, size=17, ssize=14)
         osc = instrument("OSC", 1.8, 1.3).move_to([4.2, 1.7, 0])
         a3 = arrow(boxes[2].get_right(), [osc[0].get_left()[0], 1.6, 0], MUTED, 2.5, 0.13)
         bits = [1, 0, 1, 1, 0, 1]
