@@ -135,13 +135,13 @@ class SyncSM:
         u, d = UP * 0.18, DOWN * 0.18
         lab = lambda s, c, p: T(s, 15, c, BOLD).move_to(p)
         m1, m2, m3 = (xs[0] + xs[1]) / 2, (xs[1] + xs[2]) / 2, (xs[2] + xs[3]) / 2
-        self.hp = VGroup(arrow(H.get_right() + u, P.get_left() + u, GOOD, 2.5, 0.12), lab("64/64 + SFC ✓", GOOD, [m1, y + 0.7, 0]))
-        self.ph = VGroup(arrow(P.get_left() + d, H.get_right() + d, WARN, 2.5, 0.12), lab("biri ✗", WARN, [m1, y - 0.62, 0]))
-        self.ps = VGroup(arrow(P.get_right() + u, S.get_left() + u, GOOD, 2.5, 0.12), lab("ikisi ✓", GOOD, [m2, y + 0.7, 0]))
+        self.hp = VGroup(arrow(H.get_right() + u, P.get_left() + u, GOOD, 2.5, 0.12), lab("64/64 + SFC ✓", GOOD, [m1, y + 0.76, 0]))
+        self.ph = VGroup(arrow(P.get_left() + d, H.get_right() + d, WARN, 2.5, 0.12), lab("biri ✗", WARN, [m1, y - 0.72, 0]))
+        self.ps = VGroup(arrow(P.get_right() + u, S.get_left() + u, GOOD, 2.5, 0.12), lab("ikisi ✓", GOOD, [m2, y + 0.76, 0]))
         loop = CurvedArrow(S.get_top() + LEFT * 0.5, S.get_top() + RIGHT * 0.5, angle=-PI * 1.1, color=GOOD, stroke_width=2.5, tip_length=0.12)
         self.ss = VGroup(loop, lab("ikisi ✓", GOOD, [S.get_x(), y + 1.3, 0]))
-        self.sr = VGroup(arrow(S.get_right() + u, R.get_left() + u, WARN, 2.5, 0.12), lab("biri ✗", WARN, [m3, y + 0.7, 0]))
-        self.rs = VGroup(arrow(R.get_left() + d, S.get_right() + d, GOOD, 2.5, 0.12), lab("ikisi ✓", GOOD, [m3, y - 0.62, 0]))
+        self.sr = VGroup(arrow(S.get_right() + u, R.get_left() + u, WARN, 2.5, 0.12), lab("biri ✗", WARN, [m3, y + 0.76, 0]))
+        self.rs = VGroup(arrow(R.get_left() + d, S.get_right() + d, GOOD, 2.5, 0.12), lab("ikisi ✓", GOOD, [m3, y - 0.72, 0]))
         arc = CurvedArrow(R.get_bottom() + RIGHT * 0.3, H.get_bottom() + LEFT * 0.3, angle=-0.62, color=WARN, stroke_width=3, tip_length=0.15)
         self.rh = VGroup(arc, lab("M − 1 ardışık ✗", WARN, [0, y - 1.62, 0]))
         self.hh = VGroup(CurvedArrow(H.get_top() + LEFT * 0.5, H.get_top() + RIGHT * 0.5, angle=-PI * 1.1, color=MUTED, stroke_width=2.2, tip_length=0.11),

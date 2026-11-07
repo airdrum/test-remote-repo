@@ -225,11 +225,11 @@ class E12P3B(Act12):
         st = VGroup(Arrow([xb, y + 1.6, 0], [xb, y + 0.32, 0], buff=0, color=TIMC, stroke_width=3, tip_length=0.15, max_tip_length_to_length_ratio=0.2),
                     T("StartTime → FS başlığının ilk baytı", 17, TIMC, BOLD).move_to([xb + 2.6, y + 1.55, 0]))
         rng_ = tag("StartTime: 0 … 9719", TIMC, 17).move_to([4.9, y + 1.55, 0])
-        psl = T("PSBu önceki çerçeveye taşabilir", 16, PHC, BOLD).next_to(bu[:2], DOWN, buff=0.15)
+        psl = T("PSBu önceki çerçeveye taşabilir", 16, PHC, BOLD).next_to(bu[:2], DOWN, buff=0.15).align_to(bu[1], RIGHT).shift(LEFT * 0.15)
         gs = BraceBetweenPoints(bu[3].get_corner(DL), bu[4].get_corner(DR), DOWN, color=TIMC)
         gsl = T("GrantSize = DBRu + yük", 17, TIMC, BOLD).next_to(gs, DOWN, buff=0.05)
         nx = VGroup(xmark(bu[2][0], WARN, 3, 0.0), xmark(bu[5][0], WARN, 3, 0.0))
-        nxl = T("sayılmaz: başlık · kuyruk · FEC", 16, WARN, BOLD).move_to([4.65, y - 0.62, 0])
+        nxl = T("sayılmaz: başlık · kuyruk · FEC", 16, WARN, BOLD).move_to([4.65, y - 0.98, 0])
         y2 = -2.15
         zg = strip([(0.9, "önsöz", PHC, 0.3), (0.6, "sın.", PHC, 0.65), (0.8, "başlık", HLC, 0.3), (2.4, "PLOAMu · 48 B", PLDC, 0.25), (0.6, "BIP", BIPC, 0.3)], -6.2, y2, 0.55, 15)
         zgl = VGroup(T("GrantSize = 0 → yalnızca PLOAM", 19, GOLD, BOLD), T("seri numarası ve mesafe ölçümü tahsisleri", 16, MUTED)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).next_to(zg, RIGHT, buff=0.35)
@@ -341,16 +341,16 @@ class E12P3C(Act12):
         self.beat("d7")
         self.set_badge("std")
         h = self.show_heading("Hatalı BWmap → ONU ne yapar?")
-        pr = pill("ilke: ↑ çarpışma olasılığını en aza indir", GOLD, 19).move_to([0, 2.15, 0])
-        hd = VGroup(T("durum", 16, MUTED, BOLD).move_to([-6.3, 1.05, 0], aligned_edge=LEFT), T("ONU davranışı", 16, MUTED, BOLD).move_to([-0.9, 1.05, 0], aligned_edge=LEFT),
-                    T("optik çıkış", 16, MUTED, BOLD).move_to([3.2, 1.05, 0], aligned_edge=LEFT))
+        pr = pill("ilke: ↑ çarpışma olasılığını en aza indir", GOLD, 19).move_to([0, -2.8, 0])
+        hd = VGroup(T("durum", 16, MUTED, BOLD).move_to([-6.3, 1.75, 0], aligned_edge=LEFT), T("ONU davranışı", 16, MUTED, BOLD).move_to([-0.9, 1.75, 0], aligned_edge=LEFT),
+                    T("optik çıkış", 16, MUTED, BOLD).move_to([3.2, 1.75, 0], aligned_edge=LEFT))
         data = [("tahsis yapısında düzeltilemez hata", "burst'ün kalanını bastır", 0.3),
                 ("StartTime sınır dışı (> 9719)", "hiç gönderme", 0.0),
                 ("diğer kurallar (5 – 11) ihlal", "kurallar sağlanmış gibi kısa kes", 0.72),
                 ("kendi serisinde bilinmeyen Alloc-ID", "kalanını bastır", 0.45)]
         rows = VGroup()
         for i, (c, a, f) in enumerate(data):
-            y = 0.4 - i * 0.88
+            y = 1.1 - i * 0.88
             bg = Rectangle(width=12.9, height=0.74, stroke_width=0, fill_color=PANEL if i % 2 == 0 else "#0E1628", fill_opacity=1).move_to([0, y, 0])
             ct = fit(T(c, 18, TXT, MEDIUM), 5.2).move_to([-6.3, y, 0], aligned_edge=LEFT)
             at_ = fit(T(a, 18, WARN if f == 0 else GOLD, BOLD), 3.9).move_to([-0.9, y, 0], aligned_edge=LEFT)
@@ -381,7 +381,7 @@ class E12P3C(Act12):
         fr = VGroup(fw, rk).arrange(DOWN, aligned_edge=LEFT, buff=0.3).move_to([0, 0.05, 0])
         ps = fields([("ONU-ID", 2, PLDC), ("tip", 1, PLDC), ("sıra", 1, PLDC), ("içerik · 36 B", 36, PLDC), ("MIC · 8 B", 8, GOLD)], 9.6, 0.55, 16, 14, unit=" B", show_w=False).move_to([0.3, -1.75, 0])
         psl = T("PLOAM mesajı (Tablo 11-1)", 16, MUTED, BOLD).next_to(ps, DOWN, buff=0.12).align_to(ps, LEFT)
-        nx = VGroup(T("içi:", 16, MUTED, BOLD), s2chip(5, 16)).arrange(RIGHT, buff=0.15).move_to([3.6, -2.55, 0])
+        nx = VGroup(T("içi:", 16, MUTED, BOLD), s2chip(5, 16)).arrange(RIGHT, buff=0.15).move_to([3.6, -2.8, 0])
         self.play(self.set_src("G.989.3 §8.1.1.4 · §11.1.2 · Tablo 11-1"), run_time=0.3)
         self.at(self.cue("PLOAM bölmesi", 0.2))
         self.play(LaggedStart(*[FadeIn(m, shift=RIGHT * 0.08) for m in msgs], lag_ratio=0.15), FadeIn(pl), run_time=0.8)
@@ -451,20 +451,20 @@ class E12P4A(Act12):
         self.to_header(tc)
         self.set_badge("neden")
         h = self.show_heading("İki tür 125 µs")
-        x0, fw = -4.3, 3.5
+        x0, fw = -4.3, 3.3
         yd = 1.55
         dl = T("↓ OLT CT", 18, TW_DS, BOLD).move_to([-6.4, yd, 0], aligned_edge=LEFT)
         ds = VGroup(*[VGroup(seg(x0 + i * fw, 0.35, yd, PHC, None, 0.55, 0.8), seg(x0 + i * fw + 0.35, fw - 0.35, yd, TW_DS, None, 0.55, 0.12)) for i in range(3)])
-        ev = VGroup(*[Line([x0 + i * fw, yd - 0.45, 0], [x0 + i * fw, yd + 0.45, 0], color=GOLD, stroke_width=3) for i in range(4)])
-        evl = T("fiziksel olay: PSBd'nin ilk biti", 17, GOLD, BOLD).next_to(ds, DOWN, buff=0.15).align_to(ds, LEFT)
+        ev = VGroup(*[Line([x0 + i * fw, yd - 0.3, 0], [x0 + i * fw, yd + 0.42, 0], color=GOLD, stroke_width=3) for i in range(4)])
+        evl = T("fiziksel olay: PSBd'nin ilk biti", 17, GOLD, BOLD).next_to(ds, DOWN, buff=0.18).align_to(ds, LEFT).shift(RIGHT * 0.2)
 
         def grid(y, off, label, c):
             l = T(label, 17, c, BOLD).move_to([-6.4, y, 0], aligned_edge=LEFT)
             g = VGroup(*[DashedVMobject(Rectangle(width=fw, height=0.45, stroke_color=c, stroke_width=1.8), num_dashes=30).move_to([x0 + off + i * fw + fw / 2, y, 0]) for i in range(3)])
             return VGroup(l, g)
         g0 = grid(-0.2, 0.45, "↑ OLT", OLTC)
-        g1 = grid(-0.9, 1.15, "↑ ONU A", ONUC)
-        g2 = grid(-1.6, 0.7, "↑ ONU B", R25)
+        g1 = grid(-0.9, 0.85, "↑ ONU A", ONUC)
+        g2 = grid(-1.6, 0.2, "↑ ONU B", R25)
         vl = T("sanal ızgara: herkes farklı anda yerleştirir", 17, MUTED, BOLD).move_to([0.6, -2.3, 0])
         nx = VGroup(T("mesafe ölçümüyle:", 16, MUTED, BOLD), s2chip(6, 16)).arrange(RIGHT, buff=0.15).move_to([3.6, -2.95, 0])
         self.play(self.set_src("G.989.3 §10.1.1 · §10.1.2 · §8.1.1.2.3"), run_time=0.3)
@@ -567,11 +567,12 @@ class E12P4A(Act12):
         onu = onu_box("ONU", ONUC, 1.4, 0.6, 18).move_to([-1.7, 1.7, 0])
         m = msg(olt.get_right()[0], onu.get_left()[0], 1.7, "Burst_Profile · önceden", GOLD, 15)
         slots = VGroup(*[tile(f"profil {i}", PHC, 1.15, 0.45, 15, 0.15) for i in range(4)]).arrange(RIGHT, buff=0.1).move_to([-3.45, 0.65, 0])
-        sl = T("ONU'da saklanan profiller", 15, MUTED, BOLD).next_to(slots, DOWN, buff=0.1)
-        al = fields([("Alloc-ID", 14, MUTED), ("…", 34, MUTED), ("FWI", 1, MUTED), ("Profil", 2, PRFC), ("HEC", 13, MUTED)], 5.6, 0.5, 15, 14, show_w=False).move_to([-3.45, -1.05, 0])
-        alt = T("BWmap tahsis yapısı: 2 bitlik indeks", 15, MUTED, BOLD).next_to(al, DOWN, buff=0.12)
-        pv = HX("2", 16, PRFC, BOLD).next_to(al[3][0], UP, buff=0.35)
-        pa = CurvedArrow(al[3][0].get_top(), slots[2].get_bottom(), angle=0.4, color=PRFC, stroke_width=2.2, tip_length=0.12)
+        sl = T("ONU'da saklanan profiller", 15, MUTED, BOLD).next_to(slots, UP, buff=0.1)
+        al = strip([(1.3, "Alloc-ID", MUTED, 0.12), (2.3, "…", MUTED, 0.12), (1.0, "Profil", PRFC, 0.3), (1.0, "HEC", MUTED, 0.12)], -6.25, -1.15, 0.5, 15)
+        alt = T("BWmap tahsis yapısı: 2 bitlik indeks (ölçeksiz)", 15, MUTED, BOLD).next_to(al, DOWN, buff=0.12)
+        pv = HX("= 2", 16, PRFC, BOLD).next_to(al[2], DOWN, buff=0.08).shift(RIGHT * 0.0)
+        alt.next_to(pv, DOWN, buff=0.08).align_to(al, LEFT)
+        pa = CurvedArrow(al[2][0].get_top(), slots[2].get_bottom(), angle=0.3, color=PRFC, stroke_width=2.2, tip_length=0.12)
         p = apanel(6.7, 4.75, "Analizör · Burst_Profile (Tablo 11-4)", GOLD).move_to([3.2, -0.2, 0])
         prow = [("oktet 3 · tip", "0x01"), ("oktet 5 · VVVV R F PP", "sürüm · hız (F) · indeks"), ("oktet 6 · … C F", "F: ↑ FEC açık / kapalı"),
                 ("oktet 7 · sınırlayıcı uz.", "0 – 8 bayt"), ("oktet 8–15", "sınırlayıcı deseni"), ("oktet 16 · önsöz uz.", "1 – 8 bayt"),
@@ -607,7 +608,7 @@ class E12P4A(Act12):
         h = self.show_heading("Profil kuralları", h)
         tx0, tx1, ty = -5.6, 6.2, 1.55
         tl = Arrow([tx0, ty, 0], [tx1, ty, 0], buff=0, color=MUTED, stroke_width=2, tip_length=0.14, max_tip_length_to_length_ratio=0.03)
-        tll = T("OLT · Burst_Profile yayını", 16, MUTED, BOLD).move_to([-6.3, ty + 0.45, 0], aligned_edge=LEFT)
+        tll = T("OLT · Burst_Profile yayını", 16, MUTED, BOLD).move_to([-6.3, ty + 0.8, 0], aligned_edge=LEFT)
         xs = [tx0 + 0.4 + i * 1.25 for i in range(9)]
         sends = VGroup(*[VGroup(Line([x, ty - 0.18, 0], [x, ty + 0.18, 0], color=GOLD if i >= 3 else MUTED, stroke_width=3),
                                 T("v2" if i >= 3 else "v1", 15, GOLD if i >= 3 else MUTED, BOLD).move_to([x, ty + 0.4, 0])) for i, x in enumerate(xs)])
@@ -652,10 +653,10 @@ class E12P4B(Act12):
         u = 0.04
         bx0 = -5.12
         bb = strip([(64 * u, "koruma · 64 bit (2 TQ)", MUTED, 0.12, True), (160 * u, "önsöz · 160 bit (5 TQ)", PHC, 0.3), (32 * u, "sın. 32", PHC, 0.65)], bx0, 1.6, 0.62, 16)
-        tq = VGroup(*[Line([bx0 + i * 32 * u, 1.2, 0], [bx0 + i * 32 * u, 1.3, 0], color=ACC, stroke_width=2) for i in range(9)])
+        tq = VGroup(*[Line([bx0 + i * 32 * u, 1.93, 0], [bx0 + i * 32 * u, 2.05, 0], color=ACC, stroke_width=2) for i in range(9)])
         br = brace_lbl(bb, "256 bit = 8 TQ = 102,9 ns", GOLD, DOWN, 19)
-        hb = VGroup(tag("yüksek BER", WARN, 17), T("→ 64 bitlik sınırlayıcı", 18, TXT, BOLD)).arrange(RIGHT, buff=0.2).move_to([-3.3, -0.05, 0])
-        pr = VGroup(tag("sınırlayıcı çifti", GOLD, 17), T("→ FEC açık / kapalı bilgisini taşır", 18, TXT, BOLD)).arrange(RIGHT, buff=0.2).move_to([3.0, -0.05, 0])
+        hb = VGroup(tag("yüksek BER", WARN, 17), T("→ 64 bitlik sınırlayıcı", 18, TXT, BOLD)).arrange(RIGHT, buff=0.2).move_to([-3.3, 0.2, 0])
+        pr = VGroup(tag("sınırlayıcı çifti", GOLD, 17), T("→ FEC açık / kapalı bilgisini taşır", 18, TXT, BOLD)).arrange(RIGHT, buff=0.2).move_to([3.0, 0.2, 0])
         tb = mtable(["önsöz deseni", "32 bit sınırlayıcı · FEC açık", "· FEC kapalı (varsayılan)"], T31, [3.1, 4.1, 4.1], size=19, hsize=16, row_h=0.55, mono=(0, 1, 2)).move_to([0, -1.45, 0])
         tbl = T("Tablo III.1 (seçme)", 15, MUTED, BOLD).next_to(tb, UP, buff=0.08).align_to(tb, LEFT)
         dc = VGroup(tag("hepsi doğru akım dengeli", GOOD, 17), T("her desende birler = sıfırlar", 17, TXT)).arrange(RIGHT, buff=0.2).move_to([0, -2.75, 0])
@@ -755,18 +756,16 @@ class E12P4B(Act12):
         self.set_badge("std")
         h = self.show_heading("↑ FS başlığı — 4 bayt (+ 48)")
         hf = fields([("ONU-ID", 10, ACC), ("Ind", 9, GOLD), ("HEC", 13, HECC)], 9.6, 0.62, 19, 14, unit=" bit").move_to([0, 1.75, 0])
-        v = VGroup(HX("0x3FF", 18, GOLD, BOLD), T("= 1023 · atanmamış", 16, GOLD, BOLD)).arrange(RIGHT, buff=0.15).move_to([hf[0][0].get_x(), 0.85, 0])
-        bits = VGroup(*[Square(0.5, stroke_color=GOLD, stroke_width=2, fill_color=GOLD, fill_opacity=0.12) for _ in range(9)]).arrange(RIGHT, buff=0.04).move_to([0.6, -0.25, 0])
+        v = VGroup(HX("0x3FF", 18, GOLD, BOLD), T("= 1023 · atanmamış", 16, GOLD, BOLD)).arrange(RIGHT, buff=0.15).move_to([hf[0][0].get_x() - 0.7, 0.85, 0])
+        bits = VGroup(*[Square(0.5, stroke_color=GOLD, stroke_width=2, fill_color=GOLD, fill_opacity=0.12) for _ in range(9)]).arrange(RIGHT, buff=0.04).move_to([0, -0.25, 0])
         bn = VGroup(*[T(f"b{8 - i}", 14, MUTED, BOLD).move_to(b) for i, b in enumerate(bits)])
         zl = zoom_lines(hf[1][0], bits, GOLD)
         bits[0].set_fill(GOLD, 0.5)
         bits[8].set_fill(WARN, 0.5)
         bits[8].set_stroke(WARN)
         rs = T("b7 – b1 ayrılmış", 15, MUTED, BOLD).next_to(bits[1:8], DOWN, buff=0.12)
-        t8 = VGroup(T("b8 · PLOAM kuyruğu:", 17, GOLD, BOLD), T("bekleyen başka PLOAM var", 17, TXT)).arrange(RIGHT, buff=0.15).next_to(bits, LEFT, buff=0.3)
-        t0 = VGroup(T("b0 · DG:", 17, WARN, BOLD), T("son nefes (dying gasp)", 17, TXT)).arrange(RIGHT, buff=0.15).next_to(bits, RIGHT, buff=0.3)
-        fit(t8, 4.0).next_to(bits, LEFT, buff=0.25)
-        fit(t0, 3.4).next_to(bits, RIGHT, buff=0.25)
+        t8 = VGroup(T("b8 · PLOAM kuyruğu", 17, GOLD, BOLD), T("bekleyen başka PLOAM var", 16, TXT)).arrange(DOWN, aligned_edge=RIGHT, buff=0.06).next_to(bits, LEFT, buff=0.3)
+        t0 = VGroup(T("b0 · DG", 17, WARN, BOLD), T("son nefes (dying gasp)", 16, TXT)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).next_to(bits, RIGHT, buff=0.3)
         y2 = -1.95
         pu = strip([(0.8, "4 B", HLC, 0.35), (9.2, "PLOAMu · 48 B (bir PLOAM mesajı)", PLDC, 0.22)], -5.0, y2, 0.6, 17)
         pul = T("PLOAMu bayrağı = 1 ise:", 17, PLDC, BOLD).next_to(pu, UP, buff=0.12).align_to(pu, LEFT)
@@ -850,8 +849,8 @@ class E12P4C(Act12):
         ex = VGroup(T("Örnek · 10G · kimliği olmayan ONU · SN cevabı", 19, TXT, BOLD), tag("ONU-ID 0x3FF", GOLD, 16)).arrange(RIGHT, buff=0.3).move_to([-0.6, -0.55, 0])
         u = 0.07
         ey = -1.55
-        ps = seg(-5.6, 1.3, ey, PHC, "PSBu", 0.6, 0.12, 15, dashed=True)
-        hd = seg(-4.3, 4 * u * 2.2, ey, HLC, None, 0.6, 0.35)
+        ps = seg(-6.2, 1.3, ey, PHC, "PSBu", 0.6, 0.12, 15, dashed=True)
+        hd = seg(-4.6, 4 * u * 2.2, ey, HLC, None, 0.6, 0.35)
         pl = seg(hd[0].get_right()[0], 48 * u, ey, PLDC, "PLOAMu · 48 B", 0.6, 0.25, 16)
         bp = seg(pl[0].get_right()[0], 4 * u * 2.2, ey, BIPC, None, 0.6, 0.4)
         par = seg(bp[0].get_right()[0], 32 * u, ey, PARC, "eşlik · 32 B", 0.6, 0.45, 15)
@@ -861,7 +860,7 @@ class E12P4C(Act12):
         b56l = T("56 B", 19, GOLD, BOLD).next_to(b56, DOWN, buff=0.04)
         b88 = BraceBetweenPoints(hd[0].get_corner(DL) + DOWN * 0.55, par[0].get_corner(DR) + DOWN * 0.55, DOWN, color=PARC)
         b88l = T("FEC ile 88 B (tek kısa RS(248, 216) sözcüğü)", 18, PARC, BOLD).next_to(b88, DOWN, buff=0.04)
-        psl = T("+ profilin önsöz ve sınırlayıcısı", 16, PHC, BOLD).next_to(ps, DOWN, buff=0.12)
+        psl = VGroup(T("+ profilin önsöz", 15, PHC, BOLD), T("ve sınırlayıcısı", 15, PHC, BOLD)).arrange(DOWN, buff=0.04).next_to(ps, DOWN, buff=0.12).align_to(ps, LEFT)
         self.play(self.set_src("G.989.3 §8.1.2.3 · §10.1.3.2 · 56 → 88 B hesaplanmıştır"), run_time=0.3)
         self.play(LaggedStart(*[FadeIn(s_) for s_ in bu], lag_ratio=0.1), run_time=0.8)
         self.at(self.cue("BIP kuyruğuyla biter", 1.0))
@@ -916,9 +915,10 @@ class E12P4C(Act12):
             nl = T(f"{n} ONU", 15, TXT, BOLD).next_to([gx, cy0, 0], DOWN, buff=0.1)
             bars.add(VGroup(b1, b2, v1, v2, nl))
         leg = VGroup(VGroup(Square(0.2, stroke_width=0, fill_color=ACC, fill_opacity=0.75), T("FEC kapalı", 15, TXT)).arrange(RIGHT, buff=0.1),
-                     VGroup(Square(0.2, stroke_width=0, fill_color=PARC, fill_opacity=0.75), T("FEC açık", 15, TXT)).arrange(RIGHT, buff=0.1)).arrange(RIGHT, buff=0.3).move_to([3.7, 1.9, 0])
-        ctl = T("10G ↑ · yüke kalan pay", 16, MUTED, BOLD).next_to(leg, DOWN, buff=0.12)
-        hl64 = SurroundingRectangle(bars[2][:4], color=GOLD, buff=0.08, stroke_width=3)
+                     VGroup(Square(0.2, stroke_width=0, fill_color=PARC, fill_opacity=0.75), T("FEC açık", 15, TXT)).arrange(RIGHT, buff=0.1)).arrange(RIGHT, buff=0.3)
+        ctl = T("10G ↑ · yüke kalan pay", 16, MUTED, BOLD)
+        VGroup(ctl, leg).arrange(RIGHT, buff=0.35).move_to([3.7, 2.25, 0])
+        hl64 = SurroundingRectangle(bars[2], color=GOLD, buff=0.08, stroke_width=3)
         est = interp("türetilmiş · 1 burst / ONU / çerçeve, 1 tahsis + DBRu", GOLD, 15).move_to([-3.6, -2.6, 0])
         msg_ = pill("küçük ve çok burst: ek yükü burst sayısı belirler", GOLD, 18).move_to([-3.6, -1.75, 0])
         self.play(self.set_src("G.989.2 Tablo 11-11 · G.989.3 §8.1.2 · verimlilik hesaplanmıştır (yorum)"), run_time=0.3)

@@ -1,0 +1,21 @@
+[
+ ["Ep12Open", "ep12_open", "ep12_open", "open"],
+ ["Intro", null, null, null],
+ ["Ep12Recap", "ep12_open", "ep12_recap", "recap"],
+ ["E12P1A", "ep12_p12", "ep12_p1A", "p1"],
+ ["E12P1B", "ep12_p12", "ep12_p1B", "p1"],
+ ["E12P1C", "ep12_p12", "ep12_p1C", "p1"],
+ ["E12P2A", "ep12_p12", "ep12_p2A", "p2"],
+ ["E12P2B", "ep12_p12", "ep12_p2B", "p2"],
+ ["E12P2C", "ep12_p12", "ep12_p2C", "p2"],
+ ["E12P3A", "ep12_p34", "ep12_p3A", "p3"],
+ ["E12P3B", "ep12_p34", "ep12_p3B", "p3"],
+ ["E12P3C", "ep12_p34", "ep12_p3C", "p3"],
+ ["E12P4A", "ep12_p34", "ep12_p4A", "p4"],
+ ["E12P4B", "ep12_p34", "ep12_p4B", "p4"],
+ ["E12P4C", "ep12_p34", "ep12_p4C", "p4"],
+ ["E12LabA", "ep12_le", "ep12_labA", "lab"],
+ ["E12LabB", "ep12_le", "ep12_labB", "lab"],
+ ["E12LabC", "ep12_le", "ep12_labC", "lab"],
+ ["E12End", "ep12_le", "ep12_end", "end"]
+]
