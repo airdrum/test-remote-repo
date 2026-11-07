@@ -1,0 +1,98 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b8029745fdf_0.wav",
+   "duration": 24.841,
+   "text": "Perde iki: sınırlama. Standardın kuralı dört cümledir. Bir: sınırlama, her aşağı ve yukarı yön yük bölümünün başında bir XGEM başlığının bulunmasına dayanır. İki: alıcı ilk başlığın yerini böylece bilir; göstergeyi okuyup yükün boyunu ve bir sonraki başlığın yerini bulur, ve bunu bölümün sonuna kadar tekrarlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "b85448142e2_0.wav",
+   "duration": 18.097,
+   "text": "Üç: alıcı bir çerçevenin doğru sınırlandığını, bir sonraki çerçevenin başlığında HEC doğrulaması yaparak denetler. Dört: varsayılan başlığın HEC doğrulaması başarısız olursa, alıcı o anki XGEM çerçevesini, yük bölümünün kalanıyla birlikte atmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "b3ddb1cfe48_0.wav",
+   "duration": 25.855,
+   "text": "Geçen bölümdeki senkron makinesini hatırlayın: av, ön senkron, senkron ve yeniden senkron. XGEM'de böyle bir makine yoktur; sınırlama hiçbir zaman başlık aramaz. Bizim yorumumuz: sınırlama demirlidir. Her yük bölümünün başında yeniden başlar: aşağı yönde her yüz yirmi beş mikrosaniyede, yukarı yönde her tahsiste, çünkü her tahsisin kendi yük bölümü vardır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "b24f9a3b960_0.wav",
+   "duration": 27.643,
+   "text": "Başarısızlık ne demek? Bizim okumamızla, A ekinin tablosuna göre düzeltilemeyen bir başlık: eşlik hatalı üç bit, ya da tanımsız bir sendrom. Bir ve iki bitlik hatalar düzeltilir, ve hiçbir şey kaybolmaz. Kuralın ilginç yanı, o anki çerçeveyi de atmasıdır; oysa onun kendi başlığı sağlamdı. Mantığı şu: bozuk bir sonraki başlık, o anki göstergenin yanlış olduğunun kanıtı olabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "b599b6bc844_0.wav",
+   "duration": 19.444,
+   "text": "Metnin söylemedikleri de var. Bir bölümün son çerçevesinin ardında başlık yoktur; sonu yükün sonuyla, ya da kısa boş çerçeve için tam dört bayt önce bitmelidir, ama metin bu denetimi yazmaz; alıcının kısa boş çerçeveyi nasıl tanıyacağını da. Bunlar bizim çıkarımlarımızdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "bfdb9a4dd21_0.wav",
+   "duration": 22.448,
+   "text": "Bedel, bizim hesabımızla. Tek bir olay, bölümün bütün kalanına mal olabilir. On gigabitte, FEC kapalıyken, bu yüz elli beş bin dört yüz seksen sekiz bayta kadardır: yaklaşık yüz iki tane bin beş yüz on sekiz baytlık çerçeve. Yukarı yönde kayıp, en çok bir tahsisin kalanıdır. Kurtarma kendiliğindendir: bir sonraki yük bölümünde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "b857377f7dd_0.wav",
+   "duration": 27.045,
+   "text": "Ama olay çok seyrektir. Bağımsız hatalarla, on üzeri eksi dörtte bir başlığın düzeltilemez olma olasılığı yaklaşık dört çarpı on üzeri eksi sekiz; bin beş yüz on sekiz baytlık bir yükün bozuk olma olasılığı ise yüzde yetmiştir. On üzeri eksi altıda bu sayılar, dört çarpı on üzeri eksi on dört ve yüzde bir virgül iki olur. Başlık, yükün bozulduğu yerde neredeyse hiç bozulmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "bd624c3b9e6_0.wav",
+   "duration": 26.495,
+   "text": "PMD Köprüsü. Birinci sezonun beşinci bölümünde G.989.2'nin aşağı yön referans hata oranlarını gördük: iki buçuk gigabitte on üzeri eksi dört, on gigabitte on üzeri eksi üç. On üzeri eksi üçte bile bir başlığın kaybolma olasılığı on binde birin altındadır, ama bin beş yüz on sekiz baytlık bir yük neredeyse kesin bozuktur. Sınırlamayı HEC kurtarır; yükü ise yalnızca FEC.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c9",
+   "file": "b4c46567fb1_0.wav",
+   "duration": 24.276,
+   "text": "Çünkü XGEM'in yük denetimi yoktur. Bozuk bir yük alıcıya olduğu gibi teslim edilir; onu ancak istemci, örneğin Ethernet'in çerçeve denetim dizisi, yakalar. Bu bizim yorumumuz; ama standartta yük için bir denetim alanı aramayın. Hat hata oranını, geçen bölümün FEC ve BIP sayaçlarından okuyun.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c10",
+   "file": "b9f80a67759_0.wav",
+   "duration": 30.907,
+   "text": "Sayaçlar, on dördüncü maddenin tablosundan. Zorunlu olanı, XGEM başlık HEC hatası sayacıdır, ve tanımı dikkat ister: XGEM kanal sınırlaması kaybı olaylarının sayısı. ONU'da her kanal için, OLT'de her ONU için tutulur. İsteğe bağlı ikinci sayaç, bu olaylarda kaybedilen sözcükleri sayar. Notu açıktır: kaybedilen XGEM çerçevesi sayısı elde edilemez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c11",
+   "file": "bfeab41c0d1_0.wav",
+   "duration": 27.088,
+   "text": "Analizör için bir bayt haritası, bizim çıkarımımız. Birinci bayt göstergenin üst sekiz biti; ikinci bayt alt altı bit ve anahtar indeksi. Üçüncü ve dördüncü bayt port kimliği; bayta hizalı tek alan budur. Beşinci ve altıncı bayt seçenekler. Yedinci bayt seçeneklerin son iki biti, son parça biti ve HEC'in üst beş biti; sekizinci bayt HEC'in kalanı, en son bit eşlik.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c12",
+   "file": "b045485edb2_0.wav",
+   "duration": 25.119,
+   "text": "Mühendis notu. Bir: XGEM asla başlık aramaz; bozuk bir başlık bölümün kalanını götürür, ve bir sonraki bölümde her şey kendiliğinden toparlanır. İki: rastgele hatalar başlığı çok seyrek bozar. Bizim yorumumuzla, yüksek hata oranı ve senkron kaybı yokken artan bir HEC sayacı, daha çok bir kapsülleme hatasına, örneğin yanlış bir göstergeye işaret eder.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c13",
+   "file": "b2e66a1cd9d_0.wav",
+   "duration": 5.404,
+   "text": "Sıradaki: sınırları bulduk. Peki bir birim kalan yere sığmazsa?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 304.66
+}

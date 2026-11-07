@@ -1,0 +1,112 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b6859cef2de_0.wav",
+   "duration": 27.419,
+   "text": "Perde dört: servisler. Dokuzuncu madde en yaygın iki eşlemeyi tanımlar: Ethernet ve çok protokollü etiket anahtarlama. Etiketli paketler de doğrudan yükte, Ethernet başlığı olmadan taşınır. Bunların üstünde giden servisler de kapsanır; liste G.989.1'dedir, ve o belge kaynaklarımızda yok. Cümlenin sonu ise şudur: diğer bütün servisler daha fazla çalışma konusudur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "bfc0cce2f00_0.wav",
+   "duration": 30.409,
+   "text": "Ethernet çerçevesi doğrudan XGEM yükünde taşınır. Önsöz ve çerçeve başlangıç sınırlayıcısı kapsüllemeden önce atılır; adresler, tür alanı, veri ve dört baytlık çerçeve denetim dizisi taşınır. Bir Ethernet çerçevesi bir ya da, parçalama kurallarıyla, birden fazla XGEM çerçevesine konabilir. Ama bir XGEM çerçevesi asla birden fazla Ethernet çerçevesi taşımaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "b74ba1031e8_0.wav",
+   "duration": 32.485,
+   "text": "Bizim hesabımızla bedel şaşırtıcıdır. Ethernet hattında her çerçeve yirmi bayt fazla öder: boşluk, önsöz ve sınırlayıcı. XGEM'de ise sekiz bayt başlık ve çoğu zaman üç bayta kadar dolgu: altmış dört baytlık çerçeve seksen dört yerine yetmiş iki bayt tutar. Küçük paketlerde darboğaz PON değildir. Büyük paketlerde bedel FEC'tir: bin beş yüz on sekiz baytta XGEM yüzde sıfır virgül altmış beş, on gigabitte FEC yüzde on iki virgül dokuz alır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "b01a1375d2c_0.wav",
+   "duration": 31.327,
+   "text": "OMCI. TC katmanı, OMCI için XGEM tabanlı bir taşıma sağlamak zorundadır. OMCC, değeri ONU kimliğine eşit olan varsayılan portta çalışır; bu port ONU kimliğiyle örtük olarak atanır, diğer bütün portlar OMCC üzerinden. Dördüncü ekteki temel biçimli bir OMCI mesajı, dört baytlık bütünlük koduyla kırk sekiz bayttır: dolgusuz, elli altı baytlık bir XGEM çerçevesi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "b2b61e4b958_0.wav",
+   "duration": 32.752,
+   "text": "PMD Köprüsü. Birinci sezonun dokuzuncu bölümünde PtP WDM'in AMCC kanalını gördük. Onun TC katmanı da XGEM kullanır: yönetim birimlerini aynı kurallarla böler ve kapsüller. Bizim hesabımız: tek bir temel OMCI mesajı, PLOAM'sız bir yönetim çerçevesinde doksan iki bayt eder; saniyede yüz on beş kilobitlik bir AMCC'de bu, yaklaşık altı virgül dört milisaniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "b7fc7443641_0.wav",
+   "duration": 30.576,
+   "text": "Çalışma konusu kalanlar. Seçenekler alanının on sekiz biti tanımsızdır. Zaman bölmeli devre servisleri ve zamanlama için XGEM'e özgü bir eşleme, başlıkta da zaman damgası yoktur. Günün saati bile XGEM'e değil, sayacıyla belirlenen fiziksel çerçeveye bağlıdır; XGEM yalnızca onu bildiren OMCI mesajını taşır. Ayrıntısı altıncı bölümde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "b29b24f134b_0.wav",
+   "duration": 31.077,
+   "text": "Şimdi şifreleme, yalnızca XGEM'e dokunduğu kadarıyla; bütününü sekizinci bölümde göreceğiz. Şifre, yüz yirmi sekiz bitlik gelişmiş şifreleme standardıdır, sayaç kipinde. Anahtar akışı, XGEM yükünün düz metniyle özel veya işlemine sokulur, ve sayaç her yük için yeniden başlar. Bizim okumamız: yalnızca yük, dolgusuyla, şifrelenir. Başlık açıktır; sınırlama, süzme ve HEC anahtarsız çalışır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8",
+   "file": "b5ff1e1f322_0.wav",
+   "duration": 23.096,
+   "text": "Anahtarın türü port kimliğinden çıkar: yayın portları ortak bir yayın anahtar çiftini, bir ONU'nun portları onun tek alıcılı çiftini kullanır. İndeks yalnızca yükün şifreli olup olmadığını ve çiftin hangi anahtarının kullanıldığını söyler. Geçerli anahtar yoksa, örneğin yeniden aktivasyondan hemen sonra, gönderici indeksi sıfır yapar ve şifresiz gönderir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e9",
+   "file": "b71f42fed94_0.wav",
+   "duration": 22.695,
+   "text": "Sayacın başlangıç bloğu yüz yirmi sekiz bittir: süper çerçeve sayacının alt elli biti, on dört bitlik çerçeve içi sayaç, ve bu ikilinin tekrarı; yukarı yönde tekrar terslenir. Çerçeve ya da burst on altı baytlık bloklara bölünür; bir XGEM çerçevesinin çerçeve içi sayacı, başlığının ilk dört baytının düştüğü bloğun sıra numarasıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e10",
+   "file": "b5fa9d45ae9_0.wav",
+   "duration": 24.831,
+   "text": "Sonucu, bizim yorumumuzla, önemlidir. Bir XGEM çerçevesinin anahtar akışı, başlığının çerçevede nereye düştüğüne bağlıdır. Şifreleme, çerçeve yerleştikten sonra, çerçeveleme anında yapılmalıdır; şifrelemeden sonra boş çerçeve ekleyen ya da çıkaran her eleman, şifre çözmeyi bozar. Bu modelle dördüncü ekteki iki şifreli örnek bayt bayt tutuyor.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e11",
+   "file": "bb224cafdb4_0.wav",
+   "duration": 30.011,
+   "text": "PMD Köprüsü. Birinci sezonun beşinci bölümünde, G.989.2'nin alıcıdan istediği ardışık özdeş rakam bağışıklığını gördük: yetmiş iki bit. Dördüncü bölümde de hat kodunun karıştırılmış NRZ olduğunu. XGEM baytları FEC'ten sonra karıştırılır. Bizim hesabımız: tamamen rastgele bir hatta yetmiş iki bitlik bir dizi, on gigabitte yaklaşık on beş bin, iki buçuk gigabitte altmış bin yılda bir görülür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e12",
+   "file": "bb26e607827_0.wav",
+   "duration": 22.377,
+   "text": "Peki birinci ek, aşağı yön hat verisi desen koşullandırma, ne der? Bütün metni tek cümledir: G.987.3'ün birinci ekiyle aynıdır. O belge kaynaklarımızda yok; ekin gövdesini bilmiyoruz. G.989.3'teki tek bağ, boş yükün hat deseni ve ardışık özdeş rakamlar gözetilerek seçilmesidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e13",
+   "file": "b2bb1441918_0.wav",
+   "duration": 24.873,
+   "text": "Neden hâlâ önemli? Bizim yorumumuz: aşağı yön karıştırıcısı toplamalıdır, ve tohumu her çerçevede açıkça yayınlanan süper çerçeve sayacıdır; her bit konumunun anahtar akışını herkes hesaplayabilir. Şifresiz bir yük, kasıtlı ya da değil, tam bu akışa eşitse, karıştırıcı onu uzun bir diziye çevirir. Şifreli yükler rastgele görünür; boş yükler ise OLT'nin elindedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e14",
+   "file": "b59396c71a2_0.wav",
+   "duration": 25.108,
+   "text": "Mühendis notu. Bir: anahtar akışının konumu başlığın konumudur; şifrelemeyi çerçeveleme anında yapın, ve şifreli akışı sonradan kaydıracak hiçbir eleman koymayın. İki: başlık açıktır, yükün bütünlük koruması yoktur. Sayaç kipi yalnızca gizlilik verir; bütünlük kodları PLOAM ve OMCI içindir, XGEM yükü için değil.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e15",
+   "file": "b6a6b04d29e_0.wav",
+   "duration": 6.801,
+   "text": "Sıradaki: kurallar tamam. Şimdi laboratuvarda XGEM'i ölçelim.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 395.84
+}

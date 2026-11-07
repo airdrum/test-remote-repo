@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b35ede2c994_0.wav",
+   "duration": 15.885,
+   "text": "Sezon iki, bölüm üç: XGEM. Geçen bölümde çerçeveyi kurduk. Şimdi yükünü açıyoruz: kullanıcı verisinin ve yönetim mesajlarının XGEM çerçevelerine nasıl paketlendiğini, bölündüğünü ve korunduğunu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "bfde1f9b967_0.wav",
+   "duration": 11.509,
+   "text": "Önce XGEM çerçevesi: sekiz baytlık başlık, yükün dört bayta yuvarlanma kuralı, boş çerçeveler, ve yalnızca yukarı yönde var olan kısa boş çerçeve.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "bcd069ac554_0.wav",
+   "duration": 10.4,
+   "text": "Sonra sınırlama: alıcının çerçeve sınırlarını hiç aramadan nasıl bulduğu, bir başlık bozulunca ne kaybedildiği, ve bunu hangi sayaçların söylediği.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "bd48dcf45fa_0.wav",
+   "duration": 9.003,
+   "text": "Ardından parçalama: aşağı ve yukarı yönün farklı kuralları, son parça biti, yeniden birleştirme, ve çok küçük tahsisler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "bfe97a4f5e3_0.wav",
+   "duration": 9.611,
+   "text": "Sonra servisler ve şifreleme: Ethernet ve OMCI'ın eşlenmesi, çalışma konusu olarak kalanlar, ve şifrelemenin XGEM başlığına dokunduğu yerler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b88456fd139_0.wav",
+   "duration": 9.749,
+   "text": "Laboratuvarda bir trafik üreteci ve bir protokol analizörüyle başlıkları çözeceğiz, boş çerçeveleri sayacağız, parçalamayı sınayacağız ve verimi ölçeceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 66.16
+}

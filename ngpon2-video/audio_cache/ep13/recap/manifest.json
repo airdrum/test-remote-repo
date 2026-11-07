@@ -1,0 +1,28 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "b7701ba56cb_0.wav",
+   "duration": 28.571,
+   "text": "Geçen bölümün soruları. Birinci soru: iki buçuk gigabitlik aşağı yön çerçevesi kaç kod sözcüğüne bölünür? Yüz elli yedi: iki yüz kırk sekiz baytlık yüz elli altı tam sözcük, ve yüz altmış sekiz baytlık kısa bir son sözcük. Sonuncunun yüz elli iki baytlık verisi, kodlamadan önce başına seksen sıfır bayt eklenerek tamamlanır. Bu sıfırlar gönderilmez; ONU çözmeden önce onları geri ekler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a2",
+   "file": "b758ace1fd7_0.wav",
+   "duration": 28.969,
+   "text": "İkinci soru: senkrondaki bir ONU, senkron deseninde üç bit hatalı bir çerçeve alırsa? Doğrulama en az altmış iki bitlik eşleşme ister; altmış bir yetmez. Makine yeniden senkron durumuna geçer, ama senkron kaybı ilan edilmez. M eksi bir, yani iki ardışık kötü çerçeve daha gelirse makine ava düşer, ve kayıp ancak o zaman ilan edilir: toplam üç çerçeve, üç yüz yetmiş beş mikrosaniye.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a3",
+   "file": "bc41e08f22b_0.wav",
+   "duration": 31.216,
+   "text": "Üçüncü soru: kimliği olmayan on gigabitlik bir ONU, FEC açıkken seri numarası tahsisine ne gönderir? Dört bayt başlık, kırk sekiz bayt PLOAM, dört bayt kuyruk: elli altı bayt. Tek bir kısaltılmış kod sözcüğü otuz iki eşlik baytı ekler: seksen sekiz bayt, önünde profilin önsözü ve sınırlayıcısıyla. Başlıktaki ONU kimliği, atanmamış değer olan bin yirmi üçtür. Şimdi bu bölüme.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 88.76
+}

@@ -1,0 +1,35 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "b01074b1961_0.wav",
+   "duration": 24.095,
+   "text": "Bölümün özeti. Bir: XGEM başlığı sekiz bayttır: gösterge, anahtar indeksi, port kimliği, seçenekler, son parça biti ve HEC. Dolu bir yük dört bayta yuvarlanır ve en az sekiz bayttır; boş çerçevelerde gösterge gerçek boydur. İki: sınırlama hiç aramaz; her yük bölümü bir başlıkla başlar, ve bozuk bir başlık bölümün kalanını götürür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h2",
+   "file": "b3d06c9dbcf_0.wav",
+   "duration": 27.405,
+   "text": "Üç: aşağı yönde bir birim en çok iki parçaya bölünür; yukarı yönde parçalar tahsis kimliği içinde sıralanır, ve devir beklerken yeni bölme yoktur. Dört: yalnızca Ethernet ve etiket anahtarlama eşlenir; önsöz atılır, denetim dizisi kalır, OMCI varsayılan portta gider. Beş: şifre yalnızca yükü kapsar, ve anahtar akışı başlığın çerçevedeki konumuna bağlıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h3",
+   "file": "b82c9b1dee7_0.wav",
+   "duration": 40.923,
+   "text": "Kendini test et. Birinci soru: bin beş yüz on sekiz baytlık bir Ethernet çerçevesi tek bir XGEM çerçevesinde aşağı gidiyor; gösterge, dolgu ve toplam boy nedir, önsöze ne olur? İkinci soru: kuyruğunda bin beş yüz on sekiz baytlık bir çerçeve olan iki buçuk gigabitlik bir ONU, rapor isteyen dört sözcüklük bir tahsiste ne gönderir? Üçüncü soru: göstergesi dört olan boş bir çerçeveden sonraki başlık kaç bayt ileridedir, ve dört sıfır baytı neden yalnızca ONU gönderir? Cevaplar, bir sonraki bölümün başında.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h4",
+   "file": "b14f8512175_0.wav",
+   "duration": 16.312,
+   "text": "Bir sonraki bölüm: Paylaşım. Kaynak tahsisi ve dinamik bant genişliği tahsisi: durum raporları ve trafik izleme, düşük gecikme için iş birlikli tahsis, ve çekişmeli tahsisler. Görüşmek üzere.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 108.73
+}

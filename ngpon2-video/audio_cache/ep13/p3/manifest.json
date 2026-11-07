@@ -1,0 +1,112 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "b20021bce99_0.wav",
+   "duration": 25.133,
+   "text": "Perde üç: parçalama. Gönderilmeyi bekleyen bir servis veri birimi ya da bir parçası, iki ya da daha fazla parçaya bölünebilir, ve her parça ayrı bir XGEM çerçevesinde gider. Ortak eşik şudur: kalan yük alanı en az on altı bayt ise, ve birim sekiz baytlık başlığıyla bu alana sığmıyorsa, birim ikiye bölünür; birinci parça kalan alanı tamamen doldurur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "b546871eada_0.wav",
+   "duration": 20.159,
+   "text": "Üç ortak kural daha vardır. İkinci parça sekiz bayttan kısaysa, on altı baytlık en küçük çerçeveye ulaşmak için sekize doldurulur. Birim başlığıyla birlikte kalan alana sığıyorsa, onu bölmek yasaktır; bütün olarak gider. Ve kalan alan on altı bayttan azsa, bir boş çerçeveyle doldurulur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "bcef1e7f8f5_0.wav",
+   "duration": 25.524,
+   "text": "Aşağı yönde OLT parçalamayı kendi takdirine göre uygular, ve amacı yazılıdır: ONU başka bir TWDM kanalına ayarlandıktan sonra, ona ait hiçbir aşağı yön trafiği bekler durumda kalmamalıdır. İkinci parça bir sonraki çerçevenin yükünde, başka her birimden önce gider. Aşağı yönde öne alma yoktur: hiçbir birim, bölünmüş bir birimin devamının önüne geçemez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "bb59046e88a_0.wav",
+   "duration": 24.152,
+   "text": "Yukarı yönde kalan parça, aynı tahsis kimliğinin bir sonraki tahsisinde, aynı kurallarla gider. Bir birimin bütün parçaları, o tahsis kimliğine ait başka her birimden önce gönderilir. Öne alma yasağı burada yalnızca bir tahsis kimliğinin içindedir; bizim okumamızla, farklı tahsis kimlikleri kendi bölünmüş birimlerini aynı anda taşıyabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "b0eb5f87825_0.wav",
+   "duration": 24.261,
+   "text": "Kanal devri bir kural daha ekler. O5 çalışma durumunun iki alt durumu vardır. İlişkili alt durumda ONU, yeni ya da önceden bölünmüş birimleri kısıtlamasız parçalar. Devir bekleyen alt durumda ise başlamış parçalamaları tamamlar ve sığan birimleri bütün olarak gönderir, ama yeni bir birimi bölmeye başlamaz. Sığmayan bir birimin yerine boş çerçeve gider.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "bbf2451083d_0.wav",
+   "duration": 26.047,
+   "text": "PMD Köprüsü. Birinci sezonun yedinci bölümünde ayar süresi sınıflarını gördük: yeni bir dalga boyuna geçmek sıfır olmayan bir süre alır. Parçalama kuralları bu ana hazırlanır: aşağı yönde OLT yarım birim bırakmamaya çalışır, yukarı yönde ONU devir beklerken yeni bölme başlatmaz. Bizim okumamız: bir kanalda başlayan bir parça zinciri, başka bir kanalda tamamlanamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "b047a808cb1_0.wav",
+   "duration": 29.759,
+   "text": "Vericinin kararı, bizim derlememizle, üç adımdır. Bir: sıradaki birim başlığıyla sığıyorsa bütün gider, son parça biti bir. İki: sığmıyor, en az on altı bayt var ve bölmek serbestse, kalan alandan sekiz eksik bir parça gider, biti sıfır; bu parça dördün katıdır ve alanı dolgusuz doldurur. Üç: aksi halde boş çerçeve, ya da yukarı yönde dört bayt kalmışsa kısa boş çerçeve.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "b52b822584b_0.wav",
+   "duration": 22.531,
+   "text": "Alıcı tarafında standart yalnızca birleştirmeyi söyler. Sıra numarası yoktur, ve gerekmez: bizim yorumumuzla bir zincir, aynı portta son parça biti sıfır olan çerçeveler ve onları izleyen, biti bir olan ilk çerçevedir. Aşağı yönde öne alma olmadığından bir kanalda en çok bir bölünmüş birim vardır, ve bir sonraki yük onun devamıyla başlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "b5ad167cbee_0.wav",
+   "duration": 19.939,
+   "text": "Bizim hesabımız: aşağı yönde bir birim asla üç parçaya bölünmez. En küçük aşağı yön yükü, iki buçuk gigabitte FEC açıkken, alan genişliklerinin izin verdiği en ağır başlıkla bile yirmi bin bayttır; en büyük XGEM çerçevesi ise on altı bin üç yüz doksan iki bayt.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "b9194f792bc_0.wav",
+   "duration": 27.711,
+   "text": "Yukarı yönde her tahsis kimliği için en çok bir bölünmüş birim vardır; OLT her biri için ayrı bir birleştirme bağlamı tutar. Parça sayısının sınırı yoktur. Bizim modelimizle, altmış dört ONU ve FEC açıkken, dokuz bin baytlık bir jumbo çerçeve on gigabitte beş tahsis, yaklaşık altı yüz yirmi beş mikrosaniye; iki buçuk gigabitte yirmi tahsis, yaklaşık iki buçuk milisaniye sürer.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "bc382f514ee_0.wav",
+   "duration": 26.619,
+   "text": "Standardın söylemedikleri. Bir birleştirme zaman aşımı yoktur. Sahipsiz bir devamın, örneğin bir sınırlama kaybı ilk parçayı attıktan sonra gelen ikinci parçanın, nasıl işleneceği yazılmamıştır. Port başına en büyük birim boyu da yoktur: gösterge on altı bin üç yüz seksen üçe izin verir, iki bin ve dokuz bin yalnızca örnektir. Bunlar üreticinin kararıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d12",
+   "file": "b4768bd53b0_0.wav",
+   "duration": 32.959,
+   "text": "Küçük yukarı yön tahsisleri. İki buçuk gigabitte en küçük tahsis bir sözcüktür ve yalnızca durum raporu taşır; yük için en küçüğü dört sözcük, on altı bayttır. Bizim hesabımızla, rapor istenmişse iki sözcükte kısa boş çerçeve, üçte göstergesi sıfır, dörtte göstergesi dört olan boş çerçeve kalır; veri için beş sözcük gerekir. On gigabitte standardın andığı on iki baytlık boş çerçeve de, göstergesi dört olan bir boş çerçevedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d13",
+   "file": "b15f8569cdd_0.wav",
+   "duration": 23.128,
+   "text": "Tampon doluluğu ise başlıkları görmez. Geçen bölümdeki formül, bizim hesabımızla, her uzunlukta XGEM yükünün dörtte birine eşittir: dolguyu sayar, sekiz baytlık başlığı saymaz. Altmış dört baytlık çerçevelerden oluşan bir kuyruk, raporundan yüzde on iki buçuk fazla tahsis ister; bin beş yüz on sekiz baytta fark yüzde yarımdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d14",
+   "file": "be66d4388b9_0.wav",
+   "duration": 28.848,
+   "text": "Mühendis notu. Bir: parçalama asimetriktir. Aşağı yönde en çok iki parça, devam her zaman bir sonraki yükün başında; yukarı yönde sınırsız parça, sıra yalnızca tahsis kimliği içinde, ve devir beklerken yeni bölme yok. İki: raporu birebir karşılayan bir tahsis, küçük paketli bir kuyruğun dokuzda birini her döngüde geride bırakır. Bizim yorumumuz: açığı bir pay ya da trafik izleme kapatır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d15",
+   "file": "b4d4371888c_0.wav",
+   "duration": 5.361,
+   "text": "Sıradaki: veriyi taşıdık. Peki hangi veri, ve kim onu okuyabilir?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 362.13
+}
