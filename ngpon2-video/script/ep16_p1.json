@@ -1,0 +1,69 @@
+{
+ "title": "S2B06 Perde 1 — Durum makinesi",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: durum makinesi. G.989.3, bir TWDM ONU'nun TC davranışını bir durum makinesiyle tanımlar. Güç verildiğinde girilen tek durum başlangıç durumudur, O1; ona iki ardışık dönüş arasındaki yol bir aktivasyon çevrimidir. Aktivasyonun kendisi üç evredir: aşağı yön senkronu, seri numarası edinimi, yani ONU keşfi, ve ranging."
+  },
+  {
+   "id": "b2",
+   "text": "Standart bunu sekiz adımlık bir nedensel diziyle anlatır. Bir: ONU alıcısını ayarlar, senkrona kilitlenir, profilleri toplar, ve kanal bölümlemesinin ve yukarı yön hızının uyuştuğunu doğrular. İki: vericisini en iyi çabayla yukarı yön kanalına ayarlar, ve seri numarası tahsislerine cevap verir. Üç: OLT ya dalga boyu ayarı, ya kalibrasyon isteği, ya da kimlik atamayla karşılık verir."
+  },
+  {
+   "id": "b3",
+   "text": "Dört: OLT isteğe bağlı olarak bir ranging tahsisi verir. Beş: ONU kayıt mesajıyla cevap verir. Altı: OLT eşitleme gecikmesini hesaplar ve gönderir. Yedi: ONU yukarı yön çerçeve saatini bu gecikmeye göre kaydırır. Sekiz: çalışma başlar. Dördüncü adımdaki isteğe bağlı sözcüğü, ikinci perdede göreceğimiz kısa yollardan birinin kapısıdır."
+  },
+  {
+   "id": "b3a",
+   "text": "PMD Köprüsü. Birinci sezonun onuncu bölümünde bir ONU'nun hayatını on beş adımda anlattık; kanal aramadan çalışmaya kadar olan sekiz adım, bu dizinin optik yüzüydü. O sayıları bu bölümde kaynağına bağlıyoruz; hepsi tutuyor."
+  },
+  {
+   "id": "b4",
+   "text": "Durumlar. O1'in iki alt durumu vardır: çevrim dışı ve profil öğrenme. Sonra seri numarası durumu gelir; tablodaki adı O iki üç'tür, O3 diye ayrı bir durum yoktur. Ardından O4 ranging, O5 çalışma, O6 aralıklı senkron kaybı, O7 acil durdurma, O8 aşağı yön ayarı ve O9 yukarı yön ayarı. Makineyi beş tür girdi sürer: senkron olayları, iç kararlar, zamanlayıcılar, harita tahsisleri ve PLOAM mesajları."
+  },
+  {
+   "id": "b5",
+   "text": "O1'de verici kapalıdır. Girişte ONU kimliğini, tahsis kimliklerini, varsayılan portu, burst profillerini ve eşitleme gecikmesini atar. Profil öğrenmede bir bekleme zamanlayıcısı çalışır: en az on saniye. Profiller bir ile beş saniyede bir yinelendiğine göre, bizim yorumumuzla ONU vazgeçmeden önce en az iki tam profil çevrimi görür."
+  },
+  {
+   "id": "b6",
+   "text": "İki bin yirmi beş değişikliği bu alt durumun kararını yeniden yazdı: aktivasyona uygun, ya da aktivasyon engellendi. Uygun olmak için bölümleme, yukarı yön bağlantı tipi ve hızı uyuşmalı, ve kanal profilinin iki bitine göre kanalda uygun türde seri numarası tahsisleri sunulmalıdır. Uygunsa keşif zamanlayıcısı başlar. Engellenen ONU sistem ve kanal profillerini tutar, burst profillerini atar ve çevrim dışına döner."
+  },
+  {
+   "id": "b6a",
+   "text": "Son koşul yenidir. Aşağı yön ayarındaki profil öğrenme ise eski kararı korur ve tahsislere bakmaz; kanal değiştiren bir ONU'nun keşfe ihtiyacı yoktur. Bir uyarı: değişiklik durum şeklini yeniden çizmedi, şekil hâlâ eski etiketi gösterir. Tabloya güvenin."
+  },
+  {
+   "id": "b7",
+   "text": "Zamanlayıcılar. Keşif zamanlayıcısı için önerilen değer yirmi saniyedir, ama yalnızca bant içi cevap için kalibre edilmiş ONU'da; ötekiler için değer yoktur. TO1 için önerilen değer on saniyedir. TO6, unutulmuş ONU zamanlayıcısı, on saniye olmak zorundadır: aktivasyon zamanlayıcılarının tek zorunlu değeri. Bizim hesabımızla, tahsissiz seksen bin çerçeve."
+  },
+  {
+   "id": "b8",
+   "text": "Şimdi bu perdenin en faydalı cümlesi: TO2, TO3, TO4 ve TO5'in değeri G.989.3'ün hiçbir yerinde yoktur. Bunlar, senkron kaybında ne kadar bekleneceğini, koruma devrine ne zaman geçileceğini ve başarısız bir ayardan ne zaman vazgeçileceğini belirler. Yani devir ve koruma zamanlamasının birlikte çalışabilirliği, üreticinin seçimine kalmıştır."
+  },
+  {
+   "id": "b9",
+   "text": "Ne unutulur? Tablo yedi küme tanımlar. Bir: burst profilleri. İki: ONU kimliği, varsayılan tahsis kimliği ve varsayılan port. Üç: ikisi birden. Dört: eşitleme gecikmesi. Beş: bunların hepsi ve atanmış tahsis kimlikleri. Altı: beşe ek olarak sistem ve kanal profilleri, ana oturum anahtarı ve koruma PON kimlikleri. Yedi: yalnızca sistem ve kanal profilleri."
+  },
+  {
+   "id": "b10",
+   "text": "TO1 dolarsa ikinci küme gider, ve ONU profillerini tutarak seri numarası durumuna döner. O4'te senkron kaybı üçüncüyü; çalışırken devre dışı bırakma, ve TO2, TO4, TO5 ya da TO6'nın dolması beşinciyi siler; profiller ve anahtarlar kalır. Bizim çıkarımımız: altıncıyı yalnızca acil durdurmadan serbest bırakılış siler. Bölümleme indeksi hiçbir kümede yoktur."
+  },
+  {
+   "id": "b11",
+   "text": "İki bin yirmi üç değişikliği TO6'yı düzeltti. Eski metinde TO6, O5'e her girişte, aralıklı senkron kaybından dönüşte de başlıyordu; bizim yorumumuzla kısa kesintiler süreyi sürekli tazeleyebiliyordu. Şimdi yalnızca O4 ya da O9'dan girişte başlar, yukarı yön tahsisli her çerçevede yeniden başlar, O6'da durur, ve dönüşte kaldığı yerden devam eder."
+  },
+  {
+   "id": "b12",
+   "text": "Mühendis notu. Bir: TO2'den TO5'e kadar değerleri ve kalibre edilmemiş ONU'nun keşif süresini üreticiden yazılı isteyin. İki: makineyi şekle göre değil, tabloya göre kodlayın, ve çelişkileri belgeleyin: metin, keşif zamanlayıcısı dolunca bütün profillerin atıldığını söyler; tablo yalnızca burst profillerini atar."
+  },
+  {
+   "id": "b13",
+   "text": "Sıradaki: makine belli. Şimdi ONU'nun ilk sözüne, seri numarasına bakalım."
+  }
+ ]
+}

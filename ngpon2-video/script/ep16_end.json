@@ -1,0 +1,25 @@
+{
+ "title": "S2B06 Kapanış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölümün özeti. Bir: ONU sekiz adımda, O1'den seri numarası durumuna, O4'e ve O5'e uyanır; iki değişiklik aktivasyon kararını ve unutulmuş ONU zamanlayıcısını düzeltti. İki: tek zorunlu aktivasyon zamanlayıcısı TO6'nın on saniyesidir; TO2'den TO5'e değer yoktur. Üç: seri numarası mesajı rastgele gecikmeyi ve hata ayıklama kodunu taşır."
+  },
+  {
+   "id": "h2",
+   "text": "Dört: keşif penceresi yirmi kilometrede iki yüz elli, ranging penceresi iki yüz iki mikrosaniyedir; eşitleme gecikmesi iki buçuk gigabitte tek bite kadar doğrudur, ve kayma iki eşikle izlenir. Beş: günün saati bir çerçeve numarası ve bir damgayla aktarılır; yirmi kilometrede hata genel durumda dokuz virgül dört, sabit eşleşmede üç virgül iki nanosaniyedir."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: değeri zorunlu olan tek aktivasyon zamanlayıcısı hangisidir, değeri nedir, ve iki bin yirmi üç değişikliği onda neyi değiştirdi? İkinci soru: L min sıfır, D maks kırk kilometre ise önerilen seri numarası penceresi kaç mikrosaniyedir, parçaları nereden gelir, ve neden on gigabitte de aynıdır? Üçüncü soru: yirmi kilometrede günün saati hatası neden sabit eşleşmede üç virgül iki, genel durumda dokuz virgül dört nanosaniyedir? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Renk Değiştirmek. Kanal yönetimi, devir, kilitleme ve bağlama. Bu bölümde yalnızca adını andığımız O8 ve O9'u, bir ONU'nun bir renkten ötekine geçişinde adım adım izleyeceğiz. Görüşmek üzere."
+  }
+ ]
+}

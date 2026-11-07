@@ -1,6 +1,8 @@
 """Turkish read-aloud spellings for acronyms (applied only to the text sent to TTS; subtitles keep the original)."""
 import re
 LEX = [
+    (r"\bO2-3\b", "o iki üç"), (r"\bO1\.1\b", "o bir bir"), (r"\bO1\.2\b", "o bir iki"), (r"\bO5\.1\b", "o beş bir"), (r"\bO5\.2\b", "o beş iki"),
+    (r"\bO8\.1\b", "o sekiz bir"), (r"\bO8\.2\b", "o sekiz iki"), (r"\bO7\.1\b", "o yedi bir"), (r"\bO7\.2\b", "o yedi iki"),
     (r"AES-CMAC", "ey i es si mek"), (r"AES-CTR", "ey i es si ti ar"), (r"\bAES\b", "ey i es"),
     (r"NG2SYS ID", "en ci iki sis ay di"), (r"\bHLend", "eyç el end"), (r"\bPSBu", "pi es bi yu"),
     (r"S/R-CG", "es ar si ci"), (r"S/R-CP", "es ar si pi"), (r"\bR/S\b", "ar es"),

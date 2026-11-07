@@ -1,0 +1,61 @@
+{
+ "title": "S2B06 Perde 4 — Günün saati",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: günün saati. OLT'nin doğru bir gerçek zaman saati olduğu varsayılır; kaynağı kapsam dışıdır. OLT ONU'ya şunu söyler: belirli bir çerçeve, eşitleme gecikmesi ve yanıt süresi sıfır olan varsayımsal bir ONU'ya günün hangi saatinde varırdı? Çerçeve süper çerçeve sayacıyla adlandırılır; aktarım OMCI ile yapılır, gerçek zamanlı olması gerekmez."
+  },
+  {
+   "id": "e2",
+   "text": "Süreç. OLT, önerildiği gibi şu andan on saniyelik bir pencere içinde bir çerçeve seçer. Damga, o çerçevenin gönderme anı artı bir OLT payıdır: T eqd çarpı aşağı yön kırılma indisinin iki indisin toplamına oranı. Varış referansı, ODN ile ONU arasındaki konnektördür. OLT kendi iç gecikmelerini telafi eder, ve çerçeve numarasıyla damgayı OMCI ile gönderir."
+  },
+  {
+   "id": "e3",
+   "text": "ONU damgadan kendi payını çıkarır: eşitleme gecikmesi artı yanıt süresinin kesin değeri, çarpı aynı oran. Başka bir çerçeve için aradaki çerçeve sayısı çarpı yüz yirmi beş mikrosaniye eklenir; sayacın dönmesine dikkat. Saat on saniye içinde kurulur. Eşitleme gecikmesi değişirse ONU tahminini düzeltir; böylece saat yayılmadaki kaymayı izler."
+  },
+  {
+   "id": "e4",
+   "text": "Neden çalışır? İkinci eke göre her ONU için T eqd dört terimin toplamıdır: aşağı yön yayılması, yanıt süresi, eşitleme gecikmesi ve yukarı yön yayılması. ONU kendi payını çıkarınca geriye gidiş dönüş yayılması kalır; aşağı yön payı indislerin oranıdır. Bizim örneğimiz: T eqd iki yüz otuz altı mikrosaniyeyse OLT payı yüz on sekiz virgül sıfır bir dört mikrosaniyedir."
+  },
+  {
+   "id": "e5",
+   "text": "Başarım. Standart üç kaynak sayar. Eşitleme gecikmesinin doğruluğu pencere kayması eşiğiyle, yaklaşık üç nanosaniyedir; bir mikrosaniyelik genel sistem gereksiniminin çok altında, ama metin bu gereksinimin kaynağını vermez. İç gecikmeler çevrimden çevrime on altı bit oynayabilir: altı virgül dört nanosaniye."
+  },
+  {
+   "id": "e6",
+   "text": "Üçüncü kaynak fiberdir. Metne göre en büyük oran yarım artı milyonda yetmiş iki virgül yedi; yarımı kullanmak milyonda yüz kırk beş virgül dörtlük bir hatadır, ve metin bunu iki yüz mikrosaniyede yirmi dokuz virgül sıfır sekiz nanosaniye verir. Bizim kontrolümüz: hata, gidiş dönüş çarpı orandaki sapmadır: on dört virgül beş dört nanosaniye. Metin iki kat abartıyor."
+  },
+  {
+   "id": "e7",
+   "text": "İkinci ek hatayı iki terime ayırır. OLT terimi, T eqd çarpı oran hatası, herkes için aynıdır ve en büyük T eqd'de, tipik olarak iki yüz elli mikrosaniyede alınır. ONU terimi eşitleme gecikmesi artı yanıt süresiyle büyür. Standardın deyişiyle sonuç sezgiye aykırıdır: ONU'nun oranı yanlışsa en büyük hatayı en yakın ONU yapar, çünkü en uzun eşitleme gecikmesi onundur."
+  },
+  {
+   "id": "e8",
+   "text": "PMD Köprüsü. Oran, yarım eksi indis farkının dört kat indise bölümüdür; önemli olan iki yönün indis farkıdır, o da G.652 fiberinin dispersiyonundan gelir. Birinci sezonun üçüncü bölümündeki plan buraya girer: yukarı yön bin beş yüz yirmi dört ile bin beş yüz kırk dört, aşağı yön bin altı yüz nanometre civarı. Ama ekin denklemi hâlâ XG-PON'un bin iki yüz yetmiş ve bin beş yüz yetmiş yedi nanometresiyle yazılı."
+  },
+  {
+   "id": "e9",
+   "text": "Genel durum. Oran yarım artı milyonda yirmi yedi ile doksan dört arasındadır; en olası değer yarım artı milyonda altmış bir, ama milyonda otuz dörde kadar yanlış olabilir. Yirmi kilometrede, yaklaşık iki yüz mikrosaniyelik gidiş dönüşte bu artı eksi altı virgül sekiz nanosaniyedir. Yanıt süresi ve eşitleme gecikmesi için bir virgül altı, yuvarlama için bir nanosaniye eklenince: dokuz virgül dört."
+  },
+  {
+   "id": "e10",
+   "text": "Sabit kanal eşleşmesinde her çift için sapma milyonda iki ya da üçtür: sıfır virgül dört ile sıfır virgül altı nanosaniye. Toplam artı eksi üç virgül iki; genel değer kullanılırsa üç virgül dört: yaklaşık üç kat daha iyi. Bizim hesabımızla kırk kilometrede bu sayılar on beş virgül dokuz ve üç virgül sekize çıkar."
+  },
+  {
+   "id": "e11",
+   "text": "Bizim kontrollerimiz. Ekin aritmetiği tutuyor; ama indis farkı uçları verilen girdilerle yeniden üretilemiyor: biz milyonda iki yüz seksen ile dört yüz kırk buluyoruz. Bir denklemin paydasında da iki kez aşağı yön indisi yazılmış. Ve bütçe tutarsız: ana metin eşitleme gecikmesine üç, iç gecikmelere altı virgül dört nanosaniye tanır; ek ikisine birlikte bir virgül altı ayırır."
+  },
+  {
+   "id": "e12",
+   "text": "Mühendis notu. Bir: OLT ve ONU aynı oranı kullanmalıdır; ek ikisine de yarım artı milyonda altmış biri önerir. İki: on nanosaniyenin altına inmek istiyorsanız sabit kanal eşleşmesi kullanın ve iç gecikmeleri kendiniz kalibre edin; standart telafiyi iki tarafa bırakır, ama yöntem vermez."
+  },
+  {
+   "id": "e13",
+   "text": "Sıradaki: ONU uyandı ve saatini kurdu. Şimdi bunu laboratuvarda ölçelim."
+  }
+ ]
+}

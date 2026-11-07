@@ -1,0 +1,69 @@
+{
+ "title": "S2B06 Perde 3 — Ranging ve eşitleme gecikmesi",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: ranging ve eşitleme gecikmesi. Aşağı yön çerçevesi senkron deseninin ilk bitiyle başlar; yukarı yön çerçevesi ise, başlangıç zamanı sıfır olan bir tahsisin göstereceği ilk bitle, gönderilmese bile. ODN iki sayıyla tanımlanır: en kısa fiber mesafesi L min ve en büyük diferansiyel mesafe D maks; ikisini de OLT önceden bilir."
+  },
+  {
+   "id": "d2",
+   "text": "PMD Köprüsü. Birinci sezonun ikinci bölümünde G.989.2'nin iki sınıfını gördük: DD20, sıfır ile yirmi kilometre; DD40, sıfır ile kırk. En küçük değer sıfır olduğu için L min sıfır, D maks sınıfın üst sınırıdır; bu maddenin bütün örnekleri tam bu durumdur."
+  },
+  {
+   "id": "d3",
+   "text": "Zamanlama kuralı. Her gönderim, haritayı taşıyan aşağı yön çerçevesinin başlangıcına göre hesaplanır, tahsisin alındığı ana göre değil; yukarı yön çerçevesi yanıt süresi artı gerekli gecikme kadar sonra başlar. Yanıt süresi otuz beş artı eksi bir mikrosaniyedir, ve her ONU kendi değerini bilmelidir. Gerekli gecikme seri numarası durumunda rastgele, O4'te sıfır, O5'te eşitleme gecikmesidir."
+  },
+  {
+   "id": "d4",
+   "text": "Seri numarası penceresi. Başlangıcı: en kısa yanıt süresi, artı en yakın ONU'nun gidiş dönüşü, artı tahsisin başlangıç zamanı. Boyu: yanıt süresindeki oynama, artı diferansiyel mesafenin gidiş dönüşü, artı en büyük rastgele gecikme, artı sıfır virgül üç mikrosaniyenin altındaki burst süresi. Yirmi kilometrede iki yüz, iki ve kırk sekiz: iki yüz elli mikrosaniye. Kırk kilometrede dört yüz elli."
+  },
+  {
+   "id": "d5",
+   "text": "Ranging'de rastgele gecikme yoktur: önerilen en büyük pencere yirmi kilometrede iki yüz iki, kırk kilometrede dört yüz iki mikrosaniyedir, ve önceki bilgilerle daraltılabilir. Her pencere iki, belki üç ardışık haritayı etkiler. Bizim hesabımızla on gigabitte tek bir keşif penceresi yaklaşık üç yüz on bir kilobaytlık kapasiteyi susturur, iki buçuk gigabitin dört katı."
+  },
+  {
+   "id": "d6",
+   "text": "T eqd, bir haritayı taşıyan aşağı yön çerçevesi ile onu uygulayan yukarı yön çerçevesi arasındaki süredir; G-PON'daki adı sıfır mesafe eşitleme gecikmesidir. En uzun yanıt süresi artı en uzak gidiş dönüşten küçük olamaz: yirmi kilometrede iki yüz otuz altı, kırk kilometrede dört yüz otuz altı mikrosaniye. Birinci sezondaki iki yüz otuz iki, gidiş dönüşü yüz doksan altı alıyordu; standart iki yüz kullanır."
+  },
+  {
+   "id": "d7",
+   "text": "Ranging tahsisi, O4'teki ONU'nun varsayılan tahsis kimliğine, PLOAM bayrağıyla, sıfır boyutla ve bir sessiz pencereyle verilir. Cevap kayıt mesajıdır: sıra numarası sıfır, otuz altı baytlık kayıt kimliği. Eşitleme gecikmesi, T eqd eksi gidiş dönüş gecikmesidir; gidiş dönüş de, tahsisi taşıyan çerçeveden kayıt burst'üne kadar ölçülen süre eksi başlangıç zamanıdır."
+  },
+  {
+   "id": "d8",
+   "text": "Bizim hesabımızla OLT'nin dibindeki bir ONU, yirmi kilometrelik bir ODN'de yaklaşık iki yüz iki mikrosaniye bekler. Eşitleme gecikmesi mesajının kontrol baytı üç şey söyler: mutlak mı göreli mi, artış mı azalış mı, ve değer şu anki kanal çifti için mi, adı verilen bir çift için mi. ONU'yu O5'e yalnızca yönlendirilmiş, mutlak bir mesaj taşır."
+  },
+  {
+   "id": "d9",
+   "text": "Doğruluk. Değer, ONU'nun hızından bağımsız olarak, iki buçuk gigabitte tek bir bit periyoduna, sıfır virgül dört nanosaniyeye kadar doğrudur. ONU ise ayar adımını sekiz bit periyodunun, üç virgül iki nanosaniyenin altında tutmalıdır. Fiber mesafesi formülü mikrosaniyede yüz iki metre kullanır: yaklaşık yüzde bir doğruluk, yirmi kilometrede iki yüz metre."
+  },
+  {
+   "id": "d10",
+   "text": "Kayma. Burst erken gelirse OLT gecikmeyi kayma kadar artırır. İki eşik önerilir. Pencere kayması: iki buçuk gigabitte artı eksi sekiz, on gigabitte otuz iki bit, yaklaşık üç virgül iki nanosaniye; aşılınca yeni gecikme gider. İletim girişimi uyarısı: on altı ve altmış dört bit, altı virgül dört nanosaniye; kayma üç düzeltmeden sonra da sürerse ilan edilir."
+  },
+  {
+   "id": "d11",
+   "text": "PMD Köprüsü. Birinci sezonun altıncı bölümünde koruma süresini vericinin açılma ve kapanma sürelerinden türettik. Bizim hesabımızla iki ONU üst eşiğe zıt yönlerde kayarsa fark otuz iki bit, tam bir zaman kuantumudur: iki buçuk gigabitte önerilen altmış dört bitlik korumanın yarısı. Üst eşiğin adı bu yüzden girişimdir."
+  },
+  {
+   "id": "d12",
+   "text": "Kanal değiştiren ONU'nun zamanı. Yedinci ek fiberi üçe böler: kanal sonlandırıcısına özgü bağlantı fiberi, ortak besleyici ve dağıtım. Bağlantı fiberleri farklıysa, gecikmesini koruyarak kanal değiştiren ONU başkasının zaman diliminde gönderebilir. Üç örnek yöntem: yeniden ranging, tutarlı T eqd, ve gecikmeyi önceden yapılandırmak."
+  },
+  {
+   "id": "d13",
+   "text": "Tutarlı yöntemde kanal sonlandırıcıları ICTP ile ortak bir T eqd ve bir halka sırası üzerinde anlaşır. İlk aktive olan ONU öncü olur, ve halkada iki tur devredilir. Her devirde hedef gidiş dönüşü ölçer: kendi T eqd'sinden büyükse öncünün gecikmesini azalttırır, değilse kendi T eqd'sini ölçülene indirir. Birinci tur en uzağı bulur, ikinci tur değerleri kesinleştirir."
+  },
+  {
+   "id": "d14",
+   "text": "Mühendis notu. Bir: zamanlamayla ilgili her şey, on gigabitlik bir ONU için bile, iki buçuk gigabitin bit periyotlarıyla yazılır; iki hızı ayrı veren tek tablo kayma eşikleridir. İki: pencereler kilometre başına on mikrosaniye gidiş dönüşle, mesafe formülü mikrosaniyede yüz iki metreyle hesaplanır; bizim yorumumuzla aradaki yüzde iki, bir güvenlik payıdır."
+  },
+  {
+   "id": "d15",
+   "text": "Sıradaki: bütün ONU'lar aynı ızgarada konuşuyor. Peki saat kaç?"
+  }
+ ]
+}

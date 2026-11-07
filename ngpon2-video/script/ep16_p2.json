@@ -1,0 +1,69 @@
+{
+ "title": "S2B06 Perde 2 — Seri numarası ve kimlik",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: seri numarası ve kimlik. Seri numarası durumunda ONU vericisini ilk kez açar, ve aşağı yön kanalının eşi olan yukarı yön kanalına en iyi çabayla ayarlar. Bant içi seri numarası tahsisi, yayın bir tahsis kimliğine, herkesin bildiği bir burst profiliyle ve PLOAM bayrağıyla verilir; boyutu sıfır olmalı, ve yanında bir sessiz pencere açılmalıdır."
+  },
+  {
+   "id": "c2",
+   "text": "Tahsis kimliği hızı seçer: bin yirmi bir her hıza, bin yirmi iki on gigabite, bin yirmi üç iki buçuk gigabite açıktır. AMCC türü ise haritanın başında, bin yirmi bire verilmiş, başlangıç zamanı ve boyutu on altılık tabanda ef ef ef ef olan bir tahsistir. Bu tahsislerin sıklığı için standartta değer yoktur."
+  },
+  {
+   "id": "c3",
+   "text": "Kim hangisine cevap verir? Sistem profili, bant içi aktivasyon için gereken en düşük kalibrasyon doğruluğunu duyurur: kalibre edilmemiş, gevşek ya da yeterli. Eşiği karşılayan ONU bant içi tahsislere cevap verir; karşılamayan yalnızca AMCC tahsislerine, ve bant içinde konuşması yasaktır. Yirmi saniyelik keşif önerisi de yalnızca birinci grup içindir."
+  },
+  {
+   "id": "c4",
+   "text": "PMD Köprüsü. Bu, birinci sezonun altıncı bölümündeki vericinin ilk ışığıdır: açılış geçişi iki buçuk gigabitte üç yüz yirmi, on gigabitte bin iki yüz seksen bit, ikisi de yüz yirmi sekiz virgül altı nanosaniye. Kalibrasyonun ölçüsü ise yedinci bölümdeki en büyük spektral sapmadır; onu bir sonraki bölümde açacağız."
+  },
+  {
+   "id": "c5",
+   "text": "Rastgele gecikme. Çarpışmaları seyreltmek için ONU cevabını sıfır ile kırk sekiz mikrosaniye arası rastgele bir gecikmeyle öteler, her cevapta yeni bir değerle. Gecikme, ONU'nun hızından bağımsız olarak, iki virgül dört sekiz sekiz üç iki gigabitin bit periyotlarıyla sayılır: bizim hesabımızla en çok yüz on dokuz bin dört yüz otuz dokuz bit. Mesaj bu değeri de taşır."
+  },
+  {
+   "id": "c6",
+   "text": "Mesajda ONU kimliği bin yirmi üçtür, yani atanmamış; sıra numarası sıfır. Sonra üretici kimliği, seri numarası, gecikme, PON kimlikleri, kalibrasyon durumu ve yetenekler gelir. Bizim yorumumuz: gecikme bildirildiği için OLT, varış anından gidiş dönüş süresini kestirebilir; standart buna izin verir, ama formül vermez."
+  },
+  {
+   "id": "c7",
+   "text": "Kırkıncı bayt aktivasyon hata ayıklamasıdır: ONU'nun seri numarası durumuna en son neden girdiğini söyleyen dört bitlik bir kod. Bir, iki, üç: devre dışı bırakma; seri numarası durumunda, O4'te ve OMCC'li bir durumda. Dört: kalibrasyon isteği. Beş: acil durdurmadan dönüş. Altı, yedi: senkron kaybı. Sekiz, dokuz: keşif zamanlayıcısı ve TO1. On, on bir, on iki: TO2, TO4, TO5. On üç: güç kesildi."
+  },
+  {
+   "id": "c7a",
+   "text": "Alt bitlerde iki bayrak vardır, kanal değişti ve tarama; OMCC kurulunca silinirler. Sıfır kodu, desteklenmiyor ya da geçmiş yok demektir. Bizim çıkarımımız: TO6'nın dolması ve aktivasyonun engellenmesi için kod yoktur; unutulmuş bir ONU, neden unutulduğunu bu bayttan söyleyemez."
+  },
+  {
+   "id": "c8",
+   "text": "Kimlik atama. OLT yayın bir mesajla, on bitlik bir ONU kimliğini, sıfırdan bin yirmiye, bir üretici kimliğine ve seri numarasına bağlar. Eşleşen ONU ikinci kümeyi kurar: ONU kimliği, varsayılan tahsis kimliği ve port, üçü aynı numara. Kimliği olan bir ONU için yeni atama, ancak seri numarası ve kimlik birlikte eşleşirse tutarlıdır; değilse ONU başlangıca döner."
+  },
+  {
+   "id": "c9",
+   "text": "İki kısa yol. Bir: OLT ONU'yu tanıyorsa, örneğin bir güç kaybından sonra, kimliği doğrudan seri numarasına atar; ONU bant içi tahsise hiç cevap vermeden O4'e geçer. İki: gidiş dönüş önceden ölçülmüşse OLT eşitleme gecikmesini doğrudan gönderir; ONU ranging'e cevap vermeden O5'e geçer. Bizim yorumumuz: kazanç, sessiz pencerelerden kaçınmaktır."
+  },
+  {
+   "id": "c10",
+   "text": "PMD Köprüsü. Birinci sezonun sekizinci bölümünde güç dengelemeyi D ekiyle gördük. G.989.3 onu seri numarası durumuna ve O9'a koyar: ONU, varsayılan zayıflatmadan küçük olmayan en düşük düzeyle başlar, OLT cevap verene kadar azaltır, ve yanıt eşiği kadar mesajdan sonra tam güce döner. D eki düzeyi alınan güce göre seçer; G.989.3 alınan güçten hiç söz etmez."
+  },
+  {
+   "id": "c11",
+   "text": "Ayrılış. Devre dışı bırakma, ONU'ya TC yapılandırmasını atıp aktivasyona yeniden girmesini söyler. Seri numarası engelleme her zaman yayındır, ve ilk içerik baytı seçimi taşır: iki yüz elli beş bu seri numarasını engeller, sıfır ona izin verir; on beş kanaldaki bütün ONU'ları engeller, iki yüz kırk hepsine izin verir; altmış üç yalnızca keşfi engeller."
+  },
+  {
+   "id": "c12",
+   "text": "Engellenen ONU O7'ye, acil durdurmaya geçer: lazerini kapatır, senkronu ve PLOAM ayrıştırmayı sürdürür, ama veri iletmez. Bu durum yeniden başlatmayı ve güç kesintisini aşar. Birinci değişikliğin on birinci ekine göre senkronsuz ONU kanalları tarar, bekleme süresini yaklaşık bir dakikaya kadar artırabilir. Serbest bırakılınca altıncı kümeyi atar, ve beş koduyla döner."
+  },
+  {
+   "id": "c13",
+   "text": "Mühendis notu. Bir: her seri numarası mesajında kırkıncı baytı kaydedin; sahadaki en ucuz teşhis aracıdır, ama kodu olmayan nedenleri göstermez. İki: başıboş bir ONU'ya karşı standart, kanaldaki herkesi engelleyip uyumluları tek tek serbest bırakmayı önerir; bu karanlık güç kesintisinden sağ çıkar."
+  },
+  {
+   "id": "c14",
+   "text": "Sıradaki: ONU'nun bir adı var. Şimdi ne kadar uzakta olduğunu ölçelim."
+  }
+ ]
+}

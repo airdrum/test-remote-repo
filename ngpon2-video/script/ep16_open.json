@@ -1,0 +1,33 @@
+{
+ "title": "S2B06 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm altı: Uyanış. Fişe takılan bir ONU sessizdir: vericisi kapalı, kimliği yok, ve OLT'ye ne kadar uzak olduğunu bilmiyor. Bu bölümde onun ilk sözünden ilk veri burst'üne kadar olan yolu, mesaj mesaj ve zamanlayıcı zamanlayıcı izliyoruz."
+  },
+  {
+   "id": "o2",
+   "text": "Önce durum makinesi: durumlar, zamanlayıcılar, her geçişte neyin unutulduğu, ve iki değişikliğin makinede düzelttikleri."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra seri numarası ve kimlik: keşif, rastgele gecikme, hata ayıklama kodları, kimlik atama, iki kısa yol, ve bir ONU'yu susturmak."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından ranging: sessiz pencereler, eşitleme gecikmesinin hesabı ve doğruluğu, kayma eşikleri, ve kanal değiştiren bir ONU'nun zamanı."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra günün saati: OLT'nin her ONU'ya saati nasıl söylediği, nanosaniyelik bir hata bütçesi, ve metindeki hatalar."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda aktivasyon süresini, ranging doğruluğunu, sessiz pencerenin bedelini, kaymayı, günün saatini ve acil durdurmanın güç kesintisinden sağ çıkışını ölçeceğiz."
+  }
+ ]
+}
