@@ -136,6 +136,11 @@ def eqline(*parts, size=22, buff=0.15):
 
 
 class Act13(Act12):
+    def setup(self):
+        super().setup()
+        if self.hdr.width > 10.5:  # long perde titles must not run into the badge
+            self.hdr.scale_to_fit_width(10.5).to_corner(UL, buff=0.4)
+
     def cue_n(self, sub, n, default=0.0):
         """Start time (−0.2 s) of the n-th phrase (1-based) of the current beat containing `sub`."""
         b = self.bmap[self.timeline[-1]["id"]]
