@@ -33,6 +33,8 @@ LEX = [
     (r"\bSMSR", "es em es ar"), (r"\bWNE\b", "dabılyu en i"), (r"\bEDC\b", "i di si"), (r"\bDCA'", "di si ey'"), (r"\bTOL\b", "tol"),
     (r"\bXGEM", "eks ci em"), (r"\bBCH\b", "bi si eyç"), (r"\bXOR", "eks or"), (r"\bOTN\b", "o ti en"), (r"\bQAM\b", "kuam"),
     (r"PON-ID", "pon ay di"), (r"\bDFB\b", "di ef bi"), (r"\bOMCI\b", "o em si ay"),
+    # XTTS reads bare variable letters badly ("X bölü S" came out as "işitsel"): spell them out
+    (r"\bX/S\b", "iks bölü es"), (r"\bX\b", "iks"), (r"\bS\b", "es"), (r"\bburst", "börst"),
 ]
 
 def speak(text):
