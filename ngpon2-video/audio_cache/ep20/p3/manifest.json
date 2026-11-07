@@ -1,0 +1,84 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "bcba7c4f4b2_0.wav",
+   "duration": 21.713,
+   "text": "Perde üç: başıboş ONU. On dokuzuncu madde, çok dalga boylu yapıya bağlı başıboşluk modellerini ve G-PON ile XG-PON ONU'larıyla birlikte yaşamayı ele alır; ama OLT ile ONU arasında hiçbir birlikte çalışmayı tanımlamaz. Teknikler için G serisinin kırk dokuzuncu ekine gönderir; o belge kaynaklarımızda yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "b5ae0ad2457_0.wav",
+   "duration": 29.539,
+   "text": "Üç model vardır. A modelinde ONU kendi kanalında yanlış zaman diliminde gönderir; OLT o kanalda burst kaybı görür. B modelinde vericisi atlar ve yanlış yukarı yön kanalında gönderir: kendi sonlandırıcısı burst kaybı, etkilenenler girişim görür. C modelinde vericisi hedef olmayan bir kanala ayarlanır: kaynak da hedef de onu bulamaz, etkilenen bir sonlandırıcı girişim görür. PtP WDM'de yalnızca B ve C geçerlidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "b25b30affef_0.wav",
+   "duration": 32.404,
+   "text": "PMD Köprüsü. B ve C, birinci sezonun yedinci bölümündeki dalga boyu alanında başıboşluktur: G.989.2 optik tabloların ayar boyunca, tam da bunu önlemek için karşılanmasını ister; yüz gigahertzlik aralıkta yukarı yön kayması artı eksi yirmi gigahertzdir. A ise birinci sezonun altıncı bölümüdür: verici en çok yüz yirmi sekiz virgül altı nanosaniyede açılıp kapanır, karanlıkken on beş gigahertzde eksi altmış iki virgül altı dBm'i aşamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b3324485850_0.wav",
+   "duration": 29.027,
+   "text": "Birlikte yaşama. Kontrol edilmeyen bir sistemin ONU'ları izinsiz gönderebiliyorsa, arızalı olmasalar da başıboşluk yaratabilir. Önerilen, sonlandırıcının yeni kanalda ve her yeniden başlatmada sessiz başlamasıdır; birinci perdenin başlatma durumu bunu yapar. Yabancıları yalıtmak zor ya da imkânsız olabilir. Eski ONU'lara karşı normatif hiçbir şey yoktur: tek kural bir öneridir; prosedür, parametre ya da mesaj yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "b2e130ba664_0.wav",
+   "duration": 23.473,
+   "text": "Maddenin tek zorunlu cümlesi yabancı ışık hakkındadır: sessiz pencerede AMCC olmayan bir sinyal alan sonlandırıcı, onu ancak PSBu yapısı geçerliyse geçerli saymalıdır. Değilse saat ve veri kurtarmasını o sinyali yalıtacak biçimde ayarlamayı deneyebilir, ya da beklenmeyen ışık rapor edebilir. Bu olayın adı, sayacı ve eşiği yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "be84e13b963_0.wav",
+   "duration": 30.84,
+   "text": "Boş pencere. Sonlandırıcı bütün tahsisleri, seri numarası ve mesafe ölçümü dahil, geçici olarak geri tutabilir. Amaç, fibere yanlış bağlanmış, sessiz başlamayı bilmeyen noktadan noktaya modemleri yakalamaktır; genellikle koşulsuz gönderirler. Pencerede alınan her güç yanlış bağlanmış bir verici sayılır. Süre, sıklık, eşik ve alarm adı yoktur. Bizim yorumumuz: OLT yayın yaptığı için ışık bekleyen modem de yakalanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "bb73b2415cc_0.wav",
+   "duration": 27.64,
+   "text": "Asıl araçlar on ikinci maddededir: gecikmeyi yeniden ayarlamak, ONU kimliğini iptal etmek, seri numarasını devre dışı bırakmak. Uç durumda sonlandırıcı kanaldaki bütün ONU'ları kapatıp uyumluları tek tek açabilir. Yayın mesajının beşinci baytı seçeneği taşır: ef ef bir seri numarasını kapatır, sıfır sıfır açar; sıfır ef kanaldaki herkesi kapatır, ef sıfır açar; üç ef yalnızca O2-3'teki ONU'ları kapatır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "b5f55e0d6e9_0.wav",
+   "duration": 30.989,
+   "text": "İkinci değişiklik on dördüncü ve on beşinci baytlara bir neden kodu ekledi: belirtilmemişse sıfır, önerilen değerler G serisinin seksen dördüncü ekinde; ONU yalnızca kaydeder. Kapatılan ONU lazerini söndürür ve O7'ye, acil durdurmaya geçer: senkronu ve PLOAM okumayı sürdürür, ama ne veri iletir ne gönderir. Bu durum güç kesintisini aşar. Çıkarmak için açma komutu bütün kanallarda gönderilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "b17cb469187_0.wav",
+   "duration": 31.64,
+   "text": "Birinci değişikliğin on birinci eki, OLT'ye görünmeyen iki alt durum tanımlar: O7.1 senkronlu, O7.2 senkronsuz. Yeniden başlayan ONU O7.2'de uyanır, her kanalda bir arama süresi bekler: önce koruma kanalı gibi olası kanallar, sonra sırayla hepsi. Bulamazsa süreyi, örneğin her turda ikiye katlayarak, yaklaşık bir dakikaya çıkarabilir; başlangıç değeri yoktur. Bizim yorumumuzla sekiz kanallık bir tur sekiz dakikaya yaklaşabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "b2dbc5533bd_0.wav",
+   "duration": 24.941,
+   "text": "Mühendis notu. Bir: acil durdurma yapışkandır, kanala yereldir ve kimlik doğrulamasızdır: güç kesintisini aşar, açma bütün kanallarda gönderilmelidir, ve mesaj herkesin bildiği varsayılan anahtarla imzalanır; bizim yorumumuzla sahte bir sıfır ef kanalı susturur. İki: devre dışı bırakma başarısızlığını ancak o ONU'ya tahsis vermeyi sürdürürseniz görürsünüz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "b975263a22c_0.wav",
+   "duration": 9.749,
+   "text": "Sıradaki: sistemi korumanın bütün yollarını gördük. Şimdi sezonun son hikâyesi: bir paketin hayatı.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 291.95
+}

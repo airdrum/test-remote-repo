@@ -1,0 +1,84 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "bf90f19a0e4_0.wav",
+   "duration": 24.803,
+   "text": "Laboratuvarda. Düzenek: iki OLT kanal sonlandırıcısı ya da çift sonlandırıcılı bir emülatör, iki WM, iki girişli bir ayırıcı ve ONU'lar; bağlantı fiberlerinde ve besleyicilerde optik anahtarlar; aşağı yön çıkışlarında fotodiyot ve osiloskop; bir protokol analizörü, bir ONU emülatörü ve bir trafik üreteci. Değeri olmayan her zamanlayıcıyı kaydedin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "bda12422522_0.wav",
+   "duration": 23.751,
+   "text": "İlk test: anahtarlama. Bağlantı fiberini, besleyiciyi ve sonlandırıcının gücünü sırayla kesin; kaybın ilanını, verici açmayı, ONU senkronunu ve haritayla tutarlı ilk burst'ü kaydedin. Metinden çıkan tek geçme ölçütü: iki aşağı yön çıkışı hiçbir an çakışmamalı. Sonra koruma arızasını bilerek tutmaya eşit kurun: osiloskop çakışmayı göstermelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b0094d0520c_0.wav",
+   "duration": 27.352,
+   "text": "İkinci test: ICTP'siz sistem. ICTP'yi kesip zamanlayıcısını sıfırlayın: anahtarlama koruma arızasını beklemelidir. Sonra yalnızca bekleme tarafının yukarı yön girişini zayıflatın: ICTP varken karanlıkta iletişim arızasına geçmeli; yokken bir çakışma bekleriz. Kırk kilometrelik makarayla yarım milisaniyelik onay zamanlayıcısını deneyin: iki çıkarımımızı da sınayın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "bbfdfeabea7_0.wav",
+   "duration": 24.316,
+   "text": "Üçüncü test: dışlamalar ve ihlaller. Bütün ONU'lara son nefes gönderttirin: etkin taraf nitelikli kayıp ilan etmemeli, eşine periyodik bekleme ve kayıp mesajı göndermelidir. Çalışan tarafa bekleme mesajı enjekte edin: raporlamalı, vericiyi kapatmalı, başlatmaya dönmelidir. Eşi çalışırken bir sonlandırıcıyı yeniden başlatın: karanlık kalmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "beecc802dcf_0.wav",
+   "duration": 25.368,
+   "text": "Dördüncü test: ONU tarafı koruma. Koruma kanalını mesajla kurun, sonra çalışan kanalı söndürün: ONU O6'dan O8'e geçmeli, koruma kanalında senkron olmalı, çekişmeli tahsise ayar yanıtı göndermelidir. İlk yönlü tahsise kadarki süreyi gecikme toleransı olarak ölçün. İki ONU'yu birlikte geçirin: çarpışmada OLT herkese yönlü tahsisi geri vermelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "bebcbea04f5_0.wav",
+   "duration": 23.761,
+   "text": "Beşinci test: başıboş ONU'lar. Emülatörle başlangıç zamanının dışında gönderin: kurbanlarda burst kaybı, üç düzeltmeden sonra iletim girişimi uyarısı. Komşu yukarı yön kanalında gönderin: ev sahibinde burst kaybı, komşuda girişim, ICTP uyarıları. Sonra uç durumu uygulayın: kanalı topluca kapatın, ONU'ları tek tek açın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "bb29bb1dccc_0.wav",
+   "duration": 24.22,
+   "text": "Altıncı test: yabancı ışık ve boş pencere. Boş bir ayırıcı portuna sürekli kipte gönderen bir on gigabit modülü bağlayın: sessiz pencerede sonlandırıcı onu geçersiz PSBu yüzünden reddetmelidir. Sonra bütün tahsisleri geri tutup bir boş pencere açın ve OLT'nin alınan gücünü okuyun; birinci sezonun onuncu bölümündeki çözünürlük sıfır virgül bir desibeldi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "bb34ab6fc06_0.wav",
+   "duration": 32.169,
+   "text": "Yedinci test: acil durdurma. Bir ONU'yu sıfırdan farklı bir neden koduyla kapatın; kodu kaydetmeli. OSA ile lazerin eksi altmış iki virgül altı dBm sınırının altında olduğunu doğrulayın. Gücü kesip açın: O7'de kalmalı; kanalı karanlıksa önce koruma kanalını arayabilir. Açmayı yalnızca dinlemediği kanalda gönderin: kapalı kalmalı. Bütün kanallarda gönderin: O1'e dönmeli, seri numarasında beş kodunu taşımalı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g9",
+   "file": "b9fd3b1f438_0.wav",
+   "duration": 20.689,
+   "text": "Sekizinci test: keşif durdurma ve inatçı ONU. Seri numarası alımı sırasında üç ef seçeneğini gönderin: O2-3'teki ONU'lar O7'ye düşmeli, ve güç döngüsünden sonra da orada kalmalıdır. Kapatmayı yok sayan bir emülatöre tahsis vermeyi sürdürün: devre dışı bırakma başarısızlığı ilan edilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g10",
+   "file": "bbb96aa2a29_0.wav",
+   "duration": 17.809,
+   "text": "Dokuzuncu test: bir paketin hayatı. Tek bir bin beş yüz on sekiz baytlık çerçeve gönderin. Analizör aşağı yönde başlığı ve iki dolgu baytını; yukarı yönde raporun üç yüz seksenini, doksan altı blokluk tahsisi, bin sekiz yüz baytlık burst'ü ve dört baytlık kısa boş çerçeveyi göstermelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g11",
+   "file": "b3a0a3aec05_0.wav",
+   "duration": 20.412,
+   "text": "Laboratuvar notu. Bir: koruma sürelerini tek bir zaman tabanında toplayın; analizörün zaman damgası ile fotodiyotun kenarı aynı eksende durmalıdır. İki: sezon boyunca tuttuğunuz defter artık bir kabul test planıdır; her satırda madde numarası, ölçülen değer, ve standardın vermediği her değer için sizin seçiminiz yazmalıdır.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 264.65
+}

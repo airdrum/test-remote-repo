@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b91b0eee2b9_0.wav",
+   "duration": 21.287,
+   "text": "Sezon iki, bölüm on: Ayakta Kalmak. Sezon finali. Dokuz bölümde bir NG-PON2 sisteminin nasıl konuştuğunu kurduk. Şimdi bozulduğunda nasıl ayakta kaldığını soruyoruz: bir fiber kesildiğinde, bir ONU yanlış zamanda ya da yanlış renkte konuştuğunda, ve bir ONU'yu susturmak gerektiğinde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "bea6efba277_0.wav",
+   "duration": 10.912,
+   "text": "Önce B tipi koruma, bu kez TC derinliğinde: iki kanal sonlandırıcısı, on durumlu bir makine, değeri yazılmamış zamanlayıcılar, ve kırk kilometrede tutmayan tek bir sayı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b526e11602e_0.wav",
+   "duration": 11.328,
+   "text": "Sonra ONU tarafında koruma: önceden yapılandırılmış bir kanala kaçış, çekişmeli bir varış tahsisi, ve sonlandırıcılar arasındaki protokolün, adları birbirini tutmayan ilkelleri.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "bd818bb91f8_0.wav",
+   "duration": 11.84,
+   "text": "Ardından başıboş ONU ve acil durdurma: üç başıboşluk modeli, eski nesil ONU'larla birlikte yaşamanın zorunlu olmayan kuralları, ve güç kesintisinden bile sağ çıkan bir susturma.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "bb349417b97_0.wav",
+   "duration": 11.371,
+   "text": "Ve sezonun son hikâyesi: bir paketin hayatı. Bin beş yüz on sekiz baytlık tek bir Ethernet çerçevesini iki sezonun bütün katmanlarında, aşağı ve yukarı yönde izliyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "bda9c3e9ee0_0.wav",
+   "duration": 12.064,
+   "text": "Laboratuvarda anahtarlamayı ölçecek, ICTP'siz bir sistemi zorlayacak, zamanda ve dalga boyunda başıboş ONU'lar üretecek, acil durdurmanın kalıcılığını ve boş pencereyi sınayacağız.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 78.8
+}
