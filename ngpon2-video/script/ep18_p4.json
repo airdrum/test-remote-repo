@@ -1,0 +1,57 @@
+{
+ "title": "S2B08 Perde 4 — Bütünlük ve açık kalanlar",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: bütünlük. İki kodu beşinci bölümde bayt bayt gördük; burada amacına bakıyoruz: göndericinin kimliğini doğrulamak ve sahteciliği önlemek. PLOAM kodu, yön baytı ve kırk bayt üzerinden altmış dört bittir, ve sıra numarasını kapsar. OMCI kodu otuz iki bittir, ve işlem kimliğini kapsar. Ama sıra numarası sekiz bittir, ve başa döner."
+  },
+  {
+   "id": "e2",
+   "text": "Anahtar kuralı. Varsayılan PLOAM anahtarı, ana oturum anahtarı yokken aktivasyonun başında kurulur. Yayınlar ve bazı tek alıcılı mesajlar, seri numarası, devre dışı bırakma, kayıt isteği ve kayıt, hep bu anahtarla korunur; gerekçe, OLT ile ONU türetilmiş anahtarlarda anlaşmamışken ya da artık anlaşmazken de geçebilmeleridir. OMCI'ın ise varsayılan anahtarı yoktur."
+  },
+  {
+   "id": "e3",
+   "text": "Hata olursa. Kodu tutmayan mesaj geçersizdir ve atılır; aşağı yönde onaylanmaz. Rastgele bütünlük hataları seyrektir, ve bit hata oranıyla ilişkilendirilebilir. Kalıcıysa anahtar uyuşmazlığıdır: ya bir güvenlik tehdidi, ya bir arıza. OLT bunu yukarı yöndeki hatadan ya da beklenen yönetim trafiğinin gelmemesinden öğrenir; sonuç, PLOAM kanalı kaybı ya da OMCC kanalı kaybı kusurudur."
+  },
+  {
+   "id": "e4",
+   "text": "PMD Köprüsü. Birinci sezonun dördüncü bölümündeki referans hata oranları, FEC'ten önce, iki buçuk gigabitte on üzeri eksi dört, on gigabitte on üzeri eksi üçtür. Bizim yorumumuz: rastgele bütünlük hataları FEC'in düzeltemediği hatalardan doğar, ve hata sayaçlarıyla birlikte yükselip alçalır. İyi bir hata oranında sabit hızla süren bütünlük hataları ise optikten değil, anahtardan gelir."
+  },
+  {
+   "id": "e5",
+   "text": "Kör sahtecilik zordur. Bizim hesabımızla tek denemede başarı olasılığı PLOAM için iki üzeri eksi altmış dört, OMCI için iki üzeri eksi otuz iki; çerçeve başına bir sahte OMCI mesajıyla bu yaklaşık üç virgül bir gün eder. Ama hesap, anahtarın gizli olduğunu varsayar. Şimdi açık kalanlar."
+  },
+  {
+   "id": "e6",
+   "text": "Açık bir: varsayılan anahtarla hesaplanan kod hiçbir göndericiyi kanıtlamaz. Anahtar herkese açıktır; bizim yorumumuzla aşağı yöne ışık enjekte edebilen bir cihaz, geçerli kodlu seri numarası engelleme, yani acil durdurma, devre dışı bırakma, kimlik atama, ayar denetimi, profiller ve yayın anahtar denetimi üretebilir. Bu mesajlarda kod sahteciliğe değil, bit hatasına karşı korur."
+  },
+  {
+   "id": "e7",
+   "text": "PMD Köprüsü. Birinci sezonun onuncu bölümünde acil durdurmayı son çare olarak gördük: ONU vericisini kapatır, bunu yeniden başlatmada bile korur, ve yalnızca OLT'nin yeniden etkinleştirmesiyle serbest kalır. O komut herkesin bildiği anahtarla korunur. Aynı bölümdeki başıboş vericiler de üçüncü tehdidin optik yüzüdür; ama standart onları güvenlik değil, başıboşluk olarak ele alır."
+  },
+  {
+   "id": "e8",
+   "text": "Açık iki: kullanıcı verisinin bütünlük kodu yoktur. Sayaç kipi biçimlendirilebilirdir: şifreli metnin bir bitini çevirmek, düz metnin aynı bitini çevirir. Dördüncü ekin altıncı örneğinde bir baytın en anlamlı bitini çevirdik; düz metinde yalnızca o bit değişti. Bit çevirme dördüncü tehdittir, ama TC katmanında karşılığı yoktur; TC katmanı, başka konuma taşınan bir yükün anlamsız açılmasını da fark etmez."
+  },
+  {
+   "id": "e9",
+   "text": "Açık üç, bizim okumamız: başarısız bir anahtar yenilemesi şifresiz trafiğe düşer. Değişim zamanlayıcıları dolunca iki makine de, eski anahtar varken bile, hiçbir anahtarın geçerli olmadığı duruma döner, ve gönderici indeksi sıfırla yollar. Üstelik şifre için yapılandırılmış bir portta da her çerçeveyi gönderici seçer; şifreli porta gelen şifresiz çerçeve, sayaç tablosunun atma listesinde yoktur."
+  },
+  {
+   "id": "e10",
+   "text": "Açık dört: yük dışındaki her şey açıktır: senkron bloğu; harita, yani kimin ne zaman ne kadar gönderdiği; PLOAM içerikleri, XGEM başlıkları, son nefes biti ve durum raporları. Bizim yorumumuzla trafik analizi aşağı yönü alan herkese açıktır. PLOAM'ın yalnızca bütünlüğü vardır, gizliliği yoktur. OMCC ilk tek alıcılı anahtara kadar şifresizdir; yukarı yön yayın anahtarı yoktur."
+  },
+  {
+   "id": "e11",
+   "text": "Mühendis notu. Bir: varsayılan anahtarlı bir komutun kodunun tutması, onu OLT'nin gönderdiğini kanıtlamaz; beklenmedik bir acil durdurmayı OLT kayıtlarıyla karşılaştırın. İki: kullanıcı verisinin bütünlüğü üst katmanlardan gelmelidir; başarısız bir anahtar yenilemesini de alarm sayın, çünkü ardından gelen trafik şifresiz olabilir."
+  },
+  {
+   "id": "e12",
+   "text": "Sıradaki: güvenin sınırları belli. Şimdi laboratuvarda onları sınayalım."
+  }
+ ]
+}

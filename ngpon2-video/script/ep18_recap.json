@@ -1,0 +1,21 @@
+{
+ "title": "S2B08 Önceki bölümde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: hazırlık, planlı sayaç çerçevesinden PMD ayarının gerçekten başladığı ana kadar ONU'nun parametre kurma süresidir. Ayar, G.989.2'nin PMD ayar süresidir. Yeniden senkron, ayardan sonra aşağı yön çerçeve senkronunu kurmanın en uzun süresidir. Yalnızca ortadakini G.989.2 sınıflandırır: birinci sınıf on mikrosaniyenin altı; ikinci sınıf ve iki kısıtlı biçimi on mikrosaniye ile yirmi beş milisaniye; üçüncü sınıf yirmi beş milisaniye ile bir saniye. Ötekilerin sayısı yoktur."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: işlem kodu bir, olumsuz cevaptır, ve değer iki bitin birleşimidir: sıfır iki sıfır sıfır, yukarı yön hedefi verici ayar aralığının dışında; sıfır sıfır bir sıfır, aşağı yön hedefi alıcı aralığının dışında. Yönlendirmedeki kaynak zamanlayıcısını durdurur, hedefe ICTP iptali yollar ve barındırmaya döner; hedef de zamanlayıcısını durdurup habersiz olur. İşlem kodu dört olsaydı, sıfır sıfır bir sıfır boş yukarı yön tanımı, öteki bit ayrılmış olurdu."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: kural F artı N çarpı adım süresi artı altıdır; iki adım ve sekiz çerçeveyle F artı yirmi iki, yani iki virgül yedi beş milisaniye sonra. Sabit altı çerçeve, yedi yüz elli mikrosaniye, bir PLOAM mesajının normatif işleme süresidir; adım süresi ise bir granülerlik adımının en az yüzde doksanına varma süresidir. Şimdi bu bölüme."
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "title": "S2B08 Kapanış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölümün özeti. Bir: standart dört tehdit sayar; kayıt tabanlı doğrulama zorunludur ama tek yönlüdür, ve başarısızlığı O5'i engellemez; iki karşılıklı yöntemin gövdesi G.987.3'tedir. İki: bütün anahtarlar AES-CMAC ile tek bir kökten türer: ana oturum anahtarı, oturum anahtarı, iki bütünlük anahtarı ve anahtar şifreleme anahtarı; zincirin her girdisi hattan açık geçer."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: tek alıcılı anahtarı ONU üretir; beş zamanlayıcılı iki makinede aşağı yön önce geçer, ve başarısız yenileme şifresiz trafiğe düşer. Dört: yukarı yön sayaç bloğunun alt yarısı tümleyendir; zayıf çerçeveler aralığın ortası ve, bizim hesabımızla, sıfırdır. Beş: varsayılan anahtarlı kodlar kaynağı kanıtlamaz, kullanıcı verisinin bütünlük kodu yoktur, ve yük dışındaki her şey açıktır."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: tek alıcılı anahtar iki yönü de şifreler; aynı çerçevedeki bir aşağı ve bir yukarı yön yükünün aynı anahtar akışını kullanmasını ne engeller, ve standardın notu hangi istisnayı anar? İkinci soru: kayıt kimliği varsayılan kalmış bir ONU'nun veri anahtarına hangi mesajlardan ulaşılır? Üçüncü soru: onay beklemedeki OLT'ye mevcut anahtar raporu gelmezse ne olur, ne zaman, ve birinci değişiklik burada neyi düzeltti? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Enerji ve Sağlık. Güç yönetimi durumları, başarım sayaçları, OLT ve ONU kusurları; bu bölümde adını andığımız kanal kaybı kusurlarını orada açacağız. Görüşmek üzere."
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "title": "S2B08 Perde 1 — Tehditler ve kimlik doğrulama",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: tehditler. On beşinci madde, NG-PON2 ortamına özgü tehdit modellerini tartışır; kimlik doğrulamayı, veri bütünlüğünü ve gizliliği tanımlar. Sürüm notu: tehditler, kimlik doğrulama, şifreleme ve bütünlük iki bin yirmi birden beri değişmedi; iki değişiklik yalnızca anahtar değişimine dokundu."
+  },
+  {
+   "id": "b2",
+   "text": "Standart dört tehdit sayar. Birincisi: aşağı yön verisi bütün ONU'lara yayınlandığı için, bir ONU'yu değiştiren ya da yeniden programlayan kötü niyetli bir kullanıcı, bütün kullanıcıların aşağı yön verisini alabilir. İkincisi: yukarı yön verisi herhangi bir ONU'dan gelebileceği için, aynı kullanıcı başka bir ONU'yu taklit eden paketler uydurabilir: hizmet hırsızlığı."
+  },
+  {
+   "id": "b3",
+   "text": "Üçüncüsü: sokak dolabına, boş bir porta ya da fibere bağlanan bir cihaz trafiği dinleyebilir ya da üretebilir, ve konumuna göre bir OLT kanal sonlandırıcısını ya da bir ONU'yu taklit edebilir. Dördüncüsü: paketler kaydedilip yeniden oynatılabilir, ya da bitleri çevrilebilir. Bir istisna da yazılıdır: ODN ya da ONU'lar fiziksel olarak güvenliyse, bazı özellikler isteğe bağlıdır."
+  },
+  {
+   "id": "b4",
+   "text": "Standart tehditleri mekanizmalarla eşlemez; ekrandaki tablo bizim yorumumuzdur. Dinlemeye karşı, ONU başına anahtarla yük şifrelemesi. Taklide karşı, kayıt kimliği ve ONU'ya özgü bütünlük kodları. Araya giren cihaza karşı, yalnızca karşılıklı kimlik doğrulama. Tekrara karşı, sıra numarasını kapsayan kodlar ve konuma bağlı anahtar akışı. Açık kalanlar dördüncü perdede."
+  },
+  {
+   "id": "b5",
+   "text": "Kimlik doğrulamanın üç yolu vardır. Kayıt kimliğine dayanan yöntem bütün NG-PON2 cihazlarında zorunludur, ama tek yönlüdür: ONU'yu OLT'ye doğrular, OLT'yi ONU'ya değil. OMCI tabanlı ve sekiz yüz iki nokta bir X tabanlı iki karşılıklı yöntem ise bileşen düzeyinde zorunlu, ekipman düzeyinde isteğe bağlıdır. Operatör hiçbirini kullanmamayı da seçebilir."
+  },
+  {
+   "id": "b6",
+   "text": "Kayıt kimliği otuz altı bayttır: yönetim düzeyinde bir aboneye atanır, OLT'ye yüklenir, ONU'ya kapsam dışı bir yöntemle girilir, ve kalıcı bellekte açıkça sıfırlanana kadar kalır. Varsayılanı otuz altı sıfır bayttır. Onu yalnızca TWDM'deki kayıt mesajı taşır: O4'te ranging tahsisine ya da OLT'nin kayıt isteğine cevap olarak; ikisi de varsayılan anahtarla."
+  },
+  {
+   "id": "b7",
+   "text": "Şimdi kritik cümle: kayıt tabanlı doğrulama başarısız olsa bile OLT eşitleme gecikmesini verebilir, ve ONU O5'e girer. Ne yapılacağı OLT'nin seçimidir: tekrar denemek, trafiği engellemek, devre dışı bırakmak ya da başıboş ONU tanılaması. Geçerli bir karşılıklı güvenlik ilişkisi varsa, kayıt tabanlı doğrulama hiç yapılmaz, ve anahtarlar yeniden hesaplanmaz."
+  },
+  {
+   "id": "b8",
+   "text": "Zamanlama. ONU anahtarlarını kayıt mesajını gönderdiği anda, OLT hesapladığı anda etkin kılar; kayıt isteğinden sonra, anahtarlar hazır olana kadar OLT, ONU'ya özgü kodlu mesaj göndermez. Aktivasyon döngüsünün başında OLT kayıt tabanlı anahtarları atar, ONU korur. Bizim çıkarımımız: ONU'ya özgü ilk kod, yönlendirilmiş eşitleme gecikmesi mesajındadır; zincir ondan önce bitmelidir."
+  },
+  {
+   "id": "b9",
+   "text": "Karşılıklı yöntemler. C ve D eklerinin gövdesi tek cümledir: G.987.3'ün aynı ekleriyle aynıdır; G.987.3 kaynaklarımızda yok, formüller burada gösterilemez. G.989.3 yalnızca OMCI yöntemi için on üç oklu bir akış verir: OMCC'de üç adımlı, simetrik anahtarlı meydan okuma ve cevap; önce OLT, sonra ONU doğrular, ve başarıda sonuç mesajı yeni OMCI anahtarıyla kodlanır. Son iki ok, varsayılan anahtarlı kayıt isteği ve kayıttır."
+  },
+  {
+   "id": "b10",
+   "text": "Sekiz yüz iki nokta bir X için G.989.3 yalnızca geniş, genişletilebilir özellikler sunduğunu söyler; bu standart kaynakçasında bile yoktur. Tek somut kural bir süredir: yeniden doğrulamadan sonra iki tarafın, yeni anahtarları hesaplamak için iki yüz milisaniyesi vardır. Gönderici susar ya da eski anahtarla sürer; alıcı ikisini de dener, ve yeni anahtar tutunca ya da süre bitince geçer."
+  },
+  {
+   "id": "b11",
+   "text": "Noktadan noktaya WDM'de kayıt mesajı yoktur; yerine altmış dört bitlik iki AES-CMAC özeti vardır: anahtar herkese açık değerlerden, mesaj kayıt kimliği ile noktadan noktaya basittir anlamına gelen bir ASCII dizisinden. Kanal profilindeki özeti ONU doğrular; bizim yorumumuzla bu, OLT kanalını ONU'ya doğrular. Seri numarası mesajındaki özeti OLT doğrular, ve ONU kimliğini ancak başarıdan sonra atar."
+  },
+  {
+   "id": "b12",
+   "text": "PMD Köprüsü. Bu özetler, birinci sezonun dokuzuncu bölümündeki yavaş AMCC kanalında taşınır. Bizim çıkarımımız: kayıt kimliği hattan hiç geçmez. Her ONU'nun kendi dalga boyu çifti vardır, ama ışığın ayrı olması karşı tarafın doğru olduğunu kanıtlamaz. Böyle bir ONU'nun anahtar şifreleme anahtarını nasıl edindiği ise standartta yoktur."
+  },
+  {
+   "id": "b13",
+   "text": "Mühendis notu. Bir: TWDM'de doğrulama başarısız olsa da ONU O5'e girer, PtP WDM'de kimlik atanmaz; politikanızı OLT'nin başarısızlıkta yaptığına dayandırın. İki: C ve D ekleri birer işaretçidir, ve ikinci değişiklik atıfı G.987.3'ün iki bin yirmi beş baskısına taşıdı; uygulamanın hangi baskıya dayandığını üreticiden isteyin."
+  },
+  {
+   "id": "b14",
+   "text": "Sıradaki: kimin kim olduğu belli. Şimdi anahtarların kendisine."
+  }
+ ]
+}

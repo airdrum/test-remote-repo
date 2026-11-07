@@ -1,0 +1,57 @@
+{
+ "title": "S2B08 Laboratuvarda — Anahtarlar, kodlar ve sayaç blokları",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Düzenek: bir OLT ve ONU emülatörü, şifre çözme ve bütünlük motorları olan bir protokol analizörü, bir trafik üreteci, ve ayırıcının boş bir portunda ikinci bir ONU emülatörü: saldırganımız. Bu düzenek yalnızca yalıtılmış bir test ağında kurulur."
+  },
+  {
+   "id": "g2",
+   "text": "İlk test: altın vektörler, her yakalamadan önce. Dördüncü ekin altıncı ve yedinci örnekleri şifreleme, sekizincisi anahtar türetme, dokuzuncu ve onuncusu PLOAM kodu, on birincisi anahtar raporu, on ikincisi OMCI kodu içindir; hepsi bayt bayt tutmalıdır. Dokuzuncu örneği yön baytı ikiyle de hesaplayın: kod değişmeli; yön hatası hemen görünür."
+  },
+  {
+   "id": "g3",
+   "text": "İkinci test: sayaç bloğu. Emülatörde süper çerçeve sayacını bire kurun. İlk şifreli aşağı ve yukarı yön çerçevelerini yakalayın, blok numarasını başlığın konumundan hesaplayın, ve ilk sayaç bloğunu kurun: üst yarı iki yönde aynı, alt yarı aşağıda kopya, yukarıda tümleyen. Çözülen yük, trafik üretecinin gönderdiğine eşit olmalıdır."
+  },
+  {
+   "id": "g4",
+   "text": "Üçüncü test: değişimin zamanlaması. Dört mesajı damgalayın: üret isteği, yeni anahtar raporu, onay isteği, mevcut anahtar raporu. Her cevap, yedi yüz elli mikrosaniyelik işleme süresi artı tahsis beklemesi içinde gelmelidir. Yeni indeksli ilk aşağı ve yukarı yön XGEM çerçevelerini bulun: aşağı yön önce geçmelidir, ve geçiş bir XGEM çerçevesi sınırındadır."
+  },
+  {
+   "id": "g5",
+   "text": "Dördüncü test: başarısız yenileme. Yeni anahtar raporunu bastırın: OLT isteği on milisaniyede bir yinelemeli, yüz milisaniyede vazgeçmelidir. Onay isteğini bastırın: ONU raporu yirmi milisaniyede bir yinelemeli, yüz milisaniyede anahtarsız duruma düşmelidir. Ardından trafiğe bakın: indeks sıfırsa yük artık şifresizdir."
+  },
+  {
+   "id": "g6",
+   "text": "Beşinci test: anahtar denetimi. Etkin indeks için onay isteyin, ve gelen adı kendi hesabınızla karşılaştırın: anahtar şifreleme anahtarıyla, anahtar ve pi basamaklarının AES-CMAC'i. Sonra emülatörle yanlış bir anahtar yükleyin: ad tutmamalı, ve OLT o indeksi kullanmayı bırakmalıdır."
+  },
+  {
+   "id": "g7",
+   "text": "Altıncı test: bütünlük hatası enjeksiyonu. Yönlendirilmiş bir aşağı yön PLOAM mesajının bir baytını bozun: onay gelmemeli, ONU'nun bütünlük hatası sayacı artmalıdır. Art arda en az üç yukarı yön PLOAM mesajını bozun: PLOAM kanalı kaybı. Yukarı yön OMCI kodlarını bozun: OMCC kanalı kaybı. Yanlış yön baytını ve yanlış anahtarı ayrı ayrı deneyin."
+  },
+  {
+   "id": "g8",
+   "text": "Yedinci test: varsayılan anahtarın sınırı. Saldırgan emülatörden, varsayılan kodlu bir yayın seri numarası engelleme mesajı üretin. Bizim beklentimiz: ONU itaat eder, çünkü kod tutar. Sonra ONU'yu yeniden etkinleştirin. Bu test, kodun bütünlüğü kanıtladığını, kaynağı kanıtlamadığını gösterir."
+  },
+  {
+   "id": "g9",
+   "text": "Sekizinci test: kayıt zinciri. ONU'ya bir kayıt kimliği girin; seri numarası mesajını, burst profilini ve kayıt mesajını yakalayın. PLOAM bütünlük anahtarını hesaplayıp yönlendirilmiş eşitleme gecikmesi mesajının kodunu doğrulayın. Anahtar şifreleme anahtarıyla yeni anahtar raporunu, sonra yükleri çözün. Testi varsayılan kayıt kimliğiyle tekrarlayın."
+  },
+  {
+   "id": "g10",
+   "text": "Dokuzuncu test: karşılıklı doğrulama. OMCI akışının on üç adımını sırayla doğrulayın: sonucu bildiren mesaj yeni OMCI anahtarıyla, kayıt isteği ve kayıt varsayılan anahtarla, sonraki yönlendirilmiş PLOAM yeni anahtarla tutmalıdır. Sekiz yüz iki nokta bir X kullanılıyorsa, başarıdan yeni anahtarlı ilk mesaja kadar en çok iki yüz milisaniye geçmelidir."
+  },
+  {
+   "id": "g11",
+   "text": "Onuncu test: azaltılmış güç ve zayıf sayaç. Etkin uzunluğu altmış dört yapın: çözülen yeni anahtarın ilk sekiz baytı beş beş olmalı, ve yönetim sistemi uzunluğu bildirmelidir. Sayacı ön ayarlayabilen bir emülatörde, aralığın ortasında ve alanın sıfırında iki yönlü şifreli trafik gönderip eşit anahtar akışı bloklarını arayın; bu yöntem bizimdir."
+  },
+  {
+   "id": "g12",
+   "text": "Laboratuvar notu. Bir: aktivasyonu kaydeden bir analizör kayıt tabanlı anahtarları türetebilir; bu kayıtları sır gibi saklayın. İki: anahtar indeksini, süper çerçeve sayacını ve bütünlük sayaçlarını aynı satıra yazın; bir şifre sorununu çoğu zaman üçü birlikte açıklar."
+  }
+ ]
+}

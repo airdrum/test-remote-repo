@@ -1,0 +1,33 @@
+{
+ "title": "S2B08 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm sekiz: Güven. Geçen bölümde, PON etiketi değişince anahtarların yeniden türetildiğini gördük. Bu bölümde o anahtarların nereden geldiğini, neyi koruduklarını, ve neyi korumadıklarını izliyoruz."
+  },
+  {
+   "id": "o2",
+   "text": "Önce tehditler ve kimlik doğrulama: standardın saydığı dört tehdit, kayıt kimliği, ve gövdesi başka bir tavsiyeye bırakılmış iki karşılıklı yöntem."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra anahtarlar: tek kökten türeyen bir anahtar ağacı, anahtar değişiminin iki durum makinesi, beş zamanlayıcı, ve iki değişikliğin bu makinelere yaptıkları."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından şifreleme: sayaç kipinde AES, iki yönü ayıran sayaç bloğu, dört bin yılda bir açılan zayıf bir pencere, ve gücü bilerek azaltılmış anahtarlar."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra bütünlük ve açık kalanlar: bir bütünlük kodu ne zaman göndericiyi kanıtlar, ne zaman yalnızca bir hata denetimidir; ve hattan şifresiz geçen her şey."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda bir şifre motorunu altın vektörlerle doğrulayacağız, bir anahtar değişimini izleyeceğiz, bütünlük hatası enjekte edeceğiz, ve başarısız bir yenilemenin ardından kalanı göreceğiz."
+  }
+ ]
+}

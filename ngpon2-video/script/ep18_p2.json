@@ -1,0 +1,65 @@
+{
+ "title": "S2B08 Perde 2 — Anahtarlar",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: anahtarlar. Bütün türetmeler tek bir ilkeldir: yüz yirmi sekiz bitlik AES üzerinde AES-CMAC. ONU anahtarları açılışta varsayılan kayıt kimliğiyle ve kimlik her değiştiğinde hesaplar. OLT, ranging cevabındaki her kayıt kimliğiyle, doğrulamada kullanmasa bile hesaplar; kayıt isteğinin cevabıyla ise yalnızca geçerli bir karşılıklı ilişki yoksa."
+  },
+  {
+   "id": "c2",
+   "text": "Ağacın kökü ana oturum anahtarıdır: anahtar, on altı baytın her biri on altılık tabanda beş beş olan herkesçe bilinen değer; mesaj, kayıt kimliği. Sonra oturum anahtarı; anahtarı kök, mesajı yirmi dört bayt: seri numarası mesajının beşinci ile on ikinci baytları, burst profili mesajının yirmi altıncı ile otuz üçüncü baytlarındaki PON etiketi, ve session sözcüğü ile K harfi."
+  },
+  {
+   "id": "c3",
+   "text": "Oturum anahtarından, on altı baytlık ASCII etiketlerle üç anahtar çıkar: OMCI bütünlük anahtarı, PLOAM bütünlük anahtarı ve anahtar şifreleme anahtarı. Beşinci bölümdeki yazım hatası buradadır: PLOAM etiketinde integrity'nin bir harfi eksik. Dördüncü ekin sekizinci örneğinin dört anahtarını da ürettik; PLOAM anahtarı yalnızca yanlış yazımla tutar."
+  },
+  {
+   "id": "c4",
+   "text": "PON etiketi, operatörün seçtiği sekiz baytlık sabit bir OLT özniteliğidir; ana oturum anahtarını güvenlik ilişkisinin bağlamına bağlar. İyi uygulama: aynı sistem kimliğinde benzersiz, ömür boyu sabit. Etiket değişirse ONU dört anahtarı yeniden türetir: geçen bölümdeki devrin sonu. Bizim çıkarımımız: klonlu sonlandırıcılar aynı ONU için aynı anahtarları üretir."
+  },
+  {
+   "id": "c5",
+   "text": "Bizim çıkarımımız: kayıt tabanlı zincirin her girdisi hattan açık geçer: kayıt kimliği yukarı yön kayıt mesajında, seri numarası kendi mesajında, PON etiketi aşağı yön burst profilinde. Bu üç mesajı yakalayan anahtar şifreleme anahtarını hesaplar, yeni anahtar raporunu çözer ve veri anahtarını okur. Kayıt kimliği varsayılandaysa, kök anahtar zaten herkesçe bilinir."
+  },
+  {
+   "id": "c6",
+   "text": "PMD Köprüsü. Bizim yorumumuzla bu zincirin gücü yukarı yönün gizliliğine dayanır. Birinci sezonun üçüncü bölümünde yukarı yön bandı, bin beş yüz yirmi dört ile bin beş yüz kırk dört nanometre, ONU alıcısının bandı dışındaydı. Başka bir ONU onu yalnızca yansımalarla görür, ve optik dönüş kaybı en az otuz iki desibeldir. Yukarı yönü dinlemek besleyici fibere erişim ister."
+  },
+  {
+   "id": "c7",
+   "text": "Veri anahtarları. ONU yeteneklerini bildirir, en az yüz yirmi sekiz bitlik AES dahil; OLT birini ya da hiçbirini seçer, ve seçimi bağlayıcıdır. Tek alıcılı ve yayın anahtarı vardır, her biri iki indeksli. Yayın anahtarını OLT üretip OMCI ile yazar. Tek alıcılı anahtarı OLT'nin isteğiyle ONU üretir ve PLOAM ile yollar; değeri OMCI'a hiç açılmaz. Değişim yalnızca O5'te yürür."
+  },
+  {
+   "id": "c8",
+   "text": "Değişim beş adımdır. Bir: OLT yeni indeksle anahtar denetimi mesajı gönderir. İki: ONU anahtarı şifrelemeye uygun bir rastgele sayı üreteciyle üretir, anahtar şifreleme anahtarıyla elektronik kod defteri kipinde şifreler, anahtar raporuyla yollar. Üç: OLT çözer, saklar. Dört: OLT onay ister. Beş: ONU anahtarı etkin sayar ve adını bildirir: anahtar ile pi sayısının ilk on altı basamağının AES-CMAC'i."
+  },
+  {
+   "id": "c9",
+   "text": "Durum makineleri. OLT'de beş durum: anahtar yok, istek, onay, onay bekleme ve etkin. ONU'da da beş: anahtar yok, üretim, alındı bekleme, alındı ve etkin. Geçerlilik tablosundan bizim çıkardığımız sıra: ONU yeni anahtarı alındı beklemede çözebilir, OLT onunla onay durumunda gönderir; OLT onay beklemede çözer, ONU alındı durumunda gönderir. Önce aşağı yön geçer, sonra yukarı yön."
+  },
+  {
+   "id": "c10",
+   "text": "Beş zamanlayıcının önerilen başlangıç değeri vardır. OLT'nin anahtar değişimi bekleme zamanlayıcısı yüz milisaniye: bütün denemeyi sınırlar, dolunca anahtar yok durumuna dönülür. Anahtar bekleme ve onay bekleme zamanlayıcıları on milisaniye: istek ya da onay yinelenir. ONU'da değişim zamanlayıcısı yüz, alındı bekleme yirmi milisaniyedir. Bizim hesabımızla on milisaniye, on üç PLOAM işleme süresidir."
+  },
+  {
+   "id": "c11",
+   "text": "Sürüm notu. İki bin yirmi bir metni, istek durumunda bütün denemenin, onay beklemede istek zamanlayıcısının adını yazıyordu; birinci değişiklik adları düzeltti, değerlere dokunmadı. İkinci değişiklik, şemaların birincil referans olduğu cümlesini sildi; şemalar artık sorunsuz değişimin ideal senaryosudur. İki yeni not, ITU-T'nin PON güvenliğinin pratik yönleri adlı ek belgesine yönlendirir; o belge elimizde yok."
+  },
+  {
+   "id": "c12",
+   "text": "PMD Köprüsü. Anahtar mesajları PtP WDM'de de geçerlidir, ve AMCC ile taşınır. Bizim hesabımızla, birinci sezonun dokuzuncu bölümündeki saniyede yüz on beş kilobitle, tek PLOAM taşıyan en küçük çerçeve beş virgül sekiz dört milisaniyedir. Bir istek ve bir rapor, işlemesiz on bir virgül yedi milisaniye: anahtar bekleme zamanlayıcısından uzun. Bu değerlerin PtP WDM'e uyup uymadığı yazılı değildir."
+  },
+  {
+   "id": "c13",
+   "text": "Mühendis notu. Bir: etiketlerin on altılık yazımını kopyalayın, İngilizcesini değil; zinciri dördüncü ekin sekizinci ve on birinci örnekleriyle doğrulayın. İki: kayıt tabanlı anahtarlar, kayıt kimliğinin gizliliği kadar güçlüdür; varsayılan kimlikli bir ONU'nun anahtarlarını, hattı dinleyen herkes hesaplayabilir."
+  },
+  {
+   "id": "c14",
+   "text": "Sıradaki: anahtarlar yerinde. Şimdi neyi şifrelediklerine bakalım."
+  }
+ ]
+}
