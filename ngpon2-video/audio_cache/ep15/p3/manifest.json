@@ -1,0 +1,119 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "bb46bafdfe5_0.wav",
+   "duration": 23.459,
+   "text": "Perde üç: mesaj kataloğu. Aşağı yönde yirmi, yukarı yönde sekiz tür tanımlıdır, ve tür kimlikleri iki yönde yeniden kullanılır: bir, aşağıda burst profili, yukarıda seri numarası mesajıdır; dokuz, aşağıda kayıt isteği, yukarıda onaydır. Altı tür kimliği böyledir. Bir çözücü, yönü bilmeden mesaja ad veremez. Aile aile gidelim.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "b475d8fdcb8_0.wav",
+   "duration": 28.568,
+   "text": "Önce profiller. Sistem profili yirmi bitlik sistem kimliğini, yukarı yön bandını, kanal sayısını ve aralığını, en büyük spektral sapmayı, serbest spektral aralığı, ve AMCC ile kalibrasyon kurallarını taşır. Tam bir profil kümesi bir sistem, en çok sekiz kanal ve en çok altmış dört burst profilidir, ve bir ile beş saniyede bir yinelenir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "b694b2bbfb2_0.wav",
+   "duration": 23.996,
+   "text": "Kanal profili, bir aşağı yön ve bir yukarı yön kanal tanımlayıcısıdır: PON kimliği, frekans ofseti, hız, FEC ve hat kodu; bölümleme, varsayılan yanıt kanalı, seri numarası tahsis türleri ve AMCC penceresi; yukarı yön kanal kimliği ve frekansı, bağlantı tipi, hızlar, varsayılan ONU zayıflatması ve yanıt eşiği.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b70b5d64df7_0.wav",
+   "duration": 28.845,
+   "text": "PMD Köprüsü. Birinci sezonun üçüncü ve dördüncü bölümlerinde aşağı yön planını gördük: yüz gigahertz arayla sekiz kanal, ve OLT vericisi için artı eksi yirmi gigahertz sapma. Kanal profilinin ofset alanı ise sıfır virgül bir gigahertzlik birimlerle işaretli sekiz bittir: bizim hesabımızla artı eksi on iki virgül yedi gigahertz. On beş gigahertz kaymış bir OLT, yalnızca bilinmiyor diyebilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "bac480cf951_0.wav",
+   "duration": 24.967,
+   "text": "Burst profili mesajı sürüm, hız biti ve indeksle başlar; sonra kanal ötesi bit, FEC biti, en çok sekiz baytlık sınırlayıcı, en çok sekiz baytlık ve iki yüz elli beş kez tekrarlanabilen önsöz, ve PON etiketi. İkinci değişiklik bir kuralı değiştirdi: eskiden sonraki bir yayın, aynı indeksteki tek alıcılı profilleri eziyordu; şimdi her ONU için, o indekste en son alınan mesaj geçerlidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "b4a2120a97c_0.wav",
+   "duration": 23.889,
+   "text": "PMD Köprüsü. Birinci sezonun altıncı bölümünde G.989.2'nin üçüncü ekini gördük: en kötü önsöz iki buçuk gigabitte bin dört yüz yetmiş iki, on gigabitte altı bin seksen bit; sınırlayıcı en çok altmış dört bit. Bizim hesabımızla alanlar yeter: sınırlayıcı sekiz bayta oturur, en uzun önsöz de sekiz baytlık desenin doksan beş tekrarıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "ba163e1dc4f_0.wav",
+   "duration": 30.2,
+   "text": "Kimlik ailesi, yani seri numarası, kimlik atama, eşitleme gecikmesi ve kayıt, bir sonraki bölümün. Tersi devre dışı bırakma ailesidir, iki onaysız mesaj. Devre dışı bırakılan ONU lazerini kapatır, kimliklerini, profillerini ve eşitleme gecikmesini atar, O1'e döner. Seri numarası engelleme ise ONU'yu acil durdurmaya, O7'ye gönderir; serbest bırakma her TWDM kanalında gönderilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "b28ce9379f0_0.wav",
+   "duration": 25.72,
+   "text": "Değişikliklerin asıl izi buradadır. İki bin yirmi üç değişikliği devre dışı bırakma mesajının beşinci ve altıncı baytına, iki bin yirmi beş değişikliği engelleme mesajının on dördüncü ve on beşinci baytına bir neden kodu koydu. Sıfır, desteklenmiyor ya da belirtilmedi demektir; önerilen kodlar, kaynaklarımızda olmayan bir ek belgededir. Haberdar bir ONU değeri yalnızca kaydeder.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "bd305d4bd18_0.wav",
+   "duration": 26.435,
+   "text": "Kalan aileler sonraki bölümlerin. Anahtar denetimine ONU, en çok sekiz parçalık anahtar raporlarıyla cevap verir. Uyku izni güç tasarrufunu açar ya da kapatır; uyku isteği uyanık ya da dikkatli uyku der. Güç sorgusunun cevabı kanal çifti başına miliwatttır. Koruma denetimi bir koruma kanalı tanımlar; hız mesajları PtP WDM içindir; yeniden başlatma son çaredir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "b68cf86eaea_0.wav",
+   "duration": 24.717,
+   "text": "Ayar ailesi yedinci bölümün. Kalibrasyon isteği, AMCC ile gelen seri numarası mesajına cevaptır; dalga boyu ayarı vericiyi sıfır virgül bir gigahertzlik birimlerle kaydırır; ayar denetimi devri başlatır; ayar yanıtı, on dört olumsuz ve dokuz geri dönüş nedenini bir bit haritasında taşır. ONU ise ayar granülerliğini bir gigahertzlik birimlerle bildirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "b88167845c4_0.wav",
+   "duration": 28.483,
+   "text": "PMD Köprüsü. Birinci sezonun yedinci bölümünde G.989.2'nin ayar tablolarını gördük. Bir boşluk var: elli gigahertzlik aralıkta en büyük granülerlik, kanal aralığının yirmide biri, iki virgül beş gigahertzdir, ve bir gigahertzlik birimle yazılamaz. Aynı aralıktaki artı eksi on iki virgül beş gigahertzlik sapma da sistem profiline yazılamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d12",
+   "file": "bf5c52b71ec_0.wav",
+   "duration": 25.965,
+   "text": "Güç seviyesi değiştirme mesajı, güç dengelemenin OLT'nin yönettiği yüzüdür. Dört işlem vardır: doğrudan bir düzey, bir düzey azalt, bir düzey artır, ya da düzeyi bildir. Zayıflatma kodları birden yediye, üç desibellik adımlardır. ONU isteğe bağlı bir meşgul onayından sonra ayarlar, ve aynı sıra numarasıyla yeni düzeyi bildirir. Sınırda ise parametre hatası, kod dört.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d13",
+   "file": "b72aaa18e48_0.wav",
+   "duration": 33.165,
+   "text": "PMD Köprüsü. Birinci sezonun sekizinci bölümünde D ekini gördük: özerk dengeleme üç desibellik adımlarla en çok on iki desibel, yönlendirmeli dengeleme altı ile dokuz desibel daha; bizim hesabımızla yirmi bir desibele, yani en büyük koda kadar. D eki ONU'nun düzeyini bildirmesini ister; G.989.3'te bunu her onay mesajındaki zayıflatma baytı taşır. Ama D eki, yönlendirmeli dengelemenin TC tarafını hâlâ çalışma konusu sayar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d14",
+   "file": "b835aa28a4d_0.wav",
+   "duration": 28.291,
+   "text": "PMD Köprüsü, TOL. Birinci sezonun onuncu bölümünde OLT'nin başlatma gücünü PSBd'nin TOL alanında gördük; bu bir PLOAM alanı değildir. D eki, ONU'nun ölçtüğü gücün OLT lazerinin dört desibellik oynamasını da içerdiğini söyler. Bizim yorumumuz: ONU düzey seçerken TOL'u hesaba katabilir; ama G.989.3 bunu söylemez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d15",
+   "file": "bc0f160dd18_0.wav",
+   "duration": 24.316,
+   "text": "Mühendis notu. Bir: kutuplara dikkat. Engelleme baytında sıfır izin verir, iki yüz elli beş engeller; koruma denetiminde de sıfır korumayı açar. Sıfırı hep kapalı sayan bir yazılım burada ters çalışır. İki: onaylanmış bir güç değişikliği optikte görünmezse OLT bir kusur ilan eder; izlemeniz üç desibellik adımı görebilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d16",
+   "file": "b443d1b6a24_0.wav",
+   "duration": 5.664,
+   "text": "Sıradaki: PLOAM tamam. Şimdi OMCC'ye bakalım.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 406.68
+}

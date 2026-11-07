@@ -1,0 +1,105 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b4f82972c51_0.wav",
+   "duration": 26.989,
+   "text": "Perde iki: mesaj biçimi ve bütünlük. Her PLOAM mesajı kırk sekiz bayttır. İlk iki bayt ONU kimliğidir: en anlamsız uca hizalı on bit, üstteki altı bit ayrılmış. Üçüncü bayt mesaj türü, dördüncü bayt sıra numarası. Beşinciden kırkıncıya otuz altı bayt içerik, son sekiz bayt bütünlük kodu: her mesajın altıda biri. Kimlik olarak bin yirmi bir ve bin yirmi iki hiç görünmez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "beea08281b8_0.wav",
+   "duration": 25.645,
+   "text": "Mesaj türü sekiz bittir, ve tanımsız her değer ayrılmıştır; hiçbir üretici onu kullanmamalıdır. Desteklemediği bir yukarı yön türü alan OLT, mesajı sıra numarasıyla birlikte yok sayar. Bilmediği bir aşağı yön türü alan ONU, mesaj yayınsa susar; kendi kimliğine gelmişse olumsuz onaylar: tamamlama kodu üç, bilinmeyen mesaj türü.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "bb593fba1af_0.wav",
+   "duration": 24.984,
+   "text": "Sıra numaraları. Aşağı yönde yayın akışının tek bir sayacı vardır; OLT kanal sonlandırıcısı yeniden başlarken bire kurulur. Her ONU'nun tek alıcılı sayacı ise, kimlik atandığında ya da kanal devrinde ayar tamamlandı yanıtı alındığında bire kurulur. Her gönderimde sayaç bir artar, iki yüz elli beşten bire döner. Sıfır, aşağı yönde kullanılmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "bfbc1b9739e_0.wav",
+   "duration": 23.139,
+   "text": "Yukarı yönde ONU sayı üretmez, yansıtır: cevap, aşağı yön mesajının sıra numarasını taşır. Seri numarası mesajı gibi kendiliğinden gönderilenlerde ve canlılık onayında değer sıfırdır. Yani sıfır, sırasız demektir. ONU'nun sıra numarasıyla çift ya da sırası bozuk mesaj yakaladığına dair bir kural ise metinde yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "b5926b275c8_0.wav",
+   "duration": 22.296,
+   "text": "Bir çelişki: kalibrasyon isteği bir aşağı yön mesajıdır, ama tablosu sıra numarasını sıfır tanımlar. Metin nedenini söylemez; bizim yorumumuz, mesajın henüz kimliği ve tek alıcılı akışı olmayan bir ONU'ya gitmesidir. Bir de hesap: en yüksek tek alıcılı hızda bir ONU'nun sayacı otuz bir virgül dokuz milisaniyede döner.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "b30083ff985_0.wav",
+   "duration": 19.815,
+   "text": "İçerikte kullanılmayan baytlar sıfırla doldurulur ve alıcıda yok sayılır; ama dolgu da bütünlük koduna girer. Standart, kanalın geriye uyumlu biçimde genişleyebilmesini ister; bizim yorumumuzla araçları ayrılmış tür kimlikleri, sürüm alanları ve bu dolgudur. İki değişiklik de yeni alanlarını dolguya koydu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "bad95b2e56d_0.wav",
+   "duration": 28.205,
+   "text": "Şimdi bütünlük kodu. Amacı göndericinin kimliğini doğrulamak ve sahte mesaj saldırısını önlemektir. Hesap AES-CMAC'tir: girdi, bir yön baytı, aşağıda bir, yukarıda iki, ve mesajın ilk kırk baytı. Yüz yirmi sekiz bitlik anahtarla işlenen kırk bir baytın çıkışı altmış dört bite kesilir; uyuşmazsa mesaj atılır. Bizim yorumumuz: yön baytı, ters yönde tekrar oynatmayı engeller.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "b6c517d8311_0.wav",
+   "duration": 26.52,
+   "text": "Anahtar ne? Varsayılan PLOAM bütünlük anahtarı, on altı baytın her biri on altılık tabanda beş beş olan bir değerdir, ve standardın içinde yazılıdır. Yayın mesajlarında ve kayıt tabanlı ana anahtar oluşmadan önceki aktivasyon mesajlarında kullanılır. Gerekçe: bu mesajlar, OLT ile ONU türetilmiş anahtarlarda anlaşmamışken de geçebilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c9",
+   "file": "bf13efe234f_0.wav",
+   "duration": 25.784,
+   "text": "Bizim yorumumuz: herkesin bildiği bir anahtar sır değildir. Devre dışı bırakma, seri numarası engelleme, ayar denetimi ve dalga boyu ayarı hep bu anahtarla korunur; onlarda kod sahteciliğe karşı değil, hataya karşı korur. Kanal devrinin dört mesajı da bu anahtarı kullanır; çünkü ONU başka bir kanal sonlandırıcısına geçince kendi anahtarları yeniden türetilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c10",
+   "file": "b0c5772c6c5_0.wav",
+   "duration": 24.679,
+   "text": "Mesaj başına anahtar şöyledir. Yayınsa varsayılan, yönlendirilmişse ONU'ya özgü: burst profili, eşitleme gecikmesi, anahtar denetimi, uyku izni, koruma, güç seviyesi ve güç sorgusu. Her zaman ONU'ya özgü olan yalnızca dört mesaj: yönlendirilmiş tahsis kimliği ataması, anahtar raporu, onay ve uyku isteği. Geri kalanlar hep varsayılan anahtarı kullanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c11",
+   "file": "bf9cca3e865_0.wav",
+   "duration": 25.34,
+   "text": "ONU'ya özgü anahtar, oturum anahtarıyla bir AES-CMAC'tir; girdi on altı baytlık sabit bir ASCII etiketidir: PLOAM, integrity ve key sözcüklerinin bitişik yazımı. Ama integrity'nin ikinci i harfi eksiktir; etiket böylece tam on altı bayta sığar. Dördüncü ekin sekizinci örneği yalnızca bu yanlış yazımla tutar. OMCI'ın etiketi ise doğru yazılmıştır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c12",
+   "file": "b449afbf670_0.wav",
+   "duration": 17.948,
+   "text": "Aynı ekin dokuzuncu örneği bir aşağı yön tahsis kimliği atamasıdır, onuncu örneği bir yukarı yön uyku isteği; ikisinin de bütünlük kodu verilmiştir. Ekteki beş vektörün beşini de yeniden hesapladık; hepsi bit bit tutuyor. Bir çözücüyü sahaya çıkarmadan önce bu vektörlerden geçirin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c13",
+   "file": "b70d14679a5_0.wav",
+   "duration": 21.756,
+   "text": "Mühendis notu. Bir: etiketin yazım hatasını düzeltmeyin; düzelten bir uygulama, standarda uyan hiçbir karşı tarafla anlaşamaz. İki: bir analizör, hiçbir sır bilmeden bütün yayın mesajlarını ve varsayılan anahtarlı tek alıcılı mesajları doğrulayabilir; doğrulayamadığı her mesaj ya ONU'ya özgü anahtarlıdır, ya da bozuktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c14",
+   "file": "beed4702137_0.wav",
+   "duration": 7.285,
+   "text": "Sıradaki: biçim belli. Şimdi yirmi sekiz mesajın ne söylediğine bakalım.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 320.38
+}

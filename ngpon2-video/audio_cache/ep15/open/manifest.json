@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "ba1163f3fec_0.wav",
+   "duration": 20.039,
+   "text": "Sezon iki, bölüm beş: Yönetim Kanalları. Gömülü alanlara sığmayan PMD ve çerçeveleme yönetimi, kırk sekiz baytlık mesajlarla taşınır: PLOAM. Servisleri yöneten OMCI ise kendi kanalında, OMCC'de yolculuk eder. Bu bölümde iki kanalı bayt bayt açıyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b767ca64480_0.wav",
+   "duration": 10.955,
+   "text": "Önce PLOAM kanalı: iki taşıma seçeneği, çerçeve başına mesaj sınırları, sekiz mesajlık kuyruk, yedi yüz elli mikrosaniyelik cevap kuralı, ve sessizliğin ne anlama geldiği.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "bc746a235cb_0.wav",
+   "duration": 9.376,
+   "text": "Sonra mesajın kendisi: kırk sekiz baytın yerleşimi, sıra numaraları ve bütünlük kodu. Herkesin bildiği bir anahtar, ve bir harfi eksik yazılmış bir etiket.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b6611d3db78_0.wav",
+   "duration": 16.977,
+   "text": "Ardından katalog: aşağı yönde yirmi, yukarı yönde sekiz mesaj. Profiller, kimlikler, devre dışı bırakma, anahtarlar, uyku, ayar, koruma, güç seviyesi ve hız; ve birinci sezonun optik tablolarına dokunan alanlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "bd640115ea8_0.wav",
+   "duration": 11.701,
+   "text": "Sonra OMCC: OMCI'ın XGEM içinde nasıl taşındığı, kendi bütünlük kodu, ve G.988'e bırakılanlar. Ve metinde bulduğumuz çelişkiler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b9d9c958af5_0.wav",
+   "duration": 14.983,
+   "text": "Laboratuvarda PLOAM mesajlarını yakalayıp çözeceğiz, yayınların bütünlük kodunu sır bilmeden doğrulayacağız, ve altın vektörlerle, sıra numaralarıyla ve canlılık onaylarıyla bir ONU'yu sınayacağız.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 84.03
+}

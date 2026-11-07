@@ -1,0 +1,98 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b8c4d4a9964_0.wav",
+   "duration": 28.803,
+   "text": "Perde dört: OMCC. ONU yönetim ve denetim kanalı, TC katmanının üstündeki servis katmanlarını yönetmek için OMCI mesajlarını kullanır; TC katmanı da bunun için, port kimlikleri dahil, XGEM tabanlı bir taşıma sağlamak zorundadır. G.989.3 kanalın biçimini ve aktarımını tanımlar; mesajların anlamı G.988'in işidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "b2787465675_0.wav",
+   "duration": 26.061,
+   "text": "Taşıma zinciri dört halkadır. OMCC portu sayıca ONU kimliğine eşittir, ve kimlik atama mesajıyla örtük olarak kurulur. Yukarı yön bant genişliğini, yine ONU kimliğine eşit olan varsayılan tahsis kimliği verir. Mesajlar sıradan XGEM yükleridir. Ve ONU'nun diğer bütün port atamaları, OMCC'nin kendisi üzerinden yapılır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "bf76d3cb788_0.wav",
+   "duration": 29.037,
+   "text": "Sonucu zariftir: tek bir yayın PLOAM mesajından sonra ONU'nun iki yönlü bir yönetim kanalı vardır, hiçbir OMCI yapılandırması olmadan. Ömrü de bellidir: O1'de ONU varsayılan portu unutur. Kanal bağlamada her etkin PON arayüzü için ayrı bir OMCC kurulur, ama bilgi tabanı tektir; ONU, komutun geldiği arayüzden cevap verir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "bbe162148aa_0.wav",
+   "duration": 24.135,
+   "text": "Mesaj biçiminden G.989.3 yalnızca bütünlük için gerekeni çizer: işlem kimliği, mesaj türü, cihaz kimliği, dört baytlık yönetim varlığı kimliği, içerik, ve sonda dört baytlık bütünlük kodu. Dördüncü ekin on ikinci örneği temel biçimde bir okuma isteğidir; bizim hesabımızla kırk sekiz bayt, yani elli altı baytlık bir XGEM çerçevesi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "b2fba8d4857_0.wav",
+   "duration": 34.341,
+   "text": "Standartta olmayanlar da var. Genişletilmiş biçimin cihaz kimliği, uzunluk alanı ve en büyük boyu G.989.3'te yoktur; yalnızca şekildeki bir ibare ve iki isteğe bağlı sayaç vardır. On ikinci örnekteki dört baytlık kuyruğun anlamı açıklanmaz. Şifreleme ise güvenlik maddesindedir: varsayılan port, yani OMCC portu, tek alıcılı anahtarla iki yönde şifrelenecek biçimde tanımlıdır; ama ancak ilk tek alıcılı anahtar kurulduktan sonra. Bunu sekizinci bölümde açacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "b516b6499a8_0.wav",
+   "duration": 23.068,
+   "text": "OMCI bütünlük kodu dört bayttır. Hesap PLOAM'dakine benzer: anahtar OMCI bütünlük anahtarı, girdi yön baytı ile son dört bayt hariç bütün mesaj, çıkış otuz iki bit. Bizim hesabımızla temel biçimde bu, kırk beş baytlık bir girdidir. On ikinci örneğin kodunu yeniden ürettik; tutuyor.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "b6a11f3e1bd_0.wav",
+   "duration": 27.821,
+   "text": "Öğretici bir fark: OMCI anahtarının varsayılanı yoktur. Gerekçe: ana oturum anahtarı kurulmadan OMCI alışverişi yapılmaz, ve yayın OMCC kanalı desteklenmez. PLOAM aktivasyonu taşıdığı için herkesin bildiği bir anahtarla başlar; OMCI ise yalnızca türetilmiş anahtarla konuşur. Anahtar değişiminde iki kanal el ele verir; ayrıntısı sekizinci bölümde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8",
+   "file": "be046664454_0.wav",
+   "duration": 29.507,
+   "text": "Bütünlük hataları rastgele olabilir; standart onları bit hata oranıyla ilişkili seyrek olaylar sayar. Kalıcıysa büyük olasılıkla anahtar uyuşmazlığıdır, ve iki kusurdan birini doğurur: PLOAM kanalı kaybı ya da OMCC kanalı kaybı. Önlemler OLT'ye kalmıştır: yeniden kimlik doğrulama, trafiği engelleme, devre dışı bırakma, başıboş ONU tanılaması.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e9",
+   "file": "b66c9b16201_0.wav",
+   "duration": 26.243,
+   "text": "Şimdi metindeki çelişkiler. Kanal profilinde varsayılan yanıt kanalı otuz iki bitlik bir PON kimliğidir; on yedinci maddedeki tablo ise onu yukarı yön kanal kimliği diye anar. Güç tüketimi raporunun girdileri yirmi dört bittir, metin on altı bitten söz eder. Bir özet tabloda iki mesaj adı birbirine yapışmış, bir şekilde ONU kimliği yanlış yazılmıştır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e10",
+   "file": "bffdb423df1_0.wav",
+   "duration": 25.617,
+   "text": "PMD Köprüsü. Birinci sezonun dokuzuncu bölümünde G.989.2'nin PtP WDM hız sınıflarını gördük: üç sınıf, ve üçüncüsü hem altı hem on gigabiti kapsıyordu. G.989.3 bunu dörde böler. Üstelik kanal profilinde, seri numarası mesajında ve hız denetiminde aynı dört hız üç farklı sırayla kodlanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e11",
+   "file": "b57e5fe5acc_0.wav",
+   "duration": 23.612,
+   "text": "Değişikliklerin toplamı küçüktür: eski dolguda iki neden kodu, yeniden yazılmış bir burst profili kuralı, ve bir yukarı yön mesajında düzeltilmiş bir satır. Hiçbir tür ya da alan yer değiştirmedi; yalnızca iki bin yirmi beşte, yeniden başlatma mesajından itibaren tablo numaraları kaydı. OMCC, bütünlük maddeleri ve altın vektörler hiç değişmedi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e12",
+   "file": "b57926ffbcc_0.wav",
+   "duration": 24.593,
+   "text": "Mühendis notu. Bir: OMCI'ı izlemek için port kimliği ONU kimliğine eşit olan çerçeveleri süzmek yeter; bütünlüğü doğrulamak içinse o ONU'nun anahtarı gerekir. İki: hata raporlarında tabloya numarasıyla değil, mesaj adıyla atıf yapın; onay mesajının tablosu iki bin yirmi bir metninde on bir tire yirmi yedi, iki bin yirmi beşte on bir tire yirmi sekizdir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e13",
+   "file": "b5a2606f6a6_0.wav",
+   "duration": 5.749,
+   "text": "Sıradaki: kanallar ve mesajlar tamam. Şimdi laboratuvarda onları yakalayalım.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 328.59
+}

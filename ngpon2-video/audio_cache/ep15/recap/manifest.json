@@ -1,0 +1,28 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "b400d4b50f5_0.wav",
+   "duration": 31.657,
+   "text": "Geçen bölümün soruları. Birinci soru: en iyi çaba T-CONT'u hiç pay alamıyor, güvencesiz bir T-CONT hâlâ doymamış; OLT bozuk mu? Hayır. Referans model katı bir sıra izler: sabit, güvenceli, güvencesiz, en son en iyi çaba. En iyi çaba ek payı, ancak güvencesiz paya uygun bütün tahsis kimlikleri doyunca gelir. Üstelik en iyi çaba tanımlayıcısında garantili pay sıfır olabilir; sıfır, tasarımın kendisidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a2",
+   "file": "bd23dcf7621_0.wav",
+   "duration": 27.587,
+   "text": "İkinci soru: zaman kuantumu, yüz yirmi beş mikrosaniyenin dokuz bin yedi yüz yirmide biridir: iki buçuk gigabitte dört, on gigabitte on altı bayt. Çerçeve başına otuz iki ya da yüz yirmi sekiz bit, saniyede sekiz bin çerçeveyle iki yüz elli altı kilobit ya da bir virgül sıfır iki dört megabittir. En küçük yük tahsisi iki hızda da on altı bayttır; iki buçuk gigabitte tek kuantumluk tahsis yalnızca DBRu taşır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a3",
+   "file": "b03f593a28e_0.wav",
+   "duration": 28.845,
+   "text": "Üçüncü soru: yalnızca J eki varsa. O5'teki, T-CONT'una yönlendirilmiş tahsis verilmeyen, trafiği olan ve zaman aşımı içinde başka bir çekişmeli tahsise cevap vermemiş ONU, boştaki ONU desteği tahsisine tek bir onayla cevap verir: tamamlama kodu altı, istenmemiş trafik etkinliği, ve meşgul tahsis kimliği; on altılık tabanda ce sıfır ise hepsi. OLT tahsisleri geri verir. Şimdi bu bölüme.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 88.09
+}
