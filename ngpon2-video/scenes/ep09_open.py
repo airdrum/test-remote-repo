@@ -144,8 +144,8 @@ class Ep09Open(Narrated):
 
         # o6 — lab
         self.beat("o6")
-        pm = instr("PM", 1.8, 1.3, "+3,0 dBm", "S/R-CG").move_to([CX - 1.6, PY + 1.75, 0])
-        bert = instr("BERT", 1.8, 1.3, "BER 1,0E-12", "FEC'siz", GOOD).move_to([CX + 1.6, PY + 1.75, 0])
+        pm = instr("PM", 2.15, 1.45, "+3,0 dBm").move_to([CX - 1.55, PY + 1.7, 0])
+        bert = instr("BERT", 2.15, 1.45, "BER 10⁻¹²", None, GOOD).move_to([CX + 1.55, PY + 1.7, 0])
         cur, et, eb, _ = overmod(CX - 2.5, CX + 2.5, PY - 1.35, 1.2, [1, 0, 1, 1, 0, 1], nbits=120, depth=0.24, seed=5)
         mt = T("M = %10", 18, AMC, BOLD).next_to(et, UP, buff=0.12)
         pen = pill("AMCC cezası = ?  (standartta yok)", WARN, 16).move_to([CX, PY - 2.35, 0])

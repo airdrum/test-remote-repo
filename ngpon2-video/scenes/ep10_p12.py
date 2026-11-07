@@ -353,11 +353,11 @@ class E10P1C(Act10):
             st = T(step, 19, TXT, BOLD).move_to(bar)
             l = VGroup(Line(bar.get_corner(DL), bar.get_corner(DL) + DOWN * 0.25, color=c, stroke_width=2), T(lo, 18, TXT, BOLD))
             l[1].next_to(l[0], DOWN, buff=0.06).align_to(bar, LEFT)
-            r = VGroup(Line(bar.get_corner(DR), bar.get_corner(DR) + DOWN * 0.25, color=c, stroke_width=2), T(hi, 18, TXT, BOLD))
+            r = VGroup(Line(bar.get_corner(DR), bar.get_corner(DR) + DOWN * 0.62, color=c, stroke_width=2), T(hi, 18, TXT, BOLD))
             r[1].next_to(r[0], DOWN, buff=0.06).align_to(bar, RIGHT)
             return tt, VGroup(bar, st), l, r
-        tx = reg(1.05, "Gönderilen güç · Tablo II-3", "16 bit × 1,5 µW", "0x0001 = 1,5 µW → −28,24 dBm", "0xFFFF → ≈ +20 dBm (100 mW)", TW_DS)
-        rx = reg(-1.15, "Alınan güç · Tablo II.4", "16 bit × 0,005 µW", "0x0001 = 0,005 µW → −53 dBm", "0xFFFF = 327,7 µW → −4,84 dBm", GOOD)
+        tx = reg(1.25, "Gönderilen güç · Tablo II-3", "16 bit × 1,5 µW", "0x0001 = 1,5 µW → −28,24 dBm", "0xFFFF → ≈ +20 dBm (100 mW)", TW_DS)
+        rx = reg(-0.95, "Alınan güç · Tablo II.4", "16 bit × 0,005 µW", "0x0001 = 0,005 µW → −53 dBm", "0xFFFF = 327,7 µW → −4,84 dBm", GOOD)
         tail = pill("Tablo II.1 aralıkları:  −28 … +20 dBm  ·  −53 … −4,9 dBm", ACC, 19).move_to([0, -2.85, 0])
         self.at(self.cue("bir virgül beş mikrovatlık", 3.2))
         self.play(FadeIn(tx[0], shift=RIGHT * 0.1), FadeIn(tx[1]), self.set_src("G.989.2 Ek II · Tablo II-3, II.4"), run_time=0.6)
@@ -425,8 +425,8 @@ class E10P1C(Act10):
         tol.move_to([-3.55, -0.25, 0])
         tl = Line(blocks[2].get_bottom(), tol.get_top(), color=GOLD, stroke_width=2)
         mp = table(["TOL", "OLT başlatma gücü"], [["0x000", "−30 dBm"], ["0x12C", "0 dBm"], ["0x1FE", "+21 dBm"], ["0x1FF", "desteklenmiyor"]], [1.3, 2.6], size=17, hsize=14, row_h=0.36)
-        mp.move_to([-3.55, -1.55, 0])
-        cbit = T("C biti: S/R-CG (0) · S/R-CP (1)", 16, ACC, BOLD).move_to([-3.55, -2.6, 0])
+        mp.move_to([-3.55, -1.63, 0])
+        cbit = T("C biti: S/R-CG (0) · S/R-CP (1)", 16, ACC, BOLD).move_to([-3.55, -2.8, 0])
         bc = T("→ bütün ONU'lara yayın", 17, GOLD, BOLD).next_to(pay, RIGHT, buff=0.2)
         c1 = card("ONU optik güçleri", "OMCI ile okunur\nG.988 yönetim varlıkları (§14.1)", None, ONUC, w=5.4, h=1.55, tsize=22, bsize=18).move_to([3.85, 0.4, 0])
         c2 = card("OLT CT izler", "her çalışan ONU: RSSI · faz · BER\n(§12.1.3)", None, OLTC, w=5.4, h=1.55, tsize=22, bsize=18).move_to([3.85, -1.5, 0])
@@ -458,7 +458,7 @@ class TypeB:
 
     def __init__(self):
         self.cts1, self.cts2 = VGroup(), VGroup()
-        ys1, ys2 = [1.75, 1.33, 0.91, 0.49], [-1.05, -1.47, -1.89, -2.31]
+        ys1, ys2 = [1.68, 1.28, 0.88, 0.48], [-1.12, -1.52, -1.92, -2.32]
         for i in range(4):
             self.cts1.add(ct_box(f"CT λ{i + 1}", CH[i], 1.45, 0.34, 14, on=True).move_to([-5.35, ys1[i], 0]))
             self.cts2.add(ct_box(f"CT λ{i + 1}'", CH[i], 1.45, 0.34, 14, on=False).move_to([-5.35, ys2[i], 0]))
@@ -472,11 +472,11 @@ class TypeB:
         self.att2 = VGroup(*[Line(c.get_right(), [self.wm2.get_left()[0], -1.68 + (c.get_y() + 1.68) * 0.75, 0], color=CH[i], stroke_width=2.5) for i, c in enumerate(self.cts2)])
         self.spl = splitter(0.3).move_to([0.95, -0.28, 0])
         sl = self.spl.get_left()
-        self.fd1 = VMobject(stroke_color=FEED, stroke_width=3.5).set_points_as_corners([self.wm1.get_right(), [-0.6, 1.12, 0], sl + UP * 0.1])
-        self.fd2 = VMobject(stroke_color=FEED, stroke_width=3.5).set_points_as_corners([self.wm2.get_right(), [-0.6, -1.68, 0], sl + DOWN * 0.1])
+        self.fd1 = VMobject(stroke_color=FEED, stroke_width=3.5, fill_opacity=0).set_points_as_corners([self.wm1.get_right(), [-0.6, 1.12, 0], sl + UP * 0.1])
+        self.fd2 = VMobject(stroke_color=FEED, stroke_width=3.5, fill_opacity=0).set_points_as_corners([self.wm2.get_right(), [-0.6, -1.68, 0], sl + DOWN * 0.1])
         self.onus = VGroup(*[onu_icon("ONU", ONUC, 1.2, 0.5, 16).move_to([5.75, y, 0]) for y in (1.25, -0.28, -1.81)])
         sr = self.spl.get_right()
-        self.dist = VGroup(*[VMobject(stroke_color=FEED, stroke_width=2.5).set_points_as_corners([sr, [2.7, o.get_y(), 0], o.get_left()]) for o in self.onus])
+        self.dist = VGroup(*[VMobject(stroke_color=FEED, stroke_width=2.5, fill_opacity=0).set_points_as_corners([sr, [2.7, o.get_y(), 0], o.get_left()]) for o in self.onus])
         self.lbl_att = T("kanal bağlantı fiberleri", 15, MUTED, BOLD).move_to([-3.75, -0.28, 0])
         self.lbl_fd = VGroup(T("besleyici", 15, MUTED, BOLD).next_to([-1.4, 1.12, 0], UP, buff=0.08), T("besleyici", 15, MUTED, BOLD).next_to([-1.4, -1.68, 0], DOWN, buff=0.08))
         self.lbl_spl = T("ayırıcı 2:N", 15, MUTED, BOLD).next_to(self.spl, DOWN, buff=0.12)
@@ -577,16 +577,16 @@ class E10P2A(Act10):
         self.play(FadeIn(ind, shift=DOWN * 0.1), run_time=0.5)
         self.at(self.cue("Besleyici fiber", 5.9))
         cut = xmark(Square(0.3).move_to([-1.4, 1.12, 0]), WARN, 5)
-        self.play(Create(cut), tb.fd1.animate.set_stroke(WARN, 3.5).set_opacity(0.5), run_time=0.5)
+        self.play(Create(cut), tb.fd1.animate.set_stroke(WARN, 3.5, opacity=0.5), run_time=0.5)
         r1 = T("besleyici / WM / şasi arızası → gruptaki bütün çiftler", 17, GOLD, BOLD).move_to([3.4, -2.6, 0])
         fit(r1, 6.6)
         self.at(self.cue("aynı anda anahtarlanır", 10.0))
         self.play(*[set_lamp(c, False) for c in tb.cts1], *[set_lamp(c, True) for c in tb.cts2], FadeIn(r1, shift=DOWN * 0.1), run_time=0.8)
         self.at(self.cue("Yalnızca bir kanal", 14.5))
-        self.play(FadeOut(cut), tb.fd1.animate.set_stroke(PROT, 5).set_opacity(1), *[set_lamp(c, True) for c in tb.cts1], *[set_lamp(c, False) for c in tb.cts2],
+        self.play(FadeOut(cut), tb.fd1.animate.set_stroke(PROT, 5, opacity=1), *[set_lamp(c, True) for c in tb.cts1], *[set_lamp(c, False) for c in tb.cts2],
                   r1.animate.set_opacity(0.35), run_time=0.7)
         cut2 = xmark(Square(0.24).move_to(tb.att1[1].get_center()), WARN, 4)
-        self.play(Create(cut2), tb.att1[1].animate.set_stroke(WARN).set_opacity(0.5), run_time=0.5)
+        self.play(Create(cut2), tb.att1[1].animate.set_stroke(WARN, opacity=0.5), run_time=0.5)
         r2 = T("tek CT / bağlantı fiberi arızası → yalnızca o çift", 17, GOLD, BOLD).move_to([3.4, -3.05, 0])
         fit(r2, 6.6)
         self.at(self.cue("yalnızca etkilenen çift", 20.7))
@@ -652,17 +652,17 @@ STATES = [("1", "Başlangıç", "Initialization", 0), ("2", "Ön koruma", "Pre-P
           ("9", "COMM-FAIL", "iletişim arızası", None), ("10", "EQPT-FAIL", "donanım arızası", None)]
 
 
-def state_card(num, tr_, en, tx, w=2.45, h=1.25):
+def state_card(num, tr_, en, tx, w=2.45, h=1.2):
     c = {0: MUTED, 1: TXON, None: WARN}[tx]
     r = RoundedRectangle(corner_radius=0.12, width=w, height=h, stroke_color=STATE, stroke_width=2, fill_color=PANEL, fill_opacity=1)
-    n = T(num, 16, STATE, BOLD).move_to(r.get_corner(UL) + [0.22, -0.2, 0])
-    a = tf(tr_, 19, TXT, BOLD, w=w - 0.5).move_to(r).shift(UP * 0.15)
-    b = tf(en, 14, MUTED, w=w - 0.2).next_to(a, DOWN, buff=0.06)
+    n = T(num, 16, STATE, BOLD).move_to(r.get_corner(UL) + [0.24, -0.22, 0])
+    a = tf(tr_, 19, TXT, BOLD, w=w - 0.3).move_to(r).shift(DOWN * 0.08)
+    b = tf(en, 14, MUTED, w=w - 0.3).next_to(a, DOWN, buff=0.08)
     if tx is None:
         lm = VGroup(T("Tx —", 15, WARN, BOLD))
     else:
         lm = VGroup(T("Tx", 15, c, BOLD), lamp(bool(tx), 0.09)).arrange(RIGHT, buff=0.1)
-    lm.move_to(r.get_corner(DR) + [-0.45, 0.2, 0])
+    lm.move_to(r.get_corner(UR) + [-0.42, -0.22, 0])
     return VGroup(r, n, a, b, lm)
 
 
@@ -677,8 +677,8 @@ class E10P2B(Act10):
         u1 = ct_unit("CT 1 · λ1", CT_A).move_to([-4.9, 1.3, 0])
         u2 = ct_unit("CT 2 · λ1", CT_B).move_to([-4.9, -1.3, 0])
         wm = sbox("WM", None, FEED, 0.7, 1.2, 16).move_to([-2.3, 0, 0])
-        l1 = VMobject(stroke_color=FEED, stroke_width=3).set_points_as_corners([u1.get_right(), [-3.1, 1.3, 0], wm.get_left() + UP * 0.25])
-        l2 = VMobject(stroke_color=FEED, stroke_width=3).set_points_as_corners([u2.get_right(), [-3.1, -1.3, 0], wm.get_left() + DOWN * 0.25])
+        l1 = VMobject(stroke_color=FEED, stroke_width=3, fill_opacity=0).set_points_as_corners([u1.get_right(), [-3.1, 1.3, 0], wm.get_left() + UP * 0.25])
+        l2 = VMobject(stroke_color=FEED, stroke_width=3, fill_opacity=0).set_points_as_corners([u2.get_right(), [-3.1, -1.3, 0], wm.get_left() + DOWN * 0.25])
         spl = splitter(0.28).move_to([1.0, 0, 0])
         fd = Line(wm.get_right(), spl.get_left(), color=FEED, stroke_width=3.5)
         onus = VGroup(*[onu_icon("ONU", ONUC, 1.2, 0.5, 16).move_to([5.4, y, 0]) for y in (1.0, 0.0, -1.0)])
@@ -713,12 +713,10 @@ class E10P2B(Act10):
         self.clear(h)
         h = self.show_heading("Tablo 18-1 — on durum, verici açık / kapalı", h)
         cards = VGroup(*[state_card(*s) for s in STATES]).arrange_in_grid(rows=2, cols=5, buff=(0.18, 0.3)).move_to([0, 0.45, 0])
-        for c in cards:
-            c[4].set_opacity(0)
-        self.play(LaggedStart(*[FadeIn(c, shift=UP * 0.1) for c in cards], lag_ratio=0.08), self.set_src("G.989.3 §18.2 · Tablo 18-1"), run_time=1.2)
+        self.play(LaggedStart(*[FadeIn(c[:4], shift=UP * 0.1) for c in cards], lag_ratio=0.08), self.set_src("G.989.3 §18.2 · Tablo 18-1"), run_time=1.2)
         self.play(*[m.animate.set_opacity(0.45) for c in cards for m in c[2:4]], run_time=0.3)
         self.at(self.cue("açık mı kapalı mı", 2.9))
-        self.play(*[c[4].animate.set_opacity(1) for c in cards], run_time=0.6)
+        self.play(*[FadeIn(c[4], scale=0.6) for c in cards], run_time=0.6)
 
         def hi(ix, col):
             return [cards[i][0].animate.set_stroke(col, 3.5) for i in ix] + [m.animate.set_opacity(1) for i in ix for m in cards[i][2:4]]
@@ -866,15 +864,15 @@ class E10P2C(Act10):
     def construct(self):
         # c8 — wavelength channel protection, ONU side
         self.beat("c8")
-        h = self.show_heading("İkinci katman: dalga boyu kanalı koruması (WLCP)")
-        olt = sbox("OLT CT", None, OLTC, 1.8, 0.75, 19).move_to([-5.3, 1.55, 0])
-        onu = onu_icon("ONU", ONUC, 1.5, 0.75, 19).move_to([5.4, 1.55, 0])
+        h = self.show_heading("İkinci katman: dalga boyu kanalı koruması")
+        olt = sbox("OLT CT", None, OLTC, 1.8, 0.75, 19).move_to([-5.3, 1.35, 0])
+        onu = onu_icon("ONU", ONUC, 1.5, 0.75, 19).move_to([5.4, 1.35, 0])
         fb = Line(olt.get_right(), onu.get_left(), color=FEED, stroke_width=3)
         msg = VGroup(RoundedRectangle(corner_radius=0.08, width=4.6, height=0.62, stroke_color=GOLD, stroke_width=2, fill_color=PANEL, fill_opacity=1),
                      T("Protection_Control (PLOAM) · koruma kanalı", 16, GOLD, BOLD))
         msg[1].move_to(msg[0])
         fit(msg[1], 4.4)
-        msg.move_to([-2.4, 2.1, 0])
+        msg.move_to([-2.4, 2.0, 0])
         xs = [-5.0, -1.7, 1.7, 5.0]
         o5 = sbox("O5", "Çalışma", STATE, 2.3, 0.9, 20, 15).move_to([xs[0], -0.35, 0])
         o6 = sbox("O6", "Aralıklı LODS", STATE, 2.3, 0.9, 20, 15).move_to([xs[1], -0.35, 0])
@@ -891,8 +889,9 @@ class E10P2C(Act10):
         self.play(FadeIn(olt), FadeIn(onu), Create(fb), self.set_src("G.989.3 §11.3.3.15 · Tablo 12-1 (O6, O8)"), run_time=0.6)
         self.at(self.cue("bir PLOAM mesajıyla", 6.2))
         self.play(FadeIn(msg, shift=RIGHT * 0.2), run_time=0.4)
-        self.play(msg.animate.move_to([2.4, 2.1, 0]), run_time=1.2)
-        self.play(FadeIn(combs), FadeIn(mk), Indicate(combs[2], color=GOLD), run_time=0.7)
+        self.play(msg.animate.move_to([2.4, 2.0, 0]), run_time=1.2)
+        self.play(FadeIn(combs), FadeIn(mk), run_time=0.5)
+        self.play(Indicate(combs[2], color=GOLD), run_time=0.6)
         self.at(self.cue("senkronunu kaybedip", 11.4))
         self.play(FadeIn(o5), GrowArrow(a1[0]), FadeIn(a1[1]), run_time=0.6)
         self.at(self.cue("O6'ya girdiğinde", 16.9))

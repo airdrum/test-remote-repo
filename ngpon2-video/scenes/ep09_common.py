@@ -30,6 +30,18 @@ def sgn(v, d=None):
     return ("+" + s) if v > 0 else s
 
 
+PTPU = "#F9A8D4"   # PtP upstream (lighter pink)
+
+
+def card_lines(title, lines, color, w, h, tsize=22, bsize=19):
+    """Card with individually coloured body lines: lines = [(text, colour)]."""
+    r = RoundedRectangle(corner_radius=0.16, width=w, height=h, stroke_color=color, stroke_width=2.5, fill_color=PANEL, fill_opacity=1)
+    parts = VGroup(T(title, tsize, color, BOLD), *[T(s, bsize, c, BOLD if c != TXT else NORMAL) for s, c in lines]).arrange(DOWN, aligned_edge=LEFT, buff=0.12)
+    fit(parts, w - 0.6)
+    parts.move_to(r).align_to(r, LEFT).shift(RIGHT * 0.3)
+    return VGroup(r, parts)
+
+
 # ---------- icons -------------------------------------------------------------
 def awg_icon(w=1.2, h=1.5, color=PTP, label="AWG", n=4):
     r = RoundedRectangle(corner_radius=0.1, width=w, height=h, stroke_color=color, stroke_width=2.5, fill_color=PANEL, fill_opacity=1)
@@ -151,3 +163,25 @@ def ber_curve(X, Y, ps, qs, slope, p_lo, p_hi, color, npts=5, seed=1, r=0.06):
     pts = np.linspace(p_lo + 0.3, p_hi - 0.3, npts)
     dots = VGroup(*[Dot([X(p), Y(q(p) + 0.05 * rng.standard_normal()), 0], radius=r, color=color) for p in pts])
     return line, dots
+
+
+def chain(labels, y, x0, x1, color=MUTED, h=0.7, size=16, ssize=13):
+    """Horizontal block chain from x0 to x1: labels = [(title, sub|None, colour)]. Returns (boxes, arrows)."""
+    n = len(labels)
+    gap = 0.45
+    w = (x1 - x0 - gap * (n - 1)) / n
+    boxes = VGroup(*[sbox(t, s, c, w, h, size, ssize).move_to([x0 + w / 2 + k * (w + gap), y, 0]) for k, (t, s, c) in enumerate(labels)])
+    arrs = VGroup(*[arrow(boxes[k].get_right(), boxes[k + 1].get_left(), MUTED, 2.5, 0.13) for k in range(n - 1)])
+    return boxes, arrs
+
+
+def mean_env(x0, x1, ybase, h, bits, depth, er):
+    """Low-pass (average-power) envelope of the over-modulated signal."""
+    na = len(bits)
+    pts = []
+    for k, b in enumerate(bits):
+        xa, xb = x0 + k * (x1 - x0) / na, x0 + (k + 1) * (x1 - x0) / na
+        e = 1 + depth / 2 * (1 if b else -1)
+        yy = ybase + h * (1 + er) / 2 * e
+        pts += [[xa, yy, 0], [xb, yy, 0]]
+    return VMobject(stroke_color=AMC, stroke_width=4).set_points_as_corners(pts)

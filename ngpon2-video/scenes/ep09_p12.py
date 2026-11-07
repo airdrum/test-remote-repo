@@ -1,18 +1,6 @@
 """B09 · Perde 1 (mimari ve spektrum) and Perde 2 (A ekinin tabloları)."""
 from ep09_common import *
 
-PTPU = "#F9A8D4"   # PtP upstream (lighter pink)
-
-
-def card_lines(title, lines, color, w, h, tsize=22, bsize=19):
-    """Card with individually coloured body lines: lines = [(text, colour)]."""
-    r = RoundedRectangle(corner_radius=0.16, width=w, height=h, stroke_color=color, stroke_width=2.5, fill_color=PANEL, fill_opacity=1)
-    parts = VGroup(T(title, tsize, color, BOLD), *[T(s, bsize, c, BOLD if c != TXT else NORMAL) for s, c in lines]).arrange(DOWN, aligned_edge=LEFT, buff=0.12)
-    fit(parts, w - 0.6)
-    parts.move_to(r).align_to(r, LEFT).shift(RIGHT * 0.3)
-    return VGroup(r, parts)
-
-
 def onu_sel(w=2.1, h=0.75, dot=None):
     r = RoundedRectangle(corner_radius=0.12, width=w, height=h, stroke_color=PTP, stroke_width=2.5, fill_color=PANEL, fill_opacity=1)
     t = T("ONU", 17, TXT, BOLD).move_to(r).align_to(r, LEFT).shift(RIGHT * 0.15)
