@@ -1,0 +1,21 @@
+[
+ ["Ep20Open", "ep20_open", "ep20_open", "open"],
+ ["Intro", null, null, null],
+ ["Ep20Recap", "ep20_open", "ep20_recap", "recap"],
+ ["E20P1A", "ep20_p12", "ep20_p1A", "p1"],
+ ["E20P1B", "ep20_p12", "ep20_p1B", "p1"],
+ ["E20P1C", "ep20_p12", "ep20_p1C", "p1"],
+ ["E20P2A", "ep20_p12", "ep20_p2A", "p2"],
+ ["E20P2B", "ep20_p12", "ep20_p2B", "p2"],
+ ["E20P2C", "ep20_p12", "ep20_p2C", "p2"],
+ ["E20P3A", "ep20_p34", "ep20_p3A", "p3"],
+ ["E20P3B", "ep20_p34", "ep20_p3B", "p3"],
+ ["E20P3C", "ep20_p34", "ep20_p3C", "p3"],
+ ["E20P4A", "ep20_p34", "ep20_p4A", "p4"],
+ ["E20P4B", "ep20_p34", "ep20_p4B", "p4"],
+ ["E20P4C", "ep20_p34", "ep20_p4C", "p4"],
+ ["E20LabA", "ep20_le", "ep20_labA", "lab"],
+ ["E20LabB", "ep20_le", "ep20_labB", "lab"],
+ ["E20LabC", "ep20_le", "ep20_labC", "lab"],
+ ["E20End", "ep20_le", "ep20_end", "end"]
+]
