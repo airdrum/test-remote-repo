@@ -1,0 +1,981 @@
+"""S2·B1 · Perde 1 (katmanlar — G.989.3 §1, §6.1.1–§6.1.3, sürümler) and Perde 2 (yönetim kanalları — §6.1.4)."""
+from ep11_common import *
+
+
+def seg(x0, w, y, color, label=None, h=0.5, op=0.22, size=15, lcolor=TXT, dashed=False):
+    """Left-anchored labelled segment (pipeline rows)."""
+    r = Rectangle(width=w, height=h, stroke_color=color, stroke_width=2, fill_color=color, fill_opacity=op).move_to([x0 + w / 2, y, 0])
+    if dashed:
+        r = VGroup(DashedVMobject(Rectangle(width=w, height=h, stroke_color=color, stroke_width=2), num_dashes=int(6 + 6 * w)).move_to(r))
+    g = VGroup(r)
+    if label:
+        g.add(tf(label, size, lcolor, BOLD, w=w - 0.08).move_to([x0 + w / 2, y, 0]))
+    return g
+
+
+def row_label(s, y, color=MUTED, size=17):
+    return T(s, size, color, BOLD).move_to([-6.45, y, 0], aligned_edge=LEFT)
+
+
+def xgem_run(x0, y, pays, h=0.5, hw=0.32, size=14):
+    """[H|payload] … starting at x0; pays = [(w, label)]. Returns VGroup of VGroup(H, P)."""
+    g = VGroup()
+    x = x0
+    for w, lab in pays:
+        hh = seg(x, hw, y, SAC, "H", h, 0.55, size)
+        pp = seg(x + hw, w, y, SAC, lab, h, 0.14, size)
+        g.add(VGroup(hh, pp))
+        x += hw + w
+    return g
+
+
+def scramble(rect, n=46, seed=7, color=PHC):
+    rng = np.random.default_rng(seed)
+    x0, x1 = rect.get_left()[0] + 0.05, rect.get_right()[0] - 0.05
+    y0, y1 = rect.get_bottom()[1] + 0.08, rect.get_top()[1] - 0.08
+    return VGroup(*[Line([x, y0, 0], [x, y1, 0], color=color, stroke_width=1.5, stroke_opacity=0.55)
+                    for x in np.sort(rng.uniform(x0, x1, n))])
+
+
+# ================================ PERDE 1 ======================================
+class E11P1A(Act11):
+    HDR, MANIFEST, FIRST = H11[1], M11("p1"), True
+
+    def construct(self):
+        # b1 — scope sentence, layer position, builds on G.987.3
+        self.beat("b1")
+        tc = self.title_card("PERDE 1", "Katmanlar")
+        self.at(self.cue("G.989.3'ün kapsam cümlesi", 1.7))
+        self.to_header(tc)
+        self.set_badge("std")
+        h = self.show_heading("G.989.3 — kapsam")
+        qt = self.quote("G.989.3 §1 · Kapsam",
+                        "“This Recommendation specifies the transmission convergence layer of\n40 Gigabit-capable passive optical network (NG-PON2) systems …”",
+                        "40 Gbit/s kapasiteli PON (NG-PON2) için iletim yakınsama (TC) katmanı", width=12.4)
+        qt.to_edge(LEFT, buff=0.75).set_y(1.65)
+        lx = -2.55
+        cl = tile("Servis istemcileri", MUTED, 5.0, 0.62, 19, 0.12).move_to([lx, -0.05, 0])
+        tcb = tile("TC katmanı · G.989.3", ACC, 5.0, 0.72, 21, 0.25).move_to([lx, -0.95, 0])
+        pm = tile("PMD katmanı · G.989.2", PMDC, 5.0, 0.62, 19, 0.15).move_to([lx, -1.85, 0])
+        a1 = Arrow(cl.get_bottom(), tcb.get_top(), buff=0.03, color=MUTED, stroke_width=2.5, tip_length=0.12)
+        a2 = Arrow(tcb.get_bottom(), pm.get_top(), buff=0.03, color=MUTED, stroke_width=2.5, tip_length=0.12)
+        side = T("arasında", 17, ACC, BOLD).next_to(tcb, LEFT, buff=0.2)
+        rx = 3.5
+        sl = T("Özet:", 18, GOLD, BOLD).move_to([rx - 2.2, -0.05, 0], aligned_edge=LEFT)
+        b89 = tile("G.989.3 · NG-PON2 TC", ACC, 4.4, 0.62, 19, 0.25).move_to([rx, -0.7, 0])
+        b87 = tile("G.987.3 · XG-PON TC", MUTED, 4.4, 0.62, 19, 0.15).move_to([rx, -1.4, 0])
+        mod = T("+ NG-PON2'ye özgü değişiklikler", 17, ACC, BOLD).next_to(b87, DOWN, buff=0.15)
+        sq = fit(T("“It builds on Recommendation ITU-T G.987.3,\nwith modifications for NG-PON2 specific features.”", 16, MUTED, slant=ITALIC), 6.0)
+        sq.move_to([rx, -2.55, 0])
+        self.play(FadeIn(qt[0], shift=RIGHT * 0.15), self.set_src("G.989.3 (2021)/Amd.2 (2025) §1 · Özet"), run_time=0.5)
+        self.at(self.cue("kırk gigabit kapasiteli", 5.3))
+        self.play(FadeIn(qt[1]), run_time=0.6)
+        self.at(self.cue("iletim yakınsama katmanını", 9.8))
+        self.play(FadeIn(qt[2], shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("TC katmanı", 14.3))
+        self.play(FadeIn(tcb, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("fiziksel ortama bağlı katman", 15.2))
+        self.play(FadeIn(pm, shift=UP * 0.1), GrowArrow(a2), run_time=0.5)
+        self.at(self.cue("servis istemcileri arasında", 17.5))
+        self.play(FadeIn(cl, shift=DOWN * 0.1), GrowArrow(a1), FadeIn(side), run_time=0.5)
+        self.at(self.cue("Özetteki bir cümle", 20.8))
+        self.play(FadeIn(sl), FadeIn(sq), run_time=0.5)
+        self.at(self.cue("XG-PON'un TC katmanı", 24.2))
+        self.play(FadeIn(b87, shift=UP * 0.15), run_time=0.4)
+        self.play(FadeIn(b89, shift=DOWN * 0.15), FadeIn(mod), run_time=0.5)
+        self.end(pad=0.05)
+
+        # b1a — 26 scope bullets, 15 TWDM / 11 PtP WDM + AMCC
+        self.beat("b1a")
+        self.clear(h)
+        h = self.show_heading("Kapsam: 26 madde", h)
+        sqs = VGroup(*[Square(0.36, stroke_color=ACC if i < 15 else PTPC, stroke_width=2, fill_color=ACC if i < 15 else PTPC, fill_opacity=0.3) for i in range(26)])
+        sqs.arrange(RIGHT, buff=0.09).move_to([0, 1.85, 0])
+        bA = brace_lbl(sqs[:15], "15 · TWDM", ACC, DOWN, 17)
+        bB = brace_lbl(sqs[15:], "11 · PtP WDM + AMCC TC", PTPC, DOWN, 17)
+        topics = ["servis uyarlama", "çerçeveleme", "fiziksel uyarlama", "PLOAM", "aktivasyon", "zamanlama",
+                  "başarım izleme", "güvenlik", "güç yönetimi", "kanal yönetimi", "koruma", "başıboş ONU"]
+        tl = VGroup(*[tile(s, ACC, 1.95, 0.5, 16, 0.15) for s in topics]).arrange_in_grid(rows=2, cols=6, buff=(0.12, 0.14)).move_to([0, 0.1, 0])
+        eps = VGroup()
+        for e in SERIES["season2"]["episodes"]:
+            r = RoundedRectangle(corner_radius=0.1, width=2.35, height=0.62, stroke_color=LINE if e["n"] > 1 else ACC, stroke_width=2, fill_color=PANEL, fill_opacity=1)
+            g = VGroup(T(f"S2·B{e['n']}", 14, ACC, BOLD), tf(e["title"], 16, TXT, BOLD, w=2.15)).arrange(DOWN, buff=0.03).move_to(r)
+            eps.add(VGroup(r, g))
+        eps.arrange_in_grid(rows=2, cols=5, buff=(0.15, 0.14)).move_to([0, -1.95, 0])
+        self.play(LaggedStart(*[FadeIn(s, scale=0.6) for s in sqs], lag_ratio=0.03), self.set_src("G.989.3 §1 · kapsam listesi (26 madde)"), run_time=1.0)
+        self.at(self.cue("on beşi TWDM", 2.8))
+        self.play(FadeIn(bA), Indicate(sqs[:15], color=ACC, scale_factor=1.05), run_time=0.6)
+        self.at(self.cue("on biri noktadan noktaya", 4.0))
+        self.play(FadeIn(bB), Indicate(sqs[15:], color=PTPC, scale_factor=1.05), run_time=0.6)
+        keys = ["servis uyarlaması", "çerçeveleme", "fiziksel uyarlama", "PLOAM", "aktivasyon", "zamanlama",
+                "başarım izleme", "güvenlik", "güç yönetimi", "kanal yönetimi", "koruma", "başıboş ONU"]
+        dft = [7.8, 10.4, 11.4, 12.9, 13.5, 14.4, 15.3, 16.6, 17.3, 18.4, 19.7, 20.5]
+        for k, (key, d) in enumerate(zip(keys, dft)):
+            self.at(self.cue(key, d))
+            self.play(FadeIn(tl[k], shift=UP * 0.08), run_time=0.3)
+        self.at(self.cue("on bölümü", 22.6))
+        self.play(LaggedStart(*[FadeIn(e, shift=UP * 0.1) for e in eps], lag_ratio=0.08), run_time=1.0)
+        self.end(pad=0.05)
+
+        # b2 — edition history
+        self.beat("b2")
+        self.clear(h)
+        h = self.show_heading("G.989.3 sürüm geçmişi", h)
+        yA = 0.95
+        X = lambda yr: -6.0 + (yr - 2015) * 12.0 / 11.0
+        axl = Line([X(2014.8), yA, 0], [X(2026), yA, 0], color=MUTED, stroke_width=2.5)
+        yt = VGroup(*[VGroup(Line([X(y), yA - 0.07, 0], [X(y), yA + 0.07, 0], color=MUTED, stroke_width=1.5),
+                             T(str(y), 14, MUTED).next_to([X(y), yA, 0], DOWN, buff=0.12)) for y in range(2015, 2026, 2)])
+        nodes = [("Ed. 1.0", "2015-10", 2015.8, MUTED, True), ("Amd.1", "2016-11", 2016.87, MUTED, False),
+                 ("Amd.2", "2018-11", 2018.9, MUTED, False), ("Amd.3", "2020-03", 2020.2, MUTED, False),
+                 ("Ed. 2.0", "2021-05", 2021.4, ACC, True), ("Amd.1", "2023-06", 2023.45, GOLD, False), ("Amd.2", "2025-05", 2025.37, GOLD, False)]
+        nd = VGroup()
+        for name, date, yr, c, big in nodes:
+            d = Dot([X(yr), yA, 0], radius=0.13 if big else 0.09, color=c)
+            lb = VGroup(T(name, 17, c, BOLD), T(date, 14, c)).arrange(DOWN, buff=0.04).next_to(d, UP, buff=0.18)
+            nd.add(VGroup(d, lb))
+        br = BraceBetweenPoints([X(2015.8), yA - 0.42, 0], [X(2020.2), yA - 0.42, 0], DOWN, color=MUTED)
+        brt = T("ilk baskı + 3 değişiklik", 16, MUTED, BOLD).next_to(br, DOWN, buff=0.06)
+
+        def ccard(title, lines, color, x):
+            r = RoundedRectangle(corner_radius=0.14, width=6.0, height=1.95, stroke_color=color, stroke_width=2.5, fill_color=PANEL, fill_opacity=1).move_to([x, -1.95, 0])
+            t = T(title, 20, color, BOLD).move_to(r.get_corner(UL) + [0.25, -0.32, 0], aligned_edge=LEFT)
+            ls = VGroup(*[fit(T("• " + s, 17, TXT), 5.6) for s in lines]).arrange(DOWN, aligned_edge=LEFT, buff=0.1).next_to(t, DOWN, buff=0.15, aligned_edge=LEFT)
+            return VGroup(r, t), ls
+        c1, l1 = ccard("2023 · Amd.1 (Ed. 2.1)", ["yeni Ek XI: acil durdurma (O7) durumu", "Deactivate_ONU-ID: neden kodu", "TO6 zamanlayıcı tutarsızlığı düzeltildi"], GOLD, -3.15)
+        c2, l2 = ccard("2025 · Amd.2 (Ed. 2.2)", ["PON tavsiyeleri arası TC tutarlılık güncellemeleri", "rutin bakım düzeltmeleri"], GOLD, 3.15)
+        def elbow(p0, p1, ym):
+            return VMobject(stroke_color=GOLD, stroke_width=1.8).set_points_as_corners([p0, [p0[0], ym, 0], [p1[0], ym, 0], p1])
+        k1 = elbow(nd[5][0].get_bottom(), c1[0].get_top(), -0.62)
+        k2 = elbow(nd[6][0].get_bottom(), c2[0].get_top(), -0.8)
+        self.play(Create(axl), FadeIn(yt), self.set_src("G.989.3 Amd.2 (2025) · tarihçe tablosu · Amd.1 / Amd.2 özetleri"), run_time=0.7)
+        self.at(self.cue("İlk baskı iki bin on beşte", 3.0))
+        self.play(FadeIn(nd[0], scale=0.8), run_time=0.5)
+        self.at(self.cue("üç değişiklik", 5.8))
+        self.play(LaggedStart(*[FadeIn(nd[i], scale=0.8) for i in (1, 2, 3)], lag_ratio=0.3), FadeIn(br), FadeIn(brt), run_time=1.0)
+        self.at(self.cue("İkinci baskı", 8.2))
+        self.play(FadeIn(nd[4], scale=0.8), run_time=0.5)
+        self.at(self.cue("İki bin yirmi üçteki", 12.5))
+        self.play(FadeIn(nd[5], scale=0.8), Create(k1), FadeIn(c1), run_time=0.6)
+        for k, (key, d) in enumerate((("acil durdurma durumunu", 15.9), ("neden kodu", 21.0), ("zamanlayıcı düzeltmesi", 23.5))):
+            self.at(self.cue(key, d))
+            self.play(FadeIn(l1[k], shift=RIGHT * 0.1), run_time=0.4)
+        self.at(self.cue("İki bin yirmi beşteki", 26.2))
+        self.play(FadeIn(nd[6], scale=0.8), Create(k2), FadeIn(c2), run_time=0.6)
+        self.at(self.cue("tutarlılık güncellemeleri", 30.5))
+        self.play(FadeIn(l2[0], shift=RIGHT * 0.1), run_time=0.4)
+        self.at(self.cue("bakım düzeltmeleri", 33.0))
+        self.play(FadeIn(l2[1], shift=RIGHT * 0.1), run_time=0.4)
+        self.end(pad=0.05)
+
+        # b2a — this season uses Amd.2; §6 unchanged since 2021, only five figure numbers
+        self.beat("b2a")
+        h2 = self.heading("Bu sezonun metni: 2025 sürümü (Amd.2)")
+        ring = Circle(radius=0.19, color=ACC, stroke_width=4).move_to(nd[6][0])
+        self.play(FadeTransform(h, h2), FadeOut(c1), FadeOut(l1), FadeOut(c2), FadeOut(l2), FadeOut(k1), FadeOut(k2), FadeOut(br), FadeOut(brt), run_time=0.6)
+        h = h2
+        self.at(self.cue("iki bin yirmi beş sürümünü", 2.1))
+        self.play(Create(ring), nd[6][1].animate.set_color(ACC), nd[6][0].animate.set_color(ACC), run_time=0.6)
+        mk = VGroup(T("işaret:", 17, MUTED, BOLD), tag("Amd.1 · 2023", GOLD, 16), tag("Amd.2 · 2025", GOLD, 16)).arrange(RIGHT, buff=0.2).move_to([0, -0.1, 0])
+        tb = table(["Madde", "2021 → Amd.1", "Amd.1 → Amd.2"], [["§6 (6.1.1 – 6.1.6, 6.2)", "değişiklik yok", "metin aynı · şekil numaraları"]], [3.6, 2.8, 4.2], size=19, hsize=16, row_h=0.55)
+        tb.move_to([0, -1.15, 0])
+        tb[1][2].set_color(GOOD)
+        tb[1][3].set_color(GOOD)
+        rn = VGroup(*[tag(f"{a} → {b}", GOLD, 16) for a, b in (("6-6bis", "6-7"), ("6-7", "6-8"), ("6-8", "6-9"), ("6-9", "6-10"), ("6-10", "6-11"))]).arrange(RIGHT, buff=0.18)
+        rnl = T("Şekil", 16, MUTED, BOLD)
+        rr = VGroup(rnl, rn).arrange(RIGHT, buff=0.25).move_to([0, -2.35, 0])
+        self.at(self.cue("değişen her maddeyi", 5.5))
+        self.play(FadeIn(mk, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("altıncı madde", 10.6))
+        self.play(FadeIn(tb[0]), FadeIn(tb[1][0]), FadeIn(tb[1][1]), run_time=0.5)
+        self.at(self.cue("hiç değişmedi", 15.0))
+        self.play(FadeIn(tb[1][2:], shift=UP * 0.05), run_time=0.5)
+        self.at(self.cue("beş şeklin numarası", 17.3))
+        self.play(FadeIn(rnl), LaggedStart(*[FadeIn(t, shift=UP * 0.1) for t in rn], lag_ratio=0.15), run_time=0.9)
+        self.end(pad=0.1)
+        self.clear()
+        self.save_timeline("ep11_p1A")
+
+
+T61 = [["1", "2,48832", "2,48832"], ["2", "9,95328", "2,48832"], ["3", "9,95328", "9,95328"], ["4", "9,95328", "9,95328 ve 2,48832"]]
+
+
+def rate_table(rows, headers, widths, size=20, hsize=16, row_h=0.55):
+    tb = table(headers, rows, widths, size=size, hsize=hsize, row_h=row_h)
+    for r in range(1, len(rows) + 1):
+        for c in range(1, len(headers)):
+            cell = tb[r][1 + c]
+            s = rows[r - 1][c]
+            if s.startswith("2,48832"):
+                cell.set_color(R25)
+            elif s.startswith("9,95328"):
+                cell.set_color(R10)
+    return tb
+
+
+class E11P1B(Act11):
+    HDR, MANIFEST, PREV_BADGE = H11[1], M11("p1"), "std"
+
+    def construct(self):
+        # b3 — Table 6-1
+        self.beat("b3")
+        h = self.show_heading("Tablo 6-1 — OLT CT hız kombinasyonları")
+        tb = rate_table(T61, ["#", "Aşağı (Gbit/s)", "Yukarı (Gbit/s)"], [0.7, 2.5, 3.6])
+        tb.move_to([-3.1, 0.95, 0])
+        hl = SurroundingRectangle(tb[4], color=GOLD, buff=0.04, stroke_width=3)
+        dual = tag("çift hızlı", GOLD, 17).next_to(tb[4], RIGHT, buff=0.2)
+        crd = card("4. kombinasyon", "çift hızlı OLT CT +\nçift hızlı ↑ dalga boyu kanalı", None, GOLD, w=5.2, h=1.5, tsize=22, bsize=18).move_to([3.75, 1.25, 0])
+        fx0, fx1, fy = -5.6, 5.6, -1.75
+        fr = Rectangle(width=fx1 - fx0, height=0.7, stroke_color=MUTED, stroke_width=2).move_to([0, fy, 0])
+        bs = [(0.3, 2.4, R10, "ONU A · 10G"), (2.95, 1.9, R25, "ONU B · 2,5G"), (5.1, 2.6, R10, "ONU C · 10G"), (8.0, 2.0, R25, "ONU D · 2,5G")]
+        bur = VGroup(*[VGroup(Rectangle(width=w, height=0.7, stroke_width=0, fill_color=c, fill_opacity=0.5).move_to([fx0 + a + w / 2, fy, 0]),
+                              tf(lab, 15, TXT, BOLD, w=w - 0.1).move_to([fx0 + a + w / 2, fy, 0])) for a, w, c, lab in bs])
+        frl = T("tek ↑ dalga boyu kanalı · tek fiziksel çerçeve (125 µs)", 17, MUTED, BOLD).next_to(fr, UP, buff=0.12)
+        q = fit(T("“… capable of accommodating ONUs of the second and third line rate combinations … within the same PHY frame.”", 15, MUTED, slant=ITALIC), 12.0)
+        q.next_to(fr, DOWN, buff=0.25)
+        self.play(FadeIn(tb[0]), self.set_src("G.989.3 §6.1.1 · Tablo 6-1"), run_time=0.5)
+        for k, (key, d) in enumerate((("aşağı ve yukarı yönde iki buçuk", 6.0), ("aşağıda on", 9.4), ("iki yönde de on", 11.9), ("dördüncüsü", 13.2))):
+            self.at(self.cue(key, d))
+            self.play(FadeIn(tb[k + 1], shift=UP * 0.08), run_time=0.45)
+        self.at(self.cue("hem on hem iki buçuk", 16.0))
+        self.play(Indicate(tb[4][3], color=GOLD, scale_factor=1.08), run_time=0.7)
+        self.at(self.cue("çift hızlı bir yukarı yön kanalıdır", 20.3))
+        self.play(Create(hl), FadeIn(dual, shift=LEFT * 0.1), FadeIn(crd, shift=LEFT * 0.15), run_time=0.7)
+        self.at(self.cue("aynı fiziksel çerçeve", 23.6))
+        self.play(Create(fr), FadeIn(frl), LaggedStart(*[FadeIn(b, shift=UP * 0.1) for b in bur], lag_ratio=0.2), run_time=1.0)
+        self.play(FadeIn(q), run_time=0.4)
+        self.end(pad=0.05)
+
+        # b3a — Table 6-2 (ONU) and rate-change constraints
+        self.beat("b3a")
+        h2 = self.heading("Tablo 6-2 — ONU: bir aktivasyon süresince")
+        self.play(FadeTransform(h, h2), FadeOut(crd), FadeOut(fr), FadeOut(frl), FadeOut(bur), FadeOut(q), FadeOut(dual), FadeOut(hl), run_time=0.5)
+        h = h2
+        t61 = rate_table(T61, ["#", "Aşağı (Gbit/s)", "Yukarı (Gbit/s)"], [0.6, 2.1, 3.1], size=17, hsize=15, row_h=0.45).move_to([-3.6, 0.85, 0])
+        self.play(ReplacementTransform(tb, t61), run_time=0.5)
+        tb = t61
+        cap1 = T("OLT CT (Tablo 6-1)", 16, MUTED, BOLD).next_to(t61, UP, buff=0.1)
+        t62 = rate_table(T61[:3], ["#", "Aşağı (Gbit/s)", "Yukarı (Gbit/s)"], [0.6, 2.0, 2.0], size=17, hsize=15, row_h=0.45)
+        t62.move_to([3.6, 1.08, 0])
+        cap2 = T("ONU (Tablo 6-2)", 16, MUTED, BOLD).next_to(t62, UP, buff=0.1)
+        ar = CurvedArrow(tb[4].get_right() + RIGHT * 0.1, t62[2].get_left() + LEFT * 0.08 + DOWN * 0.1, angle=0.5, color=GOLD, stroke_width=2.5, tip_length=0.14)
+        art = T("2. ve 3. ONU'lar aynı çerçevede", 15, GOLD, BOLD).next_to(t62, DOWN, buff=0.18)
+        cA = card("↓ hız değişimi", "yalnızca başka bir kanala\nayarlanarak", None, R10, w=5.9, h=1.35, tsize=21, bsize=18).move_to([-3.2, -1.45, 0])
+        cB = card("↑ hız değişimi", "kanal değiştirerek ya da tek bir\nçift hızlı kanalın içinde", None, R25, w=5.9, h=1.35, tsize=21, bsize=18).move_to([3.2, -1.45, 0])
+        ffs = tag("↑ hızın dinamik değişim mekanizması: çalışma konusu (FFS)", WARN, 17).move_to([0, -2.75, 0])
+        self.play(FadeIn(cap1), FadeIn(cap2), FadeIn(t62[0]), LaggedStart(*[FadeIn(r, shift=UP * 0.08) for r in t62[1:]], lag_ratio=0.2), self.set_src("G.989.3 §6.1.1 · Tablo 6-1 / 6-2"), run_time=1.0)
+        self.at(self.cue("ilk üç kombinasyondan", 3.0))
+        self.play(Create(ar), FadeIn(art), run_time=0.7)
+        self.at(self.cue("aşağı yön hızı", 9.6))
+        self.play(FadeIn(cA, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("yukarı yön hızı ise", 15.0))
+        self.play(FadeIn(cB, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("dinamik değişim mekanizması", 22.8))
+        self.play(FadeIn(ffs, shift=UP * 0.1), run_time=0.5)
+        self.end(pad=0.05)
+
+        # b4 — PMD bridge: G.989.2 Table 11-1 has no dual-rate row
+        self.beat("b4")
+        self.clear()
+        self.set_badge("pmd")
+        h = self.show_heading("PMD Köprüsü — G.989.2 Tablo 11-1")
+        ch = self.chip_at(s1chip(1), h)
+        rows = [["Temel seçenek", "9,95328", "2,48832"], ["Seçenek 1", "9,95328", "9,95328"], ["Seçenek 2", "2,48832", "2,48832"]]
+        tL = rate_table(rows, ["G.989.2", "↓ Gbit/s", "↑ Gbit/s"], [2.2, 1.75, 1.75], size=19)
+        tL.move_to([-3.35, 0.9, 0])
+        miss = DashedVMobject(Rectangle(width=5.7, height=0.55, stroke_color=WARN, stroke_width=2), num_dashes=40).next_to(tL, DOWN, buff=0.04)
+        mt = T("çift hızlı satır yok", 18, WARN, BOLD).move_to(miss)
+        tR = rate_table(T61, ["G.989.3", "↓ Gbit/s", "↑ Gbit/s"], [1.2, 1.75, 2.85], size=19)
+        tR.move_to([3.35, 0.62, 0])
+        hr = SurroundingRectangle(tR[4], color=GOLD, buff=0.03, stroke_width=3)
+        lk = DashedLine(tR[4].get_left() + LEFT * 0.08, miss.get_right() + RIGHT * 0.08, color=WARN, stroke_width=2)
+        tco = pill("çift hızlı ↑ kanal: yalnızca TC katmanında tanımlı", GOLD, 19).move_to([0, -1.35, 0])
+        cw = card("Kaynaklarda bulunmaz", "çift hızlı (10G + 2,5G) OLT burst alıcısının optik spesifikasyonu", None, WARN, w=11.0, h=1.15, tsize=21, bsize=18).move_to([0, -2.5, 0])
+        self.play(FadeIn(ch, shift=LEFT * 0.1), self.set_src("G.989.2 §11.1.1 · Tablo 11-1 ↔ G.989.3 Tablo 6-1"), run_time=0.5)
+        self.at(self.cue("hat hızı tablosunu", 1.0))
+        self.play(FadeIn(tL[0]), run_time=0.4)
+        for k, (key, d) in enumerate((("temel seçenek", 5.5), ("birinci seçenek", 8.1), ("ikinci seçenek", 10.2))):
+            self.at(self.cue(key, d))
+            self.play(FadeIn(tL[k + 1], shift=UP * 0.08), run_time=0.4)
+        self.at(self.cue("çift hızlı satır yoktur", 13.9))
+        self.play(FadeIn(tR), Create(miss), FadeIn(mt), run_time=0.7)
+        self.play(Create(hr), Create(lk), run_time=0.5)
+        self.at(self.cue("yalnızca TC katmanında", 16.9))
+        self.play(FadeIn(tco, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("optik spesifikasyonu", 22.1))
+        self.play(FadeIn(cw, shift=UP * 0.1), run_time=0.6)
+        self.end(pad=0.05)
+
+        # b5 — why these rates: 155.52 Mbit/s multiples, bits per 125 µs, the "40"
+        self.beat("b5")
+        self.clear()
+        self.set_badge("neden")
+        h = self.show_heading("Neden bu hızlar?")
+        u = 0.145
+        x0 = -4.15
+        r16 = VGroup(*[Rectangle(width=u, height=0.32, stroke_color=R25, stroke_width=1, fill_color=R25, fill_opacity=0.45) for _ in range(16)]).arrange(RIGHT, buff=0).move_to([x0, 1.8, 0], aligned_edge=LEFT)
+        r64 = VGroup(*[Rectangle(width=u, height=0.32, stroke_color=R10, stroke_width=1, fill_color=R10, fill_opacity=0.45) for _ in range(64)]).arrange(RIGHT, buff=0).move_to([x0, 1.15, 0], aligned_edge=LEFT)
+        l16 = T("2,48832 Gbit/s", 18, R25, BOLD).next_to(r16, LEFT, buff=0.2)
+        l64 = T("9,95328 Gbit/s", 18, R10, BOLD).next_to(r64, LEFT, buff=0.2)
+        e16 = T("= 16 × 155,52 Mbit/s", 18, R25, BOLD).next_to(r16, RIGHT, buff=0.25)
+        e64 = T("= 64 ×", 18, R10, BOLD).next_to(r64, RIGHT, buff=0.2)
+        unit = VGroup(Rectangle(width=u, height=0.32, stroke_color=MUTED, stroke_width=1, fill_color=MUTED, fill_opacity=0.45), T("= 155,52 Mbit/s", 15, MUTED)).arrange(RIGHT, buff=0.12)
+        unit.move_to([4.3, 1.8, 0])
+        khz = tag("ikisi de 8 kHz'in katı  ·  1 / 8 kHz = 125 µs", GOLD, 17).move_to([0, 0.45, 0])
+        bx0, bx1 = -4.15, 4.25
+        fb = []
+        for y, c, n in ((-0.4, R25, "311 040 bit"), (-1.05, R10, "1 244 160 bit")):
+            r = Rectangle(width=bx1 - bx0, height=0.48, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=0.15).move_to([(bx0 + bx1) / 2, y, 0])
+            fb.append(VGroup(r, T(n, 19, c, BOLD).move_to(r)))
+        fbl = VGroup(T("2,5G", 17, R25, BOLD).next_to(fb[0], LEFT, buff=0.2), T("10G", 17, R10, BOLD).next_to(fb[1], LEFT, buff=0.2))
+        fbr = brace_lbl(VGroup(fb[0], fb[1]), "125 µs", MUTED, RIGHT, 18)
+        chans = VGroup(*[Rectangle(width=1.6, height=0.42, stroke_color=CH[i], stroke_width=2, fill_color=CH[i], fill_opacity=0.35) for i in range(4)]).arrange(RIGHT, buff=0.06)
+        chans.move_to([-2.2, -2.2, 0])
+        cl = VGroup(*[T(f"λ{i + 1}", 15, TXT, BOLD).move_to(chans[i]) for i in range(4)])
+        csum = T("4 × 9,95328 = 39,81 Gbit/s ≈ 40 / yön", 19, TXT, BOLD).next_to(chans, RIGHT, buff=0.3)
+        nm = pill("“40-Gigabit-capable” — adındaki 40", ACC, 17).move_to([2.4, -2.95, 0])
+        self.play(self.set_src("G.989.3 Tablo 6-1 · G.989.2 §11.1.1 (8 kHz katı) · hesaplanan değerler"), run_time=0.3)
+        self.at(self.cue("İki virgül dört", 2.0))
+        self.play(FadeIn(l16), FadeIn(unit), run_time=0.5)
+        self.at(self.cue("on altı katı", 5.6))
+        self.play(LaggedStart(*[FadeIn(r) for r in r16], lag_ratio=0.05), FadeIn(e16), run_time=0.9)
+        self.at(self.cue("dokuz virgül dokuz", 10.0))
+        self.play(FadeIn(l64), run_time=0.4)
+        self.at(self.cue("altmış dört katıdır", 13.0))
+        self.play(LaggedStart(*[FadeIn(r) for r in r64], lag_ratio=0.012), FadeIn(e64), run_time=0.9)
+        self.at(self.cue("sekiz kilohertzin katıdır", 14.7))
+        self.play(FadeIn(khz, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("tam sayıda bit sığar", 20.5))
+        self.play(FadeIn(fb[0][0]), FadeIn(fb[1][0]), FadeIn(fbl), FadeIn(fbr), run_time=0.6)
+        self.at(self.cue("üç yüz on bir bin", 23.4))
+        self.play(FadeIn(fb[0][1], scale=0.9), run_time=0.4)
+        self.at(self.cue("bir milyon iki yüz", 27.0))
+        self.play(FadeIn(fb[1][1], scale=0.9), run_time=0.4)
+        self.at(self.cue("Dört on gigabitlik", 32.1))
+        self.play(LaggedStart(*[FadeIn(VGroup(c, t), shift=UP * 0.1) for c, t in zip(chans, cl)], lag_ratio=0.15), run_time=0.8)
+        self.at(self.cue("yaklaşık kırk gigabit", 34.2))
+        self.play(FadeIn(csum, shift=LEFT * 0.1), run_time=0.5)
+        self.at(self.cue("adındaki kırk", 37.3))
+        self.play(FadeIn(nm, shift=UP * 0.1), run_time=0.5)
+        self.end(pad=0.1)
+        self.clear()
+        self.save_timeline("ep11_p1B")
+
+
+class E11P1C(Act11):
+    HDR, MANIFEST, PREV_BADGE = H11[1], M11("p1"), "neden"
+
+    def construct(self):
+        # b6 — three sublayers; PMD interface DS vs US
+        self.beat("b6")
+        self.set_badge("std")
+        h = self.show_heading("TWDM TC katmanı: üç alt katman")
+        lx = -3.4
+        subs = VGroup(*[tile(n, c, 4.6, 0.7, 20, 0.2) for n, c in (("Servis uyarlama", SAC), ("Çerçeveleme", FSC), ("Fiziksel uyarlama", PHC))]).arrange(DOWN, buff=0.1).move_to([lx, 0.95, 0])
+        brk = brace_lbl(subs, "TC", ACC, LEFT, 20)
+        pmd = tile("PMD (G.989.2)", PMDC, 4.6, 0.6, 18, 0.12, MUTED).move_to([lx, -0.75, 0])
+        ln = Line(subs.get_bottom(), pmd.get_top(), color=MUTED, stroke_width=2.5)
+        x0, x1, yd, yu = 0.3, 6.4, 1.05, -1.0
+        dcells = VGroup(*[Rectangle(width=(x1 - x0) / 4, height=0.55, stroke_color=TW_DS, stroke_width=2, fill_color=TW_DS, fill_opacity=0.18) for _ in range(4)]).arrange(RIGHT, buff=0).move_to([(x0 + x1) / 2, yd, 0])
+        dlab = VGroup(*[T("125 µs", 15, TW_DS, BOLD).move_to(c) for c in dcells])
+        dtt = T("↓ sürekli bit akışı · nominal hız", 18, TW_DS, BOLD).next_to(dcells, UP, buff=0.15)
+        uax = Line([x0, yu - 0.3, 0], [x1, yu - 0.3, 0], color=MUTED, stroke_width=2)
+        ub = VGroup(*[Rectangle(width=w, height=0.55, stroke_color=TW_US, stroke_width=2, fill_color=TW_US, fill_opacity=0.3).move_to([x0 + a + w / 2, yu, 0])
+                      for a, w in ((0.3, 1.1), (1.75, 0.7), (2.75, 1.4), (4.55, 0.9))])
+        utt = T("↑ hassas zamanlanmış burst dizisi", 18, TW_US, BOLD).next_to(ub, UP, buff=0.15).set_x((x0 + x1) / 2)
+        cn1 = DashedLine(pmd.get_right(), dcells.get_left() + DOWN * 0.1, color=MUTED, stroke_width=1.5)
+        cn2 = DashedLine(pmd.get_right(), ub[0].get_left(), color=MUTED, stroke_width=1.5)
+        self.play(self.set_src("G.989.3 §6.1.2"), run_time=0.3)
+        self.at(self.cue("üç alt katmandan", 0.9))
+        self.play(FadeIn(brk), run_time=0.4)
+        for k, (key, d) in enumerate((("servis uyarlama", 4.3), ("çerçeveleme ve", 5.6), ("fiziksel uyarlama", 6.8))):
+            self.at(self.cue(key, d))
+            self.play(FadeIn(subs[k], shift=DOWN * 0.1), run_time=0.4)
+        self.at(self.cue("PMD ile arayüzü", 8.4))
+        self.play(FadeIn(pmd, shift=UP * 0.1), Create(ln), run_time=0.5)
+        self.at(self.cue("nominal hızda", 10.8))
+        self.play(Create(cn1), FadeIn(dcells), FadeIn(dtt), run_time=0.6)
+        self.at(self.cue("yüz yirmi beş mikrosaniyelik", 11.9))
+        self.play(LaggedStart(*[FadeIn(t) for t in dlab], lag_ratio=0.2), run_time=0.8)
+        self.at(self.cue("Yukarı yönde ise", 18.2))
+        self.play(Create(cn2), Create(uax), LaggedStart(*[GrowFromEdge(b, LEFT) for b in ub], lag_ratio=0.2), FadeIn(utt), run_time=1.0)
+        self.end(pad=0.05)
+
+        # b7 — downstream mapping (Figure 6-1)
+        self.beat("b7")
+        self.clear(h)
+        h = self.show_heading("↓ SDU'dan fiziksel çerçeveye (Şekil 6-1)", h)
+        Y = [1.85, 1.0, 0.15, -0.7, -1.55]
+        labs = VGroup(*[row_label(s, y, c) for s, y, c in zip(("SDU'lar", "XGEM çerçeveleri", "FS çerçevesi", "FEC kod sözcükleri", "PHY çerçevesi"), Y, (MUTED, SAC, FSC, PHC, PHC))])
+        sdu1 = seg(-3.4, 2.4, Y[0], MUTED, "SDU")
+        sdu2 = VGroup(seg(-0.7, 1.7, Y[0], MUTED, ""), seg(1.0, 1.5, Y[0], MUTED, ""))
+        s2l = T("SDU", 15, TXT, BOLD).move_to([0.55, Y[0], 0])
+        sdu3 = seg(2.8, 1.8, Y[0], MUTED, "SDU")
+        cut = DashedLine([1.0, Y[0] - 0.38, 0], [1.0, Y[0] + 0.38, 0], color=GOLD, stroke_width=3)
+        fl = VGroup(T("parça", 15, GOLD, BOLD).move_to([0.15, Y[0], 0]), T("parça", 15, GOLD, BOLD).move_to([1.75, Y[0], 0]))
+        xg = xgem_run(-3.4, Y[1], [(2.4, "yük"), (1.7, "yük"), (1.5, "yük"), (1.8, "yük")])
+        xgb = SurroundingRectangle(xg, color=SAC, buff=0.06, stroke_width=2)
+        fsh = seg(-4.2, 0.8, Y[2], FSC, "başlık", op=0.5, size=14)
+        fsp = seg(-3.4, 8.68, Y[2], FSC, "FS yükü = XGEM çerçeveleri dizisi", op=0.14, size=15)
+        fst = seg(5.28, 0.8, Y[2], FSC, "kuyruk", op=0.5, size=14)
+        fec = VGroup()
+        x = -4.2
+        for i in range(4):
+            fec.add(VGroup(seg(x, 2.0, Y[3], PHC, "veri", op=0.14), seg(x + 2.0, 0.52, Y[3], PHC, "P", op=0.5)))
+            x += 2.6
+        psb = seg(-4.2, 1.0, Y[4], GOLD, "PSBd", op=0.6, size=15, lcolor=BG)
+        pay = seg(-3.2, 9.28, Y[4], PHC, None, op=0.1)
+        scr = scramble(pay[0])
+        payl = T("karıştırılmış PHY çerçeve yükü", 16, TXT, BOLD).move_to(pay)
+        pbg = BackgroundRectangle(payl, color="#050810", fill_opacity=0.85, buff=0.06)
+        br = brace_lbl(VGroup(psb, pay), "125 µs", GOLD, DOWN, 19)
+        nt = tag("FS çerçevesinin FEC kodlaması: statik bir çalışma seçeneği", MUTED, 15).move_to([0, -2.85, 0])
+        self.play(self.set_src("G.989.3 §6.1.2 · Şekil 6-1"), run_time=0.3)
+        self.at(self.cue("Servis verisi birimleri", 3.5))
+        self.play(FadeIn(labs[0]), FadeIn(sdu1), FadeIn(sdu2), FadeIn(s2l), FadeIn(sdu3), run_time=0.6)
+        self.at(self.cue("gerekirse parçalanarak", 5.5))
+        self.play(Create(cut), FadeOut(s2l), FadeIn(fl), run_time=0.5)
+        self.at(self.cue("bir XGEM başlığı ve bir yük", 9.5))
+        self.play(FadeIn(labs[1]), LaggedStart(*[FadeIn(f, shift=DOWN * 0.1) for f in xg], lag_ratio=0.2), run_time=0.9)
+        self.at(self.cue("Bir dizi XGEM", 11.9))
+        self.play(Create(xgb), run_time=0.5)
+        self.at(self.cue("çerçeveleme alt katmanının yükünü", 13.9))
+        self.play(FadeIn(labs[2]), TransformFromCopy(xgb, fsp[0]), FadeIn(fsp[1]), FadeOut(xgb), run_time=0.8)
+        self.at(self.cue("yük ve kuyruk birlikte", 18.2))
+        self.play(FadeIn(fsh, shift=RIGHT * 0.1), FadeIn(fst, shift=LEFT * 0.1), run_time=0.5)
+        self.at(self.cue("FEC kod sözcüklerine", 22.6))
+        self.play(FadeIn(labs[3]), LaggedStart(*[FadeIn(c, shift=DOWN * 0.1) for c in fec], lag_ratio=0.2), FadeIn(nt), run_time=0.9)
+        self.at(self.cue("karıştırılır", 25.5))
+        self.play(FadeIn(labs[4]), FadeIn(pay), Create(scr), FadeIn(pbg), FadeIn(payl), run_time=0.7)
+        self.at(self.cue("fiziksel senkron bloğu", 26.6))
+        self.play(FadeIn(psb, shift=RIGHT * 0.2), run_time=0.5)
+        self.at(self.cue("yüz yirmi beş mikrosaniyelik", 30.0))
+        self.play(FadeIn(br), run_time=0.5)
+        self.end(pad=0.05)
+
+        # b7a — upstream mapping (Figure 6-2)
+        self.beat("b7a")
+        self.clear(h)
+        h = self.show_heading("↑ SDU'dan fiziksel burst'e (Şekil 6-2)", h)
+        labs = VGroup(*[row_label(s, y, c) for s, y, c in zip(("SDU'lar", "tahsis yükleri", "FS burst'ü", "FEC kod sözcükleri", "PHY burst'ü"), Y, (MUTED, SAC, FSC, PHC, PHC))])
+        s1 = seg(-3.6, 2.0, Y[0], MUTED, "SDU")
+        s2a = seg(-1.4, 1.6, Y[0], MUTED, "parça")
+        s2b = seg(0.2, 1.4, Y[0], GOLD, "kalan parça", op=0.2)
+        s3 = seg(2.0, 1.6, Y[0], MUTED, "SDU")
+        cut = DashedLine([0.2, Y[0] - 0.38, 0], [0.2, Y[0] + 0.38, 0], color=GOLD, stroke_width=3)
+        a1 = xgem_run(-3.6, Y[1], [(2.0, "yük"), (1.6, "yük")])
+        a2 = xgem_run(1.0, Y[1], [(1.6, "yük")])
+        a1l = T("Alloc-ID A", 15, SAC, BOLD).next_to(a1, UP, buff=0.06)
+        a2l = T("Alloc-ID B", 15, SAC, BOLD).next_to(a2, UP, buff=0.06)
+        a1b = SurroundingRectangle(a1, color=SAC, buff=0.04, stroke_width=2)
+        a2b = SurroundingRectangle(a2, color=SAC, buff=0.04, stroke_width=2)
+        nxt = seg(3.2, 3.2, Y[1], GOLD, "kalan parça → A'nın sonraki tahsisi", dashed=True, size=14, lcolor=GOLD)
+        fsb = VGroup(seg(-3.6, 0.75, Y[2], FSC, "başlık", op=0.5, size=13), seg(-2.85, 0.42, Y[2], FSC, "AO", op=0.4, size=13),
+                     seg(-2.43, 3.9, Y[2], FSC, "yük · A", op=0.14), seg(1.47, 0.42, Y[2], FSC, "AO", op=0.4, size=13),
+                     seg(1.89, 1.95, Y[2], FSC, "yük · B", op=0.14), seg(3.84, 0.75, Y[2], FSC, "kuyruk", op=0.5, size=13))
+        fec = VGroup()
+        x = -3.6
+        for w in (2.4, 2.4, 1.0):
+            fec.add(VGroup(seg(x, w, Y[3], PHC, "veri" if w > 1.5 else "kısa", op=0.14), seg(x + w, 0.5, Y[3], PHC, "P", op=0.5)))
+            x += w + 0.5
+        sh = tag("kısaltılmış kod sözcüğü", PHC, 15).next_to(fec[2], RIGHT, buff=0.2)
+        psb = seg(-3.6, 0.85, Y[4], GOLD, "PSBu", op=0.6, size=15, lcolor=BG)
+        pay = seg(-2.75, 7.4, Y[4], TW_US, None, op=0.14)
+        scr = scramble(pay[0], 36, 11, TW_US)
+        payl = T("karıştırılmış burst yükü", 16, TXT, BOLD).move_to(pay)
+        pbg = BackgroundRectangle(payl, color="#050810", fill_opacity=0.85, buff=0.06)
+        own = pill("ONU'ya özgü fiziksel burst", TW_US, 17).next_to(VGroup(psb, pay), DOWN, buff=0.3)
+        self.play(self.set_src("G.989.3 §6.1.2 · Şekil 6-2"), FadeIn(labs[0]), FadeIn(s1), FadeIn(s2a), FadeIn(s2b), FadeIn(s3), Create(cut), run_time=0.6)
+        self.at(self.cue("Her tahsise bir yük düşer", 4.3))
+        self.play(FadeIn(labs[1]), FadeIn(a1), FadeIn(a2), Create(a1b), Create(a2b), FadeIn(a1l), FadeIn(a2l), run_time=0.8)
+        self.at(self.cue("parçalanan bir paketin kalanı", 6.5))
+        self.play(Indicate(s2b, color=GOLD, scale_factor=1.06), run_time=0.6)
+        self.at(self.cue("aynı tahsis kimliğinin", 9.0))
+        self.play(FadeIn(nxt, shift=RIGHT * 0.15), Indicate(s2b, color=GOLD, scale_factor=1.04), run_time=0.7)
+        self.at(self.cue("Tahsis yükleri", 13.8))
+        self.play(FadeIn(labs[2]), FadeIn(fsb[2]), FadeIn(fsb[4]), run_time=0.5)
+        self.at(self.cue("bir başlık ve kuyrukla", 15.1))
+        self.play(FadeIn(fsb[0]), FadeIn(fsb[1]), FadeIn(fsb[3]), FadeIn(fsb[5]), run_time=0.5)
+        self.at(self.cue("sonda kısalmış", 21.0))
+        self.play(FadeIn(labs[3]), LaggedStart(*[FadeIn(c, shift=DOWN * 0.1) for c in fec], lag_ratio=0.2), run_time=0.7)
+        self.play(FadeIn(sh, shift=LEFT * 0.1), run_time=0.4)
+        self.at(self.cue("karıştırılır", 24.7))
+        self.play(FadeIn(labs[4]), FadeIn(pay), Create(scr), FadeIn(pbg), FadeIn(payl), run_time=0.6)
+        self.at(self.cue("yukarı yön senkron bloğu", 25.8))
+        self.play(FadeIn(psb, shift=RIGHT * 0.2), run_time=0.5)
+        self.at(self.cue("ONU'ya özgü", 29.4))
+        self.play(FadeIn(own, shift=UP * 0.1), run_time=0.4)
+        self.end(pad=0.05)
+
+        # b8 — what each sublayer does (Figure 6-3)
+        self.beat("b8")
+        self.clear(h)
+        h = self.show_heading("Alt katmanların işleri (Şekil 6-3)", h)
+        bx, bw = -2.1, 8.8
+        tx = -1.1
+
+        def band(y, hh, c, name):
+            r = Rectangle(width=bw, height=hh, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=0.08).move_to([bx, y, 0])
+            t = T(name, 16, c, BOLD, line_spacing=0.85).move_to([-6.35, y, 0], aligned_edge=LEFT)
+            return VGroup(r, t)
+        cli = VGroup(tile("kullanıcı verisi istemcisi", MUTED, 3.0, 0.48, 15, 0.1).move_to([tx - 1.55, 2.0, 0]),
+                     tile("OMCI istemcisi", MUTED, 2.4, 0.48, 15, 0.1).move_to([tx + 1.75, 2.0, 0]))
+        clil = T("İstemciler", 16, MUTED, BOLD).move_to([-6.35, 2.0, 0], aligned_edge=LEFT)
+        sa = band(1.0, 1.15, SAC, "Servis\nuyarlama")
+        ad = VGroup(tile("kullanıcı verisi uyarlayıcısı", SAC, 3.0, 0.44, 15, 0.2).move_to([tx - 1.55, 1.27, 0]),
+                    tile("OMCI uyarlayıcısı", SAC, 2.4, 0.44, 15, 0.2).move_to([tx + 1.75, 1.27, 0]))
+        xe = tile("XGEM motoru", SAC, 6.3, 0.42, 16, 0.3).move_to([tx + 0.1, 0.72, 0])
+        fs = band(-0.05, 0.85, FSC, "Çerçeveleme")
+        ft = VGroup(*[tile(s, FSC, 1.5, 0.62, 15, 0.18) for s in ("PLOAM\nbölmesi", "gömülü\nbaşlık alanları", "XGEM\nbölmesi", "↑ bant yön.\nDBA")]).arrange(RIGHT, buff=0.1).move_to([tx + 0.1, -0.05, 0])
+        ph = band(-0.95, 0.75, PHC, "Fiziksel\nuyarlama")
+        pt = VGroup(*[tile(s, PHC, 1.5, 0.48, 15, 0.18) for s in ("FEC", "karıştırma", "PSBd / PSBu", "zaman hizalama")]).arrange(RIGHT, buff=0.1).move_to([tx + 0.1, -0.95, 0])
+        pmd = band(-1.65, 0.45, PMDC, "TWDM PMD")
+        rx = 4.55
+        plp = tile("PLOAM işlemcisi", PLC, 3.7, 0.55, 17, 0.2).move_to([rx, 1.55, 0])
+        tcf = card("TWDM TC işlevleri", "PM · güvenlik anahtar yön.\nONU güç yön. · kanal yön. · koruma", None, ACC, w=3.9, h=1.3, tsize=17, bsize=14).move_to([rx, 0.35, 0])
+        am = VGroup(tile("AMCC çerçeveleme", PTPC, 1.85, 0.48, 14, 0.18), tile("AMCC PHY uyarlama", PTPC, 1.85, 0.48, 14, 0.18)).arrange(RIGHT, buff=0.12).move_to([rx, -1.25, 0])
+        aml = T("yan yol", 15, PTPC, BOLD).next_to(am, UP, buff=0.08)
+        pl = VGroup(Line(plp.get_right(), [6.8, plp.get_y(), 0], color=PTPC, stroke_width=2),
+                    Line([6.8, plp.get_y(), 0], [6.8, am.get_y(), 0], color=PTPC, stroke_width=2),
+                    Arrow([6.8, am.get_y(), 0], am.get_right(), buff=0.0, color=PTPC, stroke_width=2, tip_length=0.12, max_tip_length_to_length_ratio=0.5))
+        words = VGroup(*[Rectangle(width=0.52, height=0.38, stroke_color=FSC, stroke_width=1.5, fill_color=FSC, fill_opacity=0.08) for _ in range(12)]).arrange(RIGHT, buff=0).move_to([tx + 0.1, -2.55, 0])
+        fld = VGroup(*[Rectangle(width=0.52 * n, height=0.38, stroke_width=0, fill_color=c, fill_opacity=0.45) for n, c in ((2, SAC), (3, GOLD), (1, ACC), (4, SAC), (2, GOLD))]).arrange(RIGHT, buff=0).move_to(words)
+        wl = T("4 baytlık\nsözcük sınırları", 15, FSC, BOLD, line_spacing=0.85).move_to([-6.35, -2.55, 0], aligned_edge=LEFT)
+        base = VGroup(clil, cli, sa, ad, xe, fs, ft, ph, pt, pmd, plp, tcf, am, aml, pl)
+        dim = VGroup(cli, ad, xe, ft, pt, plp, tcf, am, aml, pl)
+        self.play(FadeIn(base), self.set_src("G.989.3 §6.1.3 · Şekil 6-3"), run_time=0.8)
+        self.play(dim.animate.set_opacity(0.3), run_time=0.3)
+        self.at(self.cue("Servis uyarlama", 2.7))
+        self.play(sa[0].animate.set_fill(opacity=0.2), cli.animate.set_opacity(1), run_time=0.4)
+        self.at(self.cue("XGEM motoru", 7.5))
+        self.play(xe.animate.set_opacity(1), run_time=0.4)
+        self.at(self.cue("kullanıcı verisi uyarlayıcısı", 10.9))
+        self.play(ad.animate.set_opacity(1), run_time=0.4)
+        self.at(self.cue("Çerçeveleme", 15.2))
+        self.play(fs[0].animate.set_fill(opacity=0.2), run_time=0.3)
+        self.at(self.cue("ek yük alanlarını", 16.2))
+        self.play(ft.animate.set_opacity(1), plp.animate.set_opacity(1), run_time=0.5)
+        self.at(self.cue("dört baytlık sözcük", 20.7))
+        self.play(FadeIn(words), FadeIn(wl), run_time=0.4)
+        self.play(LaggedStart(*[FadeIn(f, shift=DOWN * 0.05) for f in fld], lag_ratio=0.2), run_time=0.8)
+        self.at(self.cue("Fiziksel uyarlama ise FEC", 26.3))
+        self.play(ph[0].animate.set_fill(opacity=0.2), pt[0].animate.set_opacity(1), run_time=0.4)
+        self.at(self.cue("karıştırma", 28.5))
+        self.play(pt[1].animate.set_opacity(1), run_time=0.3)
+        self.at(self.cue("senkron blokları", 29.4))
+        self.play(pt[2].animate.set_opacity(1), pt[3].animate.set_opacity(1), tcf.animate.set_opacity(1), am.animate.set_opacity(1), aml.animate.set_opacity(1), pl.animate.set_opacity(1), run_time=0.5)
+        self.end(pad=0.05)
+
+        # b8a — PMD bridge: FEC and scrambling
+        self.beat("b8a")
+        self.clear()
+        self.set_badge("pmd")
+        h = self.show_heading("PMD Köprüsü — FEC ve karıştırma")
+        ch = self.chip_at(s1chip(5), h)
+        ftt = T("FEC", 24, PHC, BOLD).move_to([-6.3, 1.9, 0], aligned_edge=LEFT)
+        cw = VGroup(seg(-6.3, 4.0, 1.15, PHC, "veri", h=0.55, op=0.14, size=17), seg(-2.3, 1.3, 1.15, PHC, "P", h=0.55, op=0.5, size=17))
+        cwb = brace_lbl(cw[1], "artıklık", PHC, UP, 16)
+        g1 = VGroup(T("✓ etkin hassasiyet", 19, GOOD, BOLD), T("✓ aşırı yük davranışı", 19, GOOD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.15).move_to([-6.3, 0.15, 0], aligned_edge=LEFT)
+        g2 = T("alıcı daha yüksek BER'de çalışabilir", 19, TXT, BOLD).move_to([-6.3, -0.85, 0], aligned_edge=LEFT)
+        ber = VGroup(tag(f"{sup(-4)} · 2,5G ↓", PHC, 17), tag(f"{sup(-3)} · 10G ↓", PHC, 17)).arrange(RIGHT, buff=0.2).move_to([-6.3, -1.55, 0], aligned_edge=LEFT)
+        bert = T("FEC öncesi BER referansı · G.989.2 Tablo 11-4 … 11-7", 15, MUTED).next_to(ber, DOWN, buff=0.1, aligned_edge=LEFT)
+        sep = Line([0.0, 2.1, 0], [0.0, -2.2, 0], color=LINE, stroke_width=2)
+        stt = T("Karıştırma", 24, ACC, BOLD).move_to([0.5, 1.9, 0], aligned_edge=LEFT)
+        bits1 = [1, 0, 1, 1] + [0] * 14 + [1, 1, 0]
+        bits2 = [1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1]
+        tb_ = 5.6 / len(bits1)
+        w1 = VMobject(stroke_color=WARN, stroke_width=2.5).set_points_as_corners(nrz(bits1, 0.6, tb_, 0.85, 1.3, 0.02))
+        run_ = BraceBetweenPoints([0.6 + 4 * tb_, 0.78, 0], [0.6 + 18 * tb_, 0.78, 0], DOWN, color=WARN)
+        runt = T("uzun özdeş rakam dizisi", 15, WARN, BOLD).next_to(run_, DOWN, buff=0.04)
+        sa = Arrow([3.4, 0.05, 0], [3.4, -0.55, 0], buff=0, color=ACC, stroke_width=3, tip_length=0.15)
+        sat = T("karıştırıcı", 16, ACC, BOLD).next_to(sa, RIGHT, buff=0.12)
+        w2 = VMobject(stroke_color=GOOD, stroke_width=2.5).set_points_as_corners(nrz(bits2, 0.6, tb_, -1.2, -0.75, 0.02))
+        w2t = T("rastgeleleşmiş iletim", 15, GOOD, BOLD).next_to(w2, DOWN, buff=0.12)
+        cid = tag("ardışık özdeş rakam (CID) dayanımı: 72 bit · G.989.2", ACC, 16).move_to([3.4, -2.15, 0])
+        lc = pill("Hat kodları → G.989.2 §11.1.2: karıştırılmış NRZ", MUTED, 18).move_to([0, -2.95, 0])
+        self.play(FadeIn(ch, shift=LEFT * 0.1), FadeIn(sep), self.set_src("G.989.3 §6.1.3.3 ↔ G.989.2 §11.1.2 · Tablo 11-4 … 11-7"), run_time=0.5)
+        self.at(self.cue("artıklık ekleyerek", 7.8))
+        self.play(FadeIn(ftt), FadeIn(cw), FadeIn(cwb), run_time=0.6)
+        self.at(self.cue("etkin hassasiyetini", 10.0))
+        self.play(FadeIn(g1[0], shift=RIGHT * 0.1), run_time=0.4)
+        self.at(self.cue("aşırı yük davranışını", 12.0))
+        self.play(FadeIn(g1[1], shift=RIGHT * 0.1), run_time=0.4)
+        self.at(self.cue("daha yüksek bir hata oranında", 15.4))
+        self.play(FadeIn(g2, shift=RIGHT * 0.1), run_time=0.4)
+        self.play(FadeIn(ber, shift=UP * 0.1), FadeIn(bert), run_time=0.5)
+        self.at(self.cue("Karıştırma ise", 20.8))
+        self.play(FadeIn(stt), Create(w1), FadeIn(run_), FadeIn(runt), run_time=0.8)
+        self.at(self.cue("rastgeleleştirir", 22.5))
+        self.play(GrowArrow(sa), FadeIn(sat), Create(w2), FadeIn(w2t), run_time=0.8)
+        self.at(self.cue("özdeş rakam toleransının", 25.0))
+        self.play(FadeIn(cid, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("Hat kodları", 29.2))
+        self.play(FadeIn(lc, shift=UP * 0.1), run_time=0.5)
+        self.end(pad=0.05)
+
+        # b9 — engineer note, b10 — bridge
+        self.note11("b9", [("1", "G.989.3'ü okurken G.987.3'ü de yanınızda tutun", "Bazı ekler — örneğin FEC — yalnızca ona atıf yapar.", "Bir:"),
+                           ("2", "Çift hızlı kanal = alıcı spesifikasyonu sizde", "Optik taraf standartta tanımlı değil (G.989.2'de çift hızlı satır yok).", "İki:")])
+        self.bridge_beat("b10", "Veri yolu belli.\nPeki bu sistem nasıl yönetilir?")
+        self.save_timeline("ep11_p1C")
+
+
+# ================================ PERDE 2 ======================================
+class E11P2A(Act11):
+    HDR, MANIFEST, FIRST = H11[2], M11("p2"), True
+
+    def construct(self):
+        # c1 — three channels (Figure 6-4)
+        self.beat("c1")
+        tc = self.title_card("PERDE 2", "Yönetim kanalları")
+        self.at(self.cue("Bir TWDM sisteminde", 2.4))
+        self.to_header(tc)
+        self.set_badge("std")
+        h = self.show_heading("Üç yönetim kanalı (Şekil 6-4)")
+        root = tile("ONU yönetimi · TWDM PON", MUTED, 4.6, 0.65, 20, 0.15).move_to([0, 1.85, 0])
+        kids = VGroup(*[tile(s, c, 3.3, 0.7, 20, 0.22) for s, c in (("Gömülü OAM kanalı", EMB), ("PLOAM kanalı", PLC), ("OMCC", OMC))])
+        for k, x in zip(kids, (-4.3, 0, 4.3)):
+            k.move_to([x, 0.6, 0])
+        lk = VGroup(*[Line(root.get_bottom(), k.get_top(), color=MUTED, stroke_width=2) for k in kids])
+        sub = VGroup(tile("bant içi", PLC, 1.6, 0.46, 15, 0.1), tile("AMCC", PTPC, 1.6, 0.46, 15, 0.1)).arrange(RIGHT, buff=0.15).move_to([0, -0.35, 0])
+        slk = VGroup(*[Line(kids[1].get_bottom(), s.get_top(), color=MUTED, stroke_width=1.5) for s in sub])
+        sub_g = VGroup(sub, slk).set_opacity(0.45)
+        b1 = BraceBetweenPoints([-5.95, -0.75, 0], [1.65, -0.75, 0], DOWN, color=ACC)
+        b1t = T("PMD ve TC katmanlarının işlevleri", 18, ACC, BOLD).next_to(b1, DOWN, buff=0.08)
+        b2 = BraceBetweenPoints([2.65, -0.75, 0], [5.95, -0.75, 0], DOWN, color=OMC)
+        b2t = T("OMCI mesajları", 18, OMC, BOLD).next_to(b2, DOWN, buff=0.08)
+        oc = card("OMCI", "üst katmanları — servisi tanımlayan katmanları —\nyönetmek için tek tip sistem (G.988)", None, OMC, w=7.6, h=1.3, tsize=21, bsize=17).move_to([2.2, -2.45, 0])
+        self.play(FadeIn(root, shift=DOWN * 0.1), self.set_src("G.989.3 §6.1.4 · Şekil 6-4"), run_time=0.5)
+        self.at(self.cue("gömülü işletme kanalı", 9.3))
+        self.play(Create(lk[0]), FadeIn(kids[0], shift=DOWN * 0.1), run_time=0.5)
+        self.at(self.cue("PLOAM ve OMCC", 11.1))
+        self.play(Create(lk[1]), FadeIn(kids[1], shift=DOWN * 0.1), Create(lk[2]), FadeIn(kids[2], shift=DOWN * 0.1), FadeIn(sub_g), run_time=0.6)
+        self.at(self.cue("İlk ikisi PMD", 12.3))
+        self.play(FadeIn(b1), FadeIn(b1t), run_time=0.5)
+        self.at(self.cue("OMCC ise OMCI", 16.9))
+        self.play(FadeIn(b2), FadeIn(b2t), run_time=0.5)
+        self.at(self.cue("üst katmanları", 21.1))
+        self.play(FadeIn(oc, shift=UP * 0.1), run_time=0.6)
+        self.end(pad=0.05)
+
+        # c2 — embedded OAM: header fields, field = meaning
+        self.beat("c2")
+        self.clear(h)
+        h = self.show_heading("Gömülü OAM: her bilgi bir alanda", h)
+        yt = 1.8
+        dsh = seg(-6.3, 1.3, yt, EMB, "FS başlığı", op=0.45, size=14)
+        dsp = seg(-5.0, 4.6, yt, MUTED, "FS yükü", op=0.1)
+        dl = T("↓ FS çerçevesi", 15, MUTED, BOLD).next_to(VGroup(dsh, dsp), DOWN, buff=0.08)
+        ush = seg(0.6, 1.3, yt, EMB, "FS başlığı", op=0.45, size=14)
+        usp = seg(1.9, 4.5, yt, MUTED, "tahsis yükleri …", op=0.1)
+        ul = T("↑ FS burst'ü", 15, MUTED, BOLD).next_to(VGroup(ush, usp), DOWN, buff=0.08)
+        nomsg = tag("ayrı mesaj yok · alan = anlam", EMB, 17).move_to([-3.6, 0.85, 0])
+        lowlat = tag("zamana duyarlı denetim · düşük gecikme", GOLD, 17).move_to([3.4, 0.85, 0])
+        spec = [("Alloc-ID", 14, MUTED), ("Flags", 2, MUTED), ("StartTime", 16, MUTED), ("GrantSize", 16, MUTED),
+                ("FWI", 1, MUTED), ("Profil", 2, MUTED), ("HEC", 13, MUTED)]
+        fl = fields(spec, 12.4, 0.6, 17, 14).move_to([0, -0.4, 0])
+        fll = T("BWmap tahsis yapısı · 64 bit (§8.1.1.2)", 15, MUTED, BOLD).next_to(fl, DOWN, buff=0.12)
+        fns = [("burst zamanlaması ve profili", GOLD, [2, 5]), ("bant genişliği tahsisi", ACC, [0, 3]), ("dinamik tahsis sinyalleşmesi", S1C, [1]),
+               ("zorunlu uyandırma", PINK, [4]), ("son nefes → ↑ başlık", WARN, None)]
+        chips = VGroup(*[tag(s, c, 16) for s, c, _ in fns]).arrange(RIGHT, buff=0.14)
+        fit(chips, 13.0).move_to([0, -2.1, 0])
+        self.play(self.set_src("G.989.3 §6.1.4.1 · §8.1.1.2"), run_time=0.3)
+        self.at(self.cue("aşağı yön çerçevesinin ve yukarı yön", 1.9))
+        self.play(FadeIn(VGroup(dsh, dsp, dl)), FadeIn(VGroup(ush, usp, ul)), run_time=0.6)
+        self.play(Indicate(dsh, color=EMB), Indicate(ush, color=EMB), run_time=0.6)
+        self.at(self.cue("Ayrı bir mesajı yoktur", 7.5))
+        self.play(FadeIn(nomsg, shift=UP * 0.1), run_time=0.4)
+        self.at(self.cue("belirli bir alana doğrudan", 9.4))
+        self.play(LaggedStart(*[FadeIn(c, shift=UP * 0.05) for c in fl], lag_ratio=0.1), FadeIn(fll), run_time=0.9)
+        self.at(self.cue("düşük gecikmeli", 15.0))
+        self.play(FadeIn(lowlat, shift=UP * 0.1), run_time=0.4)
+        for k, (key, d) in enumerate((("burst zamanlaması ve profili", 20.4), ("bant genişliği tahsisi", 23.7), ("dinamik tahsis", 25.7), ("zorunlu uyandırma", 28.1), ("son nefes", 29.6))):
+            self.at(self.cue(key, d))
+            _, c, ix = fns[k]
+            an = [FadeIn(chips[k], shift=UP * 0.1)]
+            if ix:
+                an += [fl[i][0].animate.set_stroke(c).set_fill(c, opacity=0.35) for i in ix]
+            else:
+                an += [ush[0].animate.set_stroke(WARN).set_fill(WARN, opacity=0.4)]
+            self.play(*an, run_time=0.4)
+        self.end(pad=0.05)
+
+        # c3 — PLOAM: 48-byte message, own partition
+        self.beat("c3")
+        self.clear(h)
+        h = self.show_heading("PLOAM: sabit 48 baytlık mesaj", h)
+        top = T("gömülü kanalla gönderilmeyen bütün PMD ve çerçeveleme yönetim bilgisi", 19, TXT, BOLD).move_to([0, 2.0, 0])
+        W, y0 = 12.4, 0.55
+        spec = [("", 2, PLC), ("", 1, PLC), ("", 1, PLC), ("İçerik", 36, PLC), ("MIC", 8, GOLD)]
+        pf = fields(spec, W, 0.62, 19, 15).move_to([0, y0, 0])
+        lead = VGroup()
+        for i, (s, lx) in enumerate((("ONU-ID", -5.95), ("Tür", -4.95), ("SeqNo", -4.1))):
+            t = T(s, 16, PLC, BOLD).move_to([lx, 1.35, 0])
+            ln = Line(t.get_bottom() + DOWN * 0.04, pf[i][0].get_top(), color=PLC, stroke_width=1.5)
+            lead.add(VGroup(t, ln))
+        tot = brace_lbl(pf, "48 bayt", PLC, DOWN, 17)
+        yf = -1.85
+        dsf = VGroup(seg(-6.3, 0.55, yf, FSC, "", op=0.4), seg(-5.75, 0.95, yf, FSC, "BWmap", op=0.25, size=14), seg(-4.8, 0.95, yf, PLC, "PLOAMd", op=0.45, size=14),
+                     seg(-3.85, 3.6, yf, MUTED, "FS yükü", op=0.1))
+        dfl = T("↓ FS çerçevesi", 15, MUTED, BOLD).next_to(dsf, DOWN, buff=0.08)
+        usf = VGroup(seg(0.3, 0.55, yf, FSC, "", op=0.4), seg(0.85, 0.95, yf, PLC, "PLOAMu", op=0.45, size=14), seg(1.8, 3.9, yf, MUTED, "tahsis yükleri …", op=0.1),
+                     seg(5.7, 0.55, yf, FSC, "", op=0.4))
+        ufl = T("↑ FS burst'ü", 15, MUTED, BOLD).next_to(usf, DOWN, buff=0.08)
+        self.play(self.set_src("G.989.3 §6.1.4.2 · §11.2"), run_time=0.3)
+        self.at(self.cue("gömülü kanalla gönderilmeyen", 0.5))
+        self.play(FadeIn(top, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("sabit kırk sekiz bayttır", 7.1))
+        self.play(*[FadeIn(c[0]) for c in pf], FadeIn(tot), run_time=0.6)
+        for k, (key, d) in enumerate((("iki bayt ONU kimliği", 10.0), ("bir bayt mesaj türü", 11.8), ("bir bayt sıra numarası", 13.5),
+                                      ("otuz altı bayt içerik", 15.4), ("sekiz baytlık", 17.3))):
+            self.at(self.cue(key, d))
+            an = [pf[k][0].animate.set_fill(opacity=0.5), FadeIn(pf[k][2])]
+            an.append(FadeIn(lead[k]) if k < 3 else FadeIn(pf[k][1]))
+            self.play(*an, run_time=0.35)
+        self.at(self.cue("çerçevenin ve burst'ün içinde", 20.7))
+        self.play(FadeIn(dsf), FadeIn(dfl), FadeIn(usf), FadeIn(ufl), run_time=0.6)
+        self.at(self.cue("kendi bölmesinde", 24.5))
+        self.play(Indicate(dsf[2], color=PLC, scale_factor=1.12), Indicate(usf[1], color=PLC, scale_factor=1.12), run_time=0.8)
+        self.end(pad=0.1)
+        self.clear()
+        self.save_timeline("ep11_p2A")
+
+
+class E11P2B(Act11):
+    HDR, MANIFEST, PREV_BADGE = H11[2], M11("p2"), "std"
+
+    def construct(self):
+        # c4 — the AMCC transport option for PLOAM
+        self.beat("c4")
+        h = self.show_heading("PLOAM'ın ikinci yolu: AMCC")
+        pl = tile("PLOAM", PLC, 2.0, 0.65, 21, 0.25).move_to([-5.0, 1.25, 0])
+        ib = tile("bant içi · FS çerçevesi / burst'ü", PLC, 4.2, 0.55, 16, 0.12).move_to([-1.0, 1.75, 0])
+        ibt = T("zorunlu", 15, GOOD, BOLD).next_to(ib, RIGHT, buff=0.15)
+        am = tile("AMCC taşıma seçeneği", PTPC, 4.2, 0.55, 16, 0.2).move_to([-1.0, 0.75, 0])
+        amt = T("isteğe bağlı*", 15, GOLD, BOLD).next_to(am, RIGHT, buff=0.15)
+        a1 = Arrow(pl.get_right(), ib.get_left(), buff=0.05, color=PLC, stroke_width=2.5, tip_length=0.13)
+        a2 = Arrow(pl.get_right(), am.get_left(), buff=0.05, color=PTPC, stroke_width=2.5, tip_length=0.13)
+        lim = VGroup(tag("yalnızca ↑", PTPC, 16), tag("yalnızca 2 mesaj", PTPC, 16)).arrange(DOWN, buff=0.1, aligned_edge=LEFT).move_to([3.9, 1.6, 0], aligned_edge=LEFT)
+        msgs = VGroup(HX("Serial_Number_ONU", 17, TXT, BOLD), HX("Tuning_Response", 17, TXT, BOLD)).arrange(DOWN, buff=0.12, aligned_edge=LEFT).move_to([3.9, 0.55, 0], aligned_edge=LEFT)
+        note = T("* kalibrasyon koşulunu sağlayan ONU için", 14, GOLD).next_to(am, DOWN, buff=0.12).align_to(am, LEFT)
+        X = lambda v: 0.2 + v * 1.5
+        ya = -2.5
+        ax = Line([X(-0.2), ya, 0], [X(4.1), ya, 0], color=MUTED, stroke_width=2)
+        axl = T("↑ dalga boyu (kavramsal)", 14, MUTED).next_to(ax, DOWN, buff=0.08)
+        lobes = VGroup(*[lobe(X, i + 0.4, ya, 1.0, 0.16, CH[i], op=0.35) for i in range(4)])
+        lls = VGroup(*[T(f"λ{i + 1}", 14, CH[i], BOLD).move_to([X(i + 0.4), ya + 1.2, 0]) for i in range(4)])
+        un = lobe(X, 1.9, ya, 0.85, 0.3, MUTED, op=0.15, sw=2)
+        unl = T("kalibre edilmemiş ONU?", 15, MUTED, BOLD).move_to([X(1.9), ya + 1.6, 0])
+        bad = VGroup(T("bant içi tam hızda:", 16, WARN, BOLD), T("zararlı girişim riski ✗", 16, WARN, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).move_to([-6.3, -1.35, 0], aligned_edge=LEFT)
+        good = VGroup(T("AMCC, düşük hızda:", 16, GOOD, BOLD), T("girişim riski olmadan keşif ✓", 16, GOOD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.06).move_to([-6.3, -2.35, 0], aligned_edge=LEFT)
+        self.play(FadeIn(pl), Create(a1), FadeIn(ib), FadeIn(ibt), self.set_src("G.989.3 §6.1.4 · §6.1.4.2"), run_time=0.6)
+        self.at(self.cue("AMCC.", 4.2))
+        self.play(Create(a2), FadeIn(am), FadeIn(amt), FadeIn(note), run_time=0.6)
+        self.at(self.cue("yalnızca yukarı yönde", 4.6))
+        self.play(FadeIn(lim, shift=LEFT * 0.1), run_time=0.5)
+        self.at(self.cue("seri numarası mesajı", 9.9))
+        self.play(FadeIn(msgs[0], shift=LEFT * 0.1), run_time=0.4)
+        self.at(self.cue("ayar yanıtı mesajı", 11.5))
+        self.play(FadeIn(msgs[1], shift=LEFT * 0.1), run_time=0.4)
+        self.at(self.cue("yeterince kalibre edilmemiş", 14.0))
+        self.play(Create(ax), FadeIn(axl), FadeIn(lobes), FadeIn(lls), run_time=0.6)
+        self.play(FadeIn(un), FadeIn(unl), run_time=0.5)
+        self.play(un.animate.shift(RIGHT * (X(2.3) - X(1.9))), run_time=0.6)
+        self.at(self.cue("zararlı girişim riski", 17.1))
+        self.play(FadeIn(bad, shift=RIGHT * 0.1), lobes[2][1].animate.set_stroke(WARN), run_time=0.5)
+        self.at(self.cue("düşük bir hızla", 21.8))
+        self.play(FadeIn(good, shift=RIGHT * 0.1), run_time=0.5)
+        self.end(pad=0.05)
+
+        # c4a — AMCC discovery flow (message sequence)
+        self.beat("c4a")
+        self.clear(h)
+        h = self.show_heading("Kalibre edilmemiş ONU'nun keşfi", h)
+        xo, xu, y0, y1 = -4.4, 4.4, 1.85, -2.9
+        lo = lifeline("OLT CT", xo, y0, y1, OLTC, 2.0)
+        lu = lifeline("ONU", xu, y0, y1, ONUC, 2.0)
+        uct = tag("yeterince kalibre değil", WARN, 15).next_to(lu[0], LEFT, buff=0.15)
+        m1 = msg(xo, xu, 0.95, "System_Profile: AMCC var mı? · bant içi için en küçük kalibrasyon doğruluğu", GOLD, 16)
+        enc = VGroup(HX("oktet 15: 0A00 00BB", 16, GOLD, BOLD),
+                     VGroup(*[VGroup(HX(b, 15, GOLD, BOLD), T(s, 15, TXT)).arrange(RIGHT, buff=0.12) for b, s in (("01", "kalibre edilmemiş"), ("10", "gevşek"), ("11", "yeterli"))]).arrange(RIGHT, buff=0.35))
+        enc.arrange(RIGHT, buff=0.4)
+        fit(enc, 8.0).move_to([0, 0.45, 0])
+        m2 = msg(xu, xo, -0.55, "Serial_Number_ONU — AMCC üzerinden", PTPC, 17, dashed=True)
+        sil = tag("AMCC yoksa: ONU susar", WARN, 16).move_to([2.2, -1.2, 0])
+        m3 = msg(xo, xu, -1.95, "belirli bir TWDM kanalında aktivasyona geç", GOOD, 17)
+        rule = T("bant içi: zorunlu · AMCC: kalibre ONU için isteğe bağlı", 15, MUTED).move_to([0, -2.55, 0])
+        self.play(FadeIn(lo), FadeIn(lu), self.set_src("G.989.3 §6.1.4.2 · Tablo 11-17 (System_Profile)"), run_time=0.6)
+        self.at(self.cue("sistem profilinde AMCC", 1.5))
+        self.play(GrowArrow(m1[0]), FadeIn(m1[1]), run_time=0.7)
+        self.at(self.cue("kalibre edilmemiş", 12.2))
+        self.play(FadeIn(enc[0]), FadeIn(enc[1][0]), run_time=0.4)
+        self.at(self.cue("gevşek ya da yeterli", 13.7))
+        self.play(FadeIn(enc[1][1]), run_time=0.3)
+        self.play(FadeIn(enc[1][2]), run_time=0.3)
+        self.at(self.cue("Yeterince kalibre edilmemiş bir ONU", 15.5))
+        self.play(FadeIn(uct, shift=LEFT * 0.1), run_time=0.4)
+        self.at(self.cue("seri numarasını AMCC ile", 18.5))
+        self.play(Create(m2[0]), FadeIn(m2[1]), run_time=0.7)
+        self.at(self.cue("AMCC yoksa susmalıdır", 22.4))
+        self.play(FadeIn(sil, shift=UP * 0.1), run_time=0.4)
+        self.at(self.cue("belirli bir TWDM kanalında", 26.0))
+        self.play(GrowArrow(m3[0]), FadeIn(m3[1]), FadeIn(rule), run_time=0.7)
+        self.end(pad=0.05)
+
+        # c5 — PMD bridge: S1·B7's question, and a tension
+        self.beat("c5")
+        self.clear()
+        self.set_badge("pmd")
+        h = self.show_heading("PMD Köprüsü — ayarsız verici susmalı")
+        ch = self.chip_at(s1chip(7), h)
+        X = lambda v: -6.0 + (v + 0.6) * 1.15
+        ya = -1.5
+        ax = Line([X(-0.6), ya, 0], [X(4.6), ya, 0], color=MUTED, stroke_width=2)
+        axl = T("↑ dalga boyu", 14, MUTED).next_to(ax, DOWN, buff=0.08)
+        lobes = VGroup(*[lobe(X, i * 1.2 + 0.2, ya, 1.3, 0.14, CH[i], op=0.35) for i in range(4)])
+        lls = VGroup(*[T(f"λ{i + 1}", 14, CH[i], BOLD).move_to([X(i * 1.2 + 0.2), ya + 1.55, 0]) for i in range(4)])
+        tun = lobe(X, 0.9, ya, 0.95, 0.16, MUTED, op=0.2, sw=2)
+        tl = T("ayarlanan ONU vericisi", 15, MUTED, BOLD).move_to([X(2.0), ya + 2.15, 0])
+        xm = xmark(Square(0.4).move_to([X(1.4), ya + 0.5, 0]), WARN, 5)
+        xt = T("başkasının kanalında ışık yok", 17, WARN, BOLD).move_to([X(2.0), ya - 0.75, 0])
+        ten = tag("gerilim", WARN, 18).move_to([3.4, 1.75, 0])
+        k1 = card("G.989.3 Ek E", "TWDM kanalları için AMCC uygulama\nayrıntıları: çalışma konusu (FFS)", None, GOLD, w=6.0, h=1.45, tsize=21, bsize=17).move_to([3.4, 0.55, 0])
+        k2 = card("G.989.2 Ek B", "AMCC zorunlu: yalnızca PtP WDM\nbindirme kanallarında", None, GOLD, w=6.0, h=1.45, tsize=21, bsize=17).move_to([3.4, -1.15, 0])
+        tc_ = T("TC tarafındaki cevap: AMCC ile keşif", 17, ACC, BOLD).move_to([X(2.0), 1.6, 0])
+        self.play(FadeIn(ch, shift=LEFT * 0.1), self.set_src("G.989.3 §6.1.4.2 · Ek E ↔ G.989.2 Ek B"), run_time=0.5)
+        self.at(self.cue("TC tarafındaki cevabıdır", 1.3))
+        self.play(Create(ax), FadeIn(axl), FadeIn(lobes), FadeIn(lls), FadeIn(tc_), run_time=0.7)
+        self.at(self.cue("dalga boyu henüz doğru olmayan", 7.0))
+        self.play(FadeIn(tun), FadeIn(tl), run_time=0.4)
+        self.play(tun.animate.shift(RIGHT * (X(1.4) - X(0.9))), run_time=0.9)
+        self.at(self.cue("başkalarının kanalında", 10.6))
+        self.play(Create(xm), FadeIn(xt), run_time=0.5)
+        self.at(self.cue("Ama bir gerilim var", 14.0))
+        self.play(FadeIn(ten, scale=0.9), run_time=0.4)
+        self.at(self.cue("G.989.3'ün E eki", 15.7))
+        self.play(FadeIn(k1, shift=LEFT * 0.1), run_time=0.6)
+        self.at(self.cue("G.989.2'nin B eki", 24.4))
+        self.play(FadeIn(k2, shift=LEFT * 0.1), run_time=0.6)
+        self.end(pad=0.1)
+        self.clear()
+        self.save_timeline("ep11_p2B")
+
+
+class E11P2C(Act11):
+    HDR, MANIFEST, PREV_BADGE = H11[2], M11("p2"), "pmd"
+
+    def construct(self):
+        # c6 — OMCC over XGEM
+        self.beat("c6")
+        self.set_badge("std")
+        h = self.show_heading("OMCC: XGEM üzerinde OMCI")
+        xf = VGroup(seg(-3.6, 3.9, 1.8, OMC, "XGEM başlığı · Port-ID = ONU-ID", op=0.45, size=16), seg(0.3, 3.3, 1.8, OMC, "OMCI mesajı", op=0.14, size=16))
+        xfl = T("OMCC XGEM çerçevesi", 15, OMC, BOLD).next_to(xf, UP, buff=0.08)
+        olt = sbox("OLT CT", None, OLTC, 1.5, 0.75, 19).move_to([-5.6, 0.0, 0])
+        onu = RoundedRectangle(corner_radius=0.14, width=4.6, height=2.7, stroke_color=ONUC, stroke_width=2.5, fill_color=PANEL, fill_opacity=1).move_to([4.15, -0.3, 0])
+        onut = T("ONU", 18, ONUC, BOLD).move_to(onu.get_corner(UL) + [0.4, -0.25, 0])
+        flt = tile("XGEM süzgeci (Port-ID)", SAC, 3.9, 0.46, 15, 0.2).move_to([4.15, 0.3, 0])
+        oad = tile("OMCI uyarlayıcısı", OMC, 3.9, 0.46, 15, 0.25).move_to([4.15, -0.6, 0])
+        ocl = tile("OMCI istemcisi", MUTED, 3.9, 0.46, 15, 0.12).move_to([4.15, -1.25, 0])
+        stream = VGroup()
+        for i, (lab, c) in enumerate((("veri", MUTED), ("OMCC", OMC), ("veri", MUTED), ("OMCC", OMC), ("veri", MUTED))):
+            stream.add(VGroup(seg(0, 0.22, 0, c, None, h=0.42, op=0.6), seg(0.22, 0.75, 0, c, lab, h=0.42, op=0.15, size=13)))
+        stream.arrange(RIGHT, buff=0.08).move_to([-1.6, 0.0, 0])
+        fib = Line(olt.get_right(), onu.get_left() + UP * 0.3, color=FEED, stroke_width=2).set_opacity(0.6)
+        g988 = card("G.988 · OMCI", "mesajların kendisi — bu sezonun kapsamı dışında", None, MUTED, w=6.2, h=1.15, tsize=20, bsize=16).move_to([-3.2, -2.3, 0])
+        only = tag("biz: yalnızca taşındığı kanal", ACC, 16).move_to([3.4, -2.3, 0])
+        dsa = Arrow(flt.get_bottom(), oad.get_top(), buff=0.02, color=OMC, stroke_width=2.5, tip_length=0.1)
+        dst = T("süz · aç", 14, OMC, BOLD).next_to(dsa, RIGHT, buff=0.1)
+        usa = Arrow([onu.get_left()[0] - 0.05, -0.75, 0], [olt.get_right()[0] + 0.05, -0.75, 0], buff=0, color=OMC, stroke_width=2.5, tip_length=0.14, max_tip_length_to_length_ratio=0.1)
+        ust = T("↑ OMCI uyarlayıcısı paketler → XGEM (Port-ID = ONU-ID)", 15, OMC, BOLD).next_to(usa, DOWN, buff=0.1)
+        self.play(FadeIn(olt), FadeIn(onu), FadeIn(onut), Create(fib), self.set_src("G.989.3 §6.1.4.3 · §6.1.3.1"), run_time=0.6)
+        self.at(self.cue("XGEM tabanlı bir taşıma", 2.8))
+        self.play(FadeIn(xf, shift=DOWN * 0.1), FadeIn(xfl), run_time=0.6)
+        self.at(self.cue("G.988'de tanımlıdır", 7.6))
+        self.play(FadeIn(g988, shift=UP * 0.1), run_time=0.5)
+        self.at(self.cue("biz yalnızca taşındığı", 13.4))
+        self.play(FadeIn(only, shift=UP * 0.1), run_time=0.4)
+        self.at(self.cue("ONU'daki OMCI uyarlayıcısı", 16.7))
+        self.play(FadeIn(flt), FadeIn(oad), FadeIn(ocl), run_time=0.5)
+        self.at(self.cue("süzer ve açar", 19.0))
+        self.play(FadeIn(stream, shift=RIGHT * 0.3), run_time=0.5)
+        self.play(stream.animate.shift(RIGHT * 0.6), *[s.animate.set_opacity(0.25) for s in stream[0::2]], GrowArrow(dsa), FadeIn(dst), run_time=0.8)
+        self.at(self.cue("yukarı yönde paketler", 23.9))
+        self.play(GrowArrow(usa), FadeIn(ust), run_time=0.6)
+        self.end(pad=0.05)
+
+        # c7 — ICTP between channel terminations
+        self.beat("c7")
+        self.clear(h)
+        h = self.show_heading("ICTP: kanal sonlandırıcıları arası", h)
+        cts = VGroup(*[ct_box(f"OLT CT {i + 1}", CH[i], 1.6, 0.5, 15) for i in range(4)]).arrange(DOWN, buff=0.22).move_to([-5.4, 0.45, 0])
+        bus = Line([-4.25, cts[0].get_y(), 0], [-4.25, cts[3].get_y(), 0], color=ICT, stroke_width=5)
+        taps = VGroup(*[Line(c.get_right(), [-4.25, c.get_y(), 0], color=ICT, stroke_width=3) for c in cts])
+        bl = T("ICTP", 20, ICT, BOLD).next_to(bus, DOWN, buff=0.15)
+        nonu = T("ONU yok", 15, MUTED, BOLD).next_to(cts, DOWN, buff=0.55)
+        pur = VGroup(*[tag(s, ICT, 16) for s in ("kanal profili yapılandırması · durum paylaşımı", "ONU aktivasyonu", "dalga boyu kanalı devri", "başıboş ONU'larla mücadele")])
+        for p in pur:
+            fit(p, 4.0)
+        pur.arrange(DOWN, aligned_edge=LEFT, buff=0.2).move_to([-3.7, 0.45, 0], aligned_edge=LEFT)
+        uc = ["Profil paylaşımı", "Sessiz başlatma", "İlk EqD seçimi", "İlk ONU doğrulama", "SN + ONU-ID", "ONU kimlik doğrulama", "Alloc-ID ataması",
+              "ONU devri", "Devir kapanışı", "ONU LOB azaltma", "Başarım", "Başıboş ONU", "Koruma / yük", "Yük paylaşımı"]
+        grid = VGroup(*[VGroup(RoundedRectangle(corner_radius=0.06, width=2.75, height=0.4, stroke_color=ICT, stroke_width=1.5, fill_color=PANEL, fill_opacity=1),
+                               VGroup(T(f"{i + 1}", 14, ICT, BOLD), T(s, 15, TXT)).arrange(RIGHT, buff=0.12)) for i, s in enumerate(uc)])
+        for g in grid:
+            fit(g[1], 2.55).move_to(g[0]).align_to(g[0], LEFT).shift(RIGHT * 0.1)
+        grid.arrange_in_grid(rows=7, cols=2, buff=(0.1, 0.08), flow_order="dr").move_to([3.75, 0.3, 0])
+        gl = T("Ek VI · Tablo VI.1: 14 kullanım durumu", 15, ICT, BOLD).next_to(grid, UP, buff=0.1)
+        oos = pill("protokolün kendisi kapsam dışı → BBF TR-352", MUTED, 17).move_to([1.2, -2.65, 0])
+        self.play(self.set_src("G.989.3 §6.1.4.4 · Ek VI (bilgilendirici)"), run_time=0.3)
+        self.at(self.cue("OLT kanal sonlandırıcıları arasındadır", 2.8))
+        self.play(LaggedStart(*[FadeIn(c, shift=RIGHT * 0.1) for c in cts], lag_ratio=0.15), FadeIn(nonu), run_time=0.8)
+        self.at(self.cue("ICTP", 9.2))
+        self.play(Create(bus), Create(taps), FadeIn(bl), run_time=0.6)
+        for k, (key, d) in enumerate((("Kanal profili yapılandırması", 9.6), ("ONU aktivasyonu", 13.7), ("dalga boyu kanalı devri", 15.0), ("başıboş ONU'larla", 18.0))):
+            self.at(self.cue(key, d))
+            self.play(FadeIn(pur[k], shift=RIGHT * 0.1), run_time=0.35)
+        self.at(self.cue("on dört kullanım durumu", 20.9))
+        self.play(FadeIn(gl), LaggedStart(*[FadeIn(g, shift=UP * 0.05) for g in grid], lag_ratio=0.06), run_time=1.3)
+        self.at(self.cue("kapsam dışı bırakır", 24.1))
+        self.play(FadeIn(oos, shift=UP * 0.1), run_time=0.5)
+        self.end(pad=0.05)
+
+        # c8 — inconsistent views: report, do not disrupt
+        self.beat("c8")
+        self.clear(h)
+        h = self.show_heading("ICTP kuralı: şüphede bozma", h)
+        p1 = apanel(4.6, 1.5, "PON arayüzünden görünüm", ACC)
+        p1.move_to([-3.3, 1.2, 0])
+        p2 = apanel(4.6, 1.5, "ICTP'den görünüm", ICT)
+        p2.move_to([3.3, 1.2, 0])
+        v1 = HX("ONU X → CT 1", 19, TXT, BOLD).move_to(p1[0]).shift(DOWN * 0.18)
+        v2 = HX("ONU X → CT 2", 19, TXT, BOLD).move_to(p2[0]).shift(DOWN * 0.18)
+        neq = T("≠", 48, WARN, BOLD).move_to([0, 1.1, 0])
+        ex = tag("örnek", MUTED, 14).next_to(neq, DOWN, buff=0.1)
+        ct = ct_box("OLT CT", OLTC, 1.8, 0.6, 18).move_to([0, -0.55, 0])
+        lk = VGroup(Line(p1.get_bottom(), ct.get_left() + UP * 0.1, color=MUTED, stroke_width=1.5), Line(p2.get_bottom(), ct.get_right() + UP * 0.1, color=MUTED, stroke_width=1.5))
+        oss = tile("OSS / EMS'e bildir", GOOD, 3.6, 0.6, 18, 0.2).move_to([-3.6, -1.75, 0])
+        bad = tile("PON'u bozabilecek eylem", WARN, 3.6, 0.6, 18, 0.12).move_to([3.6, -1.75, 0])
+        a1 = Arrow(ct.get_bottom() + LEFT * 0.2, oss.get_right() + UP * 0.1, buff=0.05, color=GOOD, stroke_width=3, tip_length=0.15)
+        a2 = DashedLine(ct.get_bottom() + RIGHT * 0.2, bad.get_left() + UP * 0.1, color=WARN, stroke_width=2)
+        bx = xmark(bad, WARN, 4, 0.02)
+        rule = pill("Şüphede kalındığında: hiçbir şeyi bozma", GOLD, 20).move_to([0, -2.85, 0])
+        self.play(self.set_src("G.989.3 Ek VI (bilgilendirici)"), run_time=0.3)
+        self.at(self.cue("sistem görünümleri çelişirse", 2.5))
+        self.play(FadeIn(p1), FadeIn(p2), FadeIn(v1), FadeIn(v2), run_time=0.6)
+        self.play(FadeIn(neq, scale=0.8), FadeIn(ex), run_time=0.4)
+        self.at(self.cue("kanal sonlandırıcısı çelişkiyi", 7.8))
+        self.play(FadeIn(ct), Create(lk), run_time=0.5)
+        self.at(self.cue("yönetim sistemine bildirir", 10.0))
+        self.play(GrowArrow(a1), FadeIn(oss, shift=LEFT * 0.1), run_time=0.5)
+        self.at(self.cue("bozabilecek eylemlerden kaçınır", 12.6))
+        self.play(Create(a2), FadeIn(bad), run_time=0.4)
+        self.play(Create(bx), run_time=0.4)
+        self.at(self.cue("hiçbir şeyi bozma", 19.0))
+        self.play(FadeIn(rule, shift=UP * 0.1), run_time=0.4)
+        self.end(pad=0.05)
+
+        self.note11("c9", [("1", "Önce sorunun hangi kanalda yaşadığını bulun", "Zamanlama, tahsis → gömülü alanlar · profiller, ayar → PLOAM · servis → OMCI.", "Bir:"),
+                           ("2", "AMCC ile keşif isteğe bağlı", "Kalibre edilmemiş ONU kullanıyorsanız OLT'nin bu seçeneği sunduğunu doğrulayın.", "İki:")])
+        self.bridge_beat("c10", "Kanallar hazır.\nAma mesajlar kime gidiyor? Kimlikler.")
+        self.save_timeline("ep11_p2C")

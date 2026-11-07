@@ -88,31 +88,47 @@ def ct_box(name, color=OLTC, w=1.3, h=0.5, size=16):
 
 
 # ---------- bit-exact field diagrams ------------------------------------------------
-def fields(spec, w, h=0.55, size=17, wsize=14, show_w=True, op=0.22, min_label=14, wpos=DOWN, unit=""):
+def fields(spec, w, h=0.55, size=17, wsize=14, show_w=True, op=0.22, min_label=14, wpos=DOWN, unit="", lpos=UP):
     """spec = [(label, n, color)] → VGroup of cells (VGroup(rect, label, width_label)), widths ∝ n, centred at origin.
-    Labels that do not fit inside at >= min_label size are placed above the cell."""
+    Labels that do not fit inside at >= min_label size are placed outside (lpos side, tiered, with leader lines)."""
     tot = sum(n for _, n, _ in spec)
     cells = VGroup()
     x = -w / 2
+    outside = []
     for lab, n, c in spec:
         cw = w * n / tot
         r = Rectangle(width=cw, height=h, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=op).move_to([x + cw / 2, 0, 0])
-        t = T(lab, size, TXT, BOLD) if lab else VGroup()
+        wl = T(f"{n}{unit}", wsize, c, BOLD).next_to(r, wpos, buff=0.07) if show_w else VGroup()
+        if show_w and wl.width > cw + 0.25:
+            wl.scale_to_fit_width(cw + 0.25)
+        t = VGroup()
         if lab:
+            t = T(lab, size, TXT, BOLD)
             if t.width > cw - 0.08:
                 sc = (cw - 0.08) / t.width
                 if sc * size >= min_label:
                     t.scale(sc)
                     t.move_to(r)
                 else:
-                    t = T(lab, min_label, c, BOLD).next_to(r, UP, buff=0.08)
+                    t = T(lab, min_label, c, BOLD)
+                    outside.append((t, r, c))
             else:
                 t.move_to(r)
-        wl = T(f"{n}{unit}", wsize, c, BOLD).next_to(r, wpos, buff=0.07) if show_w else VGroup()
-        if show_w and wl.width > cw + 0.25:
-            wl.scale_to_fit_width(cw + 0.25)
         cells.add(VGroup(r, t, wl))
         x += cw
+    # place outside labels in tiers
+    sgn = 1 if lpos[1] > 0 else -1
+    base = h / 2 + 0.12 + (0.3 if (show_w and np.allclose(wpos, lpos)) else 0)
+    last_right = {}
+    for t, r, c in outside:
+        tier = 0
+        while last_right.get(tier, -99) > r.get_x() - t.width / 2 - 0.06:
+            tier += 1
+        t.move_to([r.get_x(), sgn * (base + t.height / 2 + tier * 0.3), 0])
+        last_right[tier] = t.get_right()[0]
+        if tier > 0:
+            ln = Line([r.get_x(), sgn * h / 2, 0], [r.get_x(), t.get_y() - sgn * t.height / 2 - 0.03, 0], color=c, stroke_width=1.2)
+            t.add(ln)
     return cells
 
 

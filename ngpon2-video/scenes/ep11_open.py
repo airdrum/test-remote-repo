@@ -60,10 +60,11 @@ class Ep11Open(Act11):
         chain = ["paket", "XGEM", "FS", "FEC", "PHY"]
         ch = VGroup()
         for i, s in enumerate(chain):
-            ch.add(tile(s, [MUTED, SAC, FSC, PHC, PHC][i], 0.95, 0.44, 15, 0.15))
-        ch.arrange(RIGHT, buff=0.28).move_to([cx, PY - 1.95, 0])
-        arr = VGroup(*[Arrow(ch[i].get_right(), ch[i + 1].get_left(), buff=0.03, color=MUTED, stroke_width=2, tip_length=0.1, max_tip_length_to_length_ratio=0.5) for i in range(4)])
+            ch.add(tile(s, [MUTED, SAC, FSC, PHC, PHC][i], 0.85, 0.44, 15, 0.15))
+        ch.arrange(RIGHT, buff=0.24)
         ph = T("ışık", 16, GOLD, BOLD).next_to(ch, RIGHT, buff=0.15)
+        VGroup(ch, ph).move_to([cx, PY - 1.95, 0])
+        arr = VGroup(*[Arrow(ch[i].get_right(), ch[i + 1].get_left(), buff=0.03, color=MUTED, stroke_width=2, tip_length=0.1, max_tip_length_to_length_ratio=0.5) for i in range(4)])
         self.focus(0, VGroup(stack, rates, rl, ch, arr, ph))
         self.at(self.cue("üç alt katmanı", 1.3))
         self.play(LaggedStart(*[FadeIn(s, shift=DOWN * 0.1) for s in sl], lag_ratio=0.25), FadeIn(pmd), run_time=0.9)
@@ -284,18 +285,18 @@ class Ep11Recap(Act11):
         self.beat("a3")
         self.clear()
         q3 = self.qhead(3, "Acil durdurmadaki bir ONU, gücü kesilip geri gelince ne yapar?", CH[3])
-        o7 = sbox("O7 · Acil durdurma", None, WARN, 3.2, 0.8, 21).move_to([-3.6, 0.45, 0])
+        o7 = sbox("O7 · Acil durdurma", None, WARN, 3.2, 0.8, 21).move_to([-3.6, -0.15, 0])
         lp = VGroup(T("Tx", 16, MUTED, BOLD), lamp(False, 0.11)).arrange(RIGHT, buff=0.12).next_to(o7, DOWN, buff=0.15)
         l1 = CurvedArrow(o7.get_corner(UL) + RIGHT * 0.4, o7.get_corner(UR) + LEFT * 0.4, angle=-2.2, color=WARN, stroke_width=2.5, tip_length=0.14)
         l1t = T("yeniden başlatma · güç kesintisi", 16, WARN, BOLD).next_to(l1, UP, buff=0.08)
-        scan_y = -1.2
+        scan_y = -1.75
         chs = VGroup(*[VGroup(Line([0, -0.3, 0], [0, 0.3, 0], color=CH[i], stroke_width=5), T(f"λ{i + 1}", 15, CH[i], BOLD)) for i in range(4)])
         for c in chs:
             c[1].next_to(c[0], DOWN, buff=0.06)
         chs.arrange(RIGHT, buff=0.55).move_to([-3.6, scan_y, 0])
         cur = SurroundingRectangle(chs[0], color=GOLD, buff=0.08)
         scl = T("kanalları tarar", 16, GOLD, BOLD).next_to(chs, LEFT, buff=0.3)
-        bx0, by0 = 0.6, -2.2
+        bx0, by0 = 0.6, -2.75
         bars = VGroup()
         labs = ["Tseek", "2·Tseek", "4·Tseek", "8·Tseek"]
         for i, s in enumerate(labs):
@@ -304,8 +305,8 @@ class Ep11Recap(Act11):
             bars.add(VGroup(r, T(s, 14, GOLD, BOLD).next_to(r, DOWN, buff=0.08)))
         dots = T("…", 24, GOLD, BOLD).move_to([bx0 + 4 * 1.1 - 0.2, by0 + 0.3, 0])
         cap = tag("≈ 1 dk", GOLD, 18).move_to([bx0 + 5 * 1.1 - 0.1, by0 + 0.35, 0])
-        bt = T("her başarısız turda bekleme ×2", 17, GOLD, BOLD).move_to([2.9, -0.15, 0])
-        rel = Arrow([6.3, 0.45, 0], o7.get_right(), buff=0.08, color=GOOD, stroke_width=3, tip_length=0.18, max_tip_length_to_length_ratio=0.1)
+        bt = T("her başarısız turda bekleme ×2", 17, GOLD, BOLD).move_to([2.9, -0.7, 0])
+        rel = Arrow([6.3, o7.get_y(), 0], o7.get_right(), buff=0.08, color=GOOD, stroke_width=3, tip_length=0.18, max_tip_length_to_length_ratio=0.1)
         rlt = T("yalnızca OLT: yeniden etkinleştirme komutu", 17, GOOD, BOLD).next_to(rel, UP, buff=0.1)
         s2 = pill("→ Sezon 2", ACC, 20).move_to([5.3, 2.2, 0])
         self.play(FadeIn(q3, shift=RIGHT * 0.2), self.set_src("G.989.3 Tablo 12-1 (O7) · Ek XI (Amd.1, 2023) · §11.3.3.5"), run_time=0.6)
