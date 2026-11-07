@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b7685ee04cb_0.wav",
+   "duration": 17.532,
+   "text": "Sezon iki, bölüm altı: Uyanış. Fişe takılan bir ONU sessizdir: vericisi kapalı, kimliği yok, ve OLT'ye ne kadar uzak olduğunu bilmiyor. Bu bölümde onun ilk sözünden ilk veri burst'üne kadar olan yolu, mesaj mesaj ve zamanlayıcı zamanlayıcı izliyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "bf69f986e92_0.wav",
+   "duration": 8.171,
+   "text": "Önce durum makinesi: durumlar, zamanlayıcılar, her geçişte neyin unutulduğu, ve iki değişikliğin makinede düzelttikleri.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b8668e538ed_0.wav",
+   "duration": 10.485,
+   "text": "Sonra seri numarası ve kimlik: keşif, rastgele gecikme, hata ayıklama kodları, kimlik atama, iki kısa yol, ve bir ONU'yu susturmak.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b091fad7f24_0.wav",
+   "duration": 9.931,
+   "text": "Ardından ranging: sessiz pencereler, eşitleme gecikmesinin hesabı ve doğruluğu, kayma eşikleri, ve kanal değiştiren bir ONU'nun zamanı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b2b3451bde4_0.wav",
+   "duration": 9.557,
+   "text": "Sonra günün saati: OLT'nin her ONU'ya saati nasıl söylediği, nanosaniyelik bir hata bütçesi, ve metindeki hatalar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b1ce16cde8f_0.wav",
+   "duration": 11.701,
+   "text": "Laboratuvarda aktivasyon süresini, ranging doğruluğunu, sessiz pencerenin bedelini, kaymayı, günün saatini ve acil durdurmanın güç kesintisinden sağ çıkışını ölçeceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 67.38
+}

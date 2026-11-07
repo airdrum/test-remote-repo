@@ -1,0 +1,28 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "bdeef4d5c7e_0.wav",
+   "duration": 25.133,
+   "text": "Geçen bölümün soruları. Birinci soru: yayın bir kanal profilinin bütünlük kodu, varsayılan PLOAM bütünlük anahtarıyla doğrulanır: on altı baytın her biri on altılık tabanda beş beş. Hesaba önce yön baytı girer, aşağı yön için bir, sonra mesajın ilk kırk baytı: kırk bir bayt. AES-CMAC çıkışı altmış dört bite kesilir, ve mesajın son sekiz baytında durur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a2",
+   "file": "b178cc44954_0.wav",
+   "duration": 30.189,
+   "text": "İkinci soru: boştaki bir ONU'ya N numaralı çerçevede gelen yönlendirilmiş mesajın cevabı, en geç N artı altıncı yukarı yön çerçevesinde hazırdır: yedi yüz elli mikrosaniyelik normatif işleme süresi. Cevap aşağı yön sıra numarasını yansıtır. ONU hâlâ işlerken ve kuyruğu boşken tahsis gelirse, kodu iki olan bir onay gönderir: meşgul, cevap hazırlanıyor. Hiç işi yoksa sıra numarası sıfır, kodu bir olan bir onay.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a3",
+   "file": "bb041a8e566_0.wav",
+   "duration": 22.684,
+   "text": "Üçüncü soru: zayıflatması sıfır olan bir ONU'ya gücü artır komutu gelirse? ONU zaten sınırdadır, ve isteği yerine getirmez. Tamamlama kodu dört, yani parametre hatası olan bir onayla cevap verir, ve onayda o anki zayıflatmasını bildirir: sıfır. Güç dengelemenin aktivasyondaki yüzünü bu bölümde göreceğiz. Şimdi bu bölüme.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 78.01
+}

@@ -1,0 +1,84 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "bf282359e90_0.wav",
+   "duration": 24.291,
+   "text": "Laboratuvarda. Düzenek: ODN'i bir ayırıcıdan dinleyen bir protokol analizörü, bir OLT emülatörü, gerçek bir ONU, bir trafik üreteci, sıfır, on ve yirmi kilometrelik fiber makaraları, bir OTDR, bir güç ölçer ve bir zaman aralığı sayacı. Standart burada test yöntemi vermez; ölçütler standarttandır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "bd03a6d6ef8_0.wav",
+   "duration": 22.904,
+   "text": "İlk test: bir aktivasyonun merdiveni. Analizörde sırayı doğrulayın: profiller, seri numarası tahsisi, kimliği bin yirmi üç olan seri numarası mesajı, kimlik atama, varsayılan tahsis kimliğine ranging tahsisi, kayıt, mutlak eşitleme gecikmesi ve onay. Aktivasyon mesajlarının bütünlük kodları varsayılan anahtarla tutmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b18455c7f16_0.wav",
+   "duration": 24.109,
+   "text": "İkinci test: aktivasyon süresi, aşağı yön ışığından eşitleme gecikmesinin onayına kadar. Standartta hedef yoktur; süreyi senkron, profil öğrenme, keşif ve ranging olarak bölün. Alt sınırlar metinden gelir: bir ile beş saniyelik profil aralığı, en az on saniyelik profil bekleme süresi, ve OLT'nin seçtiği tahsis aralığı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "b34dff78d72_0.wav",
+   "duration": 22.115,
+   "text": "Üçüncü test: yanıt süresi. Neredeyse sıfır fiberle ve sıfır eşitleme gecikmesiyle, kayıt burst'ünün varışından başlangıç zamanını çıkarın: kalan, yanıt süresi artı iki kez bağlantı kablosunun gecikmesidir. Otuz dört ile otuz altı mikrosaniye arasında olmalı, ve ONU'nun OMCC üzerinden bildirdiği değerle uyuşmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "b1afe9159bc_0.wav",
+   "duration": 24.081,
+   "text": "Dördüncü test: fiber uzunluğuna karşı ranging. Makaraları sırayla takıp eşitleme gecikmesini okuyun: bizim hesabımızla kilometre başına yaklaşık yirmi dört bin dört yüz bit azalmalıdır. Formülün mesafesini OTDR ile karşılaştırın; yirmi kilometrede fark iki yüz metre içinde kalmalıdır. OLT'de burst'ün fazı üç virgül iki nanosaniye içinde olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "b97fa5db6fe_0.wav",
+   "duration": 26.019,
+   "text": "Beşinci test: sessiz pencerenin bedeli. Trafik üreteciyle çalışan ONU'ları yükleyin, ve keşif pencereleri açın. Pencereye hiçbir burst düşmemelidir. Yukarı yön veriminde, seri numarası tahsisi başına yirmi kilometrede iki, kırk kilometrede üç virgül altı çerçevelik bir çukur görülmelidir. Gecikmeye duyarlı T-CONT'larda gecikme sıçramasını da ölçün.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "bc304b6252e_0.wav",
+   "duration": 23.267,
+   "text": "Altıncı test: kayma enjeksiyonu. Emüle edilmiş bir ONU'nun burst'ünü bit bit kaydırın, ya da fiberi ısıtın. Kayma iki buçuk gigabitte sekiz, on gigabitte otuz iki biti aşınca göreli bir eşitleme gecikmesi mesajı gelmelidir. On altı ya da altmış dört biti aşan kayma üç düzeltmeden sonra sürerse, OLT iletim girişimi uyarısı vermelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "bb334c7ef24_0.wav",
+   "duration": 25.411,
+   "text": "Yedinci test: zamanlayıcılar. Eşitleme gecikmesini vermeyin: önerilen on saniye sonra ONU seri numarası durumuna, dokuz koduyla dönmelidir. O5'teki bir ONU'ya hiç tahsis vermeyin: tam on saniye sonra yeniden aktive olmalıdır, kendine ait bir kod olmadan. Sonra aşağı yön ışığını kısa kısa kesin: TO6 her dönüşte sıfırlanmamalı, kaldığı yerden devam etmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g9",
+   "file": "b1329cb80a3_0.wav",
+   "duration": 27.224,
+   "text": "Sekizinci test: günün saati. ONU'nun saniye darbesini OLT'nin referansına karşı bir zaman aralığı sayacıyla ölçün, sıfır, yirmi ve kırk kilometrede. Yirmi kilometrede hata genel durumda dokuz virgül dört, sabit eşleşmede üç virgül iki nanosaniyenin altında olmalıdır. ONU'ya bilerek yanlış bir oran verin: hata en çok yakın ONU'da büyümelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g10",
+   "file": "baf05d12e91_0.wav",
+   "duration": 20.775,
+   "text": "Dokuzuncu test: acil durdurma. Bir seri numarasını iki yüz elli beşle engelleyin, ONU'nun gücünü kesip açın, ve güç ölçerle karanlık kaldığını doğrulayın. Sıfırla serbest bırakınca ONU yeniden aktive olmalı, ve mesajı beş kodunu taşımalıdır. Altmış üçü yalnızca seri numarası durumundaki bir ONU'da deneyin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g11",
+   "file": "bb1cfb1d2c3_0.wav",
+   "duration": 19.068,
+   "text": "Laboratuvar notu. Bir: her aktivasyonu tam kaydedin; hata ayıklama kodu, zamanlayıcı süreleri ve eşitleme gecikmesi aynı satırda dursun. İki: değeri standartta olmayan her zamanlayıcıyı kendi ölçümünüzle belgeleyin; birlikte çalışabilirlik testinde ilk soru bunlar olacaktır.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 259.26
+}
