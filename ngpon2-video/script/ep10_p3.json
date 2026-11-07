@@ -1,0 +1,64 @@
+{
+ "title": "B10 Perde 3 — Uyumluluk: test matrisi",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: uyumluluk. Bu sezon G.989.2'nin neredeyse her tablosunu ekrana getirdik. Şimdi hepsini tek bir test matrisinde topluyoruz. Sayalım: ana metinde on dokuz, eklerde yirmi üç, toplam kırk iki normatif tablo; buna ek olarak şekillerin içine gömülü altı parametre seti."
+  },
+  {
+   "id": "d2",
+   "text": "Ana metnin tabloları dört grupta toplanır. ODN: altıncı maddedeki yol kaybı ve mesafe sınıfları, ve basit bir ODN'nin fiziksel parametreleri. Dalga boyu: bantlar ve aşağı yön frekans planı. Ayar: ayar süresi sınıfları. Seçicilik: onuncu maddedeki iki X bölü S tablosu."
+  },
+  {
+   "id": "d3",
+   "text": "Ve çekirdek: dört arayüz tablosu. İki buçuk ve on gigabit, aşağı ve yukarı yön. Her biri bir vericiyi ve karşı uçtaki alıcıyı birlikte tanımlar: aşağı yön tabloları OLT vericisi ile ONU alıcısını, yukarı yön tabloları ONU vericisi ile OLT alıcısını. Yanlarında on gigabitlik ONU vericisinin izin verilen bölge tabloları, iki göz maskesi tablosu, titreşim üretimi ve yukarı yön ek yükü tabloları durur."
+  },
+  {
+   "id": "d4",
+   "text": "Eklerdeki yirmi üç tablo PtP WDM'e aittir. A ekinde hat hızı sınıfları, üç sınıfın aşağı ve yukarı yön tabloları, göz maskesi ve titreşim. B ekinde iki AMCC tablosu. C ekinde düşük kayıplı ODN sınıfları, altı arayüz tablosu, göz maskesi ve üç titreşim tablosu. Güç dengelemeyi tanımlayan D ekinde ise hiç tablo yoktur; sayılar metnin içindedir."
+  },
+  {
+   "id": "d5",
+   "text": "Şimdi bu tabloları test bloklarına dönüştürelim. OLT vericisi: sınıfa göre başlatma gücü, artı eksi yirmi gigahertzlik spektral sapma, sekiz virgül iki desibellik sönüm oranı, otuz desibellik yan mod bastırma, bant dışı, kanal dışı ve karanlık güç spektral yoğunlukları, göz maskesi ve titreşim üretimi."
+  },
+  {
+   "id": "d6",
+   "text": "ONU alıcısı: referans hata oranında hassasiyet ve aşırı yük, yol cezası, bant içi karışma, yetmiş iki bitlik ardışık özdeş rakam bağışıklığı, titreşim toleransı ve aktarımı, beş gigahertzlik ayar adımı ve ayar sınıfı, ve X, Y, Z girişimcileriyle dar bant X bölü S toleransı."
+  },
+  {
+   "id": "d7",
+   "text": "ONU vericisi: A ve B tipi burst başlatma gücü, on gigabitte güç ve sönüm oranı çiftlerinin izin verilen bölgesi, kanal aralığına göre spektral sapma, ayar penceresi ve kanal aralığının yirmide biri kadar ayar adımı, ayar süresi sınıfı, dalga boyuna bağlı güç değişimi, verici açma ve kapama süresi, karanlık güç, ve burst boyunca göz maskesi."
+  },
+  {
+   "id": "d8",
+   "text": "OLT burst alıcısı: dört kanal açıkken A ve B tipi hassasiyet ve aşırı yük, Raman dahil yol cezası, bant içi karışma, S artı yirmi desibellik girişimcilerle X bölü S toleransı, ve önsöz süresi içinde burst edinimi. Bunlara güç dengeleme adımlarını, izleme doğruluğunu ve PtP WDM tablolarını ekleyin: matris tamamdır."
+  },
+  {
+   "id": "d9",
+   "text": "Ölçüm koşulları da tablolar kadar bağlayıcıdır. Bütün değerler en kötü işletme koşullarında, sıcaklık, nem ve yaşlanma dahil, en kötü yol kaybında ve en kötü kromatik dispersiyonda, bir referans hata oranına göre sağlanmalıdır. Sönüm oranı bir referans bant geçiren filtreden sonra ölçülür; yan mod bastırma ise herhangi bir filtrelemeden önce, doğrudan lazer çıkışında."
+  },
+  {
+   "id": "d10",
+   "text": "İki ölçüm noktasına dikkat edin. On birinci ekin notlarına göre S/R-CG noktasındaki hassasiyet, dört kanal birden çalışırken ama fiber olmadan ölçülür. S/R-CP noktasındaki hassasiyet ise başka kanal olmadan ve fiber olmadan ölçülür. Aynı alıcının iki farklı sayısı olabilir, ve ikisi de doğrudur."
+  },
+  {
+   "id": "d11",
+   "text": "Sürüm takibi de matrisin parçasıdır. İki bin on dokuzdan bu yana tablo değerlerinde tek bir düzeltme var: birinci düzeltmede, onuncu maddedeki ONU tablosunun Y satırı, S artı altıdan S artı yediye çıktı. İki bin yirmideki birinci değişiklik yalnızca D ekinin metnine dokunur: bir kanal dışı güç örneği düzeltilir, ve on iki desibellik dengelemenin yan mod bastırmayı elli desibelden otuz sekize gevşettiği yeni bir örnek eklenir."
+  },
+  {
+   "id": "d12",
+   "text": "Bir uyarı daha: altıncı maddeye göre, on birinci maddedeki güç spektral yoğunluğu değerleri dört kanal ve yirmi kilometre için optimize edilmiştir; sekiz kanal ve kırk kilometre için çalışma sürmektedir. Sekiz kanallı bir sistemi test ederken bu satırlar kesin bir sınır değil, bir başlangıç noktasıdır."
+  },
+  {
+   "id": "d13",
+   "text": "Mühendis notu. Bir: matrisi tablo numarasıyla değil, ölçüm düzeneğiyle gruplayın; aynı OSA ölçümü spektral sapmayı, yan mod bastırmayı ve kanal dışı gücü birlikte verir. İki: yüksek yol cezasıyla çalışan sistemlerde, tablo notlarının önerdiği gibi, gerçek yol cezasını bant içi karışmaya maruz bir alıcıyla, birlikte çalışabilirlik testinde ölçün."
+  },
+  {
+   "id": "d14",
+   "text": "Sıradaki: tablolar tamam. Şimdi onları tek bir cihazın ömrüne yerleştirelim."
+  }
+ ]
+}

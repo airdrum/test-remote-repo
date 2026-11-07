@@ -1,0 +1,56 @@
+{
+ "title": "B09 Laboratuvarda — PtP WDM ve AMCC ölçümleri",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Üç düzenek kuruyoruz: PtP WDM verici doğrulaması, alıcı bütçesi ve AMCC. Önce verici. Ortalama başlatma gücü, OLT için S/R-CG noktasında, yani çoğullayıcıdan sonra, ONU için R/S noktasında ölçülür. TWDM'den farklı olarak burst düzeltmesi gerekmez; PtP sinyali süreklidir."
+  },
+  {
+   "id": "g2",
+   "text": "Sönüm oranı: kanal, G.959.1'in referans bant geçiren filtresiyle yalıtılır, sonra G.957'nin düzeneğiyle ölçülür. En az sekiz virgül iki desibel; C ekinin üçüncü sınıfında altı. AMCC açıkken mi kapalıyken mi ölçüleceği yazılmamıştır; biz en kötü durumu, AMCC açıkken ölçmeyi öneriyoruz."
+  },
+  {
+   "id": "g3",
+   "text": "Yan mod bastırma OSA ile, ONU'da lazer çıkışında, filtrelemeden önce ölçülür: en az otuz desibel. Bant dışı ve kanal dışı güç yoğunlukları on beş gigahertzlik bir bantta toplanır; bin altı yüz on nanometrede bu yaklaşık sıfır virgül on üç nanometredir. Kanal dışı maske, verici spektral sapma aralığının her yerinde sağlanmalıdır."
+  },
+  {
+   "id": "g4",
+   "text": "Dalga boyu: bir dalga boyu ölçerle ya da OSA ile, çoğullayıcının ızgarasına göre sapma ölçülür. Elli gigahertz aralıkta sınır artı eksi on iki virgül beş gigahertz, ayar adımı iki virgül beş gigahertzdir. Ayar sırasında bant dışı ve kanal dışı gücü zaman çözümlü izleyin; tablolar ayar süresince de geçerlidir."
+  },
+  {
+   "id": "g5",
+   "text": "İkinci düzenek: alıcı bütçesi. Hata oranı test cihazı, ayarlı zayıflatıcı, gerekirse çoğullayıcı, ve yirmi ya da kırk kilometrelik fiber. Referans hata oranı FEC'siz on üzeri eksi on iki; FEC'li birinci ve ikinci sınıfta on üzeri eksi dört, üçüncü sınıfta on üzeri eksi üç. Yetmiş iki bitlik ardışık özdeş rakam bağışıklığı ve karıştırılmış NRZ varsayılır."
+  },
+  {
+   "id": "g6",
+   "text": "Yol cezasını, fiberli hassasiyet ile arka arkaya hassasiyetin farkı olarak ölçün. Ceza değerleri kırk kilometreye kadar ve paylaşılan spektrum için geçerlidir; genişletilmiş spektrumda Raman'a bağlı ceza uygulamaya göre belirlenir. Sonra bütçeyi kapatın: en küçük güç eksi hassasiyet, en büyük yol kaybı artı cezaya eşit ya da ondan büyük olmalıdır."
+  },
+  {
+   "id": "g7",
+   "text": "Titreşim toleransı burada TWDM'den kolaydır. TWDM'de OLT'nin titreşim toleransı bilgilendiricidir, çünkü sürekli bir yukarı yön gerektirir. PtP'de yukarı yön zaten süreklidir; OLT testi doğrudan yapılabilir. Ölçüt yine bir desibellik güç cezasına yol açan sinüzoidal titreşim genliğidir."
+  },
+  {
+   "id": "g8",
+   "text": "Üçüncü düzenek: AMCC. Taban bant üst modülasyonunda, yük hızının çok altında bant genişliğine sahip, doğru akım kuplajlı bir dedektörle zarfı okuyun: en büyük, en küçük ve ortalama güç. İndeks, en büyük eksi en küçük bölü ortalama çarpı yüzdür; hedef yüzde on, dikdörtgen darbelerle saniyede yüz on beş kilobit."
+  },
+  {
+   "id": "g9",
+   "text": "Pilot tonda ölçüm elektriksel arayüzdedir: sürücü girişinde AMCC'nin ve yükün tepeden tepeye gerilimlerini ölçün, ya da bir spektrum analizöründe beş yüz kilohertzlik çizgiyi izleyin. Hedef yine yüzde on, saniyede yüz yirmi sekiz kilobit."
+  },
+  {
+   "id": "g10",
+   "text": "Ve standardın tanımlamadığı ölçüm: AMCC cezası. Yükün hassasiyetini referans hata oranında, AMCC kapalıyken ve açıkken ölçün; fark AMCC cezasıdır. Aynı anda AMCC'nin kendi bağlantısını da doğrulayın: AMCC senkronu sağlanmalı, ve yönetim kanalı kaybı göstergesi temiz kalmalıdır."
+  },
+  {
+   "id": "g11",
+   "text": "Son olarak yansımalar: geri dönüş kaybı en az otuz iki desibel, ONU vericisinin yansıtıcılığı en çok eksi altı, alıcılarınki en çok eksi yirmi desibel; vericinin yansıyan güce toleransı eksi on beş desibel. ODN'deki ayrık yansımalar eksi otuz beş desibelin altında olmalıdır."
+  },
+  {
+   "id": "g12",
+   "text": "Laboratuvar notu. Bir: PtP bütçesinde pay yoktur; ölçtüğünüz her desibel ya verici gücünden ya da tasarım payından gelir. İki: AMCC indeksini yüzde on sanmayın, ölçün. İndeks, hem yükün cezasını hem de AMCC'nin kendi hata oranını belirler."
+  }
+ ]
+}

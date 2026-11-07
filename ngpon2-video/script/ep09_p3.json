@@ -1,0 +1,68 @@
+{
+ "title": "B09 Perde 3 — AMCC",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: yardımcı yönetim ve denetim kanalı, AMCC. B eki standardın bağlayıcı bir parçasıdır, ve AMCC, PtP WDM kanallarında uygulanması zorunlu bir işlevdir. Amacı dalga boyu atama bilgisini ve işletme verisini taşımaktır. AMCC her dalga boyuna ayrı ayrı, aşağı ve yukarı yönde eklenir."
+  },
+  {
+   "id": "d2",
+   "text": "Sorun şudur: PtP WDM sistemi çoğu zaman bir yük bit akışını, çerçeve yapısının hiçbir parçasını sonlandırmadan, şeffaf taşımak zorundadır. On gigabitlik Ethernet'in ya da CPRI'ın içine bir yönetim baytı yazamazsınız. Çözüm, AMCC'yi aynı dalga boyunda, yük verisiyle yalnızca küçük bir girişim yapacak biçimde yükün üstüne eklemektir. Buna şeffaf AMCC denir."
+  },
+  {
+   "id": "d3",
+   "text": "Şeffaf AMCC'nin iki yöntemi vardır. Birincisi taban bant üst modülasyonu: yük bit akışının genlik modülasyonunun üstüne bindirilen, düşük frekanslı bir genlik modülasyonu. Tablo B bir'in değerleri: nominal hız saniyede yüz on beş kilobit, modülasyon indeksi yüzde on, darbe şekli dikdörtgen. Bunlar optik arayüz parametreleridir."
+  },
+  {
+   "id": "d4",
+   "text": "Modülasyon indeksi, üst modüle edilmiş sinyalin zarfı üzerinden tanımlanır: en büyük güç eksi en küçük güç, bölü ortalama güç, çarpı yüz. Yüzde on, simetrik bir zarfta ortalamanın yüzde beş üstü ve yüzde beş altı demektir; yaklaşık artı eksi sıfır virgül iki desibel. Alıcıda örnek bir algılama: algılanan sinyali alçak geçiren filtreden geçirip, yükseltip, basit bir eşik algılayıcısına vermek."
+  },
+  {
+   "id": "d5",
+   "text": "İkinci yöntem RF pilot tonu: düşük taşıyıcı frekanslı, düşük indeksli bir genlik modülasyonlu sinyal, yük sinyaline elektriksel alanda eklenir. Tablo B iki'nin değerleri: saniyede yüz yirmi sekiz kilobit, yüzde on modülasyon indeksi, beş yüz kilohertz taşıyıcı. Dikkat: bu tablo elektriksel arayüz parametreleridir; indeks, AMCC'nin ve yükün tepeden tepeye gerilimlerinin oranıdır."
+  },
+  {
+   "id": "d6",
+   "text": "Pilot tonun algılanması için örnek: bant geçiren filtreleme, aşağı çevirme ve sembol kararı yapan basit bir sayısal sinyal işleme. Beş yüz kilohertzlik taşıyıcıda saniyede yüz yirmi sekiz kilobit, bit başına yaklaşık dört taşıyıcı çevrimi demektir."
+  },
+  {
+   "id": "d7",
+   "text": "Ölçek duygusu için: on virgül üç gigabitlik bir yükün üstünde saniyede yüz on beş kilobit, yaklaşık doksan binde birlik bir fısıltıdır. Ama bu fısıltı bedava değildir, ve standardın en ilginç boşluklarından biri buradadır: B eki, AMCC'nin yol açtığı bir güç cezası vermez. Modülasyon indeksi için bir tolerans, bir ölçüm yöntemi ya da bir spektral maske de yoktur."
+  },
+  {
+   "id": "d8",
+   "text": "A ve C eklerindeki yol cezası notlarının hiçbiri AMCC'den söz etmez. Yani AMCC'nin bedeli bütçede bir satır olarak değil, tasarım payından ödenir. Kaba bir fikir vermek için, ve bu standardın değil bizim tahminimizdir: yüzde onluk bir modülasyon, karar eşiğine ve yönteme bağlı olarak, yaklaşık sıfır virgül iki ile sıfır virgül beş desibel arasında bir göz kapanması yaratabilir."
+  },
+  {
+   "id": "d9",
+   "text": "Üçüncü bir yol daha var: kod dönüştürmeli AMCC. Sistem yük kodlamasını bir biçimden diğerine çeviriyorsa, AMCC verisi kod dönüşümünün içinde taşınabilir. Bu G.989.2'de değil, G.989.3'ün G ekinde tanımlanır. İşte TC köprüsü."
+  },
+  {
+   "id": "d10",
+   "text": "TC köprüsü. G.989.3'ün E eki AMCC'nin mantıksal katmanını tanımlar: WDM bindirme kanallarında zorunlu, TWDM kanallarında isteğe bağlı. PtP WDM'de kullanıcı verisi ile işletme verisi TC katmanında ayrıdır; kullanıcı verisine TC katmanı dokunmaz. Şeffaf modda PMD'nin iki ayrı arayüzü vardır: veri A ya da C ekine göre, AMCC ise B ekine göre."
+  },
+  {
+   "id": "d11",
+   "text": "AMCC'nin kendi çerçevesi vardır. TWDM'deki yirmi dört baytlık fiziksel senkron bloğu aynen kullanılır; ardından altmış dört bitlik bir başlık gelir: PLOAM sayısı, yük uzunluğu, süper çerçeve sayacı kayması, gösterge bitleri ve HEC. Gösterge bitlerinden biri kanalın meşgul olduğunu, biri yönetim kanalının kaybını bildirir. Sonra PLOAM mesajları, yük ve dört baytlık bir BIP kuyruğu gelir."
+  },
+  {
+   "id": "d12",
+   "text": "Zaman ölçeğine dikkat. Bir PLOAM mesajı taşıyan en küçük çerçeve seksen dört bayttır; saniyede yüz on beş kilobitte bu yaklaşık beş virgül sekiz milisaniye sürer. TWDM'de çerçeve yüz yirmi beş mikrosaniyedir; burada süper çerçeve sayacı yalnızca bir zaman tabanıdır, ve çerçeve süresi esnektir. Üç kötü çerçeve kuralı, bu çerçeve boyunda yaklaşık on yedi milisaniye eder."
+  },
+  {
+   "id": "d13",
+   "text": "Kod dönüştürmeli modda tablo değişir. Sekiz bit on bit kodlu servislerde otuz iki bit otuz dört bit kod dönüşümü yapılır, ve RS iki yüz elli, iki yüz yirmi bir koduyla korunan çerçeve, orijinal kodla aynı uzunlukta, yani aynı hat hızında kalır. Altmış dört bit altmış altı bit kodlu servislerde ise her kod sözcüğüne bir işletme biti gömülür; on gigabitte bu, saniyede yaklaşık beş megabit eder. Şeffaf AMCC'nin kırk katı kadar."
+  },
+  {
+   "id": "d14",
+   "text": "Mühendis notu. Bir: AMCC'yi bütçenize kendiniz yazın, standart yazmaz. Alıcı hassasiyetini AMCC açıkken ve kapalıyken ölçün; fark, sizin AMCC cezanızdır. İki: sönüm oranını AMCC açıkken ölçün; standart bunu söylemez, ama en kötü durum odur. Üç: PtP WDM ONU'sunun durum makinesinde mesafe ölçüm durumu yoktur; iki yön de sürekli olduğu için burst zamanlaması gerekmez."
+  },
+  {
+   "id": "d15",
+   "text": "Sıradaki: A ekinin ağacı paylaşılan bir güç ayırıcıydı. Ya ağaç bir AWG ise?"
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "title": "B09 Kapanış",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölüm dokuzun özeti. Bir: PtP WDM, her ONU'ya kendi sürekli dalga boyu çiftini verir. Paylaşılan spektrumda bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasındadır, ve TWDM'den en az üç nanometre ya da yüz gigahertzlik bir koruma bandıyla ayrılır. İki: A ekinde üç hız sınıfı vardır, ve ODN sınıfını iki yönde de OLT taşır."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: FEC'i PMD eklemez; FEC sütunları istemci protokolüne ya da kod dönüştürmeye dayanır. Dört: AMCC PtP WDM kanallarında zorunludur: saniyede yüz on beş kilobitlik üst modülasyon ya da yüz yirmi sekiz kilobitlik pilot ton, ikisi de yüzde on indeksle; cezası tanımlı değildir. Beş: C eki, AWG'li, düşük kayıplı, on altı kanallı başka bir tasarım noktasıdır."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: A eki tablolarında ODN sınıfı büyüdükçe hangi parametreler değişir, hangileri değişmez? İkinci soru: taban bant üst modülasyonunda yüzde onluk modülasyon indeksi nasıl tanımlanır, ve zarfta kaç desibellik bir dalgalanma demektir? Üçüncü soru: TWDM ONU'sunun gördüğü Y girişimcisi neden S artı yedi desibeldir? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm, sezon finali: Sahaya İniş. İzleme, koruma, uyumluluk, ve baştan sona bir ONU'nun hayatı. Görüşmek üzere."
+  }
+ ]
+}

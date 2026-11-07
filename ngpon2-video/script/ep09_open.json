@@ -1,0 +1,32 @@
+{
+ "title": "B09 açılış",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm dokuz: Özel Hat. Bu bölümde NG-PON2'nin ikinci yüzüne bakıyoruz: paylaşılan TWDM kanalları yerine, her aboneye kendi dalga boyu çiftini veren noktadan noktaya WDM."
+  },
+  {
+   "id": "o2",
+   "text": "Önce mimari ve spektrum: dalga boyunu ONU'nun seçtiği sistem ile ağın yönlendirdiği sistem arasındaki fark, ve paylaşılan ile genişletilmiş bant."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra A ekinin tabloları: üç hat hızı sınıfı, FEC'li ve FEC'siz bütçeler, ve sınıf farkını kimin taşıdığı."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından yardımcı yönetim ve denetim kanalı, AMCC: on gigabitlik bir hattın üstüne binen, saniyede yüz on beş kilobitlik bir fısıltı."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra C ekindeki düşük kayıplı PtP WDM, ve TC köprüsünde AMCC'nin çerçevesi ile kod dönüştürme."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda PtP vericisini, alıcı bütçesini, modülasyon indeksini ve AMCC'nin bedelini ölçeceğiz."
+  }
+ ]
+}

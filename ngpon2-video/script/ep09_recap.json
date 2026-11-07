@@ -1,0 +1,20 @@
+{
+ "title": "B09 Önceki bölümde",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: noktadan noktaya WDM kanalları neden TWDM'den farklı bir banda yerleştirilir? Çünkü her PtP kanalı tek bir aboneye aittir ve sürekli çalışır; TWDM'in paylaşılan, burst'lü kanallarıyla karışmamalıdır. Standart iki ailenin iç içe geçmesini yasaklar, ve aralarına en az üç nanometre ya da yüz gigahertzlik bir koruma bandı koyar. Paylaşılan spektrumda PtP WDM, bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasındadır."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: AMCC nedir ve neden gereklidir? PtP WDM hattı çoğu zaman bir istemci sinyalini, örneğin on gigabitlik Ethernet'i ya da CPRI'ı, çerçevesine dokunmadan taşır. Dalga boyu ataması ve işletme bilgisi için ayrı bir kanal gerekir. AMCC, aynı dalga boyunun üstüne düşük hızlı, düşük modülasyon indeksli bir yönetim kanalı ekler, ve PtP WDM kanallarında zorunludur."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: düşük kayıplı PtP WDM neden ayrı bir ekte tanımlanır? Çünkü başka bir ağa dayanır: dalga boyu seçimi ONU'da değil, dallanma düğümündeki bir AWG'de yapılır. Daha düşük kayıp sınıfları, daha fazla kanal ve farklı girişim varsayımları, A ekinin tablolarını o ağ için geçersiz kılar. Şimdi bu bölüme."
+  }
+ ]
+}

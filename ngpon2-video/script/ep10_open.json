@@ -1,0 +1,32 @@
+{
+ "title": "B10 açılış",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm on: Sahaya İniş. Sezon finali. Dokuz bölüm boyunca G.989.2'nin tablolarını tek tek açtık; bu bölümde onları sahaya taşıyoruz."
+  },
+  {
+   "id": "o2",
+   "text": "Önce izleme: bir ONU ve bir OLT kendi optik durumunu nasıl ölçer, ve bu ölçümlere ne kadar güvenebiliriz."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra koruma: bir besleyici fiber kesildiğinde ne olur, ve bu anahtarlama neden ONU'nun optiğine hiç dokunmaz."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından uyumluluk: kırk iki normatif tablonun tek bir test matrisine dönüşmesi."
+  },
+  {
+   "id": "o5",
+   "text": "Ve bir ONU'nun hayatı: fişe takıldığı andan acil durdurma komutuna kadar, bütün sezonu tek bir hikâyede birleştiriyoruz."
+  },
+  {
+   "id": "o6",
+   "text": "Sahada arıza vakalarını ve bir saha ekibinin ölçüm çantasını konuşacağız. Bölümün sonunda da ikinci sezona, G.989.3'e bir bakış var."
+  }
+ ]
+}

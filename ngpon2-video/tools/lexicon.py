@@ -1,6 +1,7 @@
 """Turkish read-aloud spellings for acronyms (applied only to the text sent to TTS; subtitles keep the original)."""
 import re
 LEX = [
+    (r"S/R-CG", "es ar si ci"), (r"S/R-CP", "es ar si pi"), (r"\bR/S\b", "ar es"),
     ("ITU-T", "ay ti yu ti"),
     ("NG-PON2", "en ci pon iki"), ("XGS-PON", "eks ci es pon"), ("XG-PON1", "eks ci pon bir"), ("XG-PON", "eks ci pon"), ("G-PON", "ci pon"), ("GPON", "ci pon"),
     (r"G\.989\.(\d)", lambda m: "ci dokuz sekiz dokuz nokta " + ["sıfır", "bir", "iki", "üç"][int(m.group(1))]),
@@ -14,7 +15,7 @@ LEX = [
     ("PLOAM", "pi el o ey em"), ("OAM", "o ey em"), ("XGEM", "eks ci em"),
     ("OLT", "o el ti"), ("ONU", "o en yu"), ("ODN", "o di en"), ("PMD", "pi em di"), ("FEC", "fek"),
     ("NRZ", "en ar zi"), ("OSA'ya", "o es ey'e"), ("OSA", "o es ey"), ("DCA", "di si ey"), ("BERT", "bört"), ("VOA", "vi o ey"),
-    ("SDH", "es di eyç"), (r"STM-(\d+)", lambda m: "es ti em " + {"64": "altmış dört", "16": "on altı"}[m.group(1)]),
+    ("SDH", "es di eyç"), (r"STM-(\d+)", lambda m: "es ti em " + {"1": "bir", "4": "dört", "8": "sekiz", "16": "on altı", "64": "altmış dört", "256": "iki yüz elli altı"}[m.group(1)]),
     (r"\bRS\b", "ar es"), (r"\bRF\b", "ar ef"), (r"\bdBm\b", "de be em"), (r"\bTC\b", "ti si"),
     (r"\bCG\b", "si ci"), (r"\bCP\b", "si pi"),
     ("S bölü R", "es bölü ar"), ("R bölü S", "ar bölü es"),
@@ -35,6 +36,12 @@ LEX = [
     (r"PON-ID", "pon ay di"), (r"\bDFB\b", "di ef bi"), (r"\bOMCI\b", "o em si ay"),
     # XTTS reads bare variable letters badly ("X bölü S" came out as "işitsel"): spell them out
     (r"\bX/S\b", "iks bölü es"), (r"\bX\b", "iks"), (r"\bS\b", "es"), (r"\bburst", "börst"),
+    (r"\bOTU(\d)(e?)\b", lambda m: "o ti yu " + ["sıfır", "bir", "iki", "üç", "dört"][int(m.group(1))] + (" i" if m.group(2) else "")),
+    (r"\bCPRI", "si pi ar ay"), (r"\bPtP\b", "pi tu pi"), (r"\bWDM\b", "dabılyu di em"), (r"\bICTP", "ay si ti pi"),
+    (r"\bBIP\b", "bip"), (r"\bSOA", "es o ey"), (r"\bPON\b", "pon"), (r"\bEthernet", "eternet"), (r"\bLAMBDA", "lamda"),
+    (r"\bL([12])\b", lambda m: "el " + ["", "bir", "iki"][int(m.group(1))]),
+    (r"\bO([1-9])\b", lambda m: "o " + ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"][int(m.group(1))]),
+    (r"\bB\b", "be"), (r"\bC\b", "ce"), (r"\bD\b", "de"), (r"\bG\b", "ge"),
 ]
 
 def speak(text):

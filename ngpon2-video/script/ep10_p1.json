@@ -1,0 +1,68 @@
+{
+ "title": "B10 Perde 1 — Optik katmanı izlemek",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: optik katmanı izlemek. Sahadaki bir ağ, laboratuvardaki gibi bir güç ölçer ve osiloskopla değil, cihazların kendi ölçümleriyle yönetilir. G.989.2 bunu ikinci ekte tanımlar: optik katman denetimini destekleyen fiziksel katman ölçümleri."
+  },
+  {
+   "id": "b1a",
+   "text": "Önemli bir ayrıntı: bu ek bilgilendiricidir, standardın bağlayıcı bir parçası değildir. İçeriği G.984.2'nin ikinci değişikliğindeki dördüncü ekten alınmıştır; bazı aralıklar ve hesap yöntemleri NG-PON2 için değiştirilmiştir. Ek, aynı ölçümlerin PtP WDM için de geçerli olduğunu, ama bu tarafın ayrıca inceleneceğini söyler."
+  },
+  {
+   "id": "b2",
+   "text": "Tablodaki yedi parametrenin üçü elektriksel ve ısıldır. Sıcaklık, besleme gerilimi ve öngerilim akımı hem OLT'de hem ONU'da ölçülür. Tipik aralıklar eksi kırk beşten artı doksan santigrat dereceye, sıfırdan altı virgül elli beş volta, ve sıfırdan sekiz yüz on dokuz miliampere kadardır. Tepki süreleri bir saniyedir."
+  },
+  {
+   "id": "b2a",
+   "text": "Doğrulukları gevşektir: sıcaklıkta artı eksi üç derece, gerilimde nominal değerin yüzde üçü, öngerilim akımında yüzde onu. Bu ölçümler bir alarm ve eğilim aracıdır, bir kalibrasyon aracı değildir."
+  },
+  {
+   "id": "b3",
+   "text": "Optik güçler dört satırdır: ONU'nun ve OLT'nin gönderdiği ve aldığı güç. Gönderilen güç eksi yirmi sekizden artı yirmi dBm'e, alınan güç eksi elli üçten eksi dört virgül dokuz dBm'e kadar ölçülür. Çözünürlük her satırda sıfır virgül bir desibel, tekrarlanabilirlik artı eksi sıfır virgül beş desibel, tepki süresi üç yüz nanosaniyedir."
+  },
+  {
+   "id": "b3a",
+   "text": "Mutlak doğruluk ONU tarafında artı eksi üç, OLT tarafında artı eksi iki desibel olarak yazılmıştır. Ama tablonun beşinci notu, alınan güç için eksi otuz beş dBm'e kadar üç, daha aşağıda beş desibellik doğruluk der. OLT satırındaki iki desibel bu notla çelişir. Tabloyu okurken notları da okumak gerekir."
+  },
+  {
+   "id": "b4",
+   "text": "Bu ölçüm penceresi tesadüf değildir. Eksi dört virgül dokuz dBm'lik üst sınır, TWDM tablolarındaki en yüksek aşırı yükü, eksi beş dBm'i kapsar. Eksi elli üçlük alt sınır ise çok daha aşağıdadır, ve ek nedenini açıkça yazar: ONU'nun ayarlanabilir vericisinin ayarına yardım etmek. Yanlış kanala ayarlanmış bir ONU'nun zayıf ışığı bile görülebilmelidir."
+  },
+  {
+   "id": "b4a",
+   "text": "Doğruluğun beş desibele düştüğü eksi otuz beşin altındaki bölgede yalnızca bir TWDM alıcı değeri vardır: iki buçuk gigabitlik, yükselteçli bağlantı tipindeki E2 sınıfı OLT alıcısının eksi otuz altı virgül beş dBm'lik hassasiyeti. ONU hassasiyetleri ise eksi yirmi sekiz ve eksi otuzdur; ONU'nun bütün çalışma penceresinde üç desibellik doğruluk geçerlidir."
+  },
+  {
+   "id": "b5",
+   "text": "OLT'nin alınan güç ölçümü bir burst ölçümüdür. Üçüncü not, ölçümün burst'e göre doğru anda yapılmasını ve burst'ün dedektörün tepki süresine yetecek kadar uzun olmasını ister. Üç yüz nanosaniye, iki buçuk gigabitte yedi yüz kırk altı bit, on gigabitte yaklaşık üç bin bittir. Çok kısa bir burst'ün gücü anlamlı biçimde okunamaz."
+  },
+  {
+   "id": "b6",
+   "text": "NG-PON2 küçük ama akıllı bir değişiklik de yapar: tek bir akım kaydı iki tip vericiyi izler. En anlamlı iki bit, değerin lazer öngerilimi mi, yoksa yarı iletken optik yükseltecin, yani SOA'nın akımı mı olduğunu söyler. Kalan on dört bit, elli mikroamperlik adımlarla on altı bin üç yüz seksen dört değer taşır; sekiz yüz on dokuz miliamperlik aralık buradan gelir."
+  },
+  {
+   "id": "b6a",
+   "text": "Güç kayıtlarının adımı da değişmiştir. Gönderilen güç bir virgül beş mikrovatlık adımlarla kodlanır; bir adım eksi yirmi sekiz virgül yirmi dört dBm'e, en büyük değer yaklaşık artı yirmi dBm'e karşılık gelir. Alınan güç sıfır virgül sıfır sıfır beş mikrovatlık adımlarla kodlanır: bir adım eksi elli üç, en büyük değer eksi dört virgül sekiz dBm."
+  },
+  {
+   "id": "b7",
+   "text": "Bu ölçümler bağlayıcı olmayan bir ekte durur, ama bağlayıcı metin onlara dayanır. D ekindeki özerk güç dengeleme, ONU'nun alınan güç göstergesinin artı eksi üç desibellik doğruluğunu buradan alır: on beş desibellik diferansiyel yol kaybından üç desibel düşülür, ve izin verilen dengeleme on iki desibele iner."
+  },
+  {
+   "id": "b7a",
+   "text": "TC köprüsü: G.989.3 bu değerlerin nerede taşındığını söyler. OLT'nin başlatma gücü, aşağı yön çerçeve başlığındaki PSBd'nin TOL alanında, eksi otuz dBm'e göre sıfır virgül bir desibellik adımlarla bütün ONU'lara yayınlanır. ONU'nun optik güç ölçümleri ise OMCI ile, G.988'deki yönetim varlıkları üzerinden okunur. OLT de çalışan her ONU'nun gelen gücünü, fazını ve hata oranını izler."
+  },
+  {
+   "id": "b8",
+   "text": "Mühendis notu. Bir: bir ONU'nun bildirdiği alınan gücü saha güç ölçerinizle karşılaştırırken, üç desibele kadar farkı normal kabul edin. İki: güç dengeleme açıkken, D ekinin uyardığı gibi, güç ölçerin araya giriş kaybı ONU'yu bir eşiğin altına itebilir, ve ONU'nun vericisi üç desibel yükselebilir. Üç: OLT'nin gelen güç okumasını yalnızca yeterince uzun burst'lerde değerlendirin."
+  },
+  {
+   "id": "b9",
+   "text": "Sıradaki: ölçebiliyoruz. Peki bir fiber kesildiğinde ağ nasıl ayakta kalır?"
+  }
+ ]
+}

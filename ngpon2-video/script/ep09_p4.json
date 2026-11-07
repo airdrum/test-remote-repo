@@ -1,0 +1,68 @@
+{
+ "title": "B09 Perde 4 — Düşük kayıplı PtP WDM",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: düşük kayıplı PtP WDM. C eki, dalga boyu yönlendirilen kullanım durumlarına hizmet eder. Dalga boyu seçme işlevi dallanma düğümündedir: her düşüm fiberi için, her yönde bir dalga boyu. ONU'nun dalga boyu, bağlandığı AWG portuyla belirlenir."
+  },
+  {
+   "id": "e2",
+   "text": "Neden ayrı bir ek? Ekin kendi cevabı şudur: düşük kayıp yaklaşımı, daha fazla PtP kanalına izin veren dalga boyu yönlendirmeli ağlara olanak tanır, ve bu, bant dışı, kanal dışı ve kanallar arası karışma hesaplarını değiştirir. A eki sekiz kanal, yani yedi girişimci varsayar; C eki on altı kanal, yani on beş girişimci."
+  },
+  {
+   "id": "e3",
+   "text": "Kayıp sınıfları da farklıdır. L1 sınıfı sekiz ile on yedi desibel, L2 sınıfı on altı ile yirmi beş desibel; ikisinde de en büyük diferansiyel yol kaybı dokuz desibel. Karşılaştırın: TWDM ve A eki sınıfları on dört desibelden başlayıp otuz beşe çıkar, ve diferansiyel kayıp on beş desibeldir. Bir not: OLT tarafındaki çoğullayıcı ODN'ye dahil değildir, ama OLT'nin gücünü ve hassasiyetini etkiler."
+  },
+  {
+   "id": "e4",
+   "text": "Hat hızı sınıfları ve bantlar A ekiyle aynıdır, ve FEC hem açık hem kapalı desteklenebilir. Ama bazı ortak satırlar değişir: üçüncü sınıfta en küçük sönüm oranı altı desibele iner, ve yol cezası FEC'li durumda bile iki virgül beş desibeldir. Hiçbir tabloda ayar penceresi satırı yoktur; dalga boyunun AWG portuyla belirlendiği bir ağda bu şaşırtıcı değildir."
+  },
+  {
+   "id": "e5",
+   "text": "Aşağı yön, birinci sınıf. OLT'nin FEC'siz en küçük gücü L1'de eksi beş, L2'de artı üç dBm; ONU hassasiyeti on üzeri eksi on ikide eksi yirmi dört dBm. Bütçe L1'de on dokuz desibel: on yedi desibel yol kaybı artı iki desibel ceza. L2'de yirmi yedi: yirmi beş artı iki."
+  },
+  {
+   "id": "e6",
+   "text": "Yukarı yönde ONU vericisi FEC'siz eksi bir ile artı dört dBm arasındadır, ve her sınıfta aynıdır. OLT hassasiyeti L1'de eksi yirmi, L2'de eksi yirmi sekiz dBm. Sınıflar arasındaki sekiz desibellik adım, aşağı yönde OLT gücüne, yukarı yönde OLT hassasiyetine eklenir. Aynı ilke: ODN sınıfını OLT taşır."
+  },
+  {
+   "id": "e7",
+   "text": "C ekinin ilginç bir özelliği: aşırı yük hiçbir yerde bağlayıcı değildir. ONU'ya gelebilecek en büyük güç eksi dokuz dBm'dir, aşırı yük sınırı ise eksi iki; en az yedi desibel boşluk. OLT tarafında en büyük gelen güç eksi dört, aşırı yük artı üç dBm. A ekinde ise aşırı yük tam olarak en büyük güç eksi en küçük kayıptır."
+  },
+  {
+   "id": "e8",
+   "text": "Bant dışı ve kanal dışı güç yoğunlukları on altı kanala göre yeniden hesaplanmıştır. Aşağı yönde bant dışı eksi kırk dokuz virgül iki, kanal dışı eksi altmış bir virgül iki dBm bölü on beş gigahertz. Yukarı yön notları, uzak düğümü dokuz desibellik diferansiyel kayıpla sınırlı, bire on altılık bir ayırıcı olarak varsayar."
+  },
+  {
+   "id": "e9",
+   "text": "C eki de dikkatli okunmalıdır. Bant içi karışma toleransının işareti tablodan tabloya değişir. Titreşim üretimi satırları bir maddeye işaret eder, ama o maddede titreşim üretimi tablosu yoktur. Ve ana metin, PtP WDM için yalnızca A ekinin tablolarına atıf yapar; C ekinin tablolarına hiç değinmez."
+  },
+  {
+   "id": "e10",
+   "text": "Ana metinle bağlantıları toparlayalım. Onuncu maddeye göre bir TWDM ONU'su, aşağı ve yukarı yönde sekiz PtP WDM girişimcisi görür: aşağı yön kanalları Z düzeyinde, yansıyan yukarı yön sinyalleri Y düzeyinde. Z, iki buçuk gigabitte S artı yedi, on gigabitte S artı sekiz desibeldir: PtP ve TWDM OLT vericileri arasındaki en büyük güç farkı. OLT tarafında ise PtP kanalları, TWDM ayırıcısıyla etkili biçimde süzülür."
+  },
+  {
+   "id": "e11",
+   "text": "Koruma ters yönde de işler. TWDM tablolarının bant dışı güç notları, TWDM'den PtP WDM'e sızan gücün filtrelemeyle kontrol edildiğini, sıfır virgül bir desibellik ceza ve FEC'siz çalışan bir PtP WDM varsayar. İki aile, birbirinin tablolarına notlarla yazılmıştır."
+  },
+  {
+   "id": "e12",
+   "text": "TC köprüsü: PtP ONU'sunun aktivasyonu. ONU önce veri ve AMCC senkronunu sağlar, ve sistem ile kanal profillerini toplar. Sonra vericisini ayarlar, ve kimlik bilgisi içeren seri numarası mesajını gönderir. OLT bir ONU kimliği atar, ve ONU çalışmaya geçer. Mesafe ölçümü yoktur; PtP iletim zamanlaması maddesi ise henüz bir çalışma konusudur."
+  },
+  {
+   "id": "e13",
+   "text": "Bir tutarsızlık daha: G.989.3, kanal profilinde altı gigabitlik dördüncü bir hız sınıfı tanımlar; G.989.2 ise altı virgül bir dört dört gigabiti üçüncü sınıfa koyar. Hız bit haritaları da iki mesajda farklı sıralanmıştır. İkinci sezonda bu alanları ayrıntılı açacağız."
+  },
+  {
+   "id": "e14",
+   "text": "Mühendis notu. Bir: C eki, A ekinin daha az kayıplı bir kopyası değildir. On altı kanal, dokuz desibellik diferansiyel kayıp, on gigabitte altı desibellik sönüm oranı ve FEC'li bile iki virgül beş desibellik ceza ile başka bir tasarım noktasıdır. İki: yönlendirmeli ağda dalga boyunu port belirler; bir kablolama hatası, burada bir dalga boyu hatasıdır."
+  },
+  {
+   "id": "e15",
+   "text": "Sıradaki: kâğıt üstünde bütçeler kapandı. Şimdi laboratuvara."
+  }
+ ]
+}

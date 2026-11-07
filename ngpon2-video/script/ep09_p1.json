@@ -1,0 +1,64 @@
+{
+ "title": "B09 Perde 1 — Mimari ve spektrum",
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: mimari ve spektrum. A ekinin tanımı tek cümledir: PtP WDM PON'da her ONU'ya, yalnızca ona ait bir yukarı ve aşağı yön dalga boyu çifti hizmet eder. OLT tarafında aşağı yön dalga boyları çoğullayıcıda birleşir, ve tek bir besleyici fiberle dallanma düğümüne gider."
+  },
+  {
+   "id": "b1a",
+   "text": "Bu, TWDM'den farklı bir sözleşmedir. TWDM'de bir kanal çifti, zaman paylaşımıyla onlarca ONU'ya hizmet eder, ve yukarı yön burst'lüdür. PtP WDM'de kanal tek bir aboneye aittir, ve iki yön de sürekli iletimdir. Standart bunu açıkça yazar: geleneksel saat çıkarımı, PtP WDM'de iki yönde de geçerlidir."
+  },
+  {
+   "id": "b2",
+   "text": "Neyi taşır? Ekin saydığı istemciler gigabit Ethernet, on gigabit Ethernet ve CPRI'dır; yani tipik kullanım mobil önyüz bağlantıları ve kurumsal özel hatlardır. OLT tarafındaki kanal çifti, farklı istemci türleri için birden fazla örnekte de bulunabilir."
+  },
+  {
+   "id": "b3",
+   "text": "Dallanma düğümünde güç ayırıcılar, bant geçiren ya da bant durduran filtreler, veya AWG gibi dalga boyu filtreleri olabilir. Mantıksal olarak, her düğüm portu ile renksiz ONU alıcı vericisi arasında bir dalga boyu seçme işlevi gerekir. Bu işlevin nerede durduğu, iki mimari sınıfını birbirinden ayırır."
+  },
+  {
+   "id": "b4",
+   "text": "Birincisi, dalga boyu seçilen sınıf. Seçici ONU'nun içindedir: ONU kendi dalga boyunu, OLT'nin de katıldığı bir aktivasyonla belirler, ve yukarı yön dalga boyu tipik olarak atanan aşağı yön dalga boyunun sabit bir fonksiyonudur. Bu sınıf güç ayırıcılı ODN'yi destekler; yani TWDM ile aynı ağaçta çalışabilir."
+  },
+  {
+   "id": "b5",
+   "text": "İkincisi, dalga boyu yönlendirilen sınıf. Seçici dallanma düğümündedir: ONU'nun dalga boyu, ağa fiziksel bağlantısıyla, örneğin bir AWG portuyla belirlenir. Yukarı ve aşağı yön dalga boyları aynı olabilir, ya da AWG'nin serbest spektral aralığının katları kadar farklı olabilir. Bu sınıf filtreli ODN'yi destekler."
+  },
+  {
+   "id": "b6",
+   "text": "A eki birinci sınıfa odaklanır: TWDM'in üstüne bindirilmiş, dalga boyu seçilen PtP WDM. Yalnızca tamamen yönlendirilmiş bir ağda çalışabilen ONU'lar bu ekin kapsamı dışındadır; onlar C ekinin konusudur. Bir de kural var: sistem en az dört PtP WDM kanalını desteklemelidir. Üst sınır belirtilmemiştir."
+  },
+  {
+   "id": "b7",
+   "text": "Spektrum. Dokuz bir tablosu PtP WDM için iki seçenek verir. Paylaşılan spektrum bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasıdır, ve G-PON, XG-PON1, RF video ve TWDM ile tam birlikte çalışmaya izin verir. Genişletilmiş spektrum bin beş yüz yirmi dört ile bin altı yüz yirmi beş nanometredir; bu sistemlerden biri yoksa kullanılabilir."
+  },
+  {
+   "id": "b7a",
+   "text": "Paylaşılan bant yaklaşık iki virgül beş terahertz genişliğindedir: yüz gigahertz aralıkla yaklaşık yirmi beş, elli gigahertzle yaklaşık elli kanal yeri. Bu, koruma bandı düşülmeden ve yukarı ile aşağı yöne bölünmeden önceki sayıdır. Yukarı ve aşağı yön ayrı bölgelerde olabilir, ya da aynı bandı paylaşabilir."
+  },
+  {
+   "id": "b8",
+   "text": "İki kanal ailesi arasındaki sınır keskindir. TWDM ve PtP WDM kanalları iç içe geçirilemez. Ayrı çoğullayıcılar kullanılıyorsa aradaki koruma bandı en az üç nanometredir; tek bir cihaz ikisini birden çoğulluyorsa en az yüz gigahertz. Paylaşılan spektrumda PtP WDM'in yukarı yön kanalları, bandın kısa dalga boylu ucunu kullanır."
+  },
+  {
+   "id": "b9",
+   "text": "Kanal planı ise sabit değildir. Kanal aralığı en az elli, en çok iki yüz gigahertzdir, ve merkez frekanslar kullanılan çoğullayıcıya bağlıdır; PtP için bir frekans tablosu yoktur. Genişletilmiş spektrumda G.694.1 ya da G.698.3 ızgaraları kullanılabilir. Ve TWDM'in beşinci ile sekizinci aşağı yön kanalları, TWDM genişlemesi için ayrılmamışsa PtP WDM'e verilebilir."
+  },
+  {
+   "id": "b10",
+   "text": "Spektral sapma kanal aralığıyla ölçeklenir: elli gigahertzde artı eksi on iki virgül beş, yüzde artı eksi yirmi, iki yüzde artı eksi yirmi beş gigahertz. Ayar adımı kanal aralığının yirmide biridir: iki virgül beş, beş ya da on gigahertz. Ayar süresi sınıfları ise TWDM ile aynı tablodan gelir."
+  },
+  {
+   "id": "b11",
+   "text": "Mühendis notu. Bir: elli gigahertz aralıkta on gigabitlik bir kanal için ayar hatası bütçesi neredeyse kalmaz. Sekizinci ekteki TWDM ilişkisini kullanırsak, on iki virgül beş gigahertzlik sapmadan yaklaşık on virgül üç gigahertzlik veri hızı düşülür, geriye iki gigahertz kalır. İki: koruma bandını çoğullayıcı mimarisine göre seçin; ayrı cihazlarla üç nanometre, yaklaşık üç yüz elli gigahertz eder."
+  },
+  {
+   "id": "b12",
+   "text": "Sıradaki: spektrum yerinde. Şimdi bu kanalların güç bütçesine bakalım."
+  }
+ ]
+}
