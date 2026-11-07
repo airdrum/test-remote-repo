@@ -280,7 +280,7 @@ class E10P3C(Act10):
             ar = VGroup(*[arrow(bx[i].get_right(), bx[i + 1].get_left(), MUTED, 2.5, 0.14) for i in range(len(bx) - 1)])
             return lab, bx, ar
         er = pipe(-0.55, "Sönüm oranı", [("verici", "S/R-CG", TW_DS), ("referans BPF", "G.959.1 Ek B", GOLD), ("ER ölçümü", "G.957 Şekil B.1", TXT)], TW_DS)
-        sm = pipe(-2.0, "Yan mod bastırma", [("lazer çıkışı", "filtre yok", WARN), ("OSA", "spektrum", TXT), ("SMSR", "≥ 30 dB (↓)", TXT)], WARN)
+        sm = pipe(-2.0, "Yan mod bastırma", [("lazer çıkışı", "filtre yok", WARN), ("OSA", "spektrum", TXT), ("SMSR", "tablo değeriyle", TXT)], WARN)
         self.play(self.set_src("G.989.2 §11.1 · §9.3.2 · §9.3.8"), run_time=0.3)
         self.at(self.cue("en kötü işletme", 3.9))
         self.play(FadeIn(conds[0], shift=UP * 0.1), run_time=0.5)

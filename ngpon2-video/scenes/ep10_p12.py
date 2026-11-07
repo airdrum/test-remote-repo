@@ -546,8 +546,8 @@ class E10P2A(Act10):
         # c3 — what is protected
         self.beat("c3")
         h2 = self.heading("Neyi korur?")
-        lg = VGroup(VGroup(Line(ORIGIN, RIGHT * 0.5, color=PROT, stroke_width=5), T("korunur", 16, PROT, BOLD)).arrange(RIGHT, buff=0.15),
-                    VGroup(Line(ORIGIN, RIGHT * 0.5, color=UNPROT, stroke_width=5), T("korunmaz", 16, MUTED, BOLD)).arrange(RIGHT, buff=0.15)).arrange(RIGHT, buff=0.5).move_to([3.4, 2.15, 0])
+        lg = VGroup(VGroup(Line(ORIGIN, RIGHT * 0.5, color=PROT, stroke_width=5), T("§18.1 listesinde", 16, PROT, BOLD)).arrange(RIGHT, buff=0.15),
+                    VGroup(Line(ORIGIN, RIGHT * 0.5, color=UNPROT, stroke_width=5), T("listede yok", 16, MUTED, BOLD)).arrange(RIGHT, buff=0.15)).arrange(RIGHT, buff=0.5).move_to([3.4, 2.15, 0])
         self.play(FadeTransform(h, h2), FadeOut(tag1), FadeOut(sp), FadeOut(dp), FadeIn(lg), run_time=0.5)
         h = h2
         self.play(Indicate(tb.att1, color=PROT, scale_factor=1.0), run_time=0.6)
