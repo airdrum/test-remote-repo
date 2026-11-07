@@ -1,0 +1,1964 @@
+1
+00:00:00,000 --> 00:00:02,230
+Sezon iki, bölüm altı: Uyanış.
+
+2
+00:00:02,280 --> 00:00:06,050
+Fişe takılan bir ONU sessizdir: vericisi kapalı, kimliği yok,
+
+3
+00:00:06,100 --> 00:00:09,920
+ve OLT'ye ne kadar uzak olduğunu bilmiyor.
+
+4
+00:00:09,970 --> 00:00:14,860
+Bu bölümde onun ilk sözünden ilk veri burst'üne kadar olan yolu,
+
+5
+00:00:14,910 --> 00:00:18,646
+mesaj mesaj ve zamanlayıcı zamanlayıcı izliyoruz.
+
+6
+00:00:19,567 --> 00:00:25,507
+Önce durum makinesi: durumlar, zamanlayıcılar, her geçişte neyin unutulduğu,
+
+7
+00:00:25,557 --> 00:00:28,168
+ve iki değişikliğin makinede düzelttikleri.
+
+8
+00:00:29,100 --> 00:00:35,780
+Sonra seri numarası ve kimlik: keşif, rastgele gecikme, hata ayıklama kodları,
+
+9
+00:00:35,830 --> 00:00:40,221
+kimlik atama, iki kısa yol, ve bir ONU'yu susturmak.
+
+10
+00:00:41,167 --> 00:00:46,597
+Ardından ranging: sessiz pencereler, eşitleme gecikmesinin hesabı ve doğruluğu,
+
+11
+00:00:46,647 --> 00:00:51,681
+kayma eşikleri, ve kanal değiştiren bir ONU'nun zamanı.
+
+12
+00:00:52,600 --> 00:00:57,960
+Sonra günün saati: OLT'nin her ONU'ya saati nasıl söylediği,
+
+13
+00:00:58,010 --> 00:01:02,734
+nanosaniyelik bir hata bütçesi, ve metindeki hatalar.
+
+14
+00:01:03,667 --> 00:01:10,257
+Laboratuvarda aktivasyon süresini, ranging doğruluğunu, sessiz pencerenin bedelini,
+
+15
+00:01:10,307 --> 00:01:16,043
+kaymayı, günün saatini ve acil durdurmanın güç kesintisinden sağ çıkışını ölçeceğiz.
+
+16
+00:01:28,293 --> 00:01:29,833
+Geçen bölümün soruları.
+
+17
+00:01:29,883 --> 00:01:33,463
+Birinci soru: yayın bir kanal profilinin bütünlük kodu,
+
+18
+00:01:33,513 --> 00:01:38,103
+varsayılan PLOAM bütünlük anahtarıyla doğrulanır:
+
+19
+00:01:38,153 --> 00:01:42,093
+on altı baytın her biri on altılık tabanda beş beş.
+
+20
+00:01:42,143 --> 00:01:47,893
+Hesaba önce yön baytı girer, aşağı yön için bir, sonra mesajın ilk kırk baytı:
+
+21
+00:01:47,943 --> 00:01:49,143
+kırk bir bayt.
+
+22
+00:01:49,193 --> 00:01:55,170
+AES-CMAC çıkışı altmış dört bite kesilir, ve mesajın son sekiz baytında durur.
+
+23
+00:01:56,160 --> 00:01:57,400
+İkinci soru:
+
+24
+00:01:57,450 --> 00:02:03,760
+boştaki bir ONU'ya N numaralı çerçevede gelen yönlendirilmiş mesajın cevabı,
+
+25
+00:02:03,810 --> 00:02:07,780
+en geç N artı altıncı yukarı yön çerçevesinde hazırdır:
+
+26
+00:02:07,830 --> 00:02:12,430
+yedi yüz elli mikrosaniyelik normatif işleme süresi.
+
+27
+00:02:12,480 --> 00:02:14,720
+Cevap aşağı yön sıra numarasını yansıtır.
+
+28
+00:02:14,770 --> 00:02:22,540
+ONU hâlâ işlerken ve kuyruğu boşken tahsis gelirse, kodu iki olan bir onay gönderir:
+
+29
+00:02:22,590 --> 00:02:23,350
+meşgul, cevap hazırlanıyor.
+
+30
+00:02:23,400 --> 00:02:28,435
+Hiç işi yoksa sıra numarası sıfır, kodu bir olan bir onay.
+
+31
+00:02:29,426 --> 00:02:30,666
+Üçüncü soru:
+
+32
+00:02:30,716 --> 00:02:37,406
+zayıflatması sıfır olan bir ONU'ya gücü artır komutu gelirse? ONU zaten sınırdadır,
+
+33
+00:02:37,456 --> 00:02:39,346
+ve isteği yerine getirmez.
+
+34
+00:02:39,396 --> 00:02:44,136
+Tamamlama kodu dört, yani parametre hatası olan bir onayla cevap verir,
+
+35
+00:02:44,186 --> 00:02:48,156
+ve onayda o anki zayıflatmasını bildirir: sıfır.
+
+36
+00:02:48,206 --> 00:02:52,586
+Güç dengelemenin aktivasyondaki yüzünü bu bölümde göreceğiz.
+
+37
+00:02:52,636 --> 00:02:53,645
+Şimdi bu bölüme.
+
+38
+00:02:55,227 --> 00:02:56,717
+Perde bir: durum makinesi.
+
+39
+00:02:56,767 --> 00:03:04,077
+G.989.3, bir TWDM ONU'nun TC davranışını bir durum makinesiyle tanımlar.
+
+40
+00:03:04,127 --> 00:03:10,117
+Güç verildiğinde girilen tek durum başlangıç durumudur, O1;
+
+41
+00:03:10,167 --> 00:03:16,227
+ona iki ardışık dönüş arasındaki yol bir aktivasyon çevrimidir.
+
+42
+00:03:16,277 --> 00:03:23,137
+Aktivasyonun kendisi üç evredir: aşağı yön senkronu, seri numarası edinimi,
+
+43
+00:03:23,187 --> 00:03:25,824
+yani ONU keşfi, ve ranging.
+
+44
+00:03:26,760 --> 00:03:30,910
+Standart bunu sekiz adımlık bir nedensel diziyle anlatır.
+
+45
+00:03:30,960 --> 00:03:35,670
+Bir: ONU alıcısını ayarlar, senkrona kilitlenir, profilleri toplar,
+
+46
+00:03:35,720 --> 00:03:41,430
+ve kanal bölümlemesinin ve yukarı yön hızının uyuştuğunu doğrular.
+
+47
+00:03:41,480 --> 00:03:46,290
+İki: vericisini en iyi çabayla yukarı yön kanalına ayarlar,
+
+48
+00:03:46,340 --> 00:03:49,830
+ve seri numarası tahsislerine cevap verir.
+
+49
+00:03:49,880 --> 00:03:54,720
+Üç: OLT ya dalga boyu ayarı, ya kalibrasyon isteği,
+
+50
+00:03:54,770 --> 00:03:57,046
+ya da kimlik atamayla karşılık verir.
+
+51
+00:03:57,994 --> 00:04:01,784
+Dört: OLT isteğe bağlı olarak bir ranging tahsisi verir.
+
+52
+00:04:01,834 --> 00:04:05,594
+Beş: ONU kayıt mesajıyla cevap verir.
+
+53
+00:04:05,644 --> 00:04:10,024
+Altı: OLT eşitleme gecikmesini hesaplar ve gönderir.
+
+54
+00:04:10,074 --> 00:04:14,634
+Yedi: ONU yukarı yön çerçeve saatini bu gecikmeye göre kaydırır.
+
+55
+00:04:14,684 --> 00:04:16,374
+Sekiz: çalışma başlar.
+
+56
+00:04:16,424 --> 00:04:19,504
+Dördüncü adımdaki isteğe bağlı sözcüğü,
+
+57
+00:04:19,554 --> 00:04:24,390
+ikinci perdede göreceğimiz kısa yollardan birinin kapısıdır.
+
+58
+00:04:25,327 --> 00:04:26,307
+PMD Köprüsü.
+
+59
+00:04:26,357 --> 00:04:32,767
+Birinci sezonun onuncu bölümünde bir ONU'nun hayatını on beş adımda anlattık;
+
+60
+00:04:32,817 --> 00:04:39,527
+kanal aramadan çalışmaya kadar olan sekiz adım, bu dizinin optik yüzüydü.
+
+61
+00:04:39,577 --> 00:04:44,019
+O sayıları bu bölümde kaynağına bağlıyoruz; hepsi tutuyor.
+
+62
+00:04:45,493 --> 00:04:46,793
+Durumlar.
+
+63
+00:04:46,843 --> 00:04:51,303
+O1'in iki alt durumu vardır: çevrim dışı ve profil öğrenme.
+
+64
+00:04:51,353 --> 00:04:56,713
+Sonra seri numarası durumu gelir; tablodaki adı O iki üç'tür,
+
+65
+00:04:56,763 --> 00:04:59,373
+O3 diye ayrı bir durum yoktur.
+
+66
+00:04:59,423 --> 00:05:05,543
+Ardından O4 ranging, O5 çalışma, O6 aralıklı senkron kaybı, O7 acil durdurma,
+
+67
+00:05:05,593 --> 00:05:09,623
+O8 aşağı yön ayarı ve O9 yukarı yön ayarı.
+
+68
+00:05:09,673 --> 00:05:15,793
+Makineyi beş tür girdi sürer: senkron olayları, iç kararlar, zamanlayıcılar,
+
+69
+00:05:15,843 --> 00:05:19,435
+harita tahsisleri ve PLOAM mesajları.
+
+70
+00:05:20,360 --> 00:05:22,490
+O1'de verici kapalıdır.
+
+71
+00:05:22,540 --> 00:05:27,630
+Girişte ONU kimliğini, tahsis kimliklerini, varsayılan portu,
+
+72
+00:05:27,680 --> 00:05:30,970
+burst profillerini ve eşitleme gecikmesini atar.
+
+73
+00:05:31,020 --> 00:05:37,180
+Profil öğrenmede bir bekleme zamanlayıcısı çalışır: en az on saniye.
+
+74
+00:05:37,230 --> 00:05:41,810
+Profiller bir ile beş saniyede bir yinelendiğine göre,
+
+75
+00:05:41,860 --> 00:05:48,147
+bizim yorumumuzla ONU vazgeçmeden önce en az iki tam profil çevrimi görür.
+
+76
+00:05:49,093 --> 00:05:54,443
+İki bin yirmi beş değişikliği bu alt durumun kararını yeniden yazdı:
+
+77
+00:05:54,493 --> 00:05:58,313
+aktivasyona uygun, ya da aktivasyon engellendi.
+
+78
+00:05:58,363 --> 00:06:03,543
+Uygun olmak için bölümleme, yukarı yön bağlantı tipi ve hızı uyuşmalı,
+
+79
+00:06:03,593 --> 00:06:10,993
+ve kanal profilinin iki bitine göre kanalda uygun türde seri numarası tahsisleri sunulmalıdır.
+
+80
+00:06:11,043 --> 00:06:13,763
+Uygunsa keşif zamanlayıcısı başlar.
+
+81
+00:06:13,813 --> 00:06:16,913
+Engellenen ONU sistem ve kanal profillerini tutar,
+
+82
+00:06:16,963 --> 00:06:21,446
+burst profillerini atar ve çevrim dışına döner.
+
+83
+00:06:22,393 --> 00:06:24,343
+Son koşul yenidir.
+
+84
+00:06:24,393 --> 00:06:30,783
+Aşağı yön ayarındaki profil öğrenme ise eski kararı korur ve tahsislere bakmaz;
+
+85
+00:06:30,833 --> 00:06:34,343
+kanal değiştiren bir ONU'nun keşfe ihtiyacı yoktur.
+
+86
+00:06:34,393 --> 00:06:38,213
+Bir uyarı: değişiklik durum şeklini yeniden çizmedi,
+
+87
+00:06:38,263 --> 00:06:40,753
+şekil hâlâ eski etiketi gösterir.
+
+88
+00:06:40,803 --> 00:06:41,778
+Tabloya güvenin.
+
+89
+00:06:43,260 --> 00:06:44,260
+Zamanlayıcılar.
+
+90
+00:06:45,310 --> 00:06:49,190
+Keşif zamanlayıcısı için önerilen değer yirmi saniyedir,
+
+91
+00:06:49,240 --> 00:06:55,110
+ama yalnızca bant içi cevap için kalibre edilmiş ONU'da; ötekiler için değer yoktur.
+
+92
+00:06:55,160 --> 00:06:58,760
+TO1 için önerilen değer on saniyedir.
+
+93
+00:06:58,810 --> 00:07:03,860
+TO6, unutulmuş ONU zamanlayıcısı, on saniye olmak zorundadır:
+
+94
+00:07:03,910 --> 00:07:06,890
+aktivasyon zamanlayıcılarının tek zorunlu değeri.
+
+95
+00:07:06,940 --> 00:07:11,198
+Bizim hesabımızla, tahsissiz seksen bin çerçeve.
+
+96
+00:07:12,127 --> 00:07:16,387
+Şimdi bu perdenin en faydalı cümlesi: TO2, TO3,
+
+97
+00:07:16,437 --> 00:07:21,097
+TO4 ve TO5'in değeri G.989.3'ün hiçbir yerinde yoktur.
+
+98
+00:07:21,147 --> 00:07:25,027
+Bunlar, senkron kaybında ne kadar bekleneceğini,
+
+99
+00:07:25,077 --> 00:07:34,247
+koruma devrine ne zaman geçileceğini ve başarısız bir ayardan ne zaman vazgeçileceğini belirler.
+
+100
+00:07:34,297 --> 00:07:39,237
+Yani devir ve koruma zamanlamasının birlikte çalışabilirliği,
+
+101
+00:07:39,287 --> 00:07:42,427
+üreticinin seçimine kalmıştır.
+
+102
+00:07:43,360 --> 00:07:46,730
+Ne unutulur? Tablo yedi küme tanımlar.
+
+103
+00:07:46,780 --> 00:07:47,450
+Bir: burst profilleri.
+
+104
+00:07:47,500 --> 00:07:53,790
+İki: ONU kimliği, varsayılan tahsis kimliği ve varsayılan port.
+
+105
+00:07:53,840 --> 00:07:53,790
+Üç: ikisi birden.
+
+106
+00:07:53,840 --> 00:07:57,170
+Dört: eşitleme gecikmesi.
+
+107
+00:07:57,220 --> 00:08:01,080
+Beş: bunların hepsi ve atanmış tahsis kimlikleri.
+
+108
+00:08:01,130 --> 00:08:04,380
+Altı: beşe ek olarak sistem ve kanal profilleri,
+
+109
+00:08:04,430 --> 00:08:08,370
+ana oturum anahtarı ve koruma PON kimlikleri.
+
+110
+00:08:08,420 --> 00:08:11,481
+Yedi: yalnızca sistem ve kanal profilleri.
+
+111
+00:08:12,427 --> 00:08:14,757
+TO1 dolarsa ikinci küme gider,
+
+112
+00:08:14,807 --> 00:08:18,787
+ve ONU profillerini tutarak seri numarası durumuna döner.
+
+113
+00:08:18,837 --> 00:08:24,637
+O4'te senkron kaybı üçüncüyü; çalışırken devre dışı bırakma, ve TO2, TO4,
+
+114
+00:08:24,687 --> 00:08:30,917
+TO5 ya da TO6'nın dolması beşinciyi siler; profiller ve anahtarlar kalır.
+
+115
+00:08:30,967 --> 00:08:37,157
+Bizim çıkarımımız: altıncıyı yalnızca acil durdurmadan serbest bırakılış siler.
+
+116
+00:08:37,207 --> 00:08:39,865
+Bölümleme indeksi hiçbir kümede yoktur.
+
+117
+00:08:40,793 --> 00:08:44,923
+İki bin yirmi üç değişikliği TO6'yı düzeltti.
+
+118
+00:08:44,973 --> 00:08:47,123
+Eski metinde TO6, O5'e her girişte,
+
+119
+00:08:47,173 --> 00:08:51,083
+aralıklı senkron kaybından dönüşte de başlıyordu;
+
+120
+00:08:51,133 --> 00:08:56,673
+bizim yorumumuzla kısa kesintiler süreyi sürekli tazeleyebiliyordu.
+
+121
+00:08:56,723 --> 00:09:00,203
+Şimdi yalnızca O4 ya da O9'dan girişte başlar,
+
+122
+00:09:00,253 --> 00:09:05,583
+yukarı yön tahsisli her çerçevede yeniden başlar, O6'da durur,
+
+123
+00:09:05,633 --> 00:09:08,120
+ve dönüşte kaldığı yerden devam eder.
+
+124
+00:09:09,060 --> 00:09:10,560
+Mühendis notu.
+
+125
+00:09:10,610 --> 00:09:10,560
+Bir:
+
+126
+00:09:10,610 --> 00:09:17,620
+TO2'den TO5'e kadar değerleri ve kalibre edilmemiş ONU'nun keşif süresini üreticiden yazılı isteyin.
+
+127
+00:09:17,670 --> 00:09:23,310
+İki: makineyi şekle göre değil, tabloya göre kodlayın, ve çelişkileri belgeleyin:
+
+128
+00:09:23,360 --> 00:09:28,420
+metin, keşif zamanlayıcısı dolunca bütün profillerin atıldığını söyler;
+
+129
+00:09:28,470 --> 00:09:31,267
+tablo yalnızca burst profillerini atar.
+
+130
+00:09:32,293 --> 00:09:34,863
+Sıradaki: makine belli.
+
+131
+00:09:34,913 --> 00:09:39,372
+Şimdi ONU'nun ilk sözüne, seri numarasına bakalım.
+
+132
+00:09:41,160 --> 00:09:43,780
+Perde iki: seri numarası ve kimlik.
+
+133
+00:09:43,830 --> 00:09:47,870
+Seri numarası durumunda ONU vericisini ilk kez açar,
+
+134
+00:09:47,920 --> 00:09:53,700
+ve aşağı yön kanalının eşi olan yukarı yön kanalına en iyi çabayla ayarlar.
+
+135
+00:09:53,750 --> 00:09:57,860
+Bant içi seri numarası tahsisi, yayın bir tahsis kimliğine,
+
+136
+00:09:57,910 --> 00:10:03,500
+herkesin bildiği bir burst profiliyle ve PLOAM bayrağıyla verilir;
+
+137
+00:10:03,550 --> 00:10:08,368
+boyutu sıfır olmalı, ve yanında bir sessiz pencere açılmalıdır.
+
+138
+00:10:09,293 --> 00:10:15,583
+Tahsis kimliği hızı seçer: bin yirmi bir her hıza, bin yirmi iki on gigabite,
+
+139
+00:10:15,633 --> 00:10:18,963
+bin yirmi üç iki buçuk gigabite açıktır.
+
+140
+00:10:19,013 --> 00:10:23,433
+AMCC türü ise haritanın başında, bin yirmi bire verilmiş,
+
+141
+00:10:23,483 --> 00:10:30,203
+başlangıç zamanı ve boyutu on altılık tabanda ef ef ef ef olan bir tahsistir.
+
+142
+00:10:30,253 --> 00:10:34,599
+Bu tahsislerin sıklığı için standartta değer yoktur.
+
+143
+00:10:35,527 --> 00:10:38,777
+Kim hangisine cevap verir? Sistem profili,
+
+144
+00:10:38,827 --> 00:10:45,647
+bant içi aktivasyon için gereken en düşük kalibrasyon doğruluğunu duyurur:
+
+145
+00:10:45,697 --> 00:10:49,067
+kalibre edilmemiş, gevşek ya da yeterli.
+
+146
+00:10:49,117 --> 00:10:53,007
+Eşiği karşılayan ONU bant içi tahsislere cevap verir;
+
+147
+00:10:53,057 --> 00:11:00,727
+karşılamayan yalnızca AMCC tahsislerine, ve bant içinde konuşması yasaktır.
+
+148
+00:11:00,777 --> 00:11:05,724
+Yirmi saniyelik keşif önerisi de yalnızca birinci grup içindir.
+
+149
+00:11:06,660 --> 00:11:07,580
+PMD Köprüsü.
+
+150
+00:11:07,630 --> 00:11:12,570
+Bu, birinci sezonun altıncı bölümündeki vericinin ilk ışığıdır:
+
+151
+00:11:12,620 --> 00:11:19,260
+açılış geçişi iki buçuk gigabitte üç yüz yirmi, on gigabitte bin iki yüz seksen bit,
+
+152
+00:11:19,310 --> 00:11:23,490
+ikisi de yüz yirmi sekiz virgül altı nanosaniye.
+
+153
+00:11:23,540 --> 00:11:28,950
+Kalibrasyonun ölçüsü ise yedinci bölümdeki en büyük spektral sapmadır;
+
+154
+00:11:29,000 --> 00:11:31,431
+onu bir sonraki bölümde açacağız.
+
+155
+00:11:32,927 --> 00:11:34,257
+Rastgele gecikme.
+
+156
+00:11:34,307 --> 00:11:43,357
+Çarpışmaları seyreltmek için ONU cevabını sıfır ile kırk sekiz mikrosaniye arası rastgele bir gecikmeyle öteler,
+
+157
+00:11:43,407 --> 00:11:45,707
+her cevapta yeni bir değerle.
+
+158
+00:11:45,757 --> 00:11:48,777
+Gecikme, ONU'nun hızından bağımsız olarak,
+
+159
+00:11:48,827 --> 00:11:54,897
+iki virgül dört sekiz sekiz üç iki gigabitin bit periyotlarıyla sayılır:
+
+160
+00:11:54,947 --> 00:12:00,407
+bizim hesabımızla en çok yüz on dokuz bin dört yüz otuz dokuz bit.
+
+161
+00:12:00,457 --> 00:12:02,285
+Mesaj bu değeri de taşır.
+
+162
+00:12:03,227 --> 00:12:08,787
+Mesajda ONU kimliği bin yirmi üçtür, yani atanmamış; sıra numarası sıfır.
+
+163
+00:12:08,837 --> 00:12:13,137
+Sonra üretici kimliği, seri numarası, gecikme, PON kimlikleri,
+
+164
+00:12:13,187 --> 00:12:15,827
+kalibrasyon durumu ve yetenekler gelir.
+
+165
+00:12:15,877 --> 00:12:19,647
+Bizim yorumumuz: gecikme bildirildiği için OLT,
+
+166
+00:12:19,697 --> 00:12:25,277
+varış anından gidiş dönüş süresini kestirebilir; standart buna izin verir,
+
+167
+00:12:25,327 --> 00:12:26,622
+ama formül vermez.
+
+168
+00:12:27,560 --> 00:12:31,700
+Kırkıncı bayt aktivasyon hata ayıklamasıdır:
+
+169
+00:12:31,750 --> 00:12:40,930
+ONU'nun seri numarası durumuna en son neden girdiğini söyleyen dört bitlik bir kod.
+
+170
+00:12:40,980 --> 00:12:46,380
+Bir, iki, üç: devre dışı bırakma; seri numarası durumunda,
+
+171
+00:12:46,430 --> 00:12:48,580
+O4'te ve OMCC'li bir durumda.
+
+172
+00:12:48,630 --> 00:12:51,890
+Dört: kalibrasyon isteği.
+
+173
+00:12:51,940 --> 00:12:54,740
+Beş: acil durdurmadan dönüş.
+
+174
+00:12:54,790 --> 00:12:57,220
+Altı, yedi: senkron kaybı.
+
+175
+00:12:57,270 --> 00:13:00,560
+Sekiz, dokuz: keşif zamanlayıcısı ve TO1.
+
+176
+00:13:00,610 --> 00:13:04,120
+On, on bir, on iki: TO2, TO4, TO5.
+
+177
+00:13:04,170 --> 00:13:05,989
+On üç: güç kesildi.
+
+178
+00:13:06,927 --> 00:13:13,667
+Alt bitlerde iki bayrak vardır, kanal değişti ve tarama; OMCC kurulunca silinirler.
+
+179
+00:13:13,717 --> 00:13:18,477
+Sıfır kodu, desteklenmiyor ya da geçmiş yok demektir.
+
+180
+00:13:18,527 --> 00:13:24,927
+Bizim çıkarımımız: TO6'nın dolması ve aktivasyonun engellenmesi için kod yoktur;
+
+181
+00:13:24,977 --> 00:13:29,590
+unutulmuş bir ONU, neden unutulduğunu bu bayttan söyleyemez.
+
+182
+00:13:31,060 --> 00:13:32,280
+Kimlik atama.
+
+183
+00:13:32,330 --> 00:13:38,500
+OLT yayın bir mesajla, on bitlik bir ONU kimliğini, sıfırdan bin yirmiye,
+
+184
+00:13:38,550 --> 00:13:42,850
+bir üretici kimliğine ve seri numarasına bağlar.
+
+185
+00:13:42,900 --> 00:13:49,740
+Eşleşen ONU ikinci kümeyi kurar: ONU kimliği, varsayılan tahsis kimliği ve port,
+
+186
+00:13:49,790 --> 00:13:51,080
+üçü aynı numara.
+
+187
+00:13:51,130 --> 00:13:54,470
+Kimliği olan bir ONU için yeni atama,
+
+188
+00:13:54,520 --> 00:13:59,740
+ancak seri numarası ve kimlik birlikte eşleşirse tutarlıdır;
+
+189
+00:13:59,790 --> 00:14:02,409
+değilse ONU başlangıca döner.
+
+190
+00:14:03,327 --> 00:14:04,867
+İki kısa yol.
+
+191
+00:14:04,917 --> 00:14:09,117
+Bir: OLT ONU'yu tanıyorsa, örneğin bir güç kaybından sonra,
+
+192
+00:14:09,167 --> 00:14:12,947
+kimliği doğrudan seri numarasına atar;
+
+193
+00:14:12,997 --> 00:14:17,247
+ONU bant içi tahsise hiç cevap vermeden O4'e geçer.
+
+194
+00:14:17,297 --> 00:14:23,567
+İki: gidiş dönüş önceden ölçülmüşse OLT eşitleme gecikmesini doğrudan gönderir;
+
+195
+00:14:23,617 --> 00:14:27,187
+ONU ranging'e cevap vermeden O5'e geçer.
+
+196
+00:14:27,237 --> 00:14:31,074
+Bizim yorumumuz: kazanç, sessiz pencerelerden kaçınmaktır.
+
+197
+00:14:31,993 --> 00:14:33,033
+PMD Köprüsü.
+
+198
+00:14:33,083 --> 00:14:39,573
+Birinci sezonun sekizinci bölümünde güç dengelemeyi D ekiyle gördük.
+
+199
+00:14:39,623 --> 00:14:44,063
+G.989.3 onu seri numarası durumuna ve O9'a koyar: ONU,
+
+200
+00:14:44,113 --> 00:14:50,613
+varsayılan zayıflatmadan küçük olmayan en düşük düzeyle başlar,
+
+201
+00:14:50,663 --> 00:14:57,233
+OLT cevap verene kadar azaltır, ve yanıt eşiği kadar mesajdan sonra tam güce döner.
+
+202
+00:14:57,283 --> 00:15:03,833
+D eki düzeyi alınan güce göre seçer; G.989.3 alınan güçten hiç söz etmez.
+
+203
+00:15:04,760 --> 00:15:05,760
+Ayrılış.
+
+204
+00:15:05,810 --> 00:15:06,940
+Devre dışı bırakma,
+
+205
+00:15:06,990 --> 00:15:12,920
+ONU'ya TC yapılandırmasını atıp aktivasyona yeniden girmesini söyler.
+
+206
+00:15:12,970 --> 00:15:18,940
+Seri numarası engelleme her zaman yayındır, ve ilk içerik baytı seçimi taşır:
+
+207
+00:15:18,990 --> 00:15:24,400
+iki yüz elli beş bu seri numarasını engeller, sıfır ona izin verir;
+
+208
+00:15:24,450 --> 00:15:30,440
+on beş kanaldaki bütün ONU'ları engeller, iki yüz kırk hepsine izin verir;
+
+209
+00:15:30,490 --> 00:15:33,254
+altmış üç yalnızca keşfi engeller.
+
+210
+00:15:34,193 --> 00:15:38,133
+Engellenen ONU O7'ye, acil durdurmaya geçer: lazerini kapatır,
+
+211
+00:15:38,183 --> 00:15:43,583
+senkronu ve PLOAM ayrıştırmayı sürdürür, ama veri iletmez.
+
+212
+00:15:43,633 --> 00:15:46,883
+Bu durum yeniden başlatmayı ve güç kesintisini aşar.
+
+213
+00:15:46,933 --> 00:15:52,453
+Birinci değişikliğin on birinci ekine göre senkronsuz ONU kanalları tarar,
+
+214
+00:15:52,503 --> 00:15:56,753
+bekleme süresini yaklaşık bir dakikaya kadar artırabilir.
+
+215
+00:15:56,803 --> 00:16:01,347
+Serbest bırakılınca altıncı kümeyi atar, ve beş koduyla döner.
+
+216
+00:16:02,293 --> 00:16:03,793
+Mühendis notu.
+
+217
+00:16:03,843 --> 00:16:08,403
+Bir: her seri numarası mesajında kırkıncı baytı kaydedin;
+
+218
+00:16:08,453 --> 00:16:14,513
+sahadaki en ucuz teşhis aracıdır, ama kodu olmayan nedenleri göstermez.
+
+219
+00:16:14,563 --> 00:16:17,273
+İki: başıboş bir ONU'ya karşı standart,
+
+220
+00:16:17,323 --> 00:16:25,433
+kanaldaki herkesi engelleyip uyumluları tek tek serbest bırakmayı önerir;
+
+221
+00:16:25,483 --> 00:16:28,240
+bu karanlık güç kesintisinden sağ çıkar.
+
+222
+00:16:29,260 --> 00:16:32,510
+Sıradaki: ONU'nun bir adı var.
+
+223
+00:16:32,560 --> 00:16:36,211
+Şimdi ne kadar uzakta olduğunu ölçelim.
+
+224
+00:16:37,993 --> 00:16:41,373
+Perde üç: ranging ve eşitleme gecikmesi.
+
+225
+00:16:41,423 --> 00:16:47,443
+Aşağı yön çerçevesi senkron deseninin ilk bitiyle başlar; yukarı yön çerçevesi ise,
+
+226
+00:16:47,493 --> 00:16:53,883
+başlangıç zamanı sıfır olan bir tahsisin göstereceği ilk bitle, gönderilmese bile.
+
+227
+00:16:53,933 --> 00:16:56,093
+ODN iki sayıyla tanımlanır:
+
+228
+00:16:56,143 --> 00:17:01,373
+en kısa fiber mesafesi L min ve en büyük diferansiyel mesafe D maks;
+
+229
+00:17:01,423 --> 00:17:03,551
+ikisini de OLT önceden bilir.
+
+230
+00:17:04,493 --> 00:17:06,253
+PMD Köprüsü.
+
+231
+00:17:06,303 --> 00:17:11,563
+Birinci sezonun ikinci bölümünde G.989.2'nin iki sınıfını gördük: DD20,
+
+232
+00:17:11,613 --> 00:17:16,093
+sıfır ile yirmi kilometre; DD40, sıfır ile kırk.
+
+233
+00:17:16,143 --> 00:17:21,113
+En küçük değer sıfır olduğu için L min sıfır, D maks sınıfın üst sınırıdır;
+
+234
+00:17:21,163 --> 00:17:25,817
+bu maddenin bütün örnekleri tam bu durumdur.
+
+235
+00:17:26,760 --> 00:17:27,910
+Zamanlama kuralı.
+
+236
+00:17:27,960 --> 00:17:34,740
+Her gönderim, haritayı taşıyan aşağı yön çerçevesinin başlangıcına göre hesaplanır,
+
+237
+00:17:34,790 --> 00:17:38,110
+tahsisin alındığı ana göre değil;
+
+238
+00:17:38,160 --> 00:17:44,100
+yukarı yön çerçevesi yanıt süresi artı gerekli gecikme kadar sonra başlar.
+
+239
+00:17:44,150 --> 00:17:47,990
+Yanıt süresi otuz beş artı eksi bir mikrosaniyedir,
+
+240
+00:17:48,040 --> 00:17:51,120
+ve her ONU kendi değerini bilmelidir.
+
+241
+00:17:51,170 --> 00:17:55,750
+Gerekli gecikme seri numarası durumunda rastgele, O4'te sıfır,
+
+242
+00:17:55,800 --> 00:17:57,791
+O5'te eşitleme gecikmesidir.
+
+243
+00:17:58,726 --> 00:18:01,166
+Seri numarası penceresi.
+
+244
+00:18:01,216 --> 00:18:05,606
+Başlangıcı: en kısa yanıt süresi, artı en yakın ONU'nun gidiş dönüşü,
+
+245
+00:18:05,656 --> 00:18:07,966
+artı tahsisin başlangıç zamanı.
+
+246
+00:18:08,016 --> 00:18:13,366
+Boyu: yanıt süresindeki oynama, artı diferansiyel mesafenin gidiş dönüşü,
+
+247
+00:18:13,416 --> 00:18:15,176
+artı en büyük rastgele gecikme,
+
+248
+00:18:15,226 --> 00:18:21,096
+artı sıfır virgül üç mikrosaniyenin altındaki burst süresi.
+
+249
+00:18:21,146 --> 00:18:26,096
+Yirmi kilometrede iki yüz, iki ve kırk sekiz: iki yüz elli mikrosaniye.
+
+250
+00:18:26,146 --> 00:18:27,834
+Kırk kilometrede dört yüz elli.
+
+251
+00:18:28,760 --> 00:18:31,160
+Ranging'de rastgele gecikme yoktur:
+
+252
+00:18:31,210 --> 00:18:35,160
+önerilen en büyük pencere yirmi kilometrede iki yüz iki,
+
+253
+00:18:35,210 --> 00:18:40,670
+kırk kilometrede dört yüz iki mikrosaniyedir, ve önceki bilgilerle daraltılabilir.
+
+254
+00:18:40,720 --> 00:18:44,740
+Her pencere iki, belki üç ardışık haritayı etkiler.
+
+255
+00:18:44,790 --> 00:18:52,230
+Bizim hesabımızla on gigabitte tek bir keşif penceresi yaklaşık üç yüz on bir kilobaytlık kapasiteyi susturur,
+
+256
+00:18:52,280 --> 00:18:54,351
+iki buçuk gigabitin dört katı.
+
+257
+00:18:55,827 --> 00:18:56,987
+T eqd,
+
+258
+00:18:57,037 --> 00:19:04,417
+bir haritayı taşıyan aşağı yön çerçevesi ile onu uygulayan yukarı yön çerçevesi arasındaki süredir;
+
+259
+00:19:04,467 --> 00:19:08,797
+G-PON'daki adı sıfır mesafe eşitleme gecikmesidir.
+
+260
+00:19:08,847 --> 00:19:13,287
+En uzun yanıt süresi artı en uzak gidiş dönüşten küçük olamaz:
+
+261
+00:19:13,337 --> 00:19:16,637
+yirmi kilometrede iki yüz otuz altı,
+
+262
+00:19:16,687 --> 00:19:20,287
+kırk kilometrede dört yüz otuz altı mikrosaniye.
+
+263
+00:19:20,337 --> 00:19:25,807
+Birinci sezondaki iki yüz otuz iki, gidiş dönüşü yüz doksan altı alıyordu;
+
+264
+00:19:25,857 --> 00:19:27,609
+standart iki yüz kullanır.
+
+265
+00:19:28,527 --> 00:19:35,347
+Ranging tahsisi, O4'teki ONU'nun varsayılan tahsis kimliğine, PLOAM bayrağıyla,
+
+266
+00:19:35,397 --> 00:19:39,547
+sıfır boyutla ve bir sessiz pencereyle verilir.
+
+267
+00:19:39,597 --> 00:19:46,147
+Cevap kayıt mesajıdır: sıra numarası sıfır, otuz altı baytlık kayıt kimliği.
+
+268
+00:19:46,197 --> 00:19:53,157
+Eşitleme gecikmesi, T eqd eksi gidiş dönüş gecikmesidir; gidiş dönüş de,
+
+269
+00:19:53,207 --> 00:20:00,165
+tahsisi taşıyan çerçeveden kayıt burst'üne kadar ölçülen süre eksi başlangıç zamanıdır.
+
+270
+00:20:01,094 --> 00:20:04,784
+Bizim hesabımızla OLT'nin dibindeki bir ONU,
+
+271
+00:20:04,834 --> 00:20:10,744
+yirmi kilometrelik bir ODN'de yaklaşık iki yüz iki mikrosaniye bekler.
+
+272
+00:20:10,794 --> 00:20:16,574
+Eşitleme gecikmesi mesajının kontrol baytı üç şey söyler: mutlak mı göreli mi,
+
+273
+00:20:16,624 --> 00:20:22,244
+artış mı azalış mı, ve değer şu anki kanal çifti için mi,
+
+274
+00:20:22,294 --> 00:20:24,284
+adı verilen bir çift için mi.
+
+275
+00:20:24,334 --> 00:20:29,541
+ONU'yu O5'e yalnızca yönlendirilmiş, mutlak bir mesaj taşır.
+
+276
+00:20:30,460 --> 00:20:31,670
+Doğruluk.
+
+277
+00:20:31,720 --> 00:20:37,450
+Değer, ONU'nun hızından bağımsız olarak, iki buçuk gigabitte tek bir bit periyoduna,
+
+278
+00:20:37,500 --> 00:20:40,670
+sıfır virgül dört nanosaniyeye kadar doğrudur.
+
+279
+00:20:40,720 --> 00:20:44,440
+ONU ise ayar adımını sekiz bit periyodunun,
+
+280
+00:20:44,490 --> 00:20:48,110
+üç virgül iki nanosaniyenin altında tutmalıdır.
+
+281
+00:20:48,160 --> 00:20:53,630
+Fiber mesafesi formülü mikrosaniyede yüz iki metre kullanır:
+
+282
+00:20:53,680 --> 00:20:57,464
+yaklaşık yüzde bir doğruluk, yirmi kilometrede iki yüz metre.
+
+283
+00:20:58,960 --> 00:20:59,980
+Kayma.
+
+284
+00:21:00,030 --> 00:21:04,910
+Burst erken gelirse OLT gecikmeyi kayma kadar artırır.
+
+285
+00:21:04,960 --> 00:21:04,910
+İki eşik önerilir.
+
+286
+00:21:04,960 --> 00:21:12,460
+Pencere kayması: iki buçuk gigabitte artı eksi sekiz, on gigabitte otuz iki bit,
+
+287
+00:21:12,510 --> 00:21:18,350
+yaklaşık üç virgül iki nanosaniye; aşılınca yeni gecikme gider.
+
+288
+00:21:18,400 --> 00:21:24,710
+İletim girişimi uyarısı: on altı ve altmış dört bit, altı virgül dört nanosaniye;
+
+289
+00:21:24,760 --> 00:21:29,053
+kayma üç düzeltmeden sonra da sürerse ilan edilir.
+
+290
+00:21:29,993 --> 00:21:30,933
+PMD Köprüsü.
+
+291
+00:21:30,983 --> 00:21:39,703
+Birinci sezonun altıncı bölümünde koruma süresini vericinin açılma ve kapanma sürelerinden türettik.
+
+292
+00:21:39,753 --> 00:21:45,473
+Bizim hesabımızla iki ONU üst eşiğe zıt yönlerde kayarsa fark otuz iki bit,
+
+293
+00:21:45,523 --> 00:21:46,803
+tam bir zaman kuantumudur:
+
+294
+00:21:46,853 --> 00:21:53,373
+iki buçuk gigabitte önerilen altmış dört bitlik korumanın yarısı.
+
+295
+00:21:53,423 --> 00:21:55,851
+Üst eşiğin adı bu yüzden girişimdir.
+
+296
+00:21:56,793 --> 00:21:59,973
+Kanal değiştiren ONU'nun zamanı.
+
+297
+00:22:00,023 --> 00:22:04,973
+Yedinci ek fiberi üçe böler: kanal sonlandırıcısına özgü bağlantı fiberi,
+
+298
+00:22:05,023 --> 00:22:07,973
+ortak besleyici ve dağıtım.
+
+299
+00:22:08,023 --> 00:22:08,503
+Bağlantı fiberleri farklıysa,
+
+300
+00:22:08,553 --> 00:22:16,473
+gecikmesini koruyarak kanal değiştiren ONU başkasının zaman diliminde gönderebilir.
+
+301
+00:22:16,523 --> 00:22:22,378
+Üç örnek yöntem: yeniden ranging, tutarlı T eqd, ve gecikmeyi önceden yapılandırmak.
+
+302
+00:22:23,327 --> 00:22:32,267
+Tutarlı yöntemde kanal sonlandırıcıları ICTP ile ortak bir T eqd ve bir halka sırası üzerinde anlaşır.
+
+303
+00:22:32,317 --> 00:22:37,227
+İlk aktive olan ONU öncü olur, ve halkada iki tur devredilir.
+
+304
+00:22:37,277 --> 00:22:40,547
+Her devirde hedef gidiş dönüşü ölçer:
+
+305
+00:22:40,597 --> 00:22:45,577
+kendi T eqd'sinden büyükse öncünün gecikmesini azalttırır,
+
+306
+00:22:45,627 --> 00:22:49,087
+değilse kendi T eqd'sini ölçülene indirir.
+
+307
+00:22:49,137 --> 00:22:53,554
+Birinci tur en uzağı bulur, ikinci tur değerleri kesinleştirir.
+
+308
+00:22:54,493 --> 00:22:56,133
+Mühendis notu.
+
+309
+00:22:56,183 --> 00:23:00,033
+Bir: zamanlamayla ilgili her şey, on gigabitlik bir ONU için bile,
+
+310
+00:23:00,083 --> 00:23:03,403
+iki buçuk gigabitin bit periyotlarıyla yazılır;
+
+311
+00:23:03,453 --> 00:23:06,853
+iki hızı ayrı veren tek tablo kayma eşikleridir.
+
+312
+00:23:06,903 --> 00:23:11,223
+İki: pencereler kilometre başına on mikrosaniye gidiş dönüşle,
+
+313
+00:23:11,273 --> 00:23:16,063
+mesafe formülü mikrosaniyede yüz iki metreyle hesaplanır;
+
+314
+00:23:16,113 --> 00:23:19,399
+bizim yorumumuzla aradaki yüzde iki, bir güvenlik payıdır.
+
+315
+00:23:20,427 --> 00:23:24,827
+Sıradaki: bütün ONU'lar aynı ızgarada konuşuyor.
+
+316
+00:23:24,877 --> 00:23:25,832
+Peki saat kaç?
+
+317
+00:23:27,627 --> 00:23:29,317
+Perde dört: günün saati.
+
+318
+00:23:29,367 --> 00:23:36,097
+OLT'nin doğru bir gerçek zaman saati olduğu varsayılır; kaynağı kapsam dışıdır.
+
+319
+00:23:36,147 --> 00:23:38,537
+OLT ONU'ya şunu söyler: belirli bir çerçeve,
+
+320
+00:23:38,587 --> 00:23:50,187
+eşitleme gecikmesi ve yanıt süresi sıfır olan varsayımsal bir ONU'ya günün hangi saatinde varırdı? Çerçeve süper çerçeve sayacıyla adlandırılır;
+
+321
+00:23:50,237 --> 00:23:55,122
+aktarım OMCI ile yapılır, gerçek zamanlı olması gerekmez.
+
+322
+00:23:56,060 --> 00:23:57,040
+Süreç.
+
+323
+00:23:57,090 --> 00:24:04,560
+OLT, önerildiği gibi şu andan on saniyelik bir pencere içinde bir çerçeve seçer.
+
+324
+00:24:04,610 --> 00:24:09,900
+Damga, o çerçevenin gönderme anı artı bir OLT payıdır:
+
+325
+00:24:09,950 --> 00:24:17,470
+T eqd çarpı aşağı yön kırılma indisinin iki indisin toplamına oranı.
+
+326
+00:24:17,520 --> 00:24:22,820
+Varış referansı, ODN ile ONU arasındaki konnektördür.
+
+327
+00:24:22,870 --> 00:24:26,360
+OLT kendi iç gecikmelerini telafi eder,
+
+328
+00:24:26,410 --> 00:24:30,828
+ve çerçeve numarasıyla damgayı OMCI ile gönderir.
+
+329
+00:24:31,760 --> 00:24:35,500
+ONU damgadan kendi payını çıkarır:
+
+330
+00:24:35,550 --> 00:24:43,180
+eşitleme gecikmesi artı yanıt süresinin kesin değeri, çarpı aynı oran.
+
+331
+00:24:43,230 --> 00:24:52,760
+Başka bir çerçeve için aradaki çerçeve sayısı çarpı yüz yirmi beş mikrosaniye eklenir;
+
+332
+00:24:52,810 --> 00:24:55,550
+sayacın dönmesine dikkat.
+
+333
+00:24:55,600 --> 00:24:58,640
+Saat on saniye içinde kurulur.
+
+334
+00:24:58,690 --> 00:25:03,940
+Eşitleme gecikmesi değişirse ONU tahminini düzeltir;
+
+335
+00:25:03,990 --> 00:25:09,024
+böylece saat yayılmadaki kaymayı izler.
+
+336
+00:25:09,960 --> 00:25:15,520
+Neden çalışır? İkinci eke göre her ONU için T eqd dört terimin toplamıdır:
+
+337
+00:25:15,570 --> 00:25:20,820
+aşağı yön yayılması, yanıt süresi, eşitleme gecikmesi ve yukarı yön yayılması.
+
+338
+00:25:20,870 --> 00:25:26,230
+ONU kendi payını çıkarınca geriye gidiş dönüş yayılması kalır;
+
+339
+00:25:26,280 --> 00:25:29,580
+aşağı yön payı indislerin oranıdır.
+
+340
+00:25:29,630 --> 00:25:30,810
+Bizim örneğimiz:
+
+341
+00:25:30,860 --> 00:25:38,219
+T eqd iki yüz otuz altı mikrosaniyeyse OLT payı yüz on sekiz virgül sıfır bir dört mikrosaniyedir.
+
+342
+00:25:39,693 --> 00:25:40,993
+Başarım.
+
+343
+00:25:41,043 --> 00:25:42,023
+Standart üç kaynak sayar.
+
+344
+00:25:42,073 --> 00:25:48,003
+Eşitleme gecikmesinin doğruluğu pencere kayması eşiğiyle, yaklaşık üç nanosaniyedir;
+
+345
+00:25:48,053 --> 00:25:52,243
+bir mikrosaniyelik genel sistem gereksiniminin çok altında,
+
+346
+00:25:52,293 --> 00:25:55,133
+ama metin bu gereksinimin kaynağını vermez.
+
+347
+00:25:55,183 --> 00:25:58,933
+İç gecikmeler çevrimden çevrime on altı bit oynayabilir:
+
+348
+00:25:58,983 --> 00:26:01,402
+altı virgül dört nanosaniye.
+
+349
+00:26:02,326 --> 00:26:04,156
+Üçüncü kaynak fiberdir.
+
+350
+00:26:04,206 --> 00:26:08,426
+Metne göre en büyük oran yarım artı milyonda yetmiş iki virgül yedi;
+
+351
+00:26:08,476 --> 00:26:13,476
+yarımı kullanmak milyonda yüz kırk beş virgül dörtlük bir hatadır,
+
+352
+00:26:13,526 --> 00:26:20,226
+ve metin bunu iki yüz mikrosaniyede yirmi dokuz virgül sıfır sekiz nanosaniye verir.
+
+353
+00:26:20,276 --> 00:26:24,696
+Bizim kontrolümüz: hata, gidiş dönüş çarpı orandaki sapmadır:
+
+354
+00:26:24,746 --> 00:26:27,586
+on dört virgül beş dört nanosaniye.
+
+355
+00:26:27,636 --> 00:26:29,015
+Metin iki kat abartıyor.
+
+356
+00:26:29,960 --> 00:26:32,580
+İkinci ek hatayı iki terime ayırır.
+
+357
+00:26:32,630 --> 00:26:38,890
+OLT terimi, T eqd çarpı oran hatası, herkes için aynıdır ve en büyük T eqd'de,
+
+358
+00:26:38,940 --> 00:26:41,870
+tipik olarak iki yüz elli mikrosaniyede alınır.
+
+359
+00:26:41,920 --> 00:26:46,850
+ONU terimi eşitleme gecikmesi artı yanıt süresiyle büyür.
+
+360
+00:26:46,900 --> 00:26:49,940
+Standardın deyişiyle sonuç sezgiye aykırıdır:
+
+361
+00:26:49,990 --> 00:26:54,940
+ONU'nun oranı yanlışsa en büyük hatayı en yakın ONU yapar,
+
+362
+00:26:54,990 --> 00:26:57,548
+çünkü en uzun eşitleme gecikmesi onundur.
+
+363
+00:26:58,493 --> 00:26:59,453
+PMD Köprüsü.
+
+364
+00:26:59,503 --> 00:27:04,273
+Oran, yarım eksi indis farkının dört kat indise bölümüdür;
+
+365
+00:27:04,323 --> 00:27:11,573
+önemli olan iki yönün indis farkıdır, o da G.652 fiberinin dispersiyonundan gelir.
+
+366
+00:27:11,623 --> 00:27:15,603
+Birinci sezonun üçüncü bölümündeki plan buraya girer:
+
+367
+00:27:15,653 --> 00:27:20,673
+yukarı yön bin beş yüz yirmi dört ile bin beş yüz kırk dört,
+
+368
+00:27:20,723 --> 00:27:24,053
+aşağı yön bin altı yüz nanometre civarı.
+
+369
+00:27:24,103 --> 00:27:32,589
+Ama ekin denklemi hâlâ XG-PON'un bin iki yüz yetmiş ve bin beş yüz yetmiş yedi nanometresiyle yazılı.
+
+370
+00:27:34,060 --> 00:27:35,320
+Genel durum.
+
+371
+00:27:35,370 --> 00:27:39,870
+Oran yarım artı milyonda yirmi yedi ile doksan dört arasındadır;
+
+372
+00:27:39,920 --> 00:27:43,540
+en olası değer yarım artı milyonda altmış bir,
+
+373
+00:27:43,590 --> 00:27:47,820
+ama milyonda otuz dörde kadar yanlış olabilir.
+
+374
+00:27:47,870 --> 00:27:47,820
+Yirmi kilometrede,
+
+375
+00:27:47,870 --> 00:27:55,690
+yaklaşık iki yüz mikrosaniyelik gidiş dönüşte bu artı eksi altı virgül sekiz nanosaniyedir.
+
+376
+00:27:55,740 --> 00:28:00,020
+Yanıt süresi ve eşitleme gecikmesi için bir virgül altı,
+
+377
+00:28:00,070 --> 00:28:04,554
+yuvarlama için bir nanosaniye eklenince: dokuz virgül dört.
+
+378
+00:28:05,493 --> 00:28:10,753
+Sabit kanal eşleşmesinde her çift için sapma milyonda iki ya da üçtür:
+
+379
+00:28:10,803 --> 00:28:14,453
+sıfır virgül dört ile sıfır virgül altı nanosaniye.
+
+380
+00:28:14,503 --> 00:28:19,803
+Toplam artı eksi üç virgül iki; genel değer kullanılırsa üç virgül dört:
+
+381
+00:28:19,853 --> 00:28:21,863
+yaklaşık üç kat daha iyi.
+
+382
+00:28:21,913 --> 00:28:29,160
+Bizim hesabımızla kırk kilometrede bu sayılar on beş virgül dokuz ve üç virgül sekize çıkar.
+
+383
+00:28:30,093 --> 00:28:31,583
+Bizim kontrollerimiz.
+
+384
+00:28:31,633 --> 00:28:33,203
+Ekin aritmetiği tutuyor;
+
+385
+00:28:33,253 --> 00:28:37,233
+ama indis farkı uçları verilen girdilerle yeniden üretilemiyor:
+
+386
+00:28:37,283 --> 00:28:41,303
+biz milyonda iki yüz seksen ile dört yüz kırk buluyoruz.
+
+387
+00:28:41,353 --> 00:28:47,373
+Bir denklemin paydasında da iki kez aşağı yön indisi yazılmış.
+
+388
+00:28:47,423 --> 00:28:50,573
+Ve bütçe tutarsız: ana metin eşitleme gecikmesine üç,
+
+389
+00:28:50,623 --> 00:28:54,433
+iç gecikmelere altı virgül dört nanosaniye tanır;
+
+390
+00:28:54,483 --> 00:28:57,093
+ek ikisine birlikte bir virgül altı ayırır.
+
+391
+00:28:58,027 --> 00:28:59,507
+Mühendis notu.
+
+392
+00:28:59,557 --> 00:29:02,207
+Bir: OLT ve ONU aynı oranı kullanmalıdır;
+
+393
+00:29:02,257 --> 00:29:06,357
+ek ikisine de yarım artı milyonda altmış biri önerir.
+
+394
+00:29:06,407 --> 00:29:07,307
+İki:
+
+395
+00:29:07,357 --> 00:29:16,097
+on nanosaniyenin altına inmek istiyorsanız sabit kanal eşleşmesi kullanın ve iç gecikmeleri kendiniz kalibre edin;
+
+396
+00:29:16,147 --> 00:29:19,912
+standart telafiyi iki tarafa bırakır, ama yöntem vermez.
+
+397
+00:29:20,960 --> 00:29:24,860
+Sıradaki: ONU uyandı ve saatini kurdu.
+
+398
+00:29:24,910 --> 00:29:28,595
+Şimdi bunu laboratuvarda ölçelim.
+
+399
+00:29:30,393 --> 00:29:31,753
+Laboratuvarda.
+
+400
+00:29:31,803 --> 00:29:38,803
+Düzenek: ODN'i bir ayırıcıdan dinleyen bir protokol analizörü, bir OLT emülatörü,
+
+401
+00:29:38,853 --> 00:29:42,323
+gerçek bir ONU, bir trafik üreteci, sıfır,
+
+402
+00:29:42,373 --> 00:29:47,463
+on ve yirmi kilometrelik fiber makaraları, bir OTDR,
+
+403
+00:29:47,513 --> 00:29:51,493
+bir güç ölçer ve bir zaman aralığı sayacı.
+
+404
+00:29:51,543 --> 00:29:56,346
+Standart burada test yöntemi vermez; ölçütler standarttandır.
+
+405
+00:29:57,293 --> 00:30:00,233
+İlk test: bir aktivasyonun merdiveni.
+
+406
+00:30:00,283 --> 00:30:05,613
+Analizörde sırayı doğrulayın: profiller, seri numarası tahsisi,
+
+407
+00:30:05,663 --> 00:30:09,093
+kimliği bin yirmi üç olan seri numarası mesajı, kimlik atama,
+
+408
+00:30:09,143 --> 00:30:13,603
+varsayılan tahsis kimliğine ranging tahsisi, kayıt,
+
+409
+00:30:13,653 --> 00:30:16,083
+mutlak eşitleme gecikmesi ve onay.
+
+410
+00:30:16,133 --> 00:30:21,786
+Aktivasyon mesajlarının bütünlük kodları varsayılan anahtarla tutmalıdır.
+
+411
+00:30:22,726 --> 00:30:25,836
+İkinci test: aktivasyon süresi,
+
+412
+00:30:25,886 --> 00:30:29,936
+aşağı yön ışığından eşitleme gecikmesinin onayına kadar.
+
+413
+00:30:29,986 --> 00:30:33,696
+Standartta hedef yoktur; süreyi senkron, profil öğrenme,
+
+414
+00:30:33,746 --> 00:30:37,576
+keşif ve ranging olarak bölün.
+
+415
+00:30:37,626 --> 00:30:42,246
+Alt sınırlar metinden gelir: bir ile beş saniyelik profil aralığı,
+
+416
+00:30:42,296 --> 00:30:48,486
+en az on saniyelik profil bekleme süresi, ve OLT'nin seçtiği tahsis aralığı.
+
+417
+00:30:49,426 --> 00:30:51,906
+Üçüncü test: yanıt süresi.
+
+418
+00:30:51,956 --> 00:30:55,996
+Neredeyse sıfır fiberle ve sıfır eşitleme gecikmesiyle,
+
+419
+00:30:56,046 --> 00:31:00,336
+kayıt burst'ünün varışından başlangıç zamanını çıkarın: kalan,
+
+420
+00:31:00,386 --> 00:31:04,666
+yanıt süresi artı iki kez bağlantı kablosunun gecikmesidir.
+
+421
+00:31:04,716 --> 00:31:08,046
+Otuz dört ile otuz altı mikrosaniye arasında olmalı,
+
+422
+00:31:08,096 --> 00:31:13,077
+ve ONU'nun OMCC üzerinden bildirdiği değerle uyuşmalıdır.
+
+423
+00:31:14,560 --> 00:31:17,700
+Dördüncü test: fiber uzunluğuna karşı ranging.
+
+424
+00:31:17,750 --> 00:31:22,370
+Makaraları sırayla takıp eşitleme gecikmesini okuyun:
+
+425
+00:31:22,420 --> 00:31:27,920
+bizim hesabımızla kilometre başına yaklaşık yirmi dört bin dört yüz bit azalmalıdır.
+
+426
+00:31:27,970 --> 00:31:31,710
+Formülün mesafesini OTDR ile karşılaştırın;
+
+427
+00:31:31,760 --> 00:31:35,780
+yirmi kilometrede fark iki yüz metre içinde kalmalıdır.
+
+428
+00:31:35,830 --> 00:31:40,329
+OLT'de burst'ün fazı üç virgül iki nanosaniye içinde olmalıdır.
+
+429
+00:31:41,260 --> 00:31:43,900
+Beşinci test: sessiz pencerenin bedeli.
+
+430
+00:31:43,950 --> 00:31:50,000
+Trafik üreteciyle çalışan ONU'ları yükleyin, ve keşif pencereleri açın.
+
+431
+00:31:50,050 --> 00:31:52,970
+Pencereye hiçbir burst düşmemelidir.
+
+432
+00:31:53,020 --> 00:31:58,790
+Yukarı yön veriminde, seri numarası tahsisi başına yirmi kilometrede iki,
+
+433
+00:31:58,840 --> 00:32:04,160
+kırk kilometrede üç virgül altı çerçevelik bir çukur görülmelidir.
+
+434
+00:32:04,210 --> 00:32:09,037
+Gecikmeye duyarlı T-CONT'larda gecikme sıçramasını da ölçün.
+
+435
+00:32:09,960 --> 00:32:12,910
+Altıncı test: kayma enjeksiyonu.
+
+436
+00:32:12,960 --> 00:32:18,370
+Emüle edilmiş bir ONU'nun burst'ünü bit bit kaydırın, ya da fiberi ısıtın.
+
+437
+00:32:18,420 --> 00:32:20,220
+Kayma iki buçuk gigabitte sekiz,
+
+438
+00:32:20,270 --> 00:32:26,520
+on gigabitte otuz iki biti aşınca göreli bir eşitleme gecikmesi mesajı gelmelidir.
+
+439
+00:32:26,570 --> 00:32:32,370
+On altı ya da altmış dört biti aşan kayma üç düzeltmeden sonra sürerse,
+
+440
+00:32:32,420 --> 00:32:34,782
+OLT iletim girişimi uyarısı vermelidir.
+
+441
+00:32:36,260 --> 00:32:37,610
+Yedinci test: zamanlayıcılar.
+
+442
+00:32:37,660 --> 00:32:44,780
+Eşitleme gecikmesini vermeyin: önerilen on saniye sonra ONU seri numarası durumuna,
+
+443
+00:32:44,830 --> 00:32:46,780
+dokuz koduyla dönmelidir.
+
+444
+00:32:46,830 --> 00:32:49,050
+O5'teki bir ONU'ya hiç tahsis vermeyin:
+
+445
+00:32:49,100 --> 00:32:55,690
+tam on saniye sonra yeniden aktive olmalıdır, kendine ait bir kod olmadan.
+
+446
+00:32:55,740 --> 00:33:00,980
+Sonra aşağı yön ışığını kısa kısa kesin: TO6 her dönüşte sıfırlanmamalı,
+
+447
+00:33:01,030 --> 00:33:03,395
+kaldığı yerden devam etmelidir.
+
+448
+00:33:04,327 --> 00:33:06,947
+Sekizinci test: günün saati.
+
+449
+00:33:06,997 --> 00:33:14,037
+ONU'nun saniye darbesini OLT'nin referansına karşı bir zaman aralığı sayacıyla ölçün,
+
+450
+00:33:14,087 --> 00:33:16,827
+sıfır, yirmi ve kırk kilometrede.
+
+451
+00:33:16,877 --> 00:33:21,617
+Yirmi kilometrede hata genel durumda dokuz virgül dört,
+
+452
+00:33:21,667 --> 00:33:26,417
+sabit eşleşmede üç virgül iki nanosaniyenin altında olmalıdır.
+
+453
+00:33:26,467 --> 00:33:33,467
+ONU'ya bilerek yanlış bir oran verin: hata en çok yakın ONU'da büyümelidir.
+
+454
+00:33:34,393 --> 00:33:37,013
+Dokuzuncu test: acil durdurma.
+
+455
+00:33:37,063 --> 00:33:42,373
+Bir seri numarasını iki yüz elli beşle engelleyin, ONU'nun gücünü kesip açın,
+
+456
+00:33:42,423 --> 00:33:45,143
+ve güç ölçerle karanlık kaldığını doğrulayın.
+
+457
+00:33:45,193 --> 00:33:48,743
+Sıfırla serbest bırakınca ONU yeniden aktive olmalı,
+
+458
+00:33:48,793 --> 00:33:51,843
+ve mesajı beş kodunu taşımalıdır.
+
+459
+00:33:51,893 --> 00:33:56,573
+Altmış üçü yalnızca seri numarası durumundaki bir ONU'da deneyin.
+
+460
+00:33:57,493 --> 00:33:58,883
+Laboratuvar notu.
+
+461
+00:33:58,933 --> 00:34:02,703
+Bir: her aktivasyonu tam kaydedin; hata ayıklama kodu,
+
+462
+00:34:02,753 --> 00:34:07,923
+zamanlayıcı süreleri ve eşitleme gecikmesi aynı satırda dursun.
+
+463
+00:34:07,973 --> 00:34:13,913
+İki: değeri standartta olmayan her zamanlayıcıyı kendi ölçümünüzle belgeleyin;
+
+464
+00:34:13,963 --> 00:34:17,860
+birlikte çalışabilirlik testinde ilk soru bunlar olacaktır.
+
+465
+00:34:19,693 --> 00:34:21,393
+Bölümün özeti.
+
+466
+00:34:21,443 --> 00:34:26,483
+Bir: ONU sekiz adımda, O1'den seri numarası durumuna, O4'e ve O5'e uyanır;
+
+467
+00:34:26,533 --> 00:34:33,213
+iki değişiklik aktivasyon kararını ve unutulmuş ONU zamanlayıcısını düzeltti.
+
+468
+00:34:33,263 --> 00:34:37,823
+İki: tek zorunlu aktivasyon zamanlayıcısı TO6'nın on saniyesidir;
+
+469
+00:34:37,873 --> 00:34:39,993
+TO2'den TO5'e değer yoktur.
+
+470
+00:34:40,043 --> 00:34:45,866
+Üç: seri numarası mesajı rastgele gecikmeyi ve hata ayıklama kodunu taşır.
+
+471
+00:34:46,793 --> 00:34:51,363
+Dört: keşif penceresi yirmi kilometrede iki yüz elli,
+
+472
+00:34:51,413 --> 00:34:54,613
+ranging penceresi iki yüz iki mikrosaniyedir;
+
+473
+00:34:54,663 --> 00:34:58,663
+eşitleme gecikmesi iki buçuk gigabitte tek bite kadar doğrudur,
+
+474
+00:34:58,713 --> 00:35:01,113
+ve kayma iki eşikle izlenir.
+
+475
+00:35:01,163 --> 00:35:05,803
+Beş: günün saati bir çerçeve numarası ve bir damgayla aktarılır;
+
+476
+00:35:05,853 --> 00:35:09,973
+yirmi kilometrede hata genel durumda dokuz virgül dört,
+
+477
+00:35:10,023 --> 00:35:13,315
+sabit eşleşmede üç virgül iki nanosaniyedir.
+
+478
+00:35:14,360 --> 00:35:16,060
+Kendini test et.
+
+479
+00:35:16,110 --> 00:35:21,550
+Birinci soru: değeri zorunlu olan tek aktivasyon zamanlayıcısı hangisidir,
+
+480
+00:35:21,600 --> 00:35:27,570
+değeri nedir, ve iki bin yirmi üç değişikliği onda neyi değiştirdi? İkinci soru:
+
+481
+00:35:27,620 --> 00:35:27,570
+L min sıfır,
+
+482
+00:35:27,620 --> 00:35:34,590
+D maks kırk kilometre ise önerilen seri numarası penceresi kaç mikrosaniyedir,
+
+483
+00:35:34,640 --> 00:35:39,450
+parçaları nereden gelir, ve neden on gigabitte de aynıdır? Üçüncü soru:
+
+484
+00:35:39,500 --> 00:35:45,590
+yirmi kilometrede günün saati hatası neden sabit eşleşmede üç virgül iki,
+
+485
+00:35:45,640 --> 00:35:49,880
+genel durumda dokuz virgül dört nanosaniyedir? Cevaplar,
+
+486
+00:35:49,930 --> 00:35:51,488
+bir sonraki bölümün başında.
+
+487
+00:35:52,460 --> 00:35:55,630
+Bir sonraki bölüm: Renk Değiştirmek.
+
+488
+00:35:55,680 --> 00:35:59,500
+Kanal yönetimi, devir, kilitleme ve bağlama.
+
+489
+00:35:59,550 --> 00:36:03,830
+Bu bölümde yalnızca adını andığımız O8 ve O9'u,
+
+490
+00:36:03,880 --> 00:36:10,200
+bir ONU'nun bir renkten ötekine geçişinde adım adım izleyeceğiz.
+
+491
+00:36:10,250 --> 00:36:11,110
+Görüşmek üzere.
+

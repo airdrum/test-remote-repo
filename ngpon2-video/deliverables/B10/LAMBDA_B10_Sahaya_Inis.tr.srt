@@ -1,0 +1,1904 @@
+1
+00:00:00,000 --> 00:00:02,420
+Bölüm on: Sahaya İniş.
+
+2
+00:00:02,470 --> 00:00:03,610
+Sezon finali.
+
+3
+00:00:03,660 --> 00:00:09,550
+Dokuz bölüm boyunca G.989.2'nin tablolarını tek tek açtık;
+
+4
+00:00:09,600 --> 00:00:13,206
+bu bölümde onları sahaya taşıyoruz.
+
+5
+00:00:14,133 --> 00:00:20,613
+Önce izleme: bir ONU ve bir OLT kendi optik durumunu nasıl ölçer,
+
+6
+00:00:20,663 --> 00:00:24,596
+ve bu ölçümlere ne kadar güvenebiliriz.
+
+7
+00:00:25,533 --> 00:00:29,923
+Sonra koruma: bir besleyici fiber kesildiğinde ne olur,
+
+8
+00:00:29,973 --> 00:00:33,493
+ve bu anahtarlama neden ONU'nun optiğine hiç dokunmaz.
+
+9
+00:00:34,433 --> 00:00:40,130
+Ardından uyumluluk: kırk iki normatif tablonun tek bir test matrisine dönüşmesi.
+
+10
+00:00:41,067 --> 00:00:46,607
+Ve bir ONU'nun hayatı: fişe takıldığı andan acil durdurma komutuna kadar,
+
+11
+00:00:46,657 --> 00:00:50,175
+bütün sezonu tek bir hikâyede birleştiriyoruz.
+
+12
+00:00:51,100 --> 00:00:58,470
+Sahada arıza vakalarını ve bir saha ekibinin ölçüm çantasını konuşacağız.
+
+13
+00:00:58,520 --> 00:01:03,234
+Bölümün sonunda da ikinci sezona, G.989.3'e bir bakış var.
+
+14
+00:01:15,493 --> 00:01:17,443
+Geçen bölümün soruları.
+
+15
+00:01:17,493 --> 00:01:18,263
+Birinci soru:
+
+16
+00:01:18,313 --> 00:01:28,823
+A eki tablolarında ODN sınıfı büyüdükçe ne değişir? Aşağı yönde OLT'nin başlatma gücü her sınıfta iki desibel artar;
+
+17
+00:01:28,873 --> 00:01:35,213
+yukarı yönde OLT'nin hassasiyeti her sınıfta iki desibel iyileşir.
+
+18
+00:01:35,263 --> 00:01:38,933
+ONU'nun vericisi ve alıcısı ise değişmez.
+
+19
+00:01:38,983 --> 00:01:46,189
+ODN sınıfını iki yönde de OLT taşır, ve belirtilen her hücre sıfır payla kapanır.
+
+20
+00:01:47,160 --> 00:01:50,210
+İkinci soru: üst modülasyon indeksi,
+
+21
+00:01:50,260 --> 00:01:54,880
+zarfın en büyük ve en küçük gücü arasındaki farkın ortalama güce oranıdır,
+
+22
+00:01:54,930 --> 00:01:55,880
+yüzde olarak.
+
+23
+00:01:55,930 --> 00:02:02,340
+Yüzde on, simetrik bir zarfta ortalamanın yüzde beş üstü ve yüzde beş altı demektir:
+
+24
+00:02:02,390 --> 00:02:05,490
+yaklaşık artı eksi sıfır virgül iki desibel.
+
+25
+00:02:05,540 --> 00:02:09,781
+Standart bunun yol açtığı cezayı tanımlamaz; ölçmek size kalır.
+
+26
+00:02:10,760 --> 00:02:19,220
+Üçüncü soru: Y, başka abonelerin yukarı yön PtP ışığının ODN'den geri yansımasıdır.
+
+27
+00:02:19,270 --> 00:02:22,870
+En büyük PtP ONU gücü artı dokuz dBm,
+
+28
+00:02:22,920 --> 00:02:30,560
+eksi otuz iki desibellik geri dönüş kaybıyla eksi yirmi üç dBm eder; bu,
+
+29
+00:02:30,610 --> 00:02:37,720
+TWDM ONU'sunun eksi otuz dBm'lik hassasiyetinin yedi desibel üstüdür.
+
+30
+00:02:37,770 --> 00:02:44,740
+Birinci düzeltme, metindeki altı desibeli bu yüzden yediye çevirdi.
+
+31
+00:02:44,790 --> 00:02:46,419
+Şimdi bu bölüme.
+
+32
+00:02:47,993 --> 00:02:50,763
+Perde bir: optik katmanı izlemek.
+
+33
+00:02:50,813 --> 00:02:58,473
+Sahadaki bir ağ, laboratuvardaki gibi bir güç ölçer ve osiloskopla değil,
+
+34
+00:02:58,523 --> 00:03:02,843
+cihazların kendi ölçümleriyle yönetilir.
+
+35
+00:03:02,893 --> 00:03:05,963
+G.989.2 bunu ikinci ekte tanımlar:
+
+36
+00:03:06,013 --> 00:03:12,246
+optik katman denetimini destekleyen fiziksel katman ölçümleri.
+
+37
+00:03:13,193 --> 00:03:17,443
+Önemli bir ayrıntı: bu ek bilgilendiricidir,
+
+38
+00:03:17,493 --> 00:03:20,253
+standardın bağlayıcı bir parçası değildir.
+
+39
+00:03:20,303 --> 00:03:26,353
+İçeriği G.984.2'nin ikinci değişikliğindeki dördüncü ekten alınmıştır;
+
+40
+00:03:26,403 --> 00:03:32,153
+bazı aralıklar ve hesap yöntemleri NG-PON2 için değiştirilmiştir.
+
+41
+00:03:32,203 --> 00:03:36,753
+Ek, aynı ölçümlerin PtP WDM için de geçerli olduğunu,
+
+42
+00:03:36,803 --> 00:03:40,992
+ama bu tarafın ayrıca inceleneceğini söyler.
+
+43
+00:03:41,926 --> 00:03:45,996
+Tablodaki yedi parametrenin üçü elektriksel ve ısıldır.
+
+44
+00:03:46,046 --> 00:03:52,756
+Sıcaklık, besleme gerilimi ve öngerilim akımı hem OLT'de hem ONU'da ölçülür.
+
+45
+00:03:52,806 --> 00:03:58,766
+Tipik aralıklar eksi kırk beşten artı doksan santigrat dereceye,
+
+46
+00:03:58,816 --> 00:04:01,816
+sıfırdan altı virgül elli beş volta,
+
+47
+00:04:01,866 --> 00:04:06,136
+ve sıfırdan sekiz yüz on dokuz miliampere kadardır.
+
+48
+00:04:06,186 --> 00:04:08,013
+Tepki süreleri bir saniyedir.
+
+49
+00:04:08,960 --> 00:04:13,310
+Doğrulukları gevşektir: sıcaklıkta artı eksi üç derece,
+
+50
+00:04:13,360 --> 00:04:18,710
+gerilimde nominal değerin yüzde üçü, öngerilim akımında yüzde onu.
+
+51
+00:04:18,760 --> 00:04:24,473
+Bu ölçümler bir alarm ve eğilim aracıdır, bir kalibrasyon aracı değildir.
+
+52
+00:04:25,393 --> 00:04:32,653
+Optik güçler dört satırdır: ONU'nun ve OLT'nin gönderdiği ve aldığı güç.
+
+53
+00:04:32,703 --> 00:04:36,423
+Gönderilen güç eksi yirmi sekizden artı yirmi dBm'e,
+
+54
+00:04:36,473 --> 00:04:45,003
+alınan güç eksi elli üçten eksi dört virgül dokuz dBm'e kadar ölçülür.
+
+55
+00:04:45,053 --> 00:04:48,773
+Çözünürlük her satırda sıfır virgül bir desibel,
+
+56
+00:04:48,823 --> 00:04:54,593
+tekrarlanabilirlik artı eksi sıfır virgül beş desibel,
+
+57
+00:04:54,643 --> 00:04:57,335
+tepki süresi üç yüz nanosaniyedir.
+
+58
+00:04:58,827 --> 00:05:02,247
+Mutlak doğruluk ONU tarafında artı eksi üç,
+
+59
+00:05:02,297 --> 00:05:07,447
+OLT tarafında artı eksi iki desibel olarak yazılmıştır.
+
+60
+00:05:07,497 --> 00:05:12,397
+Ama tablonun beşinci notu, alınan güç için eksi otuz beş dBm'e kadar üç,
+
+61
+00:05:12,447 --> 00:05:16,217
+daha aşağıda beş desibellik doğruluk der.
+
+62
+00:05:16,267 --> 00:05:19,327
+OLT satırındaki iki desibel bu notla çelişir.
+
+63
+00:05:19,377 --> 00:05:22,714
+Tabloyu okurken notları da okumak gerekir.
+
+64
+00:05:23,660 --> 00:05:26,780
+Bu ölçüm penceresi tesadüf değildir.
+
+65
+00:05:26,830 --> 00:05:33,440
+Eksi dört virgül dokuz dBm'lik üst sınır, TWDM tablolarındaki en yüksek aşırı yükü,
+
+66
+00:05:33,490 --> 00:05:35,350
+eksi beş dBm'i kapsar.
+
+67
+00:05:35,400 --> 00:05:41,770
+Eksi elli üçlük alt sınır ise çok daha aşağıdadır, ve ek nedenini açıkça yazar:
+
+68
+00:05:41,820 --> 00:05:47,030
+ONU'nun ayarlanabilir vericisinin ayarına yardım etmek.
+
+69
+00:05:47,080 --> 00:05:53,441
+Yanlış kanala ayarlanmış bir ONU'nun zayıf ışığı bile görülebilmelidir.
+
+70
+00:05:54,360 --> 00:06:04,120
+Doğruluğun beş desibele düştüğü eksi otuz beşin altındaki bölgede yalnızca bir TWDM alıcı değeri vardır:
+
+71
+00:06:04,170 --> 00:06:06,290
+iki buçuk gigabitlik,
+
+72
+00:06:06,340 --> 00:06:16,060
+yükselteçli bağlantı tipindeki E2 sınıfı OLT alıcısının eksi otuz altı virgül beş dBm'lik hassasiyeti.
+
+73
+00:06:16,110 --> 00:06:21,430
+ONU hassasiyetleri ise eksi yirmi sekiz ve eksi otuzdur;
+
+74
+00:06:21,480 --> 00:06:28,044
+ONU'nun bütün çalışma penceresinde üç desibellik doğruluk geçerlidir.
+
+75
+00:06:28,994 --> 00:06:32,134
+OLT'nin alınan güç ölçümü bir burst ölçümüdür.
+
+76
+00:06:32,184 --> 00:06:33,614
+Üçüncü not,
+
+77
+00:06:33,664 --> 00:06:42,634
+ölçümün burst'e göre doğru anda yapılmasını ve burst'ün dedektörün tepki süresine yetecek kadar uzun olmasını ister.
+
+78
+00:06:42,684 --> 00:06:47,054
+Üç yüz nanosaniye, iki buçuk gigabitte yedi yüz kırk altı bit,
+
+79
+00:06:47,104 --> 00:06:50,014
+on gigabitte yaklaşık üç bin bittir.
+
+80
+00:06:50,064 --> 00:06:53,868
+Çok kısa bir burst'ün gücü anlamlı biçimde okunamaz.
+
+81
+00:06:54,794 --> 00:06:58,484
+NG-PON2 küçük ama akıllı bir değişiklik de yapar:
+
+82
+00:06:58,534 --> 00:07:02,014
+tek bir akım kaydı iki tip vericiyi izler.
+
+83
+00:07:02,064 --> 00:07:05,484
+En anlamlı iki bit, değerin lazer öngerilimi mi,
+
+84
+00:07:05,534 --> 00:07:11,284
+yoksa yarı iletken optik yükseltecin, yani SOA'nın akımı mı olduğunu söyler.
+
+85
+00:07:11,334 --> 00:07:11,974
+Kalan on dört bit,
+
+86
+00:07:12,024 --> 00:07:17,954
+elli mikroamperlik adımlarla on altı bin üç yüz seksen dört değer taşır;
+
+87
+00:07:18,004 --> 00:07:21,609
+sekiz yüz on dokuz miliamperlik aralık buradan gelir.
+
+88
+00:07:23,093 --> 00:07:25,963
+Güç kayıtlarının adımı da değişmiştir.
+
+89
+00:07:26,013 --> 00:07:29,993
+Gönderilen güç bir virgül beş mikrovatlık adımlarla kodlanır;
+
+90
+00:07:30,043 --> 00:07:33,893
+bir adım eksi yirmi sekiz virgül yirmi dört dBm'e,
+
+91
+00:07:33,943 --> 00:07:37,643
+en büyük değer yaklaşık artı yirmi dBm'e karşılık gelir.
+
+92
+00:07:37,693 --> 00:07:42,673
+Alınan güç sıfır virgül sıfır sıfır beş mikrovatlık adımlarla kodlanır:
+
+93
+00:07:42,723 --> 00:07:47,804
+bir adım eksi elli üç, en büyük değer eksi dört virgül sekiz dBm.
+
+94
+00:07:48,726 --> 00:07:54,736
+Bu ölçümler bağlayıcı olmayan bir ekte durur, ama bağlayıcı metin onlara dayanır.
+
+95
+00:07:54,786 --> 00:07:57,056
+D ekindeki özerk güç dengeleme,
+
+96
+00:07:57,106 --> 00:08:03,196
+ONU'nun alınan güç göstergesinin artı eksi üç desibellik doğruluğunu buradan alır:
+
+97
+00:08:03,246 --> 00:08:08,166
+on beş desibellik diferansiyel yol kaybından üç desibel düşülür,
+
+98
+00:08:08,216 --> 00:08:11,630
+ve izin verilen dengeleme on iki desibele iner.
+
+99
+00:08:12,560 --> 00:08:18,260
+TC köprüsü: G.989.3 bu değerlerin nerede taşındığını söyler.
+
+100
+00:08:18,310 --> 00:08:25,570
+OLT'nin başlatma gücü, aşağı yön çerçeve başlığındaki PSBd'nin TOL alanında,
+
+101
+00:08:25,620 --> 00:08:33,850
+eksi otuz dBm'e göre sıfır virgül bir desibellik adımlarla bütün ONU'lara yayınlanır.
+
+102
+00:08:33,900 --> 00:08:37,160
+ONU'nun optik güç ölçümleri ise OMCI ile,
+
+103
+00:08:37,210 --> 00:08:42,260
+G.988'deki yönetim varlıkları üzerinden okunur.
+
+104
+00:08:42,310 --> 00:08:49,143
+OLT de çalışan her ONU'nun gelen gücünü, fazını ve hata oranını izler.
+
+105
+00:08:50,060 --> 00:08:51,180
+Mühendis notu.
+
+106
+00:08:51,230 --> 00:08:57,590
+Bir: bir ONU'nun bildirdiği alınan gücü saha güç ölçerinizle karşılaştırırken,
+
+107
+00:08:57,640 --> 00:09:01,500
+üç desibele kadar farkı normal kabul edin.
+
+108
+00:09:01,550 --> 00:09:04,690
+İki: güç dengeleme açıkken, D ekinin uyardığı gibi,
+
+109
+00:09:04,740 --> 00:09:10,500
+güç ölçerin araya giriş kaybı ONU'yu bir eşiğin altına itebilir,
+
+110
+00:09:10,550 --> 00:09:14,560
+ve ONU'nun vericisi üç desibel yükselebilir.
+
+111
+00:09:14,610 --> 00:09:20,914
+Üç: OLT'nin gelen güç okumasını yalnızca yeterince uzun burst'lerde değerlendirin.
+
+112
+00:09:21,960 --> 00:09:24,130
+Sıradaki: ölçebiliyoruz.
+
+113
+00:09:24,180 --> 00:09:27,958
+Peki bir fiber kesildiğinde ağ nasıl ayakta kalır?
+
+114
+00:09:29,727 --> 00:09:31,157
+Perde iki: koruma.
+
+115
+00:09:31,207 --> 00:09:35,977
+Önce şunu belirtelim: G.989.2 koruma tanımlamaz;
+
+116
+00:09:36,027 --> 00:09:41,067
+teknik metninde koruma sözcüğü bile geçmez.
+
+117
+00:09:41,117 --> 00:09:44,417
+Koruma, G.989.3'ün on sekizinci maddesindedir.
+
+118
+00:09:44,467 --> 00:09:52,826
+Bu perde bu yüzden bir TC köprüsüdür, ama fiziksel katman için önemli sonuçları var.
+
+119
+00:09:53,760 --> 00:09:57,070
+Tanımlanan yapı bire bir, B tipi korumadır.
+
+120
+00:09:57,120 --> 00:10:03,180
+Bir kanal grubunda her kanal çiftinin iki OLT kanal sonlandırıcısı vardır.
+
+121
+00:10:03,230 --> 00:10:08,740
+Çift ebeveynli yapıda bu iki sonlandırıcı farklı OLT şasilerindedir;
+
+122
+00:10:08,790 --> 00:10:15,268
+tek ebeveynli yapıda aynı şasidedirler ve aynı servis arayüzünü paylaşabilirler.
+
+123
+00:10:16,194 --> 00:10:19,454
+Neyi korur? Kanal bağlantı fiberini,
+
+124
+00:10:19,504 --> 00:10:26,734
+yani OLT kanal sonlandırıcısı ile dalga boyu çoğullayıcısı arasındaki fiberi.
+
+125
+00:10:26,784 --> 00:10:32,444
+Besleyici fiberi, yani çoğullayıcı ile ayırıcı arasındaki fiberi.
+
+126
+00:10:32,494 --> 00:10:39,994
+Çoğullayıcının kendisini, kanal sonlandırıcısını, ve çift ebeveynlikte bütün şasiyi.
+
+127
+00:10:40,044 --> 00:10:45,242
+Dağıtım ve düşüm fiberleri ile ayırıcı bu listede yoktur.
+
+128
+00:10:46,160 --> 00:10:48,730
+Anahtarlamanın inceliği de tanımlıdır.
+
+129
+00:10:48,780 --> 00:10:51,750
+Her kanal çifti bağımsız korunur.
+
+130
+00:10:51,800 --> 00:10:53,420
+Besleyici fiber,
+
+131
+00:10:53,470 --> 00:10:59,780
+çoğullayıcı ya da şasi arızasında gruptaki bütün kanal çiftleri aynı anda anahtarlanır.
+
+132
+00:10:59,830 --> 00:11:05,230
+Yalnızca bir kanal sonlandırıcısı ya da onun bağlantı fiberi arızalanırsa,
+
+133
+00:11:05,280 --> 00:11:08,086
+yalnızca etkilenen çift anahtarlanır.
+
+134
+00:11:09,027 --> 00:11:12,057
+Fiziksel katman için en önemli cümle şudur:
+
+135
+00:11:12,107 --> 00:11:16,857
+B tipi koruma ONU'nun yeniden ayarlanmasını gerektirmez.
+
+136
+00:11:16,907 --> 00:11:21,667
+Anahtarlama sırasında ONU aynı kanal çiftinde kalır.
+
+137
+00:11:21,717 --> 00:11:26,237
+Bu yüzden korumanın etkili olması için, aşağı yön senkronunun,
+
+138
+00:11:26,287 --> 00:11:30,771
+ONU yeniden ayarlanmaya karar vermeden önce geri gelmesi gerekir.
+
+139
+00:11:32,260 --> 00:11:33,730
+Yük OLT tarafındadır.
+
+140
+00:11:33,780 --> 00:11:36,760
+İki sonlandırıcı aynı kanal çiftine bakar,
+
+141
+00:11:36,810 --> 00:11:40,150
+ama hiçbir anda ikisi birlikte göndermemelidir.
+
+142
+00:11:40,200 --> 00:11:45,330
+Tam olarak biri etkin roldedir ve aşağı yönde ışık gönderir.
+
+143
+00:11:45,380 --> 00:11:47,090
+Diğeri bekleme rolündedir: vericisi kapalıdır,
+
+144
+00:11:47,140 --> 00:11:51,039
+ama yukarı yönü dinler ve devralmaya hazırdır.
+
+145
+00:11:51,960 --> 00:11:54,580
+Durum makinesinde on durum vardır,
+
+146
+00:11:54,630 --> 00:11:58,970
+ve her birinde vericinin açık mı kapalı mı olduğu yazılıdır.
+
+147
+00:11:59,020 --> 00:12:00,410
+Başlangıç, ön koruma,
+
+148
+00:12:00,460 --> 00:12:05,790
+koruma ve bekleme tarafındaki sinyal kaybı durumlarında verici kapalıdır.
+
+149
+00:12:05,840 --> 00:12:12,180
+Ön çalışma, çalışma ve çalışma tarafındaki sinyal kaybı durumlarında açıktır.
+
+150
+00:12:12,230 --> 00:12:15,767
+Son iki durum ise iletişim ve donanım arızalarıdır.
+
+151
+00:12:16,693 --> 00:12:20,003
+Sinyal kaybı burada yukarı yön üzerinden tanımlanır.
+
+152
+00:12:20,053 --> 00:12:24,633
+Basit sinyal kaybı, aşağı yönde iletim olmayan durumlarda,
+
+153
+00:12:24,683 --> 00:12:29,983
+sıfır virgül beş milisaniyelik, yani dört çerçevelik yukarı yön sessizliğidir.
+
+154
+00:12:30,033 --> 00:12:35,983
+Nitelikli sinyal kaybı ise dört ardışık çerçevede yukarı yön iletimi olmaması,
+
+155
+00:12:36,033 --> 00:12:40,235
+ve ilgili bütün ONU'lar için burst kaybı ilan edilmesidir.
+
+156
+00:12:41,160 --> 00:12:46,270
+Zamanlayıcılar için standart sayı vermez, yalnızca sıralama verir:
+
+157
+00:12:46,320 --> 00:12:49,390
+koruma tarafındaki arıza zamanlayıcısı,
+
+158
+00:12:49,440 --> 00:12:55,470
+tutma zamanlayıcısından ve çalışma tarafındaki arıza zamanlayıcısından uzun olmalıdır;
+
+159
+00:12:55,520 --> 00:13:00,050
+tutma zamanlayıcısı da çalışma tarafındakinden uzun olmalıdır.
+
+160
+00:13:00,100 --> 00:13:05,870
+Verilen tek değer, yukarı yön onayı için önerilen sıfır virgül beş milisaniyedir.
+
+161
+00:13:05,920 --> 00:13:09,724
+Elli milisaniye gibi bir anahtarlama süresi hedefi metinde yoktur.
+
+162
+00:13:10,660 --> 00:13:16,730
+İki sonlandırıcı birbirleriyle kanal sonlandırıcıları arası protokolle,
+
+163
+00:13:16,780 --> 00:13:18,530
+yani ICTP ile konuşur.
+
+164
+00:13:18,580 --> 00:13:24,150
+Varsayılan roller birincil ve ikincildir, ve bir el sıkışmayla çözülür.
+
+165
+00:13:24,200 --> 00:13:28,780
+Geri dönüşlü yapılandırmada varsayılan roller kalıcıdır;
+
+166
+00:13:28,830 --> 00:13:32,580
+geri dönüşsüz yapılandırmada el sıkışmadan sonra bırakılır.
+
+167
+00:13:32,630 --> 00:13:37,510
+ICTP'nin ayrıntısı ayrı bir belgeye bırakılmıştır,
+
+168
+00:13:37,560 --> 00:13:43,413
+ve durum makinesi ICTP olmadan da ilerleyebilecek biçimde tasarlanmıştır.
+
+169
+00:13:44,893 --> 00:13:50,503
+İkinci bir koruma katmanı ONU tarafındadır: dalga boyu kanalı koruması.
+
+170
+00:13:50,553 --> 00:13:56,683
+OLT, bir PLOAM mesajıyla ONU'ya önceden bir koruma kanalı bildirir.
+
+171
+00:13:56,733 --> 00:14:03,473
+ONU aşağı yön senkronunu kaybedip aralıklı senkron kaybı durumuna, O6'ya girdiğinde,
+
+172
+00:14:03,523 --> 00:14:07,923
+bu koruma açıksa TO3 zamanlayıcısını başlatır.
+
+173
+00:14:07,973 --> 00:14:12,513
+Süre dolunca aşağı yön ayar durumuna geçer,
+
+174
+00:14:12,563 --> 00:14:16,279
+ve önceden yapılandırılmış koruma kanalına ayarlanır.
+
+175
+00:14:17,226 --> 00:14:24,136
+Burada ONU'nun optiği gerçekten çalışır: yeni kanala ayar, yeni kanalda senkron,
+
+176
+00:14:24,186 --> 00:14:27,086
+ve yukarı yönde kendini bildirme.
+
+177
+00:14:27,136 --> 00:14:31,066
+Koruma tarafındaki OLT sonlandırıcısı,
+
+178
+00:14:31,116 --> 00:14:34,926
+korunan ONU'ların varlıklarını bildirebileceği,
+
+179
+00:14:34,976 --> 00:14:39,106
+önceden mesafesi ölçülmüş bir çekişmeli tahsis sunabilir.
+
+180
+00:14:39,156 --> 00:14:44,046
+TO2 ve TO3 için ise standartta bir değer yoktur.
+
+181
+00:14:44,993 --> 00:14:47,403
+Bir terim tuzağı.
+
+182
+00:14:47,453 --> 00:14:50,953
+G.989.2'deki A tipi ve B tipi bağlantı,
+
+183
+00:14:51,003 --> 00:14:55,963
+yükselteçsiz ve yükselteçli OLT alıcısı demektir.
+
+184
+00:14:56,013 --> 00:15:00,943
+G.989.3'teki B tipi koruma ise bambaşka bir şeydir.
+
+185
+00:15:00,993 --> 00:15:08,873
+Kanal profilindeki bağlantı tipi alanı ilkini taşır, korumayı değil.
+
+186
+00:15:09,793 --> 00:15:10,913
+Mühendis notu.
+
+187
+00:15:10,963 --> 00:15:12,873
+Bir: B tipi koruma tasarlıyorsanız,
+
+188
+00:15:12,923 --> 00:15:19,063
+aşağı yönü geri getirme sürenizi ONU'nun sabrına göre ayarlayın;
+
+189
+00:15:19,113 --> 00:15:21,723
+ONU yeniden ayara karar verirse,
+
+190
+00:15:21,773 --> 00:15:26,883
+B tipi koruma yerine dalga boyu kanalı koruması devreye girer.
+
+191
+00:15:26,933 --> 00:15:27,213
+İki:
+
+192
+00:15:27,263 --> 00:15:35,323
+bekleme tarafındaki sonlandırıcının vericisinin gerçekten karanlık olduğunu doğrulayın.
+
+193
+00:15:35,373 --> 00:15:39,313
+Aynı kanalda iki vericinin birlikte ışık vermesi,
+
+194
+00:15:39,363 --> 00:15:42,108
+korumanın kendisini bir arızaya dönüştürür.
+
+195
+00:15:43,126 --> 00:15:45,206
+Sıradaki: ağ ayakta.
+
+196
+00:15:45,256 --> 00:15:50,791
+Ama bir OLT'nin ya da ONU'nun standarda uyduğunu nasıl kanıtlarız?
+
+197
+00:15:52,560 --> 00:15:53,900
+Perde üç: uyumluluk.
+
+198
+00:15:53,950 --> 00:15:59,670
+Bu sezon G.989.2'nin neredeyse her tablosunu ekrana getirdik.
+
+199
+00:15:59,720 --> 00:16:04,060
+Şimdi hepsini tek bir test matrisinde topluyoruz.
+
+200
+00:16:04,110 --> 00:16:10,940
+Sayalım: ana metinde on dokuz, eklerde yirmi üç, toplam kırk iki normatif tablo;
+
+201
+00:16:10,990 --> 00:16:16,224
+buna ek olarak şekillerin içine gömülü altı parametre seti.
+
+202
+00:16:17,160 --> 00:16:21,360
+Ana metnin tabloları dört grupta toplanır.
+
+203
+00:16:21,410 --> 00:16:24,520
+ODN: altıncı maddedeki yol kaybı ve mesafe sınıfları,
+
+204
+00:16:24,570 --> 00:16:28,900
+ve basit bir ODN'nin fiziksel parametreleri.
+
+205
+00:16:28,950 --> 00:16:32,690
+Dalga boyu: bantlar ve aşağı yön frekans planı.
+
+206
+00:16:32,740 --> 00:16:35,410
+Ayar: ayar süresi sınıfları.
+
+207
+00:16:35,460 --> 00:16:39,378
+Seçicilik: onuncu maddedeki iki X bölü S tablosu.
+
+208
+00:16:40,327 --> 00:16:43,097
+Ve çekirdek: dört arayüz tablosu.
+
+209
+00:16:43,147 --> 00:16:46,907
+İki buçuk ve on gigabit, aşağı ve yukarı yön.
+
+210
+00:16:46,957 --> 00:16:53,067
+Her biri bir vericiyi ve karşı uçtaki alıcıyı birlikte tanımlar:
+
+211
+00:16:53,117 --> 00:16:56,667
+aşağı yön tabloları OLT vericisi ile ONU alıcısını,
+
+212
+00:16:56,717 --> 00:17:01,127
+yukarı yön tabloları ONU vericisi ile OLT alıcısını.
+
+213
+00:17:01,177 --> 00:17:07,137
+Yanlarında on gigabitlik ONU vericisinin izin verilen bölge tabloları,
+
+214
+00:17:07,187 --> 00:17:13,913
+iki göz maskesi tablosu, titreşim üretimi ve yukarı yön ek yükü tabloları durur.
+
+215
+00:17:14,860 --> 00:17:18,950
+Eklerdeki yirmi üç tablo PtP WDM'e aittir.
+
+216
+00:17:19,000 --> 00:17:26,840
+A ekinde hat hızı sınıfları, üç sınıfın aşağı ve yukarı yön tabloları,
+
+217
+00:17:26,890 --> 00:17:29,140
+göz maskesi ve titreşim.
+
+218
+00:17:29,190 --> 00:17:31,640
+B ekinde iki AMCC tablosu.
+
+219
+00:17:31,690 --> 00:17:37,810
+C ekinde düşük kayıplı ODN sınıfları, altı arayüz tablosu,
+
+220
+00:17:37,860 --> 00:17:40,940
+göz maskesi ve üç titreşim tablosu.
+
+221
+00:17:40,990 --> 00:17:49,835
+Güç dengelemeyi tanımlayan D ekinde ise hiç tablo yoktur; sayılar metnin içindedir.
+
+222
+00:17:51,327 --> 00:17:54,797
+Şimdi bu tabloları test bloklarına dönüştürelim.
+
+223
+00:17:54,847 --> 00:17:58,487
+OLT vericisi: sınıfa göre başlatma gücü,
+
+224
+00:17:58,537 --> 00:18:02,097
+artı eksi yirmi gigahertzlik spektral sapma,
+
+225
+00:18:02,147 --> 00:18:07,927
+sekiz virgül iki desibellik sönüm oranı, otuz desibellik yan mod bastırma,
+
+226
+00:18:07,977 --> 00:18:13,327
+bant dışı, kanal dışı ve karanlık güç spektral yoğunlukları,
+
+227
+00:18:13,377 --> 00:18:15,719
+göz maskesi ve titreşim üretimi.
+
+228
+00:18:16,660 --> 00:18:21,360
+ONU alıcısı: referans hata oranında hassasiyet ve aşırı yük, yol cezası,
+
+229
+00:18:21,410 --> 00:18:27,610
+bant içi karışma, yetmiş iki bitlik ardışık özdeş rakam bağışıklığı,
+
+230
+00:18:27,660 --> 00:18:34,110
+titreşim toleransı ve aktarımı, beş gigahertzlik ayar adımı ve ayar sınıfı, ve X, Y,
+
+231
+00:18:34,160 --> 00:18:37,885
+Z girişimcileriyle dar bant X bölü S toleransı.
+
+232
+00:18:38,827 --> 00:18:42,237
+ONU vericisi: A ve B tipi burst başlatma gücü,
+
+233
+00:18:42,287 --> 00:18:47,237
+on gigabitte güç ve sönüm oranı çiftlerinin izin verilen bölgesi,
+
+234
+00:18:47,287 --> 00:18:50,287
+kanal aralığına göre spektral sapma,
+
+235
+00:18:50,337 --> 00:18:54,997
+ayar penceresi ve kanal aralığının yirmide biri kadar ayar adımı,
+
+236
+00:18:55,047 --> 00:19:01,147
+ayar süresi sınıfı, dalga boyuna bağlı güç değişimi, verici açma ve kapama süresi,
+
+237
+00:19:01,197 --> 00:19:04,377
+karanlık güç, ve burst boyunca göz maskesi.
+
+238
+00:19:05,327 --> 00:19:11,947
+OLT burst alıcısı: dört kanal açıkken A ve B tipi hassasiyet ve aşırı yük,
+
+239
+00:19:11,997 --> 00:19:14,867
+Raman dahil yol cezası, bant içi karışma,
+
+240
+00:19:14,917 --> 00:19:20,897
+S artı yirmi desibellik girişimcilerle X bölü S toleransı,
+
+241
+00:19:20,947 --> 00:19:24,017
+ve önsöz süresi içinde burst edinimi.
+
+242
+00:19:24,067 --> 00:19:31,907
+Bunlara güç dengeleme adımlarını, izleme doğruluğunu ve PtP WDM tablolarını ekleyin:
+
+243
+00:19:31,957 --> 00:19:33,328
+matris tamamdır.
+
+244
+00:19:34,827 --> 00:19:37,887
+Ölçüm koşulları da tablolar kadar bağlayıcıdır.
+
+245
+00:19:37,937 --> 00:19:45,307
+Bütün değerler en kötü işletme koşullarında, sıcaklık, nem ve yaşlanma dahil,
+
+246
+00:19:45,357 --> 00:19:49,427
+en kötü yol kaybında ve en kötü kromatik dispersiyonda,
+
+247
+00:19:49,477 --> 00:19:53,707
+bir referans hata oranına göre sağlanmalıdır.
+
+248
+00:19:53,757 --> 00:19:58,257
+Sönüm oranı bir referans bant geçiren filtreden sonra ölçülür;
+
+249
+00:19:58,307 --> 00:20:04,730
+yan mod bastırma ise herhangi bir filtrelemeden önce, doğrudan lazer çıkışında.
+
+250
+00:20:05,660 --> 00:20:07,780
+İki ölçüm noktasına dikkat edin.
+
+251
+00:20:07,830 --> 00:20:13,340
+On birinci ekin notlarına göre S/R-CG noktasındaki hassasiyet,
+
+252
+00:20:13,390 --> 00:20:17,650
+dört kanal birden çalışırken ama fiber olmadan ölçülür.
+
+253
+00:20:17,700 --> 00:20:23,380
+S/R-CP noktasındaki hassasiyet ise başka kanal olmadan ve fiber olmadan ölçülür.
+
+254
+00:20:23,430 --> 00:20:28,954
+Aynı alıcının iki farklı sayısı olabilir, ve ikisi de doğrudur.
+
+255
+00:20:29,894 --> 00:20:33,264
+Sürüm takibi de matrisin parçasıdır.
+
+256
+00:20:33,314 --> 00:20:38,024
+İki bin on dokuzdan bu yana tablo değerlerinde tek bir düzeltme var:
+
+257
+00:20:38,074 --> 00:20:42,764
+birinci düzeltmede, onuncu maddedeki ONU tablosunun Y satırı,
+
+258
+00:20:42,814 --> 00:20:45,454
+S artı altıdan S artı yediye çıktı.
+
+259
+00:20:45,504 --> 00:20:51,024
+İki bin yirmideki birinci değişiklik yalnızca D ekinin metnine dokunur:
+
+260
+00:20:51,074 --> 00:20:53,924
+bir kanal dışı güç örneği düzeltilir,
+
+261
+00:20:53,974 --> 00:21:02,943
+ve on iki desibellik dengelemenin yan mod bastırmayı elli desibelden otuz sekize gevşettiği yeni bir örnek eklenir.
+
+262
+00:21:03,860 --> 00:21:06,900
+Bir uyarı daha: altıncı maddeye göre,
+
+263
+00:21:06,950 --> 00:21:14,310
+on birinci maddedeki güç spektral yoğunluğu değerleri dört kanal ve yirmi kilometre için optimize edilmiştir;
+
+264
+00:21:14,360 --> 00:21:18,970
+sekiz kanal ve kırk kilometre için çalışma sürmektedir.
+
+265
+00:21:19,020 --> 00:21:23,630
+Sekiz kanallı bir sistemi test ederken bu satırlar kesin bir sınır değil,
+
+266
+00:21:23,680 --> 00:21:25,450
+bir başlangıç noktasıdır.
+
+267
+00:21:26,394 --> 00:21:27,514
+Mühendis notu.
+
+268
+00:21:27,564 --> 00:21:34,014
+Bir: matrisi tablo numarasıyla değil, ölçüm düzeneğiyle gruplayın;
+
+269
+00:21:34,064 --> 00:21:36,264
+aynı OSA ölçümü spektral sapmayı,
+
+270
+00:21:36,314 --> 00:21:41,234
+yan mod bastırmayı ve kanal dışı gücü birlikte verir.
+
+271
+00:21:41,284 --> 00:21:48,064
+İki: yüksek yol cezasıyla çalışan sistemlerde, tablo notlarının önerdiği gibi,
+
+272
+00:21:48,114 --> 00:21:53,234
+gerçek yol cezasını bant içi karışmaya maruz bir alıcıyla,
+
+273
+00:21:53,284 --> 00:21:56,452
+birlikte çalışabilirlik testinde ölçün.
+
+274
+00:21:57,494 --> 00:21:59,824
+Sıradaki: tablolar tamam.
+
+275
+00:21:59,874 --> 00:22:05,585
+Şimdi onları tek bir cihazın ömrüne yerleştirelim.
+
+276
+00:22:07,360 --> 00:22:11,130
+Perde dört: bir ONU'nun hayatı.
+
+277
+00:22:11,180 --> 00:22:15,550
+Sezon boyunca ayrı ayrı gördüğümüz her parçayı,
+
+278
+00:22:15,600 --> 00:22:20,420
+tek bir ONU'nun zaman çizelgesine diziyoruz.
+
+279
+00:22:20,470 --> 00:22:28,080
+Her adımda iki soru soracağız: optik ne yapıyor, ve TC katmanı ne söylüyor.
+
+280
+00:22:29,027 --> 00:22:30,347
+Adım sıfır: güç verilir.
+
+281
+00:22:30,397 --> 00:22:35,087
+ONU ilk durumuna girer, ve vericisi kapalıdır.
+
+282
+00:22:35,137 --> 00:22:39,587
+Ama kapalı bir verici bile tamamen karanlık değildir:
+
+283
+00:22:39,637 --> 00:22:42,917
+etkin olmayan vericinin güç spektral yoğunluğu,
+
+284
+00:22:42,967 --> 00:22:48,797
+on beş gigahertz başına eksi altmış iki virgül altı dBm ile sınırlıdır.
+
+285
+00:22:48,847 --> 00:22:54,123
+ONU'nun önceki durumu acil durdurma ise, doğrudan oraya döner.
+
+286
+00:22:55,060 --> 00:22:57,580
+Adım bir: aşağı yön kanalını aramak.
+
+287
+00:22:57,630 --> 00:23:00,010
+ONU pasif kalarak dinler.
+
+288
+00:23:00,060 --> 00:23:02,680
+Alıcısı ayarlanabilir olmalıdır;
+
+289
+00:23:02,730 --> 00:23:10,530
+aşağı yön kanalları yüz seksen yedi virgül sekizden yüz seksen yedi virgül bir terahertze uzanır.
+
+290
+00:23:10,580 --> 00:23:13,500
+Ayar adımı en çok beş gigahertzdir.
+
+291
+00:23:13,550 --> 00:23:17,779
+Alıcının ayar süresi sınıfı ise zorunlu değildir.
+
+292
+00:23:18,727 --> 00:23:20,047
+Adım iki: senkron.
+
+293
+00:23:20,097 --> 00:23:23,217
+ONU saatini aşağı yön sinyalinden çıkarır,
+
+294
+00:23:23,267 --> 00:23:28,837
+ve çerçeve başındaki senkron desenini avlar: altmış dört bitlik bir desen.
+
+295
+00:23:28,887 --> 00:23:31,687
+Arama sırasında birebir eşleşmelidir;
+
+296
+00:23:31,737 --> 00:23:37,417
+kilitlendikten sonra altmış dört bitin en az altmış ikisi tutmalıdır.
+
+297
+00:23:37,467 --> 00:23:41,187
+Sonra yüz yirmi beş mikrosaniyelik çerçeveler akar;
+
+298
+00:23:41,237 --> 00:23:45,853
+önerilen değerle üç ardışık kötü çerçeve, senkron kaybı demektir.
+
+299
+00:23:46,793 --> 00:23:50,013
+Adım üç: profilleri öğrenmek.
+
+300
+00:23:50,063 --> 00:23:54,853
+ONU kanal profillerini dinler: her kanalın frekansı, FEC kullanımı,
+
+301
+00:23:54,903 --> 00:23:59,283
+bağlantı tipi ve varsayılan zayıflatma.
+
+302
+00:23:59,333 --> 00:24:04,643
+Profiller bir ile beş saniye arasında bir aralıkla yinelenir;
+
+303
+00:24:04,693 --> 00:24:08,953
+profil bekleme süresi en az on saniyedir.
+
+304
+00:24:09,003 --> 00:24:14,935
+ONU aynı anda PSBd'deki TOL alanından OLT'nin başlatma gücünü de okur.
+
+305
+00:24:15,860 --> 00:24:18,420
+Adım dört: seri numarası.
+
+306
+00:24:18,470 --> 00:24:19,790
+ONU ilk kez ışık verir.
+
+307
+00:24:19,840 --> 00:24:25,610
+Burada altıncı ve yedinci bölümlerin bütün tabloları devrededir:
+
+308
+00:24:25,660 --> 00:24:29,910
+burst başlatma gücü, spektral sapma, ayar penceresi,
+
+309
+00:24:29,960 --> 00:24:34,870
+kanal aralığının yirmide biri kadar ayar adımı, ve verici açma süresi:
+
+310
+00:24:34,920 --> 00:24:40,370
+iki buçuk gigabitte üç yüz yirmi, on gigabitte bin iki yüz seksen bit;
+
+311
+00:24:40,420 --> 00:24:45,206
+ikisi de yüz yirmi sekiz virgül altı nanosaniye.
+
+312
+00:24:46,127 --> 00:24:51,517
+ONU, sıfır ile kırk sekiz mikrosaniye arasında rastgele bir gecikmeyle,
+
+313
+00:24:51,567 --> 00:24:56,827
+ve otuz beş artı eksi bir mikrosaniyelik bir yanıt süresiyle cevap verir.
+
+314
+00:24:56,877 --> 00:25:03,117
+OLT bu sırada bir sessiz pencere açar: yirmi kilometrede iki yüz elli,
+
+315
+00:25:03,167 --> 00:25:06,407
+kırk kilometrede dört yüz elli mikrosaniye.
+
+316
+00:25:06,457 --> 00:25:11,247
+Seri numarası mesajı ONU'nun aşağı yön kanalını, kalibrasyon durumunu,
+
+317
+00:25:11,297 --> 00:25:15,213
+ayar adımını ve tek adımlık ayar süresini de taşır.
+
+318
+00:25:16,693 --> 00:25:20,213
+Adım beş: yukarı yön dalga boyunu düzeltmek.
+
+319
+00:25:20,263 --> 00:25:24,623
+Kalibre edilmemiş bir ONU, ayar komutlarıyla doğru kanala çekilir.
+
+320
+00:25:24,673 --> 00:25:30,763
+Optik tarafta sınır, artı eksi yirmi gigahertzlik spektral sapmadır.
+
+321
+00:25:30,813 --> 00:25:37,433
+Dalga boyuna bağlı güç değişimi ise iki buçuk gigabitte gigahertz başına sıfır virgül sıfır beş,
+
+322
+00:25:37,483 --> 00:25:41,807
+on gigabitte sıfır virgül sıfır iki desibelle sınırlıdır.
+
+323
+00:25:42,726 --> 00:25:44,166
+Adım altı: mesafe ölçümü.
+
+324
+00:25:44,216 --> 00:25:50,156
+OLT, ONU'nun gidiş dönüş gecikmesini ölçer, ve ona bir eşitleme gecikmesi verir;
+
+325
+00:25:50,206 --> 00:25:55,216
+böylece bütün ONU'lar ortak bir zaman eksenine hizalanır.
+
+326
+00:25:55,266 --> 00:25:59,386
+Mesafe ölçüm penceresi yirmi kilometrede iki yüz iki,
+
+327
+00:25:59,436 --> 00:26:02,936
+kırk kilometrede dört yüz iki mikrosaniyedir,
+
+328
+00:26:02,986 --> 00:26:08,141
+ve eşitleme gecikmesi iki buçuk gigabitte bir bit doğruluğundadır.
+
+329
+00:26:09,060 --> 00:26:10,670
+Adım yedi: kimlik.
+
+330
+00:26:10,720 --> 00:26:14,670
+Kayıt kimliği her NG-PON2 cihazında zorunludur.
+
+331
+00:26:14,720 --> 00:26:20,980
+İsteğe bağlı olarak, karşılıklı kimlik doğrulama da yapılabilir; bu,
+
+332
+00:26:21,030 --> 00:26:27,079
+aktivasyon tamamlandıktan sonra ve kullanıcı verisi gönderilmeden önce olur.
+
+333
+00:26:28,026 --> 00:26:30,046
+Adım sekiz: çalışma.
+
+334
+00:26:30,096 --> 00:26:32,516
+ONU artık yukarı yönde,
+
+335
+00:26:32,566 --> 00:26:37,676
+aldığı aşağı yön sinyaliyle aynı frekans doğruluğunda gönderir.
+
+336
+00:26:37,726 --> 00:26:43,126
+OLT her ONU'nun gelen gücünü, fazını ve hata oranını izler.
+
+337
+00:26:43,176 --> 00:26:49,966
+Faz kayması bir pencereyi aşarsa yeni bir eşitleme gecikmesiyle düzeltilir:
+
+338
+00:26:50,016 --> 00:26:55,486
+iki buçuk gigabitte sekiz, on gigabitte otuz iki bit;
+
+339
+00:26:55,536 --> 00:26:58,747
+ikisi de yaklaşık üç virgül iki nanosaniye.
+
+340
+00:26:59,693 --> 00:27:02,223
+Adım dokuz: güç dengeleme.
+
+341
+00:27:02,273 --> 00:27:06,183
+Yakındaki bir ONU gücünü kısar.
+
+342
+00:27:06,233 --> 00:27:13,023
+D ekindeki özerk örnekte ONU, aldığı güce göre on iki, dokuz, altı,
+
+343
+00:27:13,073 --> 00:27:19,013
+üç ya da sıfır desibel zayıflatır; eşikler eksi yedi, eksi on,
+
+344
+00:27:19,063 --> 00:27:22,413
+eksi on üç ve eksi on altı dBm'dir.
+
+345
+00:27:22,463 --> 00:27:30,503
+OLT yönlendirmeli dengeleme altı ile dokuz desibellik ek bir aralık sunar.
+
+346
+00:27:30,553 --> 00:27:35,695
+TC katmanında adımlar üç desibelin katlarıdır.
+
+347
+00:27:36,626 --> 00:27:39,186
+Adım on: dalga boyu devri.
+
+348
+00:27:39,236 --> 00:27:41,486
+OLT, ONU'yu başka bir kanala taşır.
+
+349
+00:27:41,536 --> 00:27:44,256
+Yedinci bölümde gördüğümüz gibi,
+
+350
+00:27:44,306 --> 00:27:52,896
+ayar süresince bütün tablo spesifikasyonları sağlanmalıdır ki ONU başıboş bir vericiye dönüşmesin.
+
+351
+00:27:52,946 --> 00:27:55,766
+TC tarafında devir süresi, hazırlık,
+
+352
+00:27:55,816 --> 00:28:00,536
+fiziksel ayar ve yeniden senkron sürelerinin toplamıdır;
+
+353
+00:28:00,586 --> 00:28:05,444
+devrin anı ise bir süper çerçeve sayacıyla önceden belirlenir.
+
+354
+00:28:06,927 --> 00:28:09,877
+Adım on bir: dalga boyu kilitleme.
+
+355
+00:28:09,927 --> 00:28:17,427
+OLT, ONU'nun yukarı yön dalga boyunu küçük düzeltmelerle kanalın merkezinde tutar.
+
+356
+00:28:17,477 --> 00:28:20,417
+İstatistik, düzeltmeden altı çerçeve,
+
+357
+00:28:20,467 --> 00:28:25,917
+yani yedi yüz elli mikrosaniye sonra toplanmaya başlar.
+
+358
+00:28:25,967 --> 00:28:32,837
+Çok sık ya da çok büyük düzeltme istekleri bir kusur olarak ilan edilir:
+
+359
+00:28:32,887 --> 00:28:34,492
+vericinin kaydığını söyler.
+
+360
+00:28:35,427 --> 00:28:39,047
+Adım on iki ve on üç: koruma ve izleme.
+
+361
+00:28:39,097 --> 00:28:46,457
+Besleyici kesilirse B tipi koruma OLT tarafında anahtarlar; ONU yeniden ayarlanmaz.
+
+362
+00:28:46,507 --> 00:28:52,557
+Bütün bu süre boyunca ONU ve OLT, ikinci ekin pencereleriyle kendi sıcaklığını,
+
+363
+00:28:52,607 --> 00:28:56,376
+gerilimini, akımını ve optik güçlerini ölçer.
+
+364
+00:28:57,294 --> 00:28:58,794
+Adım on dört: arızalar.
+
+365
+00:28:58,844 --> 00:29:02,424
+Senkron kaybı ONU'nun tek kusurudur.
+
+366
+00:29:02,474 --> 00:29:06,424
+OLT tarafında ise burst kaybı, sinyal kaybı,
+
+367
+00:29:06,474 --> 00:29:12,334
+zamanlama kayması ve devre dışı bırakma hatası gibi kusurlar vardır.
+
+368
+00:29:12,384 --> 00:29:14,864
+En sert olanı acil durdurmadır:
+
+369
+00:29:14,914 --> 00:29:20,644
+seri numarası devre dışı bırakılan bir ONU vericisini kapatır,
+
+370
+00:29:20,694 --> 00:29:26,354
+ve bu durum yeniden başlatmada ve güç kesintisinde bile korunur.
+
+371
+00:29:27,294 --> 00:29:28,864
+Adım on beş: ayrılış.
+
+372
+00:29:28,914 --> 00:29:34,444
+ONU kimliği iptal edilince ONU ilk duruma döner, ve hikâye baştan başlar.
+
+373
+00:29:34,494 --> 00:29:36,734
+Bir sonraki aktivasyonda ONU,
+
+374
+00:29:36,784 --> 00:29:45,514
+seri numarası mesajındaki aktivasyon hata ayıklama alanında neden yeniden başladığını söyler:
+
+375
+00:29:45,564 --> 00:29:50,210
+güç kaybı mı, senkron kaybı mı, yoksa bir zamanlayıcı mı.
+
+376
+00:29:51,127 --> 00:29:52,247
+Mühendis notu.
+
+377
+00:29:52,297 --> 00:30:00,387
+Bir: aynı yüz yirmi beş mikrosaniyelik ızgara bütün arıza zamanlayıcılarını sürer:
+
+378
+00:30:00,437 --> 00:30:07,147
+üç kötü çerçevede senkron kaybı, dört kaçırılmış burst'te burst kaybı,
+
+379
+00:30:07,197 --> 00:30:13,017
+dört çerçevede sinyal kaybı, altı çerçevede kilitleme ölçümü.
+
+380
+00:30:13,067 --> 00:30:19,157
+İki: G.989.3'e göre ONU'nun optiği N1'den E1'e kadar aynıdır.
+
+381
+00:30:19,207 --> 00:30:25,167
+Bu, ikinci bölümde söylediğimizi doğrular: ODN sınıfını OLT taşır.
+
+382
+00:30:26,194 --> 00:30:29,664
+Sıradaki: kâğıt üstünde hikâye tamam.
+
+383
+00:30:29,714 --> 00:30:33,105
+Sahada ise işler her zaman bu sırayla gitmez.
+
+384
+00:30:34,793 --> 00:30:35,363
+Sahada.
+
+385
+00:30:35,413 --> 00:30:38,983
+Bu bölümün laboratuvarı bir saha çantası.
+
+386
+00:30:39,033 --> 00:30:46,303
+Önce ODN kabulü: yol kaybı sınıf penceresinin içinde mi? En küçük kaybın altındaysa,
+
+387
+00:30:46,353 --> 00:30:51,603
+ağ bu en küçük kaybı sağlayacak bir zayıflatıcı içermelidir.
+
+388
+00:30:51,653 --> 00:30:55,573
+Diferansiyel yol kaybı en çok on beş desibel,
+
+389
+00:30:55,623 --> 00:30:58,863
+geri dönüş kaybı en az otuz iki desibel,
+
+390
+00:30:58,913 --> 00:31:04,317
+ayrık yansımalar eksi otuz beş desibelin altında olmalıdır.
+
+391
+00:31:05,260 --> 00:31:09,100
+Mesafe sınıfı yirmi ya da kırk kilometredir,
+
+392
+00:31:09,150 --> 00:31:12,840
+ve OTDR bakım dalga boyu L.313'e uymalıdır.
+
+393
+00:31:12,890 --> 00:31:19,800
+Unutmayın: OTDR, onuncu maddede geniş bant girişimciler listesindedir.
+
+394
+00:31:19,850 --> 00:31:23,340
+NG-PON2 alıcısının bu girişime dayanması beklenir,
+
+395
+00:31:23,390 --> 00:31:28,470
+ama bakım dalga boyunun planlanmış bantta kalması şarttır.
+
+396
+00:31:29,393 --> 00:31:30,843
+Güç okumaları:
+
+397
+00:31:30,893 --> 00:31:35,263
+ONU'nun kendi bildirdiği alınan gücü bir PON güç ölçeriyle karşılaştırın;
+
+398
+00:31:35,313 --> 00:31:39,003
+üç desibele kadar fark ikinci ekin doğruluğu içindedir.
+
+399
+00:31:39,053 --> 00:31:46,073
+OLT'nin başlatma gücünü ise aşağı yön başlığındaki TOL alanından ve OLT'nin izleme sayaçlarından okuyun,
+
+400
+00:31:46,123 --> 00:31:51,244
+ve değerin hangi referans noktasına ait olduğunu söyleyen biti kontrol edin.
+
+401
+00:31:52,193 --> 00:31:55,363
+Vaka bir: bir ONU görünmüyor.
+
+402
+00:31:55,413 --> 00:31:57,903
+Önce senkron kaybı sayaçlarına bakın.
+
+403
+00:31:57,953 --> 00:32:05,143
+Sonraki aktivasyondaki hata ayıklama kodu, ONU'nun neden yeniden başladığını söyler:
+
+404
+00:32:05,193 --> 00:32:09,463
+senkron kaybı mı, bir zamanlayıcı mı, güç kaybı mı.
+
+405
+00:32:09,513 --> 00:32:15,089
+Kanal değişti bayrağı da ONU'nun başka bir kanala geçip geçmediğini gösterir.
+
+406
+00:32:16,560 --> 00:32:19,830
+Vaka iki: bir ONU sessizce gidiyor.
+
+407
+00:32:19,880 --> 00:32:20,920
+Ölmekte olan bir ONU,
+
+408
+00:32:20,970 --> 00:32:27,490
+yukarı yön başlığındaki son nefes biti ile yerel bir sorun olduğunu bildirebilir.
+
+409
+00:32:27,540 --> 00:32:33,170
+Bu bit, bir fiber sorununu müşteri tarafındaki bir sorundan ayırmaya yardım eder.
+
+410
+00:32:33,220 --> 00:32:40,390
+Ama OLT, bant genişliği tahsislerini yalnızca bu bite dayanarak geri çekmemelidir.
+
+411
+00:32:40,440 --> 00:32:43,479
+Son nefes bir ipucudur, bir komut değil.
+
+412
+00:32:44,427 --> 00:32:48,447
+Son nefes, kayıp bildirimlerini de niteler.
+
+413
+00:32:48,497 --> 00:32:52,807
+Burst kaybı varsayılan olarak dört ardışık kaçırılmış burst'tür,
+
+414
+00:32:52,857 --> 00:32:57,327
+ve raporlanması alınan son nefes bildirimleriyle nitelenmelidir.
+
+415
+00:32:57,377 --> 00:33:03,867
+B tipi korumadaki nitelikli sinyal kaybı da son nefes bildirimlerini hesaba katabilir:
+
+416
+00:33:03,917 --> 00:33:09,376
+birkaç ONU'nun elektriği kesildi diye bütün grup anahtarlanmaz.
+
+417
+00:33:10,293 --> 00:33:11,213
+Vaka üç: başıboş ONU.
+
+418
+00:33:11,263 --> 00:33:15,723
+Zaman alanında yanlış dilimde gönderen bir ONU,
+
+419
+00:33:15,773 --> 00:33:20,143
+OLT'de burst kaybı ve zamanlama kusuru olarak görünür;
+
+420
+00:33:20,193 --> 00:33:25,863
+üç düzeltme denemesinden sonra kaymaya devam ederse kusur ilan edilir.
+
+421
+00:33:25,913 --> 00:33:32,403
+NG-PON2'de bunun yeni bir türü vardır: dalga boyu alanında başıboşluk.
+
+422
+00:33:32,453 --> 00:33:36,989
+Verici yanlış kanala atlayabilir, ya da yanlış kanala ayarlanabilir.
+
+423
+00:33:37,927 --> 00:33:40,817
+Bunun fiziksel savunması G.989.2'dedir:
+
+424
+00:33:40,867 --> 00:33:46,707
+ayar süresince bütün spesifikasyonlar sağlanmalıdır, ve kanal dışı güç maskesi,
+
+425
+00:33:46,757 --> 00:33:53,107
+verici spektral sapma aralığının herhangi bir yerine ayarlıyken de sağlanmalıdır.
+
+426
+00:33:53,157 --> 00:33:55,087
+Dalga boyu kayması ise OLT'de,
+
+427
+00:33:55,137 --> 00:34:01,799
+düzeltme isteklerinin sayısı ya da büyüklüğü eşikleri aştığında bir kusur olarak görünür.
+
+428
+00:34:03,293 --> 00:34:06,103
+Son çare acil durdurmadır.
+
+429
+00:34:06,153 --> 00:34:07,783
+OLT tek bir seri numarasını,
+
+430
+00:34:07,833 --> 00:34:11,803
+ya da kanala ayarlı bütün ONU'ları devre dışı bırakabilir.
+
+431
+00:34:11,853 --> 00:34:19,143
+Devre dışı ONU vericisini kapatır, ve bu durumu yeniden başlatmada bile korur.
+
+432
+00:34:19,193 --> 00:34:23,093
+Yeniden başlayan böyle bir ONU kanalları tarar;
+
+433
+00:34:23,143 --> 00:34:30,500
+her başarısız turda bekleme süresini ikiye katlayarak yaklaşık bir dakikaya kadar çıkar.
+
+434
+00:34:31,426 --> 00:34:34,446
+Toplu bir başıboşluk vakasında OLT,
+
+435
+00:34:34,496 --> 00:34:43,616
+bütün ONU'ları küresel olarak devre dışı bırakıp uyumlu olanları tek tek yeniden etkinleştirebilir.
+
+436
+00:34:43,666 --> 00:34:48,039
+Bu, sahada suçluyu bulmanın sistematik yoludur.
+
+437
+00:34:48,960 --> 00:34:52,070
+Vaka dört: güç dengeleme yanıt vermiyor.
+
+438
+00:34:52,120 --> 00:34:56,590
+OLT bir ONU'ya gücünü değiştirmesini söyler, ONU onaylar,
+
+439
+00:34:56,640 --> 00:34:59,850
+ama OLT'ye gelen güç değişmez.
+
+440
+00:34:59,900 --> 00:35:03,610
+Bu durum ayrı bir kusur olarak ilan edilir.
+
+441
+00:35:03,660 --> 00:35:08,070
+Olası nedenler: ONU'nun zayıflatıcısı çalışmıyordur,
+
+442
+00:35:08,120 --> 00:35:14,374
+ya da OLT'nin gelen güç ölçümü yeterince uzun burst'lerde yapılmıyordur.
+
+443
+00:35:15,293 --> 00:35:20,713
+Toplanacak sayaçlar: FEC ile düzeltilen ve düzeltilemeyen kod sözcükleri,
+
+444
+00:35:20,763 --> 00:35:26,493
+FEC kapalıyken BIP-32 hataları, senkron kaybı olayları ve nasıl geri geldikleri,
+
+445
+00:35:26,543 --> 00:35:31,983
+dalga boyu düzeltme genliği, son nefes sayısı ve güç değişimi retleri.
+
+446
+00:35:32,033 --> 00:35:37,713
+Olay sonrası analiz için de ONU'nun kalıcı belleğindeki acil durum anlık görüntüsü:
+
+447
+00:35:37,763 --> 00:35:41,627
+son nefes sırasında alınır, ve en az on kayıt tutar.
+
+448
+00:35:42,560 --> 00:35:43,300
+Saha notu.
+
+449
+00:35:43,350 --> 00:35:49,190
+Standardın sayı vermediği yerleri kendi ağınız için ölçün ve belgeleyin:
+
+450
+00:35:49,240 --> 00:35:51,660
+OLT'nin koruma anahtarlama süresi,
+
+451
+00:35:51,710 --> 00:35:56,240
+ve ONU'nun yeniden ayara karar vermeden önceki sabrı.
+
+452
+00:35:56,290 --> 00:36:00,258
+İkisi de tanımsızdır, ama müşteriniz ikisini de hisseder.
+
+453
+00:36:02,127 --> 00:36:03,667
+Sezonun özeti.
+
+454
+00:36:03,717 --> 00:36:04,577
+Bir: NG-PON2,
+
+455
+00:36:04,627 --> 00:36:14,947
+aynı ODN üzerinde dört ya da sekiz TWDM kanal çiftini ve noktadan noktaya WDM hatlarını birlikte taşır.
+
+456
+00:36:14,997 --> 00:36:22,137
+İki: ODN sınıfını OLT taşır; ONU alıcısı her sınıfta aynı pencereyi görür.
+
+457
+00:36:22,187 --> 00:36:30,022
+Üç: ayarlanabilir verici ve alıcı, bu sistemin hem gücü hem de en büyük riskidir.
+
+458
+00:36:30,960 --> 00:36:34,560
+Dört: yukarı yönde her burst sıfırdan edinilir;
+
+459
+00:36:34,610 --> 00:36:40,330
+güç dengeleme ve X bölü S toleransı bu kalabalığı yönetilebilir kılar.
+
+460
+00:36:40,380 --> 00:36:46,390
+Beş: sahada her şey ölçülür, ama ölçümler doğruluk sınırlarıyla okunmalıdır.
+
+461
+00:36:46,440 --> 00:36:50,190
+Altı: koruma ve kanal yönetimi TC katmanındadır,
+
+462
+00:36:50,240 --> 00:36:55,477
+ama optiğin ne kadar hızlı ve ne kadar temiz ayarlandığına bağlıdır.
+
+463
+00:36:56,527 --> 00:36:58,087
+Kendini test et.
+
+464
+00:36:58,137 --> 00:37:02,897
+Birinci soru: B tipi korumada ONU neden yeniden ayarlanmaz,
+
+465
+00:37:02,947 --> 00:37:08,647
+ve korumanın etkili olması için hangi koşul gerekir? İkinci soru:
+
+466
+00:37:08,697 --> 00:37:15,407
+OLT'nin alınan güç ölçümü neden burst'ün uzunluğuna bağlıdır? Üçüncü soru:
+
+467
+00:37:15,457 --> 00:37:22,657
+acil durdurma durumundaki bir ONU, gücü kesilip geri geldiğinde ne yapar? Cevaplar,
+
+468
+00:37:22,707 --> 00:37:25,269
+ikinci sezonun ilk bölümünün başında.
+
+469
+00:37:26,260 --> 00:37:34,780
+İkinci sezonda G.989.3'e, iletim yakınsama katmanına geçiyoruz: çerçeveleme ve XGEM,
+
+470
+00:37:34,830 --> 00:37:39,230
+PLOAM ve OMCI kanalları, dinamik bant genişliği tahsisi,
+
+471
+00:37:39,280 --> 00:37:46,630
+aktivasyon ve mesafe ölçümü, kanal yönetimi ve ayar dizileri, güvenlik,
+
+472
+00:37:46,680 --> 00:37:48,900
+güç yönetimi ve koruma.
+
+473
+00:37:48,950 --> 00:37:57,032
+Bu sezon ışığın kendisini konuştuk; gelecek sezon ışığın taşıdığı dili konuşacağız.
+
+474
+00:37:58,027 --> 00:38:02,147
+LAMBDA'nın birinci sezonu burada bitiyor.
+
+475
+00:38:02,197 --> 00:38:05,097
+İzlediğiniz için teşekkürler.
+
+476
+00:38:05,147 --> 00:38:06,625
+Görüşmek üzere.
+

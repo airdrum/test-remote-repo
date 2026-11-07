@@ -1,0 +1,1948 @@
+1
+00:00:00,000 --> 00:00:03,340
+Sezon iki, bölüm beş: Yönetim Kanalları.
+
+2
+00:00:03,390 --> 00:00:07,750
+Gömülü alanlara sığmayan PMD ve çerçeveleme yönetimi,
+
+3
+00:00:07,800 --> 00:00:11,930
+kırk sekiz baytlık mesajlarla taşınır: PLOAM.
+
+4
+00:00:11,980 --> 00:00:18,490
+Servisleri yöneten OMCI ise kendi kanalında, OMCC'de yolculuk eder.
+
+5
+00:00:18,540 --> 00:00:21,367
+Bu bölümde iki kanalı bayt bayt açıyoruz.
+
+6
+00:00:22,300 --> 00:00:27,100
+Önce PLOAM kanalı: iki taşıma seçeneği, çerçeve başına mesaj sınırları,
+
+7
+00:00:27,150 --> 00:00:32,340
+sekiz mesajlık kuyruk, yedi yüz elli mikrosaniyelik cevap kuralı,
+
+8
+00:00:32,390 --> 00:00:33,913
+ve sessizliğin ne anlama geldiği.
+
+9
+00:00:34,833 --> 00:00:38,073
+Sonra mesajın kendisi: kırk sekiz baytın yerleşimi,
+
+10
+00:00:38,123 --> 00:00:40,623
+sıra numaraları ve bütünlük kodu.
+
+11
+00:00:40,673 --> 00:00:44,705
+Herkesin bildiği bir anahtar, ve bir harfi eksik yazılmış bir etiket.
+
+12
+00:00:45,633 --> 00:00:50,653
+Ardından katalog: aşağı yönde yirmi, yukarı yönde sekiz mesaj.
+
+13
+00:00:50,703 --> 00:00:56,703
+Profiller, kimlikler, devre dışı bırakma, anahtarlar, uyku, ayar, koruma,
+
+14
+00:00:56,753 --> 00:01:03,750
+güç seviyesi ve hız; ve birinci sezonun optik tablolarına dokunan alanlar.
+
+15
+00:01:04,700 --> 00:01:12,090
+Sonra OMCC: OMCI'ın XGEM içinde nasıl taşındığı, kendi bütünlük kodu,
+
+16
+00:01:12,140 --> 00:01:13,790
+ve G.988'e bırakılanlar.
+
+17
+00:01:13,840 --> 00:01:17,102
+Ve metinde bulduğumuz çelişkiler.
+
+18
+00:01:18,033 --> 00:01:22,723
+Laboratuvarda PLOAM mesajlarını yakalayıp çözeceğiz,
+
+19
+00:01:22,773 --> 00:01:28,993
+yayınların bütünlük kodunu sır bilmeden doğrulayacağız, ve altın vektörlerle,
+
+20
+00:01:29,043 --> 00:01:34,010
+sıra numaralarıyla ve canlılık onaylarıyla bir ONU'yu sınayacağız.
+
+21
+00:01:46,260 --> 00:01:47,900
+Geçen bölümün soruları.
+
+22
+00:01:47,950 --> 00:01:52,650
+Birinci soru: en iyi çaba T-CONT'u hiç pay alamıyor,
+
+23
+00:01:52,700 --> 00:01:56,870
+güvencesiz bir T-CONT hâlâ doymamış; OLT bozuk mu? Hayır.
+
+24
+00:01:56,920 --> 00:02:03,190
+Referans model katı bir sıra izler: sabit, güvenceli, güvencesiz,
+
+25
+00:02:03,240 --> 00:02:05,050
+en son en iyi çaba.
+
+26
+00:02:05,100 --> 00:02:06,580
+En iyi çaba ek payı,
+
+27
+00:02:06,630 --> 00:02:11,520
+ancak güvencesiz paya uygun bütün tahsis kimlikleri doyunca gelir.
+
+28
+00:02:11,570 --> 00:02:18,480
+Üstelik en iyi çaba tanımlayıcısında garantili pay sıfır olabilir; sıfır,
+
+29
+00:02:18,530 --> 00:02:20,124
+tasarımın kendisidir.
+
+30
+00:02:21,093 --> 00:02:23,613
+İkinci soru: zaman kuantumu,
+
+31
+00:02:23,663 --> 00:02:27,483
+yüz yirmi beş mikrosaniyenin dokuz bin yedi yüz yirmide biridir:
+
+32
+00:02:27,533 --> 00:02:30,963
+iki buçuk gigabitte dört, on gigabitte on altı bayt.
+
+33
+00:02:31,013 --> 00:02:34,323
+Çerçeve başına otuz iki ya da yüz yirmi sekiz bit,
+
+34
+00:02:34,373 --> 00:02:42,363
+saniyede sekiz bin çerçeveyle iki yüz elli altı kilobit ya da bir virgül sıfır iki dört megabittir.
+
+35
+00:02:42,413 --> 00:02:46,023
+En küçük yük tahsisi iki hızda da on altı bayttır;
+
+36
+00:02:46,073 --> 00:02:50,570
+iki buçuk gigabitte tek kuantumluk tahsis yalnızca DBRu taşır.
+
+37
+00:02:51,560 --> 00:02:54,830
+Üçüncü soru: yalnızca J eki varsa.
+
+38
+00:02:54,880 --> 00:02:58,480
+O5'teki, T-CONT'una yönlendirilmiş tahsis verilmeyen,
+
+39
+00:02:58,530 --> 00:03:05,370
+trafiği olan ve zaman aşımı içinde başka bir çekişmeli tahsise cevap vermemiş ONU,
+
+40
+00:03:05,420 --> 00:03:11,370
+boştaki ONU desteği tahsisine tek bir onayla cevap verir: tamamlama kodu altı,
+
+41
+00:03:11,420 --> 00:03:15,630
+istenmemiş trafik etkinliği, ve meşgul tahsis kimliği;
+
+42
+00:03:15,680 --> 00:03:18,130
+on altılık tabanda ce sıfır ise hepsi.
+
+43
+00:03:18,180 --> 00:03:21,190
+OLT tahsisleri geri verir.
+
+44
+00:03:21,240 --> 00:03:22,441
+Şimdi bu bölüme.
+
+45
+00:03:24,027 --> 00:03:26,147
+Perde bir: PLOAM kanalı.
+
+46
+00:03:26,197 --> 00:03:31,357
+Tanımı: OLT kanal sonlandırıcıları ile ONU'lar arasında,
+
+47
+00:03:31,407 --> 00:03:38,277
+sabit bir kırk sekiz baytlık mesaj kümesine dayanan bir işletme ve yönetim aracı.
+
+48
+00:03:38,327 --> 00:03:47,117
+Gömülü alanlarla gönderilmeyen bütün PMD ve çerçeveleme yönetim bilgisi buradan geçer:
+
+49
+00:03:47,167 --> 00:03:53,317
+profiller, aktivasyon, kayıt, anahtarlar, koruma, güç yönetimi ve kanal devri.
+
+50
+00:03:53,367 --> 00:03:59,814
+Gömülü kanaldan daha esnek, OMCC'den genellikle daha hızlıdır.
+
+51
+00:04:00,760 --> 00:04:03,410
+İki taşıma seçeneği vardır.
+
+52
+00:04:03,460 --> 00:04:09,600
+Bant içinde, aşağı yön mesajları çerçeve başlığının PLOAM bölmesinde durur:
+
+53
+00:04:09,650 --> 00:04:16,270
+başlıktaki sekiz bitlik sayı P ise, bölme kırk sekiz çarpı P bayttır.
+
+54
+00:04:16,320 --> 00:04:21,470
+Yukarı yönde, burst'ün ilk tahsis yapısında PLOAM bayrağı kuruluysa,
+
+55
+00:04:21,520 --> 00:04:24,230
+başlığa tek bir mesaj eklenir.
+
+56
+00:04:24,280 --> 00:04:26,489
+Bant içi destek zorunludur.
+
+57
+00:04:27,427 --> 00:04:32,817
+İkinci seçenek AMCC'dir, ve bilerek dar tutulmuştur: yalnızca yukarı yönde,
+
+58
+00:04:32,867 --> 00:04:37,317
+ve yalnızca seri numarası mesajı ile ayar yanıtı mesajı için.
+
+59
+00:04:37,367 --> 00:04:42,267
+Kalibrasyon kısıtlarını karşılamayan ONU'lar için zorunlu,
+
+60
+00:04:42,317 --> 00:04:45,777
+karşılayanlar için isteğe bağlıdır.
+
+61
+00:04:45,827 --> 00:04:45,777
+Amaç,
+
+62
+00:04:45,827 --> 00:04:51,573
+yeterince kalibre edilmemiş bir vericinin çalışan bir kanalda ışık vermemesidir.
+
+63
+00:04:52,494 --> 00:04:53,844
+PMD Köprüsü.
+
+64
+00:04:53,894 --> 00:05:07,924
+Birinci sezonun dokuzuncu bölümünde AMCC'yi saniyede yüz on beş ya da yüz yirmi sekiz kilobitlik bir kanal olarak gördük.
+
+65
+00:05:07,974 --> 00:05:10,534
+Bizim hesabımızla,
+
+66
+00:05:10,584 --> 00:05:18,864
+PtP WDM'in yönetim çerçevesiyle tek bir PLOAM beş ile altı milisaniye sürer;
+
+67
+00:05:18,914 --> 00:05:23,224
+bant içinde bir çerçeveye sığar.
+
+68
+00:05:23,274 --> 00:05:30,268
+TWDM kanallarında AMCC'nin ayrıntıları ise hâlâ çalışma konusudur.
+
+69
+00:05:31,193 --> 00:05:32,643
+Hız sınırları.
+
+70
+00:05:32,693 --> 00:05:38,653
+Aşağı yön mesajları iki sınıftır: kanala ayarlı bütün ONU'lara yayın,
+
+71
+00:05:38,703 --> 00:05:43,253
+ve ONU kimliğiyle tek bir ONU'ya tek alıcılı.
+
+72
+00:05:43,303 --> 00:05:47,173
+Kural: bir çerçevede OLT en çok bir yayın mesajı,
+
+73
+00:05:47,223 --> 00:05:52,873
+ve her ONU'ya en çok bir tek alıcılı mesaj gönderebilir.
+
+74
+00:05:52,923 --> 00:05:57,623
+Bizim hesabımızla bu, akış başına saniyede sekiz bin mesaj,
+
+75
+00:05:57,673 --> 00:06:01,376
+yani üç virgül sıfır yedi iki megabittir.
+
+76
+00:06:02,293 --> 00:06:04,323
+İşleme süresi.
+
+77
+00:06:04,373 --> 00:06:07,283
+ONU sekiz aşağı yön mesajını kuyrukta tutabilmeli,
+
+78
+00:06:07,333 --> 00:06:11,503
+ve onları tek iş parçacığıyla işlemelidir.
+
+79
+00:06:11,553 --> 00:06:15,253
+Normatif süre yedi yüz elli mikrosaniyedir:
+
+80
+00:06:15,303 --> 00:06:21,323
+boş kuyruğa N numaralı aşağı yön çerçevesinde gelen mesajın cevabı,
+
+81
+00:06:21,373 --> 00:06:26,073
+en geç N artı altıncı yukarı yön çerçevesinde hazırdır.
+
+82
+00:06:26,123 --> 00:06:31,059
+Kuyrukta başka mesaj varsa, her biri için altı çerçeve daha.
+
+83
+00:06:31,993 --> 00:06:35,133
+Neden? Standardın notu: bu gereksinimlerle OLT,
+
+84
+00:06:35,183 --> 00:06:44,053
+bir ONU'ya yönelik onaylanmamış en fazla mesaj sayısını ve beklenen cevap süresini hesaplayabilir.
+
+85
+00:06:44,103 --> 00:06:50,873
+Bizim hesabımızla dolu bir kuyruk kırk sekiz çerçevede, altı milisaniyede boşalır.
+
+86
+00:06:50,923 --> 00:06:56,913
+Dokuzuncu mesaja ne olacağını metin yazmaz; bizim okumamızla OLT,
+
+87
+00:06:56,963 --> 00:06:58,188
+oraya hiç varmamalıdır.
+
+88
+00:06:59,126 --> 00:07:02,686
+Yukarı yönde ONU kendiliğinden konuşamaz: OLT,
+
+89
+00:07:02,736 --> 00:07:07,476
+tahsis yapısındaki PLOAM bayrağını açıkça kurar,
+
+90
+00:07:07,526 --> 00:07:10,986
+ve her ONU'ya düzenli fırsatlar vermelidir.
+
+91
+00:07:11,036 --> 00:07:15,536
+Sıklığı ONU'nun geri bildirimine göre ayarlayabilir;
+
+92
+00:07:15,586 --> 00:07:20,616
+yukarı yön başlığındaki gösterge alanının en anlamlı biti,
+
+93
+00:07:20,666 --> 00:07:23,866
+bekleyen mesaj olduğunu söyler.
+
+94
+00:07:23,916 --> 00:07:26,829
+Ama düzenlinin sayısal karşılığı yoktur.
+
+95
+00:07:27,760 --> 00:07:29,210
+Sağlamlık kuralları.
+
+96
+00:07:29,260 --> 00:07:34,320
+Tek alıcılı bir mesajın işlenmesi sonunda ONU O5'e girer ya da orada kalırsa,
+
+97
+00:07:34,370 --> 00:07:39,860
+sonucu onaylar: ya o protokole özgü bir cevapla, ya da genel onay mesajıyla.
+
+98
+00:07:39,910 --> 00:07:43,850
+Biçim ya da işleme hatasında da onay gönderilir.
+
+99
+00:07:43,900 --> 00:07:47,020
+İkisi de onayladığı mesajın sıra numarasını taşır;
+
+100
+00:07:47,070 --> 00:07:49,461
+onay mesajı buna bir tamamlama kodu ekler.
+
+101
+00:07:50,393 --> 00:07:53,703
+Onay mesajının ikinci görevi canlılıktır.
+
+102
+00:07:53,753 --> 00:07:59,163
+PLOAM tahsisi alan ama gönderecek mesajı olmayan ONU, sıra numarası sıfır,
+
+103
+00:07:59,213 --> 00:08:05,143
+tamamlama kodu bir olan bir onay gönderir: gönderecek mesaj yok.
+
+104
+00:08:05,193 --> 00:08:10,843
+Bir mesajı hâlâ işliyorsa kod ikidir: meşgul, cevap hazırlanıyor.
+
+105
+00:08:10,893 --> 00:08:15,198
+OLT, boştaki bir ONU'yu düşünen bir ONU'dan böyle ayırır.
+
+106
+00:08:16,127 --> 00:08:21,567
+Onaylanmayanlar da bellidir: cevap gerektirmeyen yayınlar,
+
+107
+00:08:21,617 --> 00:08:24,877
+ama anahtar denetimi yayın olsa bile cevap ister;
+
+108
+00:08:24,927 --> 00:08:29,157
+bütünlük denetiminden geçemeyen her mesaj;
+
+109
+00:08:29,207 --> 00:08:35,637
+ve katalogda onaysız işaretlenen sekiz tür, kimlik atamadan yeniden başlatmaya.
+
+110
+00:08:35,687 --> 00:08:42,087
+Bizim yorumumuz: bunlardan dalga boyu ayarı, O5'teki bir ONU'ya da onaysız gider;
+
+111
+00:08:42,137 --> 00:08:43,728
+ilk kurala bir istisnadır.
+
+112
+00:08:44,660 --> 00:08:47,430
+Sessizlik bilgi taşır.
+
+113
+00:08:47,480 --> 00:08:51,120
+Cevap beklerken yalnızca canlılık onayı alan OLT,
+
+114
+00:08:51,170 --> 00:08:54,620
+ONU'nun mesajı işleyemediği sonucuna varabilir.
+
+115
+00:08:54,670 --> 00:09:00,670
+ONU tekrar tekrar onaylamazsa OLT, PLOAM kanalı kaybı kusurunu ilan eder:
+
+116
+00:09:00,720 --> 00:09:05,310
+aynı düzensiz durum art arda en az üç kez.
+
+117
+00:09:05,360 --> 00:09:11,820
+Ama metinde ne yeniden gönderim zamanlayıcısı, ne de deneme sayısı vardır;
+
+118
+00:09:11,870 --> 00:09:14,676
+yalnızca bir zaman aşımı sayacı.
+
+119
+00:09:15,593 --> 00:09:17,113
+Mühendis notu.
+
+120
+00:09:17,163 --> 00:09:19,493
+Bir: PLOAM zaman aşımını standart vermez;
+
+121
+00:09:19,543 --> 00:09:23,953
+altı çerçeveden ve sekiz mesajlık kuyruktan kendiniz türetin,
+
+122
+00:09:24,003 --> 00:09:28,123
+ve yeniden gönderim politikasını üreticiden yazılı isteyin.
+
+123
+00:09:28,173 --> 00:09:33,753
+İki: bir canlılık onayını başarı sanmayın; sıra numarası sıfır olan bir onay,
+
+124
+00:09:33,803 --> 00:09:35,514
+hiçbir mesajı onaylamaz.
+
+125
+00:09:36,560 --> 00:09:37,710
+Sıradaki: kanal belli.
+
+126
+00:09:37,760 --> 00:09:41,633
+Şimdi tek bir mesajın kırk sekiz baytına bakalım.
+
+127
+00:09:43,427 --> 00:09:46,757
+Perde iki: mesaj biçimi ve bütünlük.
+
+128
+00:09:46,807 --> 00:09:49,067
+Her PLOAM mesajı kırk sekiz bayttır.
+
+129
+00:09:49,117 --> 00:09:53,757
+İlk iki bayt ONU kimliğidir: en anlamsız uca hizalı on bit,
+
+130
+00:09:53,807 --> 00:09:55,797
+üstteki altı bit ayrılmış.
+
+131
+00:09:55,847 --> 00:09:59,217
+Üçüncü bayt mesaj türü, dördüncü bayt sıra numarası.
+
+132
+00:09:59,267 --> 00:10:05,737
+Beşinciden kırkıncıya otuz altı bayt içerik, son sekiz bayt bütünlük kodu:
+
+133
+00:10:05,787 --> 00:10:06,897
+her mesajın altıda biri.
+
+134
+00:10:06,947 --> 00:10:12,314
+Kimlik olarak bin yirmi bir ve bin yirmi iki hiç görünmez.
+
+135
+00:10:13,260 --> 00:10:17,490
+Mesaj türü sekiz bittir, ve tanımsız her değer ayrılmıştır;
+
+136
+00:10:17,540 --> 00:10:21,200
+hiçbir üretici onu kullanmamalıdır.
+
+137
+00:10:21,250 --> 00:10:24,970
+Desteklemediği bir yukarı yön türü alan OLT,
+
+138
+00:10:25,020 --> 00:10:28,870
+mesajı sıra numarasıyla birlikte yok sayar.
+
+139
+00:10:28,920 --> 00:10:33,260
+Bilmediği bir aşağı yön türü alan ONU, mesaj yayınsa susar;
+
+140
+00:10:33,310 --> 00:10:40,603
+kendi kimliğine gelmişse olumsuz onaylar: tamamlama kodu üç, bilinmeyen mesaj türü.
+
+141
+00:10:41,527 --> 00:10:43,117
+Sıra numaraları.
+
+142
+00:10:43,167 --> 00:10:46,417
+Aşağı yönde yayın akışının tek bir sayacı vardır;
+
+143
+00:10:46,467 --> 00:10:51,437
+OLT kanal sonlandırıcısı yeniden başlarken bire kurulur.
+
+144
+00:10:51,487 --> 00:10:53,897
+Her ONU'nun tek alıcılı sayacı ise,
+
+145
+00:10:53,947 --> 00:11:00,717
+kimlik atandığında ya da kanal devrinde ayar tamamlandı yanıtı alındığında bire kurulur.
+
+146
+00:11:00,767 --> 00:11:05,397
+Her gönderimde sayaç bir artar, iki yüz elli beşten bire döner.
+
+147
+00:11:05,447 --> 00:11:08,222
+Sıfır, aşağı yönde kullanılmaz.
+
+148
+00:11:09,160 --> 00:11:12,710
+Yukarı yönde ONU sayı üretmez, yansıtır: cevap,
+
+149
+00:11:12,760 --> 00:11:16,080
+aşağı yön mesajının sıra numarasını taşır.
+
+150
+00:11:16,130 --> 00:11:23,480
+Seri numarası mesajı gibi kendiliğinden gönderilenlerde ve canlılık onayında değer sıfırdır.
+
+151
+00:11:23,530 --> 00:11:25,900
+Yani sıfır, sırasız demektir.
+
+152
+00:11:25,950 --> 00:11:33,857
+ONU'nun sıra numarasıyla çift ya da sırası bozuk mesaj yakaladığına dair bir kural ise metinde yoktur.
+
+153
+00:11:34,794 --> 00:11:38,904
+Bir çelişki: kalibrasyon isteği bir aşağı yön mesajıdır,
+
+154
+00:11:38,954 --> 00:11:42,364
+ama tablosu sıra numarasını sıfır tanımlar.
+
+155
+00:11:42,414 --> 00:11:44,504
+Metin nedenini söylemez; bizim yorumumuz,
+
+156
+00:11:44,554 --> 00:11:50,824
+mesajın henüz kimliği ve tek alıcılı akışı olmayan bir ONU'ya gitmesidir.
+
+157
+00:11:50,874 --> 00:11:52,044
+Bir de hesap:
+
+158
+00:11:52,094 --> 00:11:58,605
+en yüksek tek alıcılı hızda bir ONU'nun sayacı otuz bir virgül dokuz milisaniyede döner.
+
+159
+00:11:59,527 --> 00:12:04,377
+İçerikte kullanılmayan baytlar sıfırla doldurulur ve alıcıda yok sayılır;
+
+160
+00:12:04,427 --> 00:12:07,197
+ama dolgu da bütünlük koduna girer.
+
+161
+00:12:07,247 --> 00:12:11,927
+Standart, kanalın geriye uyumlu biçimde genişleyebilmesini ister;
+
+162
+00:12:11,977 --> 00:12:17,827
+bizim yorumumuzla araçları ayrılmış tür kimlikleri, sürüm alanları ve bu dolgudur.
+
+163
+00:12:17,877 --> 00:12:20,662
+İki değişiklik de yeni alanlarını dolguya koydu.
+
+164
+00:12:21,594 --> 00:12:23,584
+Şimdi bütünlük kodu.
+
+165
+00:12:23,634 --> 00:12:29,264
+Amacı göndericinin kimliğini doğrulamak ve sahte mesaj saldırısını önlemektir.
+
+166
+00:12:29,314 --> 00:12:34,974
+Hesap AES-CMAC'tir: girdi, bir yön baytı, aşağıda bir, yukarıda iki,
+
+167
+00:12:35,024 --> 00:12:36,564
+ve mesajın ilk kırk baytı.
+
+168
+00:12:36,614 --> 00:12:44,814
+Yüz yirmi sekiz bitlik anahtarla işlenen kırk bir baytın çıkışı altmış dört bite kesilir;
+
+169
+00:12:44,864 --> 00:12:46,724
+uyuşmazsa mesaj atılır.
+
+170
+00:12:46,774 --> 00:12:51,744
+Bizim yorumumuz: yön baytı, ters yönde tekrar oynatmayı engeller.
+
+171
+00:12:52,694 --> 00:12:56,624
+Anahtar ne? Varsayılan PLOAM bütünlük anahtarı,
+
+172
+00:12:56,674 --> 00:13:02,864
+on altı baytın her biri on altılık tabanda beş beş olan bir değerdir,
+
+173
+00:13:02,914 --> 00:13:05,004
+ve standardın içinde yazılıdır.
+
+174
+00:13:05,054 --> 00:13:13,224
+Yayın mesajlarında ve kayıt tabanlı ana anahtar oluşmadan önceki aktivasyon mesajlarında kullanılır.
+
+175
+00:13:13,274 --> 00:13:14,574
+Gerekçe: bu mesajlar,
+
+176
+00:13:14,624 --> 00:13:21,009
+OLT ile ONU türetilmiş anahtarlarda anlaşmamışken de geçebilmelidir.
+
+177
+00:13:21,927 --> 00:13:26,977
+Bizim yorumumuz: herkesin bildiği bir anahtar sır değildir.
+
+178
+00:13:27,027 --> 00:13:29,777
+Devre dışı bırakma, seri numarası engelleme,
+
+179
+00:13:29,827 --> 00:13:34,387
+ayar denetimi ve dalga boyu ayarı hep bu anahtarla korunur;
+
+180
+00:13:34,437 --> 00:13:38,467
+onlarda kod sahteciliğe karşı değil, hataya karşı korur.
+
+181
+00:13:38,517 --> 00:13:43,577
+Kanal devrinin dört mesajı da bu anahtarı kullanır;
+
+182
+00:13:43,627 --> 00:13:49,478
+çünkü ONU başka bir kanal sonlandırıcısına geçince kendi anahtarları yeniden türetilir.
+
+183
+00:13:50,427 --> 00:13:53,097
+Mesaj başına anahtar şöyledir.
+
+184
+00:13:53,147 --> 00:13:58,997
+Yayınsa varsayılan, yönlendirilmişse ONU'ya özgü: burst profili, eşitleme gecikmesi,
+
+185
+00:13:59,047 --> 00:14:04,127
+anahtar denetimi, uyku izni, koruma, güç seviyesi ve güç sorgusu.
+
+186
+00:14:04,177 --> 00:14:07,607
+Her zaman ONU'ya özgü olan yalnızca dört mesaj:
+
+187
+00:14:07,657 --> 00:14:13,837
+yönlendirilmiş tahsis kimliği ataması, anahtar raporu, onay ve uyku isteği.
+
+188
+00:14:13,887 --> 00:14:16,773
+Geri kalanlar hep varsayılan anahtarı kullanır.
+
+189
+00:14:17,694 --> 00:14:22,114
+ONU'ya özgü anahtar, oturum anahtarıyla bir AES-CMAC'tir;
+
+190
+00:14:22,164 --> 00:14:27,274
+girdi on altı baytlık sabit bir ASCII etiketidir: PLOAM,
+
+191
+00:14:27,324 --> 00:14:30,174
+integrity ve key sözcüklerinin bitişik yazımı.
+
+192
+00:14:30,224 --> 00:14:36,634
+Ama integrity'nin ikinci i harfi eksiktir; etiket böylece tam on altı bayta sığar.
+
+193
+00:14:36,684 --> 00:14:42,204
+Dördüncü ekin sekizinci örneği yalnızca bu yanlış yazımla tutar.
+
+194
+00:14:42,254 --> 00:14:44,778
+OMCI'ın etiketi ise doğru yazılmıştır.
+
+195
+00:14:45,727 --> 00:14:50,317
+Aynı ekin dokuzuncu örneği bir aşağı yön tahsis kimliği atamasıdır,
+
+196
+00:14:50,367 --> 00:14:55,647
+onuncu örneği bir yukarı yön uyku isteği; ikisinin de bütünlük kodu verilmiştir.
+
+197
+00:14:55,697 --> 00:15:00,977
+Ekteki beş vektörün beşini de yeniden hesapladık; hepsi bit bit tutuyor.
+
+198
+00:15:01,027 --> 00:15:04,856
+Bir çözücüyü sahaya çıkarmadan önce bu vektörlerden geçirin.
+
+199
+00:15:05,794 --> 00:15:07,294
+Mühendis notu.
+
+200
+00:15:07,344 --> 00:15:12,204
+Bir: etiketin yazım hatasını düzeltmeyin; düzelten bir uygulama,
+
+201
+00:15:12,254 --> 00:15:14,814
+standarda uyan hiçbir karşı tarafla anlaşamaz.
+
+202
+00:15:14,864 --> 00:15:15,964
+İki: bir analizör,
+
+203
+00:15:16,014 --> 00:15:23,864
+hiçbir sır bilmeden bütün yayın mesajlarını ve varsayılan anahtarlı tek alıcılı mesajları doğrulayabilir;
+
+204
+00:15:23,914 --> 00:15:29,011
+doğrulayamadığı her mesaj ya ONU'ya özgü anahtarlıdır, ya da bozuktur.
+
+205
+00:15:30,060 --> 00:15:32,470
+Sıradaki: biçim belli.
+
+206
+00:15:32,520 --> 00:15:37,743
+Şimdi yirmi sekiz mesajın ne söylediğine bakalım.
+
+207
+00:15:39,527 --> 00:15:41,007
+Perde üç: mesaj kataloğu.
+
+208
+00:15:41,057 --> 00:15:46,237
+Aşağı yönde yirmi, yukarı yönde sekiz tür tanımlıdır,
+
+209
+00:15:46,287 --> 00:15:51,427
+ve tür kimlikleri iki yönde yeniden kullanılır: bir, aşağıda burst profili,
+
+210
+00:15:51,477 --> 00:15:57,767
+yukarıda seri numarası mesajıdır; dokuz, aşağıda kayıt isteği, yukarıda onaydır.
+
+211
+00:15:57,817 --> 00:16:00,257
+Altı tür kimliği böyledir.
+
+212
+00:16:00,307 --> 00:16:03,497
+Bir çözücü, yönü bilmeden mesaja ad veremez.
+
+213
+00:16:03,547 --> 00:16:04,581
+Aile aile gidelim.
+
+214
+00:16:05,527 --> 00:16:07,197
+Önce profiller.
+
+215
+00:16:07,247 --> 00:16:13,407
+Sistem profili yirmi bitlik sistem kimliğini, yukarı yön bandını,
+
+216
+00:16:13,457 --> 00:16:21,067
+kanal sayısını ve aralığını, en büyük spektral sapmayı, serbest spektral aralığı,
+
+217
+00:16:21,117 --> 00:16:23,667
+ve AMCC ile kalibrasyon kurallarını taşır.
+
+218
+00:16:23,717 --> 00:16:27,147
+Tam bir profil kümesi bir sistem,
+
+219
+00:16:27,197 --> 00:16:32,637
+en çok sekiz kanal ve en çok altmış dört burst profilidir,
+
+220
+00:16:32,687 --> 00:16:36,074
+ve bir ile beş saniyede bir yinelenir.
+
+221
+00:16:36,994 --> 00:16:43,924
+Kanal profili, bir aşağı yön ve bir yukarı yön kanal tanımlayıcısıdır: PON kimliği,
+
+222
+00:16:43,974 --> 00:16:50,304
+frekans ofseti, hız, FEC ve hat kodu; bölümleme, varsayılan yanıt kanalı,
+
+223
+00:16:50,354 --> 00:16:53,914
+seri numarası tahsis türleri ve AMCC penceresi;
+
+224
+00:16:53,964 --> 00:16:58,904
+yukarı yön kanal kimliği ve frekansı, bağlantı tipi, hızlar,
+
+225
+00:16:58,954 --> 00:17:02,613
+varsayılan ONU zayıflatması ve yanıt eşiği.
+
+226
+00:17:03,560 --> 00:17:04,470
+PMD Köprüsü.
+
+227
+00:17:04,520 --> 00:17:10,310
+Birinci sezonun üçüncü ve dördüncü bölümlerinde aşağı yön planını gördük:
+
+228
+00:17:10,360 --> 00:17:12,950
+yüz gigahertz arayla sekiz kanal,
+
+229
+00:17:12,000 --> 00:17:17,190
+ve OLT vericisi için artı eksi yirmi gigahertz sapma.
+
+230
+00:17:17,240 --> 00:17:25,370
+Kanal profilinin ofset alanı ise sıfır virgül bir gigahertzlik birimlerle işaretli sekiz bittir:
+
+231
+00:17:25,420 --> 00:17:29,690
+bizim hesabımızla artı eksi on iki virgül yedi gigahertz.
+
+232
+00:17:29,740 --> 00:17:34,400
+On beş gigahertz kaymış bir OLT, yalnızca bilinmiyor diyebilir.
+
+233
+00:17:35,327 --> 00:17:41,367
+Burst profili mesajı sürüm, hız biti ve indeksle başlar; sonra kanal ötesi bit,
+
+234
+00:17:41,417 --> 00:17:44,517
+FEC biti, en çok sekiz baytlık sınırlayıcı,
+
+235
+00:17:44,567 --> 00:17:49,557
+en çok sekiz baytlık ve iki yüz elli beş kez tekrarlanabilen önsöz, ve PON etiketi.
+
+236
+00:17:49,607 --> 00:17:54,237
+İkinci değişiklik bir kuralı değiştirdi: eskiden sonraki bir yayın,
+
+237
+00:17:54,287 --> 00:17:59,567
+aynı indeksteki tek alıcılı profilleri eziyordu; şimdi her ONU için,
+
+238
+00:17:59,617 --> 00:18:01,981
+o indekste en son alınan mesaj geçerlidir.
+
+239
+00:18:02,927 --> 00:18:04,317
+PMD Köprüsü.
+
+240
+00:18:04,367 --> 00:18:08,957
+Birinci sezonun altıncı bölümünde G.989.2'nin üçüncü ekini gördük:
+
+241
+00:18:09,007 --> 00:18:13,477
+en kötü önsöz iki buçuk gigabitte bin dört yüz yetmiş iki,
+
+242
+00:18:13,527 --> 00:18:18,777
+on gigabitte altı bin seksen bit; sınırlayıcı en çok altmış dört bit.
+
+243
+00:18:18,827 --> 00:18:23,687
+Bizim hesabımızla alanlar yeter: sınırlayıcı sekiz bayta oturur,
+
+244
+00:18:23,737 --> 00:18:28,435
+en uzun önsöz de sekiz baytlık desenin doksan beş tekrarıdır.
+
+245
+00:18:29,360 --> 00:18:35,610
+Kimlik ailesi, yani seri numarası, kimlik atama, eşitleme gecikmesi ve kayıt,
+
+246
+00:18:35,660 --> 00:18:37,450
+bir sonraki bölümün.
+
+247
+00:18:37,500 --> 00:18:41,460
+Tersi devre dışı bırakma ailesidir, iki onaysız mesaj.
+
+248
+00:18:41,510 --> 00:18:46,280
+Devre dışı bırakılan ONU lazerini kapatır, kimliklerini,
+
+249
+00:18:46,330 --> 00:18:51,470
+profillerini ve eşitleme gecikmesini atar, O1'e döner.
+
+250
+00:18:51,520 --> 00:18:56,690
+Seri numarası engelleme ise ONU'yu acil durdurmaya, O7'ye gönderir;
+
+251
+00:18:56,740 --> 00:19:01,643
+serbest bırakma her TWDM kanalında gönderilmelidir.
+
+252
+00:19:02,560 --> 00:19:05,140
+Değişikliklerin asıl izi buradadır.
+
+253
+00:19:05,190 --> 00:19:11,350
+İki bin yirmi üç değişikliği devre dışı bırakma mesajının beşinci ve altıncı baytına,
+
+254
+00:19:11,400 --> 00:19:18,330
+iki bin yirmi beş değişikliği engelleme mesajının on dördüncü ve on beşinci baytına bir neden kodu koydu.
+
+255
+00:19:18,380 --> 00:19:23,470
+Sıfır, desteklenmiyor ya da belirtilmedi demektir; önerilen kodlar,
+
+256
+00:19:23,520 --> 00:19:26,980
+kaynaklarımızda olmayan bir ek belgededir.
+
+257
+00:19:27,030 --> 00:19:30,067
+Haberdar bir ONU değeri yalnızca kaydeder.
+
+258
+00:19:30,994 --> 00:19:33,604
+Kalan aileler sonraki bölümlerin.
+
+259
+00:19:33,654 --> 00:19:40,364
+Anahtar denetimine ONU, en çok sekiz parçalık anahtar raporlarıyla cevap verir.
+
+260
+00:19:40,414 --> 00:19:43,424
+Uyku izni güç tasarrufunu açar ya da kapatır;
+
+261
+00:19:43,474 --> 00:19:46,824
+uyku isteği uyanık ya da dikkatli uyku der.
+
+262
+00:19:46,874 --> 00:19:50,444
+Güç sorgusunun cevabı kanal çifti başına miliwatttır.
+
+263
+00:19:50,494 --> 00:19:57,284
+Koruma denetimi bir koruma kanalı tanımlar; hız mesajları PtP WDM içindir;
+
+264
+00:19:57,334 --> 00:19:59,271
+yeniden başlatma son çaredir.
+
+265
+00:20:00,194 --> 00:20:02,514
+Ayar ailesi yedinci bölümün.
+
+266
+00:20:02,564 --> 00:20:07,874
+Kalibrasyon isteği, AMCC ile gelen seri numarası mesajına cevaptır;
+
+267
+00:20:07,924 --> 00:20:13,554
+dalga boyu ayarı vericiyi sıfır virgül bir gigahertzlik birimlerle kaydırır;
+
+268
+00:20:13,604 --> 00:20:15,824
+ayar denetimi devri başlatır; ayar yanıtı,
+
+269
+00:20:15,874 --> 00:20:21,894
+on dört olumsuz ve dokuz geri dönüş nedenini bir bit haritasında taşır.
+
+270
+00:20:21,944 --> 00:20:26,590
+ONU ise ayar granülerliğini bir gigahertzlik birimlerle bildirir.
+
+271
+00:20:27,527 --> 00:20:28,577
+PMD Köprüsü.
+
+272
+00:20:28,627 --> 00:20:34,817
+Birinci sezonun yedinci bölümünde G.989.2'nin ayar tablolarını gördük.
+
+273
+00:20:34,867 --> 00:20:40,127
+Bir boşluk var: elli gigahertzlik aralıkta en büyük granülerlik,
+
+274
+00:20:40,177 --> 00:20:45,647
+kanal aralığının yirmide biri, iki virgül beş gigahertzdir,
+
+275
+00:20:45,697 --> 00:20:49,507
+ve bir gigahertzlik birimle yazılamaz.
+
+276
+00:20:49,557 --> 00:20:58,008
+Aynı aralıktaki artı eksi on iki virgül beş gigahertzlik sapma da sistem profiline yazılamaz.
+
+277
+00:20:58,927 --> 00:21:04,277
+Güç seviyesi değiştirme mesajı, güç dengelemenin OLT'nin yönettiği yüzüdür.
+
+278
+00:21:04,327 --> 00:21:09,817
+Dört işlem vardır: doğrudan bir düzey, bir düzey azalt, bir düzey artır,
+
+279
+00:21:09,867 --> 00:21:11,297
+ya da düzeyi bildir.
+
+280
+00:21:11,347 --> 00:21:16,007
+Zayıflatma kodları birden yediye, üç desibellik adımlardır.
+
+281
+00:21:16,057 --> 00:21:19,977
+ONU isteğe bağlı bir meşgul onayından sonra ayarlar,
+
+282
+00:21:20,027 --> 00:21:23,147
+ve aynı sıra numarasıyla yeni düzeyi bildirir.
+
+283
+00:21:23,197 --> 00:21:26,664
+Sınırda ise parametre hatası, kod dört.
+
+284
+00:21:27,594 --> 00:21:28,564
+PMD Köprüsü.
+
+285
+00:21:28,614 --> 00:21:33,734
+Birinci sezonun sekizinci bölümünde D ekini gördük:
+
+286
+00:21:33,784 --> 00:21:38,884
+özerk dengeleme üç desibellik adımlarla en çok on iki desibel,
+
+287
+00:21:38,934 --> 00:21:42,344
+yönlendirmeli dengeleme altı ile dokuz desibel daha;
+
+288
+00:21:42,394 --> 00:21:47,934
+bizim hesabımızla yirmi bir desibele, yani en büyük koda kadar.
+
+289
+00:21:47,984 --> 00:21:51,524
+D eki ONU'nun düzeyini bildirmesini ister;
+
+290
+00:21:51,574 --> 00:21:56,754
+G.989.3'te bunu her onay mesajındaki zayıflatma baytı taşır.
+
+291
+00:21:56,804 --> 00:22:03,042
+Ama D eki, yönlendirmeli dengelemenin TC tarafını hâlâ çalışma konusu sayar.
+
+292
+00:22:03,960 --> 00:22:05,510
+PMD Köprüsü, TOL.
+
+293
+00:22:05,560 --> 00:22:14,060
+Birinci sezonun onuncu bölümünde OLT'nin başlatma gücünü PSBd'nin TOL alanında gördük;
+
+294
+00:22:14,110 --> 00:22:17,010
+bu bir PLOAM alanı değildir.
+
+295
+00:22:17,060 --> 00:22:17,010
+D eki,
+
+296
+00:22:17,060 --> 00:22:26,130
+ONU'nun ölçtüğü gücün OLT lazerinin dört desibellik oynamasını da içerdiğini söyler.
+
+297
+00:22:26,180 --> 00:22:31,780
+Bizim yorumumuz: ONU düzey seçerken TOL'u hesaba katabilir;
+
+298
+00:22:31,830 --> 00:22:34,224
+ama G.989.3 bunu söylemez.
+
+299
+00:22:35,160 --> 00:22:37,050
+Mühendis notu.
+
+300
+00:22:37,100 --> 00:22:37,800
+Bir: kutuplara dikkat.
+
+301
+00:22:37,850 --> 00:22:43,040
+Engelleme baytında sıfır izin verir, iki yüz elli beş engeller;
+
+302
+00:22:43,090 --> 00:22:46,470
+koruma denetiminde de sıfır korumayı açar.
+
+303
+00:22:46,520 --> 00:22:51,050
+Sıfırı hep kapalı sayan bir yazılım burada ters çalışır.
+
+304
+00:22:51,100 --> 00:22:58,120
+İki: onaylanmış bir güç değişikliği optikte görünmezse OLT bir kusur ilan eder;
+
+305
+00:22:58,170 --> 00:23:01,109
+izlemeniz üç desibellik adımı görebilmelidir.
+
+306
+00:23:02,127 --> 00:23:05,487
+Sıradaki: PLOAM tamam.
+
+307
+00:23:05,537 --> 00:23:08,040
+Şimdi OMCC'ye bakalım.
+
+308
+00:23:09,827 --> 00:23:11,237
+Perde dört: OMCC.
+
+309
+00:23:11,287 --> 00:23:14,357
+ONU yönetim ve denetim kanalı,
+
+310
+00:23:14,407 --> 00:23:22,707
+TC katmanının üstündeki servis katmanlarını yönetmek için OMCI mesajlarını kullanır;
+
+311
+00:23:22,757 --> 00:23:26,627
+TC katmanı da bunun için, port kimlikleri dahil,
+
+312
+00:23:26,677 --> 00:23:31,007
+XGEM tabanlı bir taşıma sağlamak zorundadır.
+
+313
+00:23:31,057 --> 00:23:39,951
+G.989.3 kanalın biçimini ve aktarımını tanımlar; mesajların anlamı G.988'in işidir.
+
+314
+00:23:40,894 --> 00:23:43,024
+Taşıma zinciri dört halkadır.
+
+315
+00:23:43,074 --> 00:23:47,314
+OMCC portu sayıca ONU kimliğine eşittir,
+
+316
+00:23:47,364 --> 00:23:51,234
+ve kimlik atama mesajıyla örtük olarak kurulur.
+
+317
+00:23:51,284 --> 00:23:53,314
+Yukarı yön bant genişliğini,
+
+318
+00:23:53,364 --> 00:24:00,004
+yine ONU kimliğine eşit olan varsayılan tahsis kimliği verir.
+
+319
+00:24:00,054 --> 00:24:03,074
+Mesajlar sıradan XGEM yükleridir.
+
+320
+00:24:03,124 --> 00:24:08,734
+Ve ONU'nun diğer bütün port atamaları, OMCC'nin kendisi üzerinden yapılır.
+
+321
+00:24:09,660 --> 00:24:11,160
+Sonucu zariftir:
+
+322
+00:24:11,210 --> 00:24:19,220
+tek bir yayın PLOAM mesajından sonra ONU'nun iki yönlü bir yönetim kanalı vardır,
+
+323
+00:24:19,270 --> 00:24:23,550
+hiçbir OMCI yapılandırması olmadan.
+
+324
+00:24:23,600 --> 00:24:26,920
+Ömrü de bellidir: O1'de ONU varsayılan portu unutur.
+
+325
+00:24:26,970 --> 00:24:34,470
+Kanal bağlamada her etkin PON arayüzü için ayrı bir OMCC kurulur,
+
+326
+00:24:34,520 --> 00:24:40,716
+ama bilgi tabanı tektir; ONU, komutun geldiği arayüzden cevap verir.
+
+327
+00:24:41,660 --> 00:24:47,480
+Mesaj biçiminden G.989.3 yalnızca bütünlük için gerekeni çizer: işlem kimliği,
+
+328
+00:24:47,530 --> 00:24:53,300
+mesaj türü, cihaz kimliği, dört baytlık yönetim varlığı kimliği, içerik,
+
+329
+00:24:53,350 --> 00:24:56,180
+ve sonda dört baytlık bütünlük kodu.
+
+330
+00:24:56,230 --> 00:25:01,740
+Dördüncü ekin on ikinci örneği temel biçimde bir okuma isteğidir;
+
+331
+00:25:01,790 --> 00:25:07,463
+bizim hesabımızla kırk sekiz bayt, yani elli altı baytlık bir XGEM çerçevesi.
+
+332
+00:25:08,393 --> 00:25:11,013
+Standartta olmayanlar da var.
+
+333
+00:25:11,063 --> 00:25:13,623
+Genişletilmiş biçimin cihaz kimliği,
+
+334
+00:25:13,673 --> 00:25:17,613
+uzunluk alanı ve en büyük boyu G.989.3'te yoktur;
+
+335
+00:25:17,663 --> 00:25:23,233
+yalnızca şekildeki bir ibare ve iki isteğe bağlı sayaç vardır.
+
+336
+00:25:23,283 --> 00:25:28,413
+On ikinci örnekteki dört baytlık kuyruğun anlamı açıklanmaz.
+
+337
+00:25:28,463 --> 00:25:33,133
+Şifreleme ise güvenlik maddesindedir: varsayılan port, yani OMCC portu,
+
+338
+00:25:33,183 --> 00:25:38,343
+tek alıcılı anahtarla iki yönde şifrelenecek biçimde tanımlıdır;
+
+339
+00:25:38,393 --> 00:25:42,823
+ama ancak ilk tek alıcılı anahtar kurulduktan sonra.
+
+340
+00:25:42,873 --> 00:25:45,169
+Bunu sekizinci bölümde açacağız.
+
+341
+00:25:46,093 --> 00:25:49,563
+OMCI bütünlük kodu dört bayttır.
+
+342
+00:25:49,613 --> 00:25:53,523
+Hesap PLOAM'dakine benzer: anahtar OMCI bütünlük anahtarı,
+
+343
+00:25:53,573 --> 00:26:00,443
+girdi yön baytı ile son dört bayt hariç bütün mesaj, çıkış otuz iki bit.
+
+344
+00:26:00,493 --> 00:26:06,953
+Bizim hesabımızla temel biçimde bu, kırk beş baytlık bir girdidir.
+
+345
+00:26:07,003 --> 00:26:10,705
+On ikinci örneğin kodunu yeniden ürettik; tutuyor.
+
+346
+00:26:11,626 --> 00:26:16,266
+Öğretici bir fark: OMCI anahtarının varsayılanı yoktur.
+
+347
+00:26:16,316 --> 00:26:22,066
+Gerekçe: ana oturum anahtarı kurulmadan OMCI alışverişi yapılmaz,
+
+348
+00:26:22,116 --> 00:26:24,796
+ve yayın OMCC kanalı desteklenmez.
+
+349
+00:26:24,846 --> 00:26:30,966
+PLOAM aktivasyonu taşıdığı için herkesin bildiği bir anahtarla başlar;
+
+350
+00:26:31,016 --> 00:26:35,146
+OMCI ise yalnızca türetilmiş anahtarla konuşur.
+
+351
+00:26:35,196 --> 00:26:41,363
+Anahtar değişiminde iki kanal el ele verir; ayrıntısı sekizinci bölümde.
+
+352
+00:26:42,293 --> 00:26:44,893
+Bütünlük hataları rastgele olabilir;
+
+353
+00:26:44,943 --> 00:26:51,893
+standart onları bit hata oranıyla ilişkili seyrek olaylar sayar.
+
+354
+00:26:51,943 --> 00:26:58,493
+Kalıcıysa büyük olasılıkla anahtar uyuşmazlığıdır, ve iki kusurdan birini doğurur:
+
+355
+00:26:58,543 --> 00:27:03,453
+PLOAM kanalı kaybı ya da OMCC kanalı kaybı.
+
+356
+00:27:03,503 --> 00:27:10,533
+Önlemler OLT'ye kalmıştır: yeniden kimlik doğrulama, trafiği engelleme,
+
+357
+00:27:10,583 --> 00:27:13,834
+devre dışı bırakma, başıboş ONU tanılaması.
+
+358
+00:27:14,760 --> 00:27:16,890
+Şimdi metindeki çelişkiler.
+
+359
+00:27:16,940 --> 00:27:23,230
+Kanal profilinde varsayılan yanıt kanalı otuz iki bitlik bir PON kimliğidir;
+
+360
+00:27:23,280 --> 00:27:28,710
+on yedinci maddedeki tablo ise onu yukarı yön kanal kimliği diye anar.
+
+361
+00:27:28,760 --> 00:27:35,260
+Güç tüketimi raporunun girdileri yirmi dört bittir, metin on altı bitten söz eder.
+
+362
+00:27:35,310 --> 00:27:39,780
+Bir özet tabloda iki mesaj adı birbirine yapışmış,
+
+363
+00:27:39,830 --> 00:27:42,788
+bir şekilde ONU kimliği yanlış yazılmıştır.
+
+364
+00:27:43,727 --> 00:27:44,847
+PMD Köprüsü.
+
+365
+00:27:44,897 --> 00:27:52,537
+Birinci sezonun dokuzuncu bölümünde G.989.2'nin PtP WDM hız sınıflarını gördük:
+
+366
+00:27:52,587 --> 00:27:58,337
+üç sınıf, ve üçüncüsü hem altı hem on gigabiti kapsıyordu.
+
+367
+00:27:58,387 --> 00:28:00,527
+G.989.3 bunu dörde böler.
+
+368
+00:28:00,577 --> 00:28:03,207
+Üstelik kanal profilinde,
+
+369
+00:28:03,257 --> 00:28:11,138
+seri numarası mesajında ve hız denetiminde aynı dört hız üç farklı sırayla kodlanır.
+
+370
+00:28:12,060 --> 00:28:16,060
+Değişikliklerin toplamı küçüktür: eski dolguda iki neden kodu,
+
+371
+00:28:16,110 --> 00:28:20,420
+yeniden yazılmış bir burst profili kuralı,
+
+372
+00:28:20,470 --> 00:28:23,620
+ve bir yukarı yön mesajında düzeltilmiş bir satır.
+
+373
+00:28:23,670 --> 00:28:28,540
+Hiçbir tür ya da alan yer değiştirmedi; yalnızca iki bin yirmi beşte,
+
+374
+00:28:28,590 --> 00:28:32,610
+yeniden başlatma mesajından itibaren tablo numaraları kaydı.
+
+375
+00:28:32,660 --> 00:28:37,292
+OMCC, bütünlük maddeleri ve altın vektörler hiç değişmedi.
+
+376
+00:28:38,227 --> 00:28:39,527
+Mühendis notu.
+
+377
+00:28:39,577 --> 00:28:39,527
+Bir:
+
+378
+00:28:39,577 --> 00:28:45,827
+OMCI'ı izlemek için port kimliği ONU kimliğine eşit olan çerçeveleri süzmek yeter;
+
+379
+00:28:45,877 --> 00:28:49,947
+bütünlüğü doğrulamak içinse o ONU'nun anahtarı gerekir.
+
+380
+00:28:49,997 --> 00:28:55,167
+İki: hata raporlarında tabloya numarasıyla değil, mesaj adıyla atıf yapın;
+
+381
+00:28:55,217 --> 00:29:01,087
+onay mesajının tablosu iki bin yirmi bir metninde on bir tire yirmi yedi,
+
+382
+00:29:01,137 --> 00:29:04,478
+iki bin yirmi beşte on bir tire yirmi sekizdir.
+
+383
+00:29:05,527 --> 00:29:09,277
+Sıradaki: kanallar ve mesajlar tamam.
+
+384
+00:29:09,327 --> 00:29:11,523
+Şimdi laboratuvarda onları yakalayalım.
+
+385
+00:29:13,293 --> 00:29:15,013
+Laboratuvarda.
+
+386
+00:29:15,063 --> 00:29:20,033
+Düzenek: iki yönü bir ayırıcıdan dinleyen bir protokol analizörü,
+
+387
+00:29:20,083 --> 00:29:22,193
+bir OLT emülatörü ve bir ONU emülatörü;
+
+388
+00:29:22,243 --> 00:29:25,783
+yanlarında bir güç ölçer ve bir dalga boyu ölçer.
+
+389
+00:29:25,833 --> 00:29:31,403
+Standart yalnızca altın vektörler için bir yöntem verir;
+
+390
+00:29:31,453 --> 00:29:36,566
+testlerin geri kalanı mühendislik pratiğidir, ölçütleri ise standarttandır.
+
+391
+00:29:37,493 --> 00:29:40,243
+İlk test: PLOAM bölmesini bulmak.
+
+392
+00:29:40,293 --> 00:29:43,923
+Çerçeve başlığından PLOAM sayısını okuyun,
+
+393
+00:29:43,973 --> 00:29:48,723
+ve haritadan sonraki kırk sekiz çarpı P baytı mesajlara bölün.
+
+394
+00:29:48,773 --> 00:29:56,893
+Her çerçevede en çok bir yayın ve her ONU için en çok bir tek alıcılı mesaj olmalıdır.
+
+395
+00:29:56,943 --> 00:30:01,323
+Kimlik alanının üstteki altı biti sıfır olmalı;
+
+396
+00:30:01,373 --> 00:30:05,390
+bin yirmi bir ve bin yirmi iki hiç görünmemelidir.
+
+397
+00:30:06,326 --> 00:30:09,216
+İkinci test: altın vektörler.
+
+398
+00:30:09,266 --> 00:30:14,226
+Dördüncü ekin dokuzuncu örneğinin kodu, on altılık tabanda dört altı,
+
+399
+00:30:14,276 --> 00:30:15,626
+üç dokuz ile başlar;
+
+400
+00:30:15,676 --> 00:30:20,326
+bizim hesabımızla yalnızca kapsam alanı ve dolgu sıfırken tutar.
+
+401
+00:30:20,376 --> 00:30:23,786
+Onuncu örnek yön baytı ikiyle hesaplanır.
+
+402
+00:30:23,836 --> 00:30:28,346
+Sonra yön baytını bilerek değiştirin: kod tamamen değişmeli,
+
+403
+00:30:28,396 --> 00:30:30,690
+ve çözücünüz mesajı reddetmelidir.
+
+404
+00:30:31,626 --> 00:30:35,176
+Üçüncü test: yayınları sır bilmeden doğrulamak.
+
+405
+00:30:35,226 --> 00:30:40,066
+Anahtar on altı kez beş beş, yön baytı bir, girdi ilk kırk bayt.
+
+406
+00:30:40,116 --> 00:30:41,986
+Bu, profilleri, kimlik atamayı,
+
+407
+00:30:42,036 --> 00:30:49,256
+seri numarası engellemeyi ve her zaman varsayılan anahtarlı tek alıcılı mesajları kapsar.
+
+408
+00:30:49,306 --> 00:30:54,180
+Kendi hesapladığımız örnekler ekranda; altın vektör değildirler.
+
+409
+00:30:55,127 --> 00:30:59,817
+Dördüncü test: tek alıcılı mesajlar ONU'nun anahtarını ister.
+
+410
+00:30:59,867 --> 00:31:03,087
+Bizim çıkarımımız: anahtarlar kayıt tabanlıysa,
+
+411
+00:31:03,137 --> 00:31:09,237
+aktivasyonu baştan görmüş bir analizör onu türetebilir; kayıt kimliği,
+
+412
+00:31:09,287 --> 00:31:13,947
+seri numarası ve burst profilindeki PON etiketi yeter.
+
+413
+00:31:13,997 --> 00:31:17,212
+Diğer iki kimlik doğrulama yönteminde bu yapılamaz.
+
+414
+00:31:18,160 --> 00:31:19,420
+Beşinci test: sıra numaraları.
+
+415
+00:31:19,470 --> 00:31:25,300
+Yayın akışı her mesajda bir artmalı, iki yüz elli beşten bire dönmeli,
+
+416
+00:31:25,350 --> 00:31:29,320
+sıfır görünmemelidir; tek istisna kalibrasyon isteğidir.
+
+417
+00:31:29,370 --> 00:31:30,510
+ONU başına akış,
+
+418
+00:31:30,560 --> 00:31:36,450
+kimlik atamadan ve kanal devri tamamlandıktan sonra birden başlamalıdır.
+
+419
+00:31:36,500 --> 00:31:41,433
+Cevaplar aşağı yön numarasını yansıtmalı, canlılık onayları sıfır taşımalıdır.
+
+420
+00:31:42,360 --> 00:31:44,990
+Altıncı test: işleme süresi.
+
+421
+00:31:45,040 --> 00:31:50,250
+OLT emülatörü N numaralı çerçevede yönlendirilmiş bir mesaj göndersin,
+
+422
+00:31:50,300 --> 00:31:55,580
+ve ONU'ya her çerçevede PLOAM tahsisi versin.
+
+423
+00:31:55,630 --> 00:32:00,460
+Cevap en geç N artı altıncı yukarı yön çerçevesinde gelmelidir.
+
+424
+00:32:00,510 --> 00:32:07,725
+Sonra sekiz mesajı art arda gönderin: cevaplar arası en çok altı çerçeve olmalıdır.
+
+425
+00:32:08,660 --> 00:32:10,490
+Yedinci test: canlılık.
+
+426
+00:32:10,540 --> 00:32:13,290
+Kuyruk boşken verilen PLOAM tahsisi,
+
+427
+00:32:13,340 --> 00:32:17,810
+sıra numarası sıfır ve kodu bir olan bir onay getirmeli;
+
+428
+00:32:17,860 --> 00:32:23,330
+bir mesaj işlenirken verilen tahsis, kodu iki olan bir onay.
+
+429
+00:32:23,380 --> 00:32:29,500
+Aynı anda yukarı yön başlığındaki gösterge alanının en anlamlı bitini izleyin:
+
+430
+00:32:29,550 --> 00:32:31,774
+bekleyen mesaj varken bir olmalıdır.
+
+431
+00:32:32,693 --> 00:32:35,433
+Sekizinci test: olumsuz durumlar.
+
+432
+00:32:35,483 --> 00:32:40,483
+ONU'nun kimliğine bilinmeyen bir tür gönderin: kodu üç olan bir onay gelmeli.
+
+433
+00:32:40,533 --> 00:32:44,213
+Aynı türü yayınla gönderin: sessizlik.
+
+434
+00:32:44,263 --> 00:32:48,433
+Bütünlük kodunda tek bir biti çevirin: onay gelmemeli,
+
+435
+00:32:48,483 --> 00:32:51,153
+bütünlük hatası sayacı artmalıdır.
+
+436
+00:32:51,203 --> 00:32:54,783
+Yukarı yönde aynı hatayı art arda üç kez üretin: OLT,
+
+437
+00:32:54,833 --> 00:32:58,169
+PLOAM kanalı kaybını ilan etmelidir.
+
+438
+00:32:59,093 --> 00:33:01,843
+Dokuzuncu test: güç dengeleme.
+
+439
+00:33:01,893 --> 00:33:06,303
+ONU çıkışına güç ölçeri koyun, OLT'nin alınan güç okumasını da kaydedin.
+
+440
+00:33:06,353 --> 00:33:09,273
+Gücü azalt komutu üç desibellik bir adım,
+
+441
+00:33:09,323 --> 00:33:12,703
+ya da desteklenen bir sonraki düzeyi getirmeli;
+
+442
+00:33:12,753 --> 00:33:17,513
+tamam onayındaki zayıflatma baytı ölçtüğünüz düşüşle uyuşmalıdır.
+
+443
+00:33:17,563 --> 00:33:21,617
+Sınırdaki bir istekte kod dört gelmeli, güç değişmemelidir.
+
+444
+00:33:22,560 --> 00:33:24,070
+Onuncu test: profiller ve optik.
+
+445
+00:33:24,120 --> 00:33:28,320
+Kanal profilindeki frekansları dalga boyu ölçerle,
+
+446
+00:33:28,370 --> 00:33:32,690
+önsözü ve sınırlayıcıyı kapılı bir osiloskopla karşılaştırın.
+
+447
+00:33:32,740 --> 00:33:37,340
+Sonra yeni kuralı sınayın: bir indeks için önce yayın,
+
+448
+00:33:37,390 --> 00:33:41,840
+sonra yeni sürümlü tek alıcılı bir profil, sonra yine yayın gönderin.
+
+449
+00:33:41,890 --> 00:33:44,659
+ONU her seferinde en son geleni kullanmalıdır.
+
+450
+00:33:45,593 --> 00:33:49,503
+On birinci test: neden kodları ve OMCI.
+
+451
+00:33:49,553 --> 00:33:54,143
+Sıfırdan farklı neden kodlu bir devre dışı bırakma ve engelleme gönderin:
+
+452
+00:33:54,193 --> 00:33:59,943
+haberdar ONU kaydetmeli, eski ONU sıfırdaki gibi davranmalıdır.
+
+453
+00:33:59,993 --> 00:34:04,793
+Sonra port kimliği ONU kimliğine eşit olan çerçeveleri süzün:
+
+454
+00:34:04,843 --> 00:34:10,510
+temel OMCI mesajları kırk sekiz bayt olmalı, kodları da doğrulanmalıdır.
+
+455
+00:34:11,460 --> 00:34:12,960
+Laboratuvar notu.
+
+456
+00:34:13,010 --> 00:34:19,240
+Bir: varsayılan anahtarla doğrulama, bir analizörün en ucuz ve en güçlü testidir;
+
+457
+00:34:19,290 --> 00:34:23,890
+her yayında çalıştırın, ve tek bir uyuşmazlığı uygulama hatası sayın.
+
+458
+00:34:23,940 --> 00:34:29,760
+İki: aktivasyonu kaydeden bir analizör o ağın anahtarlarını türetebilir;
+
+459
+00:34:29,810 --> 00:34:32,592
+bu kayıtları test ortamı dışında saklamayın.
+
+460
+00:34:33,627 --> 00:34:35,477
+Bölümün özeti.
+
+461
+00:34:35,527 --> 00:34:41,427
+Bir: PLOAM, sabit kırk sekiz baytlık mesajlardır; bant içinde taşınır,
+
+462
+00:34:41,477 --> 00:34:47,297
+yalnızca iki yukarı yön mesajı AMCC'yi kullanabilir.
+
+463
+00:34:47,347 --> 00:34:54,957
+Çerçeve başına bir yayın ve ONU başına bir tek alıcılı mesaj, sekiz mesajlık kuyruk,
+
+464
+00:34:55,007 --> 00:34:57,037
+yedi yüz elli mikrosaniye.
+
+465
+00:34:57,087 --> 00:35:03,047
+İki: sıra numaraları aşağı yönde birden başlar ve sıfırı atlar;
+
+466
+00:35:03,097 --> 00:35:08,383
+yukarı yön yalnızca yansıtır, ve sıfır sırasız demektir.
+
+467
+00:35:09,327 --> 00:35:15,297
+Üç: bütünlük kodu, yön baytı ve kırk bayt üzerinden altmış dört bittir;
+
+468
+00:35:15,347 --> 00:35:21,637
+yayın ve aktivasyon mesajları herkesin bildiği anahtarı kullanır.
+
+469
+00:35:21,687 --> 00:35:25,257
+Dört: iki değişiklik dolguya iki neden kodu koydu,
+
+470
+00:35:25,307 --> 00:35:28,607
+ve burst profillerinde en son gelen kazanır.
+
+471
+00:35:28,657 --> 00:35:35,827
+Beş: OMCC, ONU kimliğiyle aynı numaralı port ve tahsis kimliğinde taşınır;
+
+472
+00:35:35,877 --> 00:35:40,447
+dört baytlık kendi kodu vardır, varsayılan anahtarı yoktur.
+
+473
+00:35:41,494 --> 00:35:42,984
+Kendini test et.
+
+474
+00:35:43,034 --> 00:35:44,364
+Birinci soru:
+
+475
+00:35:44,414 --> 00:35:50,994
+yakalanan bir yayın kanal profilinin bütünlük kodunu hangi anahtarla doğrularsınız,
+
+476
+00:35:51,044 --> 00:35:56,114
+hesaba hangi baytlar girer, ve sonuç kaç bittir? İkinci soru:
+
+477
+00:35:56,164 --> 00:36:02,334
+boştaki bir ONU'ya N numaralı çerçevede yönlendirilmiş bir mesaj geliyor.
+
+478
+00:36:02,384 --> 00:36:07,364
+Cevap en geç ne zaman hazırdır, hangi sıra numarasını taşır,
+
+479
+00:36:07,414 --> 00:36:12,494
+ve ONU hâlâ işlerken tahsis gelirse ne gönderir? Üçüncü soru:
+
+480
+00:36:12,544 --> 00:36:18,904
+zayıflatması sıfır olan bir ONU'ya gücü artır komutu gelirse ne olur? Cevaplar,
+
+481
+00:36:18,954 --> 00:36:21,693
+bir sonraki bölümün başında.
+
+482
+00:36:22,660 --> 00:36:24,570
+Bir sonraki bölüm: Uyanış.
+
+483
+00:36:24,620 --> 00:36:28,190
+ONU aktivasyonu, ranging ve günün saati.
+
+484
+00:36:28,240 --> 00:36:31,790
+Bu bölümde adlarını koyduğumuz seri numarası,
+
+485
+00:36:31,840 --> 00:36:38,690
+kimlik atama ve eşitleme gecikmesi mesajlarını, bir ONU'nun O1'den O5'e uyanışında,
+
+486
+00:36:38,740 --> 00:36:42,500
+zamanlayıcılarıyla birlikte izleyeceğiz.
+
+487
+00:36:42,550 --> 00:36:43,319
+Görüşmek üzere.
+

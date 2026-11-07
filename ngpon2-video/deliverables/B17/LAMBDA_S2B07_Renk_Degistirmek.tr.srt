@@ -1,0 +1,1912 @@
+1
+00:00:00,000 --> 00:00:03,220
+Sezon iki, bölüm yedi: Renk Değiştirmek.
+
+2
+00:00:03,270 --> 00:00:07,750
+Geçen bölümde O8 ve O9'un yalnızca adını andık.
+
+3
+00:00:07,800 --> 00:00:13,040
+Bu bölümde bir ONU'nun bir kanal çiftinden ötekine geçişini izliyoruz:
+
+4
+00:00:13,090 --> 00:00:17,767
+kim ne zaman ne söyler, ve standartta ne yazılı değildir.
+
+5
+00:00:18,700 --> 00:00:25,320
+Önce profiller ve kalibrasyon: OLT'nin her kanalda neyi ne sıklıkla duyurduğu,
+
+6
+00:00:25,370 --> 00:00:30,349
+ONU'nun kalibrasyon kaydı, doğruluk sınıfları ve AMCC yolu.
+
+7
+00:00:31,267 --> 00:00:37,847
+Sonra devir: on bir adımlık dizi, ayar mesajları, planlı süper çerçeve sayacı,
+
+8
+00:00:37,897 --> 00:00:42,358
+hata kodları, ve OLT'nin beş durumlu devir makinesi.
+
+9
+00:00:43,300 --> 00:00:48,070
+Ardından ayar süresi ve kilitleme: F ekinin üç parçalı tanımı,
+
+10
+00:00:48,120 --> 00:00:50,810
+bir devrin gerçekte ne kadar sürdüğü,
+
+11
+00:00:50,860 --> 00:00:54,604
+ve OLT'nin bir vericiyi kanalında nasıl tuttuğu.
+
+12
+00:00:55,533 --> 00:01:01,463
+Sonra bağlama ve karışık sınıflar: birden çok kanalı birlikte kullanan bir ONU,
+
+13
+00:01:01,513 --> 00:01:03,902
+ve klonlanmış kanal sonlandırıcıları.
+
+14
+00:01:04,833 --> 00:01:08,543
+Laboratuvarda bir devrin süresini parçalarına ayıracağız,
+
+15
+00:01:08,593 --> 00:01:13,233
+hata kodlarını kışkırtacağız, kilitlemeyi sıcaklık altında sınayacağız,
+
+16
+00:01:13,283 --> 00:01:16,006
+ve iki arayüzlü bir ONU'yu aktive edeceğiz.
+
+17
+00:01:28,260 --> 00:01:29,800
+Geçen bölümün soruları.
+
+18
+00:01:29,850 --> 00:01:35,510
+Birinci soru: değeri zorunlu olan tek aktivasyon zamanlayıcısı TO6'dır,
+
+19
+00:01:35,560 --> 00:01:40,810
+unutulmuş ONU zamanlayıcısı: on saniye olmak zorundadır.
+
+20
+00:01:40,860 --> 00:01:47,260
+İki bin yirmi üç değişikliğinden beri yalnızca O4 ya da O9'dan O5'e girişte başlar,
+
+21
+00:01:47,310 --> 00:01:53,080
+yukarı yön tahsisli her çerçevede yeniden başlar, O5'ten çıkınca durur,
+
+22
+00:01:53,130 --> 00:01:57,610
+ve O6'dan dönüşte kaldığı yerden devam eder.
+
+23
+00:01:57,660 --> 00:02:03,773
+Geçiş tablosuna O6 için bir devam, O4 ve O9 için birer başlat hücresi eklendi.
+
+24
+00:02:04,760 --> 00:02:10,680
+İkinci soru: kırk kilometrede seri numarası penceresi dört yüz elli mikrosaniyedir.
+
+25
+00:02:10,730 --> 00:02:14,870
+Dört yüzü sıfır ile kırk kilometre arasındaki gidiş dönüş farkı,
+
+26
+00:02:14,920 --> 00:02:19,380
+ikisi otuz beş artı eksi bir mikrosaniyelik yanıt süresinin oynaması,
+
+27
+00:02:19,430 --> 00:02:22,190
+kırk sekizi en büyük rastgele gecikmedir;
+
+28
+00:02:22,240 --> 00:02:25,610
+çok kısa olan burst'ün kendisi ihmal edilir.
+
+29
+00:02:25,660 --> 00:02:28,190
+Hepsi süredir, hıza bağlı değildir;
+
+30
+00:02:28,240 --> 00:02:33,940
+rastgele gecikme bile iki virgül dört sekiz sekiz üç iki gigabitin bit periyotlarıyla sayılır.
+
+31
+00:02:34,927 --> 00:02:38,147
+Üçüncü soru: farkı indis oranı yaratır.
+
+32
+00:02:38,197 --> 00:02:41,507
+Genel durumda oran yarım artı milyonda altmış birdir,
+
+33
+00:02:41,557 --> 00:02:44,787
+ama milyonda otuz dört kadar yanlış olabilir:
+
+34
+00:02:44,837 --> 00:02:49,817
+iki yüz mikrosaniyelik gidiş dönüşte artı eksi altı virgül sekiz nanosaniye.
+
+35
+00:02:49,867 --> 00:02:56,287
+Sabit kanal eşleşmesinde sapma en çok milyonda üçtür: sıfır virgül altı nanosaniye.
+
+36
+00:02:56,337 --> 00:03:01,177
+İkisine de yanıt süresi ve eşitleme gecikmesi için bir virgül altı,
+
+37
+00:03:01,227 --> 00:03:06,717
+yuvarlama için bir nanosaniye eklenir: dokuz virgül dört ve üç virgül iki.
+
+38
+00:03:06,767 --> 00:03:07,655
+Şimdi bu bölüme.
+
+39
+00:03:09,227 --> 00:03:12,567
+Perde bir: profiller ve kalibrasyon.
+
+40
+00:03:12,617 --> 00:03:19,057
+On yedinci madde dört işlevin yordamını verir: profil duyurusu, ONU kalibrasyonu,
+
+41
+00:03:19,107 --> 00:03:23,267
+dalga boyu kanalı devri ve kanal kilitleme.
+
+42
+00:03:23,317 --> 00:03:27,627
+Önce bir sürüm notu: on yedinci madde ve F, H ve X ekleri,
+
+43
+00:03:27,677 --> 00:03:31,697
+iki bin yirmi birden beri tek sözcük değişmedi.
+
+44
+00:03:31,747 --> 00:03:38,456
+İki değişikliğin bu konuya dokunduğu yer yalnızca O5, O8 ve O9'un tablolarıdır.
+
+45
+00:03:39,394 --> 00:03:44,694
+Profil duyurusu, her aşağı yön kanalında onaysız yayın PLOAM mesajlarıdır:
+
+46
+00:03:44,744 --> 00:03:51,014
+bir sistem profili; konuşlu her kanal çifti için bir kanal profili, en çok sekiz;
+
+47
+00:03:51,064 --> 00:03:56,764
+ve haritaların andığı her burst profili için bir mesaj, kanal başına en çok sekiz,
+
+48
+00:03:56,814 --> 00:03:58,524
+toplam altmış dört.
+
+49
+00:03:58,574 --> 00:04:02,854
+Tam küme bir ile beş saniye arasında seçilen bir periyotla yinelenir.
+
+50
+00:04:03,794 --> 00:04:09,314
+Bizim hesabımız: bir çevrim en çok yetmiş üç yayın mesajıdır.
+
+51
+00:04:09,364 --> 00:04:15,644
+Çerçeve başına en çok bir yayınla bu en az dokuz virgül bir milisaniye sürer.
+
+52
+00:04:15,694 --> 00:04:22,084
+ONU tarafındaki karşılık, O1'deki en az on saniyelik profil bekleme süresidir:
+
+53
+00:04:22,134 --> 00:04:23,928
+en uzun periyodun iki katı.
+
+54
+00:04:24,860 --> 00:04:28,270
+Sistem profili şunları söyler: kanal sayısı;
+
+55
+00:04:28,320 --> 00:04:31,590
+bir gigahertzlik birimle yukarı yön kanal aralığı,
+
+56
+00:04:31,640 --> 00:04:36,860
+ki ONU vericisi için bir ölçek çarpanıdır; en büyük spektral sapma,
+
+57
+00:04:36,910 --> 00:04:40,760
+serbest spektral aralık ve yukarı yön bandı.
+
+58
+00:04:40,810 --> 00:04:47,860
+Ve iki kural alanı: bant içi aktivasyon için en düşük kalibrasyon doğruluğu,
+
+59
+00:04:47,910 --> 00:04:48,454
+ve AMCC bayrağı.
+
+60
+00:04:49,927 --> 00:04:55,677
+Kanal profili ise devrin kontrol listesidir: yönetim etiketi, boş göstergeleri,
+
+61
+00:04:55,727 --> 00:05:02,247
+aşağı yön frekans ofseti, hızı ve hat kodu, bölümleme indeksi, yukarı yön frekansı,
+
+62
+00:05:02,297 --> 00:05:03,927
+bağlantı tipi ve hızı.
+
+63
+00:05:03,977 --> 00:05:08,407
+Bizim okumamızla her biri, ikinci perdedeki bir hata kodunu besler.
+
+64
+00:05:08,457 --> 00:05:11,277
+Bir de varsayılan yanıt kanalı vardır:
+
+65
+00:05:11,327 --> 00:05:17,127
+bu aşağı yönü dinleyen ONU'nun hangi yukarı yön kanalında göndereceği.
+
+66
+00:05:17,177 --> 00:05:20,197
+Ve her profilin dört bitlik bir sürümü vardır;
+
+67
+00:05:20,247 --> 00:05:24,290
+ONU bir güncellemeyi yalnızca sürümden anlayabilmelidir.
+
+68
+00:05:25,227 --> 00:05:27,647
+Şimdi kalibrasyon.
+
+69
+00:05:27,697 --> 00:05:33,647
+Tanım: ONU, söylendiğinde belirli kanallara doğru ayarlanabilmelidir.
+
+70
+00:05:33,697 --> 00:05:36,147
+Yolu bir kalibrasyon kaydıdır:
+
+71
+00:05:36,197 --> 00:05:42,077
+kanal parametreleri ile ONU'nun iç ayar değerleri arasındaki eşleme.
+
+72
+00:05:42,127 --> 00:05:48,787
+Aşağı yön döngüsünü ONU tek başına kapatır, O1'de ve O8'de, kendi takdiriyle.
+
+73
+00:05:48,837 --> 00:05:53,837
+Yukarı yön döngüsü ise zorunlu olarak OLT'yi içerir:
+
+74
+00:05:53,887 --> 00:05:58,893
+seri numarası durumunda ve O9'da, OLT'nin rehberliğinde.
+
+75
+00:05:59,827 --> 00:06:01,387
+Doğruluk sınıfları.
+
+76
+00:06:01,437 --> 00:06:01,387
+ONU,
+
+77
+00:06:01,437 --> 00:06:08,917
+seri numarası mesajında ve ayar yanıtında sekiz baytlık bir kalibrasyon durumu bildirir:
+
+78
+00:06:08,967 --> 00:06:12,227
+on altı yukarı yön kanalının her biri için iki bit.
+
+79
+00:06:12,277 --> 00:06:17,807
+Sıfır, duyurulmamış kanal; bir, kalibre edilmemiş; iki, gevşek; üç, yeterli.
+
+80
+00:06:17,857 --> 00:06:21,787
+Gevşeğin sınırını OLT çalışma anında duyurur;
+
+81
+00:06:21,837 --> 00:06:25,757
+sıfır yazılırsa en büyük spektral sapma geçerlidir.
+
+82
+00:06:25,807 --> 00:06:28,463
+Yeterli ise sayıyla hiç tanımlanmamıştır.
+
+83
+00:06:29,960 --> 00:06:32,590
+Bu bilinçli bir boşluktur.
+
+84
+00:06:32,640 --> 00:06:32,590
+Metne göre,
+
+85
+00:06:32,640 --> 00:06:42,250
+komşu kanallara girişimden kaçınmak için kalibrasyonun ne kadar gevşek olabileceğine standartlar karar vermez;
+
+86
+00:06:42,300 --> 00:06:44,100
+bunu ONU'ya OLT söyler.
+
+87
+00:06:44,150 --> 00:06:50,610
+Eşiği karşılamayan ONU bant içi seri numarası tahsislerini yok saymak zorundadır;
+
+88
+00:06:50,660 --> 00:06:53,406
+AMCC sunulmuyorsa susmalıdır.
+
+89
+00:06:54,327 --> 00:06:55,187
+AMCC yolu.
+
+90
+00:06:55,237 --> 00:06:57,537
+Kanal profilinin iki biti,
+
+91
+00:06:57,587 --> 00:07:02,987
+bant içi ve AMCC tahsislerinin sunulup sunulmadığını söyler.
+
+92
+00:07:03,037 --> 00:07:04,537
+ONU AMCC ile gönderir;
+
+93
+00:07:04,587 --> 00:07:12,327
+OLT ya bir kalibrasyon isteğiyle hangi kanal çiftinin kalibre edileceğini söyler,
+
+94
+00:07:12,377 --> 00:07:18,487
+ya da ONU'yu bu kanalda aktive edip öteki kanalların kalibrasyonunu,
+
+95
+00:07:18,537 --> 00:07:20,477
+o kanala devre kadar erteler.
+
+96
+00:07:20,527 --> 00:07:26,167
+Devirde aynı yol yalnızca hedefin bekleme durumunda kullanılır.
+
+97
+00:07:26,217 --> 00:07:32,544
+Bir boşluk: TWDM AMCC'sinin hızı ve çerçevesi standartta yoktur.
+
+98
+00:07:33,493 --> 00:07:34,453
+PMD Köprüsü.
+
+99
+00:07:34,503 --> 00:07:41,473
+Birinci sezonun yedinci bölümündeki kanal dışı güç maskesi için G.989.2 şunu yazar:
+
+100
+00:07:41,523 --> 00:07:42,063
+verici,
+
+101
+00:07:42,113 --> 00:07:49,983
+en büyük spektral sapmasının içinde nereye ayarlanırsa ayarlansın maskeye uymalıdır.
+
+102
+00:07:50,033 --> 00:07:56,223
+Bizim yorumumuz: sapmasının dışındaki bir ONU maskenin güvencesinde değildir;
+
+103
+00:07:56,273 --> 00:07:59,984
+bant içi konuşma bu yüzden kalibre ONU'lara ayrılır.
+
+104
+00:08:00,927 --> 00:08:02,447
+Mühendis notu.
+
+105
+00:08:02,497 --> 00:08:07,877
+Bir: kalibrasyon durumunu her seri numarası mesajında ve ayar yanıtında kaydedin;
+
+106
+00:08:07,927 --> 00:08:10,457
+on altı kanalın iki bitlik haritası,
+
+107
+00:08:10,507 --> 00:08:14,197
+bir ONU'nun nereye gidebileceğinin en ucuz özetidir.
+
+108
+00:08:14,247 --> 00:08:19,927
+İki: OLT'nizin yeterli kalibrasyonu nasıl tanımladığını üreticiden yazılı isteyin;
+
+109
+00:08:19,977 --> 00:08:24,236
+bant içi ile AMCC arasındaki sınır bu tanıma bağlıdır.
+
+110
+00:08:25,260 --> 00:08:29,820
+Sıradaki: ONU nereye gidebileceğini biliyor.
+
+111
+00:08:29,870 --> 00:08:31,123
+Şimdi onu taşıyalım.
+
+112
+00:08:32,893 --> 00:08:34,013
+Perde iki: devir.
+
+113
+00:08:34,063 --> 00:08:40,663
+Planlı devir iki TWDM kanalı arasındadır: aktivasyonda, yük dengelemede,
+
+114
+00:08:40,713 --> 00:08:47,403
+güç tasarrufunda, kademeli büyümede ya da başıboş bir ONU'ya karşı.
+
+115
+00:08:47,453 --> 00:08:53,743
+Üç oyuncu vardır: ONU'yu barındıran kaynak kanal sonlandırıcısı, hedef, ve ONU.
+
+116
+00:08:53,793 --> 00:08:59,013
+Standart devri on bir adımlık nedensel bir diziyle anlatır.
+
+117
+00:08:59,960 --> 00:09:02,570
+Bir: ONU kaynakta, O5.1'dedir.
+
+118
+00:09:02,620 --> 00:09:07,950
+İki: iki sonlandırıcı bir ICTP işlemi yapar; kaynak ayar-çıkış,
+
+119
+00:09:08,000 --> 00:09:13,180
+hedef ayar-giriş göstergesini alınca işlem kesinleşir.
+
+120
+00:09:13,230 --> 00:09:20,810
+Üç: hedef, ONU'ya uygun koruma süreleriyle düzenli PLOAM tahsisleri vermeye başlar,
+
+121
+00:09:20,860 --> 00:09:25,200
+ve hedef bekleme zamanlayıcısını başlatır.
+
+122
+00:09:25,250 --> 00:09:26,450
+Dört: kaynak,
+
+123
+00:09:26,500 --> 00:09:33,472
+kaynak bekleme zamanlayıcısını başlatır ve ayar denetimi mesajını gönderir.
+
+124
+00:09:34,393 --> 00:09:38,463
+Mesajda hedef aşağı ve yukarı yön PON kimlikleri,
+
+125
+00:09:38,513 --> 00:09:41,223
+planlı süper çerçeve sayacı değeri,
+
+126
+00:09:41,273 --> 00:09:46,063
+geri dönüş desteği biti ve kalibrasyon biti vardır.
+
+127
+00:09:46,113 --> 00:09:51,353
+Beş: ONU onaylar ve O5.2'ye geçer; ya da olumsuz cevap verir,
+
+128
+00:09:51,403 --> 00:09:54,943
+örneğin planlı değer çok yakınsa.
+
+129
+00:09:54,993 --> 00:10:01,263
+Altı: onaydan sonra kaynak, ONU cevap versin vermesin tahsis vermeyi sürdürebilir;
+
+130
+00:10:01,313 --> 00:10:03,983
+geri dönüşü mümkün kılan budur.
+
+131
+00:10:04,926 --> 00:10:05,926
+Yedi: planlı değer,
+
+132
+00:10:05,976 --> 00:10:14,096
+PSBd'den kopyalanan yerel sayacın en düşük on altı bitine eşit olunca ONU ayara başlar.
+
+133
+00:10:14,146 --> 00:10:14,096
+Sekiz:
+
+134
+00:10:14,146 --> 00:10:20,676
+yeni kanalda senkron kurup uygun tahsise ayar tamamlandı yanıtıyla cevap verir;
+
+135
+00:10:20,726 --> 00:10:24,166
+ayar başarısızsa ve geri dönüş sunulmuşsa,
+
+136
+00:10:24,216 --> 00:10:28,056
+kaynağa dönüp geri dönüş yanıtı gönderebilir.
+
+137
+00:10:28,106 --> 00:10:32,356
+Dokuz: hedef isterse kayıt isteğiyle ONU'yu doğrular,
+
+138
+00:10:32,406 --> 00:10:38,221
+ayar denetiminin tamamlandı biçimini gönderir, ve ICTP ile devri onaylar.
+
+139
+00:10:39,160 --> 00:10:43,140
+Burst profilindeki PON etiketi değiştiyse ONU,
+
+140
+00:10:43,190 --> 00:10:46,750
+oturum ve bütünlük anahtarlarını yeniden türetir.
+
+141
+00:10:46,800 --> 00:10:51,780
+On: kaynak tahsisleri keser ve ONU'nun yapılarını bırakır.
+
+142
+00:10:51,830 --> 00:10:54,290
+On bir: hedef ve ONU çalışmaya başlar.
+
+143
+00:10:54,340 --> 00:10:59,880
+Devrin ayar mesajları ise varsayılan anahtarla korunur; bizim yorumumuzla,
+
+144
+00:10:59,930 --> 00:11:03,532
+etiket değişse de doğrulanabilsinler diye.
+
+145
+00:11:05,027 --> 00:11:06,607
+ONU'nun gözünden.
+
+146
+00:11:06,657 --> 00:11:14,387
+O5.2'de veri sürer, ama ONU yeni bir servis veri birimini parçalamaya başlamaz;
+
+147
+00:11:14,437 --> 00:11:17,917
+sığmayan yer boş XGEM çerçeveleriyle dolar.
+
+148
+00:11:17,967 --> 00:11:23,547
+Sayaç eşleşince, alıcı da ayarlanıyorsa TO6 durur, TO4 başlar,
+
+149
+00:11:23,597 --> 00:11:27,067
+burst profilleri atılır, ve ONU O8.1'e girer.
+
+150
+00:11:27,117 --> 00:11:32,947
+Yalnızca verici ayarlanıyorsa aşağı yön kesilmez: TO5 başlar,
+
+151
+00:11:32,997 --> 00:11:35,836
+ve ONU doğrudan O9'a geçer.
+
+152
+00:11:36,760 --> 00:11:41,640
+Senkron gelince O8.2: ONU yeni kanalın profillerini toplar.
+
+153
+00:11:41,690 --> 00:11:46,670
+İki bin yirmi beş değişikliği buradaki kararı daralttı: bölümleme,
+
+154
+00:11:46,720 --> 00:11:53,890
+yukarı yön bağlantı tipi ve hızı uyuşuyorsa kanal çalışmaya uygundur; TO4 durur,
+
+155
+00:11:53,940 --> 00:11:56,990
+TO5 başlar, ONU O9'a geçer.
+
+156
+00:11:57,040 --> 00:12:00,350
+Uymuyorsa burst profillerini atar ve O8.1'e döner.
+
+157
+00:12:00,400 --> 00:12:03,500
+Kalibrasyon artık burada denetlenmez.
+
+158
+00:12:04,427 --> 00:12:12,417
+O9'da ONU, hedefin her yönlendirilmiş PLOAM tahsisine tamamlandı yanıtı gönderir,
+
+159
+00:12:12,467 --> 00:12:15,227
+dönüş gelene ya da TO5 dolana kadar.
+
+160
+00:12:15,277 --> 00:12:21,137
+Bant içi için kalibre değilse yönlendirilmiş bir AMCC tahsisi bekler;
+
+161
+00:12:21,187 --> 00:12:25,517
+TO5'in başlangıç değeri de buna bağlıdır.
+
+162
+00:12:25,567 --> 00:12:31,457
+Dönüş, ayar denetiminin tamamlandı biçimidir, ya da bir kayıt isteği,
+
+163
+00:12:31,507 --> 00:12:36,737
+tahsis kimliği atama, anahtar denetimi veya uyku izni.
+
+164
+00:12:36,787 --> 00:12:40,663
+Sonra TO5 durur, TO6 başlar, ONU O5'e döner.
+
+165
+00:12:41,594 --> 00:12:47,304
+Planlı sayaç değeri, süper çerçeve sayacının en düşük on altı bitidir.
+
+166
+00:12:47,354 --> 00:12:51,984
+Bizim hesabımızla altmış beş bin beş yüz otuz altı çerçevede,
+
+167
+00:12:52,034 --> 00:12:57,904
+sekiz virgül bir dokuz iki saniyede başa döner; daha uzak bir hedef belirsizdir.
+
+168
+00:12:57,954 --> 00:13:02,587
+Alt sınır yazılı değildir; ama ONU'nun cevabı altı çerçeve sürebilir.
+
+169
+00:13:04,060 --> 00:13:08,090
+Olumsuz cevap, ayar yanıtında işlem kodu birdir,
+
+170
+00:13:08,140 --> 00:13:14,010
+ve koşulları on altı bitlik bir haritada taşır: on dört koşul, üç grup.
+
+171
+00:13:14,060 --> 00:13:18,920
+İç grupta tek kod: ONU planlı çerçevede hazır değil.
+
+172
+00:13:18,970 --> 00:13:23,920
+Aşağı yönde altı: yönetim etiketi, boş tanım, bölüm, alıcı ayar aralığı,
+
+173
+00:13:23,970 --> 00:13:25,450
+hız ve hat kodu.
+
+174
+00:13:25,500 --> 00:13:32,400
+Yukarı yönde yedi: etiket, boş tanım, verici aralığı, kalibrasyon, bağlantı tipi,
+
+175
+00:13:32,450 --> 00:13:33,787
+hız ve hat kodu.
+
+176
+00:13:34,727 --> 00:13:35,877
+İki ayrıntı.
+
+177
+00:13:35,927 --> 00:13:41,747
+Kalibrasyon kodu, hedefteki doğruluk bant içi eşiğinden kötüyse konur;
+
+178
+00:13:41,797 --> 00:13:46,727
+ama ayar denetimindeki kalibrasyon biti birse bastırılır,
+
+179
+00:13:46,777 --> 00:13:50,487
+ve ONU ayarı gereken kalibrasyonla yürütür.
+
+180
+00:13:50,537 --> 00:13:54,327
+Bizim okumamızla yukarı yön hat kodu koşulu,
+
+181
+00:13:54,377 --> 00:13:58,517
+hiçbir profil mesajında olmayan bir alanı sınar.
+
+182
+00:13:58,567 --> 00:14:03,667
+Kodlar birleşebilir: on altılık tabanda sıfır iki bir sıfır,
+
+183
+00:14:03,717 --> 00:14:07,165
+alıcı ve verici aralığı birden demektir.
+
+184
+00:14:08,093 --> 00:14:12,193
+Geri dönüş, işlem kodu dört, ayardan sonradır: dokuz koşul.
+
+185
+00:14:12,243 --> 00:14:14,853
+Hedef aşağı yönde senkron yok;
+
+186
+00:14:14,903 --> 00:14:18,773
+hedefin PSBd'sindeki etiket ya da bağlantı tipi çelişiyor;
+
+187
+00:14:18,823 --> 00:14:23,173
+hedefte okunan kanal profili ONU ile çelişiyor.
+
+188
+00:14:23,223 --> 00:14:26,423
+Aynı bit iki tabloda farklı anlama gelir.
+
+189
+00:14:26,473 --> 00:14:33,723
+Değeri dört olan bit olumsuzda boş aşağı yön tanımı, geri dönüşte bağlantı tipidir;
+
+190
+00:14:33,773 --> 00:14:37,668
+on altı olan bit, alıcı aralığı ile boş yukarı yön tanımıdır.
+
+191
+00:14:38,593 --> 00:14:43,923
+OLT tarafında beş durum vardır: habersiz, bekleme, barındırma,
+
+192
+00:14:43,973 --> 00:14:45,253
+yönlendirme ve uğurlama.
+
+193
+00:14:45,303 --> 00:14:52,603
+Hedef ayar-girişle beklemeye, tamamlandı yanıtıyla barındırmaya;
+
+194
+00:14:52,653 --> 00:14:58,493
+kaynak ayar-çıkışla yönlendirmeye, onayla uğurlamaya, ICTP onayıyla habersize geçer.
+
+195
+00:14:58,543 --> 00:15:06,743
+Olumsuz cevapta ve geri dönüşte kaynak barındırmaya döner ve hedefe iptal yollar;
+
+196
+00:15:06,793 --> 00:15:12,563
+bir zamanlayıcı dolarsa bütün kanallara yayın bir ICTP uyarısı gider.
+
+197
+00:15:12,613 --> 00:15:20,253
+Hata durumunda ONU'nun velayeti kaynaktadır, çünkü onunla çalışabildiği bilinir.
+
+198
+00:15:21,193 --> 00:15:22,103
+PMD Köprüsü.
+
+199
+00:15:22,153 --> 00:15:27,943
+Birinci sezonun onuncu bölümünde bir ONU'nun hayatının onuncu adımı devirdi,
+
+200
+00:15:27,993 --> 00:15:31,943
+ve anını bir süper çerçeve sayacı belirliyordu.
+
+201
+00:15:31,993 --> 00:15:35,933
+Şimdi o adımın zamanlayıcılarına bakın: TO4,
+
+202
+00:15:35,983 --> 00:15:42,313
+TO5 ve OLT'deki iki bekleme zamanlayıcısının hiçbirinin değeri yoktur; tek kural,
+
+203
+00:15:42,363 --> 00:15:45,223
+kaynağınkinin hedefinkinden uzun olmasıdır.
+
+204
+00:15:45,273 --> 00:15:51,963
+Bizim çıkarımımız: hedef zamanlayıcısı ayar isteğinden önce başladığı için,
+
+205
+00:15:52,013 --> 00:15:54,989
+planlı sayacın öncülük süresini de kapsamalıdır.
+
+206
+00:15:55,927 --> 00:15:57,627
+Mühendis notu.
+
+207
+00:15:57,677 --> 00:16:04,557
+Bir: bir ayar yanıtını çözerken bit haritasından önce işlem kodunu okuyun.
+
+208
+00:16:04,607 --> 00:16:09,587
+İki: OLT makinesini on yedi tire dokuz tablosuna göre kodlayın;
+
+209
+00:16:09,637 --> 00:16:16,390
+iptal mesajının tetikleyicisi ve yönü metinde üç farklı biçimde anlatılır.
+
+210
+00:16:17,427 --> 00:16:20,957
+Sıradaki: devir mesaj mesaj belli.
+
+211
+00:16:21,007 --> 00:16:22,082
+Peki ne kadar sürer?
+
+212
+00:16:23,860 --> 00:16:26,130
+Perde üç: ayar süresi ve kilitleme.
+
+213
+00:16:26,180 --> 00:16:28,380
+F eki normatiftir, ve amacı şudur:
+
+214
+00:16:28,430 --> 00:16:34,570
+ONU'nun ve OLT sonlandırıcılarının durum makinelerini tek bir zaman çizelgesinde birleştirmek,
+
+215
+00:16:34,620 --> 00:16:39,500
+ve bazı zamanlayıcıların çıkmaza düşmemek için tanımlandığını göstermek.
+
+216
+00:16:39,550 --> 00:16:43,475
+Üç dizi çizer: normal devir, geri dönüş ve olumsuz cevap.
+
+217
+00:16:44,393 --> 00:16:44,873
+Tanım.
+
+218
+00:16:44,923 --> 00:16:48,793
+TC katmanı ayar süresi üç parçadır.
+
+219
+00:16:48,843 --> 00:16:54,673
+Hazırlık: planlı çerçeveden PMD ayarının gerçekten başladığı ana kadar,
+
+220
+00:16:54,723 --> 00:16:58,993
+parametreleri kurmak için gereken işleme süresi.
+
+221
+00:16:59,043 --> 00:17:01,603
+Ayar: G.989.2'de tanımlı PMD süresi.
+
+222
+00:17:01,653 --> 00:17:03,423
+Yeniden senkron:
+
+223
+00:17:03,473 --> 00:17:10,463
+ayar bittikten sonra aşağı yön çerçevesine senkron için gereken en uzun süre.
+
+224
+00:17:10,513 --> 00:17:16,013
+Toplam, planlı çerçeveden senkronun doğru kurulduğu ana kadardır.
+
+225
+00:17:16,063 --> 00:17:19,393
+Ve F eki üç parçanın hiçbirine sayı vermez.
+
+226
+00:17:20,327 --> 00:17:21,277
+PMD Köprüsü.
+
+227
+00:17:21,327 --> 00:17:23,767
+Sayısı olan tek parça ortadakidir.
+
+228
+00:17:23,817 --> 00:17:27,837
+Birinci sezonun yedinci bölümündeki sınıflar:
+
+229
+00:17:27,887 --> 00:17:31,157
+birinci sınıf on mikrosaniyenin altında,
+
+230
+00:17:31,207 --> 00:17:35,557
+ikinci sınıf on mikrosaniye ile yirmi beş milisaniye,
+
+231
+00:17:35,607 --> 00:17:39,627
+üçüncü sınıf yirmi beş milisaniye ile bir saniye.
+
+232
+00:17:39,677 --> 00:17:44,527
+G.989.2 mekanizmayı kapsam dışı bırakır, ama bir şart koyar:
+
+233
+00:17:44,577 --> 00:17:49,847
+optik tabloların bütün değerleri, başıboş davranışı önlemek için,
+
+234
+00:17:49,897 --> 00:17:52,668
+ayar süreci boyunca sağlanmalıdır.
+
+235
+00:17:53,593 --> 00:17:56,673
+Bizim hesabımız, varsayımlarıyla.
+
+236
+00:17:56,723 --> 00:17:58,213
+Hazırlık sıfır olsun.
+
+237
+00:17:58,263 --> 00:18:03,463
+Yeniden senkron ikinci bölümdeki makineden gelir: ilk doğrulanan PSBd ön senkrona,
+
+238
+00:18:03,513 --> 00:18:09,973
+ikincisi senkrona götürür; yani yüz yirmi beş ile iki yüz elli mikrosaniye.
+
+239
+00:18:10,023 --> 00:18:15,743
+Hedef her çerçevede tahsis versin, OLT cevabını altı çerçevede hazırlasın.
+
+240
+00:18:15,793 --> 00:18:21,743
+ONU'nun en kötü kesintisi birinci sınıfta yaklaşık bir virgül üç milisaniye,
+
+241
+00:18:21,793 --> 00:18:26,954
+ikinci sınıfta yirmi altı milisaniye, üçüncü sınıfta bir saniyedir.
+
+242
+00:18:27,893 --> 00:18:33,843
+Sonuç: hızlı bir lazerde devrin süresini TC katmanı belirler.
+
+243
+00:18:33,893 --> 00:18:40,113
+Birinci sınıfta yeniden senkron, PMD sınırının en az on iki buçuk katıdır.
+
+244
+00:18:40,163 --> 00:18:44,073
+Ölçek için: bir gigabitlik servis için tampon,
+
+245
+00:18:44,123 --> 00:18:50,823
+birinci sınıfta yaklaşık sıfır virgül on altı, ikinci sınıfta üç virgül üç,
+
+246
+00:18:50,873 --> 00:18:54,557
+üçüncü sınıfta yüz yirmi beş megabayttır.
+
+247
+00:18:56,027 --> 00:18:58,457
+Ama asıl tuzak profillerdedir.
+
+248
+00:18:58,507 --> 00:19:03,197
+Sayaç eşleşince ONU burst profillerini atar; ve bir ONU,
+
+249
+00:19:03,247 --> 00:19:06,797
+profilini bilmediği bir tahsise cevap veremez.
+
+250
+00:19:06,847 --> 00:19:10,577
+Hedefin profili önceden ulaşmadıysa,
+
+251
+00:19:10,627 --> 00:19:14,407
+ilk tamamlandı yanıtı hedefin yayın burst profilini bekler,
+
+252
+00:19:14,457 --> 00:19:18,177
+ve tam küme bir ile beş saniyede bir gelir.
+
+253
+00:19:18,227 --> 00:19:20,277
+Bizim çıkarımımız:
+
+254
+00:19:20,327 --> 00:19:25,964
+o zaman birinci sınıf bir ONU bile devri ancak bir ile beş saniyede bitirir.
+
+255
+00:19:26,894 --> 00:19:30,604
+Standart bir kapı bırakır: O8'in tanımı,
+
+256
+00:19:30,654 --> 00:19:36,824
+sistem destekliyorsa burst profillerinin önceden dağıtılmasından söz eder,
+
+257
+00:19:36,874 --> 00:19:38,694
+ama yöntemi tanımlamaz.
+
+258
+00:19:38,744 --> 00:19:43,904
+Bizim yorumumuz: araç, kanal ötesi burst profili mesajıdır;
+
+259
+00:19:43,954 --> 00:19:49,914
+hedefin profilini kaynak kanalda, sanki orada gönderilmiş gibi taşır.
+
+260
+00:19:49,964 --> 00:19:55,514
+Ve TO4, TO5 ile iki OLT zamanlayıcısını lazerin hızına göre değil,
+
+261
+00:19:55,564 --> 00:19:58,492
+bu beklemeye göre boyutlandırın.
+
+262
+00:19:59,427 --> 00:20:01,077
+Şimdi kilitleme.
+
+263
+00:20:01,127 --> 00:20:06,247
+İnce ayarı destekleyen ONU'lar için OLT kapalı bir döngü kurabilir:
+
+264
+00:20:06,297 --> 00:20:10,807
+küçük verici ayarları ister, alınan sinyalin kalitesini izler.
+
+265
+00:20:10,857 --> 00:20:14,927
+Aracı dalga boyu ayarı mesajıdır: bir yön biti,
+
+266
+00:20:14,977 --> 00:20:18,457
+ve sıfır virgül bir gigahertzlik birimle bir boyut.
+
+267
+00:20:18,507 --> 00:20:20,237
+Bizim yorumumuzla bu,
+
+268
+00:20:20,287 --> 00:20:26,500
+G.989.2'nin izin verdiği iki denetim türünden OLT ile etkileşimli olanıdır.
+
+269
+00:20:27,427 --> 00:20:32,917
+ONU iki yetenek bildirir: bir gigahertzlik birimle ayar granülerliği,
+
+270
+00:20:32,967 --> 00:20:39,437
+ve çerçeve sayısıyla tek adım ayar süresi, yani bir adımın en az yüzde doksanına,
+
+271
+00:20:39,487 --> 00:20:41,717
+geçişler dahil, varma süresi.
+
+272
+00:20:41,767 --> 00:20:43,657
+Sıfır, ince ayar yok demektir.
+
+273
+00:20:43,707 --> 00:20:47,347
+Kural: OLT F çerçevesinde N adım isterse,
+
+274
+00:20:47,397 --> 00:20:53,537
+istatistiği F artı N çarpı adım süresi artı altıncı çerçeveden toplayabilir.
+
+275
+00:20:53,587 --> 00:20:56,717
+Altı çerçeve, yedi yüz elli mikrosaniye,
+
+276
+00:20:56,767 --> 00:21:00,717
+bir PLOAM mesajının normatif işleme süresidir;
+
+277
+00:21:00,767 --> 00:21:04,865
+birinci sezonun onuncu bölümündeki altı çerçeve buydu.
+
+278
+00:21:05,794 --> 00:21:07,274
+Bizim hesabımız:
+
+279
+00:21:07,324 --> 00:21:12,684
+adım süresi sekiz çerçeveyse tek adımda istatistik bir virgül yedi beş,
+
+280
+00:21:12,734 --> 00:21:17,234
+dört adımda dört virgül yedi beş milisaniye sonra başlar.
+
+281
+00:21:17,284 --> 00:21:21,064
+Alanın en büyük değeri, iki yüz elli beş çerçeve,
+
+282
+00:21:21,114 --> 00:21:23,294
+otuz bir virgül dokuz milisaniyedir:
+
+283
+00:21:23,344 --> 00:21:28,434
+ikinci sınıfın bütün bant için verdiği süreden uzun.
+
+284
+00:21:28,484 --> 00:21:34,244
+Pencere boyu, kalite ölçütü, titreşim genliği ve döngü periyodu standartta yoktur;
+
+285
+00:21:34,294 --> 00:21:36,309
+hepsi OLT'ye kalmıştır.
+
+286
+00:21:37,793 --> 00:21:38,713
+PMD Köprüsü.
+
+287
+00:21:38,763 --> 00:21:43,573
+Birinci sezonun yedinci bölümündeki en büyük spektral sapma,
+
+288
+00:21:43,623 --> 00:21:48,913
+ayarlanabilir vericiye yalnızca durağan kanal durumunda uygulanır,
+
+289
+00:21:48,963 --> 00:21:55,993
+ve OLT'nin ince denetiminde kısa süreli kaymayı ve denetim hatalarını da kapsar.
+
+290
+00:21:56,043 --> 00:22:03,063
+Sekizinci ek en büyük ayar hatasını yaklaşık olarak sapma eksi veri hızı diye verir:
+
+291
+00:22:03,113 --> 00:22:07,073
+bizim hesabımızla on gigabitte, elli gigahertz aralıkta,
+
+292
+00:22:07,123 --> 00:22:08,983
+yalnızca iki buçuk gigahertz.
+
+293
+00:22:09,926 --> 00:22:14,506
+Aynı ekin OLT çoğullayıcı kuralları kilitlemenin optik yarısıdır:
+
+294
+00:22:14,556 --> 00:22:17,016
+filtre iki yanında tekdüze azalmalı,
+
+295
+00:22:17,066 --> 00:22:20,626
+ve dalgalanması güç ölçüm çözünürlüğünden küçük kalmalıdır;
+
+296
+00:22:20,676 --> 00:22:25,206
+böylece kilitleme vericiyi hep en düşük kayıp noktasına iter.
+
+297
+00:22:25,256 --> 00:22:28,456
+Bizim hesabımızla merkeze yakın bir adım,
+
+298
+00:22:28,506 --> 00:22:34,156
+artı eksi yarım desibellik tekrarlanabilirlikten küçük bir güç değişimidir;
+
+299
+00:22:34,206 --> 00:22:37,164
+ek de ortalamanın hatayı azaltabileceğini söyler.
+
+300
+00:22:38,093 --> 00:22:38,663
+Denetim.
+
+301
+00:22:38,713 --> 00:22:43,623
+Dalga boyu ayarı mesajlarının sayısı zorunlu bir sayaçtır,
+
+302
+00:22:43,673 --> 00:22:48,703
+çünkü kayma tahmininin temelidir; genlik tahmincisi de zorunludur.
+
+303
+00:22:48,753 --> 00:22:52,853
+Bir de kusur vardır: verici dalga boyu kayması uyarısı.
+
+304
+00:22:52,903 --> 00:22:58,903
+Birim zamandaki istek sayısı ya da genliği yapılandırılan eşikleri aşınca ilan edilir;
+
+305
+00:22:58,953 --> 00:23:04,293
+eşikler, ONU'nun kapalı döngüde olup olmadığını hesaba katmalıdır.
+
+306
+00:23:04,343 --> 00:23:05,883
+Varsayılan eşik yoktur.
+
+307
+00:23:06,826 --> 00:23:07,966
+Mühendis notu.
+
+308
+00:23:08,016 --> 00:23:13,726
+Bir: devir süresini üç parçasıyla ölçün; birinci sınıf bir lazer,
+
+309
+00:23:13,776 --> 00:23:18,056
+burst profilleri önceden dağıtılmıyorsa devri hızlandırmaz.
+
+310
+00:23:18,106 --> 00:23:24,796
+İki: TO4'ü F ekinin çizimine göre değil, on ikinci maddenin tablosuna göre kodlayın;
+
+311
+00:23:24,846 --> 00:23:30,212
+ek onu tamamlandı yanıtında, tablo O8.2'deki uygunluk kararında durdurur.
+
+312
+00:23:31,260 --> 00:23:33,890
+Sıradaki: ONU bir kanalda kilitli.
+
+313
+00:23:33,940 --> 00:23:37,945
+Peki birden çok kanalı birlikte kullanmak isterse?
+
+314
+00:23:39,727 --> 00:23:41,747
+Perde dört: bağlama.
+
+315
+00:23:41,797 --> 00:23:44,647
+H eki normatiftir ve kısadır.
+
+316
+00:23:44,697 --> 00:23:50,237
+Kanal bağlamalı servis veren bir ONU, yani bağlı bir ONU,
+
+317
+00:23:50,287 --> 00:23:53,117
+birden çok PON arayüzünü destekler; her biri,
+
+318
+00:23:53,167 --> 00:24:00,147
+ONU'nun tek OMCI bilgi tabanında ayrı bir arayüz nesnesidir.
+
+319
+00:24:00,197 --> 00:24:05,554
+ONU her arayüz için ayrı bir aktivasyon durum makinesi çalıştırır.
+
+320
+00:24:06,494 --> 00:24:07,994
+Kural sıradır.
+
+321
+00:24:08,044 --> 00:24:13,704
+İlk arayüzün aktivasyonu O5'e geçişle tamamlanmadan başka bir arayüz denenmemelidir;
+
+322
+00:24:13,754 --> 00:24:15,474
+bu ilk arayüz öncüdür.
+
+323
+00:24:15,524 --> 00:24:21,674
+Öncü, seri numarası mesajında atanmamış ONU kimliğini, bin yirmi üçü kullanır,
+
+324
+00:24:21,724 --> 00:24:24,624
+ve ONU kimliğinin ve bölümlemenin kaynağıdır.
+
+325
+00:24:24,674 --> 00:24:31,384
+Sonraki her arayüz aynı seri numarasını ve öncüde atanan ONU kimliğini bildirir;
+
+326
+00:24:31,434 --> 00:24:36,202
+bölüm içindeki başka bir TWDM kanalında, eşzamanlı da olabilir.
+
+327
+00:24:37,127 --> 00:24:41,257
+Tanımsız davranış dört durumda doğar: başka bir bölüm,
+
+328
+00:24:41,307 --> 00:24:46,197
+zaten etkin bir arayüzün bulunduğu bir kanal, farklı bir seri numarası,
+
+329
+00:24:46,247 --> 00:24:50,587
+ya da OLT'nin farklı bir ONU kimliği ataması.
+
+330
+00:24:50,637 --> 00:24:53,257
+Her arayüz için bir OMCC kurulur;
+
+331
+00:24:53,307 --> 00:24:59,127
+hangisinden gelirse gelsin bir OMCI komutu aynı bilgi tabanına uygulanır,
+
+332
+00:24:59,177 --> 00:25:02,426
+ve cevap komutun geldiği arayüzden döner.
+
+333
+00:25:03,360 --> 00:25:08,410
+Bizim çıkarımımız: aynı ONU kimliği aynı anda birkaç kanalda görünür;
+
+334
+00:25:08,460 --> 00:25:14,880
+bağlı ONU'larda kimliğin benzersizliği kanal düzeyindedir,
+
+335
+00:25:14,930 --> 00:25:20,140
+ve ICTP'nin kimlik tutarlılığı denetimi buna izin vermelidir.
+
+336
+00:25:20,190 --> 00:25:26,060
+Standartta olmayanlar: trafiğin kanallara dağıtımı, bağlı bir arayüzün devri,
+
+337
+00:25:26,110 --> 00:25:31,100
+ve G.989.2'de çok alıcı vericili ONU'lar için tek bir satır.
+
+338
+00:25:32,593 --> 00:25:36,153
+Şimdi karışık sınıflar: X eki, bilgilendirici.
+
+339
+00:25:36,203 --> 00:25:41,173
+Senaryo kademeli büyümedir: önce N1 optikli sonlandırıcılar,
+
+340
+00:25:41,223 --> 00:25:47,703
+sonra daha yüksek sınıflılar, ve ODN çoğu zaman yeniden kullanılmak zorundadır.
+
+341
+00:25:47,753 --> 00:25:53,653
+Ek bir kolaylığı hatırlatır: ONU tarafı optik, N1'den E1'e kadar aynıdır.
+
+342
+00:25:53,703 --> 00:25:59,678
+Yani karışım yalnızca OLT tarafındadır, ve özel bir TC özelliği gerekmez.
+
+343
+00:26:00,626 --> 00:26:01,626
+PMD Köprüsü.
+
+344
+00:26:01,676 --> 00:26:08,536
+Birinci sezonun ikinci bölümündeki sınıflar: N1 on dört ile yirmi dokuz,
+
+345
+00:26:08,586 --> 00:26:09,966
+N2 on altı ile otuz bir desibel.
+
+346
+00:26:10,016 --> 00:26:16,616
+Eke göre N2'nin fazladan iki desibeli, N1 kurulumunda uygun pay varsa,
+
+347
+00:26:16,666 --> 00:26:19,926
+bir ayırma kademesi daha sağlayabilir.
+
+348
+00:26:19,976 --> 00:26:21,606
+Bizim kontrolümüz:
+
+349
+00:26:21,656 --> 00:26:27,336
+ideal bir bire iki ayırıcı üç virgül sıfır bir desibel kaybettirir.
+
+350
+00:26:27,386 --> 00:26:32,129
+İki desibel tek başına yetmez; koşul bu yüzden oradadır.
+
+351
+00:26:33,060 --> 00:26:37,250
+Ekin karışık örneğinde iki eski sistem birleşir.
+
+352
+00:26:37,300 --> 00:26:42,840
+İki N1 sonlandırıcısı aynı birinci dalga boyunda çalışır,
+
+353
+00:26:42,890 --> 00:26:45,660
+her biri kendi ODN'ini besler.
+
+354
+00:26:45,710 --> 00:26:52,500
+Üç N2 sonlandırıcısı ise bire iki ayırıcılarla iki ODN'e birden bağlanır.
+
+355
+00:26:52,550 --> 00:26:57,250
+Her ONU, ayar yaparken yine dört sonlandırıcı görür.
+
+356
+00:26:57,300 --> 00:27:04,398
+Ek bunu iki sistem gibi modellemeyi aşırı ve yararsız bir karmaşıklık sayar.
+
+357
+00:27:05,326 --> 00:27:11,426
+Çözüm klonlanmış sonlandırıcılardır: sistem kimliği, kanal kimlikleri,
+
+358
+00:27:11,476 --> 00:27:17,796
+PON kimliği ve PON etiketi dahil bütün ilgili parametreleri paylaşan iki sonlandırıcı.
+
+359
+00:27:17,846 --> 00:27:22,336
+Tasarım gereği ayrık ONU kümelerine bakarlar.
+
+360
+00:27:22,386 --> 00:27:28,416
+Alt ağacı ayırmak için ek üç yol sayar: yalnızca klonlu kanallarda aktivasyon,
+
+361
+00:27:28,466 --> 00:27:32,676
+klonlu çifte kalibrasyon, ya da sonradan devir;
+
+362
+00:27:32,726 --> 00:27:35,751
+ilk ikisinde ONU kimliği alt ağacı ayırır.
+
+363
+00:27:37,227 --> 00:27:42,667
+Kanal profilinin otuz ikinci baytı bunu taşır: üst dört bit klonlu sistemi,
+
+364
+00:27:42,717 --> 00:27:46,367
+alt dört bit operatörün verdiği alt ağaç numarasını;
+
+365
+00:27:46,417 --> 00:27:49,337
+ikincisi yalnızca kanalın kendi profilinde.
+
+366
+00:27:49,387 --> 00:27:52,187
+Bayt iki bin yirmi birden beri vardır.
+
+367
+00:27:52,237 --> 00:27:56,617
+Bir alan sınırı daha: sistem profilinin bir gigahertzlik birimleri,
+
+368
+00:27:56,667 --> 00:28:01,924
+elli gigahertz aralıktaki artı eksi on iki buçuk gigahertzlik sapmayı tam yazamaz.
+
+369
+00:28:02,860 --> 00:28:03,780
+PMD Köprüsü.
+
+370
+00:28:03,830 --> 00:28:09,740
+Kısıtlı ayar sınıflarını birinci sezonun üçüncü bölümündeki planla okuyun.
+
+371
+00:28:09,790 --> 00:28:13,440
+Aşağı yön kanalları yüz gigahertz aralıklıdır;
+
+372
+00:28:13,490 --> 00:28:22,070
+bizim çıkarımımızla yüz gigahertzle kısıtlı bir ikinci sınıf alıcı yalnızca komşu kanala gidebilir.
+
+373
+00:28:22,120 --> 00:28:25,360
+Yukarı yönde iki yüz gigahertz aralık seçilmişse,
+
+374
+00:28:25,410 --> 00:28:30,350
+aynı sınıftaki bir verici komşu kanala bile ulaşamaz.
+
+375
+00:28:30,400 --> 00:28:33,742
+Kısıtlı sınıf, kanal planıyla birlikte seçilmelidir.
+
+376
+00:28:34,660 --> 00:28:36,160
+Mühendis notu.
+
+377
+00:28:36,210 --> 00:28:39,780
+Bir: bağlı ONU'ları envanterde ONU kimliğiyle değil,
+
+378
+00:28:39,830 --> 00:28:42,960
+seri numarası ve kanal çiftiyle izleyin;
+
+379
+00:28:43,010 --> 00:28:47,610
+aynı kimlik birden çok kanalda yasal olarak görünür.
+
+380
+00:28:47,660 --> 00:28:47,610
+İki:
+
+381
+00:28:47,660 --> 00:28:54,240
+klonlu sonlandırıcılarda alt ağaçları yalnızca ONU kimliği ve otuz ikinci bayt ayırır;
+
+382
+00:28:54,290 --> 00:29:00,839
+kimlik planını ayrık tutun, ve bir ayırma kademesi eklemeden önce N1 payınızı ölçün.
+
+383
+00:29:01,860 --> 00:29:04,080
+Sıradaki: kurallar belli.
+
+384
+00:29:04,130 --> 00:29:07,686
+Şimdi laboratuvarda bir devri ölçelim.
+
+385
+00:29:09,460 --> 00:29:11,120
+Laboratuvarda.
+
+386
+00:29:11,170 --> 00:29:15,200
+Düzenek: iki kanal sonlandırıcılı bir OLT ya da emülatörü,
+
+387
+00:29:15,250 --> 00:29:20,980
+iki aşağı yön kanalını ve yukarı yönü dinleyen bir protokol analizörü,
+
+388
+00:29:21,030 --> 00:29:26,570
+ayarlanabilir bir ONU ve bir ONU emülatörü, bir trafik üreteci,
+
+389
+00:29:26,620 --> 00:29:30,030
+bir dalga boyu ölçer ve bir sıcaklık kabini.
+
+390
+00:29:30,080 --> 00:29:35,069
+ICTP PON'da görünmez; onu OLT'nin kayıtlarından okuyun.
+
+391
+00:29:35,993 --> 00:29:38,423
+İlk test: devrin merdiveni.
+
+392
+00:29:38,473 --> 00:29:42,743
+Beklenen sıra: ayar isteği; aynı sıra numarasıyla onay; planlı çerçeve;
+
+393
+00:29:42,793 --> 00:29:47,803
+hedefte yalnızca PLOAM taşıyan tahsisler; tamamlandı yanıtı;
+
+394
+00:29:47,853 --> 00:29:53,173
+hedeften tamamlandı biçimi ve bir veri tahsisi; ONU'nun onayı; veri.
+
+395
+00:29:53,223 --> 00:29:59,353
+Analizörün bütünlük kontrolünü önce beşinci bölümün altın vektörleriyle doğrulayın;
+
+396
+00:29:59,403 --> 00:30:03,540
+sonra her ayar mesajı varsayılan anahtarla tutmalıdır.
+
+397
+00:30:04,460 --> 00:30:06,950
+İkinci test: ayar süresi, üç parçasıyla.
+
+398
+00:30:06,000 --> 00:30:15,260
+Kaynak PSBd'sinde sayacın düşük on altı biti planlı değere eşit olan çerçeveyi tetik alın;
+
+399
+00:30:15,310 --> 00:30:18,570
+hedefteki ilk tamamlandı burst'ünü damgalayın.
+
+400
+00:30:18,620 --> 00:30:25,300
+Aradaki süre, TC ayar süresi artı uygunluk kararı artı tahsis beklemesidir.
+
+401
+00:30:25,350 --> 00:30:31,140
+Ölçümü, hedefin burst profilleri önceden gönderilerek ve gönderilmeden tekrarlayın.
+
+402
+00:30:32,060 --> 00:30:38,270
+PMD parçasını optik olarak ayırın, G.989.2'nin sekizinci ekindeki yöntemle:
+
+403
+00:30:38,320 --> 00:30:44,320
+sekiz gigahertzde yarım desibel kayıplı Gauss biçimli bir referans süzgeç ve iki optik alıcı.
+
+404
+00:30:44,370 --> 00:30:48,870
+Başlangıç, kaynak kanaldaki gücün yarım desibel düşmesi; bitiş,
+
+405
+00:30:48,920 --> 00:30:52,540
+hedef kanalın yarım desibel içine girip orada kalması.
+
+406
+00:30:52,590 --> 00:30:56,740
+Hazırlık, güç düşüşünün başlangıcı eksi planlı çerçevedir.
+
+407
+00:30:56,790 --> 00:31:00,695
+PMD parçasını beyan edilen sınıfla karşılaştırın.
+
+408
+00:31:02,193 --> 00:31:04,243
+Üçüncü test: öncülük süresi.
+
+409
+00:31:04,293 --> 00:31:08,433
+Planlı değeri şimdiki çerçeveye adım adım yaklaştırın,
+
+410
+00:31:08,483 --> 00:31:11,453
+ve kabul edilen en kısa öncülüğü bulun;
+
+411
+00:31:11,503 --> 00:31:17,923
+altında iç grubun tek koduyla olumsuz cevap ve sayacının artması beklenir.
+
+412
+00:31:17,973 --> 00:31:22,943
+Sayacın dönüşüne yakın bir değeri ve geçmişte kalan bir değeri de deneyin.
+
+413
+00:31:22,993 --> 00:31:26,593
+Bu sırada ONU'nun trafiğinde kayıp olmamalıdır;
+
+414
+00:31:26,643 --> 00:31:32,641
+bizim hesabımızla hedefin PLOAM burst'leri çerçevenin binde iki ile üçünü yer.
+
+415
+00:31:33,560 --> 00:31:36,700
+Dördüncü test: olumsuz cevap matrisi.
+
+416
+00:31:36,750 --> 00:31:41,610
+Yabancı etiket, boş tanım, bölüm, aralık dışı hedef, hız ve bağlantı tipi:
+
+417
+00:31:41,660 --> 00:31:46,670
+her biri kendi bitini ve başarım sayacını artırmalıdır.
+
+418
+00:31:46,720 --> 00:31:50,390
+Kalibre olmayan bir hedefi kalibrasyon biti sıfırla isteyin:
+
+419
+00:31:50,440 --> 00:31:53,120
+kalibrasyon kodu gelmeli.
+
+420
+00:31:53,170 --> 00:31:54,360
+Bit birken onay gelmelidir.
+
+421
+00:31:54,410 --> 00:31:58,330
+Birden çok koşullu bir hedefte bitler birleşmelidir.
+
+422
+00:31:59,260 --> 00:32:03,630
+Beşinci test: geri dönüş matrisi, geri dönüş biti bir.
+
+423
+00:32:03,680 --> 00:32:08,190
+Hedef aşağı yönü karartın: iletişim kodu.
+
+424
+00:32:08,240 --> 00:32:15,900
+PSBd'deki etiketi ya da bağlantı tipini, sonra hedef kanal profilini çeliştirin.
+
+425
+00:32:15,950 --> 00:32:21,370
+Kaynaktan tamamlandı biçimi, hedefe ICTP iptali beklenir.
+
+426
+00:32:21,420 --> 00:32:27,150
+Bit sıfırken ONU geri dönemez: TO4 dolunca yeniden aktive olur,
+
+427
+00:32:27,200 --> 00:32:33,860
+ve seri numarası mesajı on bir hata ayıklama kodunu taşır;
+
+428
+00:32:33,910 --> 00:32:36,790
+yukarı yön başarısızsa TO5 ile on iki.
+
+429
+00:32:38,260 --> 00:32:41,720
+Altıncı test: zamanlayıcılar ve OLT makinesi.
+
+430
+00:32:41,770 --> 00:32:47,680
+Hedef aşağı yönü ya da hedef tahsisleri esirgeyerek TO4 ve TO5'i ölçün;
+
+431
+00:32:47,730 --> 00:32:50,480
+ONU emülatörüyle makineyi sınayın:
+
+432
+00:32:50,530 --> 00:32:54,510
+barındırmada yinelenen tamamlandı yanıtı yok sayılmalı;
+
+433
+00:32:54,560 --> 00:33:00,529
+hiç onay gelmezse kaynak zamanlayıcısı dolmalı ve uyarı gitmelidir.
+
+434
+00:33:01,460 --> 00:33:04,270
+Yedinci test: sıcaklık altında kilitleme.
+
+435
+00:33:04,320 --> 00:33:09,650
+Dalga boyu ölçeri ONU vericisine bağlayın ve bir dalga boyu ayarı gönderin:
+
+436
+00:33:09,700 --> 00:33:15,110
+adımın yüzde doksanına, bildirilen adım süresi içinde varılmalıdır.
+
+437
+00:33:15,160 --> 00:33:20,290
+OLT'nin istatistiği kuraldaki çerçeveden önce toplamadığını doğrulayın.
+
+438
+00:33:20,340 --> 00:33:25,730
+Sonra ONU'yu kabinde ısıtın: ayar mesajı sayacı ve genlik tahmincisi artmalı,
+
+439
+00:33:25,780 --> 00:33:27,691
+eşik aşılınca kayma uyarısı gelmelidir.
+
+440
+00:33:28,627 --> 00:33:29,867
+Sekizinci test: bağlama.
+
+441
+00:33:29,917 --> 00:33:36,107
+İki arayüzlü bir ONU'da öncünün seri numarası mesajı bin yirmi üç taşımalı;
+
+442
+00:33:36,157 --> 00:33:40,257
+ikinci arayüz, bölüm içindeki başka bir kanalda,
+
+443
+00:33:40,307 --> 00:33:43,557
+aynı seri numarasını ve öncünün kimliğini taşımalıdır.
+
+444
+00:33:43,607 --> 00:33:49,307
+Bir arayüzden yazılan OMCI özniteliği öbüründen okunmalıdır.
+
+445
+00:33:49,357 --> 00:33:52,787
+Klonlu sonlandırıcılarda otuz ikinci baytı çözün,
+
+446
+00:33:52,837 --> 00:33:56,912
+ve alt ağaçların ONU kimliklerinin ayrık olduğunu doğrulayın.
+
+447
+00:33:57,860 --> 00:33:59,400
+Laboratuvar notu.
+
+448
+00:33:59,450 --> 00:34:04,750
+Bir: değeri olmayan dört zamanlayıcıyı kendi ölçümünüzle belgeleyin.
+
+449
+00:34:04,800 --> 00:34:04,750
+İki:
+
+450
+00:34:04,800 --> 00:34:11,180
+devir süresini her zaman üç parçasıyla ve profil dağıtım durumuyla birlikte raporlayın;
+
+451
+00:34:11,230 --> 00:34:14,351
+tek bir sayı, hangi katmanın yavaş olduğunu gizler.
+
+452
+00:34:16,193 --> 00:34:17,693
+Bölümün özeti.
+
+453
+00:34:17,743 --> 00:34:21,253
+Bir: profiller bir ile beş saniyede bir yinelenir;
+
+454
+00:34:21,303 --> 00:34:24,743
+kalibrasyon durumu kanal başına iki bittir,
+
+455
+00:34:24,793 --> 00:34:27,773
+ve yeterli doğruluğun sayısal tanımı yoktur.
+
+456
+00:34:27,823 --> 00:34:32,623
+İki: devir on bir adımdır; ONU O5.2, O8 ve O9'dan geçer,
+
+457
+00:34:32,673 --> 00:34:39,333
+OLT beş durumlu bir makine çalıştırır, ve hata durumunda ONU kaynakta kalır.
+
+458
+00:34:39,383 --> 00:34:45,042
+Üç: olumsuz cevap ve geri dönüş aynı bit haritasını farklı anlamlarla kullanır.
+
+459
+00:34:45,960 --> 00:34:51,020
+Dört: TC ayar süresi hazırlık, PMD ayarı ve yeniden senkrondur;
+
+460
+00:34:51,070 --> 00:34:55,660
+hızlı bir lazerde süreyi TC katmanı ve profil dağıtımı belirler,
+
+461
+00:34:55,710 --> 00:34:59,520
+ve devrin hiçbir zamanlayıcısının değeri yoktur.
+
+462
+00:34:59,570 --> 00:35:01,510
+Beş: kilitlemede istatistik,
+
+463
+00:35:01,560 --> 00:35:05,800
+adım süresine altı çerçevelik işleme payı eklenerek başlar;
+
+464
+00:35:05,850 --> 00:35:09,240
+bağlı ONU bir kimliği birden çok kanalda kullanır,
+
+465
+00:35:09,290 --> 00:35:15,855
+ve klonlu sonlandırıcılar bütün ilgili parametreleri paylaşır, ONU'ları paylaşmaz.
+
+466
+00:35:16,893 --> 00:35:18,403
+Kendini test et.
+
+467
+00:35:18,453 --> 00:35:22,523
+Birinci soru: TC katmanı ayar süresi hangi üç parçadır,
+
+468
+00:35:22,573 --> 00:35:29,023
+her biri nerede başlar ve biter, ve hangisini G.989.2 sınıflandırır? İkinci soru:
+
+469
+00:35:29,073 --> 00:35:35,843
+ayar yanıtında işlem kodu bir ve on altılık tabanda sıfır iki bir sıfır ne demektir,
+
+470
+00:35:35,893 --> 00:35:38,123
+hangi sonlandırıcı ne yapar,
+
+471
+00:35:38,173 --> 00:35:42,823
+ve işlem kodu dört olsaydı aynı değer ne derdi? Üçüncü soru:
+
+472
+00:35:42,873 --> 00:35:50,463
+adım süresi sekiz çerçeve olan bir ONU'ya F çerçevesinde iki adımlık ayar istenirse,
+
+473
+00:35:50,513 --> 00:35:53,893
+OLT istatistiği hangi çerçeveden toplayabilir? Cevaplar,
+
+474
+00:35:53,943 --> 00:35:56,634
+bir sonraki bölümün başında.
+
+475
+00:35:57,626 --> 00:35:59,126
+Bir sonraki bölüm: Güven.
+
+476
+00:35:59,176 --> 00:36:02,186
+Kimlik doğrulama, şifreleme ve bütünlük;
+
+477
+00:36:02,236 --> 00:36:09,086
+bir devrin sonunda neden yeniden türetildiğini gördüğümüz anahtarların nereden geldiği.
+
+478
+00:36:09,136 --> 00:36:09,977
+Görüşmek üzere.
+

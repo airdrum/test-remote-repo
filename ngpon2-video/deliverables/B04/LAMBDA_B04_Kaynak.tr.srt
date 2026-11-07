@@ -1,1880 +1,1880 @@
 1
-00:00:00,000 --> 00:00:01,110
+00:00:00,000 --> 00:00:01,020
 Bölüm dört: Kaynak.
 
 2
-00:00:01,160 --> 00:00:07,740
+00:00:01,070 --> 00:00:07,150
 Bu bölümde OLT vericisini ve ondan çıkan aşağı yön sinyalini inceliyoruz:
 
 3
-00:00:07,790 --> 00:00:12,532
+00:00:07,200 --> 00:00:11,585
 bütün PON'un saatini, gücünü ve rengini belirleyen parça.
 
 4
-00:00:13,467 --> 00:00:20,717
+00:00:12,533 --> 00:00:19,223
 Önce hız, saat ve hat kodu: dokuz virgül dokuz beş ve iki virgül dört sekiz gigabit,
 
 5
-00:00:20,767 --> 00:00:24,091
+00:00:19,273 --> 00:00:22,354
 Stratum saatleri ve karıştırılmış NRZ.
 
 6
-00:00:25,033 --> 00:00:29,923
+00:00:23,300 --> 00:00:27,820
 Sonra güç ve sönüm oranı: sınıf başına başlatma gücü penceresi,
 
 7
-00:00:29,973 --> 00:00:32,954
+00:00:27,870 --> 00:00:30,621
 sönüm oranının ölçümü, ve güçle takası.
 
 8
-00:00:33,900 --> 00:00:37,290
+00:00:31,567 --> 00:00:35,067
 Ardından spektrum: yan mod bastırma, spektral sapma,
 
 9
-00:00:37,340 --> 00:00:42,598
+00:00:35,117 --> 00:00:39,607
 ve komşuları korumak için bant dışı ve kanal dışı güç yoğunluğu.
 
 10
-00:00:43,533 --> 00:00:45,653
+00:00:40,533 --> 00:00:42,493
 Göz maskesi ve titreşim;
 
 11
-00:00:45,703 --> 00:00:51,623
+00:00:42,543 --> 00:00:48,013
 ve TC köprüsünde yüz yirmi beş mikrosaniyelik çerçevenin içi: PSBd,
 
 12
-00:00:51,673 --> 00:00:53,340
+00:00:48,063 --> 00:00:49,598
 FEC ve karıştırıcı.
 
 13
-00:00:54,267 --> 00:00:59,954
+00:00:50,533 --> 00:00:55,788
 Laboratuvarda ise DCA ile gözü ve sönüm oranını, OSA ile spektrumu ölçeceğiz.
 
 14
-00:01:12,227 --> 00:01:20,817
+00:01:08,060 --> 00:01:16,000
 Önceki bölümde NG-PON2'nin dalga boyu planını, eski sistemlerle birlikte yaşamayı,
 
 15
-00:01:20,867 --> 00:01:26,417
+00:01:16,050 --> 00:01:21,180
 ızgaraları, Raman etkisini ve kanal profillerini gördük.
 
 16
-00:01:26,467 --> 00:01:29,264
+00:01:21,230 --> 00:01:23,811
 Şimdi sorduğumuz üç sorunun cevapları.
 
 17
-00:01:30,194 --> 00:01:34,764
+00:01:24,760 --> 00:01:28,980
 Birinci soru: dört kanallı, döngüsel olmayan,
 
 18
-00:01:34,814 --> 00:01:42,584
+00:01:29,030 --> 00:01:36,220
 yüz gigahertz aralıklı bir yukarı yön ızgarası için en küçük ayar penceresi.
 
 19
-00:01:42,634 --> 00:01:50,674
+00:01:36,270 --> 00:01:43,700
 Formül N eksi bir çarpı kanal aralığı, artı iki kat en büyük sapma: üç çarpı yüz,
 
 20
-00:01:50,724 --> 00:01:53,004
+00:01:43,750 --> 00:01:45,860
 artı iki çarpı yirmi.
 
 21
-00:01:53,054 --> 00:01:55,634
+00:01:45,910 --> 00:01:48,282
 Cevap: üç yüz kırk gigahertz.
 
 22
-00:01:56,627 --> 00:02:02,557
+00:01:49,260 --> 00:01:54,450
 İkinci soru: yüz doksan beş virgül bir terahertzlik bir yukarı yön kanalı.
 
 23
-00:02:02,607 --> 00:02:06,897
+00:01:54,500 --> 00:01:58,750
 Frekans sıfır virgül bir gigahertz birimiyle yazılır:
 
 24
-00:02:06,947 --> 00:02:12,490
+00:01:58,800 --> 00:02:03,925
 yüz doksan beş bin yüz gigahertz, yani bir milyon dokuz yüz elli bir bin.
 
 25
-00:02:13,460 --> 00:02:14,780
+00:02:04,893 --> 00:02:06,113
 Üçüncü soru:
 
 26
-00:02:14,830 --> 00:02:22,080
+00:02:06,163 --> 00:02:12,863
 Raman kaynaklı modülasyon karışması yalnızca aynı yönde yayılan sinyaller arasında oluşur.
 
 27
-00:02:22,130 --> 00:02:27,720
+00:02:12,913 --> 00:02:18,073
 Karşı yönde yayılanlar arasında güç aktarımı, yani güç tüketimi görülür,
 
 28
-00:02:27,770 --> 00:02:30,529
+00:02:18,123 --> 00:02:20,674
 ama modülasyon karışması görülmez.
 
 29
-00:02:32,127 --> 00:02:34,597
+00:02:22,260 --> 00:02:24,540
 Perde bir: hız, saat ve hat kodu.
 
 30
-00:02:34,647 --> 00:02:40,277
+00:02:24,590 --> 00:02:29,800
 Aşağı yön için iki hız tanımlıdır: dokuz virgül dokuz beş üç iki sekiz,
 
 31
-00:02:40,327 --> 00:02:44,017
+00:02:29,850 --> 00:02:33,250
 ve iki virgül dört sekiz sekiz üç iki gigabit.
 
 32
-00:02:44,067 --> 00:02:49,947
+00:02:33,300 --> 00:02:38,740
 Standart, iletim hızının sekiz kilohertzin katı olduğunu söyler;
 
 33
-00:02:49,997 --> 00:02:55,713
+00:02:38,790 --> 00:02:44,067
 yani yüz yirmi beş mikrosaniyelik çerçeve, her iki hızda da tam sayıda bayt taşır.
 
 34
-00:02:56,660 --> 00:03:00,010
+00:02:44,993 --> 00:02:48,083
 Neden sekiz kilohertz? Çünkü sekiz kilohertz,
 
 35
-00:03:00,060 --> 00:03:03,030
+00:02:48,133 --> 00:02:50,883
 sayısal telefonun örnekleme frekansıdır,
 
 36
-00:03:03,080 --> 00:03:06,330
+00:02:50,933 --> 00:02:53,923
 ve yüz yirmi beş mikrosaniye onun periyodudur.
 
 37
-00:03:06,380 --> 00:03:10,730
+00:02:53,973 --> 00:02:58,003
 NG-PON2 bu mirası SDH'den ve önceki PON'lardan devralır.
 
 38
-00:03:10,780 --> 00:03:17,420
+00:02:58,053 --> 00:03:04,193
 Dokuz bin dokuz yüz elli üç virgül yirmi sekiz megabiti sekiz kilohertze bölün:
 
 39
-00:03:17,470 --> 00:03:21,450
+00:03:04,243 --> 00:03:07,913
 çerçeve başına bir milyon iki yüz kırk dört bin yüz altmış bit,
 
 40
-00:03:21,500 --> 00:03:24,548
+00:03:07,963 --> 00:03:10,778
 yani yüz elli beş bin beş yüz yirmi bayt.
 
 41
-00:03:25,494 --> 00:03:28,954
+00:03:11,727 --> 00:03:14,887
 Hız kombinasyonları Tablo on bir bir'dedir.
 
 42
-00:03:29,004 --> 00:03:34,344
+00:03:14,937 --> 00:03:19,907
 Temel seçenek: aşağı yönde on, yukarı yönde iki buçuk gigabit.
 
 43
-00:03:34,394 --> 00:03:37,824
+00:03:19,957 --> 00:03:23,117
 Birinci seçenek: iki yönde de on gigabit.
 
 44
-00:03:37,874 --> 00:03:41,674
+00:03:23,167 --> 00:03:26,687
 İkinci seçenek: iki yönde de iki buçuk gigabit.
 
 45
-00:03:41,724 --> 00:03:47,948
+00:03:26,737 --> 00:03:32,487
 Kanal grubundaki her TWDM kanalı, bu seçeneklerden herhangi birini kullanabilir.
 
 46
-00:03:49,427 --> 00:03:50,837
+00:03:33,960 --> 00:03:35,260
 OLT, bütün PON'un saatidir.
 
 47
-00:03:50,887 --> 00:03:56,277
+00:03:35,310 --> 00:03:40,290
 Normal çalışmada OLT tipik olarak Stratum-1 referansına,
 
 48
-00:03:56,327 --> 00:04:00,317
+00:03:40,340 --> 00:03:44,020
 yani on üzeri eksi on bir doğruluğa izlenebilir.
 
 49
-00:04:00,367 --> 00:04:05,787
+00:03:44,070 --> 00:03:49,080
 Serbest çalışmada aşağı yön sinyalinin doğruluğu en az Stratum-4,
 
 50
-00:04:05,837 --> 00:04:07,967
+00:03:49,130 --> 00:03:51,110
 yani milyonda otuz ikidir.
 
 51
-00:04:08,017 --> 00:04:13,357
+00:03:51,160 --> 00:03:56,080
 Mobil geri taşıma gibi zamanlamanın kritik olduğu uygulamalarda,
 
 52
-00:04:13,407 --> 00:04:17,479
+00:03:56,130 --> 00:03:59,897
 serbest çalışmada Stratum-3 kalitesi gerekebilir.
 
 53
-00:04:18,427 --> 00:04:22,407
+00:04:00,827 --> 00:04:04,507
 Bu saatin önemi ONU tarafında ortaya çıkar.
 
 54
-00:04:22,457 --> 00:04:24,387
+00:04:04,557 --> 00:04:06,337
 Standart, ONU'nun yukarı yönde,
 
 55
-00:04:24,437 --> 00:04:30,727
+00:04:06,387 --> 00:04:12,177
 alınan aşağı yön sinyaliyle aynı frekans doğruluğunda göndermesini ister.
 
 56
-00:04:30,777 --> 00:04:32,237
+00:04:12,227 --> 00:04:13,597
 Yani OLT'nin aşağı yön saati,
 
 57
-00:04:32,287 --> 00:04:36,597
+00:04:13,647 --> 00:04:17,627
 bütün yukarı yön burst'lerinin de frekans referansıdır.
 
 58
-00:04:36,647 --> 00:04:42,617
+00:04:17,677 --> 00:04:23,197
 OLT saatini ayrılmış bir zamanlama kaynağından, senkron bir veri arayüzünden,
 
 59
-00:04:42,667 --> 00:04:46,978
+00:04:23,247 --> 00:04:27,225
 ya da paket tabanlı bir zamanlama kaynağından alabilir.
 
 60
-00:04:47,927 --> 00:04:52,267
+00:04:28,160 --> 00:04:32,160
 Milyonda otuz ikiyi bir sayıya çevirelim: on gigabitte bu,
 
 61
-00:04:52,317 --> 00:04:57,417
+00:04:32,210 --> 00:04:37,250
 saniyede yaklaşık üç yüz yirmi bin bitlik bir frekans farkı demektir.
 
 62
-00:04:57,467 --> 00:05:03,887
+00:04:37,300 --> 00:04:42,910
 ONU'lar aşağı yön saatini izlediği için bu fark bütün sisteme birlikte yayılır;
 
 63
-00:05:03,937 --> 00:05:06,387
+00:04:42,960 --> 00:04:45,230
 bir PON'un içinde sorun değildir.
 
 64
-00:05:06,437 --> 00:05:10,497
+00:04:45,280 --> 00:04:48,980
 Ama dış ağla senkron çalışması gereken bir servis için,
 
 65
-00:05:10,547 --> 00:05:13,224
+00:04:49,030 --> 00:04:51,549
 OLT'nin saat kaynağı belirleyicidir.
 
 66
-00:05:14,693 --> 00:05:18,503
+00:04:53,027 --> 00:04:56,557
 Hat kodu her iki hızda da karıştırılmış NRZ'dir.
 
 67
-00:05:18,553 --> 00:05:24,053
+00:04:56,607 --> 00:05:01,657
 Mantık kuralı basittir: bir için yüksek ışık, sıfır için düşük ışık.
 
 68
-00:05:24,103 --> 00:05:24,053
+00:05:01,707 --> 00:05:01,657
 Karıştırma,
 
 69
-00:05:24,103 --> 00:05:31,473
+00:05:01,707 --> 00:05:08,547
 uzun özdeş bit dizilerini olasılıksal olarak kırar ve alıcının saat çıkarımını besler;
 
 70
-00:05:31,523 --> 00:05:34,017
+00:05:08,597 --> 00:05:10,893
 ayrıntısını beşinci perdede göreceğiz.
 
 71
-00:05:34,960 --> 00:05:40,220
+00:05:11,827 --> 00:05:16,697
 Üçüncü bölümde gördüğümüz alternatif kodlar burada vericiye dokunur.
 
 72
-00:05:40,270 --> 00:05:46,910
+00:05:16,747 --> 00:05:22,867
 8B10B ile on gigabitlik veri, on iki buçuk gigabitte gönderilir.
 
 73
-00:05:46,960 --> 00:05:46,910
+00:05:22,917 --> 00:05:22,867
 Standart,
 
 74
-00:05:46,960 --> 00:05:55,130
+00:05:22,917 --> 00:05:30,477
 on gigabit uyumlu bileşenlerle bunun sönüm oranına ve hassasiyete doğrudan etkisi olabileceğini,
 
 75
-00:05:55,180 --> 00:06:02,260
+00:05:30,527 --> 00:05:37,067
 bunun da OLT'nin en küçük başlatma gücünü artırarak telafi edilebileceğini söyler.
 
 76
-00:06:02,310 --> 00:06:04,980
+00:05:37,117 --> 00:05:40,347
 Miller kodu ise dar spektrumuyla,
 
 77
-00:06:05,030 --> 00:06:10,725
+00:05:40,397 --> 00:05:44,896
 L bandında EML yerine doğrudan modüle edilen bir lazere izin verir.
 
 78
-00:06:11,660 --> 00:06:16,940
+00:05:45,827 --> 00:05:50,707
 Dokuzuncu ekteki bir tablo, bunun neden gündemde olduğunu sayıyla gösterir:
 
 79
-00:06:16,990 --> 00:06:22,300
+00:05:50,757 --> 00:05:55,667
 N2 sınıfında, dört dalga boyuyla ve RF video ile birlikte çalışmada,
 
 80
-00:06:22,350 --> 00:06:26,030
+00:05:55,717 --> 00:05:59,117
 yaklaşık altı desibellik bir Raman azaltımı gerekir.
 
 81
-00:06:26,080 --> 00:06:29,280
+00:05:59,167 --> 00:06:02,117
 Varsayımlar; iki yüz elli altı QAM video,
 
 82
-00:06:29,330 --> 00:06:37,190
+00:06:02,167 --> 00:06:09,427
 bir desibellik taşıyıcı gürültü oranı cezası ve sıfır virgül altılık bir polarizasyon örtüşme faktörüdür.
 
 83
-00:06:37,240 --> 00:06:41,105
+00:06:09,477 --> 00:06:13,052
 Sekiz dalga boyu için değer, ileride çalışılacaktır.
 
 84
-00:06:42,026 --> 00:06:46,376
+00:06:13,994 --> 00:06:18,004
 Bir ayrıntı daha: elektronik dispersiyon dengelemesi,
 
 85
-00:06:46,426 --> 00:06:51,116
+00:06:18,054 --> 00:06:22,404
 OLT vericisinde ya da ONU alıcısında kullanılabilir.
 
 86
-00:06:51,166 --> 00:06:54,756
+00:06:22,454 --> 00:06:25,764
 Amaç, tablodaki yol cezasını tutturmaktır.
 
 87
-00:06:54,806 --> 00:06:58,886
+00:06:25,814 --> 00:06:29,574
 Standart EDC'yi yasaklamaz, ama kapsamı dışında bırakır;
 
 88
-00:06:58,936 --> 00:07:01,926
+00:06:29,624 --> 00:06:32,392
 nasıl yapıldığı üreticiye kalmıştır.
 
 89
-00:07:02,860 --> 00:07:04,430
+00:06:33,327 --> 00:06:34,767
 Mühendis notu.
 
 90
-00:07:04,480 --> 00:07:09,600
+00:06:34,817 --> 00:06:40,007
 Bir: OLT'nin saat kaynağını ve serbest çalışma doğruluğunu belgeleyin;
 
 91
-00:07:09,650 --> 00:07:13,200
+00:06:40,057 --> 00:06:42,857
 bütün yukarı yön bu saate bağlıdır.
 
 92
-00:07:13,250 --> 00:07:15,980
+00:06:42,907 --> 00:06:45,457
 İki: alternatif bir hat kodu düşünüyorsanız,
 
 93
-00:07:16,030 --> 00:07:21,545
+00:06:45,507 --> 00:06:50,602
 sönüm oranı ve hassasiyet bedelini güç bütçesinde ayrıca hesaplayın.
 
 94
-00:07:22,593 --> 00:07:27,373
+00:06:51,627 --> 00:06:56,043
 Sıradaki: bu bitleri ne kadar güçle ve ne kadar net gönderiyoruz?
 
 95
-00:07:29,160 --> 00:07:30,400
+00:06:57,827 --> 00:06:58,977
 Perde iki: güç.
 
 96
-00:07:30,450 --> 00:07:36,110
+00:06:59,027 --> 00:07:04,247
 Başlatma gücü, S bölü R CG noktasında, yani çoklayıcının ODN tarafında,
 
 97
-00:07:36,160 --> 00:07:39,820
+00:07:04,297 --> 00:07:07,677
 kanal başına ortalama güç olarak tanımlanır.
 
 98
-00:07:39,870 --> 00:07:47,090
+00:07:07,727 --> 00:07:14,407
 Standart onu bir aralık olarak verir: alt sınır sağlanması gereken en küçük güç,
 
 99
-00:07:47,140 --> 00:07:50,180
+00:07:14,457 --> 00:07:17,257
 üst sınır asla aşılmaması gereken güçtür.
 
 100
-00:07:50,230 --> 00:07:55,667
+00:07:17,307 --> 00:07:22,335
 Aralık; konnektör bozulmasını, ölçüm toleransını ve yaşlanmayı kapsar.
 
 101
-00:07:56,593 --> 00:08:03,653
+00:07:23,260 --> 00:07:29,790
 On gigabitte en küçük güç N1'de artı üç, N2'de artı beş, E1'de artı yedi,
 
 102
-00:08:03,703 --> 00:08:06,523
+00:07:29,840 --> 00:07:32,440
 E2'de artı dokuz dBm'dir.
 
 103
-00:08:06,573 --> 00:08:13,073
+00:07:32,490 --> 00:07:38,490
 En büyük güç ise artı yedi, artı dokuz, artı on bir ve yine artı on bir.
 
 104
-00:08:13,123 --> 00:08:21,083
+00:07:38,540 --> 00:07:45,910
 İki buçuk gigabitte en küçük güç sıfır, iki, dört ve altı; en büyük güç dört, altı,
 
 105
-00:08:21,133 --> 00:08:22,688
+00:07:45,960 --> 00:07:47,387
 sekiz ve on dBm.
 
 106
-00:08:23,627 --> 00:08:28,097
+00:07:48,327 --> 00:07:52,707
 Her sınıfta pencere dört desibeldir, bir istisna dışında:
 
 107
-00:08:28,147 --> 00:08:31,537
+00:07:52,757 --> 00:07:56,287
 on gigabitte E2'de en büyük güç, E1 ile aynı,
 
 108
-00:08:31,587 --> 00:08:36,997
+00:07:56,337 --> 00:08:00,687
 artı on birde kalır ve pencere iki desibele daralır.
 
 109
-00:08:37,047 --> 00:08:39,917
+00:08:00,737 --> 00:08:03,397
 Standart bu tavanın nedenini söylemez.
 
 110
-00:08:39,967 --> 00:08:42,767
+00:08:03,447 --> 00:08:06,027
 Ama sonucunu beşinci bölümde göreceğiz:
 
 111
-00:08:42,817 --> 00:08:47,997
+00:08:06,077 --> 00:08:10,859
 E2'de ONU'nun aşırı yük değeri eksi dokuz dBm'e iner.
 
 112
-00:08:48,927 --> 00:08:56,267
+00:08:11,794 --> 00:08:18,694
 Neden on gigabitte üç desibel daha fazla güç? Çünkü alıcı hassasiyeti iki desibel daha kötüdür,
 
 113
-00:08:56,317 --> 00:09:02,027
+00:08:18,744 --> 00:08:23,904
 eksi otuz yerine eksi yirmi sekiz; ve yol cezası bir desibel daha büyüktür,
 
 114
-00:09:02,077 --> 00:09:03,307
+00:08:23,954 --> 00:08:25,104
 bir yerine iki.
 
 115
-00:09:03,357 --> 00:09:05,197
+00:08:25,154 --> 00:08:26,834
 Toplam üç desibel.
 
 116
-00:09:05,247 --> 00:09:08,485
+00:08:26,884 --> 00:08:29,877
 Tablolar bütçe denklemiyle tam olarak kapanır.
 
 117
-00:09:09,427 --> 00:09:13,987
+00:08:30,794 --> 00:08:35,004
 Dört desibellik pencere başka yerlerde de karşımıza çıkar.
 
 118
-00:09:14,037 --> 00:09:17,537
+00:08:35,054 --> 00:08:38,284
 ONU alıcısının X bölü S toleransında,
 
 119
-00:09:17,587 --> 00:09:22,927
+00:08:38,334 --> 00:08:43,284
 komşu kanalların hedeften dört desibel güçlü olabileceği varsayılır,
 
 120
-00:09:22,977 --> 00:09:28,157
+00:08:43,334 --> 00:08:48,114
 çünkü bu OLT vericileri arasındaki en kötü güç farkıdır.
 
 121
-00:09:28,207 --> 00:09:32,127
+00:08:48,164 --> 00:08:51,784
 Sekiz kanalın hepsi artı on bir dBm'de olursa,
 
 122
-00:09:32,177 --> 00:09:36,166
+00:08:51,834 --> 00:08:55,517
 beslemeye toplam yaklaşık artı yirmi dBm girer.
 
 123
-00:09:37,660 --> 00:09:43,930
+00:08:56,993 --> 00:09:03,523
 Sönüm oranı, yüksek ve düşük ışık düzeyleri arasındaki oranın desibel karşılığıdır;
 
 124
-00:09:43,980 --> 00:09:49,760
+00:09:03,573 --> 00:09:07,293
 en küçük değeri her iki hızda sekiz virgül iki desibeldir.
 
 125
-00:09:49,810 --> 00:09:51,210
+00:09:07,343 --> 00:09:09,523
 Ölçüm noktası önemlidir.
 
 126
-00:09:51,260 --> 00:09:56,960
+00:09:09,573 --> 00:09:14,833
 Tek kanallı bir noktada, yani S bölü R CP ya da R bölü S'de,
 
 127
-00:09:57,010 --> 00:10:00,689
+00:09:14,883 --> 00:09:18,285
 G.957'deki düzenek doğrudan kullanılabilir.
 
 128
-00:10:01,627 --> 00:10:07,427
+00:09:19,226 --> 00:09:24,596
 Ama birincil referans nokta olan S bölü R CG çok kanallıdır.
 
 129
-00:10:07,477 --> 00:10:14,207
+00:09:24,646 --> 00:09:30,856
 Orada önce kanal, G.959.1'deki referans optik bant geçiren filtreyle ayrılmalı,
 
 130
-00:10:14,257 --> 00:10:17,317
+00:09:30,906 --> 00:09:33,726
 sonra aynı düzenek uygulanmalıdır.
 
 131
-00:10:17,367 --> 00:10:22,947
+00:09:33,776 --> 00:09:38,936
 Tek dalga boylu eski PON'larda olmayan bir incelik: filtre yetersizse,
 
 132
-00:10:22,997 --> 00:10:31,589
+00:09:38,986 --> 00:09:46,929
 komşu kanalların ışığı sıfır düzeyini yükseltir ve sönüm oranı olduğundan kötü ölçülür.
 
 133
-00:10:32,527 --> 00:10:35,857
+00:09:47,860 --> 00:09:50,930
 Tablonun üçüncü notu bir takasa izin verir:
 
 134
-00:10:35,907 --> 00:10:41,907
+00:09:50,980 --> 00:09:56,530
 daha düşük bir sönüm oranı kabul edilebilir, ama daha yüksek başlatma gücüyle,
 
 135
-00:10:41,957 --> 00:10:45,347
+00:09:56,580 --> 00:09:59,710
 en büyük güç sınırı içinde telafi edilmelidir.
 
 136
-00:10:45,397 --> 00:10:47,367
+00:09:59,760 --> 00:10:01,580
 Ve bir uyarı ekler:
 
 137
-00:10:47,417 --> 00:10:53,303
+00:10:01,630 --> 00:10:07,068
 düşük sönüm oranının bant dışı ve kanal dışı güce etkisi de hesaba katılmalıdır.
 
 138
-00:10:54,227 --> 00:10:56,317
+00:10:07,993 --> 00:10:09,773
 Bu takasın fiziği basittir.
 
 139
-00:10:56,367 --> 00:11:00,917
+00:10:09,823 --> 00:10:14,173
 Alıcı aslında ortalama güce değil, bir ile sıfır arasındaki farka,
 
 140
-00:11:00,967 --> 00:11:04,567
+00:10:14,223 --> 00:10:16,753
 yani optik modülasyon genliğine bakar.
 
 141
-00:11:04,617 --> 00:11:12,827
+00:10:16,803 --> 00:10:25,183
 Sönüm oranı sekiz virgül iki desibelken modülasyon genliği ortalama gücün yaklaşık bir virgül yedi desibel üstündedir;
 
 142
-00:11:12,877 --> 00:11:17,447
+00:10:25,233 --> 00:10:29,463
 altı desibele düşünce bu fark yaklaşık sıfır virgül sekize iner.
 
 143
-00:11:17,497 --> 00:11:22,891
+00:10:29,513 --> 00:10:34,496
 Yani aynı göz açıklığı için ortalama gücü yaklaşık bir desibel artırmak gerekir.
 
 144
-00:11:23,827 --> 00:11:26,717
+00:10:35,426 --> 00:10:37,876
 Spektral sapma tanımı bunu destekler:
 
 145
-00:11:26,767 --> 00:11:31,287
+00:10:37,926 --> 00:10:42,326
 NRZ sıfır gücünün sapma aralığının dışında kalmasına izin verilir,
 
 146
-00:11:31,337 --> 00:11:34,717
+00:10:42,376 --> 00:10:45,496
 ama kanal dışı güce etkisi dikkate alınmalıdır.
 
 147
-00:11:34,767 --> 00:11:39,747
+00:10:45,546 --> 00:10:50,146
 Yani sönüm oranını düşürmek, sıfırda da yanmaya devam etmek demektir;
 
 148
-00:11:39,797 --> 00:11:41,643
+00:10:50,196 --> 00:10:51,897
 ve komşular bu ışığı görür.
 
 149
-00:11:43,127 --> 00:11:46,607
+00:10:53,393 --> 00:10:56,603
 Vericinin bir de yansımaya dayanıklılığı vardır:
 
 150
-00:11:46,657 --> 00:11:52,327
+00:10:56,653 --> 00:11:01,903
 eksi on beş desibellik yansıyan güç varken bile performans bozulmamalıdır.
 
 151
-00:11:52,377 --> 00:11:56,287
+00:11:01,953 --> 00:11:05,563
 ODN'nin geri dönüş kaybı en az otuz iki desibel olsa da,
 
 152
-00:11:56,337 --> 00:12:01,307
+00:11:05,613 --> 00:11:10,203
 yakındaki tek bir kirli konnektör çok daha kötü bir yansıma yaratabilir;
 
 153
-00:12:01,357 --> 00:12:05,127
+00:11:10,253 --> 00:11:13,733
 vericinin toleransı, bu yerel olayların sınırıdır.
 
 154
-00:12:05,177 --> 00:12:09,534
+00:11:13,783 --> 00:11:17,809
 OLT'nin kendi ekipman yansıması ise tabloda tanımlanmamıştır.
 
 155
-00:12:10,460 --> 00:12:15,250
+00:11:18,726 --> 00:11:23,156
 Birinci bölümdeki alternatif referans noktası burada sayıya dönüşür.
 
 156
-00:12:15,300 --> 00:12:20,680
+00:11:23,206 --> 00:11:28,176
 On birinci bilgilendirici ek, simetrik on gigabitlik sistem ve N1,
 
 157
-00:12:20,730 --> 00:12:25,390
+00:11:28,226 --> 00:11:32,636
 N2 sınıfları için S bölü R CP değerlerini verir: en küçük güç,
 
 158
-00:12:25,440 --> 00:12:29,530
+00:11:32,686 --> 00:11:36,356
 CG değerine çoklayıcının en büyük kaybı eklenerek bulunur.
 
 159
-00:12:29,580 --> 00:12:35,436
+00:11:36,406 --> 00:11:41,818
 On gigabit N1 için artı beş virgül iki, N2 için artı yedi virgül iki dBm.
 
 160
-00:12:36,360 --> 00:12:38,110
+00:11:42,760 --> 00:11:44,380
 Mühendis notu.
 
 161
-00:12:38,160 --> 00:12:44,590
+00:11:44,430 --> 00:11:50,370
 Bir: başlatma gücünü CG noktasında ölçüyorsanız çoklayıcıyı da ölçüme dahil edin;
 
 162
-00:12:44,640 --> 00:12:50,670
+00:11:50,420 --> 00:11:55,990
 kart üreticisinin CP değeri ile operatörün CG değeri arasındaki fark,
 
 163
-00:12:50,720 --> 00:12:51,850
+00:11:56,040 --> 00:11:57,080
 çoklayıcının kaybıdır.
 
 164
-00:12:51,900 --> 00:12:56,660
+00:11:57,130 --> 00:12:01,530
 İki: sönüm oranını düşürüp gücü artırdığınızda,
 
 165
-00:12:56,710 --> 00:13:01,413
+00:12:01,580 --> 00:12:05,923
 bant dışı ve kanal dışı güç yoğunluğunu yeniden ölçün.
 
 166
-00:13:02,460 --> 00:13:04,560
+00:12:06,960 --> 00:12:08,900
 Sıradaki: güç tek başına yetmez.
 
 167
-00:13:04,610 --> 00:13:07,822
+00:12:08,950 --> 00:12:11,915
 O gücün spektrumda nereye düştüğü de önemlidir.
 
 168
-00:13:09,593 --> 00:13:10,633
+00:12:13,693 --> 00:12:14,653
 Perde üç: spektrum.
 
 169
-00:13:10,683 --> 00:13:14,063
+00:12:14,703 --> 00:12:17,823
 Standart kaynak tipini zorunlu kılmaz,
 
 170
-00:13:14,113 --> 00:13:20,043
+00:12:17,873 --> 00:12:23,333
 ama uygun vericilerin yalnızca tek boylamsal modlu lazerler olduğunu söyler.
 
 171
-00:13:20,093 --> 00:13:25,713
+00:12:23,383 --> 00:12:28,593
 Mod bölüşme gürültüsünü kontrol etmek için en küçük yan mod bastırma oranı,
 
 172
-00:13:25,763 --> 00:13:29,338
+00:12:28,643 --> 00:12:31,948
 yani SMSR, otuz desibel olarak verilir.
 
 173
-00:13:30,260 --> 00:13:35,780
+00:12:32,893 --> 00:12:37,993
 Mod bölüşme gürültüsü nedir? Çok modlu bir lazerde toplam güç sabit kalırken,
 
 174
-00:13:35,830 --> 00:13:39,040
+00:12:38,043 --> 00:12:41,043
 güç modlar arasında sürekli el değiştirir.
 
 175
-00:13:39,090 --> 00:13:43,520
+00:12:41,093 --> 00:12:45,153
 Dispersiyonlu bir fiberde modlar farklı hızlarda ilerlediği için,
 
 176
-00:13:43,570 --> 00:13:46,580
+00:12:45,203 --> 00:12:48,003
 bu el değiştirme alıcıda gürültüye dönüşür.
 
 177
-00:13:46,630 --> 00:13:50,905
+00:12:48,053 --> 00:12:51,980
 Yan modları otuz desibel bastırmak, bu etkiyi önemsiz kılar.
 
 178
-00:13:51,826 --> 00:13:58,836
+00:12:52,926 --> 00:12:59,406
 SMSR'nin ölçüldüğü yer önemlidir: lazerin çıkışında, herhangi bir süzmeden önce.
 
 179
-00:13:58,886 --> 00:14:02,386
+00:12:59,456 --> 00:13:02,686
 Tablo satırı S bölü R CP noktasını gösterir.
 
 180
-00:14:02,436 --> 00:14:05,176
+00:13:02,736 --> 00:13:05,266
 Yani SMSR bir lazer özelliğidir;
 
 181
-00:14:05,226 --> 00:14:11,186
+00:13:05,316 --> 00:13:10,836
 arayüzdeki bant dışı ve kanal dışı sınırlar ayrıca geçerlidir.
 
 182
-00:14:11,236 --> 00:14:16,305
+00:13:10,886 --> 00:13:15,558
 İkisini karıştırmamak gerekir: biri lazeri, diğeri arayüzü tanımlar.
 
 183
-00:14:17,226 --> 00:14:19,066
+00:13:16,493 --> 00:13:18,193
 En büyük spektral sapma,
 
 184
-00:14:19,116 --> 00:14:24,926
+00:13:18,243 --> 00:13:23,613
 nominal merkez frekanstan tek yönlü sapmadır ve gigahertz cinsinden verilir:
 
 185
-00:14:24,976 --> 00:14:27,686
+00:13:23,663 --> 00:13:26,153
 aşağı yönde artı eksi yirmi.
 
 186
-00:14:27,736 --> 00:14:33,516
+00:13:26,203 --> 00:13:31,563
 Hem sabit hem ayarlanabilir vericilere uygulanır, ve en kötü koşullarda,
 
 187
-00:14:33,566 --> 00:14:35,796
+00:13:31,613 --> 00:13:33,663
 yaşlanma dahil sağlanmalıdır.
 
 188
-00:14:35,846 --> 00:14:40,856
+00:13:33,713 --> 00:13:38,343
 OLT için ayrı bir dalga boyu kayması ya da kararlılık parametresi yoktur;
 
 189
-00:14:40,906 --> 00:14:44,239
+00:13:38,393 --> 00:13:41,469
 bütün sınır bu yirmi gigahertzin içindedir.
 
 190
-00:14:45,160 --> 00:14:48,690
+00:13:42,393 --> 00:13:45,643
 OLT gerçek frekansını biliyorsa bunu duyurabilir:
 
 191
-00:14:48,740 --> 00:14:53,680
+00:13:45,693 --> 00:13:50,263
 kanal profilindeki aşağı yön frekans kayması alanı,
 
 192
-00:14:53,730 --> 00:15:00,110
+00:13:50,313 --> 00:13:56,193
 nominal değerden farkı sıfır virgül bir gigahertz birimiyle taşır.
 
 193
-00:15:00,160 --> 00:15:05,075
+00:13:56,243 --> 00:14:00,805
 Bu, abone tarafındaki ayarlanabilir alıcı için yararlı bir ipucudur.
 
 194
-00:15:05,993 --> 00:15:07,843
+00:14:01,726 --> 00:14:03,996
 Artı eksi yirmi gigahertz,
 
 195
-00:15:07,893 --> 00:15:14,113
+00:14:04,046 --> 00:14:09,236
 bin altı yüz nanometre civarında yaklaşık artı eksi sıfır virgül on yedi nanometredir.
 
 196
-00:15:14,163 --> 00:15:15,573
+00:14:09,286 --> 00:14:10,586
 Tipik bir DFB lazer,
 
 197
-00:15:15,623 --> 00:15:21,483
+00:14:10,636 --> 00:14:16,046
 sıcaklıkla kelvin başına yaklaşık sıfır virgül bir nanometre kayar; yani bu sınır,
 
 198
-00:15:21,533 --> 00:15:26,733
+00:14:16,096 --> 00:14:20,906
 yaklaşık artı eksi iki kelvinlik bir sıcaklık değişimine karşılık gelir.
 
 199
-00:15:26,783 --> 00:15:32,648
+00:14:20,956 --> 00:14:26,371
 Bu yüzden OLT lazerleri pratikte termoelektrik soğutucuyla sıcaklık kontrollüdür.
 
 200
-00:15:34,127 --> 00:15:36,767
+00:14:27,860 --> 00:14:30,300
 Şimdi komşuları korumaya gelelim.
 
 201
-00:15:36,817 --> 00:15:42,747
+00:14:30,350 --> 00:14:35,830
 Tabloda iki güç yoğunluğu sınırı var, ikisi de on beş gigahertzlik bant başına.
 
 202
-00:15:42,797 --> 00:15:47,127
+00:14:35,880 --> 00:14:39,880
 Kanal dışı sınır, diğer TWDM kanallarını korur:
 
 203
-00:15:47,177 --> 00:15:51,907
+00:14:39,930 --> 00:14:44,290
 dört kanallı sistemde kanal başına eksi otuz dört virgül beş,
 
 204
-00:15:51,957 --> 00:15:56,637
+00:14:44,340 --> 00:14:48,660
 sekiz kanallı sistemde eksi kırk iki virgül dört dBm.
 
 205
-00:15:56,687 --> 00:16:01,577
+00:14:48,710 --> 00:14:52,950
 Bant dışı sınır ise noktadan noktaya WDM kanallarını korur:
 
 206
-00:16:01,627 --> 00:16:05,874
+00:14:53,000 --> 00:14:57,214
 eksi kırk dört virgül dokuz, ve eksi elli iki virgül bir.
 
 207
-00:16:06,794 --> 00:16:09,114
+00:14:58,160 --> 00:15:00,300
 Notlar varsayımları açıklar.
 
 208
-00:16:09,164 --> 00:16:14,104
+00:15:00,350 --> 00:15:04,920
 Kanal dışı sınır; kurban TWDM kanalının FEC ile çalıştığını,
 
 209
-00:16:14,154 --> 00:16:20,734
+00:15:04,970 --> 00:15:11,050
 çoklayıcının süzmesini ve sıfır virgül bir desibellik ceza bütçesini varsayar.
 
 210
-00:16:20,784 --> 00:16:26,974
+00:15:11,100 --> 00:15:16,820
 Bant dışı sınır da sıfır virgül bir desibellik ceza varsayar, ama kurbanın,
 
 211
-00:16:27,024 --> 00:16:33,068
+00:15:16,870 --> 00:15:22,453
 yani PtP WDM'in, FEC olmadan çalıştığını varsayar; bu yüzden daha sıkıdır.
 
 212
-00:16:33,994 --> 00:16:39,344
+00:15:23,393 --> 00:15:28,333
 Sekiz kanala geçildiğinde sınırlar sıkılaşır: bant dışında yedi virgül iki,
 
 213
-00:16:39,394 --> 00:16:42,444
+00:15:28,383 --> 00:15:31,203
 kanal dışında yedi virgül dokuz desibel.
 
 214
-00:16:42,494 --> 00:16:45,974
+00:15:31,253 --> 00:15:34,463
 Girişimci sayısı artar: dört kanalda üç, sekiz kanalda yedi.
 
 215
-00:16:46,024 --> 00:16:53,854
+00:15:34,513 --> 00:15:41,753
 Standart ayrıca bu güç yoğunluğu değerlerinin dört kanal ve yirmi kilometre için optimize edildiğini,
 
 216
-00:16:53,904 --> 00:16:58,591
+00:15:41,803 --> 00:15:46,135
 sekiz kanal ve kırk kilometrenin ileride çalışılacağını not eder.
 
 217
-00:16:59,527 --> 00:17:02,937
+00:15:47,060 --> 00:15:49,930
 Bu sınırları bastırma oranına çevirelim.
 
 218
-00:17:02,987 --> 00:17:06,757
+00:15:49,980 --> 00:15:53,740
 On gigabit E2'de en büyük güç artı on bir dBm.
 
 219
-00:17:06,807 --> 00:17:10,737
+00:15:53,790 --> 00:15:57,420
 Kanal dışı sınır eksi otuz dört virgül beş ise,
 
 220
-00:17:10,787 --> 00:17:15,137
+00:15:57,470 --> 00:16:01,500
 aradaki fark kırk beş virgül beş desibeldir.
 
 221
-00:17:15,187 --> 00:17:18,097
+00:16:01,550 --> 00:16:05,120
 Bu, otuz desibellik SMSR'nin çok üstündedir;
 
 222
-00:17:18,147 --> 00:17:22,817
+00:16:05,170 --> 00:16:08,600
 aradaki fark çoklayıcının süzmesinden gelmelidir.
 
 223
-00:17:22,867 --> 00:17:27,410
+00:16:08,650 --> 00:16:12,841
 Bu çıkarma, standardın D ekinde kullandığı yöntemin aynısıdır.
 
 224
-00:17:28,327 --> 00:17:32,147
+00:16:13,760 --> 00:16:17,290
 Bant dışı için gereken bastırma daha da büyüktür.
 
 225
-00:17:32,197 --> 00:17:38,607
+00:16:17,340 --> 00:16:23,260
 Aynı artı on bir dBm'lik güçle, dört kanallı sistemde elli beş virgül dokuz,
 
 226
-00:17:38,657 --> 00:17:42,527
+00:16:23,310 --> 00:16:26,890
 sekiz kanallı sistemde altmış üç virgül bir desibel.
 
 227
-00:17:42,577 --> 00:17:49,191
+00:16:26,940 --> 00:16:33,049
 PtP WDM kanalları FEC olmadan çalıştığı için, onları korumak daha pahalıdır.
 
 228
-00:17:50,660 --> 00:17:55,910
+00:16:34,527 --> 00:16:39,197
 Bir satır daha var: aşağı yönde istem dışı güç yoğunluğu, WNE;
 
 229
-00:17:55,960 --> 00:18:00,680
+00:16:39,247 --> 00:16:43,787
 iki buçuk gigabitte eksi altmış üç virgül beş,
 
 230
-00:18:00,730 --> 00:18:04,860
+00:16:43,837 --> 00:16:47,657
 on gigabitte eksi altmış üç virgül yedi dBm.
 
 231
-00:18:04,910 --> 00:18:08,760
+00:16:47,707 --> 00:16:51,257
 Yukarı yönde bu kavram açıkça tanımlıdır:
 
 232
-00:18:08,810 --> 00:18:15,110
+00:16:51,307 --> 00:16:57,127
 ONU'ya ait olmayan burst'ler sırasında yayılmasına izin verilen güç.
 
 233
-00:18:15,160 --> 00:18:20,254
+00:16:57,177 --> 00:17:01,890
 Aşağı yön satırının tanımı ise G.989'a bırakılmıştır.
 
 234
-00:18:21,193 --> 00:18:25,883
+00:17:02,827 --> 00:17:07,157
 Kanal dışı maskenin iki düzeyi, üçüncü bölümde gördüğümüz gibi,
 
 235
-00:18:25,933 --> 00:18:28,893
+00:17:07,207 --> 00:17:09,927
 uyumsuz ve uyumlu karışmayı ayırır.
 
 236
-00:18:28,943 --> 00:18:34,183
+00:17:09,977 --> 00:17:14,837
 Aşağı yön tablosu kanal sayısı başına tek bir kanal dışı değer verir;
 
 237
-00:18:34,233 --> 00:18:38,893
+00:17:14,887 --> 00:17:19,187
 birinci ve ikinci düzey ayrımı yukarı yön tablolarında görünür.
 
 238
-00:18:38,943 --> 00:18:40,103
+00:17:19,237 --> 00:17:20,307
 Ek sekizdeki model,
 
 239
-00:18:40,153 --> 00:18:48,814
+00:17:20,357 --> 00:17:28,365
 NRZ sinyalini yarım güçte bir taşıyıcı ve on beş gigahertzlik dikdörtgen bir modülasyon spektrumu olarak ele alır.
 
 240
-00:18:49,760 --> 00:18:50,820
+00:17:29,294 --> 00:17:30,274
 Mühendis notu.
 
 241
-00:18:50,870 --> 00:18:55,490
+00:17:30,324 --> 00:17:34,594
 Bir: SMSR'yi lazer çıkışında, güç yoğunluğunu arayüzde ölçün;
 
 242
-00:18:55,540 --> 00:18:58,260
+00:17:34,644 --> 00:17:37,154
 ikisini birbirinin yerine koymayın.
 
 243
-00:18:58,310 --> 00:19:01,750
+00:17:37,204 --> 00:17:40,374
 İki: sekiz kanallı bir sistem planlıyorsanız,
 
 244
-00:19:01,800 --> 00:19:07,530
+00:17:40,424 --> 00:17:45,714
 güç yoğunluğu sınırlarının dört kanal için optimize edildiğini unutmayın;
 
 245
-00:19:07,580 --> 00:19:09,584
+00:17:45,764 --> 00:17:47,622
 marjı kendiniz doğrulayın.
 
 246
-00:19:10,627 --> 00:19:12,497
+00:17:48,660 --> 00:17:50,740
 Sıradaki: spektrum temiz.
 
 247
-00:19:12,547 --> 00:19:15,930
+00:17:50,790 --> 00:17:53,560
 Peki zaman ekseninde sinyal ne kadar temiz?
 
 248
-00:19:17,727 --> 00:19:18,787
+00:17:55,360 --> 00:17:56,330
 Perde dört: göz.
 
 249
-00:19:18,837 --> 00:19:22,017
+00:17:56,380 --> 00:17:59,330
 Göz diyagramı yalnızca açıklığı değil,
 
 250
-00:19:22,067 --> 00:19:28,457
+00:17:59,380 --> 00:18:05,270
 aşma ve alt aşma sınırlarını da kontrol etmek için kullanılır.
 
 251
-00:19:28,507 --> 00:19:32,977
+00:18:05,320 --> 00:18:09,460
 OLT vericisinin göz maskesi Tablo on bir sekiz'dedir,
 
 252
-00:19:33,027 --> 00:19:35,521
+00:18:09,510 --> 00:18:11,811
 ve değerler her iki hızda aynıdır.
 
 253
-00:19:36,460 --> 00:19:42,490
+00:18:12,760 --> 00:18:18,330
 Maske, dikdörtgen bir iç bölge ile üst ve alt yasak bölgelerden oluşur.
 
 254
-00:19:42,540 --> 00:19:47,740
+00:18:18,380 --> 00:18:23,190
 İç bölgenin genişliği, x üç eksi x iki, sıfır virgül iki birim aralıktır.
 
 255
-00:19:47,790 --> 00:19:54,570
+00:18:23,240 --> 00:18:30,380
 Düşey olarak iç bölge sıfır virgül yirmi beş ile sıfır virgül yetmiş beş arasındadır.
 
 256
-00:19:54,620 --> 00:19:57,780
+00:18:30,430 --> 00:18:32,470
 Üstte bir artı sıfır virgül yirmi beşin,
 
 257
-00:19:57,830 --> 00:20:02,290
+00:18:32,520 --> 00:18:36,640
 altta eksi sıfır virgül yirmi beşin ötesi yasaktır;
 
 258
-00:20:02,340 --> 00:20:06,216
+00:18:36,690 --> 00:18:40,273
 yani aşma ve alt aşma en çok yüzde yirmi beş olabilir.
 
 259
-00:20:07,160 --> 00:20:15,080
+00:18:41,193 --> 00:18:48,513
 İç bölgenin iki kenarının, sıfır ve bir birim aralığa göre simetrik olması gerekmez.
 
 260
-00:20:15,130 --> 00:20:21,610
+00:18:48,563 --> 00:18:54,553
 Bu değerler, optik taşıma ağı arayüzleri için G.959.1'den alınmıştır.
 
 261
-00:20:21,660 --> 00:20:29,210
+00:18:54,603 --> 00:19:01,563
 ONU vericisinin maskesi aynı sayılara sahiptir, ama kaynağı SDH için G.957'dir.
 
 262
-00:20:29,260 --> 00:20:31,789
+00:19:01,613 --> 00:19:03,964
 Aynı sayılar, iki ayrı miras.
 
 263
-00:20:32,727 --> 00:20:36,437
+00:19:04,893 --> 00:19:08,303
 Aşma sınırı doğrudan lazerin fiziğiyle ilgilidir.
 
 264
-00:20:36,487 --> 00:20:39,787
+00:19:08,353 --> 00:19:11,413
 Doğrudan modüle edilen bir lazerde akım adımı,
 
 265
-00:20:39,837 --> 00:20:44,787
+00:19:11,463 --> 00:19:16,043
 gevşeme salınımlarına ve buna eşlik eden bir frekans çırpıntısına yol açar.
 
 266
-00:20:44,837 --> 00:20:47,347
+00:19:16,093 --> 00:19:18,403
 Salınım gözde aşma olarak,
 
 267
-00:20:47,397 --> 00:20:51,477
+00:19:18,453 --> 00:19:22,243
 çırpıntı ise fiberde dispersiyon cezası olarak karşımıza çıkar.
 
 268
-00:20:51,527 --> 00:20:57,523
+00:19:22,293 --> 00:19:27,819
 Harici modülatörlü bir lazerde, yani EML'de, bu iki etki çok daha küçüktür.
 
 269
-00:20:58,993 --> 00:21:02,133
+00:19:29,293 --> 00:19:32,193
 Göz bir referans alıcıyla ölçülür:
 
 270
-00:21:02,183 --> 00:21:07,553
+00:19:32,243 --> 00:19:37,193
 optik elektrik dönüştürücüsü ve dördüncü dereceden bir Thomson filtresi.
 
 271
-00:21:07,603 --> 00:21:13,893
+00:19:37,243 --> 00:19:43,073
 Filtrenin üç desibel kesim frekansı, nominal hızın sıfır virgül yetmiş beş katıdır:
 
 272
-00:21:13,943 --> 00:21:18,093
+00:19:43,123 --> 00:19:46,963
 on gigabitte yaklaşık yedi virgül beş gigahertz.
 
 273
-00:21:18,143 --> 00:21:21,933
+00:19:47,013 --> 00:19:50,503
 Bu değer standardın metninde değil, şeklinde yer alır;
 
 274
-00:21:21,983 --> 00:21:26,546
+00:19:50,553 --> 00:19:54,768
 ölçüm cihazınızda doğru filtrenin seçildiğinden emin olun.
 
 275
-00:21:27,493 --> 00:21:33,343
+00:19:55,693 --> 00:20:01,093
 Neden Thomson filtresi? Çünkü grup gecikmesi en düzgün olan filtre ailesidir;
 
 276
-00:21:33,393 --> 00:21:36,023
+00:20:01,143 --> 00:20:03,583
 bir adım girişte aşma üretmez.
 
 277
-00:21:36,073 --> 00:21:41,363
+00:20:03,633 --> 00:20:09,363
 Böylece ekranda gördüğünüz aşma, ölçüm sisteminin değil, vericinin aşması olur.
 
 278
-00:21:41,413 --> 00:21:47,723
+00:20:09,413 --> 00:20:14,393
 Bant genişliği ise sinyalin büyük kısmını geçirirken gürültüyü sınırlayacak şekilde,
 
 279
-00:21:47,773 --> 00:21:50,446
+00:20:14,443 --> 00:20:16,914
 hızın dörtte üçü olarak seçilmiştir.
 
 280
-00:21:51,393 --> 00:21:55,593
+00:20:17,860 --> 00:20:21,830
 Standart bir maske marjı ya da isabet oranı tanımlamaz.
 
 281
-00:21:55,643 --> 00:22:00,623
+00:20:21,880 --> 00:20:26,370
 Ama pratikte göz, maskeden ne kadar uzak durduğuyla değerlendirilir;
 
 282
-00:22:00,673 --> 00:22:05,773
+00:20:26,420 --> 00:20:31,154
 üretim testlerinde marj, yaşlanma ve sıcaklık için bir güvenlik payıdır.
 
 283
-00:22:07,260 --> 00:22:08,850
+00:20:32,627 --> 00:20:34,097
 Titreşim üretimi: OLT,
 
 284
-00:22:08,900 --> 00:22:15,740
+00:20:34,147 --> 00:20:40,467
 zamanlama girişine titreşim uygulanmadığında Tablo on bir on'daki sınırları aşmamalıdır.
 
 285
-00:22:15,790 --> 00:22:22,170
+00:20:40,517 --> 00:20:46,407
 On gigabitte yirmi kilohertz ile seksen megahertz arasında en çok sıfır virgül üç,
 
 286
-00:22:22,220 --> 00:22:28,140
+00:20:46,457 --> 00:20:51,927
 dört megahertz ile seksen megahertz arasında sıfır virgül bir birim aralık,
 
 287
-00:22:28,190 --> 00:22:29,370
+00:20:51,977 --> 00:20:53,067
 tepeden tepeye.
 
 288
-00:22:29,420 --> 00:22:34,070
+00:20:53,117 --> 00:20:57,417
 İki buçuk gigabitte bantlar, beş kilohertz ile yirmi megahertz,
 
 289
-00:22:34,120 --> 00:22:37,199
+00:20:57,467 --> 00:21:00,309
 ve bir megahertz ile yirmi megahertzdir.
 
 290
-00:22:38,127 --> 00:22:42,307
+00:21:01,227 --> 00:21:05,087
 Bu sayılar SDH ekipman standardı G.783'ten gelir;
 
 291
-00:22:42,357 --> 00:22:46,277
+00:21:05,137 --> 00:21:08,757
 filtreler ve ölçüm süresi G.825'te tanımlıdır.
 
 292
-00:22:46,327 --> 00:22:48,747
+00:21:08,807 --> 00:21:11,087
 Birim aralık cinsinden düşünün:
 
 293
-00:22:48,797 --> 00:22:53,867
+00:21:11,137 --> 00:21:15,777
 on gigabitte bir birim aralık yaklaşık yüz pikosaniyedir;
 
 294
-00:22:53,917 --> 00:23:00,856
+00:21:15,827 --> 00:21:22,241
 sıfır virgül üç birim aralık, otuz pikosaniyelik tepeden tepeye titreşim demektir.
 
 295
-00:23:01,793 --> 00:23:07,713
+00:21:23,160 --> 00:21:28,630
 Titreşim toleransı ise ONU alıcısının özelliğidir; beşinci bölümde göreceğiz.
 
 296
-00:23:07,763 --> 00:23:11,943
+00:21:28,680 --> 00:21:32,540
 OLT tarafında tolerans yalnızca bilgilendirme amaçlıdır,
 
 297
-00:23:11,993 --> 00:23:14,403
+00:21:32,590 --> 00:21:34,820
 çünkü yukarı yön burst'lü olduğu için,
 
 298
-00:23:14,453 --> 00:23:17,843
+00:21:34,870 --> 00:21:37,999
 sürekli çalışma gerektiren bu ölçüm doğrudan yapılamaz.
 
 299
-00:23:18,793 --> 00:23:20,503
+00:21:38,927 --> 00:21:40,497
 Mühendis notu.
 
 300
-00:23:20,553 --> 00:23:25,193
+00:21:40,547 --> 00:21:44,837
 Bir: göz ölçümünde referans filtreyi doğru seçin;
 
 301
-00:23:25,243 --> 00:23:30,413
+00:21:44,887 --> 00:21:49,667
 yanlış filtre gözü olduğundan açık ya da kapalı gösterir.
 
 302
-00:23:30,463 --> 00:23:31,243
+00:21:49,717 --> 00:21:50,437
 İki: titreşim üretimini,
 
 303
-00:23:31,293 --> 00:23:38,019
+00:21:50,487 --> 00:21:56,702
 OLT'nin gerçek saat kaynağıyla ve en kötü trafik deseninde ölçün.
 
 304
-00:23:39,060 --> 00:23:42,723
+00:21:57,727 --> 00:22:01,110
 Sıradaki: bu bitler hangi yapının içinde gidiyor?
 
 305
-00:23:44,493 --> 00:23:45,783
+00:22:02,893 --> 00:22:04,083
 Perde beş: TC köprüsü.
 
 306
-00:23:45,833 --> 00:23:51,143
+00:22:04,133 --> 00:22:09,043
 Çalışan bir OLT kanal sonlandırıcısı, aşağı yönde sürekli gönderir.
 
 307
-00:23:51,193 --> 00:23:54,993
+00:22:09,093 --> 00:22:12,603
 Her yüz yirmi beş mikrosaniyelik fiziksel çerçeve,
 
 308
-00:23:55,043 --> 00:23:58,773
+00:22:12,653 --> 00:22:16,093
 on gigabitte yüz elli beş bin beş yüz yirmi bayt,
 
 309
-00:23:58,823 --> 00:24:03,394
+00:22:16,143 --> 00:22:20,368
 iki buçuk gigabitte otuz sekiz bin sekiz yüz seksen bayttır.
 
 310
-00:24:04,326 --> 00:24:10,406
+00:22:21,293 --> 00:22:26,903
 Çerçeve, yirmi dört baytlık fiziksel senkron bloğuyla, yani PSBd ile başlar.
 
 311
-00:24:10,456 --> 00:24:15,366
+00:22:26,953 --> 00:22:31,503
 Ardından yük gelir: çerçeve yapısı önce isteğe bağlı FEC'ten,
 
 312
-00:24:15,416 --> 00:24:17,706
+00:22:31,553 --> 00:22:33,663
 sonra karıştırıcıdan geçirilir.
 
 313
-00:24:17,756 --> 00:24:24,786
+00:22:33,713 --> 00:22:40,213
 PSBd'nin üç parçası vardır: PSync, süper çerçeve sayacı ve işletim kontrol yapısı;
 
 314
-00:24:24,836 --> 00:24:26,210
+00:22:40,263 --> 00:22:41,526
 her biri sekiz bayt.
 
 315
-00:24:27,160 --> 00:24:30,660
+00:22:42,460 --> 00:22:45,050
 Bir ayrıntı: OLT her zaman gönderir.
 
 316
-00:24:30,710 --> 00:24:35,930
+00:22:45,100 --> 00:22:50,570
 Trafik olmadığında bile çerçeveler boş XGEM çerçeveleriyle doldurulur.
 
 317
-00:24:35,980 --> 00:24:40,820
+00:22:50,620 --> 00:22:55,090
 ONU'ların senkronda kalması ve saatlerini çıkarması buna bağlıdır;
 
 318
-00:24:40,870 --> 00:24:44,383
+00:22:55,140 --> 00:22:58,383
 aşağı yönde sessizlik, bir hata durumudur.
 
 319
-00:24:45,326 --> 00:24:48,566
+00:22:59,326 --> 00:23:02,316
 PSync sabit, altmış dört bitlik bir desendir;
 
 320
-00:24:48,616 --> 00:24:51,386
+00:23:02,366 --> 00:23:04,926
 onaltılık değerini ekranda görüyorsunuz.
 
 321
-00:24:51,436 --> 00:24:56,106
+00:23:04,976 --> 00:23:09,296
 Her iki hızda da aynıdır, ve XG-PON1 ile aynı desendir.
 
 322
-00:24:56,156 --> 00:25:01,076
+00:23:09,346 --> 00:23:13,886
 Süper çerçeve sayacı elli bir bitliktir ve her çerçevede bir artar.
 
 323
-00:25:01,126 --> 00:25:04,398
+00:23:13,936 --> 00:23:16,958
 Bu hızla başa dönmesi yaklaşık dokuz bin yıl sürer.
 
 324
-00:25:05,326 --> 00:25:09,776
+00:23:17,893 --> 00:23:22,003
 Sayaç on üç bitlik bir HEC ile korunur: BCH altmış üç,
 
 325
-00:25:09,826 --> 00:25:12,496
+00:23:22,053 --> 00:23:24,513
 on iki kodu artı bir eşlik biti.
 
 326
-00:25:12,546 --> 00:25:15,716
+00:23:24,563 --> 00:23:27,503
 İki hatayı düzeltir, üç hatayı algılar;
 
 327
-00:25:15,766 --> 00:25:19,626
+00:23:27,553 --> 00:23:31,113
 böylece sayaç tek bir bit hatasıyla kaybolmaz.
 
 328
-00:25:19,676 --> 00:25:23,616
+00:23:31,163 --> 00:23:34,803
 Süper çerçeve sayacı ve işletim kontrol yapısı,
 
 329
-00:25:23,666 --> 00:25:28,116
+00:23:34,853 --> 00:23:38,963
 HEC hesaplandıktan sonra sabit bir desenle XOR'lanır;
 
 330
-00:25:28,166 --> 00:25:30,915
+00:23:39,013 --> 00:23:41,552
 PSync ise olduğu gibi gönderilir.
 
 331
-00:25:31,860 --> 00:25:34,840
+00:23:42,493 --> 00:23:45,253
 Süper çerçeve sayacı üç iş görür.
 
 332
-00:25:34,890 --> 00:25:37,550
+00:23:45,303 --> 00:23:47,743
 Alıcı onu senkron doğrulamasında kullanır.
 
 333
-00:25:37,600 --> 00:25:41,910
+00:23:47,793 --> 00:23:51,783
 Karıştırıcı onu her çerçevede farklı bir dizi üretmek için kullanır.
 
 334
-00:25:41,960 --> 00:25:46,500
+00:23:51,833 --> 00:23:56,023
 Ve dalga boyu değişimi onunla zamanlanır: ayar kontrol mesajı,
 
 335
-00:25:46,550 --> 00:25:49,740
+00:23:56,073 --> 00:23:59,023
 sayacın değeriyle bir hedef çerçeve belirtir,
 
 336
-00:25:49,790 --> 00:25:55,501
+00:23:59,073 --> 00:24:04,350
 ve ONU kendi sayacının en düşük on altı biti bu değere ulaştığında ayara başlar.
 
 337
-00:25:56,993 --> 00:26:02,543
+00:24:05,827 --> 00:24:10,957
 İşletim kontrol yapısı, ONU'ya kanal hakkında bilgi taşır.
 
 338
-00:26:02,593 --> 00:26:10,573
+00:24:11,007 --> 00:24:18,377
 Önce sekiz bitlik PON-ID tipi: bir menzil uzatıcı bayrağı, üç bitlik ODN sınıf kodu,
 
 339
-00:26:10,623 --> 00:26:16,073
+00:24:18,427 --> 00:24:23,467
 aşağı yön FEC bayrağı, TC sürümü bayrağı ve iki bitlik bağlantı tipi.
 
 340
-00:26:16,123 --> 00:26:19,033
+00:24:23,517 --> 00:24:26,207
 Ardından otuz iki bitlik PON-ID:
 
 341
-00:26:19,083 --> 00:26:25,875
+00:24:26,257 --> 00:24:32,531
 yirmi sekiz bitlik yönetim etiketi ve dört bitlik aşağı yön kanal kimliği.
 
 342
-00:26:26,793 --> 00:26:31,313
+00:24:33,460 --> 00:24:37,630
 PON-ID tipindeki bayrakların anlamları da tanımlıdır.
 
 343
-00:26:31,363 --> 00:26:37,203
+00:24:37,680 --> 00:24:43,080
 TC sürümü bayrağı bir ise ONU, G.989.3 TC katmanıyla;
 
 344
-00:26:37,253 --> 00:26:42,183
+00:24:43,130 --> 00:24:47,690
 sıfır ise G.987.3 TC katmanıyla konuştuğunu bilir.
 
 345
-00:26:42,233 --> 00:26:48,863
+00:24:47,740 --> 00:24:53,860
 Bağlantı tipi iki bitlik bir haritadır: yalnız A tipi, yalnız B tipi,
 
 346
-00:26:48,913 --> 00:26:50,753
+00:24:53,910 --> 00:24:55,610
 ya da ikisi birden.
 
 347
-00:26:50,803 --> 00:27:00,812
+00:24:55,660 --> 00:25:04,915
 Menzil uzatıcı bayrağı ise TOL değerinin OLT'ye mi yoksa bir menzil uzatıcıya mı ait olduğunu söyler.
 
 348
-00:27:01,760 --> 00:27:07,350
+00:25:05,860 --> 00:25:10,990
 Ve vericiyle doğrudan ilgili bir alan: TOL, yani iletim optik düzeyi.
 
 349
-00:27:07,400 --> 00:27:09,390
+00:25:11,040 --> 00:25:12,920
 Dokuz bitlik bir sayıdır,
 
 350
-00:27:09,440 --> 00:27:17,910
+00:25:12,970 --> 00:25:20,790
 ve eksi otuz dBm'e göre sıfır virgül bir desibellik adımlarla OLT'nin o anki başlatma gücünü gösterir.
 
 351
-00:27:17,960 --> 00:27:22,180
+00:25:20,840 --> 00:25:24,730
 Sıfır değeri eksi otuz dBm, üç yüz değeri sıfır dBm,
 
 352
-00:27:22,230 --> 00:27:26,020
+00:25:24,780 --> 00:25:28,290
 beş yüz on değeri artı yirmi bir dBm demektir;
 
 353
-00:27:26,070 --> 00:27:30,380
+00:25:28,340 --> 00:25:32,320
 en büyük değer ise desteklenmiyor anlamına gelir.
 
 354
-00:27:30,430 --> 00:27:36,125
+00:25:32,370 --> 00:25:37,635
 Bir bit de bu gücün CG noktasına mı, CP noktasına mı ait olduğunu söyler.
 
 355
-00:27:37,060 --> 00:27:41,000
+00:25:38,560 --> 00:25:42,200
 Standart ONU'nun bu değerle ne yapacağını söylemez.
 
 356
-00:27:41,050 --> 00:27:42,950
+00:25:42,250 --> 00:25:43,000
 Ama bilgi değerlidir: OLT,
 
 357
-00:27:43,000 --> 00:27:49,230
+00:25:44,050 --> 00:25:49,810
 dört desibellik güç penceresinin neresinde çalıştığını her çerçevede yayınlar.
 
 358
-00:27:49,280 --> 00:27:57,256
+00:25:49,860 --> 00:25:57,232
 İkinci ekteki örneklere göre OLT'nin kendi verici güç izlemesinin doğruluğu ise artı eksi iki desibeldir.
 
 359
-00:27:58,727 --> 00:28:02,157
+00:25:58,727 --> 00:26:01,897
 FEC aşağı yönde zorunlu olarak desteklenir,
 
 360
-00:28:02,207 --> 00:28:07,897
+00:26:01,947 --> 00:26:07,187
 ama statik olarak açılır ya da kapatılır; bütün ONU'lar için aynı.
 
 361
-00:28:07,947 --> 00:28:13,237
+00:26:07,237 --> 00:26:11,407
 On gigabitte RS iki yüz kırk sekiz, iki yüz on altı kullanılır:
 
 362
-00:28:13,287 --> 00:28:16,177
+00:26:11,457 --> 00:26:14,857
 her çerçevede altı yüz yirmi yedi kod sözcüğü,
 
 363
-00:28:16,227 --> 00:28:21,257
+00:26:14,907 --> 00:26:19,517
 her biri iki yüz on altı veri ve otuz iki eşlik baytı.
 
 364
-00:28:21,307 --> 00:28:26,783
+00:26:19,567 --> 00:26:24,667
 Altı yüz yirmi yedi çarpı iki yüz kırk sekiz, tam olarak yükün boyuna eşittir.
 
 365
-00:28:27,727 --> 00:28:33,147
+00:26:25,594 --> 00:26:30,394
 İki buçuk gigabitte RS iki yüz kırk sekiz, iki yüz otuz iki kullanılır:
 
 366
-00:28:33,197 --> 00:28:35,707
+00:26:30,444 --> 00:26:32,974
 yüz elli altı tam kod sözcüğü,
 
 367
-00:28:35,757 --> 00:28:40,037
+00:26:33,024 --> 00:26:36,654
 ve yüz altmış sekiz baytlık kısaltılmış bir son kod sözcüğü.
 
 368
-00:28:40,087 --> 00:28:45,507
+00:26:36,704 --> 00:26:42,034
 Son veri bloğu, kodlamadan önce seksen sıfır baytla tamamlanır,
 
 369
-00:28:45,557 --> 00:28:46,957
+00:26:42,084 --> 00:26:43,374
 ve bu dolgu gönderilmez.
 
 370
-00:28:47,007 --> 00:28:50,485
+00:26:43,424 --> 00:26:46,635
 PSBd hiçbir zaman FEC'e dahil edilmez.
 
 371
-00:28:51,427 --> 00:28:53,777
+00:26:47,560 --> 00:26:49,730
 FEC'in bedeli kapasitedir.
 
 372
-00:28:53,827 --> 00:28:58,047
+00:26:49,780 --> 00:26:53,680
 On gigabitte eşlik payı yüzde on iki virgül dokuz:
 
 373
-00:28:58,097 --> 00:29:02,397
+00:26:53,730 --> 00:26:57,700
 çerçeve başına yüz otuz beş bin dört yüz otuz iki veri baytı,
 
 374
-00:29:02,447 --> 00:29:05,717
+00:26:57,750 --> 00:27:00,760
 yaklaşık sekiz virgül altı yedi gigabit.
 
 375
-00:29:05,767 --> 00:29:12,417
+00:27:00,810 --> 00:27:06,970
 İki buçuk gigabitte pay yüzde altı virgül beş, yaklaşık iki virgül üç üç gigabit.
 
 376
-00:29:12,467 --> 00:29:15,337
+00:27:07,020 --> 00:27:09,670
 Standart kazancı da açıkça söyler: FEC,
 
 377
-00:29:15,387 --> 00:29:20,087
+00:27:09,720 --> 00:27:14,060
 alıcının daha yüksek bir hata oranında çalışmasına izin verir;
 
 378
-00:29:20,137 --> 00:29:23,526
+00:27:14,110 --> 00:27:17,239
 hassasiyet ve aşırı yük etkin olarak iyileşir.
 
 379
-00:29:24,993 --> 00:29:30,203
+00:27:18,727 --> 00:27:23,547
 Son adım karıştırıcıdır: x üzeri elli sekiz, artı x üzeri otuz dokuz,
 
 380
-00:29:30,253 --> 00:29:34,823
+00:27:23,597 --> 00:27:27,817
 artı bir polinomlu, çerçeveye senkron bir karıştırıcı.
 
 381
-00:29:34,873 --> 00:29:41,113
+00:27:27,867 --> 00:27:33,627
 Kaydırmalı yazmaç her çerçevede, PSBd'den sonraki ilk bitte yeniden yüklenir.
 
 382
-00:29:41,163 --> 00:29:45,603
+00:27:33,677 --> 00:27:37,787
 Yükleme deseninin en anlamlı elli bir biti süper çerçeve sayacıdır,
 
 383
-00:29:45,653 --> 00:29:47,333
+00:27:37,837 --> 00:27:39,377
 kalan yedi bit birdir.
 
 384
-00:29:47,383 --> 00:29:51,024
+00:27:39,427 --> 00:27:42,795
 Yani karıştırma dizisi her çerçevede farklıdır.
 
 385
-00:29:51,960 --> 00:29:55,450
+00:27:43,727 --> 00:27:46,947
 Sıralama önemlidir: FEC karıştırmadan önce uygulanır.
 
 386
-00:29:55,500 --> 00:29:58,240
+00:27:46,997 --> 00:27:49,527
 Ve karıştırma tek başına her şeyi çözmez:
 
 387
-00:29:58,290 --> 00:30:02,730
+00:27:49,577 --> 00:27:53,687
 boş XGEM çerçevelerinin içeriği vericinin takdirine bırakılmıştır,
 
 388
-00:30:02,780 --> 00:30:10,010
+00:27:53,737 --> 00:28:00,417
 ama standart bunun hat deseni kontrolü ve ardışık özdeş rakamların önlenmesi düşünülerek yapılmasını ister.
 
 389
-00:30:10,060 --> 00:30:14,913
+00:28:00,467 --> 00:28:04,949
 Alıcıdaki yetmiş iki bitlik bağışıklık, bu zincirin sonundaki güvencedir.
 
 390
-00:30:15,860 --> 00:30:19,070
+00:28:05,894 --> 00:28:08,864
 Tasarımcılar için bir kolaylık: standardın A eki,
 
 391
-00:30:19,120 --> 00:30:26,020
+00:28:08,914 --> 00:28:15,144
 süper çerçeve sayacı sıfırken karıştırıcının ilk iki yüz elli altı bitini test vektörü olarak verir.
 
 392
-00:30:26,070 --> 00:30:28,120
+00:28:15,194 --> 00:28:17,234
 HEC için de örnekler vardır.
 
 393
-00:30:28,170 --> 00:30:33,270
+00:28:17,284 --> 00:28:21,994
 Kendi karıştırıcınızı ve HEC'inizi bu vektörlerle doğrulayın; bir bitlik bir hata,
 
 394
-00:30:33,320 --> 00:30:36,530
+00:28:22,044 --> 00:28:25,005
 bütün aşağı yön trafiğini anlamsız hale getirir.
 
 395
-00:30:37,460 --> 00:30:38,980
+00:28:25,927 --> 00:28:27,337
 Mühendis notu.
 
 396
-00:30:39,030 --> 00:30:41,500
+00:28:27,387 --> 00:28:29,657
 Bir: TOL alanını izleme sisteminize bağlayın;
 
 397
-00:30:41,550 --> 00:30:46,010
+00:28:29,707 --> 00:28:33,827
 OLT'nin bildirdiği güç ile sizin ölçtüğünüz güç arasındaki fark,
 
 398
-00:30:46,060 --> 00:30:50,350
+00:28:33,877 --> 00:28:37,847
 bir kalibrasyon ya da donanım sorununun erken işaretidir.
 
 399
-00:30:50,400 --> 00:30:54,700
+00:28:37,897 --> 00:28:41,857
 İki: aşağı yön FEC'ini canlı bir kanalda açıp kapatmayın;
 
 400
-00:30:54,750 --> 00:30:58,485
+00:28:41,907 --> 00:28:45,366
 standart bunun aralıklı trafik kaybına yol açabileceğini söyler.
 
 401
-00:30:59,526 --> 00:31:01,704
+00:28:46,394 --> 00:28:48,404
 Şimdi bunları laboratuvarda ölçelim.
 
 402
-00:31:03,393 --> 00:31:06,263
+00:28:50,093 --> 00:28:52,743
 Laboratuvarda: verici testleri.
 
 403
-00:31:06,313 --> 00:31:13,553
+00:28:52,793 --> 00:28:59,493
 İki ana cihaz var: göz ve sönüm oranı için dijital iletişim analizörü, yani DCA;
 
 404
-00:31:13,603 --> 00:31:15,233
+00:28:59,543 --> 00:29:01,883
 spektrum için OSA.
 
 405
-00:31:15,283 --> 00:31:17,972
+00:29:01,933 --> 00:29:03,571
 Bir de kalibre bir güç ölçer.
 
 406
-00:31:18,893 --> 00:31:21,973
+00:29:04,493 --> 00:29:07,343
 Sönüm oranını CG noktasında ölçüyorsanız,
 
 407
-00:31:22,023 --> 00:31:28,733
+00:29:07,393 --> 00:29:13,583
 DCA'nın önüne ayarlanabilir bir bant geçiren filtre koyun ve ölçülen kanala ayarlayın.
 
 408
-00:31:28,783 --> 00:31:34,733
+00:29:13,633 --> 00:29:19,143
 Filtre komşu kanalları bastırmalı, ama ölçülen kanalın modülasyonunu bozmamalıdır.
 
 409
-00:31:34,783 --> 00:31:40,149
+00:29:19,193 --> 00:29:24,145
 CP noktasında ise vericinin çıkışını doğrudan DCA'ya bağlayabilirsiniz.
 
 410
-00:31:41,093 --> 00:31:46,753
+00:29:25,093 --> 00:29:30,333
 DCA'da referans alıcı filtresini seçin: dördüncü dereceden Thomson,
 
 411
-00:31:46,803 --> 00:31:50,353
+00:29:30,383 --> 00:29:33,653
 nominal hızın sıfır virgül yetmiş beş katı.
 
 412
-00:31:50,403 --> 00:31:56,083
+00:29:33,703 --> 00:29:38,953
 Göz maskesini uygulayın, ve maske ihlali olmadan maskeyi ne kadar büyütebildiğinizi,
 
 413
-00:31:56,133 --> 00:31:58,483
+00:29:39,003 --> 00:29:41,173
 yani marjı kaydedin.
 
 414
-00:31:58,533 --> 00:31:59,693
+00:29:41,223 --> 00:29:42,283
 Standart marjı tanımlamaz,
 
 415
-00:31:59,743 --> 00:32:05,016
+00:29:42,333 --> 00:29:47,212
 ama üretimde bu sayı vericinin sağlığını izlemenin en hızlı yoludur.
 
 416
-00:32:05,960 --> 00:32:11,290
+00:29:48,160 --> 00:29:53,080
 Sönüm oranı ölçümünde DCA'nın karanlık düzey kalibrasyonunu yapın.
 
 417
-00:32:11,340 --> 00:32:15,920
+00:29:53,130 --> 00:29:57,360
 Sıfır düzeyindeki küçük bir hata, büyük bir ölçüm hatasına dönüşür:
 
 418
-00:32:15,970 --> 00:32:18,110
+00:29:57,410 --> 00:29:59,390
 sekiz virgül iki desibellik bir oranda,
 
 419
-00:32:18,160 --> 00:32:22,560
+00:29:59,440 --> 00:30:03,510
 sıfır düzeyi bir düzeyinin yalnızca yüzde on beşi kadardır;
 
 420
-00:32:22,610 --> 00:32:26,097
+00:30:03,560 --> 00:30:06,778
 küçük bir ofset bu oranı belirgin biçimde değiştirir.
 
 421
-00:32:27,593 --> 00:32:31,773
+00:30:08,260 --> 00:30:12,120
 OSA ile SMSR'yi lazer çıkışında, yani CP noktasında ölçün:
 
 422
-00:32:31,823 --> 00:32:38,433
+00:30:12,170 --> 00:30:18,270
 ana mod ile en güçlü yan mod arasındaki fark otuz desibelin üstünde olmalıdır.
 
 423
-00:32:38,483 --> 00:32:42,453
+00:30:18,320 --> 00:30:22,000
 Merkez frekansı ölçüp Tablo on bir iki'deki değerle karşılaştırın;
 
 424
-00:32:42,503 --> 00:32:46,613
+00:30:22,050 --> 00:30:25,500
 fark artı eksi yirmi gigahertzin içinde kalmalıdır.
 
 425
-00:32:46,663 --> 00:32:50,168
+00:30:25,550 --> 00:30:29,132
 Bu ölçümü sıcaklık aralığının iki ucunda tekrarlayın.
 
 426
-00:32:51,093 --> 00:32:55,163
+00:30:30,060 --> 00:30:33,820
 Dalga boyu kararlılığı için OLT kartını sıcaklık kabininde,
 
 427
-00:32:55,213 --> 00:33:00,453
+00:30:33,870 --> 00:30:38,720
 çalışma aralığının iki ucuna götürün ve merkez frekansı sürekli kaydedin.
 
 428
-00:33:00,503 --> 00:33:04,373
+00:30:38,770 --> 00:30:42,330
 Kart açılıştan kararlı duruma gelirken de frekansı izleyin;
 
 429
-00:33:04,423 --> 00:33:09,670
+00:30:42,380 --> 00:30:47,235
 artı eksi yirmi gigahertzlik sınır, ısınma süreci dahil her an sağlanmalıdır.
 
 430
-00:33:10,593 --> 00:33:15,073
+00:30:48,160 --> 00:30:52,300
 Güç yoğunluğu sınırları için OSA ölçümünü CG noktasında,
 
 431
-00:33:15,123 --> 00:33:20,883
+00:30:52,350 --> 00:30:57,680
 yani çoklayıcının çıkışında yapın, ve yalnızca ölçülen kanalı açık tutun.
 
 432
-00:33:20,933 --> 00:33:27,593
+00:30:57,730 --> 00:31:03,880
 Okuduğunuz değeri on beş gigahertzlik banda çevirin; üçüncü bölümde gördüğümüz gibi,
 
 433
-00:33:27,643 --> 00:33:33,593
+00:31:03,930 --> 00:31:09,410
 sıfır virgül bir nanometrelik çözünürlükte yaklaşık bir desibel eklenir.
 
 434
-00:33:33,643 --> 00:33:40,526
+00:31:09,460 --> 00:31:15,836
 Komşu kanal frekanslarında ve PtP bandında gücü okuyup tablo sınırlarıyla karşılaştırın.
 
 435
-00:33:41,460 --> 00:33:44,100
+00:31:16,760 --> 00:31:19,200
 SMSR ölçümünde OSA çözünürlüğü,
 
 436
-00:33:44,150 --> 00:33:50,000
+00:31:19,250 --> 00:31:24,490
 yan modları ana modun eteğinden ayırabilecek kadar ince olmalıdır.
 
 437
-00:33:50,050 --> 00:33:56,380
+00:31:24,540 --> 00:31:30,560
 Tipik bir DFB'nin yan modları, ana moddan yaklaşık bir nanometre uzaktadır.
 
 438
-00:33:56,430 --> 00:33:58,830
+00:31:30,610 --> 00:31:32,820
 Çözünürlük çok kaba seçilirse,
 
 439
-00:33:58,880 --> 00:34:04,295
+00:31:32,870 --> 00:31:37,873
 ana modun eteği yan modu örter ve SMSR olduğundan kötü görünür.
 
 440
-00:34:05,226 --> 00:34:08,226
+00:31:38,793 --> 00:31:41,563
 Başlatma gücünü kalibre bir güç ölçerle,
 
 441
-00:34:08,276 --> 00:34:11,546
+00:31:41,613 --> 00:31:44,633
 her kanal için ayrı ayrı CG noktasında ölçün;
 
 442
-00:34:11,596 --> 00:34:17,156
+00:31:44,683 --> 00:31:49,823
 çok kanallı noktada toplam gücü okumamak için yine bir filtre ya da OSA kullanın.
 
 443
-00:34:17,206 --> 00:34:22,208
+00:31:49,873 --> 00:31:54,493
 Ölçtüğünüz değeri, OLT'nin TOL alanında bildirdiği değerle karşılaştırın.
 
 444
-00:34:23,126 --> 00:34:24,446
+00:31:55,427 --> 00:31:56,647
 Mühendis notu.
 
 445
-00:34:24,496 --> 00:34:29,586
+00:31:56,697 --> 00:32:01,367
 Bir: her ölçümde referans noktayı raporunuza yazın: CG mi, CP mi.
 
 446
-00:34:29,636 --> 00:34:33,586
+00:32:01,417 --> 00:32:05,097
 Aynı vericinin iki noktada farklı sonuç vermesi normaldir.
 
 447
-00:34:33,636 --> 00:34:37,836
+00:32:05,147 --> 00:32:09,027
 İki: göz marjını üretim boyunca izleyin; marjdaki yavaş düşüş,
 
 448
-00:34:37,886 --> 00:34:40,650
+00:32:09,077 --> 00:32:11,629
 lazerin yaşlandığının ilk işaretidir.
 
 449
-00:34:42,493 --> 00:34:44,303
+00:32:13,460 --> 00:32:15,120
 Bölüm dördün özeti.
 
 450
-00:34:44,353 --> 00:34:49,633
+00:32:15,170 --> 00:32:20,060
 Bir: OLT bütün PON'un saatidir; normal çalışmada Stratum-1'e izlenir,
 
 451
-00:34:49,683 --> 00:34:54,483
+00:32:20,110 --> 00:32:25,430
 ve ONU'lar yukarı yönde onun frekans doğruluğunu kullanır.
 
 452
-00:34:54,533 --> 00:35:00,333
+00:32:25,480 --> 00:32:29,940
 İki: başlatma gücü her sınıfta dört desibellik bir penceredir;
 
 453
-00:35:00,383 --> 00:35:04,423
+00:32:29,990 --> 00:32:33,740
 on gigabit E2'de bu pencere iki desibele daralır.
 
 454
-00:35:04,473 --> 00:35:09,694
+00:32:33,790 --> 00:32:38,609
 Sönüm oranı en az sekiz virgül iki desibeldir, ve güçle takas edilebilir.
 
 455
-00:35:10,626 --> 00:35:17,836
+00:32:39,527 --> 00:32:46,187
 Üç: SMSR lazerin, bant dışı ve kanal dışı güç yoğunluğu ise arayüzün özelliğidir;
 
 456
-00:35:17,886 --> 00:35:23,536
+00:32:46,237 --> 00:32:51,457
 ilki PtP WDM'i, ikincisi diğer TWDM kanallarını korur.
 
 457
-00:35:23,586 --> 00:35:28,216
+00:32:51,507 --> 00:32:55,787
 Dört: göz maskesi ve titreşim sınırları, OTN ve SDH mirasıdır.
 
 458
-00:35:28,266 --> 00:35:33,446
+00:32:55,837 --> 00:33:00,627
 Beş: yüz yirmi beş mikrosaniyelik çerçeve PSBd ile başlar;
 
 459
-00:35:33,496 --> 00:35:41,071
+00:33:00,677 --> 00:33:07,677
 FEC karıştırmadan önce uygulanır, ve OLT gücünü TOL alanında her çerçevede yayınlar.
 
 460
-00:35:42,093 --> 00:35:43,953
+00:33:08,727 --> 00:33:10,517
 Kendini test et.
 
 461
-00:35:44,003 --> 00:35:45,773
+00:33:10,567 --> 00:33:12,127
 Birinci soru: on gigabitlik bir OLT,
 
 462
-00:35:45,823 --> 00:35:50,763
+00:33:12,177 --> 00:33:16,737
 N1 sınıfında en küçük başlatma gücünde çalışıyorsa,
 
 463
-00:35:50,813 --> 00:35:56,873
+00:33:16,787 --> 00:33:22,387
 TOL alanında hangi sayıyı gönderir? İkinci soru: on gigabit E2 sınıfında,
 
 464
-00:35:56,923 --> 00:36:04,913
+00:33:22,437 --> 00:33:29,817
 en büyük güç ile dört kanallı kanal dışı sınır arasındaki fark kaç desibeldir? Üçüncü soru:
 
 465
-00:36:04,963 --> 00:36:11,933
+00:33:29,867 --> 00:33:36,317
 iki buçuk gigabitlik aşağı yön çerçevesindeki son kod sözcüğü neden kısadır? Cevaplar,
 
 466
-00:36:11,983 --> 00:36:14,426
+00:33:36,367 --> 00:33:38,623
 bir sonraki bölümün başında.
 
 467
-00:36:15,393 --> 00:36:17,193
+00:33:39,593 --> 00:33:41,243
 Ayarlanabilir Kulak.
 
 468
-00:36:17,243 --> 00:36:21,723
+00:33:41,293 --> 00:33:45,233
 Abone tarafındaki alıcı: hassasiyet ve aşırı yük,
 
 469
-00:36:21,773 --> 00:36:26,823
+00:33:45,283 --> 00:33:50,153
 kalabalık bir spektrumda duyabilmek, ve bir terminalin ilk adımları.
 
 470
-00:36:26,873 --> 00:36:27,712
+00:33:50,203 --> 00:33:50,981
 Görüşmek üzere.
 

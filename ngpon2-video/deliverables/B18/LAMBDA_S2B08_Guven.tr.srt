@@ -1,0 +1,1888 @@
+1
+00:00:00,000 --> 00:00:02,410
+Sezon iki, bölüm sekiz: Güven.
+
+2
+00:00:02,460 --> 00:00:08,280
+Geçen bölümde, PON etiketi değişince anahtarların yeniden türetildiğini gördük.
+
+3
+00:00:08,330 --> 00:00:12,530
+Bu bölümde o anahtarların nereden geldiğini, neyi koruduklarını,
+
+4
+00:00:12,580 --> 00:00:15,895
+ve neyi korumadıklarını izliyoruz.
+
+5
+00:00:16,833 --> 00:00:23,083
+Önce tehditler ve kimlik doğrulama: standardın saydığı dört tehdit, kayıt kimliği,
+
+6
+00:00:23,133 --> 00:00:27,184
+ve gövdesi başka bir tavsiyeye bırakılmış iki karşılıklı yöntem.
+
+7
+00:00:28,133 --> 00:00:31,783
+Sonra anahtarlar: tek kökten türeyen bir anahtar ağacı,
+
+8
+00:00:31,833 --> 00:00:34,893
+anahtar değişiminin iki durum makinesi, beş zamanlayıcı,
+
+9
+00:00:34,943 --> 00:00:38,634
+ve iki değişikliğin bu makinelere yaptıkları.
+
+10
+00:00:39,567 --> 00:00:44,387
+Ardından şifreleme: sayaç kipinde AES, iki yönü ayıran sayaç bloğu,
+
+11
+00:00:44,437 --> 00:00:50,526
+dört bin yılda bir açılan zayıf bir pencere, ve gücü bilerek azaltılmış anahtarlar.
+
+12
+00:00:51,467 --> 00:00:57,127
+Sonra bütünlük ve açık kalanlar: bir bütünlük kodu ne zaman göndericiyi kanıtlar,
+
+13
+00:00:57,177 --> 00:01:02,263
+ne zaman yalnızca bir hata denetimidir; ve hattan şifresiz geçen her şey.
+
+14
+00:01:03,200 --> 00:01:07,360
+Laboratuvarda bir şifre motorunu altın vektörlerle doğrulayacağız,
+
+15
+00:01:07,410 --> 00:01:11,690
+bir anahtar değişimini izleyeceğiz, bütünlük hatası enjekte edeceğiz,
+
+16
+00:01:11,740 --> 00:01:15,194
+ve başarısız bir yenilemenin ardından kalanı göreceğiz.
+
+17
+00:01:27,460 --> 00:01:29,310
+Geçen bölümün soruları.
+
+18
+00:01:29,360 --> 00:01:31,460
+Birinci soru: hazırlık,
+
+19
+00:01:31,510 --> 00:01:41,730
+planlı sayaç çerçevesinden PMD ayarının gerçekten başladığı ana kadar ONU'nun parametre kurma süresidir.
+
+20
+00:01:41,780 --> 00:01:44,130
+Ayar, G.989.2'nin PMD ayar süresidir.
+
+21
+00:01:44,180 --> 00:01:45,860
+Yeniden senkron,
+
+22
+00:01:45,910 --> 00:01:52,280
+ayardan sonra aşağı yön çerçeve senkronunu kurmanın en uzun süresidir.
+
+23
+00:01:52,330 --> 00:02:00,400
+Yalnızca ortadakini G.989.2 sınıflandırır: birinci sınıf on mikrosaniyenin altı;
+
+24
+00:02:00,450 --> 00:02:06,420
+ikinci sınıf ve iki kısıtlı biçimi on mikrosaniye ile yirmi beş milisaniye;
+
+25
+00:02:06,470 --> 00:02:10,910
+üçüncü sınıf yirmi beş milisaniye ile bir saniye.
+
+26
+00:02:10,960 --> 00:02:13,208
+Ötekilerin sayısı yoktur.
+
+27
+00:02:14,193 --> 00:02:19,513
+İkinci soru: işlem kodu bir, olumsuz cevaptır, ve değer iki bitin birleşimidir:
+
+28
+00:02:19,563 --> 00:02:24,343
+sıfır iki sıfır sıfır, yukarı yön hedefi verici ayar aralığının dışında;
+
+29
+00:02:24,393 --> 00:02:28,893
+sıfır sıfır bir sıfır, aşağı yön hedefi alıcı aralığının dışında.
+
+30
+00:02:28,943 --> 00:02:31,973
+Yönlendirmedeki kaynak zamanlayıcısını durdurur,
+
+31
+00:02:32,023 --> 00:02:36,633
+hedefe ICTP iptali yollar ve barındırmaya döner;
+
+32
+00:02:36,683 --> 00:02:39,523
+hedef de zamanlayıcısını durdurup habersiz olur.
+
+33
+00:02:39,573 --> 00:02:45,033
+İşlem kodu dört olsaydı, sıfır sıfır bir sıfır boş yukarı yön tanımı,
+
+34
+00:02:45,083 --> 00:02:46,557
+öteki bit ayrılmış olurdu.
+
+35
+00:02:47,527 --> 00:02:52,147
+Üçüncü soru: kural F artı N çarpı adım süresi artı altıdır;
+
+36
+00:02:52,197 --> 00:02:55,847
+iki adım ve sekiz çerçeveyle F artı yirmi iki,
+
+37
+00:02:55,897 --> 00:02:58,887
+yani iki virgül yedi beş milisaniye sonra.
+
+38
+00:02:58,937 --> 00:03:02,847
+Sabit altı çerçeve, yedi yüz elli mikrosaniye,
+
+39
+00:03:02,897 --> 00:03:07,447
+bir PLOAM mesajının normatif işleme süresidir;
+
+40
+00:03:07,497 --> 00:03:13,237
+adım süresi ise bir granülerlik adımının en az yüzde doksanına varma süresidir.
+
+41
+00:03:13,287 --> 00:03:14,200
+Şimdi bu bölüme.
+
+42
+00:03:15,793 --> 00:03:17,553
+Perde bir: tehditler.
+
+43
+00:03:17,603 --> 00:03:23,403
+On beşinci madde, NG-PON2 ortamına özgü tehdit modellerini tartışır;
+
+44
+00:03:23,453 --> 00:03:27,943
+kimlik doğrulamayı, veri bütünlüğünü ve gizliliği tanımlar.
+
+45
+00:03:27,993 --> 00:03:30,303
+Sürüm notu: tehditler, kimlik doğrulama,
+
+46
+00:03:30,353 --> 00:03:35,943
+şifreleme ve bütünlük iki bin yirmi birden beri değişmedi;
+
+47
+00:03:35,993 --> 00:03:39,204
+iki değişiklik yalnızca anahtar değişimine dokundu.
+
+48
+00:03:40,126 --> 00:03:42,596
+Standart dört tehdit sayar.
+
+49
+00:03:42,646 --> 00:03:46,776
+Birincisi: aşağı yön verisi bütün ONU'lara yayınlandığı için,
+
+50
+00:03:46,826 --> 00:03:52,616
+bir ONU'yu değiştiren ya da yeniden programlayan kötü niyetli bir kullanıcı,
+
+51
+00:03:52,666 --> 00:03:56,406
+bütün kullanıcıların aşağı yön verisini alabilir.
+
+52
+00:03:56,456 --> 00:04:00,656
+İkincisi: yukarı yön verisi herhangi bir ONU'dan gelebileceği için,
+
+53
+00:04:00,706 --> 00:04:07,878
+aynı kullanıcı başka bir ONU'yu taklit eden paketler uydurabilir: hizmet hırsızlığı.
+
+54
+00:04:08,826 --> 00:04:10,096
+Üçüncüsü: sokak dolabına,
+
+55
+00:04:10,146 --> 00:04:17,176
+boş bir porta ya da fibere bağlanan bir cihaz trafiği dinleyebilir ya da üretebilir,
+
+56
+00:04:17,226 --> 00:04:23,586
+ve konumuna göre bir OLT kanal sonlandırıcısını ya da bir ONU'yu taklit edebilir.
+
+57
+00:04:23,636 --> 00:04:29,846
+Dördüncüsü: paketler kaydedilip yeniden oynatılabilir, ya da bitleri çevrilebilir.
+
+58
+00:04:29,896 --> 00:04:35,966
+Bir istisna da yazılıdır: ODN ya da ONU'lar fiziksel olarak güvenliyse,
+
+59
+00:04:36,016 --> 00:04:38,173
+bazı özellikler isteğe bağlıdır.
+
+60
+00:04:39,093 --> 00:04:45,453
+Standart tehditleri mekanizmalarla eşlemez; ekrandaki tablo bizim yorumumuzdur.
+
+61
+00:04:45,503 --> 00:04:50,103
+Dinlemeye karşı, ONU başına anahtarla yük şifrelemesi.
+
+62
+00:04:50,153 --> 00:04:55,993
+Taklide karşı, kayıt kimliği ve ONU'ya özgü bütünlük kodları.
+
+63
+00:04:56,043 --> 00:05:01,783
+Araya giren cihaza karşı, yalnızca karşılıklı kimlik doğrulama.
+
+64
+00:05:01,833 --> 00:05:08,493
+Tekrara karşı, sıra numarasını kapsayan kodlar ve konuma bağlı anahtar akışı.
+
+65
+00:05:08,543 --> 00:05:10,346
+Açık kalanlar dördüncü perdede.
+
+66
+00:05:11,293 --> 00:05:13,943
+Kimlik doğrulamanın üç yolu vardır.
+
+67
+00:05:13,993 --> 00:05:18,433
+Kayıt kimliğine dayanan yöntem bütün NG-PON2 cihazlarında zorunludur,
+
+68
+00:05:18,483 --> 00:05:24,693
+ama tek yönlüdür: ONU'yu OLT'ye doğrular, OLT'yi ONU'ya değil.
+
+69
+00:05:24,743 --> 00:05:32,683
+OMCI tabanlı ve sekiz yüz iki nokta bir X tabanlı iki karşılıklı yöntem ise bileşen düzeyinde zorunlu,
+
+70
+00:05:32,733 --> 00:05:34,063
+ekipman düzeyinde isteğe bağlıdır.
+
+71
+00:05:34,113 --> 00:05:37,884
+Operatör hiçbirini kullanmamayı da seçebilir.
+
+72
+00:05:38,826 --> 00:05:43,986
+Kayıt kimliği otuz altı bayttır: yönetim düzeyinde bir aboneye atanır,
+
+73
+00:05:44,036 --> 00:05:48,266
+OLT'ye yüklenir, ONU'ya kapsam dışı bir yöntemle girilir,
+
+74
+00:05:48,316 --> 00:05:53,126
+ve kalıcı bellekte açıkça sıfırlanana kadar kalır.
+
+75
+00:05:53,176 --> 00:05:54,936
+Varsayılanı otuz altı sıfır bayttır.
+
+76
+00:05:54,986 --> 00:05:59,416
+Onu yalnızca TWDM'deki kayıt mesajı taşır:
+
+77
+00:05:59,466 --> 00:06:04,426
+O4'te ranging tahsisine ya da OLT'nin kayıt isteğine cevap olarak;
+
+78
+00:06:04,476 --> 00:06:06,398
+ikisi de varsayılan anahtarla.
+
+79
+00:06:07,326 --> 00:06:09,136
+Şimdi kritik cümle:
+
+80
+00:06:09,186 --> 00:06:16,046
+kayıt tabanlı doğrulama başarısız olsa bile OLT eşitleme gecikmesini verebilir,
+
+81
+00:06:16,096 --> 00:06:17,296
+ve ONU O5'e girer.
+
+82
+00:06:17,346 --> 00:06:21,916
+Ne yapılacağı OLT'nin seçimidir: tekrar denemek, trafiği engellemek,
+
+83
+00:06:21,966 --> 00:06:26,436
+devre dışı bırakmak ya da başıboş ONU tanılaması.
+
+84
+00:06:26,486 --> 00:06:31,646
+Geçerli bir karşılıklı güvenlik ilişkisi varsa,
+
+85
+00:06:31,696 --> 00:06:36,987
+kayıt tabanlı doğrulama hiç yapılmaz, ve anahtarlar yeniden hesaplanmaz.
+
+86
+00:06:37,926 --> 00:06:39,636
+Zamanlama.
+
+87
+00:06:39,686 --> 00:06:46,596
+ONU anahtarlarını kayıt mesajını gönderdiği anda, OLT hesapladığı anda etkin kılar;
+
+88
+00:06:46,646 --> 00:06:51,416
+kayıt isteğinden sonra, anahtarlar hazır olana kadar OLT,
+
+89
+00:06:51,466 --> 00:06:53,716
+ONU'ya özgü kodlu mesaj göndermez.
+
+90
+00:06:53,766 --> 00:07:01,396
+Aktivasyon döngüsünün başında OLT kayıt tabanlı anahtarları atar, ONU korur.
+
+91
+00:07:01,446 --> 00:07:05,056
+Bizim çıkarımımız: ONU'ya özgü ilk kod,
+
+92
+00:07:05,106 --> 00:07:11,826
+yönlendirilmiş eşitleme gecikmesi mesajındadır; zincir ondan önce bitmelidir.
+
+93
+00:07:12,760 --> 00:07:14,780
+Karşılıklı yöntemler.
+
+94
+00:07:14,830 --> 00:07:20,900
+C ve D eklerinin gövdesi tek cümledir: G.987.3'ün aynı ekleriyle aynıdır;
+
+95
+00:07:20,950 --> 00:07:26,830
+G.987.3 kaynaklarımızda yok, formüller burada gösterilemez.
+
+96
+00:07:26,880 --> 00:07:33,630
+G.989.3 yalnızca OMCI yöntemi için on üç oklu bir akış verir: OMCC'de üç adımlı,
+
+97
+00:07:33,680 --> 00:07:39,050
+simetrik anahtarlı meydan okuma ve cevap; önce OLT, sonra ONU doğrular,
+
+98
+00:07:39,100 --> 00:07:43,980
+ve başarıda sonuç mesajı yeni OMCI anahtarıyla kodlanır.
+
+99
+00:07:44,030 --> 00:07:49,001
+Son iki ok, varsayılan anahtarlı kayıt isteği ve kayıttır.
+
+100
+00:07:49,927 --> 00:07:53,727
+Sekiz yüz iki nokta bir X için G.989.3 yalnızca geniş,
+
+101
+00:07:53,777 --> 00:07:59,647
+genişletilebilir özellikler sunduğunu söyler; bu standart kaynakçasında bile yoktur.
+
+102
+00:07:59,697 --> 00:08:04,427
+Tek somut kural bir süredir: yeniden doğrulamadan sonra iki tarafın,
+
+103
+00:08:04,477 --> 00:08:09,507
+yeni anahtarları hesaplamak için iki yüz milisaniyesi vardır.
+
+104
+00:08:09,557 --> 00:08:14,027
+Gönderici susar ya da eski anahtarla sürer; alıcı ikisini de dener,
+
+105
+00:08:14,077 --> 00:08:16,971
+ve yeni anahtar tutunca ya da süre bitince geçer.
+
+106
+00:08:17,893 --> 00:08:21,433
+Noktadan noktaya WDM'de kayıt mesajı yoktur;
+
+107
+00:08:21,483 --> 00:08:26,273
+yerine altmış dört bitlik iki AES-CMAC özeti vardır:
+
+108
+00:08:26,323 --> 00:08:28,753
+anahtar herkese açık değerlerden,
+
+109
+00:08:28,803 --> 00:08:34,873
+mesaj kayıt kimliği ile noktadan noktaya basittir anlamına gelen bir ASCII dizisinden.
+
+110
+00:08:34,923 --> 00:08:40,553
+Kanal profilindeki özeti ONU doğrular; bizim yorumumuzla bu,
+
+111
+00:08:40,603 --> 00:08:43,683
+OLT kanalını ONU'ya doğrular.
+
+112
+00:08:43,733 --> 00:08:46,693
+Seri numarası mesajındaki özeti OLT doğrular,
+
+113
+00:08:46,743 --> 00:08:50,340
+ve ONU kimliğini ancak başarıdan sonra atar.
+
+114
+00:08:51,260 --> 00:08:52,250
+PMD Köprüsü.
+
+115
+00:08:52,300 --> 00:08:59,300
+Bu özetler, birinci sezonun dokuzuncu bölümündeki yavaş AMCC kanalında taşınır.
+
+116
+00:08:59,350 --> 00:09:03,300
+Bizim çıkarımımız: kayıt kimliği hattan hiç geçmez.
+
+117
+00:09:03,350 --> 00:09:06,930
+Her ONU'nun kendi dalga boyu çifti vardır,
+
+118
+00:09:06,980 --> 00:09:11,870
+ama ışığın ayrı olması karşı tarafın doğru olduğunu kanıtlamaz.
+
+119
+00:09:11,920 --> 00:09:19,627
+Böyle bir ONU'nun anahtar şifreleme anahtarını nasıl edindiği ise standartta yoktur.
+
+120
+00:09:20,560 --> 00:09:21,560
+Mühendis notu.
+
+121
+00:09:21,610 --> 00:09:28,430
+Bir: TWDM'de doğrulama başarısız olsa da ONU O5'e girer, PtP WDM'de kimlik atanmaz;
+
+122
+00:09:28,480 --> 00:09:33,180
+politikanızı OLT'nin başarısızlıkta yaptığına dayandırın.
+
+123
+00:09:33,230 --> 00:09:36,180
+İki: C ve D ekleri birer işaretçidir,
+
+124
+00:09:36,230 --> 00:09:42,270
+ve ikinci değişiklik atıfı G.987.3'ün iki bin yirmi beş baskısına taşıdı;
+
+125
+00:09:42,320 --> 00:09:47,023
+uygulamanın hangi baskıya dayandığını üreticiden isteyin.
+
+126
+00:09:48,060 --> 00:09:51,140
+Sıradaki: kimin kim olduğu belli.
+
+127
+00:09:51,190 --> 00:09:53,977
+Şimdi anahtarların kendisine.
+
+128
+00:09:55,760 --> 00:09:57,730
+Perde iki: anahtarlar.
+
+129
+00:09:57,780 --> 00:10:04,230
+Bütün türetmeler tek bir ilkeldir: yüz yirmi sekiz bitlik AES üzerinde AES-CMAC.
+
+130
+00:10:04,280 --> 00:10:12,200
+ONU anahtarları açılışta varsayılan kayıt kimliğiyle ve kimlik her değiştiğinde hesaplar.
+
+131
+00:10:12,250 --> 00:10:19,350
+OLT, ranging cevabındaki her kayıt kimliğiyle, doğrulamada kullanmasa bile hesaplar;
+
+132
+00:10:19,400 --> 00:10:25,892
+kayıt isteğinin cevabıyla ise yalnızca geçerli bir karşılıklı ilişki yoksa.
+
+133
+00:10:26,827 --> 00:10:29,427
+Ağacın kökü ana oturum anahtarıdır: anahtar,
+
+134
+00:10:29,477 --> 00:10:36,607
+on altı baytın her biri on altılık tabanda beş beş olan herkesçe bilinen değer;
+
+135
+00:10:36,657 --> 00:10:38,627
+mesaj, kayıt kimliği.
+
+136
+00:10:38,677 --> 00:10:43,377
+Sonra oturum anahtarı; anahtarı kök, mesajı yirmi dört bayt:
+
+137
+00:10:43,427 --> 00:10:47,437
+seri numarası mesajının beşinci ile on ikinci baytları,
+
+138
+00:10:47,487 --> 00:10:53,007
+burst profili mesajının yirmi altıncı ile otuz üçüncü baytlarındaki PON etiketi,
+
+139
+00:10:53,057 --> 00:10:55,963
+ve session sözcüğü ile K harfi.
+
+140
+00:10:56,893 --> 00:11:02,533
+Oturum anahtarından, on altı baytlık ASCII etiketlerle üç anahtar çıkar:
+
+141
+00:11:02,583 --> 00:11:10,153
+OMCI bütünlük anahtarı, PLOAM bütünlük anahtarı ve anahtar şifreleme anahtarı.
+
+142
+00:11:10,203 --> 00:11:13,203
+Beşinci bölümdeki yazım hatası buradadır:
+
+143
+00:11:13,253 --> 00:11:18,673
+PLOAM etiketinde integrity'nin bir harfi eksik.
+
+144
+00:11:18,723 --> 00:11:22,963
+Dördüncü ekin sekizinci örneğinin dört anahtarını da ürettik;
+
+145
+00:11:23,013 --> 00:11:27,538
+PLOAM anahtarı yalnızca yanlış yazımla tutar.
+
+146
+00:11:28,460 --> 00:11:34,900
+PON etiketi, operatörün seçtiği sekiz baytlık sabit bir OLT özniteliğidir;
+
+147
+00:11:34,950 --> 00:11:39,990
+ana oturum anahtarını güvenlik ilişkisinin bağlamına bağlar.
+
+148
+00:11:40,040 --> 00:11:44,980
+İyi uygulama: aynı sistem kimliğinde benzersiz, ömür boyu sabit.
+
+149
+00:11:45,030 --> 00:11:51,580
+Etiket değişirse ONU dört anahtarı yeniden türetir: geçen bölümdeki devrin sonu.
+
+150
+00:11:51,630 --> 00:11:58,400
+Bizim çıkarımımız: klonlu sonlandırıcılar aynı ONU için aynı anahtarları üretir.
+
+151
+00:11:59,327 --> 00:12:05,527
+Bizim çıkarımımız: kayıt tabanlı zincirin her girdisi hattan açık geçer:
+
+152
+00:12:05,577 --> 00:12:11,777
+kayıt kimliği yukarı yön kayıt mesajında, seri numarası kendi mesajında,
+
+153
+00:12:11,827 --> 00:12:15,207
+PON etiketi aşağı yön burst profilinde.
+
+154
+00:12:15,257 --> 00:12:20,577
+Bu üç mesajı yakalayan anahtar şifreleme anahtarını hesaplar,
+
+155
+00:12:20,627 --> 00:12:25,147
+yeni anahtar raporunu çözer ve veri anahtarını okur.
+
+156
+00:12:25,197 --> 00:12:30,872
+Kayıt kimliği varsayılandaysa, kök anahtar zaten herkesçe bilinir.
+
+157
+00:12:31,794 --> 00:12:32,684
+PMD Köprüsü.
+
+158
+00:12:32,734 --> 00:12:38,024
+Bizim yorumumuzla bu zincirin gücü yukarı yönün gizliliğine dayanır.
+
+159
+00:12:38,074 --> 00:12:41,944
+Birinci sezonun üçüncü bölümünde yukarı yön bandı,
+
+160
+00:12:41,994 --> 00:12:47,064
+bin beş yüz yirmi dört ile bin beş yüz kırk dört nanometre,
+
+161
+00:12:47,114 --> 00:12:49,684
+ONU alıcısının bandı dışındaydı.
+
+162
+00:12:49,734 --> 00:12:53,384
+Başka bir ONU onu yalnızca yansımalarla görür,
+
+163
+00:12:53,434 --> 00:12:57,094
+ve optik dönüş kaybı en az otuz iki desibeldir.
+
+164
+00:12:57,144 --> 00:13:00,389
+Yukarı yönü dinlemek besleyici fibere erişim ister.
+
+165
+00:13:01,327 --> 00:13:03,017
+Veri anahtarları.
+
+166
+00:13:03,067 --> 00:13:08,927
+ONU yeteneklerini bildirir, en az yüz yirmi sekiz bitlik AES dahil;
+
+167
+00:13:08,977 --> 00:13:14,997
+OLT birini ya da hiçbirini seçer, ve seçimi bağlayıcıdır.
+
+168
+00:13:15,047 --> 00:13:20,827
+Tek alıcılı ve yayın anahtarı vardır, her biri iki indeksli.
+
+169
+00:13:20,877 --> 00:13:24,597
+Yayın anahtarını OLT üretip OMCI ile yazar.
+
+170
+00:13:24,647 --> 00:13:31,537
+Tek alıcılı anahtarı OLT'nin isteğiyle ONU üretir ve PLOAM ile yollar;
+
+171
+00:13:31,587 --> 00:13:34,547
+değeri OMCI'a hiç açılmaz.
+
+172
+00:13:34,597 --> 00:13:37,412
+Değişim yalnızca O5'te yürür.
+
+173
+00:13:38,360 --> 00:13:39,900
+Değişim beş adımdır.
+
+174
+00:13:39,950 --> 00:13:45,600
+Bir: OLT yeni indeksle anahtar denetimi mesajı gönderir.
+
+175
+00:13:45,650 --> 00:13:51,200
+İki: ONU anahtarı şifrelemeye uygun bir rastgele sayı üreteciyle üretir,
+
+176
+00:13:51,250 --> 00:13:57,380
+anahtar şifreleme anahtarıyla elektronik kod defteri kipinde şifreler,
+
+177
+00:13:57,430 --> 00:14:00,240
+anahtar raporuyla yollar.
+
+178
+00:14:00,290 --> 00:14:01,130
+Üç: OLT çözer, saklar.
+
+179
+00:14:01,180 --> 00:14:03,480
+Dört: OLT onay ister.
+
+180
+00:14:03,530 --> 00:14:07,270
+Beş: ONU anahtarı etkin sayar ve adını bildirir:
+
+181
+00:14:07,320 --> 00:14:12,566
+anahtar ile pi sayısının ilk on altı basamağının AES-CMAC'i.
+
+182
+00:14:13,493 --> 00:14:14,943
+Durum makineleri.
+
+183
+00:14:14,993 --> 00:14:19,583
+OLT'de beş durum: anahtar yok, istek, onay, onay bekleme ve etkin.
+
+184
+00:14:19,633 --> 00:14:24,793
+ONU'da da beş: anahtar yok, üretim, alındı bekleme, alındı ve etkin.
+
+185
+00:14:24,843 --> 00:14:29,223
+Geçerlilik tablosundan bizim çıkardığımız sıra:
+
+186
+00:14:29,273 --> 00:14:35,733
+ONU yeni anahtarı alındı beklemede çözebilir, OLT onunla onay durumunda gönderir;
+
+187
+00:14:35,783 --> 00:14:40,573
+OLT onay beklemede çözer, ONU alındı durumunda gönderir.
+
+188
+00:14:40,623 --> 00:14:43,591
+Önce aşağı yön geçer, sonra yukarı yön.
+
+189
+00:14:44,526 --> 00:14:48,166
+Beş zamanlayıcının önerilen başlangıç değeri vardır.
+
+190
+00:14:48,216 --> 00:14:53,336
+OLT'nin anahtar değişimi bekleme zamanlayıcısı yüz milisaniye:
+
+191
+00:14:53,386 --> 00:14:57,496
+bütün denemeyi sınırlar, dolunca anahtar yok durumuna dönülür.
+
+192
+00:14:57,546 --> 00:15:03,076
+Anahtar bekleme ve onay bekleme zamanlayıcıları on milisaniye:
+
+193
+00:15:03,126 --> 00:15:05,196
+istek ya da onay yinelenir.
+
+194
+00:15:05,246 --> 00:15:09,906
+ONU'da değişim zamanlayıcısı yüz, alındı bekleme yirmi milisaniyedir.
+
+195
+00:15:09,956 --> 00:15:15,318
+Bizim hesabımızla on milisaniye, on üç PLOAM işleme süresidir.
+
+196
+00:15:16,260 --> 00:15:17,170
+Sürüm notu.
+
+197
+00:15:17,220 --> 00:15:21,230
+İki bin yirmi bir metni, istek durumunda bütün denemenin,
+
+198
+00:15:21,280 --> 00:15:24,860
+onay beklemede istek zamanlayıcısının adını yazıyordu;
+
+199
+00:15:24,910 --> 00:15:29,390
+birinci değişiklik adları düzeltti, değerlere dokunmadı.
+
+200
+00:15:29,440 --> 00:15:34,560
+İkinci değişiklik, şemaların birincil referans olduğu cümlesini sildi;
+
+201
+00:15:34,610 --> 00:15:38,750
+şemalar artık sorunsuz değişimin ideal senaryosudur.
+
+202
+00:15:38,800 --> 00:15:38,750
+İki yeni not,
+
+203
+00:15:38,800 --> 00:15:44,480
+ITU-T'nin PON güvenliğinin pratik yönleri adlı ek belgesine yönlendirir;
+
+204
+00:15:44,530 --> 00:15:46,399
+o belge elimizde yok.
+
+205
+00:15:47,326 --> 00:15:48,366
+PMD Köprüsü.
+
+206
+00:15:48,416 --> 00:15:54,416
+Anahtar mesajları PtP WDM'de de geçerlidir, ve AMCC ile taşınır.
+
+207
+00:15:54,466 --> 00:15:55,716
+Bizim hesabımızla,
+
+208
+00:15:55,766 --> 00:16:01,876
+birinci sezonun dokuzuncu bölümündeki saniyede yüz on beş kilobitle,
+
+209
+00:16:01,926 --> 00:16:08,316
+tek PLOAM taşıyan en küçük çerçeve beş virgül sekiz dört milisaniyedir.
+
+210
+00:16:08,366 --> 00:16:14,036
+Bir istek ve bir rapor, işlemesiz on bir virgül yedi milisaniye:
+
+211
+00:16:14,086 --> 00:16:17,576
+anahtar bekleme zamanlayıcısından uzun.
+
+212
+00:16:17,626 --> 00:16:22,472
+Bu değerlerin PtP WDM'e uyup uymadığı yazılı değildir.
+
+213
+00:16:23,393 --> 00:16:25,163
+Mühendis notu.
+
+214
+00:16:25,213 --> 00:16:28,633
+Bir: etiketlerin on altılık yazımını kopyalayın, İngilizcesini değil;
+
+215
+00:16:28,683 --> 00:16:34,333
+zinciri dördüncü ekin sekizinci ve on birinci örnekleriyle doğrulayın.
+
+216
+00:16:34,383 --> 00:16:39,903
+İki: kayıt tabanlı anahtarlar, kayıt kimliğinin gizliliği kadar güçlüdür;
+
+217
+00:16:39,953 --> 00:16:45,415
+varsayılan kimlikli bir ONU'nun anahtarlarını, hattı dinleyen herkes hesaplayabilir.
+
+218
+00:16:46,460 --> 00:16:49,630
+Sıradaki: anahtarlar yerinde.
+
+219
+00:16:49,680 --> 00:16:52,826
+Şimdi neyi şifrelediklerine bakalım.
+
+220
+00:16:54,593 --> 00:16:56,003
+Perde üç: şifreleme.
+
+221
+00:16:56,053 --> 00:17:03,923
+Şifre, yüz yirmi sekiz bitlik AES'tir, sayaç kipinde; anahtarı yalnızca OLT ile ONU,
+
+222
+00:17:03,973 --> 00:17:07,563
+yayın anahtarında ise ONU'lar bilir.
+
+223
+00:17:07,613 --> 00:17:11,043
+Her XGEM yükü için sayaç bloğu ilk değerine kurulur,
+
+224
+00:17:11,093 --> 00:17:18,863
+ve bütün yüz yirmi sekiz bit üzerinde standart bir artırma işleviyle ilerler.
+
+225
+00:17:18,913 --> 00:17:25,284
+Üçüncü bölümde gördüğümüz gibi yalnızca yük şifrelenir; başlık açıktır.
+
+226
+00:17:26,226 --> 00:17:29,586
+Kapsam: iki yöndeki her tek alıcılı iletim,
+
+227
+00:17:29,636 --> 00:17:33,336
+ve aşağı yönde belirlenmiş bir çoklu yayın akışı.
+
+228
+00:17:33,386 --> 00:17:41,266
+OLT her an PON çapında bir yayın anahtar çifti ve her ONU için bir tek alıcılı çift bulundurur;
+
+229
+00:17:41,316 --> 00:17:44,176
+çifti port kimliği seçer.
+
+230
+00:17:44,226 --> 00:17:49,716
+İki bitlik indeks: sıfır sıfır şifresiz, sıfır bir ve bir sıfır iki anahtar,
+
+231
+00:17:49,766 --> 00:17:50,666
+bir bir ayrılmış.
+
+232
+00:17:50,716 --> 00:17:56,510
+Bilinmeyen anahtarlı çerçeve atılır, zorunlu anahtar hatası sayacı artar.
+
+233
+00:17:57,460 --> 00:17:59,820
+Şimdi beşinci bölümdeki söz: OMCC.
+
+234
+00:17:59,870 --> 00:18:05,990
+Varsayılan XGEM portu, yani OMCC portu, anahtar halkası yapılandırılmadan,
+
+235
+00:18:06,040 --> 00:18:12,380
+tek alıcılı anahtarla iki yönlü şifreleme için tanımlıdır.
+
+236
+00:18:12,430 --> 00:18:18,080
+İlk tek alıcılı anahtar kurulunca OMCI çerçeveleri o anahtarla şifrelenir;
+
+237
+00:18:18,130 --> 00:18:24,010
+aşağı yönde şifreliyse ONU'nun yukarı yönde de şifrelemesi beklenir.
+
+238
+00:18:24,060 --> 00:18:29,771
+Ondan önce indeks sıfırdır, ve OMCI'ı yalnızca bütünlük kodu korur.
+
+239
+00:18:30,693 --> 00:18:33,343
+İlk sayaç bloğu yüz yirmi sekiz bittir.
+
+240
+00:18:33,393 --> 00:18:37,563
+Aşağı yönde: süper çerçeve sayacının alt elli biti,
+
+241
+00:18:37,613 --> 00:18:42,223
+çerçeve içi sayacın on dört biti, ve bu altmış dört bitin bir kopyası.
+
+242
+00:18:42,273 --> 00:18:46,743
+Yukarı yönde üst yarı aynıdır, alt yarı bit bit tümleyendir.
+
+243
+00:18:46,793 --> 00:18:53,303
+Aşağı yönde sayaç, XGEM çerçevesini taşıyan fiziksel çerçeveninkidir; yukarı yönde,
+
+244
+00:18:53,353 --> 00:18:57,460
+o burst'ü tahsis eden aşağı yön çerçevesininki.
+
+245
+00:18:58,393 --> 00:19:01,113
+Çerçeve içi sayaç bir konumdur:
+
+246
+00:19:01,163 --> 00:19:06,273
+çerçeve ya da burst on altı baytlık bloklara bölünür, ve sayaç,
+
+247
+00:19:06,323 --> 00:19:11,023
+XGEM başlığının ilk dört baytının düştüğü bloğun numarasıdır.
+
+248
+00:19:11,073 --> 00:19:16,003
+Aşağı yönde on gigabitte en çok dokuz bin yedi yüz on sekizdir.
+
+249
+00:19:16,053 --> 00:19:18,853
+Yukarı yönde başlangıç zamanından sayılır,
+
+250
+00:19:18,903 --> 00:19:24,410
+ve on gigabitte on dört bin beş yüz seksene kadar çıkar: on dört bitin içinde.
+
+251
+00:19:25,360 --> 00:19:31,120
+Neden tümleyen? Bizim okumamız: tek alıcılı anahtar iki yönde aynıdır;
+
+252
+00:19:31,170 --> 00:19:31,120
+tümleyen olmasa,
+
+253
+00:19:31,170 --> 00:19:38,540
+aynı çerçevede aynı blok numarasından başlayan iki yük aynı anahtar akışını kullanırdı,
+
+254
+00:19:38,590 --> 00:19:42,300
+ve sayaç kipinde bu, iki düz metnin özel veyasını açığa çıkarır.
+
+255
+00:19:42,350 --> 00:19:47,960
+Dördüncü ekin altıncı ve yedinci örnekleri aynı anahtar ve sayaçla,
+
+256
+00:19:48,010 --> 00:19:52,840
+yüz yirmi ve iki bin dört yüz yirmi sekiz numaralı bloklarda şifreler;
+
+257
+00:19:52,890 --> 00:19:54,153
+ikisini de birebir ürettik.
+
+258
+00:19:55,093 --> 00:19:57,273
+Ama standardın bir notu var.
+
+259
+00:19:57,323 --> 00:19:59,203
+Elli bitlik alanda iki değer,
+
+260
+00:19:59,253 --> 00:20:04,163
+birin ardından kırk dokuz sıfır ve sıfırın ardından kırk dokuz bir,
+
+261
+00:20:04,213 --> 00:20:08,453
+iki yönde tekrarlanan sayaç bloklarına yol açabilir.
+
+262
+00:20:08,503 --> 00:20:14,393
+Aralığın ortasında oldukları için zayıf pencere yaklaşık iki yüz elli mikrosaniyedir,
+
+263
+00:20:14,443 --> 00:20:19,023
+dört bin yılda bir; sayacı küçük bir değerle başlatmak etkiyi azaltır.
+
+264
+00:20:19,073 --> 00:20:25,102
+Bizim hesabımızla sıfırdan başlayan sayaç ortaya iki bin iki yüz otuz yılda varır.
+
+265
+00:20:26,026 --> 00:20:29,966
+Bizim çıkarımımız, iki örnekle doğruladığımız modelle:
+
+266
+00:20:30,016 --> 00:20:37,266
+yalnızca birinci değer ulaşılabilir; orada beş yüz on bire kadar blok numaralarında,
+
+267
+00:20:37,316 --> 00:20:40,896
+uzun yüklerde ortak sayaç blokları çıkar.
+
+268
+00:20:40,946 --> 00:20:45,606
+İkincisi on beş bin sekiz yüz yetmiş ikiden büyük blok numarası ister,
+
+269
+00:20:45,656 --> 00:20:49,326
+maddenin kendi sınırları dışında.
+
+270
+00:20:49,376 --> 00:20:53,906
+Notun anmadığı üçüncü bir zayıf çerçeve de bulduk: alanın sıfırı;
+
+271
+00:20:53,956 --> 00:20:57,946
+yukarı yönün alt yarısı orada taşar.
+
+272
+00:20:57,996 --> 00:21:00,181
+Küçük değer, en az bir olmalıdır.
+
+273
+00:21:01,127 --> 00:21:03,617
+Yayın anahtarları başka yoldan gelir.
+
+274
+00:21:03,667 --> 00:21:06,717
+OLT değiştireceği indeksi kullanımdan çeker,
+
+275
+00:21:06,767 --> 00:21:10,887
+anahtarı şifrelemeye uygun bir üreteçle üretir,
+
+276
+00:21:10,937 --> 00:21:14,137
+ve çoklu yayın alan her ONU'ya OMCI ile,
+
+277
+00:21:14,187 --> 00:21:18,477
+o ONU'nun anahtar şifreleme anahtarıyla şifreleyerek yazar;
+
+278
+00:21:18,527 --> 00:21:21,237
+hepsi alınca indeksi geri koyar.
+
+279
+00:21:21,287 --> 00:21:26,457
+Bizim yorumumuz: aynı anahtar, ONU sayısı kadar farklı şifreyle taşınır.
+
+280
+00:21:26,507 --> 00:21:30,658
+Zamanlayıcısı yoktur; yukarı yön yayın anahtarı da yoktur.
+
+281
+00:21:31,594 --> 00:21:34,224
+Azaltılmış şifre gücü isteğe bağlıdır.
+
+282
+00:21:34,274 --> 00:21:39,064
+Etkin anahtar uzunluğu sekizin katıdır; anahtarı üreten eleman,
+
+283
+00:21:39,114 --> 00:21:46,354
+yüz yirmi sekizle bu uzunluk arasındaki farkın sekizde biri kadar en anlamlı baytı beş beş yapar.
+
+284
+00:21:46,404 --> 00:21:51,094
+Altmış dört bitte sekiz bayt sabit, sekiz bayt rastgeledir.
+
+285
+00:21:51,144 --> 00:21:56,474
+En küçük uzunluk ve alıcının öneki denetleyip denetlemediği yazılı değildir.
+
+286
+00:21:56,524 --> 00:22:02,058
+Bizim gözlemimiz: sıfır uzunluk, varsayılan PLOAM anahtarının kendisi olurdu.
+
+287
+00:22:02,994 --> 00:22:04,004
+PMD Köprüsü.
+
+288
+00:22:04,054 --> 00:22:08,584
+Birinci sezonun birinci bölümünde şunu söyledik:
+
+289
+00:22:08,634 --> 00:22:12,974
+yayın ortamında gizlilik ancak şifrelemeyle sağlanır,
+
+290
+00:22:13,024 --> 00:22:15,664
+ve NG-PON2'de bu TC katmanının işidir.
+
+291
+00:22:15,714 --> 00:22:21,674
+G.989.2'nin ODN'i güç ayırıcılı bir ağaçtır; her boş port,
+
+292
+00:22:21,724 --> 00:22:27,524
+eksi yirmi sekiz dBm duyarlıklı bir ONU alıcısına yetecek ışık taşır,
+
+293
+00:22:27,574 --> 00:22:30,984
+ve böyle bir alıcı her çerçeveyi çözer.
+
+294
+00:22:31,034 --> 00:22:38,173
+Şifre yalnızca yükleri gizler; G.989.2'de ise bir güvenlik gereksinimi bulunmuyor.
+
+295
+00:22:39,094 --> 00:22:40,234
+Mühendis notu.
+
+296
+00:22:40,284 --> 00:22:45,064
+Bir: OLT'nin süper çerçeve sayacını hangi değerle başlattığını kaydedin;
+
+297
+00:22:45,114 --> 00:22:50,294
+ikinci bölümün laboratuvarında karıştırıcı için onu sıfırla başlattık,
+
+298
+00:22:50,344 --> 00:22:52,724
+şifreli trafik yoksa zararsızdır.
+
+299
+00:22:52,774 --> 00:22:55,774
+İki: tamamen şifreli on gigabitlik bir aşağı yön,
+
+300
+00:22:55,824 --> 00:23:01,227
+bizim hesabımızla saniyede yetmiş yedi virgül yedi altı milyon AES işlemidir.
+
+301
+00:23:02,260 --> 00:23:03,470
+Sıradaki: yükler gizli.
+
+302
+00:23:03,520 --> 00:23:08,309
+Peki mesajların doğruluğu, ve gizlenmeyenler?
+
+303
+00:23:10,093 --> 00:23:11,603
+Perde dört: bütünlük.
+
+304
+00:23:11,653 --> 00:23:17,603
+İki kodu beşinci bölümde bayt bayt gördük; burada amacına bakıyoruz:
+
+305
+00:23:17,653 --> 00:23:22,833
+göndericinin kimliğini doğrulamak ve sahteciliği önlemek.
+
+306
+00:23:22,883 --> 00:23:28,423
+PLOAM kodu, yön baytı ve kırk bayt üzerinden altmış dört bittir,
+
+307
+00:23:28,473 --> 00:23:30,733
+ve sıra numarasını kapsar.
+
+308
+00:23:30,783 --> 00:23:35,153
+OMCI kodu otuz iki bittir, ve işlem kimliğini kapsar.
+
+309
+00:23:35,203 --> 00:23:39,350
+Ama sıra numarası sekiz bittir, ve başa döner.
+
+310
+00:23:40,293 --> 00:23:42,183
+Anahtar kuralı.
+
+311
+00:23:42,233 --> 00:23:49,393
+Varsayılan PLOAM anahtarı, ana oturum anahtarı yokken aktivasyonun başında kurulur.
+
+312
+00:23:49,443 --> 00:23:54,943
+Yayınlar ve bazı tek alıcılı mesajlar, seri numarası, devre dışı bırakma,
+
+313
+00:23:54,993 --> 00:23:59,763
+kayıt isteği ve kayıt, hep bu anahtarla korunur; gerekçe,
+
+314
+00:23:59,813 --> 00:24:08,293
+OLT ile ONU türetilmiş anahtarlarda anlaşmamışken ya da artık anlaşmazken de geçebilmeleridir.
+
+315
+00:24:08,343 --> 00:24:11,384
+OMCI'ın ise varsayılan anahtarı yoktur.
+
+316
+00:24:12,326 --> 00:24:13,826
+Hata olursa.
+
+317
+00:24:13,876 --> 00:24:19,166
+Kodu tutmayan mesaj geçersizdir ve atılır; aşağı yönde onaylanmaz.
+
+318
+00:24:19,216 --> 00:24:24,436
+Rastgele bütünlük hataları seyrektir, ve bit hata oranıyla ilişkilendirilebilir.
+
+319
+00:24:24,486 --> 00:24:30,156
+Kalıcıysa anahtar uyuşmazlığıdır: ya bir güvenlik tehdidi, ya bir arıza.
+
+320
+00:24:30,206 --> 00:24:37,606
+OLT bunu yukarı yöndeki hatadan ya da beklenen yönetim trafiğinin gelmemesinden öğrenir;
+
+321
+00:24:37,656 --> 00:24:42,362
+sonuç, PLOAM kanalı kaybı ya da OMCC kanalı kaybı kusurudur.
+
+322
+00:24:43,293 --> 00:24:44,243
+PMD Köprüsü.
+
+323
+00:24:44,293 --> 00:24:50,333
+Birinci sezonun dördüncü bölümündeki referans hata oranları, FEC'ten önce,
+
+324
+00:24:50,383 --> 00:24:56,343
+iki buçuk gigabitte on üzeri eksi dört, on gigabitte on üzeri eksi üçtür.
+
+325
+00:24:56,393 --> 00:25:03,063
+Bizim yorumumuz: rastgele bütünlük hataları FEC'in düzeltemediği hatalardan doğar,
+
+326
+00:25:03,113 --> 00:25:07,543
+ve hata sayaçlarıyla birlikte yükselip alçalır.
+
+327
+00:25:07,593 --> 00:25:13,663
+İyi bir hata oranında sabit hızla süren bütünlük hataları ise optikten değil,
+
+328
+00:25:13,713 --> 00:25:14,876
+anahtardan gelir.
+
+329
+00:25:15,793 --> 00:25:18,283
+Kör sahtecilik zordur.
+
+330
+00:25:18,333 --> 00:25:25,453
+Bizim hesabımızla tek denemede başarı olasılığı PLOAM için iki üzeri eksi altmış dört,
+
+331
+00:25:25,503 --> 00:25:28,913
+OMCI için iki üzeri eksi otuz iki;
+
+332
+00:25:28,963 --> 00:25:36,913
+çerçeve başına bir sahte OMCI mesajıyla bu yaklaşık üç virgül bir gün eder.
+
+333
+00:25:36,963 --> 00:25:41,213
+Ama hesap, anahtarın gizli olduğunu varsayar.
+
+334
+00:25:41,263 --> 00:25:43,160
+Şimdi açık kalanlar.
+
+335
+00:25:44,093 --> 00:25:49,573
+Açık bir: varsayılan anahtarla hesaplanan kod hiçbir göndericiyi kanıtlamaz.
+
+336
+00:25:49,623 --> 00:25:51,733
+Anahtar herkese açıktır;
+
+337
+00:25:51,783 --> 00:25:56,483
+bizim yorumumuzla aşağı yöne ışık enjekte edebilen bir cihaz,
+
+338
+00:25:56,533 --> 00:26:02,383
+geçerli kodlu seri numarası engelleme, yani acil durdurma, devre dışı bırakma,
+
+339
+00:26:02,433 --> 00:26:08,533
+kimlik atama, ayar denetimi, profiller ve yayın anahtar denetimi üretebilir.
+
+340
+00:26:08,583 --> 00:26:12,877
+Bu mesajlarda kod sahteciliğe değil, bit hatasına karşı korur.
+
+341
+00:26:13,826 --> 00:26:14,756
+PMD Köprüsü.
+
+342
+00:26:14,806 --> 00:26:20,636
+Birinci sezonun onuncu bölümünde acil durdurmayı son çare olarak gördük:
+
+343
+00:26:20,686 --> 00:26:26,136
+ONU vericisini kapatır, bunu yeniden başlatmada bile korur,
+
+344
+00:26:26,186 --> 00:26:30,346
+ve yalnızca OLT'nin yeniden etkinleştirmesiyle serbest kalır.
+
+345
+00:26:30,396 --> 00:26:33,856
+O komut herkesin bildiği anahtarla korunur.
+
+346
+00:26:33,906 --> 00:26:39,246
+Aynı bölümdeki başıboş vericiler de üçüncü tehdidin optik yüzüdür;
+
+347
+00:26:39,296 --> 00:26:44,310
+ama standart onları güvenlik değil, başıboşluk olarak ele alır.
+
+348
+00:26:45,260 --> 00:26:48,710
+Açık iki: kullanıcı verisinin bütünlük kodu yoktur.
+
+349
+00:26:48,760 --> 00:26:53,660
+Sayaç kipi biçimlendirilebilirdir: şifreli metnin bir bitini çevirmek,
+
+350
+00:26:53,710 --> 00:26:55,730
+düz metnin aynı bitini çevirir.
+
+351
+00:26:55,780 --> 00:27:00,470
+Dördüncü ekin altıncı örneğinde bir baytın en anlamlı bitini çevirdik;
+
+352
+00:27:00,520 --> 00:27:03,250
+düz metinde yalnızca o bit değişti.
+
+353
+00:27:03,300 --> 00:27:08,490
+Bit çevirme dördüncü tehdittir, ama TC katmanında karşılığı yoktur; TC katmanı,
+
+354
+00:27:08,540 --> 00:27:13,522
+başka konuma taşınan bir yükün anlamsız açılmasını da fark etmez.
+
+355
+00:27:14,460 --> 00:27:20,770
+Açık üç, bizim okumamız: başarısız bir anahtar yenilemesi şifresiz trafiğe düşer.
+
+356
+00:27:20,820 --> 00:27:25,910
+Değişim zamanlayıcıları dolunca iki makine de, eski anahtar varken bile,
+
+357
+00:27:25,960 --> 00:27:31,900
+hiçbir anahtarın geçerli olmadığı duruma döner, ve gönderici indeksi sıfırla yollar.
+
+358
+00:27:31,950 --> 00:27:38,200
+Üstelik şifre için yapılandırılmış bir portta da her çerçeveyi gönderici seçer;
+
+359
+00:27:38,250 --> 00:27:43,844
+şifreli porta gelen şifresiz çerçeve, sayaç tablosunun atma listesinde yoktur.
+
+360
+00:27:44,793 --> 00:27:50,173
+Açık dört: yük dışındaki her şey açıktır: senkron bloğu; harita,
+
+361
+00:27:50,223 --> 00:27:56,673
+yani kimin ne zaman ne kadar gönderdiği; PLOAM içerikleri, XGEM başlıkları,
+
+362
+00:27:56,723 --> 00:28:00,033
+son nefes biti ve durum raporları.
+
+363
+00:28:00,083 --> 00:28:05,313
+Bizim yorumumuzla trafik analizi aşağı yönü alan herkese açıktır.
+
+364
+00:28:05,363 --> 00:28:10,813
+PLOAM'ın yalnızca bütünlüğü vardır, gizliliği yoktur.
+
+365
+00:28:10,863 --> 00:28:17,318
+OMCC ilk tek alıcılı anahtara kadar şifresizdir; yukarı yön yayın anahtarı yoktur.
+
+366
+00:28:18,260 --> 00:28:19,900
+Mühendis notu.
+
+367
+00:28:19,950 --> 00:28:23,600
+Bir: varsayılan anahtarlı bir komutun kodunun tutması,
+
+368
+00:28:23,650 --> 00:28:26,450
+onu OLT'nin gönderdiğini kanıtlamaz;
+
+369
+00:28:26,500 --> 00:28:30,710
+beklenmedik bir acil durdurmayı OLT kayıtlarıyla karşılaştırın.
+
+370
+00:28:30,760 --> 00:28:35,380
+İki: kullanıcı verisinin bütünlüğü üst katmanlardan gelmelidir;
+
+371
+00:28:35,430 --> 00:28:40,050
+başarısız bir anahtar yenilemesini de alarm sayın,
+
+372
+00:28:40,100 --> 00:28:42,617
+çünkü ardından gelen trafik şifresiz olabilir.
+
+373
+00:28:43,660 --> 00:28:47,210
+Sıradaki: güvenin sınırları belli.
+
+374
+00:28:47,260 --> 00:28:49,900
+Şimdi laboratuvarda onları sınayalım.
+
+375
+00:28:51,693 --> 00:28:53,053
+Laboratuvarda.
+
+376
+00:28:53,103 --> 00:28:54,853
+Düzenek: bir OLT ve ONU emülatörü,
+
+377
+00:28:54,903 --> 00:29:02,213
+şifre çözme ve bütünlük motorları olan bir protokol analizörü, bir trafik üreteci,
+
+378
+00:29:02,263 --> 00:29:07,273
+ve ayırıcının boş bir portunda ikinci bir ONU emülatörü: saldırganımız.
+
+379
+00:29:07,323 --> 00:29:12,543
+Bu düzenek yalnızca yalıtılmış bir test ağında kurulur.
+
+380
+00:29:13,460 --> 00:29:17,740
+İlk test: altın vektörler, her yakalamadan önce.
+
+381
+00:29:17,790 --> 00:29:24,120
+Dördüncü ekin altıncı ve yedinci örnekleri şifreleme, sekizincisi anahtar türetme,
+
+382
+00:29:24,170 --> 00:29:30,190
+dokuzuncu ve onuncusu PLOAM kodu, on birincisi anahtar raporu,
+
+383
+00:29:30,240 --> 00:29:35,430
+on ikincisi OMCI kodu içindir; hepsi bayt bayt tutmalıdır.
+
+384
+00:29:35,480 --> 00:29:40,550
+Dokuzuncu örneği yön baytı ikiyle de hesaplayın: kod değişmeli;
+
+385
+00:29:40,600 --> 00:29:42,557
+yön hatası hemen görünür.
+
+386
+00:29:43,493 --> 00:29:45,563
+İkinci test: sayaç bloğu.
+
+387
+00:29:45,613 --> 00:29:48,453
+Emülatörde süper çerçeve sayacını bire kurun.
+
+388
+00:29:48,503 --> 00:29:53,223
+İlk şifreli aşağı ve yukarı yön çerçevelerini yakalayın,
+
+389
+00:29:53,273 --> 00:29:58,293
+blok numarasını başlığın konumundan hesaplayın, ve ilk sayaç bloğunu kurun:
+
+390
+00:29:58,343 --> 00:30:02,883
+üst yarı iki yönde aynı, alt yarı aşağıda kopya, yukarıda tümleyen.
+
+391
+00:30:02,933 --> 00:30:06,821
+Çözülen yük, trafik üretecinin gönderdiğine eşit olmalıdır.
+
+392
+00:30:07,760 --> 00:30:10,910
+Üçüncü test: değişimin zamanlaması.
+
+393
+00:30:10,960 --> 00:30:15,230
+Dört mesajı damgalayın: üret isteği, yeni anahtar raporu, onay isteği,
+
+394
+00:30:15,280 --> 00:30:17,830
+mevcut anahtar raporu.
+
+395
+00:30:17,880 --> 00:30:17,830
+Her cevap,
+
+396
+00:30:17,880 --> 00:30:24,800
+yedi yüz elli mikrosaniyelik işleme süresi artı tahsis beklemesi içinde gelmelidir.
+
+397
+00:30:24,850 --> 00:30:30,190
+Yeni indeksli ilk aşağı ve yukarı yön XGEM çerçevelerini bulun:
+
+398
+00:30:30,240 --> 00:30:35,009
+aşağı yön önce geçmelidir, ve geçiş bir XGEM çerçevesi sınırındadır.
+
+399
+00:30:35,927 --> 00:30:38,567
+Dördüncü test: başarısız yenileme.
+
+400
+00:30:38,617 --> 00:30:43,837
+Yeni anahtar raporunu bastırın: OLT isteği on milisaniyede bir yinelemeli,
+
+401
+00:30:43,887 --> 00:30:46,497
+yüz milisaniyede vazgeçmelidir.
+
+402
+00:30:46,547 --> 00:30:51,367
+Onay isteğini bastırın: ONU raporu yirmi milisaniyede bir yinelemeli,
+
+403
+00:30:51,417 --> 00:30:54,887
+yüz milisaniyede anahtarsız duruma düşmelidir.
+
+404
+00:30:54,937 --> 00:30:59,242
+Ardından trafiğe bakın: indeks sıfırsa yük artık şifresizdir.
+
+405
+00:31:00,160 --> 00:31:02,800
+Beşinci test: anahtar denetimi.
+
+406
+00:31:02,850 --> 00:31:08,560
+Etkin indeks için onay isteyin, ve gelen adı kendi hesabınızla karşılaştırın:
+
+407
+00:31:08,610 --> 00:31:14,010
+anahtar şifreleme anahtarıyla, anahtar ve pi basamaklarının AES-CMAC'i.
+
+408
+00:31:14,060 --> 00:31:18,590
+Sonra emülatörle yanlış bir anahtar yükleyin: ad tutmamalı,
+
+409
+00:31:18,640 --> 00:31:22,044
+ve OLT o indeksi kullanmayı bırakmalıdır.
+
+410
+00:31:22,994 --> 00:31:26,484
+Altıncı test: bütünlük hatası enjeksiyonu.
+
+411
+00:31:26,534 --> 00:31:35,084
+Yönlendirilmiş bir aşağı yön PLOAM mesajının bir baytını bozun: onay gelmemeli,
+
+412
+00:31:35,134 --> 00:31:39,364
+ONU'nun bütünlük hatası sayacı artmalıdır.
+
+413
+00:31:39,414 --> 00:31:46,634
+Art arda en az üç yukarı yön PLOAM mesajını bozun: PLOAM kanalı kaybı.
+
+414
+00:31:46,684 --> 00:31:50,804
+Yukarı yön OMCI kodlarını bozun: OMCC kanalı kaybı.
+
+415
+00:31:50,854 --> 00:31:57,216
+Yanlış yön baytını ve yanlış anahtarı ayrı ayrı deneyin.
+
+416
+00:31:58,160 --> 00:32:01,700
+Yedinci test: varsayılan anahtarın sınırı.
+
+417
+00:32:01,750 --> 00:32:02,940
+Saldırgan emülatörden,
+
+418
+00:32:02,990 --> 00:32:07,200
+varsayılan kodlu bir yayın seri numarası engelleme mesajı üretin.
+
+419
+00:32:07,250 --> 00:32:11,930
+Bizim beklentimiz: ONU itaat eder, çünkü kod tutar.
+
+420
+00:32:11,980 --> 00:32:14,930
+Sonra ONU'yu yeniden etkinleştirin.
+
+421
+00:32:14,980 --> 00:32:19,808
+Bu test, kodun bütünlüğü kanıtladığını, kaynağı kanıtlamadığını gösterir.
+
+422
+00:32:20,727 --> 00:32:23,237
+Sekizinci test: kayıt zinciri.
+
+423
+00:32:23,287 --> 00:32:27,357
+ONU'ya bir kayıt kimliği girin; seri numarası mesajını,
+
+424
+00:32:27,407 --> 00:32:30,407
+burst profilini ve kayıt mesajını yakalayın.
+
+425
+00:32:30,457 --> 00:32:37,957
+PLOAM bütünlük anahtarını hesaplayıp yönlendirilmiş eşitleme gecikmesi mesajının kodunu doğrulayın.
+
+426
+00:32:38,007 --> 00:32:43,817
+Anahtar şifreleme anahtarıyla yeni anahtar raporunu, sonra yükleri çözün.
+
+427
+00:32:43,867 --> 00:32:46,980
+Testi varsayılan kayıt kimliğiyle tekrarlayın.
+
+428
+00:32:47,927 --> 00:32:50,567
+Dokuzuncu test: karşılıklı doğrulama.
+
+429
+00:32:50,617 --> 00:32:54,827
+OMCI akışının on üç adımını sırayla doğrulayın:
+
+430
+00:32:54,877 --> 00:32:58,587
+sonucu bildiren mesaj yeni OMCI anahtarıyla,
+
+431
+00:32:58,637 --> 00:33:01,477
+kayıt isteği ve kayıt varsayılan anahtarla,
+
+432
+00:33:01,527 --> 00:33:06,597
+sonraki yönlendirilmiş PLOAM yeni anahtarla tutmalıdır.
+
+433
+00:33:06,647 --> 00:33:10,007
+Sekiz yüz iki nokta bir X kullanılıyorsa,
+
+434
+00:33:10,057 --> 00:33:16,578
+başarıdan yeni anahtarlı ilk mesaja kadar en çok iki yüz milisaniye geçmelidir.
+
+435
+00:33:17,527 --> 00:33:20,847
+Onuncu test: azaltılmış güç ve zayıf sayaç.
+
+436
+00:33:20,897 --> 00:33:23,327
+Etkin uzunluğu altmış dört yapın:
+
+437
+00:33:23,377 --> 00:33:27,577
+çözülen yeni anahtarın ilk sekiz baytı beş beş olmalı,
+
+438
+00:33:27,627 --> 00:33:30,437
+ve yönetim sistemi uzunluğu bildirmelidir.
+
+439
+00:33:30,487 --> 00:33:33,587
+Sayacı ön ayarlayabilen bir emülatörde,
+
+440
+00:33:33,637 --> 00:33:42,637
+aralığın ortasında ve alanın sıfırında iki yönlü şifreli trafik gönderip eşit anahtar akışı bloklarını arayın;
+
+441
+00:33:42,687 --> 00:33:43,953
+bu yöntem bizimdir.
+
+442
+00:33:44,894 --> 00:33:46,524
+Laboratuvar notu.
+
+443
+00:33:46,574 --> 00:33:51,944
+Bir: aktivasyonu kaydeden bir analizör kayıt tabanlı anahtarları türetebilir;
+
+444
+00:33:51,994 --> 00:33:54,854
+bu kayıtları sır gibi saklayın.
+
+445
+00:33:54,904 --> 00:33:55,964
+İki: anahtar indeksini,
+
+446
+00:33:56,014 --> 00:34:01,594
+süper çerçeve sayacını ve bütünlük sayaçlarını aynı satıra yazın;
+
+447
+00:34:01,644 --> 00:34:04,858
+bir şifre sorununu çoğu zaman üçü birlikte açıklar.
+
+448
+00:34:06,693 --> 00:34:08,253
+Bölümün özeti.
+
+449
+00:34:08,303 --> 00:34:10,903
+Bir: standart dört tehdit sayar;
+
+450
+00:34:10,953 --> 00:34:14,203
+kayıt tabanlı doğrulama zorunludur ama tek yönlüdür,
+
+451
+00:34:14,253 --> 00:34:20,993
+ve başarısızlığı O5'i engellemez; iki karşılıklı yöntemin gövdesi G.987.3'tedir.
+
+452
+00:34:21,043 --> 00:34:25,883
+İki: bütün anahtarlar AES-CMAC ile tek bir kökten türer: ana oturum anahtarı,
+
+453
+00:34:25,933 --> 00:34:31,973
+oturum anahtarı, iki bütünlük anahtarı ve anahtar şifreleme anahtarı;
+
+454
+00:34:32,023 --> 00:34:35,074
+zincirin her girdisi hattan açık geçer.
+
+455
+00:34:35,993 --> 00:34:38,433
+Üç: tek alıcılı anahtarı ONU üretir;
+
+456
+00:34:38,483 --> 00:34:43,043
+beş zamanlayıcılı iki makinede aşağı yön önce geçer,
+
+457
+00:34:43,093 --> 00:34:47,513
+ve başarısız yenileme şifresiz trafiğe düşer.
+
+458
+00:34:47,563 --> 00:34:51,743
+Dört: yukarı yön sayaç bloğunun alt yarısı tümleyendir;
+
+459
+00:34:51,793 --> 00:34:55,853
+zayıf çerçeveler aralığın ortası ve, bizim hesabımızla, sıfırdır.
+
+460
+00:34:55,903 --> 00:35:01,303
+Beş: varsayılan anahtarlı kodlar kaynağı kanıtlamaz,
+
+461
+00:35:01,353 --> 00:35:06,482
+kullanıcı verisinin bütünlük kodu yoktur, ve yük dışındaki her şey açıktır.
+
+462
+00:35:07,526 --> 00:35:08,876
+Kendini test et.
+
+463
+00:35:08,926 --> 00:35:13,616
+Birinci soru: tek alıcılı anahtar iki yönü de şifreler;
+
+464
+00:35:13,666 --> 00:35:22,306
+aynı çerçevedeki bir aşağı ve bir yukarı yön yükünün aynı anahtar akışını kullanmasını ne engeller,
+
+465
+00:35:22,356 --> 00:35:27,566
+ve standardın notu hangi istisnayı anar? İkinci soru:
+
+466
+00:35:27,616 --> 00:35:35,736
+kayıt kimliği varsayılan kalmış bir ONU'nun veri anahtarına hangi mesajlardan ulaşılır? Üçüncü soru:
+
+467
+00:35:35,786 --> 00:35:42,056
+onay beklemedeki OLT'ye mevcut anahtar raporu gelmezse ne olur, ne zaman,
+
+468
+00:35:42,106 --> 00:35:49,167
+ve birinci değişiklik burada neyi düzeltti? Cevaplar, bir sonraki bölümün başında.
+
+469
+00:35:50,160 --> 00:35:52,770
+Bir sonraki bölüm: Enerji ve Sağlık.
+
+470
+00:35:52,820 --> 00:35:57,500
+Güç yönetimi durumları, başarım sayaçları, OLT ve ONU kusurları;
+
+471
+00:35:57,550 --> 00:36:02,870
+bu bölümde adını andığımız kanal kaybı kusurlarını orada açacağız.
+
+472
+00:36:02,920 --> 00:36:03,674
+Görüşmek üzere.
+

@@ -1,0 +1,1720 @@
+1
+00:00:00,000 --> 00:00:03,350
+Sezon iki, bölüm bir: Işığın Dili.
+
+2
+00:00:03,400 --> 00:00:11,740
+Birinci sezonda ışığın kendisini konuştuk: dalga boyları, güç bütçeleri, burst'ler.
+
+3
+00:00:11,790 --> 00:00:17,180
+Bu sezon ışığın taşıdığı dili konuşuyoruz: G.989.3,
+
+4
+00:00:17,230 --> 00:00:21,061
+NG-PON2'nin iletim yakınsama katmanı.
+
+5
+00:00:22,000 --> 00:00:27,600
+Önce katmanlar: TC katmanının üç alt katmanı, hat hızı kombinasyonları,
+
+6
+00:00:27,650 --> 00:00:31,162
+ve bir kullanıcı paketinin ışığa dönüşene kadar geçtiği yol.
+
+7
+00:00:32,100 --> 00:00:37,250
+Sonra yönetim kanalları: gömülü işletme alanları, PLOAM,
+
+8
+00:00:37,300 --> 00:00:42,163
+OMCC ve kanal sonlandırıcıları arasındaki protokol.
+
+9
+00:00:43,100 --> 00:00:49,770
+Ardından kimlikler: bir NG-PON2 sisteminde kimin kim olduğunu söyleyen numaralar,
+
+10
+00:00:49,820 --> 00:00:54,551
+genişlikleri, ayrılmış değerleri, ve hangisinin ne zaman unutulduğu.
+
+11
+00:00:55,500 --> 00:01:01,740
+Sonra ortam erişimi, noktadan noktaya WDM'in yönetim katmanı,
+
+12
+00:01:01,790 --> 00:01:03,692
+ve standardın sürüm geçmişi.
+
+13
+00:01:04,633 --> 00:01:07,923
+Laboratuvarda test tezgâhını yeniden kuruyoruz:
+
+14
+00:01:07,973 --> 00:01:11,893
+bu kez bir güç ölçer ve bir OSA'nın yanında,
+
+15
+00:01:11,943 --> 00:01:15,405
+bir protokol analizörü ve bir OLT emülatörüyle.
+
+16
+00:01:27,660 --> 00:01:31,700
+Birinci sezonun finalindeki soruların cevapları.
+
+17
+00:01:31,750 --> 00:01:32,320
+Birinci soru:
+
+18
+00:01:32,370 --> 00:01:39,160
+B tipi korumada ONU neden yeniden ayarlanmaz? Çünkü anahtarlama OLT tarafında olur:
+
+19
+00:01:39,210 --> 00:01:46,680
+aynı kanal çiftine bakan iki OLT kanal sonlandırıcısından bekleme tarafındaki devralır,
+
+20
+00:01:46,730 --> 00:01:49,630
+ve ONU aynı kanal çiftinde kalır.
+
+21
+00:01:49,680 --> 00:01:53,350
+Korumanın etkili olması için koşul, aşağı yön senkronunun,
+
+22
+00:01:53,400 --> 00:01:58,165
+ONU yeniden ayarlanmaya karar vermeden önce geri gelmesidir.
+
+23
+00:01:59,160 --> 00:02:00,450
+İkinci soru:
+
+24
+00:02:00,500 --> 00:02:09,080
+OLT'nin alınan güç ölçümü neden burst'ün uzunluğuna bağlıdır? Çünkü bu ölçüm bir burst sırasındaki ortalama güçtür,
+
+25
+00:02:09,130 --> 00:02:12,050
+ve dedektörün tepki süresi üç yüz nanosaniyedir:
+
+26
+00:02:12,100 --> 00:02:18,200
+iki buçuk gigabitte yedi yüz kırk altı bit, on gigabitte yaklaşık üç bin bit.
+
+27
+00:02:18,250 --> 00:02:20,620
+Ölçüm burst'e göre doğru anda yapılmalı,
+
+28
+00:02:20,670 --> 00:02:24,168
+ve burst bu süreye yetecek kadar uzun olmalıdır.
+
+29
+00:02:25,160 --> 00:02:29,100
+Üçüncü soru: acil durdurma durumundaki bir ONU,
+
+30
+00:02:29,150 --> 00:02:33,730
+gücü kesilip geri geldiğinde ne yapar? Acil durdurmada kalır;
+
+31
+00:02:33,780 --> 00:02:39,770
+bu durum yeniden başlatmayı ve güç kesintisini aşar.
+
+32
+00:02:39,820 --> 00:02:42,200
+Vericisi kapalı kalır, kanalları tarar,
+
+33
+00:02:42,250 --> 00:02:50,090
+ve her başarısız turda bekleme süresini ikiye katlayarak yaklaşık bir dakikaya kadar çıkar.
+
+34
+00:02:50,140 --> 00:02:55,820
+Onu yalnızca OLT'nin yeniden etkinleştirme komutu serbest bırakır.
+
+35
+00:02:55,870 --> 00:02:57,556
+Şimdi ikinci sezona.
+
+36
+00:02:59,127 --> 00:03:01,557
+Perde bir: katmanlar.
+
+37
+00:03:01,607 --> 00:03:05,867
+G.989.3'ün kapsam cümlesi şudur: bu tavsiye,
+
+38
+00:03:05,917 --> 00:03:10,427
+kırk gigabit kapasiteli pasif optik ağ sistemlerinin,
+
+39
+00:03:10,477 --> 00:03:16,127
+yani NG-PON2'nin iletim yakınsama katmanını tanımlar.
+
+40
+00:03:16,177 --> 00:03:24,127
+TC katmanı, fiziksel ortama bağlı katman ile servis istemcileri arasında durur.
+
+41
+00:03:24,177 --> 00:03:27,617
+Özetteki bir cümle de önemlidir: G.989.3,
+
+42
+00:03:27,667 --> 00:03:32,237
+XG-PON'un TC katmanı olan G.987.3'ün üstüne kurulur.
+
+43
+00:03:33,160 --> 00:03:38,910
+Kapsamda yirmi altı madde vardır: on beşi TWDM,
+
+44
+00:03:38,960 --> 00:03:42,990
+on biri noktadan noktaya WDM ve AMCC içindir.
+
+45
+00:03:43,040 --> 00:03:52,510
+TWDM tarafı servis uyarlaması, çerçeveleme, fiziksel uyarlama, PLOAM, aktivasyon,
+
+46
+00:03:52,560 --> 00:04:00,020
+zamanlama, başarım izleme, güvenlik, güç yönetimi, kanal yönetimi,
+
+47
+00:04:00,070 --> 00:04:03,640
+koruma ve başıboş ONU'ları kapsar.
+
+48
+00:04:03,690 --> 00:04:08,035
+Bu sezonun on bölümü bu listeyi izler.
+
+49
+00:04:08,960 --> 00:04:12,380
+Sürüm geçmişi kısadır ama önemlidir.
+
+50
+00:04:12,430 --> 00:04:17,360
+İlk baskı iki bin on beşte çıktı; ardından üç değişiklik geldi.
+
+51
+00:04:17,410 --> 00:04:21,150
+İkinci baskı iki bin yirmi bir mayısında yayımlandı.
+
+52
+00:04:21,200 --> 00:04:27,920
+İki bin yirmi üçteki birinci değişiklik, acil durdurma durumunu anlatan yeni bir ek,
+
+53
+00:04:27,970 --> 00:04:34,520
+devre dışı bırakma mesajına bir neden kodu ve bir zamanlayıcı düzeltmesi getirdi.
+
+54
+00:04:34,570 --> 00:04:38,480
+İki bin yirmi beşteki ikinci değişiklik,
+
+55
+00:04:38,530 --> 00:04:44,229
+PON tavsiyeleri arasında tutarlılık güncellemeleri ve bakım düzeltmeleri yaptı.
+
+56
+00:04:45,160 --> 00:04:49,890
+Bu sezon en güncel metni, iki bin yirmi beş sürümünü kullanıyoruz,
+
+57
+00:04:49,940 --> 00:04:53,630
+ve değişen her maddeyi ekranda işaretleyeceğiz.
+
+58
+00:04:53,680 --> 00:04:57,700
+İyi bir haber: bu bölümün konusu olan altıncı madde,
+
+59
+00:04:57,750 --> 00:05:00,400
+iki bin yirmi birden bu yana hiç değişmedi.
+
+60
+00:05:00,450 --> 00:05:02,837
+Yalnızca beş şeklin numarası kaydı.
+
+61
+00:05:04,327 --> 00:05:05,217
+Hat hızları.
+
+62
+00:05:05,267 --> 00:05:09,857
+OLT kanal sonlandırıcısı dört kombinasyonu destekleyebilir:
+
+63
+00:05:09,907 --> 00:05:15,257
+aşağı ve yukarı yönde iki buçuk gigabit; aşağıda on, yukarıda iki buçuk;
+
+64
+00:05:15,307 --> 00:05:20,077
+iki yönde de on; ve dördüncüsü, aşağıda on gigabit,
+
+65
+00:05:20,127 --> 00:05:23,927
+yukarıda aynı kanalda hem on hem iki buçuk gigabit.
+
+66
+00:05:23,977 --> 00:05:26,547
+Bu çift hızlı bir yukarı yön kanalıdır:
+
+67
+00:05:26,597 --> 00:05:31,618
+farklı hızlardaki ONU'lar aynı fiziksel çerçeve içinde gönderebilir.
+
+68
+00:05:32,560 --> 00:05:37,520
+ONU ise bir aktivasyon süresince ilk üç kombinasyondan birini kullanır.
+
+69
+00:05:37,570 --> 00:05:41,140
+Hızını değiştirebilen bir ONU da tanımlıdır: aşağı yön hızı,
+
+70
+00:05:41,190 --> 00:05:46,150
+yalnızca başka bir kanala ayarlanarak değişebilir;
+
+71
+00:05:46,200 --> 00:05:52,720
+yukarı yön hızı ise ya kanal değiştirerek ya da tek bir çift hızlı kanalın içinde değişebilir.
+
+72
+00:05:52,770 --> 00:05:57,661
+Yukarı yön hızının dinamik değişim mekanizması ise henüz çalışma konusudur.
+
+73
+00:05:58,594 --> 00:05:59,634
+PMD Köprüsü.
+
+74
+00:05:59,684 --> 00:06:04,564
+Birinci sezonda G.989.2'nin hat hızı tablosunu gördük:
+
+75
+00:06:04,614 --> 00:06:10,404
+temel seçenek on ve iki buçuk, birinci seçenek on ve on,
+
+76
+00:06:10,454 --> 00:06:13,274
+ikinci seçenek iki buçuk ve iki buçuk.
+
+77
+00:06:13,324 --> 00:06:16,864
+Dikkat: G.989.2'de çift hızlı satır yoktur.
+
+78
+00:06:16,914 --> 00:06:22,604
+Çift hızlı yukarı yön kanalı yalnızca TC katmanında tanımlıdır,
+
+79
+00:06:22,654 --> 00:06:29,987
+ve çift hızlı bir OLT burst alıcısının optik spesifikasyonu kaynaklarda bulunmaz.
+
+80
+00:06:30,927 --> 00:06:32,957
+Hızlar tesadüf değildir.
+
+81
+00:06:33,007 --> 00:06:36,477
+İki virgül dört sekiz sekiz üç iki gigabit,
+
+82
+00:06:36,527 --> 00:06:40,667
+yüz elli beş virgül elli iki megabitin on altı katı;
+
+83
+00:06:40,717 --> 00:06:45,387
+dokuz virgül dokuz beş üç iki sekiz, altmış dört katıdır.
+
+84
+00:06:45,437 --> 00:06:48,437
+İkisi de sekiz kilohertzin katıdır,
+
+85
+00:06:48,487 --> 00:06:54,147
+yani yüz yirmi beş mikrosaniyelik bir çerçeveye tam sayıda bit sığar:
+
+86
+00:06:54,197 --> 00:06:57,807
+iki buçuk gigabitte üç yüz on bir bin kırk,
+
+87
+00:06:57,857 --> 00:07:03,047
+on gigabitte bir milyon iki yüz kırk dört bin yüz altmış bit.
+
+88
+00:07:03,097 --> 00:07:08,817
+Dört on gigabitlik kanal, her yönde yaklaşık kırk gigabit eder;
+
+89
+00:07:08,867 --> 00:07:10,434
+adındaki kırk buradan gelir.
+
+90
+00:07:11,927 --> 00:07:13,627
+Şimdi yapı.
+
+91
+00:07:13,677 --> 00:07:19,307
+TWDM TC katmanı üç alt katmandan oluşur: servis uyarlama,
+
+92
+00:07:19,357 --> 00:07:22,167
+çerçeveleme ve fiziksel uyarlama.
+
+93
+00:07:22,217 --> 00:07:25,317
+PMD ile arayüzü aşağı yönde, nominal hızda,
+
+94
+00:07:25,367 --> 00:07:33,997
+yüz yirmi beş mikrosaniyelik çerçevelere bölünmüş sürekli bir bit akışıdır.
+
+95
+00:07:34,047 --> 00:07:39,760
+Yukarı yönde ise hassas biçimde zamanlanmış bir burst dizisidir.
+
+96
+00:07:40,694 --> 00:07:44,404
+Aşağı yönde bir paketin yolunu izleyelim.
+
+97
+00:07:44,454 --> 00:07:50,104
+Servis verisi birimleri, gerekirse parçalanarak XGEM çerçevelerine konur:
+
+98
+00:07:50,154 --> 00:07:51,714
+bir XGEM başlığı ve bir yük.
+
+99
+00:07:51,764 --> 00:07:58,154
+Bir dizi XGEM çerçevesi, çerçeveleme alt katmanının yükünü oluşturur.
+
+100
+00:07:58,204 --> 00:08:03,094
+Başlık, yük ve kuyruk birlikte bir çerçeveleme çerçevesidir.
+
+101
+00:08:03,144 --> 00:08:07,114
+Sonra FEC kod sözcüklerine bölünür, karıştırılır,
+
+102
+00:08:07,164 --> 00:08:10,894
+ve önüne fiziksel senkron bloğu eklenir:
+
+103
+00:08:10,944 --> 00:08:14,315
+yüz yirmi beş mikrosaniyelik fiziksel çerçeve.
+
+104
+00:08:15,260 --> 00:08:20,330
+Yukarı yönde yol benzerdir, ama sonuç bir burst'tür.
+
+105
+00:08:20,380 --> 00:08:24,980
+Her tahsise bir yük düşer; parçalanan bir paketin kalanı,
+
+106
+00:08:25,030 --> 00:08:28,000
+aynı tahsis kimliğinin bir sonraki tahsisinde gönderilir.
+
+107
+00:08:29,050 --> 00:08:35,950
+Tahsis yükleri, bir başlık ve kuyrukla birlikte bir çerçeveleme burst'ü oluşturur.
+
+108
+00:08:35,000 --> 00:08:40,650
+FEC, sonda kısalmış bir kod sözcüğüyle uygulanır, karıştırılır,
+
+109
+00:08:40,700 --> 00:08:46,904
+ve önüne yukarı yön senkron bloğu eklenir: ONU'ya özgü bir fiziksel burst.
+
+110
+00:08:47,827 --> 00:08:50,627
+Alt katmanların işleri bellidir.
+
+111
+00:08:50,677 --> 00:08:55,697
+Servis uyarlama, paketleri kapsüller, çoğullar ve sınırlar;
+
+112
+00:08:55,747 --> 00:08:59,257
+XGEM motoru ve iki uyarlayıcıdan oluşur:
+
+113
+00:08:59,307 --> 00:09:03,787
+kullanıcı verisi uyarlayıcısı ve OMCI uyarlayıcısı.
+
+114
+00:09:03,837 --> 00:09:09,667
+Çerçeveleme, yönetim için gereken ek yük alanlarını kurar ve çözer;
+
+115
+00:09:09,717 --> 00:09:16,137
+çerçeveleri olabildiğince dört baytlık sözcük sınırlarına hizalar.
+
+116
+00:09:16,187 --> 00:09:22,386
+Fiziksel uyarlama ise FEC, karıştırma, senkron blokları ve zaman hizalamasıdır.
+
+117
+00:09:23,327 --> 00:09:24,287
+PMD Köprüsü.
+
+118
+00:09:24,337 --> 00:09:31,517
+Fiziksel uyarlama alt katmanının iki cümlesi doğrudan birinci sezona bağlanır.
+
+119
+00:09:31,567 --> 00:09:31,517
+FEC,
+
+120
+00:09:31,567 --> 00:09:38,767
+artıklık ekleyerek optik alıcının etkin hassasiyetini ve aşırı yük davranışını iyileştirir,
+
+121
+00:09:38,817 --> 00:09:44,227
+ve alıcının daha yüksek bir hata oranında çalışmasına izin verir.
+
+122
+00:09:44,277 --> 00:09:53,037
+Karıştırma ise iletimi rastgeleleştirir ve ardışık özdeş rakam toleransının sağlanmasına yardım eder.
+
+123
+00:09:53,087 --> 00:09:56,125
+Hat kodları ise G.989.2'ye bırakılmıştır.
+
+124
+00:09:57,060 --> 00:09:58,720
+Mühendis notu.
+
+125
+00:09:58,770 --> 00:10:06,720
+Bir: G.989.3'ü okurken G.987.3'ü de elinizin altında tutun; bazı ekler, örneğin FEC,
+
+126
+00:10:06,770 --> 00:10:07,940
+yalnızca ona atıf yapar.
+
+127
+00:10:07,990 --> 00:10:11,920
+İki: çift hızlı bir kanal tasarlıyorsanız,
+
+128
+00:10:11,970 --> 00:10:16,920
+optik tarafın standartta tanımlı olmadığını bilin;
+
+129
+00:10:16,970 --> 00:10:21,371
+alıcı spesifikasyonu sizin sorumluluğunuzdadır.
+
+130
+00:10:22,394 --> 00:10:25,064
+Sıradaki: veri yolu belli.
+
+131
+00:10:25,114 --> 00:10:26,907
+Peki bu sistem nasıl yönetilir?
+
+132
+00:10:28,693 --> 00:10:31,413
+Perde iki: yönetim kanalları.
+
+133
+00:10:31,463 --> 00:10:39,013
+Bir TWDM sisteminde ONU'nun denetim, işletme ve yönetim bilgisi üç kanalda taşınır:
+
+134
+00:10:39,063 --> 00:10:43,403
+gömülü işletme kanalı, PLOAM ve OMCC.
+
+135
+00:10:43,453 --> 00:10:49,253
+İlk ikisi PMD ve TC katmanlarının işlevlerini yönetir.
+
+136
+00:10:49,303 --> 00:10:54,543
+OMCC ise OMCI protokolünün mesajlarını taşır; OMCI, üst katmanları,
+
+137
+00:10:54,593 --> 00:11:02,372
+yani servisleri tanımlayan katmanları yönetmek için tek tip bir sistemdir.
+
+138
+00:11:03,293 --> 00:11:05,273
+Gömülü işletme kanalı,
+
+139
+00:11:05,323 --> 00:11:10,723
+aşağı yön çerçevesinin ve yukarı yön burst'ünün başlık alanlarıdır.
+
+140
+00:11:10,773 --> 00:11:16,333
+Ayrı bir mesajı yoktur: her bilgi parçası belirli bir alana doğrudan eşlenir.
+
+141
+00:11:16,383 --> 00:11:20,573
+Bu yüzden zamana duyarlı denetim için düşük gecikmeli bir yoldur.
+
+142
+00:11:20,623 --> 00:11:25,923
+Taşıdıkları: yukarı yön burst zamanlaması ve profili, bant genişliği tahsisi,
+
+143
+00:11:25,973 --> 00:11:31,125
+dinamik tahsis sinyalleşmesi, zorunlu uyandırma, ve son nefes bildirimi.
+
+144
+00:11:32,060 --> 00:11:32,940
+PLOAM,
+
+145
+00:11:32,990 --> 00:11:39,380
+gömülü kanalla gönderilmeyen bütün PMD ve çerçeveleme yönetim bilgisini taşır.
+
+146
+00:11:39,430 --> 00:11:45,790
+Mesajları sabit kırk sekiz bayttır: iki bayt ONU kimliği, bir bayt mesaj türü,
+
+147
+00:11:45,840 --> 00:11:49,470
+bir bayt sıra numarası, otuz altı bayt içerik,
+
+148
+00:11:49,520 --> 00:11:54,040
+ve sekiz baytlık bir mesaj bütünlük kodu.
+
+149
+00:11:54,090 --> 00:11:59,746
+PLOAM normalde çerçevenin ve burst'ün içinde, kendi bölmesinde taşınır.
+
+150
+00:12:01,227 --> 00:12:06,227
+Ama PLOAM'ın ikinci bir taşıma seçeneği de vardır: AMCC.
+
+151
+00:12:06,277 --> 00:12:12,707
+Bu seçenek yalnızca yukarı yönde ve yalnızca iki mesaj içindir:
+
+152
+00:12:12,757 --> 00:12:15,277
+seri numarası mesajı ve ayar yanıtı mesajı.
+
+153
+00:12:15,327 --> 00:12:19,727
+Amacı, yeterince kalibre edilmemiş ONU'ları,
+
+154
+00:12:19,777 --> 00:12:25,207
+çalışan TWDM kanallarına zararlı girişim riski olmadan,
+
+155
+00:12:25,257 --> 00:12:27,366
+düşük bir hızla keşfetmektir.
+
+156
+00:12:28,294 --> 00:12:29,574
+Akış şöyledir.
+
+157
+00:12:29,624 --> 00:12:29,954
+OLT,
+
+158
+00:12:30,004 --> 00:12:42,104
+sistem profilinde AMCC seçeneğinin olup olmadığını ve bant içi aktivasyon için gereken en küçük kalibrasyon doğruluğunu duyurur:
+
+159
+00:12:42,154 --> 00:12:46,434
+kalibre edilmemiş, gevşek ya da yeterli.
+
+160
+00:12:46,484 --> 00:12:53,584
+Yeterince kalibre edilmemiş bir ONU, seri numarasını AMCC ile göndermek zorundadır;
+
+161
+00:12:53,634 --> 00:12:55,334
+AMCC yoksa susmalıdır.
+
+162
+00:12:55,384 --> 00:13:03,647
+OLT cevabı aldıktan sonra ONU'yu belirli bir TWDM kanalında aktivasyona yönlendirir.
+
+163
+00:13:04,594 --> 00:13:05,814
+PMD Köprüsü.
+
+164
+00:13:05,864 --> 00:13:13,044
+Bu, birinci sezonun yedinci bölümündeki sorunun TC tarafındaki cevabıdır:
+
+165
+00:13:13,094 --> 00:13:22,174
+dalga boyu henüz doğru olmayan bir verici, başkalarının kanalında ışık vermemelidir.
+
+166
+00:13:22,224 --> 00:13:26,814
+Ama bir gerilim var: G.989.3'ün E eki,
+
+167
+00:13:26,864 --> 00:13:36,004
+TWDM kanalları için AMCC'nin uygulama ayrıntılarını henüz çalışma konusu olarak bırakır.
+
+168
+00:13:36,054 --> 00:13:44,032
+G.989.2'nin B eki de AMCC'yi yalnızca PtP WDM bindirme kanallarında zorunlu kılar.
+
+169
+00:13:45,527 --> 00:13:48,707
+Üçüncü kanal OMCC'dir.
+
+170
+00:13:48,757 --> 00:13:55,637
+TC katmanı, OMCI trafiği için XGEM tabanlı bir taşıma arayüzü sağlar.
+
+171
+00:13:55,687 --> 00:14:03,837
+OMCI'ın kendisi G.988'de tanımlıdır, ve bu sezonun kapsamı dışındadır;
+
+172
+00:14:03,887 --> 00:14:08,677
+biz yalnızca taşındığı kanalı göreceğiz.
+
+173
+00:14:08,727 --> 00:14:10,977
+ONU'daki OMCI uyarlayıcısı,
+
+174
+00:14:11,027 --> 00:14:20,004
+aşağı yönde OMCI taşıyan XGEM çerçevelerini süzer ve açar, yukarı yönde paketler.
+
+175
+00:14:20,927 --> 00:14:26,667
+Dördüncü bir kanal ONU ile değil, OLT kanal sonlandırıcıları arasındadır:
+
+176
+00:14:26,717 --> 00:14:30,197
+kanal sonlandırıcıları arası protokol, ICTP.
+
+177
+00:14:30,247 --> 00:14:33,847
+Kanal profili yapılandırması ve durum paylaşımı, ONU aktivasyonu,
+
+178
+00:14:33,897 --> 00:14:39,887
+dalga boyu kanalı devri ve başıboş ONU'larla mücadele için kullanılır.
+
+179
+00:14:39,937 --> 00:14:42,867
+Standart on dört kullanım durumu sayar,
+
+180
+00:14:42,917 --> 00:14:48,971
+ama protokolün kendisini kapsam dışı bırakır ve bir sektör belgesine atıf yapar.
+
+181
+00:14:49,894 --> 00:14:52,554
+ICTP'nin bir kuralı ilginçtir:
+
+182
+00:14:52,604 --> 00:14:56,844
+PON arayüzünden ve ICTP'den gelen sistem görünümleri çelişirse,
+
+183
+00:14:56,894 --> 00:15:00,854
+kanal sonlandırıcısı çelişkiyi yönetim sistemine bildirir,
+
+184
+00:15:00,904 --> 00:15:04,834
+ve PON işletimini bozabilecek eylemlerden kaçınır.
+
+185
+00:15:04,884 --> 00:15:08,290
+Yani şüphede kalındığında, hiçbir şeyi bozma.
+
+186
+00:15:09,227 --> 00:15:10,887
+Mühendis notu.
+
+187
+00:15:10,937 --> 00:15:15,377
+Bir: bir sorunu ararken önce hangi kanalda yaşadığını bulun.
+
+188
+00:15:15,427 --> 00:15:22,937
+Zamanlama ve tahsis gömülü alanlardadır; profiller ve ayar komutları PLOAM'dadır;
+
+189
+00:15:22,987 --> 00:15:26,057
+servis yapılandırması OMCI'dadır.
+
+190
+00:15:26,107 --> 00:15:28,977
+İki: AMCC ile keşif isteğe bağlıdır;
+
+191
+00:15:29,027 --> 00:15:37,482
+kalibre edilmemiş ONU'lar kullanıyorsanız OLT'nizin bu seçeneği gerçekten sunduğunu doğrulayın.
+
+192
+00:15:38,527 --> 00:15:41,507
+Sıradaki: kanallar hazır.
+
+193
+00:15:41,557 --> 00:15:44,534
+Ama mesajlar kime gidiyor? Kimlikler.
+
+194
+00:15:46,327 --> 00:15:47,477
+Perde üç: kimlikler.
+
+195
+00:15:47,527 --> 00:15:55,717
+NG-PON2'nin zaman ve dalga boyu bölmeli mimarisinde birden fazla OLT kanal sonlandırıcısı vardır,
+
+196
+00:15:55,767 --> 00:15:59,297
+her biri belirli bir TWDM kanalına bağlıdır.
+
+197
+00:15:59,347 --> 00:16:02,637
+ONU'lar kanallar arasında devredilebilir.
+
+198
+00:16:02,687 --> 00:16:08,157
+Bir kanalın içinde ise zaman bölmeli çoğullama geçerlidir.
+
+199
+00:16:08,207 --> 00:16:11,349
+Bu yapıda kimin kim olduğunu dokuz numara söyler.
+
+200
+00:16:12,294 --> 00:16:18,714
+En geniş kimlik sistem kimliğidir, NG2SYS ID: yirmi bitlik bir sayı.
+
+201
+00:16:18,764 --> 00:16:26,304
+Ortak yönetim altındaki NG-PON2 sistemlerinden birini tanımlar; operatör adı,
+
+202
+00:16:26,354 --> 00:16:32,814
+coğrafi konum, servis profili gibi yönetim bilgisini kodlayabilir.
+
+203
+00:16:32,864 --> 00:16:38,374
+Bir sistemin bütün TWDM ve PtP WDM kanallarında aynıdır,
+
+204
+00:16:38,424 --> 00:16:44,347
+ve OLT bunu sistem profili mesajında bütün ONU'lara duyurur.
+
+205
+00:16:45,294 --> 00:16:47,054
+Sonra PON kimliği:
+
+206
+00:16:47,104 --> 00:16:55,004
+bir kanal sonlandırıcısını bir alan içinde benzersiz biçimde tanımlayan otuz iki bitlik bir sayı.
+
+207
+00:16:55,054 --> 00:17:04,194
+TWDM'de yirmi sekiz bitlik bir yönetim etiketi ve dört bitlik aşağı yön dalga boyu kanalı kimliğinden oluşur.
+
+208
+00:17:04,244 --> 00:17:07,524
+Etiketi yönetim sistemi verir, OLT ona dokunmaz.
+
+209
+00:17:07,574 --> 00:17:14,624
+PON kimliği her yüz yirmi beş mikrosaniyede, fiziksel senkron bloğunda taşınır;
+
+210
+00:17:14,674 --> 00:17:17,474
+bunu bir sonraki bölümde bit bit göreceğiz.
+
+211
+00:17:18,394 --> 00:17:20,724
+Bir zamanlama farkına dikkat edin.
+
+212
+00:17:20,774 --> 00:17:25,644
+Hangi kanal sorusunun cevabı her çerçevede gelir, PON kimliğiyle.
+
+213
+00:17:25,694 --> 00:17:29,654
+Hangi sistem sorusunun cevabı ise yalnızca sistem profilindedir,
+
+214
+00:17:29,704 --> 00:17:34,224
+ve profiller bir ile beş saniye arasında bir aralıkla tekrarlanır.
+
+215
+00:17:34,274 --> 00:17:37,470
+Hangi kanal hızlı, hangi sistem yavaş öğrenilir.
+
+216
+00:17:38,394 --> 00:17:40,764
+Aşağı yön dalga boyu kanalı kimliği,
+
+217
+00:17:40,814 --> 00:17:47,684
+G.989.2'nin frekans tablosundaki kanal numarasının bir eksiğidir: sıfırdan yediye,
+
+218
+00:17:47,734 --> 00:17:53,114
+yüz seksen yedi virgül sekizden yüz seksen yedi virgül bir terahertze.
+
+219
+00:17:53,164 --> 00:17:58,784
+Yukarı yön kanal kimliği de dört bittir, ama sabit bir tablosu yoktur:
+
+220
+00:17:58,834 --> 00:18:03,174
+yukarı yön frekanslarını ve kimliklerini operatör atar,
+
+221
+00:18:03,224 --> 00:18:09,354
+ve kanal profilinde sıfır virgül bir gigahertzlik birimlerle duyurulur.
+
+222
+00:18:09,404 --> 00:18:12,590
+Aşağı yönü fizik, yukarı yönü operatör belirler.
+
+223
+00:18:13,527 --> 00:18:14,557
+PMD Köprüsü.
+
+224
+00:18:14,607 --> 00:18:19,577
+Bunun nedeni birinci sezonun üçüncü bölümündeydi:
+
+225
+00:18:19,627 --> 00:18:25,567
+yukarı yön bandının üç genişlik seçeneği vardır, geniş, daraltılmış ve dar;
+
+226
+00:18:25,617 --> 00:18:28,847
+ve döngüsel çoğullayıcılar kullanılabilir.
+
+227
+00:18:28,897 --> 00:18:34,048
+Sabit bir yukarı yön tablosu bu esnekliği öldürürdü.
+
+228
+00:18:35,527 --> 00:18:38,247
+Şimdi ONU'nun kendi numaraları.
+
+229
+00:18:38,297 --> 00:18:43,197
+ONU kimliği on bittir: sıfırdan bin yirmiye kadar atanabilir,
+
+230
+00:18:43,247 --> 00:18:48,537
+bin yirmi bir ve bin yirmi iki ayrılmıştır ve asla kullanılmaz,
+
+231
+00:18:48,587 --> 00:18:50,977
+bin yirmi üç ise yayın adresidir,
+
+232
+00:18:51,027 --> 00:18:56,087
+ya da yukarı yönde henüz kimliği olmayan bir ONU demektir.
+
+233
+00:18:56,137 --> 00:19:02,697
+OLT bunu aktivasyon sırasında atar, ve kimlik bütün ODN boyunca benzersizdir.
+
+234
+00:19:03,627 --> 00:19:06,137
+Tahsis kimliği on dört bittir,
+
+235
+00:19:06,187 --> 00:19:11,207
+ve bant genişliği haritasındaki bir tahsisin alıcısını söyler:
+
+236
+00:19:11,257 --> 00:19:15,107
+bir ONU'nun içindeki bir trafik taşıyıcısı,
+
+237
+00:19:15,157 --> 00:19:20,487
+ya da birden fazla ONU'nun kullanabileceği bir çekişmeli işlev.
+
+238
+00:19:20,537 --> 00:19:28,147
+Sıfırdan bin yirmiye kadar olan değerler varsayılandır ve ONU kimliğine eşittir.
+
+239
+00:19:28,197 --> 00:19:31,577
+Bin yirmi bir, bin yirmi iki ve bin yirmi üç,
+
+240
+00:19:31,627 --> 00:19:36,157
+seri numarası tahsisleri için ayrılmış yayın adresleridir.
+
+241
+00:19:36,207 --> 00:19:42,529
+Bin yirmi dörtten on altı bin üç yüz seksen üçe kadar olanlar açıkça atanır.
+
+242
+00:19:43,460 --> 00:19:47,760
+Üç yayın değerinin ayrımı hızdır: bin yirmi bir her hıza,
+
+243
+00:19:47,810 --> 00:19:50,820
+bin yirmi iki yalnızca on gigabit,
+
+244
+00:19:50,870 --> 00:19:56,610
+bin yirmi üç yalnızca iki buçuk gigabit yukarı yönlü ONU'lara açıktır.
+
+245
+00:19:56,660 --> 00:19:58,900
+Standart nedenini de yazar: tek hızlı bir kanalda,
+
+246
+00:19:58,950 --> 00:20:05,270
+yanlış hızla gönderen yanlışlıkla bağlanmış ONU'ları engellemek;
+
+247
+00:20:05,320 --> 00:20:10,103
+çift hızlı bir kanalda ise iki hızın birlikte kaydolmasına izin vermek.
+
+248
+00:20:11,027 --> 00:20:17,197
+XGEM port kimliği on altı bittir, ve tek bir mantıksal bağlantıyı tanımlar.
+
+249
+00:20:17,247 --> 00:20:23,747
+Sıfırdan bin yirmiye kadar olanlar varsayılandır ve OMCC trafiğini taşır;
+
+250
+00:20:23,797 --> 00:20:31,947
+bin yirmi birden altmış beş bin beş yüz otuz dörde kadar olanlar atanabilir;
+
+251
+00:20:31,997 --> 00:20:37,447
+altmış beş bin beş yüz otuz beş ise boş XGEM çerçeveleri içindir.
+
+252
+00:20:37,497 --> 00:20:43,541
+OMCC dışındaki bütün port atamaları OMCC'nin kendisi üzerinden yapılır.
+
+253
+00:20:44,460 --> 00:20:49,190
+Burada zarif bir kural var: aynı numara üç kapıyı açar.
+
+254
+00:20:49,240 --> 00:20:55,660
+ONU kimliği on dokuz olan bir ONU'nun varsayılan tahsis kimliği on dokuz,
+
+255
+00:20:55,710 --> 00:20:58,140
+OMCC portu da on dokuzdur.
+
+256
+00:20:58,190 --> 00:21:02,310
+Bir analizör, hiçbir OMCI yapılandırması bilmeden,
+
+257
+00:21:02,360 --> 00:21:06,230
+OMCI trafiğini doğru ONU'ya eşleyebilir.
+
+258
+00:21:06,280 --> 00:21:11,680
+Ayrılmış değerler ise simetrik değildir: bin yirmi bir bir port olabilir,
+
+259
+00:21:11,730 --> 00:21:15,063
+ama asla bir ONU kimliği olamaz.
+
+260
+00:21:16,560 --> 00:21:19,940
+Son kimlik, kanal bölümleme indeksidir.
+
+261
+00:21:19,990 --> 00:21:22,780
+Operatör, kanalları hizmet profili,
+
+262
+00:21:22,830 --> 00:21:27,900
+donanım ya da konum gibi bir ölçütle örtüşmeyen bölümlere ayırabilir.
+
+263
+00:21:27,950 --> 00:21:33,080
+ONU'nun indeksi kalıcı bellektedir, ve güç kesintisinde bile korunur.
+
+264
+00:21:33,130 --> 00:21:37,940
+Belirli bir indeksi olan ONU yalnızca eşleşen bölümde aktive olur;
+
+265
+00:21:37,990 --> 00:21:41,930
+eşleşen bir kanal bulamazsa bir zamanlayıcı başlatır,
+
+266
+00:21:41,980 --> 00:21:44,760
+ve süre dolunca indeksini sıfıra döndürür.
+
+267
+00:21:44,810 --> 00:21:47,168
+Önerilen süre beş dakikadır.
+
+268
+00:21:48,093 --> 00:21:55,823
+Peki hangi kimlik ne zaman unutulur? Bir kanal devrinde ONU yalnızca burst profillerini unutur;
+
+269
+00:21:55,873 --> 00:21:59,683
+ONU kimliği, tahsis kimlikleri ve portlar kalır.
+
+270
+00:21:59,733 --> 00:22:02,813
+ONU ilk duruma dönerse ise ONU kimliğini,
+
+271
+00:22:02,863 --> 00:22:08,473
+varsayılan ve atanmış tahsis kimliklerini ve varsayılan portu unutur;
+
+272
+00:22:08,523 --> 00:22:13,142
+ama OMCC ile atanmış portları ve bölümleme indeksini korur.
+
+273
+00:22:14,060 --> 00:22:15,720
+Mühendis notu.
+
+274
+00:22:15,770 --> 00:22:21,640
+Bir: bir ONU kanal değiştirdiğinde kimliklerinin değişmesini beklemeyin;
+
+275
+00:22:21,690 --> 00:22:27,060
+ONU kimliği ve tahsis kimlikleri bütün kanallar boyunca benzersizdir.
+
+276
+00:22:27,110 --> 00:22:27,060
+İki:
+
+277
+00:22:27,110 --> 00:22:36,750
+bölümleme indeksi kalıcıdır ve bir sahada ONU'nun hiçbir kanala bağlanmamasının sessiz nedenlerinden biri olabilir;
+
+278
+00:22:36,800 --> 00:22:39,759
+beş dakikalık bekleme süresini aklınızda tutun.
+
+279
+00:22:40,793 --> 00:22:43,863
+Sıradaki: kim kim belli.
+
+280
+00:22:43,913 --> 00:22:46,043
+Peki kim, ne zaman konuşur?
+
+281
+00:22:47,827 --> 00:22:49,917
+Perde dört: ortam erişimi.
+
+282
+00:22:49,967 --> 00:22:51,287
+Kural basittir:
+
+283
+00:22:51,337 --> 00:22:57,107
+OLT her yüz yirmi beş mikrosaniyede bir aşağı yön çerçevesi gönderir,
+
+284
+00:22:57,157 --> 00:23:01,407
+ve her çerçeve bir bant genişliği haritası içerir.
+
+285
+00:23:01,457 --> 00:23:08,097
+Harita, ilgili yukarı yön çerçevesinde her ONU'nun ne zaman göndereceğini söyler.
+
+286
+00:23:08,147 --> 00:23:15,107
+Aşağı yön merkezidir: OLT bütün XGEM çerçevelerini port kimliğiyle çoğullar,
+
+287
+00:23:15,157 --> 00:23:17,636
+her ONU kendine ait olanları süzer.
+
+288
+00:23:18,560 --> 00:23:20,980
+Yukarı yön ise dağıtıktır.
+
+289
+00:23:21,030 --> 00:23:26,850
+Tahsisler tahsis kimliklerine verilir, ve her tahsisin içinde ONU,
+
+290
+00:23:26,900 --> 00:23:32,030
+XGEM port kimliğini çoğullama anahtarı olarak kullanır.
+
+291
+00:23:32,080 --> 00:23:36,220
+Bir ONU'ya ait, art arda gönderilecek tahsislerin dizisi,
+
+292
+00:23:36,270 --> 00:23:38,590
+bir burst tahsis serisidir.
+
+293
+00:23:38,640 --> 00:23:43,680
+Serinin yalnızca ilk girdisi bir başlangıç zamanı taşır;
+
+294
+00:23:43,730 --> 00:23:46,827
+sonrakiler yalnızca boyutlarını taşır.
+
+295
+00:23:47,760 --> 00:23:54,580
+Bütün ONU'ların aynı zaman referansını paylaşabilmesi mesafe ölçümüne bağlıdır.
+
+296
+00:23:54,630 --> 00:23:58,540
+Mesafe ölçümünde belirlenen bireysel eşitleme gecikmeleri,
+
+297
+00:23:58,590 --> 00:24:04,990
+aynı ofsette gönderen iki ONU'nun burst'lerinin OLT'ye aynı anda ulaşmasını sağlar.
+
+298
+00:24:05,040 --> 00:24:10,000
+Birinci sezonun ikinci bölümünde bu fikri fiberin uzunluğuyla kurduk;
+
+299
+00:24:11,050 --> 00:24:13,548
+altıncı bölümde mesajlarıyla açacağız.
+
+300
+00:24:14,494 --> 00:24:17,904
+Başlangıç zamanının birimi hıza göre değişir:
+
+301
+00:24:17,954 --> 00:24:25,874
+iki buçuk gigabitte dört baytlık bir sözcük, on gigabitte on altı baytlık bir blok.
+
+302
+00:24:25,924 --> 00:24:32,734
+Ama ikisi de aynı süredir: on iki virgül sekiz altı nanosaniye, bir zaman kuantumu.
+
+303
+00:24:32,784 --> 00:24:34,174
+Bu sayede iki hız,
+
+304
+00:24:34,224 --> 00:24:41,504
+yüz yirmi beş mikrosaniyede dokuz bin yedi yüz yirmi yuvalık aynı ızgarayı paylaşır.
+
+305
+00:24:41,554 --> 00:24:44,119
+Ayrıntısı bir sonraki bölümde.
+
+306
+00:24:45,593 --> 00:24:48,753
+Şimdi noktadan noktaya WDM.
+
+307
+00:24:48,803 --> 00:24:54,643
+Birinci sezonun dokuzuncu bölümünde PtP WDM'in yönetim kanalını, AMCC'yi,
+
+308
+00:24:54,693 --> 00:24:56,033
+optik tarafından gördük.
+
+309
+00:24:56,083 --> 00:24:59,153
+TC tarafında kural şudur:
+
+310
+00:24:59,203 --> 00:25:05,713
+PtP WDM'de kullanıcı verisi ile işletme verisi TC katmanında ayrıdır.
+
+311
+00:25:05,763 --> 00:25:10,703
+Kullanıcı verisine TC katmanı dokunmaz; yalnızca işletme verisi,
+
+312
+00:25:10,753 --> 00:25:13,765
+AMCC TC katmanında işlenir.
+
+313
+00:25:14,693 --> 00:25:16,413
+İki mod vardır.
+
+314
+00:25:16,463 --> 00:25:22,473
+Şeffaf modda kullanıcı verisi ve AMCC verisi doğrudan PMD'ye gider,
+
+315
+00:25:22,523 --> 00:25:25,823
+ve PMD'nin iki ayrı arayüzü vardır.
+
+316
+00:25:25,873 --> 00:25:32,343
+Kod dönüştürmeli modda ikisi bir kod dönüştürücünün iki portuna girer,
+
+317
+00:25:32,393 --> 00:25:36,163
+ve tek bir akış olarak PMD'ye çıkar.
+
+318
+00:25:36,213 --> 00:25:42,063
+AMCC TC katmanı da üç alt katmandır, ve TWDM'deki sistem kimliği,
+
+319
+00:25:42,113 --> 00:25:47,505
+PON kimliği ve ONU kimliği kavramlarını yeniden kullanır.
+
+320
+00:25:48,426 --> 00:25:49,346
+Bir fark:
+
+321
+00:25:49,396 --> 00:25:56,306
+PtP WDM'de PON kimliği yirmi iki bitlik bir etiket ve on bitlik bir ONU kimliğidir.
+
+322
+00:25:56,356 --> 00:26:01,306
+Yani bir PtP PON kimliği, bir kanal sonlandırıcısını değil,
+
+323
+00:26:01,356 --> 00:26:06,666
+bir sonlandırıcı ile bir ONU'nun çiftini adlandırır.
+
+324
+00:26:06,716 --> 00:26:11,476
+AMCC TC'nin işlev bloklarında güç, kanal ve koruma yönetimi yoktur;
+
+325
+00:26:11,526 --> 00:26:16,652
+yalnızca başarım izleme ve güvenlik anahtar yönetimi vardır.
+
+326
+00:26:18,127 --> 00:26:23,977
+Sekizinci ek, kimliklerin nasıl kodlanabileceğine örnekler verir.
+
+327
+00:26:24,027 --> 00:26:30,337
+PON kimliği için: operatör, merkez ofis, OLT şasisi, kart,
+
+328
+00:26:30,387 --> 00:26:37,957
+dalga boyu portu ve aşağı yön dalga boyu, giderek daralan bir kapsamla.
+
+329
+00:26:38,007 --> 00:26:45,747
+Sistem kimliği için: operatör, bölge, kasaba, hizmet alanı ve hizmet profili;
+
+330
+00:26:45,797 --> 00:26:48,287
+yirmi biti tam doldurur.
+
+331
+00:26:48,337 --> 00:26:54,545
+Ama bu ek bilgilendiricidir, ve normatif yerleşimle çelişir.
+
+332
+00:26:55,494 --> 00:27:01,164
+Örnek on altı aşağı yön dalga boyu önerir; normatif tablo sekiz kullanır.
+
+333
+00:27:01,214 --> 00:27:04,724
+Örnek dalga boyu alanını sözcüğün ortasına koyar;
+
+334
+00:27:04,774 --> 00:27:08,824
+normatif metin onu en anlamsız dört bite yerleştirir.
+
+335
+00:27:08,874 --> 00:27:14,394
+Ve ek, hiçbir yerde tanımlanmamış bir ODN kimliğinden söz eder.
+
+336
+00:27:14,444 --> 00:27:19,660
+Bir PON kimliği planı tasarlarken örneği değil, normatif yerleşimi izleyin.
+
+337
+00:27:20,594 --> 00:27:22,264
+Mühendis notu.
+
+338
+00:27:22,314 --> 00:27:22,264
+Bir:
+
+339
+00:27:22,314 --> 00:27:31,044
+bir haritayı çözerken başlangıç zamanının yalnızca serinin ilk girdisinde olduğunu unutmayın.
+
+340
+00:27:31,094 --> 00:27:36,554
+İki: PtP WDM ONU'larının kimliklerini planlarken,
+
+341
+00:27:36,604 --> 00:27:42,644
+PON kimliğinin on bitinin ONU kimliği olduğunu hesaba katın;
+
+342
+00:27:42,694 --> 00:27:46,513
+etiket için yalnızca yirmi iki bit kalır.
+
+343
+00:27:47,560 --> 00:27:50,490
+Sıradaki: dil tanımlandı.
+
+344
+00:27:50,540 --> 00:27:52,809
+Şimdi laboratuvarda onu okuyalım.
+
+345
+00:27:54,593 --> 00:27:55,963
+Laboratuvarda.
+
+346
+00:27:56,013 --> 00:27:59,663
+Birinci sezonun tezgâhında bir güç ölçer, bir OSA,
+
+347
+00:27:59,713 --> 00:28:04,343
+bir hata oranı test cihazı ve bir ayarlı zayıflatıcı vardı.
+
+348
+00:28:04,393 --> 00:28:10,153
+Bu sezona iki cihaz ekliyoruz: aşağı ve yukarı yönü izleyen bir protokol analizörü,
+
+349
+00:28:10,203 --> 00:28:14,493
+ve mesajları istediğimiz gibi üreten bir OLT emülatörü.
+
+350
+00:28:14,543 --> 00:28:17,569
+Bu bölümde ikisiyle kimlikleri okuyacağız.
+
+351
+00:28:18,493 --> 00:28:23,423
+İlk adım: aşağı yön çerçevesinin senkron bloğunu bulmak.
+
+352
+00:28:23,473 --> 00:28:27,473
+Analizör, on gigabitte her yüz elli beş bin beş yüz yirmi baytta,
+
+353
+00:28:27,523 --> 00:28:35,723
+iki buçuk gigabitte her otuz sekiz bin sekiz yüz seksen baytta sabit senkron desenini bulmalıdır.
+
+354
+00:28:35,773 --> 00:28:39,483
+Sonra işletim denetimi yapısını sabit desenle geri açın,
+
+355
+00:28:39,533 --> 00:28:42,889
+hata denetimini kontrol edin, ve alanlarına ayırın.
+
+356
+00:28:43,826 --> 00:28:47,606
+İkinci adım: PON kimliği ile optiği karşılaştırmak.
+
+357
+00:28:47,656 --> 00:28:53,416
+PON kimliğinin en anlamsız dört biti, aşağı yön kanal kimliğidir.
+
+358
+00:28:53,466 --> 00:28:58,226
+Bunu OSA ya da dalga boyu ölçerle ölçtüğünüz frekansla,
+
+359
+00:28:58,276 --> 00:29:01,596
+ve frekans tablosuyla karşılaştırın.
+
+360
+00:29:01,646 --> 00:29:07,036
+Örneğin PON kimliği on altılık tabanda bir iki üç dört beş altı yedi üç ise,
+
+361
+00:29:07,086 --> 00:29:12,576
+kanal kimliği sıfır sıfır bir bir, yani dördüncü kanaldır:
+
+362
+00:29:12,626 --> 00:29:14,822
+yüz seksen yedi virgül beş terahertz.
+
+363
+00:29:15,760 --> 00:29:17,090
+Üçüncü adım: sistem kimliği.
+
+364
+00:29:17,140 --> 00:29:23,420
+Sistem profili mesajını yakalayın; yirmi bitlik sistem kimliğini okuyun.
+
+365
+00:29:23,470 --> 00:29:27,000
+Aynı sistemin bütün kanal sonlandırıcılarında aynı olmalıdır.
+
+366
+00:29:27,050 --> 00:29:33,390
+Bir profil penceresi boyunca, kanal profili mesajlarının sayısını da sayın:
+
+367
+00:29:33,440 --> 00:29:38,080
+sistem profilinde duyurulan kanal sayısına eşit olmalı,
+
+368
+00:29:38,130 --> 00:29:40,594
+ve her biri bir PON kimliği taşımalıdır.
+
+369
+00:29:42,093 --> 00:29:45,373
+Dördüncü adım: ONU kimliği kuralları.
+
+370
+00:29:45,423 --> 00:29:50,203
+PLOAM mesajlarında bin yirmi üç yalnızca aşağı yönde yayın,
+
+371
+00:29:50,253 --> 00:29:54,523
+yukarı yönde atanmamış ONU anlamında görünmelidir.
+
+372
+00:29:54,573 --> 00:29:58,653
+Bin yirmi bir ve bin yirmi iki hiç görünmemelidir.
+
+373
+00:29:58,703 --> 00:30:05,712
+Seri numarası cevaplarında yukarı yön başlığının ONU kimliği bin yirmi üç olmalıdır.
+
+374
+00:30:06,660 --> 00:30:09,640
+Beşinci adım: varsayılan üçlü.
+
+375
+00:30:09,690 --> 00:30:13,730
+Emülatörle bir ONU'ya kimlik atayın, diyelim on dokuz.
+
+376
+00:30:13,780 --> 00:30:18,590
+Mesafe ölçüm tahsisinin tahsis kimliği on dokuz,
+
+377
+00:30:18,640 --> 00:30:23,570
+OMCI çerçevelerinin portu da on dokuz olmalıdır.
+
+378
+00:30:23,620 --> 00:30:29,188
+Sonra kimliği iptal edin; ONU bu üç numarayı kullanmayı bırakmalıdır.
+
+379
+00:30:30,126 --> 00:30:31,656
+Altıncı adım: hız kapısı.
+
+380
+00:30:31,706 --> 00:30:39,296
+Emülatörle yalnızca bin yirmi iki numaralı seri numarası tahsisleri verin:
+
+381
+00:30:39,346 --> 00:30:43,856
+iki buçuk gigabit yukarı yönlü bir ONU sessiz kalmalıdır.
+
+382
+00:30:43,906 --> 00:30:49,536
+Yalnızca bin yirmi üç verin: on gigabitlik ONU sessiz kalmalıdır.
+
+383
+00:30:49,586 --> 00:30:56,294
+Çift hızlı bir kanalda bin yirmi bir, ikisinin de cevap vermesine izin verir.
+
+384
+00:30:57,226 --> 00:30:59,706
+Yedinci adım: altın vektör.
+
+385
+00:30:59,756 --> 00:31:06,106
+Dördüncü ekte bir tahsis kimliği atama mesajı vardır: ONU kimliği on dokuz,
+
+386
+00:31:06,156 --> 00:31:08,696
+tahsis kimliği bin doksan üç.
+
+387
+00:31:08,746 --> 00:31:12,856
+Ekte bu mesajın bütünlük kodu da verilmiştir.
+
+388
+00:31:12,906 --> 00:31:20,276
+Analizörünüzün PLOAM çözücüsünü ve bütünlük kontrolünü bu vektörle doğrulayın;
+
+389
+00:31:20,326 --> 00:31:22,984
+ayrıntısını beşinci bölümde açacağız.
+
+390
+00:31:24,460 --> 00:31:27,040
+Sekizinci adım: boş XGEM.
+
+391
+00:31:27,090 --> 00:31:29,160
+Yüksüz bir aşağı yönde,
+
+392
+00:31:29,210 --> 00:31:36,810
+çerçeve yükünü port kimliği altmış beş bin beş yüz otuz beş olan boş XGEM çerçeveleri doldurur,
+
+393
+00:31:36,860 --> 00:31:38,700
+ve alıcı bunları atar.
+
+394
+00:31:38,750 --> 00:31:42,774
+Trafiği açınca boş çerçevelerin yerini veri almalıdır.
+
+395
+00:31:43,693 --> 00:31:46,563
+Dokuzuncu adım: bölümleme indeksi.
+
+396
+00:31:46,613 --> 00:31:50,823
+OMCI ile bir ONU'nun indeksini beşe ayarlayın,
+
+397
+00:31:50,873 --> 00:31:54,153
+ve yalnızca başka bir bölümün kanallarını sunun.
+
+398
+00:31:54,203 --> 00:31:59,533
+ONU'nun indeksini sıfıra döndürene kadar geçen süreyi ölçün:
+
+399
+00:31:59,583 --> 00:32:01,963
+önerilen değer beş dakikadır.
+
+400
+00:32:02,013 --> 00:32:05,563
+Sonra gücü kesip açın; indeks korunmalıdır.
+
+401
+00:32:06,493 --> 00:32:08,313
+Laboratuvar notu.
+
+402
+00:32:08,363 --> 00:32:08,313
+Bir:
+
+403
+00:32:08,363 --> 00:32:16,053
+analizörünüzün iki bin yirmi bir metnine göre yazılmış çözücüleri bu bölümün alanları için geçerlidir;
+
+404
+00:32:16,103 --> 00:32:17,963
+altıncı madde o günden beri değişmedi.
+
+405
+00:32:18,013 --> 00:32:24,073
+İki: bütün ölçümleri birinci sezonun optik ölçümleriyle aynı defterde tutun;
+
+406
+00:32:24,123 --> 00:32:27,844
+bir PON kimliği ile bir frekans ölçümü aynı satırda durmalıdır.
+
+407
+00:32:29,393 --> 00:32:30,953
+Bölümün özeti.
+
+408
+00:32:31,003 --> 00:32:38,623
+Bir: G.989.3, G.987.3'ün üstüne kurulmuş üç alt katmanlı bir TC katmanıdır:
+
+409
+00:32:38,673 --> 00:32:44,093
+servis uyarlama, çerçeveleme ve fiziksel uyarlama.
+
+410
+00:32:44,143 --> 00:32:52,183
+İki: dört hız kombinasyonundan dördüncüsü, çift hızlı bir yukarı yön kanalıdır,
+
+411
+00:32:52,233 --> 00:32:56,233
+ve yalnızca TC katmanında tanımlıdır.
+
+412
+00:32:56,283 --> 00:33:03,183
+Üç: yönetim üç kanaldan geçer: gömülü alanlar, PLOAM ve OMCC;
+
+413
+00:33:03,233 --> 00:33:07,203
+kanal sonlandırıcıları ise ICTP ile konuşur.
+
+414
+00:33:08,126 --> 00:33:11,206
+Dört: dokuz kimlik vardır; ONU kimliği,
+
+415
+00:33:11,256 --> 00:33:16,666
+varsayılan tahsis kimliği ve OMCC portu aynı numaradır,
+
+416
+00:33:16,716 --> 00:33:20,236
+ve bir kanal devrinde korunur.
+
+417
+00:33:20,286 --> 00:33:22,356
+Beş: hız farkına rağmen iki hız,
+
+418
+00:33:22,406 --> 00:33:28,895
+on iki virgül sekiz altı nanosaniyelik aynı zaman kuantumunu paylaşır.
+
+419
+00:33:29,926 --> 00:33:31,366
+Kendini test et.
+
+420
+00:33:31,416 --> 00:33:35,766
+Birinci soru: tahsis kimliği bin yirmi iki,
+
+421
+00:33:35,816 --> 00:33:43,316
+boyutu sıfır olan ve PLOAM isteyen bir tahsis nedir, hangi ONU'lar cevap verebilir,
+
+422
+00:33:43,366 --> 00:33:45,646
+ve hangi ONU kimliğiyle? İkinci soru:
+
+423
+00:33:45,696 --> 00:33:53,816
+bir PSBd'de PON kimliği on altılık tabanda bir iki üç dört beş altı yedi üç ise,
+
+424
+00:33:53,866 --> 00:33:58,566
+bu hangi aşağı yön kanalıdır? Üçüncü soru:
+
+425
+00:33:58,616 --> 00:34:04,626
+ONU kimliği on dokuz olan bir ONU'nun hangi kimlikleri bir kanal devrinde,
+
+426
+00:34:04,676 --> 00:34:11,611
+hangileri ilk duruma dönüşte korunur? Cevaplar, bir sonraki bölümün başında.
+
+427
+00:34:12,593 --> 00:34:14,553
+Bir sonraki bölüm: Çerçeve.
+
+428
+00:34:14,603 --> 00:34:19,173
+Senkron bloğundan bant genişliği haritasına,
+
+429
+00:34:19,223 --> 00:34:25,243
+aşağı yön çerçevesini ve yukarı yön burst'ünü bit bit açıyoruz.
+
+430
+00:34:25,293 --> 00:34:26,896
+Görüşmek üzere.
+

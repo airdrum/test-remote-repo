@@ -1,0 +1,1792 @@
+1
+00:00:00,000 --> 00:00:02,770
+Bölüm dokuz: Özel Hat.
+
+2
+00:00:02,820 --> 00:00:09,280
+Bu bölümde NG-PON2'nin ikinci yüzüne bakıyoruz: paylaşılan TWDM kanalları yerine,
+
+3
+00:00:09,330 --> 00:00:16,192
+her aboneye kendi dalga boyu çiftini veren noktadan noktaya WDM.
+
+4
+00:00:17,133 --> 00:00:19,743
+Önce mimari ve spektrum:
+
+5
+00:00:19,793 --> 00:00:25,573
+dalga boyunu ONU'nun seçtiği sistem ile ağın yönlendirdiği sistem arasındaki fark,
+
+6
+00:00:25,623 --> 00:00:28,312
+ve paylaşılan ile genişletilmiş bant.
+
+7
+00:00:29,233 --> 00:00:34,483
+Sonra A ekinin tabloları: üç hat hızı sınıfı, FEC'li ve FEC'siz bütçeler,
+
+8
+00:00:34,533 --> 00:00:36,869
+ve sınıf farkını kimin taşıdığı.
+
+9
+00:00:37,800 --> 00:00:41,910
+Ardından yardımcı yönetim ve denetim kanalı, AMCC:
+
+10
+00:00:41,960 --> 00:00:48,667
+on gigabitlik bir hattın üstüne binen, saniyede yüz on beş kilobitlik bir fısıltı.
+
+11
+00:00:49,600 --> 00:00:53,580
+Sonra C ekindeki düşük kayıplı PtP WDM,
+
+12
+00:00:53,630 --> 00:00:59,252
+ve TC köprüsünde AMCC'nin çerçevesi ile kod dönüştürme.
+
+13
+00:01:00,200 --> 00:01:04,000
+Laboratuvarda PtP vericisini, alıcı bütçesini,
+
+14
+00:01:04,050 --> 00:01:08,455
+modülasyon indeksini ve AMCC'nin bedelini ölçeceğiz.
+
+15
+00:01:20,727 --> 00:01:22,677
+Geçen bölümün soruları.
+
+16
+00:01:22,727 --> 00:01:23,487
+Birinci soru:
+
+17
+00:01:23,537 --> 00:01:35,917
+noktadan noktaya WDM kanalları neden TWDM'den farklı bir banda yerleştirilir? Çünkü her PtP kanalı tek bir aboneye aittir ve sürekli çalışır;
+
+18
+00:01:35,967 --> 00:01:41,667
+TWDM'in paylaşılan, burst'lü kanallarıyla karışmamalıdır.
+
+19
+00:01:41,717 --> 00:01:46,427
+Standart iki ailenin iç içe geçmesini yasaklar,
+
+20
+00:01:46,477 --> 00:01:53,387
+ve aralarına en az üç nanometre ya da yüz gigahertzlik bir koruma bandı koyar.
+
+21
+00:01:53,437 --> 00:01:55,637
+Paylaşılan spektrumda PtP WDM,
+
+22
+00:01:55,687 --> 00:02:01,488
+bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasındadır.
+
+23
+00:02:02,460 --> 00:02:03,800
+İkinci soru:
+
+24
+00:02:03,850 --> 00:02:10,870
+AMCC nedir ve neden gereklidir? PtP WDM hattı çoğu zaman bir istemci sinyalini,
+
+25
+00:02:10,920 --> 00:02:17,100
+örneğin on gigabitlik Ethernet'i ya da CPRI'ı, çerçevesine dokunmadan taşır.
+
+26
+00:02:17,150 --> 00:02:23,790
+Dalga boyu ataması ve işletme bilgisi için ayrı bir kanal gerekir.
+
+27
+00:02:23,840 --> 00:02:28,340
+AMCC, aynı dalga boyunun üstüne düşük hızlı,
+
+28
+00:02:28,390 --> 00:02:32,980
+düşük modülasyon indeksli bir yönetim kanalı ekler,
+
+29
+00:02:33,030 --> 00:02:35,965
+ve PtP WDM kanallarında zorunludur.
+
+30
+00:02:36,960 --> 00:02:38,340
+Üçüncü soru:
+
+31
+00:02:38,390 --> 00:02:46,010
+düşük kayıplı PtP WDM neden ayrı bir ekte tanımlanır? Çünkü başka bir ağa dayanır:
+
+32
+00:02:46,060 --> 00:02:52,840
+dalga boyu seçimi ONU'da değil, dallanma düğümündeki bir AWG'de yapılır.
+
+33
+00:02:52,890 --> 00:02:58,590
+Daha düşük kayıp sınıfları, daha fazla kanal ve farklı girişim varsayımları,
+
+34
+00:02:58,640 --> 00:03:02,680
+A ekinin tablolarını o ağ için geçersiz kılar.
+
+35
+00:03:02,730 --> 00:03:04,792
+Şimdi bu bölüme.
+
+36
+00:03:06,360 --> 00:03:09,310
+Perde bir: mimari ve spektrum.
+
+37
+00:03:09,360 --> 00:03:14,440
+A ekinin tanımı tek cümledir: PtP WDM PON'da her ONU'ya,
+
+38
+00:03:14,490 --> 00:03:22,220
+yalnızca ona ait bir yukarı ve aşağı yön dalga boyu çifti hizmet eder.
+
+39
+00:03:22,270 --> 00:03:29,010
+OLT tarafında aşağı yön dalga boyları çoğullayıcıda birleşir,
+
+40
+00:03:29,060 --> 00:03:34,006
+ve tek bir besleyici fiberle dallanma düğümüne gider.
+
+41
+00:03:34,927 --> 00:03:37,857
+Bu, TWDM'den farklı bir sözleşmedir.
+
+42
+00:03:37,907 --> 00:03:45,707
+TWDM'de bir kanal çifti, zaman paylaşımıyla onlarca ONU'ya hizmet eder,
+
+43
+00:03:45,757 --> 00:03:48,927
+ve yukarı yön burst'lüdür.
+
+44
+00:03:48,977 --> 00:03:55,637
+PtP WDM'de kanal tek bir aboneye aittir, ve iki yön de sürekli iletimdir.
+
+45
+00:03:55,687 --> 00:04:01,607
+Standart bunu açıkça yazar: geleneksel saat çıkarımı,
+
+46
+00:04:01,657 --> 00:04:04,786
+PtP WDM'de iki yönde de geçerlidir.
+
+47
+00:04:05,727 --> 00:04:09,907
+Neyi taşır? Ekin saydığı istemciler gigabit Ethernet,
+
+48
+00:04:09,957 --> 00:04:12,437
+on gigabit Ethernet ve CPRI'dır;
+
+49
+00:04:12,487 --> 00:04:18,727
+yani tipik kullanım mobil önyüz bağlantıları ve kurumsal özel hatlardır.
+
+50
+00:04:18,777 --> 00:04:20,667
+OLT tarafındaki kanal çifti,
+
+51
+00:04:20,717 --> 00:04:25,850
+farklı istemci türleri için birden fazla örnekte de bulunabilir.
+
+52
+00:04:26,793 --> 00:04:32,023
+Dallanma düğümünde güç ayırıcılar, bant geçiren ya da bant durduran filtreler,
+
+53
+00:04:32,073 --> 00:04:36,653
+veya AWG gibi dalga boyu filtreleri olabilir.
+
+54
+00:04:36,703 --> 00:04:37,763
+Mantıksal olarak,
+
+55
+00:04:37,813 --> 00:04:45,473
+her düğüm portu ile renksiz ONU alıcı vericisi arasında bir dalga boyu seçme işlevi gerekir.
+
+56
+00:04:45,523 --> 00:04:50,210
+Bu işlevin nerede durduğu, iki mimari sınıfını birbirinden ayırır.
+
+57
+00:04:51,160 --> 00:04:54,500
+Birincisi, dalga boyu seçilen sınıf.
+
+58
+00:04:54,550 --> 00:04:58,850
+Seçici ONU'nun içindedir: ONU kendi dalga boyunu,
+
+59
+00:04:58,900 --> 00:05:03,850
+OLT'nin de katıldığı bir aktivasyonla belirler,
+
+60
+00:05:03,900 --> 00:05:11,370
+ve yukarı yön dalga boyu tipik olarak atanan aşağı yön dalga boyunun sabit bir fonksiyonudur.
+
+61
+00:05:11,420 --> 00:05:19,185
+Bu sınıf güç ayırıcılı ODN'yi destekler; yani TWDM ile aynı ağaçta çalışabilir.
+
+62
+00:05:20,127 --> 00:05:23,697
+İkincisi, dalga boyu yönlendirilen sınıf.
+
+63
+00:05:23,747 --> 00:05:30,487
+Seçici dallanma düğümündedir: ONU'nun dalga boyu, ağa fiziksel bağlantısıyla,
+
+64
+00:05:30,537 --> 00:05:33,737
+örneğin bir AWG portuyla belirlenir.
+
+65
+00:05:33,787 --> 00:05:38,747
+Yukarı ve aşağı yön dalga boyları aynı olabilir,
+
+66
+00:05:38,797 --> 00:05:44,917
+ya da AWG'nin serbest spektral aralığının katları kadar farklı olabilir.
+
+67
+00:05:44,967 --> 00:05:47,768
+Bu sınıf filtreli ODN'yi destekler.
+
+68
+00:05:49,260 --> 00:05:55,760
+A eki birinci sınıfa odaklanır: TWDM'in üstüne bindirilmiş,
+
+69
+00:05:55,810 --> 00:05:58,800
+dalga boyu seçilen PtP WDM.
+
+70
+00:05:58,850 --> 00:06:08,730
+Yalnızca tamamen yönlendirilmiş bir ağda çalışabilen ONU'lar bu ekin kapsamı dışındadır;
+
+71
+00:06:08,780 --> 00:06:11,980
+onlar C ekinin konusudur.
+
+72
+00:06:12,030 --> 00:06:18,640
+Bir de kural var: sistem en az dört PtP WDM kanalını desteklemelidir.
+
+73
+00:06:18,690 --> 00:06:22,277
+Üst sınır belirtilmemiştir.
+
+74
+00:06:23,227 --> 00:06:24,657
+Spektrum.
+
+75
+00:06:24,707 --> 00:06:28,447
+Dokuz bir tablosu PtP WDM için iki seçenek verir.
+
+76
+00:06:28,497 --> 00:06:35,897
+Paylaşılan spektrum bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasıdır,
+
+77
+00:06:35,947 --> 00:06:41,937
+ve G-PON, XG-PON1, RF video ve TWDM ile tam birlikte çalışmaya izin verir.
+
+78
+00:06:41,987 --> 00:06:50,257
+Genişletilmiş spektrum bin beş yüz yirmi dört ile bin altı yüz yirmi beş nanometredir;
+
+79
+00:06:50,307 --> 00:06:54,075
+bu sistemlerden biri yoksa kullanılabilir.
+
+80
+00:06:54,993 --> 00:07:00,063
+Paylaşılan bant yaklaşık iki virgül beş terahertz genişliğindedir:
+
+81
+00:07:00,113 --> 00:07:02,843
+yüz gigahertz aralıkla yaklaşık yirmi beş,
+
+82
+00:07:02,893 --> 00:07:06,053
+elli gigahertzle yaklaşık elli kanal yeri.
+
+83
+00:07:06,103 --> 00:07:12,233
+Bu, koruma bandı düşülmeden ve yukarı ile aşağı yöne bölünmeden önceki sayıdır.
+
+84
+00:07:12,283 --> 00:07:17,097
+Yukarı ve aşağı yön ayrı bölgelerde olabilir, ya da aynı bandı paylaşabilir.
+
+85
+00:07:18,027 --> 00:07:22,087
+İki kanal ailesi arasındaki sınır keskindir.
+
+86
+00:07:22,137 --> 00:07:26,057
+TWDM ve PtP WDM kanalları iç içe geçirilemez.
+
+87
+00:07:26,107 --> 00:07:33,147
+Ayrı çoğullayıcılar kullanılıyorsa aradaki koruma bandı en az üç nanometredir;
+
+88
+00:07:33,197 --> 00:07:39,647
+tek bir cihaz ikisini birden çoğulluyorsa en az yüz gigahertz.
+
+89
+00:07:39,697 --> 00:07:43,677
+Paylaşılan spektrumda PtP WDM'in yukarı yön kanalları,
+
+90
+00:07:43,727 --> 00:07:47,221
+bandın kısa dalga boylu ucunu kullanır.
+
+91
+00:07:48,693 --> 00:07:52,113
+Kanal planı ise sabit değildir.
+
+92
+00:07:52,163 --> 00:07:58,633
+Kanal aralığı en az elli, en çok iki yüz gigahertzdir,
+
+93
+00:07:58,683 --> 00:08:04,093
+ve merkez frekanslar kullanılan çoğullayıcıya bağlıdır;
+
+94
+00:08:04,143 --> 00:08:08,223
+PtP için bir frekans tablosu yoktur.
+
+95
+00:08:08,273 --> 00:08:16,393
+Genişletilmiş spektrumda G.694.1 ya da G.698.3 ızgaraları kullanılabilir.
+
+96
+00:08:16,443 --> 00:08:22,503
+Ve TWDM'in beşinci ile sekizinci aşağı yön kanalları,
+
+97
+00:08:22,553 --> 00:08:28,708
+TWDM genişlemesi için ayrılmamışsa PtP WDM'e verilebilir.
+
+98
+00:08:29,626 --> 00:08:33,116
+Spektral sapma kanal aralığıyla ölçeklenir:
+
+99
+00:08:33,166 --> 00:08:39,376
+elli gigahertzde artı eksi on iki virgül beş, yüzde artı eksi yirmi,
+
+100
+00:08:39,426 --> 00:08:42,396
+iki yüzde artı eksi yirmi beş gigahertz.
+
+101
+00:08:42,446 --> 00:08:48,606
+Ayar adımı kanal aralığının yirmide biridir: iki virgül beş, beş ya da on gigahertz.
+
+102
+00:08:48,656 --> 00:08:53,759
+Ayar süresi sınıfları ise TWDM ile aynı tablodan gelir.
+
+103
+00:08:54,693 --> 00:08:55,813
+Mühendis notu.
+
+104
+00:08:55,863 --> 00:08:55,813
+Bir:
+
+105
+00:08:55,863 --> 00:09:03,443
+elli gigahertz aralıkta on gigabitlik bir kanal için ayar hatası bütçesi neredeyse kalmaz.
+
+106
+00:09:03,493 --> 00:09:07,113
+Sekizinci ekteki TWDM ilişkisini kullanırsak,
+
+107
+00:09:07,163 --> 00:09:14,693
+on iki virgül beş gigahertzlik sapmadan yaklaşık on virgül üç gigahertzlik veri hızı düşülür,
+
+108
+00:09:14,743 --> 00:09:17,003
+geriye iki gigahertz kalır.
+
+109
+00:09:17,053 --> 00:09:24,113
+İki: koruma bandını çoğullayıcı mimarisine göre seçin; ayrı cihazlarla üç nanometre,
+
+110
+00:09:24,163 --> 00:09:26,515
+yaklaşık üç yüz elli gigahertz eder.
+
+111
+00:09:27,560 --> 00:09:30,330
+Sıradaki: spektrum yerinde.
+
+112
+00:09:30,380 --> 00:09:33,342
+Şimdi bu kanalların güç bütçesine bakalım.
+
+113
+00:09:35,127 --> 00:09:38,447
+Perde iki: A ekinin tabloları.
+
+114
+00:09:38,497 --> 00:09:40,097
+Önce hat hızları.
+
+115
+00:09:40,147 --> 00:09:47,257
+PtP WDM simetriktir: her istemci protokolü için aşağı ve yukarı yön hızı aynıdır.
+
+116
+00:09:47,307 --> 00:09:55,327
+Birinci sınıf bir virgül iki iki sekiz sekiz ile bir virgül yirmi beş gigabit arasıdır:
+
+117
+00:09:55,377 --> 00:10:00,105
+gigabit Ethernet, STM-8 ve ikinci seçenek CPRI.
+
+118
+00:10:01,027 --> 00:10:08,727
+İkinci sınıf iki virgül dört beş yedi altı ile iki virgül altı altı altı gigabit arasıdır:
+
+119
+00:10:08,777 --> 00:10:12,837
+STM-16, üçüncü seçenek CPRI ve OTU1.
+
+120
+00:10:12,887 --> 00:10:20,477
+Üçüncü sınıf altı virgül bir dört dört ile on bir virgül sıfır dokuz gigabit arasıdır:
+
+121
+00:10:20,527 --> 00:10:25,757
+STM-64, on gigabit Ethernet, OTU2 ve OTU2e, ve altıncı,
+
+122
+00:10:25,807 --> 00:10:29,169
+yedinci ve sekizinci seçenek CPRI.
+
+123
+00:10:30,094 --> 00:10:35,134
+FEC'in kuralı ilginçtir: FEC istemci protokolüne bağlıdır,
+
+124
+00:10:35,184 --> 00:10:37,874
+ve PMD ek bir FEC eklemez.
+
+125
+00:10:37,924 --> 00:10:39,984
+CPRI'da FEC yoktur.
+
+126
+00:10:40,034 --> 00:10:51,264
+Sekiz bit on bit kodlu gigabit Ethernet'te ve altmış dört bit altmış altı bit kodlu on gigabit Ethernet'te de yoktur.
+
+127
+00:10:51,314 --> 00:10:58,876
+SDH ve OTN kendi yerleşik FEC'lerini kullanabilir; ek bir FEC yükü uygulanmaz.
+
+128
+00:10:59,794 --> 00:11:04,064
+Bu yüzden her tabloda iki sütun ailesi vardır: FEC'siz,
+
+129
+00:11:04,114 --> 00:11:07,664
+on üzeri eksi on iki hata oranında; ve FEC'li,
+
+130
+00:11:07,714 --> 00:11:11,254
+birinci ve ikinci sınıfta on üzeri eksi dört,
+
+131
+00:11:11,304 --> 00:11:15,244
+üçüncü sınıfta on üzeri eksi üç hata oranında.
+
+132
+00:11:15,294 --> 00:11:21,411
+Hat kodu uygulamaya bağlıdır; değerler karıştırılmış NRZ varsayımıyla verilmiştir.
+
+133
+00:11:22,893 --> 00:11:25,143
+Aşağı yön, birinci sınıf.
+
+134
+00:11:25,193 --> 00:11:31,633
+OLT'nin FEC'siz en küçük başlatma gücü, N1'den E2'ye eksi bir, artı bir,
+
+135
+00:11:31,683 --> 00:11:36,433
+artı üç ve artı beş dBm'dir; her sınıfta iki desibel artar.
+
+136
+00:11:36,483 --> 00:11:40,463
+ONU hassasiyeti ise her sınıfta aynıdır:
+
+137
+00:11:40,513 --> 00:11:44,783
+on üzeri eksi on ikide eksi otuz bir virgül beş dBm.
+
+138
+00:11:44,833 --> 00:11:47,963
+Bütçe tam kapanır: otuz virgül beş desibel;
+
+139
+00:11:48,013 --> 00:11:55,299
+yirmi dokuz desibellik yol kaybı artı bir virgül beş desibellik yol cezası.
+
+140
+00:11:56,226 --> 00:12:02,566
+FEC'li sütunlarda tanıdık sayılar görürsünüz: en küçük güç sıfır, artı iki,
+
+141
+00:12:02,616 --> 00:12:08,646
+artı dört ve artı altı dBm; hassasiyet eksi otuz; aşırı yük eksi on dBm;
+
+142
+00:12:08,696 --> 00:12:10,536
+yol cezası bir desibel.
+
+143
+00:12:10,586 --> 00:12:17,956
+Bunlar, TWDM'in iki buçuk gigabitlik aşağı yön tablosundaki sayıların aynısıdır.
+
+144
+00:12:18,006 --> 00:12:24,926
+Üçüncü sınıfın FEC'li aşağı yön sütunu da on gigabitlik TWDM tablosunu tekrarlar,
+
+145
+00:12:24,976 --> 00:12:28,467
+E2'deki eksi dokuz dBm'lik aşırı yük dahil.
+
+146
+00:12:29,393 --> 00:12:33,263
+FEC'li olmak her zaman daha kolay demek değildir.
+
+147
+00:12:33,313 --> 00:12:38,783
+Birinci sınıfta ONU'nun FEC'siz hassasiyeti eksi otuz bir virgül beş,
+
+148
+00:12:38,833 --> 00:12:42,283
+FEC'li hassasiyeti eksi otuz dBm'dir.
+
+149
+00:12:42,333 --> 00:12:45,423
+FEC'li durum daha ucuz bir alıcı varsayar,
+
+150
+00:12:45,473 --> 00:12:49,189
+ve bunun bedelini OLT bir desibel fazla güçle öder.
+
+151
+00:12:50,126 --> 00:12:51,136
+Yukarı yön.
+
+152
+00:12:51,186 --> 00:12:57,656
+ONU vericisi her ODN sınıfında aynıdır: FEC'siz artı üç ile artı sekiz dBm.
+
+153
+00:12:57,706 --> 00:13:02,006
+Sınıf farkını bu kez OLT alıcısı taşır:
+
+154
+00:13:02,056 --> 00:13:11,626
+birinci hız sınıfında on üzeri eksi on ikide eksi yirmi yedi virgül beşten eksi otuz üç virgül beşe,
+
+155
+00:13:11,676 --> 00:13:16,356
+her ODN sınıfında iki desibel daha hassas.
+
+156
+00:13:16,406 --> 00:13:21,246
+Bütçe yine sıfır payla kapanır: E2'de otuz altı virgül beş;
+
+157
+00:13:21,296 --> 00:13:24,037
+otuz beş artı bir virgül beş.
+
+158
+00:13:24,960 --> 00:13:31,060
+Bu bir tasarım ilkesidir, ve iki ekte de, iki yönde de geçerlidir:
+
+159
+00:13:31,110 --> 00:13:35,720
+ODN sınıfını OLT taşır, ONU sınıftan bağımsızdır.
+
+160
+00:13:35,770 --> 00:13:43,269
+İkinci bölümde TWDM için söylediğimiz şey, PtP WDM'de her iki yönde de doğrudur.
+
+161
+00:13:44,760 --> 00:13:52,030
+Üçüncü sınıfın yukarı yönünde FEC'li ONU penceresi artı dörtten artı dokuz dBm'e çıkar.
+
+162
+00:13:52,080 --> 00:13:57,310
+O artı dokuz tanıdık bir sayıdır: beşinci bölümde,
+
+163
+00:13:57,360 --> 00:14:03,630
+TWDM ONU'su için yansıyan PtP sinyalinin düzeyini, Y'yi hesaplarken kullandık.
+
+164
+00:14:03,680 --> 00:14:10,350
+Artı dokuz eksi otuz iki desibellik geri dönüş kaybı, eksi yirmi üç dBm eder;
+
+165
+00:14:10,400 --> 00:14:14,700
+eksi otuz dBm'lik hassasiyetin yedi desibel üstü.
+
+166
+00:14:15,627 --> 00:14:20,417
+Ortak satırlar: en küçük sönüm oranı sekiz virgül iki desibel;
+
+167
+00:14:20,467 --> 00:14:22,557
+daha düşük bir sönüm oranı,
+
+168
+00:14:22,607 --> 00:14:28,387
+en büyük güç sınırı içinde daha yüksek güçle telafi edilmelidir.
+
+169
+00:14:28,437 --> 00:14:32,787
+Yan mod bastırma en az otuz desibel; yukarı yönde lazer çıkışında,
+
+170
+00:14:32,837 --> 00:14:38,177
+filtrelemeden önce ölçülür ki mod bölüşüm gürültüsü cezası önlensin.
+
+171
+00:14:38,227 --> 00:14:40,547
+Geri dönüş kaybı en az otuz iki desibel,
+
+172
+00:14:40,597 --> 00:14:45,080
+ardışık özdeş rakam bağışıklığı yetmiş iki bit.
+
+173
+00:14:46,027 --> 00:14:47,597
+Bir okuma uyarısı.
+
+174
+00:14:47,647 --> 00:14:52,297
+Dispersiyon aralığı her tabloda bir formülle verilir,
+
+175
+00:14:52,347 --> 00:14:56,937
+ve formülde bin üç yüz bölü lambdanın karesi yazar.
+
+176
+00:14:56,987 --> 00:15:01,757
+Atıf yapılan G.652 sınırı ise dördüncü kuvveti kullanır.
+
+177
+00:15:01,807 --> 00:15:05,097
+Dördüncü kuvvetle formül,
+
+178
+00:15:05,147 --> 00:15:14,017
+TWDM tablolarındaki dört yüz yirmi ve üç yüz elli beş pikosaniye bölü nanometre sınırlarını tam olarak verir.
+
+179
+00:15:14,067 --> 00:15:19,860
+Yazıldığı gibi alınırsa, sınır yaklaşık yüzde kırk daha dar çıkar.
+
+180
+00:15:20,793 --> 00:15:26,763
+Tablolarda başka baskı hataları da var, ve hiçbiri sonraki sürümlerde düzeltilmedi.
+
+181
+00:15:26,813 --> 00:15:34,563
+Bazı yukarı yön tablolarında FEC'li en büyük güç satırı en küçük diye etiketlenmiştir.
+
+182
+00:15:34,613 --> 00:15:39,623
+Üçüncü sınıfın aşağı yön tablosunda N1 aşırı yükü eksi iki dBm yazar,
+
+183
+00:15:39,673 --> 00:15:42,553
+ama aritmetik eksi üç verir.
+
+184
+00:15:42,603 --> 00:15:44,803
+Ve A eki ile C eki,
+
+185
+00:15:44,853 --> 00:15:49,787
+birinci sınıfın titreşim aktarımı için farklı köşe frekansları verir.
+
+186
+00:15:50,727 --> 00:15:51,847
+Mühendis notu.
+
+187
+00:15:51,897 --> 00:15:58,217
+Bir: tablolarda bütçe payı yoktur; belirtilen her hücre sıfır payla kapanır.
+
+188
+00:15:58,267 --> 00:16:05,807
+Gerçek bir tasarımda pay, verici gücünü en büyük sınıra doğru artırmaktan gelir.
+
+189
+00:16:05,857 --> 00:16:11,417
+İki: FEC sütunlarını kullanacaksanız, FEC'in nereden geldiğini belgeleyin.
+
+190
+00:16:11,467 --> 00:16:17,826
+PMD eklemez; ya istemci protokolü getirir, ya da TC katmanındaki kod dönüştürme.
+
+191
+00:16:18,860 --> 00:16:21,540
+Sıradaki: veri hattı hazır.
+
+192
+00:16:21,590 --> 00:16:23,497
+Ama bu hattı kim yönetecek?
+
+193
+00:16:25,293 --> 00:16:30,163
+Perde üç: yardımcı yönetim ve denetim kanalı, AMCC.
+
+194
+00:16:30,213 --> 00:16:35,253
+B eki standardın bağlayıcı bir parçasıdır, ve AMCC,
+
+195
+00:16:35,303 --> 00:16:41,253
+PtP WDM kanallarında uygulanması zorunlu bir işlevdir.
+
+196
+00:16:41,303 --> 00:16:48,123
+Amacı dalga boyu atama bilgisini ve işletme verisini taşımaktır.
+
+197
+00:16:48,173 --> 00:16:54,439
+AMCC her dalga boyuna ayrı ayrı, aşağı ve yukarı yönde eklenir.
+
+198
+00:16:55,360 --> 00:17:00,890
+Sorun şudur: PtP WDM sistemi çoğu zaman bir yük bit akışını,
+
+199
+00:17:00,940 --> 00:17:08,080
+çerçeve yapısının hiçbir parçasını sonlandırmadan, şeffaf taşımak zorundadır.
+
+200
+00:17:08,130 --> 00:17:15,680
+On gigabitlik Ethernet'in ya da CPRI'ın içine bir yönetim baytı yazamazsınız.
+
+201
+00:17:15,730 --> 00:17:18,490
+Çözüm, AMCC'yi aynı dalga boyunda,
+
+202
+00:17:18,540 --> 00:17:25,760
+yük verisiyle yalnızca küçük bir girişim yapacak biçimde yükün üstüne eklemektir.
+
+203
+00:17:25,810 --> 00:17:28,325
+Buna şeffaf AMCC denir.
+
+204
+00:17:29,260 --> 00:17:32,000
+Şeffaf AMCC'nin iki yöntemi vardır.
+
+205
+00:17:32,050 --> 00:17:35,940
+Birincisi taban bant üst modülasyonu:
+
+206
+00:17:35,990 --> 00:17:41,270
+yük bit akışının genlik modülasyonunun üstüne bindirilen,
+
+207
+00:17:41,320 --> 00:17:44,790
+düşük frekanslı bir genlik modülasyonu.
+
+208
+00:17:44,840 --> 00:17:51,000
+Tablo B bir'in değerleri: nominal hız saniyede yüz on beş kilobit,
+
+209
+00:17:51,050 --> 00:17:55,860
+modülasyon indeksi yüzde on, darbe şekli dikdörtgen.
+
+210
+00:17:55,910 --> 00:17:59,223
+Bunlar optik arayüz parametreleridir.
+
+211
+00:18:00,160 --> 00:18:05,800
+Modülasyon indeksi, üst modüle edilmiş sinyalin zarfı üzerinden tanımlanır:
+
+212
+00:18:05,850 --> 00:18:11,780
+en büyük güç eksi en küçük güç, bölü ortalama güç, çarpı yüz.
+
+213
+00:18:11,830 --> 00:18:17,650
+Yüzde on, simetrik bir zarfta ortalamanın yüzde beş üstü ve yüzde beş altı demektir;
+
+214
+00:18:17,700 --> 00:18:20,560
+yaklaşık artı eksi sıfır virgül iki desibel.
+
+215
+00:18:20,610 --> 00:18:27,470
+Alıcıda örnek bir algılama: algılanan sinyali alçak geçiren filtreden geçirip,
+
+216
+00:18:27,520 --> 00:18:31,290
+yükseltip, basit bir eşik algılayıcısına vermek.
+
+217
+00:18:32,760 --> 00:18:37,210
+İkinci yöntem RF pilot tonu: düşük taşıyıcı frekanslı,
+
+218
+00:18:37,260 --> 00:18:41,120
+düşük indeksli bir genlik modülasyonlu sinyal,
+
+219
+00:18:41,170 --> 00:18:44,920
+yük sinyaline elektriksel alanda eklenir.
+
+220
+00:18:44,970 --> 00:18:49,610
+Tablo B iki'nin değerleri: saniyede yüz yirmi sekiz kilobit,
+
+221
+00:18:49,660 --> 00:18:54,480
+yüzde on modülasyon indeksi, beş yüz kilohertz taşıyıcı.
+
+222
+00:18:54,530 --> 00:18:59,210
+Dikkat: bu tablo elektriksel arayüz parametreleridir; indeks,
+
+223
+00:18:59,260 --> 00:19:04,141
+AMCC'nin ve yükün tepeden tepeye gerilimlerinin oranıdır.
+
+224
+00:19:05,060 --> 00:19:09,200
+Pilot tonun algılanması için örnek: bant geçiren filtreleme,
+
+225
+00:19:09,250 --> 00:19:14,170
+aşağı çevirme ve sembol kararı yapan basit bir sayısal sinyal işleme.
+
+226
+00:19:14,220 --> 00:19:19,380
+Beş yüz kilohertzlik taşıyıcıda saniyede yüz yirmi sekiz kilobit,
+
+227
+00:19:19,430 --> 00:19:22,434
+bit başına yaklaşık dört taşıyıcı çevrimi demektir.
+
+228
+00:19:23,360 --> 00:19:25,460
+Ölçek duygusu için:
+
+229
+00:19:25,510 --> 00:19:30,310
+on virgül üç gigabitlik bir yükün üstünde saniyede yüz on beş kilobit,
+
+230
+00:19:30,360 --> 00:19:34,280
+yaklaşık doksan binde birlik bir fısıltıdır.
+
+231
+00:19:34,330 --> 00:19:36,870
+Ama bu fısıltı bedava değildir,
+
+232
+00:19:36,920 --> 00:19:40,630
+ve standardın en ilginç boşluklarından biri buradadır: B eki,
+
+233
+00:19:40,680 --> 00:19:44,230
+AMCC'nin yol açtığı bir güç cezası vermez.
+
+234
+00:19:44,280 --> 00:19:47,140
+Modülasyon indeksi için bir tolerans,
+
+235
+00:19:47,190 --> 00:19:51,306
+bir ölçüm yöntemi ya da bir spektral maske de yoktur.
+
+236
+00:19:52,227 --> 00:19:56,957
+A ve C eklerindeki yol cezası notlarının hiçbiri AMCC'den söz etmez.
+
+237
+00:19:57,007 --> 00:20:04,607
+Yani AMCC'nin bedeli bütçede bir satır olarak değil, tasarım payından ödenir.
+
+238
+00:20:04,657 --> 00:20:09,687
+Kaba bir fikir vermek için, ve bu standardın değil bizim tahminimizdir:
+
+239
+00:20:09,737 --> 00:20:15,637
+yüzde onluk bir modülasyon, karar eşiğine ve yönteme bağlı olarak,
+
+240
+00:20:15,687 --> 00:20:22,689
+yaklaşık sıfır virgül iki ile sıfır virgül beş desibel arasında bir göz kapanması yaratabilir.
+
+241
+00:20:23,627 --> 00:20:27,437
+Üçüncü bir yol daha var: kod dönüştürmeli AMCC.
+
+242
+00:20:27,487 --> 00:20:33,147
+Sistem yük kodlamasını bir biçimden diğerine çeviriyorsa,
+
+243
+00:20:33,197 --> 00:20:37,767
+AMCC verisi kod dönüşümünün içinde taşınabilir.
+
+244
+00:20:37,817 --> 00:20:41,807
+Bu G.989.2'de değil, G.989.3'ün G ekinde tanımlanır.
+
+245
+00:20:41,857 --> 00:20:43,749
+İşte TC köprüsü.
+
+246
+00:20:45,227 --> 00:20:47,047
+TC köprüsü.
+
+247
+00:20:47,097 --> 00:20:51,967
+G.989.3'ün E eki AMCC'nin mantıksal katmanını tanımlar:
+
+248
+00:20:52,017 --> 00:20:58,657
+WDM bindirme kanallarında zorunlu, TWDM kanallarında isteğe bağlı.
+
+249
+00:20:58,707 --> 00:21:05,757
+PtP WDM'de kullanıcı verisi ile işletme verisi TC katmanında ayrıdır;
+
+250
+00:21:05,807 --> 00:21:09,277
+kullanıcı verisine TC katmanı dokunmaz.
+
+251
+00:21:09,327 --> 00:21:16,267
+Şeffaf modda PMD'nin iki ayrı arayüzü vardır: veri A ya da C ekine göre,
+
+252
+00:21:16,317 --> 00:21:19,333
+AMCC ise B ekine göre.
+
+253
+00:21:20,260 --> 00:21:23,780
+AMCC'nin kendi çerçevesi vardır.
+
+254
+00:21:23,830 --> 00:21:29,660
+TWDM'deki yirmi dört baytlık fiziksel senkron bloğu aynen kullanılır;
+
+255
+00:21:29,710 --> 00:21:36,800
+ardından altmış dört bitlik bir başlık gelir: PLOAM sayısı, yük uzunluğu,
+
+256
+00:21:36,850 --> 00:21:41,760
+süper çerçeve sayacı kayması, gösterge bitleri ve HEC.
+
+257
+00:21:41,810 --> 00:21:46,060
+Gösterge bitlerinden biri kanalın meşgul olduğunu,
+
+258
+00:21:46,110 --> 00:21:50,030
+biri yönetim kanalının kaybını bildirir.
+
+259
+00:21:50,080 --> 00:21:56,172
+Sonra PLOAM mesajları, yük ve dört baytlık bir BIP kuyruğu gelir.
+
+260
+00:21:57,094 --> 00:21:59,564
+Zaman ölçeğine dikkat.
+
+261
+00:21:59,614 --> 00:22:05,614
+Bir PLOAM mesajı taşıyan en küçük çerçeve seksen dört bayttır;
+
+262
+00:22:05,664 --> 00:22:11,994
+saniyede yüz on beş kilobitte bu yaklaşık beş virgül sekiz milisaniye sürer.
+
+263
+00:22:12,044 --> 00:22:16,194
+TWDM'de çerçeve yüz yirmi beş mikrosaniyedir;
+
+264
+00:22:16,244 --> 00:22:21,904
+burada süper çerçeve sayacı yalnızca bir zaman tabanıdır,
+
+265
+00:22:21,954 --> 00:22:24,454
+ve çerçeve süresi esnektir.
+
+266
+00:22:24,504 --> 00:22:31,046
+Üç kötü çerçeve kuralı, bu çerçeve boyunda yaklaşık on yedi milisaniye eder.
+
+267
+00:22:31,994 --> 00:22:35,154
+Kod dönüştürmeli modda tablo değişir.
+
+268
+00:22:35,204 --> 00:22:42,684
+Sekiz bit on bit kodlu servislerde otuz iki bit otuz dört bit kod dönüşümü yapılır,
+
+269
+00:22:42,734 --> 00:22:47,664
+ve RS iki yüz elli, iki yüz yirmi bir koduyla korunan çerçeve,
+
+270
+00:22:47,714 --> 00:22:53,014
+orijinal kodla aynı uzunlukta, yani aynı hat hızında kalır.
+
+271
+00:22:53,064 --> 00:23:01,114
+Altmış dört bit altmış altı bit kodlu servislerde ise her kod sözcüğüne bir işletme biti gömülür;
+
+272
+00:23:01,164 --> 00:23:05,614
+on gigabitte bu, saniyede yaklaşık beş megabit eder.
+
+273
+00:23:05,664 --> 00:23:08,324
+Şeffaf AMCC'nin kırk katı kadar.
+
+274
+00:23:09,260 --> 00:23:10,380
+Mühendis notu.
+
+275
+00:23:10,430 --> 00:23:16,180
+Bir: AMCC'yi bütçenize kendiniz yazın, standart yazmaz.
+
+276
+00:23:16,230 --> 00:23:25,070
+Alıcı hassasiyetini AMCC açıkken ve kapalıyken ölçün; fark, sizin AMCC cezanızdır.
+
+277
+00:23:25,120 --> 00:23:31,420
+İki: sönüm oranını AMCC açıkken ölçün; standart bunu söylemez,
+
+278
+00:23:31,470 --> 00:23:33,260
+ama en kötü durum odur.
+
+279
+00:23:33,310 --> 00:23:41,140
+Üç: PtP WDM ONU'sunun durum makinesinde mesafe ölçüm durumu yoktur;
+
+280
+00:23:41,190 --> 00:23:47,400
+iki yön de sürekli olduğu için burst zamanlaması gerekmez.
+
+281
+00:23:48,427 --> 00:23:52,497
+Sıradaki: A ekinin ağacı paylaşılan bir güç ayırıcıydı.
+
+282
+00:23:52,547 --> 00:23:54,799
+Ya ağaç bir AWG ise?
+
+283
+00:23:56,593 --> 00:23:59,523
+Perde dört: düşük kayıplı PtP WDM.
+
+284
+00:23:59,573 --> 00:24:06,173
+C eki, dalga boyu yönlendirilen kullanım durumlarına hizmet eder.
+
+285
+00:24:06,223 --> 00:24:11,453
+Dalga boyu seçme işlevi dallanma düğümündedir: her düşüm fiberi için,
+
+286
+00:24:11,503 --> 00:24:12,903
+her yönde bir dalga boyu.
+
+287
+00:24:12,953 --> 00:24:18,599
+ONU'nun dalga boyu, bağlandığı AWG portuyla belirlenir.
+
+288
+00:24:19,526 --> 00:24:24,656
+Neden ayrı bir ek? Ekin kendi cevabı şudur: düşük kayıp yaklaşımı,
+
+289
+00:24:24,706 --> 00:24:30,796
+daha fazla PtP kanalına izin veren dalga boyu yönlendirmeli ağlara olanak tanır,
+
+290
+00:24:30,846 --> 00:24:36,536
+ve bu, bant dışı, kanal dışı ve kanallar arası karışma hesaplarını değiştirir.
+
+291
+00:24:36,586 --> 00:24:43,106
+A eki sekiz kanal, yani yedi girişimci varsayar; C eki on altı kanal,
+
+292
+00:24:43,156 --> 00:24:44,192
+yani on beş girişimci.
+
+293
+00:24:45,126 --> 00:24:47,356
+Kayıp sınıfları da farklıdır.
+
+294
+00:24:47,406 --> 00:24:53,006
+L1 sınıfı sekiz ile on yedi desibel, L2 sınıfı on altı ile yirmi beş desibel;
+
+295
+00:24:53,056 --> 00:24:58,496
+ikisinde de en büyük diferansiyel yol kaybı dokuz desibel.
+
+296
+00:24:58,546 --> 00:25:05,466
+Karşılaştırın: TWDM ve A eki sınıfları on dört desibelden başlayıp otuz beşe çıkar,
+
+297
+00:25:05,516 --> 00:25:08,726
+ve diferansiyel kayıp on beş desibeldir.
+
+298
+00:25:08,776 --> 00:25:14,136
+Bir not: OLT tarafındaki çoğullayıcı ODN'ye dahil değildir,
+
+299
+00:25:14,186 --> 00:25:17,288
+ama OLT'nin gücünü ve hassasiyetini etkiler.
+
+300
+00:25:18,226 --> 00:25:21,826
+Hat hızı sınıfları ve bantlar A ekiyle aynıdır,
+
+301
+00:25:21,876 --> 00:25:24,996
+ve FEC hem açık hem kapalı desteklenebilir.
+
+302
+00:25:25,046 --> 00:25:27,726
+Ama bazı ortak satırlar değişir:
+
+303
+00:25:27,776 --> 00:25:32,116
+üçüncü sınıfta en küçük sönüm oranı altı desibele iner,
+
+304
+00:25:32,166 --> 00:25:37,556
+ve yol cezası FEC'li durumda bile iki virgül beş desibeldir.
+
+305
+00:25:37,606 --> 00:25:40,756
+Hiçbir tabloda ayar penceresi satırı yoktur;
+
+306
+00:25:40,806 --> 00:25:45,905
+dalga boyunun AWG portuyla belirlendiği bir ağda bu şaşırtıcı değildir.
+
+307
+00:25:47,393 --> 00:25:49,643
+Aşağı yön, birinci sınıf.
+
+308
+00:25:49,693 --> 00:25:55,623
+OLT'nin FEC'siz en küçük gücü L1'de eksi beş, L2'de artı üç dBm;
+
+309
+00:25:55,673 --> 00:26:01,603
+ONU hassasiyeti on üzeri eksi on ikide eksi yirmi dört dBm.
+
+310
+00:26:01,653 --> 00:26:09,903
+Bütçe L1'de on dokuz desibel: on yedi desibel yol kaybı artı iki desibel ceza.
+
+311
+00:26:09,953 --> 00:26:12,635
+L2'de yirmi yedi: yirmi beş artı iki.
+
+312
+00:26:13,560 --> 00:26:21,070
+Yukarı yönde ONU vericisi FEC'siz eksi bir ile artı dört dBm arasındadır,
+
+313
+00:26:21,120 --> 00:26:22,560
+ve her sınıfta aynıdır.
+
+314
+00:26:22,610 --> 00:26:27,500
+OLT hassasiyeti L1'de eksi yirmi, L2'de eksi yirmi sekiz dBm.
+
+315
+00:26:27,550 --> 00:26:34,340
+Sınıflar arasındaki sekiz desibellik adım, aşağı yönde OLT gücüne,
+
+316
+00:26:34,390 --> 00:26:38,160
+yukarı yönde OLT hassasiyetine eklenir.
+
+317
+00:26:38,210 --> 00:26:41,131
+Aynı ilke: ODN sınıfını OLT taşır.
+
+318
+00:26:42,060 --> 00:26:48,770
+C ekinin ilginç bir özelliği: aşırı yük hiçbir yerde bağlayıcı değildir.
+
+319
+00:26:48,820 --> 00:26:56,270
+ONU'ya gelebilecek en büyük güç eksi dokuz dBm'dir, aşırı yük sınırı ise eksi iki;
+
+320
+00:26:56,320 --> 00:26:58,550
+en az yedi desibel boşluk.
+
+321
+00:26:58,600 --> 00:27:05,960
+OLT tarafında en büyük gelen güç eksi dört, aşırı yük artı üç dBm.
+
+322
+00:27:06,010 --> 00:27:11,892
+A ekinde ise aşırı yük tam olarak en büyük güç eksi en küçük kayıptır.
+
+323
+00:27:12,826 --> 00:27:18,196
+Bant dışı ve kanal dışı güç yoğunlukları on altı kanala göre yeniden hesaplanmıştır.
+
+324
+00:27:18,246 --> 00:27:22,076
+Aşağı yönde bant dışı eksi kırk dokuz virgül iki,
+
+325
+00:27:22,126 --> 00:27:26,546
+kanal dışı eksi altmış bir virgül iki dBm bölü on beş gigahertz.
+
+326
+00:27:26,596 --> 00:27:31,946
+Yukarı yön notları, uzak düğümü dokuz desibellik diferansiyel kayıpla sınırlı,
+
+327
+00:27:31,996 --> 00:27:35,022
+bire on altılık bir ayırıcı olarak varsayar.
+
+328
+00:27:35,960 --> 00:27:38,730
+C eki de dikkatli okunmalıdır.
+
+329
+00:27:38,780 --> 00:27:45,250
+Bant içi karışma toleransının işareti tablodan tabloya değişir.
+
+330
+00:27:45,300 --> 00:27:49,190
+Titreşim üretimi satırları bir maddeye işaret eder,
+
+331
+00:27:49,240 --> 00:27:54,320
+ama o maddede titreşim üretimi tablosu yoktur.
+
+332
+00:27:54,370 --> 00:28:00,190
+Ve ana metin, PtP WDM için yalnızca A ekinin tablolarına atıf yapar;
+
+333
+00:28:00,240 --> 00:28:03,242
+C ekinin tablolarına hiç değinmez.
+
+334
+00:28:04,727 --> 00:28:09,297
+Ana metinle bağlantıları toparlayalım.
+
+335
+00:28:09,347 --> 00:28:13,327
+Onuncu maddeye göre bir TWDM ONU'su,
+
+336
+00:28:13,377 --> 00:28:19,647
+aşağı ve yukarı yönde sekiz PtP WDM girişimcisi görür:
+
+337
+00:28:19,697 --> 00:28:28,417
+aşağı yön kanalları Z düzeyinde, yansıyan yukarı yön sinyalleri Y düzeyinde.
+
+338
+00:28:28,467 --> 00:28:37,227
+Z, iki buçuk gigabitte S artı yedi, on gigabitte S artı sekiz desibeldir:
+
+339
+00:28:37,277 --> 00:28:43,387
+PtP ve TWDM OLT vericileri arasındaki en büyük güç farkı.
+
+340
+00:28:43,437 --> 00:28:51,927
+OLT tarafında ise PtP kanalları, TWDM ayırıcısıyla etkili biçimde süzülür.
+
+341
+00:28:52,860 --> 00:28:55,330
+Koruma ters yönde de işler.
+
+342
+00:28:55,380 --> 00:28:59,730
+TWDM tablolarının bant dışı güç notları,
+
+343
+00:28:59,780 --> 00:29:05,140
+TWDM'den PtP WDM'e sızan gücün filtrelemeyle kontrol edildiğini,
+
+344
+00:29:05,190 --> 00:29:12,010
+sıfır virgül bir desibellik ceza ve FEC'siz çalışan bir PtP WDM varsayar.
+
+345
+00:29:12,060 --> 00:29:16,993
+İki aile, birbirinin tablolarına notlarla yazılmıştır.
+
+346
+00:29:17,927 --> 00:29:21,437
+TC köprüsü: PtP ONU'sunun aktivasyonu.
+
+347
+00:29:21,487 --> 00:29:29,127
+ONU önce veri ve AMCC senkronunu sağlar, ve sistem ile kanal profillerini toplar.
+
+348
+00:29:29,177 --> 00:29:37,627
+Sonra vericisini ayarlar, ve kimlik bilgisi içeren seri numarası mesajını gönderir.
+
+349
+00:29:37,677 --> 00:29:40,837
+OLT bir ONU kimliği atar, ve ONU çalışmaya geçer.
+
+350
+00:29:40,887 --> 00:29:43,307
+Mesafe ölçümü yoktur;
+
+351
+00:29:43,357 --> 00:29:49,693
+PtP iletim zamanlaması maddesi ise henüz bir çalışma konusudur.
+
+352
+00:29:50,627 --> 00:29:52,637
+Bir tutarsızlık daha: G.989.3,
+
+353
+00:29:52,687 --> 00:29:59,537
+kanal profilinde altı gigabitlik dördüncü bir hız sınıfı tanımlar;
+
+354
+00:29:59,587 --> 00:30:05,127
+G.989.2 ise altı virgül bir dört dört gigabiti üçüncü sınıfa koyar.
+
+355
+00:30:05,177 --> 00:30:09,367
+Hız bit haritaları da iki mesajda farklı sıralanmıştır.
+
+356
+00:30:09,417 --> 00:30:13,353
+İkinci sezonda bu alanları ayrıntılı açacağız.
+
+357
+00:30:14,294 --> 00:30:15,414
+Mühendis notu.
+
+358
+00:30:15,464 --> 00:30:19,874
+Bir: C eki, A ekinin daha az kayıplı bir kopyası değildir.
+
+359
+00:30:19,924 --> 00:30:23,904
+On altı kanal, dokuz desibellik diferansiyel kayıp,
+
+360
+00:30:23,954 --> 00:30:33,754
+on gigabitte altı desibellik sönüm oranı ve FEC'li bile iki virgül beş desibellik ceza ile başka bir tasarım noktasıdır.
+
+361
+00:30:33,804 --> 00:30:39,274
+İki: yönlendirmeli ağda dalga boyunu port belirler; bir kablolama hatası,
+
+362
+00:30:39,324 --> 00:30:41,850
+burada bir dalga boyu hatasıdır.
+
+363
+00:30:42,894 --> 00:30:46,744
+Sıradaki: kâğıt üstünde bütçeler kapandı.
+
+364
+00:30:46,794 --> 00:30:48,334
+Şimdi laboratuvara.
+
+365
+00:30:50,127 --> 00:30:51,847
+Laboratuvarda.
+
+366
+00:30:51,897 --> 00:30:58,667
+Üç düzenek kuruyoruz: PtP WDM verici doğrulaması, alıcı bütçesi ve AMCC.
+
+367
+00:30:58,717 --> 00:31:00,317
+Önce verici.
+
+368
+00:31:00,367 --> 00:31:09,077
+Ortalama başlatma gücü, OLT için S/R-CG noktasında, yani çoğullayıcıdan sonra,
+
+369
+00:31:09,127 --> 00:31:13,017
+ONU için R/S noktasında ölçülür.
+
+370
+00:31:13,067 --> 00:31:20,572
+TWDM'den farklı olarak burst düzeltmesi gerekmez; PtP sinyali süreklidir.
+
+371
+00:31:21,494 --> 00:31:28,644
+Sönüm oranı: kanal, G.959.1'in referans bant geçiren filtresiyle yalıtılır,
+
+372
+00:31:28,694 --> 00:31:32,434
+sonra G.957'nin düzeneğiyle ölçülür.
+
+373
+00:31:32,484 --> 00:31:38,114
+En az sekiz virgül iki desibel; C ekinin üçüncü sınıfında altı.
+
+374
+00:31:38,164 --> 00:31:45,174
+AMCC açıkken mi kapalıyken mi ölçüleceği yazılmamıştır; biz en kötü durumu,
+
+375
+00:31:45,224 --> 00:31:47,813
+AMCC açıkken ölçmeyi öneriyoruz.
+
+376
+00:31:48,760 --> 00:31:55,010
+Yan mod bastırma OSA ile, ONU'da lazer çıkışında, filtrelemeden önce ölçülür:
+
+377
+00:31:55,060 --> 00:31:56,320
+en az otuz desibel.
+
+378
+00:31:56,370 --> 00:32:03,420
+Bant dışı ve kanal dışı güç yoğunlukları on beş gigahertzlik bir bantta toplanır;
+
+379
+00:32:03,470 --> 00:32:09,020
+bin altı yüz on nanometrede bu yaklaşık sıfır virgül on üç nanometredir.
+
+380
+00:32:09,070 --> 00:32:15,853
+Kanal dışı maske, verici spektral sapma aralığının her yerinde sağlanmalıdır.
+
+381
+00:32:16,794 --> 00:32:20,204
+Dalga boyu: bir dalga boyu ölçerle ya da OSA ile,
+
+382
+00:32:20,254 --> 00:32:24,014
+çoğullayıcının ızgarasına göre sapma ölçülür.
+
+383
+00:32:24,064 --> 00:32:29,324
+Elli gigahertz aralıkta sınır artı eksi on iki virgül beş gigahertz,
+
+384
+00:32:29,374 --> 00:32:32,374
+ayar adımı iki virgül beş gigahertzdir.
+
+385
+00:32:32,424 --> 00:32:38,244
+Ayar sırasında bant dışı ve kanal dışı gücü zaman çözümlü izleyin;
+
+386
+00:32:38,294 --> 00:32:40,500
+tablolar ayar süresince de geçerlidir.
+
+387
+00:32:41,993 --> 00:32:44,763
+İkinci düzenek: alıcı bütçesi.
+
+388
+00:32:44,813 --> 00:32:48,783
+Hata oranı test cihazı, ayarlı zayıflatıcı, gerekirse çoğullayıcı,
+
+389
+00:32:48,833 --> 00:32:52,273
+ve yirmi ya da kırk kilometrelik fiber.
+
+390
+00:32:52,323 --> 00:32:56,973
+Referans hata oranı FEC'siz on üzeri eksi on iki;
+
+391
+00:32:57,023 --> 00:33:01,393
+FEC'li birinci ve ikinci sınıfta on üzeri eksi dört,
+
+392
+00:33:01,443 --> 00:33:03,943
+üçüncü sınıfta on üzeri eksi üç.
+
+393
+00:33:03,993 --> 00:33:10,750
+Yetmiş iki bitlik ardışık özdeş rakam bağışıklığı ve karıştırılmış NRZ varsayılır.
+
+394
+00:33:11,693 --> 00:33:18,413
+Yol cezasını, fiberli hassasiyet ile arka arkaya hassasiyetin farkı olarak ölçün.
+
+395
+00:33:18,463 --> 00:33:25,723
+Ceza değerleri kırk kilometreye kadar ve paylaşılan spektrum için geçerlidir;
+
+396
+00:33:25,773 --> 00:33:33,183
+genişletilmiş spektrumda Raman'a bağlı ceza uygulamaya göre belirlenir.
+
+397
+00:33:33,233 --> 00:33:37,463
+Sonra bütçeyi kapatın: en küçük güç eksi hassasiyet,
+
+398
+00:33:37,513 --> 00:33:43,389
+en büyük yol kaybı artı cezaya eşit ya da ondan büyük olmalıdır.
+
+399
+00:33:44,326 --> 00:33:48,216
+Titreşim toleransı burada TWDM'den kolaydır.
+
+400
+00:33:48,266 --> 00:33:52,966
+TWDM'de OLT'nin titreşim toleransı bilgilendiricidir,
+
+401
+00:33:53,016 --> 00:33:57,426
+çünkü sürekli bir yukarı yön gerektirir.
+
+402
+00:33:57,476 --> 00:34:01,766
+PtP'de yukarı yön zaten süreklidir; OLT testi doğrudan yapılabilir.
+
+403
+00:34:01,816 --> 00:34:09,528
+Ölçüt yine bir desibellik güç cezasına yol açan sinüzoidal titreşim genliğidir.
+
+404
+00:34:11,027 --> 00:34:12,717
+Üçüncü düzenek: AMCC.
+
+405
+00:34:12,767 --> 00:34:19,857
+Taban bant üst modülasyonunda, yük hızının çok altında bant genişliğine sahip,
+
+406
+00:34:19,907 --> 00:34:27,357
+doğru akım kuplajlı bir dedektörle zarfı okuyun: en büyük, en küçük ve ortalama güç.
+
+407
+00:34:27,407 --> 00:34:33,537
+İndeks, en büyük eksi en küçük bölü ortalama çarpı yüzdür; hedef yüzde on,
+
+408
+00:34:33,587 --> 00:34:38,517
+dikdörtgen darbelerle saniyede yüz on beş kilobit.
+
+409
+00:34:39,460 --> 00:34:43,540
+Pilot tonda ölçüm elektriksel arayüzdedir:
+
+410
+00:34:43,590 --> 00:34:48,060
+sürücü girişinde AMCC'nin ve yükün tepeden tepeye gerilimlerini ölçün,
+
+411
+00:34:48,110 --> 00:34:53,460
+ya da bir spektrum analizöründe beş yüz kilohertzlik çizgiyi izleyin.
+
+412
+00:34:53,510 --> 00:34:57,488
+Hedef yine yüzde on, saniyede yüz yirmi sekiz kilobit.
+
+413
+00:34:58,427 --> 00:35:03,107
+Ve standardın tanımlamadığı ölçüm: AMCC cezası.
+
+414
+00:35:03,157 --> 00:35:10,927
+Yükün hassasiyetini referans hata oranında, AMCC kapalıyken ve açıkken ölçün;
+
+415
+00:35:10,977 --> 00:35:12,577
+fark AMCC cezasıdır.
+
+416
+00:35:12,627 --> 00:35:20,557
+Aynı anda AMCC'nin kendi bağlantısını da doğrulayın: AMCC senkronu sağlanmalı,
+
+417
+00:35:20,607 --> 00:35:26,247
+ve yönetim kanalı kaybı göstergesi temiz kalmalıdır.
+
+418
+00:35:27,194 --> 00:35:32,074
+Son olarak yansımalar: geri dönüş kaybı en az otuz iki desibel,
+
+419
+00:35:32,124 --> 00:35:35,974
+ONU vericisinin yansıtıcılığı en çok eksi altı,
+
+420
+00:35:36,024 --> 00:35:39,194
+alıcılarınki en çok eksi yirmi desibel;
+
+421
+00:35:39,244 --> 00:35:43,534
+vericinin yansıyan güce toleransı eksi on beş desibel.
+
+422
+00:35:43,584 --> 00:35:48,632
+ODN'deki ayrık yansımalar eksi otuz beş desibelin altında olmalıdır.
+
+423
+00:35:49,560 --> 00:35:51,580
+Laboratuvar notu.
+
+424
+00:35:51,630 --> 00:35:54,140
+Bir: PtP bütçesinde pay yoktur;
+
+425
+00:35:54,190 --> 00:36:01,640
+ölçtüğünüz her desibel ya verici gücünden ya da tasarım payından gelir.
+
+426
+00:36:01,690 --> 00:36:05,260
+İki: AMCC indeksini yüzde on sanmayın, ölçün.
+
+427
+00:36:05,310 --> 00:36:12,274
+İndeks, hem yükün cezasını hem de AMCC'nin kendi hata oranını belirler.
+
+428
+00:36:14,093 --> 00:36:16,053
+Bölüm dokuzun özeti.
+
+429
+00:36:16,103 --> 00:36:21,593
+Bir: PtP WDM, her ONU'ya kendi sürekli dalga boyu çiftini verir.
+
+430
+00:36:21,643 --> 00:36:29,603
+Paylaşılan spektrumda bin altı yüz üç ile bin altı yüz yirmi beş nanometre arasındadır,
+
+431
+00:36:29,653 --> 00:36:37,293
+ve TWDM'den en az üç nanometre ya da yüz gigahertzlik bir koruma bandıyla ayrılır.
+
+432
+00:36:37,343 --> 00:36:43,880
+İki: A ekinde üç hız sınıfı vardır, ve ODN sınıfını iki yönde de OLT taşır.
+
+433
+00:36:44,826 --> 00:36:46,766
+Üç: FEC'i PMD eklemez;
+
+434
+00:36:46,816 --> 00:36:52,346
+FEC sütunları istemci protokolüne ya da kod dönüştürmeye dayanır.
+
+435
+00:36:52,396 --> 00:36:56,546
+Dört: AMCC PtP WDM kanallarında zorunludur:
+
+436
+00:36:56,596 --> 00:37:05,336
+saniyede yüz on beş kilobitlik üst modülasyon ya da yüz yirmi sekiz kilobitlik pilot ton,
+
+437
+00:37:05,386 --> 00:37:10,446
+ikisi de yüzde on indeksle; cezası tanımlı değildir.
+
+438
+00:37:10,496 --> 00:37:17,366
+Beş: C eki, AWG'li, düşük kayıplı, on altı kanallı başka bir tasarım noktasıdır.
+
+439
+00:37:18,393 --> 00:37:19,953
+Kendini test et.
+
+440
+00:37:20,003 --> 00:37:27,193
+Birinci soru: A eki tablolarında ODN sınıfı büyüdükçe hangi parametreler değişir,
+
+441
+00:37:27,243 --> 00:37:28,683
+hangileri değişmez? İkinci soru:
+
+442
+00:37:28,733 --> 00:37:35,923
+taban bant üst modülasyonunda yüzde onluk modülasyon indeksi nasıl tanımlanır,
+
+443
+00:37:35,973 --> 00:37:40,523
+ve zarfta kaç desibellik bir dalgalanma demektir? Üçüncü soru:
+
+444
+00:37:40,573 --> 00:37:47,183
+TWDM ONU'sunun gördüğü Y girişimcisi neden S artı yedi desibeldir? Cevaplar,
+
+445
+00:37:47,233 --> 00:37:50,084
+bir sonraki bölümün başında.
+
+446
+00:37:51,060 --> 00:37:56,390
+Bir sonraki bölüm, sezon finali: Sahaya İniş.
+
+447
+00:37:56,440 --> 00:38:03,500
+İzleme, koruma, uyumluluk, ve baştan sona bir ONU'nun hayatı.
+
+448
+00:38:03,550 --> 00:38:05,359
+Görüşmek üzere.
+
