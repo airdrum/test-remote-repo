@@ -1,0 +1,112 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "bac0d0710da_0.wav",
+   "duration": 23.401,
+   "text": "Perde iki: A ekinin tabloları. Önce hat hızları. PtP WDM simetriktir: her istemci protokolü için aşağı ve yukarı yön hızı aynıdır. Birinci sınıf bir virgül iki iki sekiz sekiz ile bir virgül yirmi beş gigabit arasıdır: gigabit Ethernet, STM-8 ve ikinci seçenek CPRI.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c1a",
+   "file": "bdfd7e09a5a_0.wav",
+   "duration": 26.339,
+   "text": "İkinci sınıf iki virgül dört beş yedi altı ile iki virgül altı altı altı gigabit arasıdır: STM-16, üçüncü seçenek CPRI ve OTU1. Üçüncü sınıf altı virgül bir dört dört ile on bir virgül sıfır dokuz gigabit arasıdır: STM-64, on gigabit Ethernet, OTU2 ve OTU2e, ve altıncı, yedinci ve sekizinci seçenek CPRI.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "be16cef2f36_0.wav",
+   "duration": 26.921,
+   "text": "FEC'in kuralı ilginçtir: FEC istemci protokolüne bağlıdır, ve PMD ek bir FEC eklemez. CPRI'da FEC yoktur. Sekiz bit on bit kodlu gigabit Ethernet'te ve altmış dört bit altmış altı bit kodlu on gigabit Ethernet'te de yoktur. SDH ve OTN kendi yerleşik FEC'lerini kullanabilir; ek bir FEC yükü uygulanmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "b573e9ee64a_0.wav",
+   "duration": 20.273,
+   "text": "Bu yüzden her tabloda iki sütun ailesi vardır: FEC'siz, on üzeri eksi on iki hata oranında; ve FEC'li, birinci ve ikinci sınıfta on üzeri eksi dört, üçüncü sınıfta on üzeri eksi üç hata oranında. Hat kodu uygulamaya bağlıdır; değerler karıştırılmış NRZ varsayımıyla verilmiştir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "b354b8503b7_0.wav",
+   "duration": 30.313,
+   "text": "Aşağı yön, birinci sınıf. OLT'nin FEC'siz en küçük başlatma gücü, N1'den E2'ye eksi bir, artı bir, artı üç ve artı beş dBm'dir; her sınıfta iki desibel artar. ONU hassasiyeti ise her sınıfta aynıdır: on üzeri eksi on ikide eksi otuz bir virgül beş dBm. Bütçe tam kapanır: otuz virgül beş desibel; yirmi dokuz desibellik yol kaybı artı bir virgül beş desibellik yol cezası.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "b57487dd154_0.wav",
+   "duration": 30.147,
+   "text": "FEC'li sütunlarda tanıdık sayılar görürsünüz: en küçük güç sıfır, artı iki, artı dört ve artı altı dBm; hassasiyet eksi otuz; aşırı yük eksi on dBm; yol cezası bir desibel. Bunlar, TWDM'in iki buçuk gigabitlik aşağı yön tablosundaki sayıların aynısıdır. Üçüncü sınıfın FEC'li aşağı yön sütunu da on gigabitlik TWDM tablosunu tekrarlar, E2'deki eksi dokuz dBm'lik aşırı yük dahil.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "bf06b44c4db_0.wav",
+   "duration": 18.573,
+   "text": "FEC'li olmak her zaman daha kolay demek değildir. Birinci sınıfta ONU'nun FEC'siz hassasiyeti eksi otuz bir virgül beş, FEC'li hassasiyeti eksi otuz dBm'dir. FEC'li durum daha ucuz bir alıcı varsayar, ve bunun bedelini OLT bir desibel fazla güçle öder.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "bf8c4ce9ca9_0.wav",
+   "duration": 31.7,
+   "text": "Yukarı yön. ONU vericisi her ODN sınıfında aynıdır: FEC'siz artı üç ile artı sekiz dBm. Sınıf farkını bu kez OLT alıcısı taşır: birinci hız sınıfında on üzeri eksi on ikide eksi yirmi yedi virgül beşten eksi otuz üç virgül beşe, her ODN sınıfında iki desibel daha hassas. Bütçe yine sıfır payla kapanır: E2'de otuz altı virgül beş; otuz beş artı bir virgül beş.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "bad52d82335_0.wav",
+   "duration": 17.159,
+   "text": "Bu bir tasarım ilkesidir, ve iki ekte de, iki yönde de geçerlidir: ODN sınıfını OLT taşır, ONU sınıftan bağımsızdır. İkinci bölümde TWDM için söylediğimiz şey, PtP WDM'de her iki yönde de doğrudur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c9",
+   "file": "ba540589276_0.wav",
+   "duration": 28.013,
+   "text": "Üçüncü sınıfın yukarı yönünde FEC'li ONU penceresi artı dörtten artı dokuz dBm'e çıkar. O artı dokuz tanıdık bir sayıdır: beşinci bölümde, TWDM ONU'su için yansıyan PtP sinyalinin düzeyini, Y'yi hesaplarken kullandık. Artı dokuz eksi otuz iki desibellik geri dönüş kaybı, eksi yirmi üç dBm eder; eksi otuz dBm'lik hassasiyetin yedi desibel üstü.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c10",
+   "file": "b8590df82b8_0.wav",
+   "duration": 27.544,
+   "text": "Ortak satırlar: en küçük sönüm oranı sekiz virgül iki desibel; daha düşük bir sönüm oranı, en büyük güç sınırı içinde daha yüksek güçle telafi edilmelidir. Yan mod bastırma en az otuz desibel; yukarı yönde lazer çıkışında, filtrelemeden önce ölçülür ki mod bölüşüm gürültüsü cezası önlensin. Geri dönüş kaybı en az otuz iki desibel, ardışık özdeş rakam bağışıklığı yetmiş iki bit.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c11",
+   "file": "b0c96ba25e1_0.wav",
+   "duration": 31.643,
+   "text": "Bir okuma uyarısı. Dispersiyon aralığı her tabloda bir formülle verilir, ve formülde bin üç yüz bölü lambdanın karesi yazar. Atıf yapılan G.652 sınırı ise dördüncü kuvveti kullanır. Dördüncü kuvvetle formül, TWDM tablolarındaki dört yüz yirmi ve üç yüz elli beş pikosaniye bölü nanometre sınırlarını tam olarak verir. Yazıldığı gibi alınırsa, sınır yaklaşık yüzde kırk daha dar çıkar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c12",
+   "file": "b0e2588a97c_0.wav",
+   "duration": 27.113,
+   "text": "Tablolarda başka baskı hataları da var, ve hiçbiri sonraki sürümlerde düzeltilmedi. Bazı yukarı yön tablolarında FEC'li en büyük güç satırı en küçük diye etiketlenmiştir. Üçüncü sınıfın aşağı yön tablosunda N1 aşırı yükü eksi iki dBm yazar, ama aritmetik eksi üç verir. Ve A eki ile C eki, birinci sınıfın titreşim aktarımı için farklı köşe frekansları verir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c13",
+   "file": "b700872a392_0.wav",
+   "duration": 25.371,
+   "text": "Mühendis notu. Bir: tablolarda bütçe payı yoktur; belirtilen her hücre sıfır payla kapanır. Gerçek bir tasarımda pay, verici gücünü en büyük sınıra doğru artırmaktan gelir. İki: FEC sütunlarını kullanacaksanız, FEC'in nereden geldiğini belgeleyin. PMD eklemez; ya istemci protokolü getirir, ya da TC katmanındaki kod dönüştürme.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c14",
+   "file": "bd3d92e8a41_0.wav",
+   "duration": 4.476,
+   "text": "Sıradaki: veri hattı hazır. Ama bu hattı kim yönetecek?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 368.99
+}

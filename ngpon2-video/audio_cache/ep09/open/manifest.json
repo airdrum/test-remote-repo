@@ -1,0 +1,49 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "bf60f757f88_0.wav",
+   "duration": 15.207,
+   "text": "Bölüm dokuz: Özel Hat. Bu bölümde NG-PON2'nin ikinci yüzüne bakıyoruz: paylaşılan TWDM kanalları yerine, her aboneye kendi dalga boyu çiftini veren noktadan noktaya WDM.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b9b1cb2a025_0.wav",
+   "duration": 10.539,
+   "text": "Önce mimari ve spektrum: dalga boyunu ONU'nun seçtiği sistem ile ağın yönlendirdiği sistem arasındaki fark, ve paylaşılan ile genişletilmiş bant.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "ba043a48f00_0.wav",
+   "duration": 7.285,
+   "text": "Sonra A ekinin tabloları: üç hat hızı sınıfı, FEC'li ve FEC'siz bütçeler, ve sınıf farkını kimin taşıdığı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b2bb105c533_0.wav",
+   "duration": 10.261,
+   "text": "Ardından yardımcı yönetim ve denetim kanalı, AMCC: on gigabitlik bir hattın üstüne binen, saniyede yüz on beş kilobitlik bir fısıltı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b68ac476dbd_0.wav",
+   "duration": 10.773,
+   "text": "Sonra C ekindeki düşük kayıplı PtP WDM, ve TC köprüsünde AMCC'nin çerçevesi ile kod dönüştürme.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "bb8e5ea4742_0.wav",
+   "duration": 7.84,
+   "text": "Laboratuvarda PtP vericisini, alıcı bütçesini, modülasyon indeksini ve AMCC'nin bedelini ölçeceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 61.91
+}
