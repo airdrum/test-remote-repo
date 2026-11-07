@@ -296,16 +296,19 @@ class E15P1B(Act15):
         all_ = T("BWmap tahsis yapısı · 64 bit (genişlikler bit)", 15, MUTED, BOLD).next_to(al, UP, buff=0.12).align_to(al, LEFT)
         leg = T("D = DBRu · P = PLOAMu · F = FWI · BP = burst profili", 15, MUTED, BOLD).next_to(al, DOWN, buff=0.12).align_to(al, RIGHT)
         pg = glow(al[2][0], PLDC, 0.05)
-        n, w, x0 = 12, 0.62, -6.0
+        n, w, x0 = 8, 0.62, -6.0
         uc, _ = frame_cells(n, x0, w, -0.45, 0.45, TW_US)
-        gr = VGroup(*[mbox("P", PLDC, 0.42, 0.3, 14) .move_to(uc[k]) for k in (0, 3, 6, 9)])
+        gr = VGroup(*[mbox("P", PLDC, 0.42, 0.3, 14).move_to(uc[k]) for k in (0, 3, 6)])
         gl = T("ONU'ya düzenli PLOAMu fırsatları", 15, PLDC, BOLD).next_to(uc, UP, buff=0.1).align_to(uc, LEFT)
-        uh = fields(USHDR, 5.4, 0.5, 15, 14, unit=" bit").move_to([3.2, -0.45, 0])
+        uh = fields(USHDR, 5.4, 0.5, 15, 14, unit=" bit").move_to([2.9, -0.45, 0])
         uhl = T("↑ FS başlığı · 32 bit", 15, MUTED, BOLD).next_to(uh, UP, buff=0.12).align_to(uh, LEFT)
-        ib = glow(uh[1][0], GOLD, 0.05)
-        ibl = VGroup(T("Ind'in en anlamlı biti =", 17, TXT, BOLD), T("bekleyen PLOAM var", 17, GOLD, BOLD)).arrange(RIGHT, buff=0.15).move_to([2.6, -1.65, 0])
-        fb = CurvedArrow(uh.get_left() + DOWN * 0.3, uc.get_right() + DOWN * 0.3, angle=-0.6, color=GOLD, stroke_width=2, tip_length=0.1)
-        fbl = T("sıklığı geri bildirime göre", 15, GOLD, BOLD).move_to([-1.4, -1.45, 0])
+        ir = uh[1][0]
+        ib = Rectangle(width=ir.width / 9, height=ir.height, stroke_color=GOLD, stroke_width=3, fill_color=GOLD, fill_opacity=0.8).align_to(ir, LEFT).align_to(ir, UP)
+        ibl = VGroup(T("Ind'in en anlamlı biti =", 17, TXT, BOLD), T("bekleyen PLOAM var", 17, GOLD, BOLD)).arrange(RIGHT, buff=0.15)
+        ibl.next_to(uh, DOWN, buff=0.5).align_to(uh, LEFT)
+        iba = arrow(ib.get_bottom(), [ib.get_x(), ibl.get_top()[1] + 0.03, 0], GOLD, 2, 0.1)
+        fb = CurvedArrow(ib.get_bottom() + DOWN * 0.05 + LEFT * 0.1, uc.get_corner(DR) + DOWN * 0.05, angle=-0.5, color=GOLD, stroke_width=2, tip_length=0.1)
+        fbl = T("sıklığı geri bildirime göre ayarlayabilir", 15, GOLD, BOLD).next_to(uc, DOWN, buff=0.55).align_to(uc, LEFT)
         reg = VGroup(T("“düzenli” =", 19, TXT, BOLD), T("sayısal değer yok", 19, WARN, BOLD)).arrange(RIGHT, buff=0.2).move_to([0, -2.65, 0])
         self.play(self.set_src("G.989.3 §11.1.2 · §8.1.1.2 · §8.1.2.1"), run_time=0.2)
         self.at(self.cue("kendiliğinden konuşamaz", 1.0))
@@ -317,9 +320,9 @@ class E15P1B(Act15):
         self.at(self.cue("Sıklığı ONU'nun", 11.4))
         self.play(FadeIn(uh), FadeIn(uhl), run_time=0.5)
         self.at(self.cue("gösterge alanının en anlamlı", 15.8))
-        self.play(Create(ib), run_time=0.4)
+        self.play(FadeIn(ib), run_time=0.4)
         self.at(self.cue("bekleyen mesaj olduğunu", 20.6))
-        self.play(FadeIn(ibl, shift=UP * 0.06), Create(fb), FadeIn(fbl), run_time=0.7)
+        self.play(GrowArrow(iba), FadeIn(ibl, shift=UP * 0.06), Create(fb), FadeIn(fbl), run_time=0.7)
         self.at(self.cue("düzenlinin sayısal", 23.3))
         self.play(FadeIn(reg, shift=UP * 0.06), run_time=0.5)
         self.end(pad=0.05)
@@ -661,7 +664,7 @@ class E15P2A(Act15):
         h = self.show_heading("Bir çelişki — Calibration_Request", h)
         ct = tag("çelişki", WARN, 16).next_to(h, RIGHT, buff=0.35)
         om = octets([("ONU-ID · atanmamış", 2.2, OIDC, "1–2"), ("0x13", 1.1, TYC, "3"), ("SeqNo 0x00", 1.3, WARN, "4"),
-                     ("Vendor_ID · VSSN · PON-ID · korelasyon · hedef PON-ID'ler", 5.0, CNC, "5–26"), ("dolgu", 1.3, MUTED, "27–40"), ("MIC", 1.5, MICC, "41–48")],
+                     ("Vendor_ID · VSSN · PON-ID · korelasyon", 5.0, CNC, "5–26"), ("dolgu", 1.3, MUTED, "27–40"), ("MIC", 1.5, MICC, "41–48")],
                     12.4, 0.6, 15, 14).move_to([0, 1.25, 0])
         sg = glow(om[2][0], WARN, 0.05)
         vs = VGroup(VGroup(tag("§11.2.3", GOLD, 15), T("↓ yönde 0 kullanılmaz", 18, TXT, BOLD)).arrange(RIGHT, buff=0.15), T("≠", 30, WARN, BOLD),
@@ -772,7 +775,7 @@ class E15P2B(Act15):
         self.play(FadeIn(cut), FadeIn(ol), FadeIn(eq), FadeIn(eql), run_time=0.6)
         self.at(self.cue("uyuşmazsa mesaj atılır", 23.5))
         self.play(FadeIn(dis, shift=UP * 0.06), run_time=0.5)
-        self.at(self.cue("yön baytı,", 26.8))
+        self.at(self.cue("Bizim yorumumuz", 25.4))
         self.play(FadeIn(yo, shift=UP * 0.06), run_time=0.5)
         self.end(pad=0.05)
 
@@ -780,17 +783,17 @@ class E15P2B(Act15):
         self.beat("c8")
         self.clear(h)
         h = self.show_heading("Varsayılan anahtar", h)
-        kc = VGroup(*[VGroup(Rectangle(width=0.66, height=0.6, stroke_color=DKC, stroke_width=1.8, fill_color=DKC, fill_opacity=0.15), HX("55", 20, TXT, BOLD)) for _ in range(16)])
+        kc = VGroup(*[VGroup(Rectangle(width=0.6, height=0.6, stroke_color=DKC, stroke_width=1.8, fill_color=DKC, fill_opacity=0.15), HX("55", 20, TXT, BOLD)) for _ in range(16)])
         for c in kc:
             c[1].move_to(c[0])
-        kc.arrange(RIGHT, buff=0).move_to([0.3, 1.35, 0])
+        kc.arrange(RIGHT, buff=0)
         kl = VGroup(lock(DKC, 0.3), T("varsayılan PLOAM_IK", 17, DKC, BOLD)).arrange(RIGHT, buff=0.12).next_to(kc, LEFT, buff=0.25)
-        fit(VGroup(kl, kc), 12.8)
+        VGroup(kl, kc).move_to([0, 1.35, 0])
         kb = brace_lbl(kc, "16 bayt · 128 bit · hepsi 0x55", DKC, DOWN, 16)
         wr = tag("standardın içinde yazılı · §15.3.3", GOLD, 16).move_to([0, -0.05, 0])
         use = VGroup(tag("↓ yayın mesajları", BCC, 17), tag("kayıt tabanlı MSK'dan önceki aktivasyon mesajları", UCC, 17)).arrange(RIGHT, buff=0.3).move_to([0, -0.95, 0])
         ul = T("kullanıldığı yer:", 16, MUTED, BOLD).next_to(use, UP, buff=0.1).align_to(use, LEFT)
-        qt = self.quote("§15.8.1", "… can be successfully transmitted even if the OLT CT and ONU have not established or no longer agree on the dynamically derived keys",
+        qt = self.quote("§15.8.1", "… even if the OLT CT and ONU … no longer agree on the dynamically derived keys",
                         "gerekçe: türetilmiş anahtarlarda anlaşma yokken de geçebilmeli")
         qt.move_to([0, -2.35, 0])
         self.play(self.set_src("G.989.3 §15.3.3 · §15.8.1"), run_time=0.2)
@@ -831,7 +834,7 @@ class E15P2B(Act15):
         hm.arrange_in_grid(2, 2, buff=(0.2, 0.14)).move_to([-0.6, -2.05, 0])
         hml = T("kanal devrinin dört mesajı · hepsi varsayılan anahtar", 15, DKC, BOLD).next_to(hm, UP, buff=0.1)
         rd = VGroup(T("CT değişir → PON-TAG değişir →", 16, TXT, BOLD), T("SK, PLOAM_IK, OMCI_IK, KEK yeniden türetilir", 16, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08)
-        rd.move_to([4.6, -2.05, 0])
+        fit(rd, 4.4).move_to([4.3, -2.05, 0])
         self.play(self.set_src("G.989.3 Tablo 11-8/11-9/11-15/11-16 · §15.3.3 · yorum"), FadeIn(yt), run_time=0.3)
         for k, (key, d) in enumerate((("Devre dışı bırakma", 4.9), ("seri numarası engelleme", 6.5), ("ayar denetimi", 8.5), ("ve dalga boyu ayarı", 10.0))):
             self.at(self.cue(key, d))
@@ -916,7 +919,7 @@ class E15P2C(Act15):
         for c in lab:
             r = Rectangle(width=cw, height=0.95, stroke_color=SKC, stroke_width=1.6, fill_color=SKC, fill_opacity=0.1)
             ch.add(VGroup(r, HX(c, 24, TXT, BOLD).move_to(r).shift(UP * 0.17), HX(f"{ord(c):02x}", 14, MUTED, BOLD).move_to(r).shift(DOWN * 0.25)))
-        ch.arrange(RIGHT, buff=0).move_to([0, 0.55, 0])
+        ch.arrange(RIGHT, buff=0).move_to([-0.85, 0.55, 0])
         grp = [ch[0:5], ch[5:13], ch[13:16]]
         gl = VGroup(*[brace_lbl(g, s, SKC, UP, 15) for g, s in zip(grp, ("PLOAM", "Integr·ty", "Key"))])
         gap = (ch[10].get_right() + ch[11].get_left()) / 2
@@ -926,7 +929,6 @@ class E15P2C(Act15):
         ga = arrow(ghost.get_top(), [gap[0], ch.get_bottom()[1] - 0.04, 0], WARN, 2, 0.1)
         gt = T("ikinci “i” yok", 16, WARN, BOLD).next_to(ghost, RIGHT, buff=0.2)
         b16 = T("= tam 16 bayt", 18, SKC, BOLD).next_to(ch, RIGHT, buff=0.15)
-        fit(VGroup(ch, b16), 13.4)
         iv8 = VGroup(tag("Ek IV.8", GOLD, 16), HX("PLOAM_IK = e256ce76785c78717c7b3044ab28e2cd", 17, TXT, BOLD), T("yalnızca bu yazımla ✓", 16, GOOD, BOLD)).arrange(RIGHT, buff=0.2)
         fit(iv8, 12.8).move_to([0, -1.75, 0])
         om = VGroup(T("OMCI etiketi:", 17, MUTED, BOLD), HX("OMCIIntegrityKey", 20, OMC, BOLD), T("doğru yazım · 16 bayt ✓", 16, GOOD, BOLD)).arrange(RIGHT, buff=0.2).move_to([0, -2.65, 0])
@@ -965,7 +967,7 @@ class E15P2C(Act15):
         hl = VGroup(glow(tb[2], MICC, 0.03), glow(tb[3], MICC, 0.03))
         adv = VGroup(T("çözücüyü sahaya çıkarmadan önce:", 18, TXT, BOLD), tag("bu vektörlerden geçir", GOOD, 17)).arrange(RIGHT, buff=0.2).move_to([0, -2.55, 0])
         self.play(self.set_src("G.989.3 Ek IV.8–IV.12 · yeniden hesap: AES-CMAC"), FadeIn(tb[0]), FadeIn(tb[1]), run_time=0.5)
-        self.at(self.cue("dokuzuncu örneği", 0.5))
+        self.at(self.cue("tahsis kimliği atamasıdır", 2.5))
         self.play(FadeIn(tb[2], shift=UP * 0.05), run_time=0.4)
         self.at(self.cue("onuncu örneği", 5.6))
         self.play(FadeIn(tb[3], shift=UP * 0.05), run_time=0.4)

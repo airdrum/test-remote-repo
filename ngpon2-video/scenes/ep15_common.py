@@ -51,6 +51,7 @@ DS_MSGS = [(0x01, "Burst_Profile", "prof"), (0x03, "Assign_ONU-ID", "kim"), (0x0
 US_MSGS = [(0x01, "Serial_Number_ONU", "kim"), (0x02, "Registration", "kim"), (0x05, "Key_Report", "key"),
            (0x09, "Acknowledgement", "ack"), (0x10, "Sleep_Request", "pm"), (0x1A, "Tuning_Response", "tun"),
            (0x1B, "Power_Consumption_Report", "pm"), (0x1C, "Rate_Response", "rate")]
+PWC = FAM["pwr"]
 REUSED = (0x01, 0x05, 0x09, 0x1A, 0x1B, 0x1C)
 # Acknowledgement completion codes (Table 11-28)
 CCODES = [("0x00", "OK"), ("0x01", "gönderecek mesaj yok"), ("0x02", "meşgul · cevap hazırlanıyor"),
@@ -84,6 +85,40 @@ def p48(w=12.4, h=0.6, size=17, octs=True, wl=True, osize=14):
         cell = VGroup(r, lb)
         if octs:
             cell.add(T(P48_OCT[i], osize, MUTED, BOLD).next_to(r, DOWN, buff=0.08))
+        cells.add(cell)
+    return cells
+
+
+def bbar(spec, w, h=0.6, size=17, below=None, place=None, unit=" B", osize=14, op=0.22):
+    """Byte-proportional bar: spec = [(name, n, color)]. Labels '<name> · <n><unit>' inside when they fit, else outside above
+    as given by place = {index: (tier, 'l'|'c'|'r')} (default tier 0, centred) with a leader line. below = strings under cells.
+    Each cell = VGroup(rect, label[, below])."""
+    tot = sum(n for _, n, _ in spec)
+    place = place or {}
+    x = -w / 2
+    cells = VGroup()
+    for i, (lab, n, c) in enumerate(spec):
+        cw = w * n / tot
+        r = Rectangle(width=cw, height=h, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=op).move_to([x + cw / 2, 0, 0])
+        x += cw
+        s_ = f"{lab} · {n}{unit}" if unit is not None else lab
+        t = T(s_, size, TXT, BOLD)
+        if t.width <= cw - 0.12:
+            lb = t.move_to(r)
+        else:
+            t = T(s_, 15, c, BOLD)
+            tier, al = place.get(i, (0, "c"))
+            y = h / 2 + 0.1 + t.height / 2 + 0.36 * tier
+            if al == "r":
+                t.move_to([r.get_right()[0] - t.width / 2 + 0.02, y, 0])
+            elif al == "l":
+                t.move_to([r.get_left()[0] + t.width / 2 - 0.02, y, 0])
+            else:
+                t.move_to([r.get_x(), y, 0])
+            lb = VGroup(t, Line([r.get_x(), h / 2, 0], [r.get_x(), t.get_bottom()[1] - 0.03, 0], color=c, stroke_width=1.2))
+        cell = VGroup(r, lb)
+        if below:
+            cell.add(T(below[i], osize, MUTED, BOLD).next_to(r, DOWN, buff=0.08))
         cells.add(cell)
     return cells
 
