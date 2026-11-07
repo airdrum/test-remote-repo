@@ -1,0 +1,98 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b19ce560de0_0.wav",
+   "duration": 27.491,
+   "text": "Perde dört: kusurlar. Madde amacını açıkça yazar: TC katmanında zorunlu eylemleri, uygulayıcıya kalanlardan ayırmak. OLT'nin dokuz kusuru, ONU'nun tek kusuru vardır: ikinci bölümde gördüğümüz LODS. OLT kusurlarında eylemlerin çoğu takdire kalır: ek bekleme süresi, tahsis planını değiştirmek, ONU'yu devre dışı bırakmak, ya da başıboş ONU tanılaması.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "b13b1507fd4_0.wav",
+   "duration": 27.128,
+   "text": "İlki burst kaybıdır: bir ONU'nun planlanmış ve art arda belirli sayıda burst'ü sınırlanamazsa, ve güç yönetimi makinesi onu muaf tutmuyorsa. Eşik yapılandırılabilir, varsayılanı dörttür; güç tasarrufunda OLT onu tolere edilen kayıp sayısına göre ayrıca kurmalıdır. Tek bir başarılı burst temizler, ve rapor, alınan son nefes bildirimleriyle nitelenmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "ba16bf1aaeb_0.wav",
+   "duration": 26.296,
+   "text": "Sinyal kaybı bütün PON içindir: OLT, yukarı yönde beklediği hiçbir iletimi art arda dört çerçeve almazsa. Tek bir iletim temizler. Bizim hesabımızla, çerçeve başına bir burst'le iki kusur da beş yüz mikrosaniyede ilan edilir; B tipi korumanın sessizlik süresi de yarım milisaniyedir. Ama burst kaybı burst sayar: on altı çerçevede bir burst alan bir ONU için sekiz milisaniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "b76c71d1f6b_0.wav",
+   "duration": 27.256,
+   "text": "İletim girişimi uyarısı: zamanlama kayması dış eşiği aşar, ve eşitleme gecikmesi mesajıyla üç düzeltmeden sonra da dışarıda kalırsa; kayma iç eşiğin altına inince temizlenir. Önerilen dış eşik yaklaşık artı eksi altı virgül dört nanosaniyedir. PMD Köprüsü: bu, birinci sezonun altıncı bölümündeki en kötü durum koruma süresinin, iki yüz beş virgül sekiz nanosaniyenin, yalnızca yüzde üçüdür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "b9403607188_0.wav",
+   "duration": 24.856,
+   "text": "Başlatma başarısızlığı: OLT seri numarasını görür, ama ONU bağlanma dizisini tamamlayamaz. Tablodaki tek zorunlu eylem buradadır: kimlik iptali mesajı gönder. Devre dışı bırakma başarısızlığı: devre dışı bırakılan ONU tahsislere cevap vermeyi sürdürür. OLT bunu ancak tahsis vermeyi sürdürürse görebilir; o ONU'nun kimlikleri yeniden atanmaktan alıkonabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "bce3f6871e6_0.wav",
+   "duration": 30.936,
+   "text": "Üç kusur yönetimden gelir. PLOAM kanalı kaybı: kalıcı bütünlük hatası ya da gelmeyen onaylar; kalıcı, aynı düzensizliğin art arda en az üç kez görülmesidir. OMCC kanalı kaybını OMCI motoru tanır. Verici dalga boyu kayması uyarısı, ayar isteklerinin sayısı ya da genliği eşikleri aşınca gelir. Ve bu üçünün iptal koşulu hücreleri boştur: standart ne zaman temizleneceklerini söylemez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "b9fa897f037_0.wav",
+   "duration": 29.688,
+   "text": "Dokuzuncusu zayıflatma düzeyi isteği başarısızlığıdır: ONU'nun onayladığı bir güç düzeyi değişikliğinden sonra OLT'nin aldığı güç değişmez. PMD Köprüsü. Birinci sezonun sekizinci bölümünde düzeyler üç desibellik adımlarla değişiyordu; aynı sezonun onuncu bölümündeki tabloda alınan güç tekrarlanabilirliği artı eksi yarım desibeldi. Bizim hesabımızla adım, bunun altı katıdır: değişim olarak görülür. Değişim eşiği ise yazılı değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8",
+   "file": "be675d2c603_0.wav",
+   "duration": 28.109,
+   "text": "Kusurlar uykuyu bilmek zorundadır. Geçiş tablosunda, düşük güç gözetiminde ve uyarılmış durumda kaçırılan tahsisler kendine dönen geçişlerdir; bizim okumamızla muafiyet budur. Serbest uyanık durumda ise tek bir kaçırma OLT'yi zorla uyanık duruma atar, ve burst kaybı orada ilan edilebilir. Ama bu kaçırma girdisi hiçbir yerde tanımlanmaz, ve eşiğin ONU'ya nasıl bildirildiği de yazılı değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e9",
+   "file": "b315ce536a1_0.wav",
+   "duration": 27.555,
+   "text": "Ölüm sonrası tanı için acil durum anlık görüntüsü vardır. ONU, OLT ile iletişimi tehlikeye girince durumunu ve kusurlarını kalıcı belleğe yazar: son nefes dizisinde, ve yazılımı vericiyi her kapattığında. En az on kayıt sığmalıdır; biçimi ve okuma yolu yazılı değildir. Bizim okumamız: harfiyen, her düşük güç girişi de bir kayıttır; örnek olarak yüz milisaniyelik döngüde saatte otuz altı bin yazım.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e10",
+   "file": "b4383b3fb46_0.wav",
+   "duration": 27.917,
+   "text": "Son nefes adım adım. ONU, tahsislere cevap vermesini engelleyebilecek yerel bir durum saptar, yukarı yön başlığındaki son nefes bitini kurar ve anlık görüntüyü kaydeder. Bu bir susma sözü değildir: durum geçerse bildirimi geri alır. OLT bu burst'leri ONU başına sayabilir, ama yalnızca bu bitle tahsisleri geri çekmez. Güç geri gelince seri numarası mesajı on üç kodunu taşıyabilir: güç kesildi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e11",
+   "file": "b22154fec08_0.wav",
+   "duration": 26.659,
+   "text": "PMD Köprüsü. Son nefes, fiber sorunlarını abone tarafındaki sorunlardan ayırmaya yardım eder; birinci sezonun onuncu bölümünde bunu bir arıza vakası olarak gördük. Ama G.989.2'de ne sinyal kaybının ne de son nefesin tanımı vardır. B tipi korumanın nitelikli sinyal kaybı da son nefesleri hesaba katar; atıf yaptığı dışlama kuralları ise hiçbir maddede yazılı değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e12",
+   "file": "bf796012454_0.wav",
+   "duration": 21.617,
+   "text": "Mühendis notu. Bir: ONU'ları uyutuyorsanız burst kaybı eşiğini tahsis aralığıyla birlikte ayarlayın; dörtlük varsayılan, seyrek tahsisli bir ONU'da milisaniyeler sürer. İki: temizlenme koşulu olmayan üç kusur için kendi kuralınızı yazın; yoksa bir kez ilan edilen PLOAM kanalı kaybı, yönetim sisteminde süresiz açık kalabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e13",
+   "file": "bbbe52e213c_0.wav",
+   "duration": 5.845,
+   "text": "Sıradaki: enerji ve sağlık tanımlandı. Şimdi laboratuvarda ölçelim.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 331.35
+}

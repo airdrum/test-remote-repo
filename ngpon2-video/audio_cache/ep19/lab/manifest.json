@@ -1,0 +1,91 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "b2eaf9b8e12_0.wav",
+   "duration": 25.244,
+   "text": "Laboratuvarda. Düzenek: bir OLT ve ONU emülatörü, bir protokol analizörü, bir trafik üreteci, bir BERT ve ayarlı zayıflatıcı, besleyici fiberde bir optik anahtar, ve ONU'nun besleme akımını kaydeden bir veri kaydedici. Değeri standartta olmayan her parametreyi emülatörde açıkça kurun ve kaydedin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "b4fc5b07daa_0.wav",
+   "duration": 24.803,
+   "text": "İlk test: çözücünün öz sınaması. Dördüncü ekin onuncu örneği tam olarak bir dikkatli uyku isteğidir: ONU kimliği on dokuz, sıra numarası sıfır, etkinlik düzeyi üç; bütünlük kodu ekteki sekiz baytla tutmalıdır. Sonra kendi hesapladığımız kodları deneyin: uyanık isteği, açık ve kapalı uyku izni, yayın güç sorgusu. Bunlar altın vektör değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "bee8b5eebc6_0.wav",
+   "duration": 23.363,
+   "text": "İkinci test: izin kapısı. Güç yönetimi OMCI ile etkinleştirilmemişken açık uyku izni gönderin: ONU yok saymalıdır. Etkinleştirip tekrarlayın: dikkatli uyku isteği tutma aralığından önce gelmemelidir. Sonra uyku izni ve uyku isteği sayaçlarını okuyun; isteğe bağlıdırlar, ama varsa artmalıdırlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "b9ca0047c21_0.wav",
+   "duration": 23.057,
+   "text": "Üçüncü test: durumlara göre güç. Burst günlüğünde farkında dönemleri burst'lerle, düşük güç dönemleri boşluklarla görünür; süreleri aralıklarla karşılaştırın. Alıcı kontrolleri optikte değil, besleme akımında görünür. Her durumun ortalama gücünü ölçün, bizim modelimizle, ve varsa düşük güç süresi sayacıyla karşılaştırın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "bde03df9926_0.wav",
+   "duration": 23.847,
+   "text": "Dördüncü test: uyuyan ONU. Düşük güçteyken PLOAM ve durum raporu isteyen tahsisler verin: cevap gelmemelidir. ONU'ya aşağı yön trafiği gönderin: iletilmemelidir. Bir PLOAM isteği gönderin, ve OLT'nizin ek süre tanıyıp tanımadığını, ya da önce ONU'yu uyandırıp uyandırmadığını görün.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "b18bd41bcce_0.wav",
+   "duration": 23.484,
+   "text": "Beşinci test: uyanma gecikmesi ve zorunlu uyandırma biti. Biti serinin ilk tahsis yapısında kurun: uyanık isteği, kontrol aralığı, uyanma süresi ve gidiş dönüşün toplamı içinde gelmelidir. Biti yalnızca sonraki yapılarda kurun: ONU uyanmamalıdır. Bit olmadan yalnızca kapalı izin gönderin, ve kaçırma oranını ölçün. Sonra ONU tarafında trafik başlatın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "ba4d55668c7_0.wav",
+   "duration": 27.821,
+   "text": "Altıncı test: OLT makinesi, bir ONU emülatörüyle. Düşük güç gözetiminde susun: el sıkışma zamanlayıcısı dolunca kapalı izin, eşik kadar kaçırmadan sonra burst kaybı gelmelidir. Uyandırma bitini yok sayın: uyarı zamanlayıcısından sonra OLT mesajsız zorla uyanığa dönmelidir. Zorla uyanık OLT'ye gecikmiş bir uyku isteği yollayın: standardın notuna göre kapalı izin yinelenmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "b3041cbaeed_0.wav",
+   "duration": 23.555,
+   "text": "Yedinci test: sayaçlar ve hata enjeksiyonu. Bilinen sayıda çerçeve gönderin: XGEM sayaçları birebir tutmalıdır. FEC kapalıyken zayıflatıcıyla hata oranını artırın: BIP-32 hataları BERT'le uyuşmalıdır. FEC açıkken düzeltilenler artmalı, düzeltilemeyenler sıfır kalmalıdır. Sayaçları taşma sürelerinden sık okuyun.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g9",
+   "file": "bba7e705dbb_0.wav",
+   "duration": 26.285,
+   "text": "Sekizinci test: kusur enjeksiyonu. Art arda burst'leri bastırın: burst kaybı dördüncüde gelmeli, tek bir burst'le temizlenmelidir; son nefes bitiyle tekrarlayın. Besleyici fiberi açın: sinyal kaybı beş yüz mikrosaniyede. Güç düzeyi değişikliğini onaylayıp gücü değiştirmeyin: zayıflatma düzeyi isteği başarısızlığı; OLT'nin güç okumasını yarım desibellik tekrarlanabilirlikle karşılaştırın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g10",
+   "file": "bded935e990_0.wav",
+   "duration": 21.741,
+   "text": "Dokuzuncu test: kalan kusurlar. Düzeltmeleri yok sayarak kayın, seri numarasına cevap verip bağlanmayın, devre dışı bırakmayı yok sayın, art arda üç PLOAM bütünlük kodunu bozun, dalga boyunu kaydırın, aşağı yönde üç senkron desenini bozun. Temizlenme koşulu yazılı olmayan üç kusurun ne zaman kapandığını kaydedin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g11",
+   "file": "ba95ee6f62f_0.wav",
+   "duration": 22.823,
+   "text": "Onuncu test: son nefes. ONU'nun şebeke gücünü kesin. Son nefes biti kurulmuş burst'leri yakalayın; OLT'nin son nefes sayacını ve burst kaybı raporunun nitelenmesini kontrol edin. Güç gelince seri numarası mesajında on üç kodunu arayın, ve anlık görüntü kayıtlarını okuyun. Okuma yöntemi standartta yoktur; üreticinin yolunu belgeleyin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g12",
+   "file": "b6ce9b1cee5_0.wav",
+   "duration": 19.484,
+   "text": "Laboratuvar notu. Bir: her ölçümün yanına güç yönetimi parametrelerini yazın; standart değer vermediği için bir sonuç, ancak parametreleriyle birlikte anlamlıdır. İki: kusur enjekte ederken sayaçları da okuyun; bir kusurun ilanı, temizlenmesi ve ilgili sayacın artışı aynı zaman çizgisinde durmalıdır.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 285.51
+}

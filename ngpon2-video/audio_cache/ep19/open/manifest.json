@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b60f1fe870d_0.wav",
+   "duration": 22.712,
+   "text": "Sezon iki, bölüm dokuz: Enerji ve Sağlık. Bir ağın iki gündelik sorusu var: ne kadar enerji harcıyor, ve sağlığı nasıl? G.989.3 iki maddeyle cevap verir: güç yönetimi ve başarım izleme. İkisinde de iki bin yirmi birden beri tek bir sözcük değişmedi; değişen yalnızca çevrelerindeki atıflar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b08b62b5b1d_0.wav",
+   "duration": 10.859,
+   "text": "Önce dikkatli uyku: standardın bıraktığı tek uyku kipi, ONU'nun ve OLT'nin yalnızca kısmen hizalı iki durum makinesi, ve hiçbirinin değeri olmayan parametreler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "bc9338fc365_0.wav",
+   "duration": 11.925,
+   "text": "Sonra tasarrufun hesabı ve iki yol daha: daha az tüketen bir kanala geçmek, ve noktadan noktaya WDM'de hattı yavaşlatmak; zamanlayıcıları hâlâ çalışma konusu olan bir prosedür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b8ba9268c09_0.wav",
+   "duration": 9.28,
+   "text": "Ardından sayaçlar: yüz on bir satırlık bir tablo, hangisi zorunlu, kim tutar, ve on gigabitte saniyeler içinde taşabilecek sayılar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b4ad8aa9bc2_0.wav",
+   "duration": 10.955,
+   "text": "Sonra kusurlar ve son nefes: OLT'nin dokuz kusuru, ONU'nun tek kusuru, temizlenme koşulu yazılmamış üç kusur, ve ölmekte olan bir ONU'nun geride bıraktığı kayıt.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b537a05720d_0.wav",
+   "duration": 11.232,
+   "text": "Laboratuvarda gücü durumlara göre ölçecek, uyanma gecikmesini ve zorunlu uyandırma bitini sınayacak, hata ve kusur enjekte edip sayaçları doğrulayacak, ve bir son nefesi yakalayacağız.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 76.96
+}

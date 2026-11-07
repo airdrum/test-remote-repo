@@ -1,0 +1,91 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b4ee557ae72_0.wav",
+   "duration": 33.027,
+   "text": "Perde iki: tasarrufun hesabı. Standart hiçbir durum için güç değeri vermez; bu model bizimdir. Uyurken ONU'nun tam gücün beşte birini çektiğini varsayalım. Yüz milisaniye düşük güç, iki milisaniye farkındalık, on milisaniyede bir alıcı kontrolü ve iki milisaniyelik uyanmayla tasarruf yüzde yetmiş altıdır. Bir saniyelik uyku ve on milisaniyelik farkındalıkla bile ancak yüzde yetmiş sekiz. Tavanı uyku süresi değil, uyurken açık kalan devreler belirler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "bf625a16e53_0.wav",
+   "duration": 30.691,
+   "text": "Uyanma gecikmesi, aynı örnekle. OLT uyandırmak isterse ONU biti en geç bir sonraki alıcı kontrolünde görür; sonra uyanma süresi, bir tahsis ve gidiş dönüş eklenir. On milisaniyelik kontrol aralığı, iki milisaniyelik uyanma ve yirmi kilometreyle bu en az on iki virgül üç altı milisaniyedir: uyarı zamanlayıcısı bundan kısa olamaz. ONU kendi trafiğiyle uyanırsa yaklaşık iki virgül iki milisaniye yeter.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "b54205399ac_0.wav",
+   "duration": 24.483,
+   "text": "Bir metin sorunu. Uyandırma aralığı, ONU tam çalışır olana kadarki bütün süre diye tanımlanır; ama uyarı zamanlayıcısının alt sınırı, bu aralığa uyanma süresini ayrıca ekler, ve aralığın adını yanlış yazar. Aralığın satırı da bir virgülle yarım kalır; üç baskıda da. Bizim okumamız: uyanma süresi iki kez sayılabilir, ve metin bunu çözmez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "bd21231facc_0.wav",
+   "duration": 30.189,
+   "text": "PMD Köprüsü. Uyanmayı burst başına verici açmayla karıştırmayın. Birinci sezonun altıncı bölümündeki açılma geçişi on gigabitte bin iki yüz seksen bit, yüz yirmi sekiz virgül altı nanosaniyedir; tek çerçevelik bir uyanma süresi bunun yaklaşık dokuz yüz yetmiş katıdır. Alıcıda, birinci sezonun beşinci bölümündeki geleneksel saat çıkarımı geçerlidir, ama G.989.2 bir kilitlenme süresi vermez. Bizim yorumumuz: o süre uyanma süresinin içindedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "ba85bc9e331_0.wav",
+   "duration": 26.492,
+   "text": "Şimdi ikinci yol: kanal seçimi. Maddenin tamamı iki cümledir: ONU'nun tüketimi kendi bileşenlerine bağlı olarak kanaldan kanala değişebilir; OLT bunu güç tüketimi raporlarıyla toplar, ve ONU'yu daha az tüketen kanala ayarlar. OLT, kendi takdiriyle, bir ONU'ya ya da hepsine bir güç sorgusu gönderir; içeriği yalnızca dolgudur. Taşıma, yedinci bölümdeki olağan devirdir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "bc48d1919ab_0.wav",
+   "duration": 23.655,
+   "text": "ONU sekiz girdiyle cevap verir: her biri dört bit aşağı, dört bit yukarı yön kanal kimliği, ve miliwatt cinsinden on altı bitlik güç; en çok altmış beş virgül beş üç beş vat, sıfır bilinmiyor demektir. Değer mutlak ya da göreli olabilir. Çelişkiler: bir tablo tek rapor der, öteki sekizden fazla kanal için iki; girdi on altı bit diye anılır, oysa yirmi dört bittir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "bc364ceb31f_0.wav",
+   "duration": 26.84,
+   "text": "Üçüncü yol noktadan noktaya WDM'dedir. Orada OLT ve ONU sürekli kipte, birden çok hızda çalışır; OLT bağlantının az kullanıldığını görünce iki yönde daha düşük bir hıza geçilmesini ister. Mesajlar AMCC'de gider. İstek, planlı süper çerçeve sayacının en düşük on altı bitini, bir geri alma bayrağını ve iki yön için ayrı hız kodlarını taşır: on, iki buçuk, bir ve altı gigabit.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "b148f9319b1_0.wav",
+   "duration": 27.64,
+   "text": "Akış beş adımdır. OLT ister. ONU onaylar, ya da reddeder: aşağı yön hızı alıcısının, yukarı yön hızı vericisinin aralığı dışında, ya da planlı sayaca kadar hazır olamaz. İki taraf hızı planlı sayaçta birlikte değiştirir. ONU yeni hızda aşağı yön senkronunu kurunca tamamlandı yanıtı gönderir, OLT tamamlandı denetimiyle kapatır. Şekilde bu yanıtın adı, üç baskıda da, yanlış yazılmıştır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c9",
+   "file": "b15dde86cee_0.wav",
+   "duration": 25.453,
+   "text": "Parametre tablosunun dört satırı vardır. Ayar süresi, ONU'nun çerçeve alıp gönderemediği en uzun süredir; değeri ONU'da önceden tanımlı. Planlı sayacın en küçük değeri, OLT'nin ve ONU'nun bekleme zaman aşımları ise çalışma konusudur; OLT'ninkinin tanımı cümlenin ortasında biter. PtP için ne sayaç, ne kusur, ne de bir uyku prosedürü vardır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c10",
+   "file": "b6ac9a9ebd4_0.wav",
+   "duration": 29.123,
+   "text": "PMD Köprüsü. Birinci sezonun dokuzuncu bölümünde G.989.2'nin A ekinde üç hız sınıfı gördük, ve iki yönün hızı aynıydı; altı ile on gigabit aynı sınıftadır. Mesaj ise dört hızı iki yön için ayrı kodlar. Aynı bölümün AMCC'siyle bizim hesabımız: istek ve onay, işlemesiz, seksen dört ile doksan üç çerçeve sürer. Bizim yorumumuz: planlı sayacın en küçük değeri bundan büyük olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c11",
+   "file": "bf73942fc3e_0.wav",
+   "duration": 20.593,
+   "text": "Mühendis notu. Bir: uyku parametrelerini tasarrufa göre değil, uyanma bütçesine göre seçin; bizim modelimizde tasarruf hızla doyar, gecikme ise kontrol aralığıyla birlikte büyür. İki: PtP hız uyarlamasının çalışma konusu değerlerini üreticiden yazılı isteyin; ve bizim yorumumuzla, iki yön için aynı sınıftan hız isteyin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c12",
+   "file": "b3ae9106461_0.wav",
+   "duration": 6.357,
+   "text": "Sıradaki: ne kadar harcadığımızı konuştuk. Şimdi ağın sağlığını sayan sayılara.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 304.54
+}
