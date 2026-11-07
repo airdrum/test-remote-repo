@@ -1,0 +1,73 @@
+{
+ "title": "S2B07 Perde 2 — Devir",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: devir. Planlı devir iki TWDM kanalı arasındadır: aktivasyonda, yük dengelemede, güç tasarrufunda, kademeli büyümede ya da başıboş bir ONU'ya karşı. Üç oyuncu vardır: ONU'yu barındıran kaynak kanal sonlandırıcısı, hedef, ve ONU. Standart devri on bir adımlık nedensel bir diziyle anlatır."
+  },
+  {
+   "id": "c2",
+   "text": "Bir: ONU kaynakta, O5.1'dedir. İki: iki sonlandırıcı bir ICTP işlemi yapar; kaynak ayar-çıkış, hedef ayar-giriş göstergesini alınca işlem kesinleşir. Üç: hedef, ONU'ya uygun koruma süreleriyle düzenli PLOAM tahsisleri vermeye başlar, ve hedef bekleme zamanlayıcısını başlatır. Dört: kaynak, kaynak bekleme zamanlayıcısını başlatır ve ayar denetimi mesajını gönderir."
+  },
+  {
+   "id": "c3",
+   "text": "Mesajda hedef aşağı ve yukarı yön PON kimlikleri, planlı süper çerçeve sayacı değeri, geri dönüş desteği biti ve kalibrasyon biti vardır. Beş: ONU onaylar ve O5.2'ye geçer; ya da olumsuz cevap verir, örneğin planlı değer çok yakınsa. Altı: onaydan sonra kaynak, ONU cevap versin vermesin tahsis vermeyi sürdürebilir; geri dönüşü mümkün kılan budur."
+  },
+  {
+   "id": "c4",
+   "text": "Yedi: planlı değer, PSBd'den kopyalanan yerel sayacın en düşük on altı bitine eşit olunca ONU ayara başlar. Sekiz: yeni kanalda senkron kurup uygun tahsise ayar tamamlandı yanıtıyla cevap verir; ayar başarısızsa ve geri dönüş sunulmuşsa, kaynağa dönüp geri dönüş yanıtı gönderebilir. Dokuz: hedef isterse kayıt isteğiyle ONU'yu doğrular, ayar denetiminin tamamlandı biçimini gönderir, ve ICTP ile devri onaylar."
+  },
+  {
+   "id": "c5",
+   "text": "Burst profilindeki PON etiketi değiştiyse ONU, oturum ve bütünlük anahtarlarını yeniden türetir. On: kaynak tahsisleri keser ve ONU'nun yapılarını bırakır. On bir: hedef ve ONU çalışmaya başlar. Devrin ayar mesajları ise varsayılan anahtarla korunur; bizim yorumumuzla, etiket değişse de doğrulanabilsinler diye."
+  },
+  {
+   "id": "c6",
+   "text": "ONU'nun gözünden. O5.2'de veri sürer, ama ONU yeni bir servis veri birimini parçalamaya başlamaz; sığmayan yer boş XGEM çerçeveleriyle dolar. Sayaç eşleşince, alıcı da ayarlanıyorsa TO6 durur, TO4 başlar, burst profilleri atılır, ve ONU O8.1'e girer. Yalnızca verici ayarlanıyorsa aşağı yön kesilmez: TO5 başlar, ve ONU doğrudan O9'a geçer."
+  },
+  {
+   "id": "c7",
+   "text": "Senkron gelince O8.2: ONU yeni kanalın profillerini toplar. İki bin yirmi beş değişikliği buradaki kararı daralttı: bölümleme, yukarı yön bağlantı tipi ve hızı uyuşuyorsa kanal çalışmaya uygundur; TO4 durur, TO5 başlar, ONU O9'a geçer. Uymuyorsa burst profillerini atar ve O8.1'e döner. Kalibrasyon artık burada denetlenmez."
+  },
+  {
+   "id": "c8",
+   "text": "O9'da ONU, hedefin her yönlendirilmiş PLOAM tahsisine tamamlandı yanıtı gönderir, dönüş gelene ya da TO5 dolana kadar. Bant içi için kalibre değilse yönlendirilmiş bir AMCC tahsisi bekler; TO5'in başlangıç değeri de buna bağlıdır. Dönüş, ayar denetiminin tamamlandı biçimidir, ya da bir kayıt isteği, tahsis kimliği atama, anahtar denetimi veya uyku izni. Sonra TO5 durur, TO6 başlar, ONU O5'e döner."
+  },
+  {
+   "id": "c9",
+   "text": "Planlı sayaç değeri, süper çerçeve sayacının en düşük on altı bitidir. Bizim hesabımızla altmış beş bin beş yüz otuz altı çerçevede, sekiz virgül bir dokuz iki saniyede başa döner; daha uzak bir hedef belirsizdir. Alt sınır yazılı değildir; ama ONU'nun cevabı altı çerçeve sürebilir."
+  },
+  {
+   "id": "c10",
+   "text": "Olumsuz cevap, ayar yanıtında işlem kodu birdir, ve koşulları on altı bitlik bir haritada taşır: on dört koşul, üç grup. İç grupta tek kod: ONU planlı çerçevede hazır değil. Aşağı yönde altı: yönetim etiketi, boş tanım, bölüm, alıcı ayar aralığı, hız ve hat kodu. Yukarı yönde yedi: etiket, boş tanım, verici aralığı, kalibrasyon, bağlantı tipi, hız ve hat kodu."
+  },
+  {
+   "id": "c11",
+   "text": "İki ayrıntı. Kalibrasyon kodu, hedefteki doğruluk bant içi eşiğinden kötüyse konur; ama ayar denetimindeki kalibrasyon biti birse bastırılır, ve ONU ayarı gereken kalibrasyonla yürütür. Bizim okumamızla yukarı yön hat kodu koşulu, hiçbir profil mesajında olmayan bir alanı sınar. Kodlar birleşebilir: on altılık tabanda sıfır iki bir sıfır, alıcı ve verici aralığı birden demektir."
+  },
+  {
+   "id": "c12",
+   "text": "Geri dönüş, işlem kodu dört, ayardan sonradır: dokuz koşul. Hedef aşağı yönde senkron yok; hedefin PSBd'sindeki etiket ya da bağlantı tipi çelişiyor; hedefte okunan kanal profili ONU ile çelişiyor. Aynı bit iki tabloda farklı anlama gelir. Değeri dört olan bit olumsuzda boş aşağı yön tanımı, geri dönüşte bağlantı tipidir; on altı olan bit, alıcı aralığı ile boş yukarı yön tanımıdır."
+  },
+  {
+   "id": "c13",
+   "text": "OLT tarafında beş durum vardır: habersiz, bekleme, barındırma, yönlendirme ve uğurlama. Hedef ayar-girişle beklemeye, tamamlandı yanıtıyla barındırmaya; kaynak ayar-çıkışla yönlendirmeye, onayla uğurlamaya, ICTP onayıyla habersize geçer. Olumsuz cevapta ve geri dönüşte kaynak barındırmaya döner ve hedefe iptal yollar; bir zamanlayıcı dolarsa bütün kanallara yayın bir ICTP uyarısı gider. Hata durumunda ONU'nun velayeti kaynaktadır, çünkü onunla çalışabildiği bilinir."
+  },
+  {
+   "id": "c14",
+   "text": "PMD Köprüsü. Birinci sezonun onuncu bölümünde bir ONU'nun hayatının onuncu adımı devirdi, ve anını bir süper çerçeve sayacı belirliyordu. Şimdi o adımın zamanlayıcılarına bakın: TO4, TO5 ve OLT'deki iki bekleme zamanlayıcısının hiçbirinin değeri yoktur; tek kural, kaynağınkinin hedefinkinden uzun olmasıdır. Bizim çıkarımımız: hedef zamanlayıcısı ayar isteğinden önce başladığı için, planlı sayacın öncülük süresini de kapsamalıdır."
+  },
+  {
+   "id": "c15",
+   "text": "Mühendis notu. Bir: bir ayar yanıtını çözerken bit haritasından önce işlem kodunu okuyun. İki: OLT makinesini on yedi tire dokuz tablosuna göre kodlayın; iptal mesajının tetikleyicisi ve yönü metinde üç farklı biçimde anlatılır."
+  },
+  {
+   "id": "c16",
+   "text": "Sıradaki: devir mesaj mesaj belli. Peki ne kadar sürer?"
+  }
+ ]
+}

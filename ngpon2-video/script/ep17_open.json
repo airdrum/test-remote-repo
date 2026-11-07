@@ -1,0 +1,33 @@
+{
+ "title": "S2B07 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm yedi: Renk Değiştirmek. Geçen bölümde O8 ve O9'un yalnızca adını andık. Bu bölümde bir ONU'nun bir kanal çiftinden ötekine geçişini izliyoruz: kim ne zaman ne söyler, ve standartta ne yazılı değildir."
+  },
+  {
+   "id": "o2",
+   "text": "Önce profiller ve kalibrasyon: OLT'nin her kanalda neyi ne sıklıkla duyurduğu, ONU'nun kalibrasyon kaydı, doğruluk sınıfları ve AMCC yolu."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra devir: on bir adımlık dizi, ayar mesajları, planlı süper çerçeve sayacı, hata kodları, ve OLT'nin beş durumlu devir makinesi."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından ayar süresi ve kilitleme: F ekinin üç parçalı tanımı, bir devrin gerçekte ne kadar sürdüğü, ve OLT'nin bir vericiyi kanalında nasıl tuttuğu."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra bağlama ve karışık sınıflar: birden çok kanalı birlikte kullanan bir ONU, ve klonlanmış kanal sonlandırıcıları."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda bir devrin süresini parçalarına ayıracağız, hata kodlarını kışkırtacağız, kilitlemeyi sıcaklık altında sınayacağız, ve iki arayüzlü bir ONU'yu aktive edeceğiz."
+  }
+ ]
+}

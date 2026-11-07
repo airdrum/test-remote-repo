@@ -1,0 +1,57 @@
+{
+ "title": "S2B07 Perde 1 — Profiller ve kalibrasyon",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: profiller ve kalibrasyon. On yedinci madde dört işlevin yordamını verir: profil duyurusu, ONU kalibrasyonu, dalga boyu kanalı devri ve kanal kilitleme. Önce bir sürüm notu: on yedinci madde ve F, H ve X ekleri, iki bin yirmi birden beri tek sözcük değişmedi. İki değişikliğin bu konuya dokunduğu yer yalnızca O5, O8 ve O9'un tablolarıdır."
+  },
+  {
+   "id": "b2",
+   "text": "Profil duyurusu, her aşağı yön kanalında onaysız yayın PLOAM mesajlarıdır: bir sistem profili; konuşlu her kanal çifti için bir kanal profili, en çok sekiz; ve haritaların andığı her burst profili için bir mesaj, kanal başına en çok sekiz, toplam altmış dört. Tam küme bir ile beş saniye arasında seçilen bir periyotla yinelenir."
+  },
+  {
+   "id": "b3",
+   "text": "Bizim hesabımız: bir çevrim en çok yetmiş üç yayın mesajıdır. Çerçeve başına en çok bir yayınla bu en az dokuz virgül bir milisaniye sürer. ONU tarafındaki karşılık, O1'deki en az on saniyelik profil bekleme süresidir: en uzun periyodun iki katı."
+  },
+  {
+   "id": "b4",
+   "text": "Sistem profili şunları söyler: kanal sayısı; bir gigahertzlik birimle yukarı yön kanal aralığı, ki ONU vericisi için bir ölçek çarpanıdır; en büyük spektral sapma, serbest spektral aralık ve yukarı yön bandı. Ve iki kural alanı: bant içi aktivasyon için en düşük kalibrasyon doğruluğu, ve AMCC bayrağı."
+  },
+  {
+   "id": "b5",
+   "text": "Kanal profili ise devrin kontrol listesidir: yönetim etiketi, boş göstergeleri, aşağı yön frekans ofseti, hızı ve hat kodu, bölümleme indeksi, yukarı yön frekansı, bağlantı tipi ve hızı. Bizim okumamızla her biri, ikinci perdedeki bir hata kodunu besler. Bir de varsayılan yanıt kanalı vardır: bu aşağı yönü dinleyen ONU'nun hangi yukarı yön kanalında göndereceği. Ve her profilin dört bitlik bir sürümü vardır; ONU bir güncellemeyi yalnızca sürümden anlayabilmelidir."
+  },
+  {
+   "id": "b6",
+   "text": "Şimdi kalibrasyon. Tanım: ONU, söylendiğinde belirli kanallara doğru ayarlanabilmelidir. Yolu bir kalibrasyon kaydıdır: kanal parametreleri ile ONU'nun iç ayar değerleri arasındaki eşleme. Aşağı yön döngüsünü ONU tek başına kapatır, O1'de ve O8'de, kendi takdiriyle. Yukarı yön döngüsü ise zorunlu olarak OLT'yi içerir: seri numarası durumunda ve O9'da, OLT'nin rehberliğinde."
+  },
+  {
+   "id": "b7",
+   "text": "Doğruluk sınıfları. ONU, seri numarası mesajında ve ayar yanıtında sekiz baytlık bir kalibrasyon durumu bildirir: on altı yukarı yön kanalının her biri için iki bit. Sıfır, duyurulmamış kanal; bir, kalibre edilmemiş; iki, gevşek; üç, yeterli. Gevşeğin sınırını OLT çalışma anında duyurur; sıfır yazılırsa en büyük spektral sapma geçerlidir. Yeterli ise sayıyla hiç tanımlanmamıştır."
+  },
+  {
+   "id": "b8",
+   "text": "Bu bilinçli bir boşluktur. Metne göre, komşu kanallara girişimden kaçınmak için kalibrasyonun ne kadar gevşek olabileceğine standartlar karar vermez; bunu ONU'ya OLT söyler. Eşiği karşılamayan ONU bant içi seri numarası tahsislerini yok saymak zorundadır; AMCC sunulmuyorsa susmalıdır."
+  },
+  {
+   "id": "b9",
+   "text": "AMCC yolu. Kanal profilinin iki biti, bant içi ve AMCC tahsislerinin sunulup sunulmadığını söyler. ONU AMCC ile gönderir; OLT ya bir kalibrasyon isteğiyle hangi kanal çiftinin kalibre edileceğini söyler, ya da ONU'yu bu kanalda aktive edip öteki kanalların kalibrasyonunu, o kanala devre kadar erteler. Devirde aynı yol yalnızca hedefin bekleme durumunda kullanılır. Bir boşluk: TWDM AMCC'sinin hızı ve çerçevesi standartta yoktur."
+  },
+  {
+   "id": "b10",
+   "text": "PMD Köprüsü. Birinci sezonun yedinci bölümündeki kanal dışı güç maskesi için G.989.2 şunu yazar: verici, en büyük spektral sapmasının içinde nereye ayarlanırsa ayarlansın maskeye uymalıdır. Bizim yorumumuz: sapmasının dışındaki bir ONU maskenin güvencesinde değildir; bant içi konuşma bu yüzden kalibre ONU'lara ayrılır."
+  },
+  {
+   "id": "b11",
+   "text": "Mühendis notu. Bir: kalibrasyon durumunu her seri numarası mesajında ve ayar yanıtında kaydedin; on altı kanalın iki bitlik haritası, bir ONU'nun nereye gidebileceğinin en ucuz özetidir. İki: OLT'nizin yeterli kalibrasyonu nasıl tanımladığını üreticiden yazılı isteyin; bant içi ile AMCC arasındaki sınır bu tanıma bağlıdır."
+  },
+  {
+   "id": "b12",
+   "text": "Sıradaki: ONU nereye gidebileceğini biliyor. Şimdi onu taşıyalım."
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "title": "S2B07 Laboratuvarda — Bir devri ölçmek",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Düzenek: iki kanal sonlandırıcılı bir OLT ya da emülatörü, iki aşağı yön kanalını ve yukarı yönü dinleyen bir protokol analizörü, ayarlanabilir bir ONU ve bir ONU emülatörü, bir trafik üreteci, bir dalga boyu ölçer ve bir sıcaklık kabini. ICTP PON'da görünmez; onu OLT'nin kayıtlarından okuyun."
+  },
+  {
+   "id": "g2",
+   "text": "İlk test: devrin merdiveni. Beklenen sıra: ayar isteği; aynı sıra numarasıyla onay; planlı çerçeve; hedefte yalnızca PLOAM taşıyan tahsisler; tamamlandı yanıtı; hedeften tamamlandı biçimi ve bir veri tahsisi; ONU'nun onayı; veri. Analizörün bütünlük kontrolünü önce beşinci bölümün altın vektörleriyle doğrulayın; sonra her ayar mesajı varsayılan anahtarla tutmalıdır."
+  },
+  {
+   "id": "g3",
+   "text": "İkinci test: ayar süresi, üç parçasıyla. Kaynak PSBd'sinde sayacın düşük on altı biti planlı değere eşit olan çerçeveyi tetik alın; hedefteki ilk tamamlandı burst'ünü damgalayın. Aradaki süre, TC ayar süresi artı uygunluk kararı artı tahsis beklemesidir. Ölçümü, hedefin burst profilleri önceden gönderilerek ve gönderilmeden tekrarlayın."
+  },
+  {
+   "id": "g4",
+   "text": "PMD parçasını optik olarak ayırın, G.989.2'nin sekizinci ekindeki yöntemle: sekiz gigahertzde yarım desibel kayıplı Gauss biçimli bir referans süzgeç ve iki optik alıcı. Başlangıç, kaynak kanaldaki gücün yarım desibel düşmesi; bitiş, hedef kanalın yarım desibel içine girip orada kalması. Hazırlık, güç düşüşünün başlangıcı eksi planlı çerçevedir. PMD parçasını beyan edilen sınıfla karşılaştırın."
+  },
+  {
+   "id": "g5",
+   "text": "Üçüncü test: öncülük süresi. Planlı değeri şimdiki çerçeveye adım adım yaklaştırın, ve kabul edilen en kısa öncülüğü bulun; altında iç grubun tek koduyla olumsuz cevap ve sayacının artması beklenir. Sayacın dönüşüne yakın bir değeri ve geçmişte kalan bir değeri de deneyin. Bu sırada ONU'nun trafiğinde kayıp olmamalıdır; bizim hesabımızla hedefin PLOAM burst'leri çerçevenin binde iki ile üçünü yer."
+  },
+  {
+   "id": "g6",
+   "text": "Dördüncü test: olumsuz cevap matrisi. Yabancı etiket, boş tanım, bölüm, aralık dışı hedef, hız ve bağlantı tipi: her biri kendi bitini ve başarım sayacını artırmalıdır. Kalibre olmayan bir hedefi kalibrasyon biti sıfırla isteyin: kalibrasyon kodu gelmeli. Bit birken onay gelmelidir. Birden çok koşullu bir hedefte bitler birleşmelidir."
+  },
+  {
+   "id": "g7",
+   "text": "Beşinci test: geri dönüş matrisi, geri dönüş biti bir. Hedef aşağı yönü karartın: iletişim kodu. PSBd'deki etiketi ya da bağlantı tipini, sonra hedef kanal profilini çeliştirin. Kaynaktan tamamlandı biçimi, hedefe ICTP iptali beklenir. Bit sıfırken ONU geri dönemez: TO4 dolunca yeniden aktive olur, ve seri numarası mesajı on bir hata ayıklama kodunu taşır; yukarı yön başarısızsa TO5 ile on iki."
+  },
+  {
+   "id": "g8",
+   "text": "Altıncı test: zamanlayıcılar ve OLT makinesi. Hedef aşağı yönü ya da hedef tahsisleri esirgeyerek TO4 ve TO5'i ölçün; ONU emülatörüyle makineyi sınayın: barındırmada yinelenen tamamlandı yanıtı yok sayılmalı; hiç onay gelmezse kaynak zamanlayıcısı dolmalı ve uyarı gitmelidir."
+  },
+  {
+   "id": "g9",
+   "text": "Yedinci test: sıcaklık altında kilitleme. Dalga boyu ölçeri ONU vericisine bağlayın ve bir dalga boyu ayarı gönderin: adımın yüzde doksanına, bildirilen adım süresi içinde varılmalıdır. OLT'nin istatistiği kuraldaki çerçeveden önce toplamadığını doğrulayın. Sonra ONU'yu kabinde ısıtın: ayar mesajı sayacı ve genlik tahmincisi artmalı, eşik aşılınca kayma uyarısı gelmelidir."
+  },
+  {
+   "id": "g10",
+   "text": "Sekizinci test: bağlama. İki arayüzlü bir ONU'da öncünün seri numarası mesajı bin yirmi üç taşımalı; ikinci arayüz, bölüm içindeki başka bir kanalda, aynı seri numarasını ve öncünün kimliğini taşımalıdır. Bir arayüzden yazılan OMCI özniteliği öbüründen okunmalıdır. Klonlu sonlandırıcılarda otuz ikinci baytı çözün, ve alt ağaçların ONU kimliklerinin ayrık olduğunu doğrulayın."
+  },
+  {
+   "id": "g11",
+   "text": "Laboratuvar notu. Bir: değeri olmayan dört zamanlayıcıyı kendi ölçümünüzle belgeleyin. İki: devir süresini her zaman üç parçasıyla ve profil dağıtım durumuyla birlikte raporlayın; tek bir sayı, hangi katmanın yavaş olduğunu gizler."
+  }
+ ]
+}
