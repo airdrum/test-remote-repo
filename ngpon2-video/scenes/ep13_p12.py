@@ -131,7 +131,7 @@ class E13P1A(Act13):
         mine = VGroup(*[VGroup(*[r[k] for k in keep[i]]) for i, r in enumerate(rows)])
         fl = VGroup(tag("her başlık okunur", GOLD, 16), tag("yalnızca kendi portunun yükü işlenir", ONUC, 16)).arrange(RIGHT, buff=0.3).move_to([1.1, -1.55, 0])
         nt = VGroup(tag("süzme ≠ gizlilik", WARN, 18), T("→", 22, MUTED, BOLD), lock(GOLD, 0.3), T("yük şifrelemesi · Perde 4", 19, GOLD, BOLD)).arrange(RIGHT, buff=0.25).move_to([0, -2.65, 0])
-        self.play(FadeIn(chp, shift=LEFT * 0.1), self.set_src("G.989.3 §6.1.5.1 · S1·B1 (yayın ↓, güç bölücü)"), run_time=0.5)
+        self.play(self.set_src("G.989.3 §6.1.5.1 · S1·B1 (yayın ↓, güç bölücü)"), run_time=0.3)
         self.at(self.cue("Birinci sezonun birinci", 1.0))
         self.play(FadeIn(olt), FadeIn(spl), Create(fib[0]), run_time=0.6)
         self.at(self.cue("güç bölücü", 6.7))

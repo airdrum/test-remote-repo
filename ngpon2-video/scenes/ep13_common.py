@@ -153,4 +153,5 @@ class Act13(Act12):
         self.set_badge("pmd")
         h = self.show_heading(title, old)
         ch = self.chip_at(chip, h)
+        self.play(FadeIn(ch, shift=LEFT * 0.1), run_time=0.4)
         return h, ch
