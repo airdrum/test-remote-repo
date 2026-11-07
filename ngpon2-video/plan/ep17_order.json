@@ -1,0 +1,21 @@
+[
+ ["Ep17Open", "ep17_open", "ep17_open", "open"],
+ ["Intro", null, null, null],
+ ["Ep17Recap", "ep17_open", "ep17_recap", "recap"],
+ ["E17P1A", "ep17_p12", "ep17_p1A", "p1"],
+ ["E17P1B", "ep17_p12", "ep17_p1B", "p1"],
+ ["E17P1C", "ep17_p12", "ep17_p1C", "p1"],
+ ["E17P2A", "ep17_p12", "ep17_p2A", "p2"],
+ ["E17P2B", "ep17_p12", "ep17_p2B", "p2"],
+ ["E17P2C", "ep17_p12", "ep17_p2C", "p2"],
+ ["E17P3A", "ep17_p34", "ep17_p3A", "p3"],
+ ["E17P3B", "ep17_p34", "ep17_p3B", "p3"],
+ ["E17P3C", "ep17_p34", "ep17_p3C", "p3"],
+ ["E17P4A", "ep17_p34", "ep17_p4A", "p4"],
+ ["E17P4B", "ep17_p34", "ep17_p4B", "p4"],
+ ["E17P4C", "ep17_p34", "ep17_p4C", "p4"],
+ ["E17LabA", "ep17_le", "ep17_labA", "lab"],
+ ["E17LabB", "ep17_le", "ep17_labB", "lab"],
+ ["E17LabC", "ep17_le", "ep17_labC", "lab"],
+ ["E17End", "ep17_le", "ep17_end", "end"]
+]
