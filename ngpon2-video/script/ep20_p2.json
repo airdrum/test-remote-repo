@@ -1,0 +1,57 @@
+{
+ "title": "S2B10 Perde 2 — ONU tarafında koruma ve ICTP",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: ONU tarafında koruma. On yedinci madde dalga boyu kanalı korumasını on sekizinci maddeye bırakır; ama orada yalnızca B tipi vardır. ONU tarafının mekanizması dağınıktır: bir PLOAM mesajı, aktivasyon tabloları, sayaçlar ve J eki."
+  },
+  {
+   "id": "c2",
+   "text": "Koruma denetimi mesajı tek bir ONU'ya ya da bir dalga boyundaki bütün ONU'lara gider. Otuz iki bitlik iki PON kimliği, koruma kanalının aşağı ve yukarı yön profillerini gösterir. Bayrak sıfırsa koruma açılır, başka her değer kapatır. ONU bilgiyi saklar ve onaylar; bu kimlikleri yalnızca acil durdurmadan çıkış sildirir."
+  },
+  {
+   "id": "c3",
+   "text": "ONU'nun yolu. O5'te senkron kaybolunca O6'ya geçer: koruma açıksa TO3'ü, kapalıysa TO2'yi başlatır. Senkron süre dolmadan dönerse O5'e döner; B tipinin başarısı budur. TO2 dolarsa O1'e düşer. TO3 dolarsa burst profillerini unutur ve O8'e geçer; yeni kanal hedef, önceki, koruma ya da eşleşen bir kanal olabilir. Kanal uygun bulununca O9'a geçer, TO5 başlar."
+  },
+  {
+   "id": "c4",
+   "text": "O9'da ONU, her yönlü PLOAM tahsisinde ya da yayınlanan çekişmeli bir koruma tahsisinde, tamamlandı kipinde ayar yanıtı gönderir; geri bildirim gelene ya da TO5 dolana kadar. Yönlü bir onay TO6'yı baştan başlatır, ONU O5'e döner. TO2'den TO5'e hiçbir zamanlayıcının değeri yoktur."
+  },
+  {
+   "id": "c5",
+   "text": "Koruma tarafı için J eki bir çözüm verir. Korunan ONU'lara yönlü tahsis vermek israftır; sonlandırıcı onları geri tutup tek bir çekişmeli tahsis verebilir, ve anahtarlamada her ONU varlığını onunla bildirir. Bu tahsis zorunlu olarak önceden mesafesi ölçülmüştür ve sık verilmelidir. Başarıda o ONU'nun, çarpışmada bütün korunanların yönlü tahsisleri hemen geri verilir. Atama mesajı bir yeniden iletim zaman aşımı taşır."
+  },
+  {
+   "id": "c6",
+   "text": "Bir değer daha: koruma anahtarlama gecikme toleransı, sıfırdan büyük. ONU'nun koruma kanalında senkron olduğu andan ilk varsayılan tahsisine kadarki en uzun beklemedir, ve koruma sonlandırıcısının tahsis sıklığını belirler. Değeri yoktur; yeniden iletim zaman aşımının da."
+  },
+  {
+   "id": "c7",
+   "text": "Karşılaştırma bizim derlememiz. B tipi besleyiciyi, WM'i, sonlandırıcıyı ve şasiyi korur; ONU kanal değiştirmez, kararı sonlandırıcılar verir. ONU tarafı koruma ONU'nun kanalını korur; ONU kanal değiştirir, kararı TO3 dolunca ONU verir. B tipinin üç sayısı vardır, ONU tarafının hiç. Sayaçlar kaybın hangi kanalda geri geldiğini sayar; B tipi anahtarlamaları sayan tek satır yoktur."
+  },
+  {
+   "id": "c8",
+   "text": "PMD Köprüsü. Birinci sezonun yedinci bölümündeki ayar sınıfları burada süreye dönüşür: birinci sınıf on mikrosaniyenin altında, üçüncü sınıf yirmi beş milisaniye ile bir saniye arasında ayarlanır. Ama bizim yorumumuzla süreye profiller de hükmedebilir: TO3 dolunca ONU burst profillerini unutur, ve profil gelmeden hiçbir tahsise cevap veremez."
+  },
+  {
+   "id": "c9",
+   "text": "Şimdi ICTP, altıncı ek, bilgilendirici. Sonlandırıcılar birden fazla şasiye, merkez ofise, hatta servis sağlayıcıya yayılabilir. Protokolün kendisi Broadband Forum'un üç yüz elli iki numaralı teknik raporundadır, kaynaklarımızda yoktur. Ek, profil paylaşımından koruma ve yük paylaşımına, on dört kullanım durumu sayar."
+  },
+  {
+   "id": "c10",
+   "text": "İlkeller ya tek bir mesajdır ya bölünmez bir işlem; on dört tanedir. Ama on sekizinci maddenin eşleşme, etkin, bekleme ve korumasız mesajları tabloda yoktur; tablodaki koruma el sıkışması ONU başınadır ve kimlik doğrulamaya bağlanır. Sayaç ve yük paylaşımının ilkeli de yoktur. Beşinci ek, koruma örnekleri ise, üç baskıda da kasıtlı olarak boştur."
+  },
+  {
+   "id": "c11",
+   "text": "Mühendis notu. Bir: ONU tarafı korumanın her değerini, TO2'den TO5'e, toleransı ve zaman aşımını yapılandırma belgenize yazın, ve koruma kanalının burst profilini önceden ulaştırın. İki: iki üreticinin sonlandırıcılarını eş yapacaksanız, mesaj adlarını standarttan değil, uyguladıkları ICTP sürümünden doğrulayın."
+  },
+  {
+   "id": "c12",
+   "text": "Sıradaki: kendi ONU'larımızı kurtardık. Peki kurallara uymayan bir ONU'yla ne yapacağız?"
+  }
+ ]
+}

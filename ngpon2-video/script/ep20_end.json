@@ -1,0 +1,29 @@
+{
+ "title": "S2B10 Kapanış — Sezon ve seri finali",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Sezonun özeti. Bir: G.989.3, G.987.3'ün üstüne kurulmuş üç alt katmanlı bir dildir; dokuz kimlik ve yüz yirmi beş mikrosaniyelik bir çerçeve üzerinde konuşur. İki: veri XGEM ile taşınır, DBA ile paylaşılır, PLOAM ve OMCC ile yönetilir. Üç: bir ONU'nun hayatı bir durum makinesidir: aktivasyon, mesafe ölçümü, kanal devri ve acil durdurma."
+  },
+  {
+   "id": "h2",
+   "text": "Dört: güven ve sağlık da protokoldür: AES anahtarları, dikkatli uyku, yüz on bir sayaç ve on kusur. Beş: koruma ve başıboşluk, sezonun en az sayı içeren maddeleridir; B tipinin on durumu ve altı zamanlayıcısı var, ama yalnızca bir değeri. Standardın sustuğu her yer, mühendisin bir değer seçip yazması gereken yerdir."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et; cevaplar hemen ardından. Birinci soru: B tipi makinenin üç sinyal olayı nedir? Cevap: basit kayıp, yayın yapmayan durumlarda yarım milisaniye sessizlik; nitelikli kayıp, yayın yapan durumlarda dört çerçeve sessizlik ve bütün ONU'larda burst kaybı; temizlenme, haritayla tutarlı bir burst. İkinci soru: koruma arızası neden tutmadan ve çalışma arızasından büyüktür? Cevap: koruyan, çalışan susmadan konuşmasın diye. Üçüncü soru: acil durdurmadaki ONU karanlıkta yeniden başlarsa? Cevap: O7.2'de kanal tarar; yalnızca bütün kanallarda gönderilen açmayla çıkar."
+  },
+  {
+   "id": "h4",
+   "text": "İki sezonda iki yarıyı kurduk. Birinci sezon fizikti: G.989.2, dalga boyları, güç bütçeleri, burst'ler. İkinci sezon dildi: G.989.3, bitlerin hangi sırayla ve neden taşındığı. Kaynaklar komşu işleri de adlandırır: NG-PON2'nin üyesi olduğu G.9802 ailesi; OMCI'ın G.988'i; temelimiz G.987.3; birlikte yaşadığımız G.984 ailesi; ve G serisinin kırk beş, kırk dokuz, seksen bir ve seksen dördüncü ekleri. Bir sonraki nesli adlandırmazlar; özet yalnızca yüz gigabit ve ötesinden söz eder."
+  },
+  {
+   "id": "h5",
+   "text": "LAMBDA burada bitiyor. Yirmi bölüm boyunca bir ışık darbesinden bir PLOAM mesajına, bir fiber kesiğinden bir paketin hayatına kadar geldik: standardın söylediğini okumayı, söylemediğini görmeyi, ve ikisini laboratuvarda sınamayı. İzlediğiniz için teşekkürler. Görüşmek üzere."
+  }
+ ]
+}

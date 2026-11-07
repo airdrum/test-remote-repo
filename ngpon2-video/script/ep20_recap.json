@@ -1,0 +1,21 @@
+{
+ "title": "S2B10 Önceki bölümde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: düşük güç gözetimindeki OLT, el sıkışma zamanlayıcısı dolana kadar burst almazsa el sıkışma ihlali ilan eder, zorla uyanık duruma geçer ve kapalı uyku izni gönderir. Orada her tahsise cevap bekler; art arda kaçırılan planlı burst'ler eşiğe, varsayılan dörde ulaşınca burst kaybı ilan eder. Rapor son nefeslerle nitelenmeli; eylemler OLT'nin takdirindedir."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: çerçeve başına bir burst'le ikisi de beş yüz mikrosaniyede ilan edilir. Burst kaybı ONU başınadır: güç yönetimi muaf tutmuyorsa art arda dört planlı burst; bizim hesabımızla on altı çerçevede bir burst'te sekiz milisaniyeye uzar. Sinyal kaybı bütün PON içindir: dört çerçeve boyunca beklenen hiçbir iletim yok; B tipinin yarım milisaniyesine eşittir. Birini tek bir planlı burst, ötekini tek bir iletim temizler."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: yalnızca dikkatli uyku. İzin, izin biti bir olan uyku iznidir; güç yönetimi OMCI ile açılmamışsa yok sayılır. İstek, etkinlik düzeyi üç olan uyku isteğidir. Zorla uyandırmada OLT uyarılmış duruma girer, bir kez kapalı izin gönderir, sonra her tahsiste PLOAM bayrağıyla zorunlu uyandırma bitini kurar; bit yalnızca serinin ilk yapısında geçerlidir. ONU etkin tutulan duruma geçip uyanık ister; bu istek ya da uyarı süresinin dolması OLT'yi zorla uyanık yapar. Şimdi bu bölüme."
+  }
+ ]
+}

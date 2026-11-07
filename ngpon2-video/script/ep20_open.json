@@ -1,0 +1,33 @@
+{
+ "title": "S2B10 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm on: Ayakta Kalmak. Sezon finali. Dokuz bölümde bir NG-PON2 sisteminin nasıl konuştuğunu kurduk. Şimdi bozulduğunda nasıl ayakta kaldığını soruyoruz: bir fiber kesildiğinde, bir ONU yanlış zamanda ya da yanlış renkte konuştuğunda, ve bir ONU'yu susturmak gerektiğinde."
+  },
+  {
+   "id": "o2",
+   "text": "Önce B tipi koruma, bu kez TC derinliğinde: iki kanal sonlandırıcısı, on durumlu bir makine, değeri yazılmamış zamanlayıcılar, ve kırk kilometrede tutmayan tek bir sayı."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra ONU tarafında koruma: önceden yapılandırılmış bir kanala kaçış, çekişmeli bir varış tahsisi, ve sonlandırıcılar arasındaki protokolün, adları birbirini tutmayan ilkelleri."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından başıboş ONU ve acil durdurma: üç başıboşluk modeli, eski nesil ONU'larla birlikte yaşamanın zorunlu olmayan kuralları, ve güç kesintisinden bile sağ çıkan bir susturma."
+  },
+  {
+   "id": "o5",
+   "text": "Ve sezonun son hikâyesi: bir paketin hayatı. Bin beş yüz on sekiz baytlık tek bir Ethernet çerçevesini iki sezonun bütün katmanlarında, aşağı ve yukarı yönde izliyoruz."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda anahtarlamayı ölçecek, ICTP'siz bir sistemi zorlayacak, zamanda ve dalga boyunda başıboş ONU'lar üretecek, acil durdurmanın kalıcılığını ve boş pencereyi sınayacağız."
+  }
+ ]
+}

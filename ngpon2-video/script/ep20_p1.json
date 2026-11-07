@@ -1,0 +1,65 @@
+{
+ "title": "S2B10 Perde 1 — B tipi koruma, TC derinliğinde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: B tipi koruma. Birinci sezonun onuncu bölümünde korumayı optikten gördük: ONU yeniden ayarlanmaz, G.989.2 korumayı tanımlamaz, ve oradaki B tipi bağlantı yalnızca yükselteçli bir OLT alıcısıdır. Bu kez TC tarafındayız. On sekizinci madde iki bin yirmi birden beri değişmedi."
+  },
+  {
+   "id": "b2",
+   "text": "Her kanal çiftinin iki OLT kanal sonlandırıcısı vardır, birbirinin B tipi eşi; ayrı ya da aynı şasilerde. Korunanlar: bağlantı fiberi, besleyici, WM, sonlandırıcı ve şasi. Besleyici, WM ya da şasi arızasında gruptaki bütün çiftler birlikte, sonlandırıcı ya da bağlantı fiberi arızasında yalnızca o çift anahtarlanır. Bizim yorumumuz: ayırıcı ve dağıtım fiberleri korunmaz."
+  },
+  {
+   "id": "b3",
+   "text": "Roller. En az bir sonlandırıcı sağlamken tam olarak biri etkindir: aşağı yönde yayın yapar, ONU'lara hizmet verir. Öteki beklemededir: vericisi kapalı, yukarı yönü dinler. Varsayılan roller birincil ve ikincildir, ICTP el sıkışmasında çözülür; geri dönüşlü yapılandırmada kalıcıdır. Ve makine ICTP'siz de ilerleyebilir."
+  },
+  {
+   "id": "b4",
+   "text": "On durum. Vericisi kapalı dört bekleme durumu: başlatma, koruma öncesi, koruyan, ve koruyan tarafta sinyal kaybı. Vericisi açık üç etkin durum: çalışma öncesi, çalışan, ve çalışan tarafta sinyal kaybı. Ve üç ayrıksı durum: yardım isteme, vericiyi kapatıp eşine devral der; iletişim arızası, beklenen yukarı yön gelmez; donanım arızası, eşi korumasız mesajı alır ve koruma arızasını sonsuza kurar."
+  },
+  {
+   "id": "b5",
+   "text": "Olaylar. Basit sinyal kaybı, yayın yapmayan durumlarda yarım milisaniyelik, dört çerçevelik yukarı yön sessizliğidir. Nitelikli sinyal kaybı, yayın yapan durumlarda dört çerçeve sessizlik artı bütün ilgili ONU'lar için burst kaybıdır; ONU sayısına, güç yönetimine ve son nefeslere göre dışlamalara tabidir. Temizlenme tek bir burst'tür; etkin durumlarda haritayla tutarlı olmalıdır."
+  },
+  {
+   "id": "b6",
+   "text": "Altı zamanlayıcı: sessiz başlangıç, koruma arızası, onay, tutma, çalışma arızası ve ICTP. Tek sayı, onay için makul başlangıç değeridir: yarım milisaniye. Gerisinin değeri yok, sıralaması var. Koruma arızası tutmadan ve çalışma arızasından büyük olmalı; yoksa koruyan, çalışan susmadan konuşabilir. Tutma çalışma arızasından büyük olmalı; aksi tutmayı kapatır. ICTP yoksa sessiz başlangıç ve koruma arızası en büyük kalır."
+  },
+  {
+   "id": "b7",
+   "text": "Geçiş tablosu, bekleme tarafı. Başlatmada yukarı yön duyulursa koruma öncesine; sessiz başlangıç dolar ya da etkin mesajı gelirse çalışma öncesine; bekleme mesajı gelirse koruyana geçilir. Koruma öncesinde basit kayıp başlatmaya, bekleme mesajı ya da ICTP zamanlayıcısı koruyana götürür. Koruyan ile kaybı arasında basit kayıp ve temizlenme gidip gelir. Kayıpta koruma arızası ya da etkin mesajı çalışma öncesine, bekleme ve temiz mesajı iletişim arızasına götürür; bekleme ve kayıp mesajı zamanlayıcıyı tazeler."
+  },
+  {
+   "id": "b8",
+   "text": "Etkin taraf. Çalışma öncesinde haritayla tutarlı ilk burst çalışana, onay zamanlayıcısı iletişim arızasına götürür. Çalışan ile kaybı arasında nitelikli kayıp ve temizlenme gidip gelir; kayıpta tutma ve çalışma arızası birlikte dolunca, ya da çalışanda yönetimin zorlama komutuyla, yardım istemeye geçilir. Oradan temizlenme, bekleme ve kayıp mesajı ya da ICTP zamanlayıcısı koruyana; bekleme ve temiz mesajı iletişim arızasına. Oradan bir burst koruma öncesine çıkarır; donanım arızasından yalnızca sıfırlama."
+  },
+  {
+   "id": "b9",
+   "text": "Besleyiciyi keselim; ICTP çalışıyor. ONU'lar üç çerçevede senkronu kaybedip O6'ya geçer, TO6 durur. Çalışan taraf nitelikli kayba geçer ama yayına devam eder; bekleme tarafı yarım milisaniyede basit kayba. Tutma ve çalışma arızası dolunca çalışan susar ve etkin mesajı yollar; bekleme tarafı vericisini açar. ONU'lar en az iki çerçevede senkron olup O5'e döner, TO6 kaldığı yerden sürer. Haritayla tutarlı ilk burst yeni tarafı çalışan yapar."
+  },
+  {
+   "id": "b10",
+   "text": "ICTP yoksa ICTP zamanlayıcısı sıfıra kurulabilir, ve iki durum geçiş durumu olur. Metin bunlara çalışma öncesi ve yardım isteme der, şekil koruma öncesini kesik çizer; bizim okumamızla metin hatalıdır, çünkü onay zamanlayıcısı çalışma öncesinde çalışır. Çalışan taraf tutma ve çalışma arızasından sonra susar, bekleme tarafı koruma arızasından sonra konuşur: iki vericiyi yalnızca sıralama ayırır."
+  },
+  {
+   "id": "b11",
+   "text": "PMD Köprüsü. Birinci sezonun onuncu bölümünde B tipinin ONU optiğine dokunmadığını gördük; ama onay zamanlayıcısı mesafeye dokunur. Bizim çıkarımımız: verici açılınca ONU ilk çerçevede senkron olur, ikincisinin haritasıyla gönderir; yaklaşık yüz yirmi beş mikrosaniye artı T eqd. Birinci sezonun ikinci bölümündeki yirmi kilometre sınıfında üç yüz altmış bir, kırk kilometrede beş yüz altmış bir mikrosaniye: yarım milisaniyeyi aşar, sahte bir iletişim arızası."
+  },
+  {
+   "id": "b12",
+   "text": "İkinci çıkarımımız. Arıza eski taraftaki sessiz bir alıcıysa fiber sağlamdır. ICTP'siz makinede o taraf koruyan durumda basit kayıp görür, koruma arızası dolar, ve vericisini yeni çalışanın yanında açar; onay zamanlayıcısı dolana kadar, yaklaşık yarım milisaniye. Sadeleşmiş makine, hiçbir an birlikte yayın yapmama hedefini tam karşılayamaz. ICTP varsa eşi bekleme ve temiz mesajıyla cevap verir, arızalı taraf karanlıkta kalır."
+  },
+  {
+   "id": "b13",
+   "text": "Mühendis notu. Bir: elli milisaniye gibi bir hedef de, herhangi bir anahtarlama süresi de yoktur. Koruma, senkron ONU yeniden ayarlanmaya karar vermeden dönerse işe yarar; bu yarışın iki tarafı da, B tipi zamanlayıcıları ile TO2 ve TO3, değersizdir; hepsini üreticiden yazılı isteyin. İki: nitelikli kaybın dışlama kurallarını hiçbir madde yazmaz; toplu bir son nefeste yanlış kural, gereksiz anahtarlamadır."
+  },
+  {
+   "id": "b14",
+   "text": "Sıradaki: OLT tarafı kendini korudu. Peki bütün bir kanal kaybolursa, ONU kendini nasıl kurtarır?"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "title": "S2B10 Perde 4 — Bir paketin hayatı",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: bir paketin hayatı. Bin beş yüz on sekiz baytlık bir Ethernet çerçevesini her katmandan geçireceğiz. Yapılandırma bizim seçimimiz: birinci kanal çifti, iki yönde on gigabit, FEC açık, N1 sınıfı, yirmi kilometre; ONU kimliği beş, tahsis kimliği ve port bin yirmi dört. Başlık ve hata denetimi değerlerini biz hesapladık; altın vektör değildirler."
+  },
+  {
+   "id": "e2",
+   "text": "Aşağı yön. Bu sezonun üçüncü bölümündeki gibi önsöz atılır, denetim dizisi kalır; çerçeve, birinci bölümün kimlikleriyle port bin yirmi dörde gider. Yük dördün katına yuvarlanır: bin beş yüz yirmi bayt, iki dolgu baytı. Sekizinci bölümün AES-CTR şifrelemesi yalnızca yükü, doksan beş sayaç bloğunu örter. Sekiz baytlık başlık, bizim hesabımızla on altılık tabanda bir yedi be dokuz, sıfır dört sıfır sıfır, dört sıfır, iki sıfır a yedi."
+  },
+  {
+   "id": "e3",
+   "text": "On gigabitte, FEC açıkken, çerçeve yükü yüz otuz beş bin dört yüz yirmi dört bayta kadardır: bizim hesabımızla seksen sekiz çerçeve tam sığar, seksen dokuzuncusu bölünür. Önüne HLend, harita ve PLOAM'lar, arkasına BIP-32 gelir: dördüncü ve beşinci bölümler. Sonra ikinci bölümün, birinci sezonun dördüncü bölümüne bağlanan adımları: Reed Solomon, karıştırma ve PSBd. Çerçevemiz hatta bir virgül kırk bir mikrosaniye sürer."
+  },
+  {
+   "id": "e4",
+   "text": "PMD Köprüsü. Birinci sezonun üçüncü ve dördüncü bölümleri: OLT vericisi yüz seksen yedi virgül sekiz terahertzde, artı üç ile artı yedi dBm arasında gönderir. İkinci bölümü: N1 sınıfında kayıp on dört ile yirmi dokuz desibel, yirmi kilometre, yaklaşık yüz mikrosaniye. Beşinci bölümü: ONU alıcısı, FEC öncesi on üzeri eksi üç hata oranında eksi yirmi sekiz dBm ister."
+  },
+  {
+   "id": "e5",
+   "text": "ONU'da bu sezonun ikinci bölümü işler: av, ön senkron ve senkron; karıştırma çözülür, FEC kod sözcüğü başına on altı bayta kadar düzeltir. ONU haritadaki kendi tahsislerini saklar, beşinci bölümdeki gibi PLOAM bütünlüğünü denetler. XGEM sınırlarını bulur, portu süzer, yükü çözer, dolguyu atar ve çerçeveyi abone arayüzüne verir; dokuzuncu bölümün sayaçları her adımı sayar."
+  },
+  {
+   "id": "e6",
+   "text": "Yukarı yön. Aynı boyda bir çerçeve ONU'ya girer; OMCI'ın kurduğu eşleme onu port bin yirmi dörde ve aynı numaralı T-CONT'a koyar: birinci ve dördüncü bölümler. ONU kuyruğunu DBRu ile bildirir: dört baytlık birimlerle üç yüz seksen, başlıklar hariç; bizim CRC hesabımızla, on altılık tabanda sıfır sıfır, sıfır bir, yedi ce, altı altı."
+  },
+  {
+   "id": "e7",
+   "text": "Dördüncü bölümün DBA'sı tahsisi boyutlar: XGEM çerçevesi artı dört baytlık rapor, bin beş yüz otuz iki bayt. On gigabitte tahsis on altı baytlık bloklarla verilir: doksan altı blok; artan dört bayt, üçüncü bölümün kısa boş çerçevesidir. Harita girdisi ikinci bölümün yapısıdır: tahsis kimliği bin yirmi dört, rapor bayrağı bir, başlangıç zamanı iki bin, boyut doksan altı."
+  },
+  {
+   "id": "e8",
+   "text": "Zamanlama: bu sezonun altıncı, birinci sezonun ikinci bölümü. ONU, haritayı taşıyan çerçeveden otuz beş mikrosaniyelik cevap süresi artı eşitleme gecikmesi kadar sonra gönderir. Yirmi kilometre sınıfında T eqd en az iki yüz otuz altı mikrosaniyedir; on kilometredeki ONU'nun gecikmesi yaklaşık yüz bir mikrosaniye. Başlangıç zamanı iki bin, yirmi beş virgül yetmiş iki mikrosaniye."
+  },
+  {
+   "id": "e9",
+   "text": "İkinci bölümün burst'ü kurulur: başlık, tahsis ve BIP-32; bin beş yüz kırk dört bayt. FEC yedi tam ve bir kısaltılmış kod sözcüğüyle bin sekiz yüz bayta çıkarır. Önsöz, sınırlayıcı ve koruma süresi, birinci sezonun altıncı bölümündeki tabloyla iki yüz elli altı bayt. Bütün dilim bir virgül altmış beş mikrosaniye: bizim hesabımızla çerçevenin yüzde bir virgül otuz ikisi."
+  },
+  {
+   "id": "e10",
+   "text": "PMD Köprüsü. Birinci sezonun altıncı ve yedinci bölümleri: ONU vericisi yüz yirmi sekiz virgül altı nanosaniyede açılır, A tipi bağlantıda artı dört ile artı dokuz dBm arasında gönderir, burst'ü dışında karanlıktır. Sekizinci bölümü: OLT burst alıcısı eksi yirmi altı dBm ister. Burst, haritayı taşıyan çerçeveden iki yüz altmış bir virgül yetmiş iki mikrosaniye sonra varır; OLT onu geri açar ve servis arayüzüne verir."
+  },
+  {
+   "id": "e11",
+   "text": "Ve bütün bu dilin altında bir denklem durur. Aşağı yönde en zayıf verici artı üç dBm, en kötü kayıp yirmi dokuz desibel: alıcıya eksi yirmi altı ulaşır, yani eksi yirmi sekizlik hassasiyet artı iki desibellik yol cezası. Yukarı yönde artı dört eksi yirmi dokuz, eksi yirmi beş: eksi yirmi altı artı bir. İki yönde de pay sıfırdır, tasarım gereği. Bir paketin hayatı, sıfır marjla kapanan bir bütçenin üstünde yaşanır."
+  },
+  {
+   "id": "e12",
+   "text": "Mühendis notu. Bir: bu yolculuğu ne durdurabilir? Besleyici kesiği B tipine, kanal kaybı ONU tarafı korumaya, yabancı bir burst başıboşluk araçlarına, yanlış anahtar şifreleme sayaçlarına, FEC sınırını aşan hata senkron kaybına gider; her biri bir bölümdür. İki: analizördeki başlıkları bizim değerlerimizle karşılaştırın, ama altın vektör saymayın."
+  },
+  {
+   "id": "e13",
+   "text": "Sıradaki: paket evine ulaştı. Şimdi son kez laboratuvara."
+  }
+ ]
+}
