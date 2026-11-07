@@ -5,15 +5,131 @@
  "intro_music": "assets/intro_theme_10s.wav",
  "intro_hit": 5.88,
  "episodes": [
-  {"n": 1, "title": "Işığa Dönüş", "sub": "Neden NG-PON2 · G.989 ailesi · referans mimari", "refs": "G.989.2 §1 §6 §9.1 · G.989.3 §6.1"},
-  {"n": 2, "title": "Işığın Yolu", "sub": "ODN, optik yol kaybı ve fiber mesafe sınıfları", "refs": "G.989.2 §6.2 §6.3 §9.3.5 · G.989.3 §13.1"},
-  {"n": 3, "title": "Renk Haritası", "sub": "Dalga boyu planı ve birlikte çalışma", "refs": "G.989.2 §9.2 Ek I Ek VI · G.989.3 §17.1"},
-  {"n": 4, "title": "Kaynak", "sub": "OLT vericisi ve aşağı yön sinyali", "refs": "G.989.2 §11.1 · G.989.3 §8.1 §10.1"},
-  {"n": 5, "title": "Ayarlanabilir Kulak", "sub": "ONU alıcısı ve X/S toleransı", "refs": "G.989.2 §9.3.6 §10 · G.989.3 §14 Ek B"},
-  {"n": 6, "title": "Patlama", "sub": "ONU vericisi I: burst modu", "refs": "G.989.2 §11.1.4.3 §11.2 · G.989.3 §10.1"},
-  {"n": 7, "title": "Renk Değiştiren Lazer", "sub": "Ayarlanabilirlik ve kanal yönetimi", "refs": "G.989.2 §9.3.7 Ek VIII · G.989.3 §17 Ek F"},
-  {"n": 8, "title": "Kalabalığı Dinlemek", "sub": "OLT burst alıcısı, aktivasyon, güç dengeleme", "refs": "G.989.2 Ek V Ek D · G.989.3 §12.1 §19"},
-  {"n": 9, "title": "Özel Hat", "sub": "PtP WDM ve AMCC", "refs": "G.989.2 Ek A–C · G.989.3 Ek E"},
-  {"n": 10, "title": "Sahaya İniş", "sub": "Koruma, izleme, uyumluluk", "refs": "G.989.2 Ek II · G.989.3 §18"}
- ]
+  {
+   "n": 1,
+   "title": "Işığa Dönüş",
+   "sub": "Neden NG-PON2 · G.989 ailesi · referans mimari",
+   "refs": "G.989.2 §1 §6 §9.1 · G.989.3 §6.1"
+  },
+  {
+   "n": 2,
+   "title": "Işığın Yolu",
+   "sub": "ODN, optik yol kaybı ve fiber mesafe sınıfları",
+   "refs": "G.989.2 §6.2 §6.3 §9.3.5 · G.989.3 §13.1"
+  },
+  {
+   "n": 3,
+   "title": "Renk Haritası",
+   "sub": "Dalga boyu planı ve birlikte çalışma",
+   "refs": "G.989.2 §9.2 Ek I Ek VI · G.989.3 §17.1"
+  },
+  {
+   "n": 4,
+   "title": "Kaynak",
+   "sub": "OLT vericisi ve aşağı yön sinyali",
+   "refs": "G.989.2 §11.1 · G.989.3 §8.1 §10.1"
+  },
+  {
+   "n": 5,
+   "title": "Ayarlanabilir Kulak",
+   "sub": "ONU alıcısı ve X/S toleransı",
+   "refs": "G.989.2 §9.3.6 §10 · G.989.3 §14 Ek B"
+  },
+  {
+   "n": 6,
+   "title": "Patlama",
+   "sub": "ONU vericisi I: burst modu",
+   "refs": "G.989.2 §11.1.4.3 §11.2 · G.989.3 §10.1"
+  },
+  {
+   "n": 7,
+   "title": "Renk Değiştiren Lazer",
+   "sub": "Ayarlanabilirlik ve kanal yönetimi",
+   "refs": "G.989.2 §9.3.7 Ek VIII · G.989.3 §17 Ek F"
+  },
+  {
+   "n": 8,
+   "title": "Kalabalığı Dinlemek",
+   "sub": "OLT burst alıcısı, aktivasyon, güç dengeleme",
+   "refs": "G.989.2 Ek V Ek D · G.989.3 §12.1 §19"
+  },
+  {
+   "n": 9,
+   "title": "Özel Hat",
+   "sub": "PtP WDM ve AMCC",
+   "refs": "G.989.2 Ek A–C · G.989.3 Ek E"
+  },
+  {
+   "n": 10,
+   "title": "Sahaya İniş",
+   "sub": "Koruma, izleme, uyumluluk",
+   "refs": "G.989.2 Ek II · G.989.3 §18"
+  }
+ ],
+ "season2": {
+  "season": "Sezon 2 · ITU-T G.989.3",
+  "tagline": "NG-PON2'nin Dili",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Işığın Dili",
+    "sub": "TC katmanına giriş: alt katmanlar, kimlikler, yönetim kanalları",
+    "refs": "G.989.3 §6 Ek VIII · G.989.2 §6"
+   },
+   {
+    "n": 2,
+    "title": "Çerçeve",
+    "sub": "PHY uyarlama ve çerçeveleme: PSBd, FEC, BWmap, burst",
+    "refs": "G.989.3 §8 §10 Ek A Ek B Ek III Ek IV"
+   },
+   {
+    "n": 3,
+    "title": "XGEM",
+    "sub": "Kapsülleme, parçalama ve servis eşleme",
+    "refs": "G.989.3 §9 Ek I"
+   },
+   {
+    "n": 4,
+    "title": "Paylaşım",
+    "sub": "Kaynak tahsisi, DBA ve düşük gecikme",
+    "refs": "G.989.3 §7 Ek IX Ek J Ek K"
+   },
+   {
+    "n": 5,
+    "title": "Yönetim Kanalları",
+    "sub": "PLOAM mesajları ve OMCC",
+    "refs": "G.989.3 §11 §6.1.4"
+   },
+   {
+    "n": 6,
+    "title": "Uyanış",
+    "sub": "ONU aktivasyonu, ranging ve günün saati",
+    "refs": "G.989.3 §12 §13 Ek II Ek VII"
+   },
+   {
+    "n": 7,
+    "title": "Renk Değiştirmek",
+    "sub": "Kanal yönetimi, devir, kilitleme ve bağlama",
+    "refs": "G.989.3 §17 Ek F Ek H Ek X"
+   },
+   {
+    "n": 8,
+    "title": "Güven",
+    "sub": "Kimlik doğrulama, şifreleme ve bütünlük",
+    "refs": "G.989.3 §15 Ek C Ek D"
+   },
+   {
+    "n": 9,
+    "title": "Enerji ve Sağlık",
+    "sub": "Güç yönetimi, sayaçlar ve kusurlar",
+    "refs": "G.989.3 §16 §14"
+   },
+   {
+    "n": 10,
+    "title": "Ayakta Kalmak",
+    "sub": "Koruma, başıboş ONU ve acil durdurma",
+    "refs": "G.989.3 §18 §19 Ek VI Ek XI"
+   }
+  ]
+ }
 }
