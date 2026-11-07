@@ -6,7 +6,7 @@
  "beats": [
   {
    "id": "h1",
-   "text": "Bölüm yedinin özeti. Bir: NG-PON2 ONU'su hem vericisini hem alıcısını dalga boyunda ayarlar; ayar süresi Tablo dokuz iki'de üç sınıfa, ve iki kısıtlı türe bölünür, ama hiçbir teknoloji ya da sınıf dayatılmaz. İki: durağan durumda kanal dışı güç yoğunluğu maskesi geçerlidir; ayar sırasında ise D ekindeki sınırlı bir gevşeme, çünkü lazer spektrumda yürümek zorundadır."
+   "text": "Bölüm yedinin özeti. Bir: NG-PON2 ONU'su hem vericisini hem alıcısını dalga boyunda ayarlar; ayar süresi Tablo dokuz iki'de üç sınıfa, ve iki kısıtlı türe bölünür, ama hiçbir teknoloji ya da sınıf dayatılmaz. İki: kanal dışı güç yoğunluğu maskesi durağan durumda geçerlidir, ve standarda göre tablo değerleri ayar süreci boyunca da sağlanmalıdır; pratikte verici karanlıkta ayarlanır."
   },
   {
    "id": "h2",

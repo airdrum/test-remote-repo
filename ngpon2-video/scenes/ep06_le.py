@@ -263,7 +263,7 @@ class E6End(Act6):
         self.clear()
         ttl = T("Kendini test et", 40, TXT, BOLD).move_to(UP * 2.3)
         qs = VGroup(*[card(f"Soru {i + 1}", q, None, c, w=4.1, h=2.7, tsize=24, bsize=17) for i, (q, c) in enumerate([
-            ("Ayar sırasında bir ONU'nun\nkanal dışı güç maskesi\nneden gevşetilir?", CH[0]),
+            ("Ayar sırasında kanal dışı\ngüç maskesi gevşetilir mi?\nStandart bu anı\nnasıl ele alır?", CH[0]),
             ("Ayarlanabilir ONU vericisinin\nayar süresi sınıfları, Tablo 9-2'de\nneden tek değer değil,\nbir aralıkla tanımlanır?", CH[1]),
             ("Bir ONU bir kanaldan diğerine\ngeçerken, geçişin fiziksel\nkatman süresi ile TC katmanı\nsüresi neden farklıdır?", CH[3])])]).arrange(RIGHT, buff=0.3).move_to(DOWN * 0.1)
         ans = T("Cevaplar: Bölüm 7'nin başında", 22, MUTED).to_edge(DOWN, buff=0.7)

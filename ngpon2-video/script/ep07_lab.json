@@ -30,7 +30,7 @@
   },
   {
    "id": "g4",
-   "text": "Üçüncü ölçüm: ayar sırasında kanal dışı güç. Vericiyi bir kanaldan diğerine geçirirken, bir komşu kanalın bandına düşen gücü, o bandı seçen dar bir süzgecin ardındaki güç ölçerle izleriz. Bu değeri durağan maskeyle değil, D ekindeki ayar gevşemesiyle karşılaştırırız; çünkü verici o an tanımı gereği geçiş halindedir."
+   "text": "Üçüncü ölçüm: ayar sırasında kanal dışı güç. Vericiyi bir kanaldan diğerine geçirirken, bir komşu kanalın bandına düşen gücü, o bandı seçen dar bir süzgecin ardındaki güç ölçerle izleriz. Bu değeri durağan maskeyle karşılaştırırız; standart ayar için ayrı bir gevşeme tanımlamaz. Verici ayar boyunca kapalıysa, ölçülen güç karanlık güç sınırının altında kalmalıdır."
   },
   {
    "id": "g4a",

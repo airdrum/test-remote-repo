@@ -30,7 +30,7 @@
   },
   {
    "id": "b3b",
-   "text": "Ayarlanabilir bir verici için bu sapma yalnızca durağan kanal durumunda uygulanır; yani verici bir kanalda yerleşmişken. Geçiş anında, yani bir kanaldan diğerine giderken, verici bu pencerenin dışına çıkar; bir sonraki perdede göreceğimiz gevşetilmiş maske tam da bu an içindir."
+   "text": "Ayarlanabilir bir verici için bu sapma yalnızca durağan kanal durumunda uygulanır; yani verici bir kanalda yerleşmişken. Geçiş anında, yani bir kanaldan diğerine giderken, verici bu pencerenin dışına çıkar; bu anın nasıl ele alındığını bir sonraki perdede göreceğiz."
   },
   {
    "id": "b4",

@@ -158,12 +158,12 @@ class E7LabB(Act7):
         sweep = arrow([X(-10), 0.3, 0], [X(140), 0.3, 0], TUNE, 3)
         nb = Rectangle(width=X(120) - X(80), height=1.6, stroke_color=WARN, stroke_width=2, fill_color=WARN, fill_opacity=0.1).move_to([X(100), -0.4, 0])
         nbt = VGroup(T("komşu kanal", 14, WARN, BOLD), T("dar süzgeç + PM", 13, MUTED)).arrange(DOWN, buff=0.04).next_to(nb, UP, buff=0.1)
-        cmp = VGroup(T("karşılaştır:", 18, TXT, BOLD), T("durağan maske DEĞİL → D eki ayar gevşemesi", 19, GOLD, BOLD)).arrange(RIGHT, buff=0.25).move_to([0, -2.5, 0])
+        cmp = VGroup(T("karşılaştır:", 18, TXT, BOLD), T("durağan maske (§9.3.7) · verici kapalıysa WNE-PSD", 19, GOLD, BOLD)).arrange(RIGHT, buff=0.25).move_to([0, -2.5, 0])
         self.play(Create(axg[0]), FadeIn(axg[1:]), FadeIn(src), run_time=0.7)
         self.at(self.q("bir komşu kanalın bandına düşen gücü,", 7.14))
         self.play(GrowArrow(sweep), FadeIn(nb), FadeIn(nbt), run_time=0.7)
-        self.at(self.q("D ekindeki ayar gevşemesiyle", 18.07))
-        self.play(FadeIn(cmp, shift=UP * 0.1), self.set_src("G.989.2 Ek D (ayar gevşemesi)"), run_time=0.6)
+        self.at(self.q("standart ayar için ayrı", 18.07))
+        self.play(FadeIn(cmp, shift=UP * 0.1), self.set_src("G.989.2 §9.3.7 · Tablo 11-6"), run_time=0.6)
         self.end(pad=0.05)
 
         self.beat("g4a")
@@ -234,7 +234,7 @@ class E7End(Act7):
         self.to_header(tc)
         self.set_badge("ozet")
         pts = ["ONU hem vericisini hem alıcısını dalga boyunda ayarlar; Tablo 9-2: 3 sınıf + 2 kısıtlı tür, teknoloji dayatılmaz",
-               "Durağan: kanal dışı güç yoğunluğu maskesi; ayar sırasında D ekinde sınırlı gevşeme (lazer spektrumda yürür)",
+               "Kanal dışı güç maskesi durağanda geçerli; §9.3.7: tablolar ayar boyunca da — pratikte karanlık ayar",
                "Kalibrasyon = iç ayar ↔ dalga boyu; ↓ otonom, ↑ OLT geri beslemesiyle; dithering ile güncel tutulur",
                "Kanal yönetimi profil duyurusuyla (1–5 s); devir = zamanlı SFC + ayar denetimi/yanıtı + güvenli geri alma",
                "Her devir, yeni bir dalga boyu kadar yeni bir kriptografik bağlamdır"]

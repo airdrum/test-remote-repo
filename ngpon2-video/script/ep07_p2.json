@@ -18,15 +18,15 @@
   },
   {
    "id": "c3",
-   "text": "Şimdi hareket. Verici bir dalga boyundan diğerine geçerken, fiziksel olarak aradaki kanalların üstünden süpürülür. O kısa an boyunca, başka bir ONU'nun kanalına tam gücünde ışık düşebilir. Durağan maskeyi bu ana da uygularsak, hiçbir gerçek lazer geçemez; çünkü ayar, tanımı gereği spektrumda yürümektir."
+   "text": "Şimdi hareket. Verici bir dalga boyundan diğerine geçerken, fiziksel olarak aradaki kanalların üstünden süpürülür. O kısa an boyunca, başka bir ONU'nun kanalına tam gücünde ışık düşebilir. Işık vererek süpürülen bir lazer, durağan maskeyi bu anda sağlayamaz; çünkü ayar, tanımı gereği spektrumda yürümektir."
   },
   {
    "id": "c3a",
-   "text": "Standart bu çıkmazı yasaklayarak değil, sınırlayarak çözer. G.989.2'nin D eki, ayar sırasında kanal dışı ve bant dışı güç yoğunluğu için bir gevşeme tanımlar. Mantık şudur: ayar kısadır, OLT tarafından koordine edilir, ve ONU zaten geçiş halinde olduğunu bilir. Dolayısıyla komşulara verilen rahatsızlık, hem zamanda hem düzeyde sınırlı ve öngörülebilir kalır."
+   "text": "Standart bu çıkmazı gevşeterek değil, sıkı tutarak çözer. G.989.2'nin dokuz nokta üç nokta yedinci maddesi açıktır: optik tablo değerleri, başıboş davranışı önlemek için ayar süreci boyunca da sağlanmalıdır. Ayar mekanizması standardın kapsamı dışındadır; pratikte verici ayardan önce kapatılabilir, sekizinci ek bunu açıkça anar. Kapalı bir vericinin de bir sınırı vardır: etkin olmayan vericinin güç yoğunluğu, on beş gigahertz başına eksi altmış iki virgül altı dBm."
   },
   {
    "id": "c4",
-   "text": "Bu gevşemenin sınırını kim belirler? Dolaylı olarak OLT. Sistem profilinde bir gevşek kalibrasyon sınırı duyurulur: bir ONU'nun, hangi spektral sapmanın altında gevşek kalibre sayılabileceği. Bu değer dalga boyu çoklayıcısının özelliklerine bağlıdır, o yüzden standart tek bir sayı dayatmaz; OLT, kendi ODN'sine göre ONU'ya bildirir."
+   "text": "Peki ayardan sonra ne kadar isabet yeterlidir? Bunu dolaylı olarak OLT belirler. Sistem profilinde bir gevşek kalibrasyon sınırı duyurulur: bir ONU'nun, hangi spektral sapmanın altında gevşek kalibre sayılabileceği. Bu değer dalga boyu çoklayıcısının özelliklerine bağlıdır, o yüzden standart tek bir sayı dayatmaz; OLT, kendi ODN'sine göre ONU'ya bildirir."
   },
   {
    "id": "c5",
@@ -34,15 +34,15 @@
   },
   {
    "id": "c5a",
-   "text": "Kekeme davranışa karşı sistemin birkaç katmanlı savunması vardır. Fiziksel katmanda gevşeme sınırlıdır; TC katmanında OLT, ayarı zamanlar ve yanlış giden ONU'yu susturabilir; ve G.989.3'ün on dokuzuncu maddesi, kekeme ONU'ların tespiti ve yalıtımı için ayrı bir çerçeve tanımlar. Sekizinci bölümde OLT alıcısını işlerken bu savunmaya geri döneceğiz."
+   "text": "Kekeme davranışa karşı sistemin birkaç katmanlı savunması vardır. Fiziksel katmanda tablo değerleri ayar boyunca da geçerlidir; TC katmanında OLT, ayarı zamanlar ve yanlış giden ONU'yu susturabilir; ve G.989.3'ün on dokuzuncu maddesi, kekeme ONU'ların tespiti ve yalıtımı için ayrı bir çerçeve tanımlar. Sekizinci bölümde OLT alıcısını işlerken bu savunmaya geri döneceğiz."
   },
   {
    "id": "c6",
-   "text": "Bir denge daha: gevşeme ne kadar cömert olursa, ayar o kadar kolay; ama komşulara düşen geçici gürültü o kadar büyük. Standart bu dengeyi OLT'nin eline verir, çünkü ayar fırsatlarını zaten OLT zamanlar. Boş ya da yük altındaki bir ağda OLT, ayarları trafiğin seyrek olduğu anlara koyarak gevşemenin etkisini en aza indirebilir."
+   "text": "Bir denge daha: verici ayar boyunca karanlık tutulursa komşulara ışık düşmez, ama ONU o süre boyunca gönderemez; ayar süresi bir hizmet kesintisidir. Standart bu dengeyi OLT'nin eline verir, çünkü ayar fırsatlarını zaten OLT zamanlar. Boş ya da yük altındaki bir ağda OLT, ayarları trafiğin seyrek olduğu anlara koyarak kesintinin etkisini en aza indirebilir."
   },
   {
    "id": "c7",
-   "text": "Mühendis notu. Bir: ayar sırasındaki kanal dışı gücü, durağan maskeyle değil, D ekindeki gevşemeyle karşılaştırın; ikisini karıştırmak sağlam bir vericiyi başarısız gösterir. İki: gevşek kalibrasyon sınırını ODN'nizin çoklayıcısına göre doğrulayın; bu bir sistem parametresidir, evrensel bir sabit değil."
+   "text": "Mühendis notu. Bir: ayar sırasındaki kanal dışı gücü durağan tablolarla karşılaştırın; standart ayar için ayrı bir gevşeme tanımlamaz, ve verici ayar boyunca karanlık tutuluyorsa karanlık güç sınırı geçerlidir. İki: gevşek kalibrasyon sınırını ODN'nizin çoklayıcısına göre doğrulayın; bu bir sistem parametresidir, evrensel bir sabit değil."
   },
   {
    "id": "c8",

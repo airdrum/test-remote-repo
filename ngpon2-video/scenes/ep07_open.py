@@ -1,7 +1,7 @@
 """B07 — 'Bu bölümde' opening + 'Önceki bölümde' recap (answers to the B06 quiz)."""
 from ep07_common import *
 
-AGENDA = ["Ayar: sınıflar, sapma, granülerlik", "Ayar sırasında spektrum: OOC + gevşeme",
+AGENDA = ["Ayar: sınıflar, sapma, granülerlik", "Ayar sırasında spektrum: OOC, gevşeme yok",
           "Kalibrasyon: iç ayar ↔ dalga boyu", "Kanal yönetimi: devir, O8/O9, kilit",
           "Laboratuvar: ayar süresi, cırlama, sızıntı"]
 PX, PY = 3.4, -0.45
@@ -64,12 +64,12 @@ class Ep07Open(Narrated):
         lobes = VGroup(*[lobe(X, 100 * k, PY - 1.4, 1.2, 14, CH[(k + 2) % 4], op=0.3) for k in (-2, -1, 0, 1, 2)])
         sweep = arrow([X(-180), PY + 0.2, 0], [X(180), PY + 0.2, 0], TUNE, 3)
         swt = T("lazer süpürülürken", 15, TUNE, BOLD).next_to(sweep, UP, buff=0.08)
-        cap = T("ayar anında: gevşetilmiş maske", 19, LEAK, BOLD).move_to([PX + 0.2, PY + 1.9, 0])
+        cap = T("ayar anında da: aynı maske, gevşeme yok", 19, LEAK, BOLD).move_to([PX + 0.2, PY + 1.9, 0])
         self.focus(1, VGroup(axg, lobes, sweep, swt, cap))
         self.play(Create(axg[0]), FadeIn(axg[1:]), FadeIn(lobes), run_time=0.7)
         self.at(self.q("komşu kanallara ne yayar", 2))
         self.play(GrowArrow(sweep), FadeIn(swt), run_time=0.6)
-        self.at(self.q("gevşetildiği", 7))
+        self.at(self.q("hiçbir gevşeme", 7))
         self.play(FadeIn(cap, shift=DOWN * 0.1), run_time=0.5)
         self.end(pad=0.05)
 
@@ -137,10 +137,10 @@ class Ep07Recap(Act7):
     HDR, MANIFEST, FIRST = "BÖLÜM 7 · ÖNCEKİ BÖLÜMDE", M7("recap"), True
 
     def construct(self):
-        qa = [("Soru 1", "Ayar sırasında ONU'nun kanal dışı\ngüç maskesi neden gevşetilir?", CH[0], "a1", 2,
+        qa = [("Soru 1", "Ayar sırasında kanal dışı güç\nmaskesi gevşetilir mi?", CH[0], "a1", 2,
                [("lazer bir renkten diğerine süpürülür → arada kalan kanalları geçer", "arada kalan kanalların"),
-                ("D eki: yasaklamak yerine sınırlı gevşeme", "D ekinde sınırlı"),
-                ("ayar kısa + OLT koordineli → rahatsızlık sınırlı", "OLT tarafından koordine")]),
+                ("§9.3.7: tablolar ayar boyunca da geçerli → gevşeme yok", "ayar süreci boyunca da"),
+                ("pratik: verici ayardan önce kapatılır (karanlık ayar)", "vericiyi ayardan önce kapatmaktır")]),
               ("Soru 2", "Ayar süresi neden tek değer değil,\nbir aralıkla tanımlanır?", CH[1], "a2", 1,
                [("süre mekanizmaya bağlı: ısıl yavaş, diğerleri hızlı", "mekanizmaya bağlıdır"),
                 ("Tablo 9-2: C1 < 10 µs · C2 10 µs–25 ms · C3 25 ms–1 s", "Birinci sınıf on mikrosaniyenin"),

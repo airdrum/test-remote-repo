@@ -6,7 +6,7 @@
  "beats": [
   {
    "id": "a1",
-   "text": "Geçen bölümün soruları. Birinci soru: ayar sırasında ONU'nun kanal dışı güç maskesi neden gevşetilir? Çünkü lazer bir dalga boyundan diğerine fiziksel olarak süpürülürken, kaçınılmaz biçimde arada kalan kanalların üstünden geçer. Standart bu kısa geçişi yasaklamak yerine, D ekinde sınırlı bir gevşeme tanımlar; ayar kısadır ve OLT tarafından koordine edilir, böylece komşu kanallara verilen geçici rahatsızlık sınırlı kalır."
+   "text": "Geçen bölümün soruları. Birinci soru: ayar sırasında kanal dışı güç maskesi gevşetilir mi? Hayır. Lazer bir dalga boyundan diğerine süpürülürken arada kalan kanalların üstünden geçer; ama G.989.2'nin dokuz nokta üç nokta yedinci maddesine göre tablo değerleri, başıboş davranışı önlemek için ayar süreci boyunca da sağlanmalıdır. Pratik çözüm vericiyi ayardan önce kapatmaktır; kapalı bir vericinin güç yoğunluğu da ayrıca sınırlıdır."
   },
   {
    "id": "a2",
