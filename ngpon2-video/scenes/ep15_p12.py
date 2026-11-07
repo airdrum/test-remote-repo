@@ -33,7 +33,7 @@ class E15P1A(Act15):
         a2 = VGroup(arrow(sc[2].get_left() + LEFT * 0.1, sc[1].get_right() + RIGHT * 0.1, GOLD, 2.2, 0.12),
                     T("genellikle daha hızlı", 15, GOLD, BOLD))
         a2[1].next_to(a2[0], UP, buff=0.06)
-        self.at(self.cue("OLT kanal sonlandırıcıları", 2.6))
+        self.at(self.cue("ONU'lar arasında", 4.6))
         self.play(self.set_src("G.989.3 §11.1 · §11.1.1 · §6.1.4"), FadeIn(olt), LaggedStart(*[FadeIn(o) for o in onus], lag_ratio=0.15), Create(lk), run_time=0.8)
         self.at(self.cue("kırk sekiz baytlık mesaj", 7.5))
         self.play(LaggedStart(*[FadeIn(c, shift=UP * 0.06) for c in bar], lag_ratio=0.12), FadeIn(bl), run_time=0.9)
@@ -113,7 +113,7 @@ class E15P1A(Act15):
         badx = xmark(Dot(radius=0.12).move_to([-3.95, y0 + 0.35, 0]), WARN, 4)
         why = VGroup(T("amaç:", 17, MUTED, BOLD), T("çalışan bir kanalda ışık yok", 19, TXT, BOLD)).arrange(RIGHT, buff=0.2).move_to([2.4, -2.45, 0])
         self.play(self.set_src("G.989.3 §11.1 · §6.1.4.2 · §12.1.5"), FadeIn(olt), FadeIn(onu), run_time=0.4)
-        self.at(self.cue("İkinci seçenek AMCC", 0.3))
+        self.at(self.cue("bilerek dar", 2.0))
         self.play(GrowArrow(up[0]), FadeIn(up[1]), run_time=0.6)
         self.at(self.cue("yalnızca yukarı yönde", 4.3))
         self.play(Create(dn), Create(dnx), run_time=0.5)
@@ -292,7 +292,7 @@ class E15P1B(Act15):
         h = self.show_heading("Yukarı yönde söz OLT'nin", h)
         spec = [("Alloc-ID", 14, ACC), ("D", 1, GOLD), ("P", 1, PLDC), ("StartTime", 16, TIMC), ("GrantSize", 16, TIMC), ("F", 1, PINK),
                 ("BP", 2, "#C084FC"), ("HEC", 13, HECC)]
-        al = fields(spec, 12.4, 0.5, 15, 14, unit="", min_label=13).move_to([0, 1.35, 0])
+        al = fields(spec, 12.8, 0.5, 15, 14, unit="").move_to([0, 1.35, 0])
         all_ = T("BWmap tahsis yapısı · 64 bit (genişlikler bit)", 15, MUTED, BOLD).next_to(al, UP, buff=0.12).align_to(al, LEFT)
         leg = T("D = DBRu · P = PLOAMu · F = FWI · BP = burst profili", 15, MUTED, BOLD).next_to(al, DOWN, buff=0.12).align_to(al, RIGHT)
         pg = glow(al[2][0], PLDC, 0.05)
