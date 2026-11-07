@@ -1,0 +1,21 @@
+[
+ ["Ep09Open", "ep09_open", "ep09_open", "open"],
+ ["Intro", null, null, null],
+ ["Ep09Recap", "ep09_open", "ep09_recap", "recap"],
+ ["E9P1A", "ep09_p12", "ep09_p1A", "p1"],
+ ["E9P1B", "ep09_p12", "ep09_p1B", "p1"],
+ ["E9P1C", "ep09_p12", "ep09_p1C", "p1"],
+ ["E9P2A", "ep09_p12", "ep09_p2A", "p2"],
+ ["E9P2B", "ep09_p12", "ep09_p2B", "p2"],
+ ["E9P2C", "ep09_p12", "ep09_p2C", "p2"],
+ ["E9P3A", "ep09_p34", "ep09_p3A", "p3"],
+ ["E9P3B", "ep09_p34", "ep09_p3B", "p3"],
+ ["E9P3C", "ep09_p34", "ep09_p3C", "p3"],
+ ["E9P4A", "ep09_p34", "ep09_p4A", "p4"],
+ ["E9P4B", "ep09_p34", "ep09_p4B", "p4"],
+ ["E9P4C", "ep09_p34", "ep09_p4C", "p4"],
+ ["E9LabA", "ep09_le", "ep09_labA", "lab"],
+ ["E9LabB", "ep09_le", "ep09_labB", "lab"],
+ ["E9LabC", "ep09_le", "ep09_labC", "lab"],
+ ["E9End", "ep09_le", "ep09_end", "end"]
+]
