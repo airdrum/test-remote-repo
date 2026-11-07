@@ -1,0 +1,32 @@
+{
+ "title": "B08 açılış",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Bölüm sekiz: Kalabalığı Dinlemek. Şimdiye kadar hep ONU tarafındaydık. Bu bölümde ağacın tepesine, OLT'ye çıkıyoruz; onlarca farklı ONU'nun, farklı uzaklıklardan, farklı güçlerde gelen patlamalarını tek tek dinleyen tarafa."
+  },
+  {
+   "id": "o2",
+   "text": "Önce OLT burst alıcısı: her yeni burst'te güce ve faza sıfırdan kilitlenmek, ve en yakın ile en uzak ONU arasındaki geniş güç farkını, yani dinamik aralığı kaldırmak."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra önsöz ekonomisi: fiziksel katman ek yük zamanının gard, önsöz ve sınırlayıcı arasında nasıl bölündüğü; ve sınırlayıcının kaç bit olması gerektiği."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından güç dengeleme: yakın bir ONU'nun gücünü kısarak, OLT'nin gördüğü dinamik aralığı daraltması. Alıcının işini, vericinin nezaketiyle kolaylaştırmak."
+  },
+  {
+   "id": "o5",
+   "text": "TC köprüsünde ise bir ONU'nun ilk adımları: sessiz pencere, seri numarası, mesafe ölçümü ve eşitleme gecikmesi; ve bir ONU yanlış anda konuşursa devreye giren kekeme ONU savunması."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda burst edinim süresini ve göz açıklığını, iki ONU öykünücüsüyle dinamik aralığı, ve burst modu hata oranını ölçeceğiz."
+  }
+ ]
+}

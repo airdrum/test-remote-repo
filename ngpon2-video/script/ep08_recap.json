@@ -1,0 +1,20 @@
+{
+ "title": "B08 özet",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: OLT burst alıcısı her yeni burst'e ne kadar hızlı kilitlenmeli, ve bu süreyi hangi ek tanımlar? Kilitlenme, burst'ün önsözü boyunca tamamlanmalıdır: önce güç düzeyi, sonra saat fazı. Bu sürenin bütçesi G.989.2'nin üçüncü ekinde, önsöz zamanı olarak verilir; ölçüm yöntemi ise beşinci ekte, G.987.2'ye atıfla tanımlanır."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: burst modu bir alıcının göz açıklığı neden sürekli moddan farklı ölçülür? Çünkü OLT alıcısı her burst'te, farklı bir ONU'nun farklı gücüne ve fazına yeniden kilitlenir. Göz ancak kilitlenmeden sonra, ve yalnızca burst'ün gövdesi boyunca anlamlıdır. Bu yüzden ölçüm, önsözden sonraki gövdeye kapılanır ve edinim kalitesine bağlıdır; sürekli bir alıcının oturmuş gözünden farklıdır."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: güç dengeleme neden gereklidir? Çünkü en yakın ile en uzak ONU arasında on beş desibele varan diferansiyel yol kaybı vardır. Bu, OLT'ye gelen burst'lerin birinden diğerine, aşırı yük ile hassasiyet arasında, çok farklı güçlerde gelmesi demektir. Güç dengeleme, yakın ONU'ya gücünü on iki desibele kadar kısdırarak bu aralığı daraltır ve OLT alıcısının işini kolaylaştırır. Şimdi bu bölüme."
+  }
+ ]
+}

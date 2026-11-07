@@ -1,0 +1,56 @@
+{
+ "title": "B08 Perde 4 — TC Köprüsü: ONU'nun ilk adımları",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört, TC köprüsü. Yepyeni bir ONU takıldı. Henüz ne zaman konuşacağını, ne kadar uzakta olduğunu, hatta OLT'nin onu tanıdığını bile bilmiyor. G.989.3'ün on ikinci maddesi, bu ONU'yu kalabalığa kekeme olmadan katacak etkinleştirme döngüsünü tanımlar."
+  },
+  {
+   "id": "e1a",
+   "text": "İlk sorun şudur: ONU ne zaman konuşabilir? Normalde OLT, her ONU'ya bant genişliği haritasıyla zaman dilimi verir. Ama yeni ONU henüz haritada yok. Çözüm sessiz penceredir: OLT, kısa bir süre için bütün yerleşik ONU'ları susturur, ve bu boşlukta yalnızca yeni gelenler konuşabilir."
+  },
+  {
+   "id": "e2",
+   "text": "Sessiz pencerede OLT bir seri numarası isteği yayınlar. Yeni ONU, kendi seri numarasını bir burst olarak gönderir. Birden çok yeni ONU aynı anda yanıtlarsa burst'leri çakışır; OLT bunu fark eder ve çakışmayı çözen bir yordam işletir, ta ki her yeni ONU'yu tek tek duyana kadar."
+  },
+  {
+   "id": "e2a",
+   "text": "Sessiz pencere ne kadar uzun olmalı? En yakın ile en uzak ONU arasındaki mesafe farkını örtecek kadar. Çünkü OLT, ONU'nun tam uzaklığını daha bilmiyor; yanıt, beklenen aralığın herhangi bir yerinden gelebilir. Bu pencere boyunca yukarı yön tamamen durur; yani etkinleştirme, yukarı yön bant genişliğinden ödün alır."
+  },
+  {
+   "id": "e3",
+   "text": "Seri numarası alındıktan sonra sıra mesafe ölçümünde. OLT, ONU'ya bir mesafe ölçüm burst'ü gönderttirir ve gidiş dönüş gecikmesini ölçer. Sonra ONU'ya bir eşitleme gecikmesi atar: yakın ONU daha çok, uzak ONU daha az bekler. Böylece bütün ONU'lar OLT'ye, sanki aynı mantıksal uzaklıktaymış gibi görünür."
+  },
+  {
+   "id": "e3a",
+   "text": "Eşitleme gecikmesi neden kritiktir? Çünkü bant genişliği haritası, zaman dilimlerini bite kadar sıkı diziler. Eğer her ONU kendi fiziksel uzaklığıyla gönderseydi, yakın ONU'nun burst'ü uzak ONU'nunkine çarpardı. Eşitleme gecikmesi, bütün burst'leri ortak bir zaman eksenine hizalar; bu, ikinci bölümdeki mesafe ölçümünün burada karşılığıdır."
+  },
+  {
+   "id": "e4",
+   "text": "ONU ilk mesafe ölçüm burst'ünü gönderirken en savunmasız anındadır: henüz eşitleme gecikmesi yok, kalibrasyonu belki gevşek. Bu yüzden OLT, bu ilk burst'ü yakalamak için uzun önsözlü, belki FEC'li özel bir burst profili kullanır; ikinci perdedeki en kötü durum tahsisi, tam da bu an içindir."
+  },
+  {
+   "id": "e5",
+   "text": "Peki bir ONU kurallara uymazsa? Kendi sırası olmayan bir anda, ya da yanlış dalga boyunda ışıyan bir ONU, bütün bir kanalı sağır edebilir. Buna kekeme, yani rogue ONU denir, ve G.989.3'ün on dokuzuncu maddesi buna ayrı bir savunma çerçevesi ayırır."
+  },
+  {
+   "id": "e5a",
+   "text": "Savunma çok katmanlıdır. OLT, bir kanalı periyodik olarak boşaltıp dinleyebilir: eğer boş olması gereken bir anda hâlâ ışık varsa, ortada kekeme bir ONU vardır. Bu boş pencere yöntemiyle sorunlu ONU'nun varlığı saptanır; sonra OLT, şüpheli ONU'ları tek tek susturarak ya da farklı dalga boylarına taşıyarak suçluyu yalıtır."
+  },
+  {
+   "id": "e6",
+   "text": "Ayarlanabilirlik bu riski büyütür. Yedinci bölümde gördüğümüz gibi, yanlış ayarlanmış bir lazer bir komşunun kanalına tam gücünde oturabilir. Bu yüzden etkinleştirme ve ayar boyunca optik sınırların sağlanması, kozmetik değil, bütün ağın hayatta kalma koşuludur. OLT'nin burst alıcısı, aynı zamanda ağın bekçisidir."
+  },
+  {
+   "id": "e7",
+   "text": "Mühendis notu. Bir: sessiz pencereyi ODN'nizin gerçek mesafe aralığına göre boyutlandırın; çok kısa pencere yeni ONU'yu kaçırır, çok uzun pencere yukarı yön verimini yakar. İki: etkinleştirme burst'lerini yakalamak için en sağlam burst profilini ayırın; bir ONU'yu ağa alırken cimrilik, onu hiç alamamakla sonuçlanabilir."
+  },
+  {
+   "id": "e8",
+   "text": "Sıradaki: laboratuvar. Burst edinim süresini, göz açıklığını, ve iki ONU öykünücüsüyle dinamik aralığı nasıl ölçeriz?"
+  }
+ ]
+}

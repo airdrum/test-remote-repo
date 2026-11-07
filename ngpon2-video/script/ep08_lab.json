@@ -1,0 +1,48 @@
+{
+ "title": "B08 Laboratuvarda — Kalabalığı ölçmek",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. OLT burst alıcısını ölçmek, ONU vericisini ölçmekten daha zordur, çünkü tek bir sinyal değil, bir kalabalık üretmemiz gerekir. Çekirdek düzenek: iki ONU öykünücüsü, farklı güçlerde ve farklı gecikmelerle, sırayla burst gönderir; çıkışları birleştirilip OLT alıcısına verilir."
+  },
+  {
+   "id": "g1a",
+   "text": "İki öykünücü neden şart? Çünkü asıl sınav, art arda gelen iki farklı güçtür. Birinci öykünücüyü aşırı yük düzeyinde, yani en yakın ONU gibi; ikincisini hassasiyet düzeyinde, yani en uzak ONU gibi ayarlarız. Gürültülü bir burst'ün hemen ardından gelen sessiz bir burst, alıcının kazanç denetimi için en zorlu andır."
+  },
+  {
+   "id": "g2",
+   "text": "Birinci ölçüm: burst edinim süresi. Burst'ün başladığı an ile alıcının veriyi güvenilir okumaya başladığı anı işaretleriz; arasındaki süre edinim süresidir. Yöntem, standardın beşinci ekinde, G.987.2'ye atıfla tanımlanır. Bu süre, ikinci perdedeki önsöz bütçesinin gerçekte ne kadarının kullanıldığını söyler."
+  },
+  {
+   "id": "g2a",
+   "text": "İkinci ölçüm: göz açıklığı. Göz, ancak alıcı kilitlendikten sonra, yani önsözden sonraki gövdede anlamlıdır. O yüzden göz ölçümünü burst'ün gövdesine kapılarız, önsöze değil. Burada edinim kalitesi doğrudan göze yansır: kötü kilitlenen bir alıcı, temiz bir sinyalde bile kapalı bir göz görür."
+  },
+  {
+   "id": "g3",
+   "text": "Üçüncü ölçüm: dinamik aralık. İki öykünücüyü, biri aşırı yükte biri hassasiyette, sırayla gönderecek biçimde çalıştırırız, ve her iki burst'ü de aynı anda, aynı alıcıyla hata oranı referansında çözebildiğini doğrularız. Sonra güçleri birkaç desibel oynatıp sınırları ararız; alıcının gerçek penceresi, tablodaki yirmi bir desibeli karşılamalıdır."
+  },
+  {
+   "id": "g3a",
+   "text": "Dördüncü ölçüm: burst modu hata oranı. Sürekli mod bir alıcıda hata oranı kararlıdır; burst modunda ise her burst'ün ilk bitleri, edinim henüz tam oturmadan, daha risklidir. Bu yüzden hata oranını burst boyunca konuma göre de inceleriz; hatalar genellikle burst'ün başında yoğunlaşır. Referans, FEC öncesi on üzeri eksi üçtür."
+  },
+  {
+   "id": "g4",
+   "text": "Bir ölçüm daha: güç dengelemenin etkisi. İkinci öykünücünün gücünü, üçüncü perdedeki kurala göre kısıp, OLT'nin gördüğü dinamik aralığın gerçekten daraldığını doğrularız. Böylece dengelemenin alıcıya ne kazandırdığını sayıyla görürüz; teorideki on iki desibel, tezgahta ölçülen bir rahatlamaya dönüşür."
+  },
+  {
+   "id": "g5",
+   "text": "Bütün bu ölçümler bir araya gelince, OLT alıcısının karakteri ortaya çıkar: ne kadar hızlı kilitleniyor, ne kadar geniş bir aralığı kaldırıyor, ve art arda gelen gürültülü ve sessiz burst'ler arasında ne kadar çabuk toparlanıyor. Kalabalığı dinlemenin sınavı budur."
+  },
+  {
+   "id": "g6",
+   "text": "Mühendis notu. Bir: dinamik aralığı her zaman art arda, gürültülüden sessize geçişle sınayın; iki burst'ü ayrı ayrı ölçmek, kazanç denetiminin gerçek sınavını atlar. İki: göz ve hata oranını burst içindeki konuma göre inceleyin; bir alıcının zayıflığı neredeyse her zaman önsözün hemen ardında, gövdenin ilk bitlerinde saklıdır."
+  },
+  {
+   "id": "g7",
+   "text": "Bu bölümle TWDM PON'un kalbini tamamladık: aşağı yön, yukarı yön, verici, alıcı, ayar ve etkinleştirme. Dokuzuncu bölümde ağacın bir başka dalına, noktadan noktaya WDM'e ve yardımcı yönetim kanalına geçeceğiz."
+  }
+ ]
+}

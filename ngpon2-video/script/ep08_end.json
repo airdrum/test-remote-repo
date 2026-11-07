@@ -1,0 +1,24 @@
+{
+ "title": "B08 Kapanış",
+ "voice": "Sadaltager",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölüm sekizin özeti. Bir: OLT burst alıcısı iki zorlukla yaşar; yaklaşık yirmi bir desibellik dinamik aralık, ve her burst'te sıfırdan güç ve faz edinimi. Referans hata oranı, FEC öncesi on üzeri eksi üçtür. İki: fiziksel katman ek yük zamanı gard, önsöz ve sınırlayıcı arasında bölünür; on gigabitte hedef toplam iki bin kırk sekiz bit, ve sınırlayıcı en az on altı bit olmalıdır."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: güç dengeleme, yakın ONU'nun gücünü aşağı yön RSSI'sine göre en çok on iki desibel kısarak OLT'nin dinamik aralığını daraltır, ve kanal dışı maskeleri gevşetir. Dört: yeni bir ONU ağa, sessiz pencere, seri numarası ve mesafe ölçümüyle katılır; eşitleme gecikmesi bütün ONU'ları ortak bir zaman eksenine hizalar. Beş: kekeme ONU'lar, boş pencere yöntemiyle saptanır ve susturularak yalıtılır."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: noktadan noktaya WDM kanalları, neden TWDM'den farklı bir banda ve mimariye yerleştirilir? İkinci soru: yardımcı yönetim ve denetim kanalı, yani AMCC, nedir ve neden gereklidir? Üçüncü soru: düşük kayıplı noktadan noktaya WDM, neden ayrı bir ek olarak tanımlanır? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm: Özel Hat. Noktadan noktaya WDM ve yardımcı yönetim kanalı; TWDM ağacından, her aboneye kendi dalga boyunu veren özel hatlara. Görüşmek üzere."
+  }
+ ]
+}
