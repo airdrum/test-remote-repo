@@ -6,7 +6,7 @@ Ana proje: `ngpon2-video/` — "LAMBDA — NG-PON2'nin Fizik Katmanı" Türkçe 
 
 Kullanıcı "ses üretelim" dediğinde **her zaman** yerel XTTS-v2 kullanılır; Gemini TTS **yalnızca kullanıcı açıkça isterse**.
 
-- Model: Coqui XTTS-v2, hazır konuşmacı **"Damien Black"**, `language="tr"`, **GPU (CUDA)**.
+- Model: Coqui XTTS-v2 hazır konuşmacıları, `language="tr"`, **GPU (CUDA)**.
 - Konuşmacı sezona göre: **Sezon 1 (G.989.2) = "Damien Black"**; **Sezon 2 (G.989.3) = "Ana Florence"** (kadın sesi,
   seçimi kullanıcı Claude'a bıraktı) — senaryo JSON'undaki `"xtts_speaker"` alanından okunur (`XTTS_SPEAKER` env hepsini ezer).
   Başka bir sesle karşılaştırmak için GPU makinesinde `tools/xtts_voices.py` → `build/voices/*.wav`.
