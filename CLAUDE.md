@@ -7,6 +7,9 @@ Ana proje: `ngpon2-video/` — "LAMBDA — NG-PON2'nin Fizik Katmanı" Türkçe 
 Kullanıcı "ses üretelim" dediğinde **her zaman** yerel XTTS-v2 kullanılır; Gemini TTS **yalnızca kullanıcı açıkça isterse**.
 
 - Model: Coqui XTTS-v2, hazır konuşmacı **"Damien Black"**, `language="tr"`, **GPU (CUDA)**.
+- Konuşmacı sezona göre: **Sezon 1 (G.989.2) = "Damien Black"**; **Sezon 2 (G.989.3) = kadın sesi** — senaryo JSON'undaki
+  `"xtts_speaker"` alanından okunur (`XTTS_SPEAKER` env hepsini ezer). Aday sesleri dinlemek için GPU makinesinde
+  `tools/xtts_voices.py` çalıştır → `build/voices/*.wav`; kullanıcının seçtiği isim Sezon 2 senaryolarına yazılır.
 - Kod yolu: `TTS_BACKEND=xtts` (varsayılan, `tools/tts.py`) → `tools/xtts_backend.py` (model süreç başına bir kez yüklenir).
   Gemini kodu silinmedi; yalnızca `TTS_BACKEND=gemini` ile çalışır.
 - GPU yoksa **DUR ve kullanıcıya söyle**; CPU'ya sessizce düşme (`XTTS_REQUIRE_GPU=1`).
@@ -16,7 +19,7 @@ Kullanıcı "ses üretelim" dediğinde **her zaman** yerel XTTS-v2 kullanılır;
   (gerekirse torch'u cu128 index'inden yeniden kurar), modeli `~/.cache/xtts_v2`'ye curl ile indirir, SHA256 kontrolü, test + RTF.
 - Bölüm seslendirme: `bash tools/tts_episode.sh 05 "p4 lab end"` → `build/epNN/<part>/audio/manifest.json`
   (24 kHz mono 16-bit WAV, Gemini çıktısıyla aynı format; `prep_audio.py` / `assemble.py` değişmeden çalışır).
-  Sonra `PY=.venv-xtts/bin/python bash tools/cache_ep.sh 05` ile `audio_cache/` (FLAC) altına alıp commit/push et.
+  Sonra `PY=.venv-xtts/bin/python bash tools/cache_ep.sh 05` (Windows: `.venv-xtts/Scripts/python.exe`) ile `audio_cache/` (FLAC) altına alıp commit/push et.
 - XTTS'e **stil talimatı gönderilmez** (prompt anlamaz, sesli okur); yalnızca okunacak düz metin.
 - Metin hazırlama: `lexicon.speak()` (kısaltmalar) → `tr_text.normalize_tr()` (sayı/birim/yüzde → Türkçe yazı)
   → `split_tr()` (~200 karakter altı parçalar).

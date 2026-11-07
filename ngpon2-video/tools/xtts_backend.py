@@ -44,10 +44,10 @@ def get_model() -> Xtts:
 
 
 def synthesize(text: str, out_path: str | None = None, temperature: float = 0.65,
-               seed: int | None = 1234) -> np.ndarray:
+               seed: int | None = 1234, speaker: str | None = None) -> np.ndarray:
     """Türkçe metni Damien Black sesiyle okur. 24 kHz mono float32 döner; out_path verilirse WAV yazar."""
     m = get_model()
-    spk = m.speaker_manager.speakers[SPEAKER]
+    spk = m.speaker_manager.speakers[speaker or SPEAKER]
     if seed is not None:
         torch.manual_seed(seed)
     with torch.inference_mode():
@@ -62,14 +62,14 @@ def synthesize(text: str, out_path: str | None = None, temperature: float = 0.65
     return wav
 
 
-def synthesize_pcm16(text: str, seed: int | None = 1234, gap_s: float = 0.22) -> bytes:
+def synthesize_pcm16(text: str, seed: int | None = 1234, gap_s: float = 0.22, speaker: str | None = None) -> bytes:
     """Project adapter: normalise, split into ≤200-char chunks, synthesise each, join with short pauses.
     Returns 24 kHz mono 16-bit PCM bytes — the same format the Gemini path returns."""
     from tr_text import normalize_tr, split_tr
     parts, gap = [], np.zeros(int(gap_s * SAMPLE_RATE), dtype=np.float32)
     for i, chunk in enumerate(split_tr(normalize_tr(text))):
         with _infer_lock:
-            parts += [synthesize(chunk, seed=None if seed is None else seed + i), gap]
+            parts += [synthesize(chunk, seed=None if seed is None else seed + i, speaker=speaker), gap]
     wav = np.concatenate(parts[:-1]) if parts else np.zeros(1, dtype=np.float32)
     return (np.clip(wav, -1, 1) * 32767).astype("<i2").tobytes()
 

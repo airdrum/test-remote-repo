@@ -74,7 +74,8 @@ def run(script_path, out_dir, max_chars=700, workers=2, log=print):
     from tts import BACKEND
     if BACKEND == "xtts":  # one beat per request (no group cutting), one GPU model, no style prompt
         import os
-        model, voice, style = "xtts-v2", os.environ.get("XTTS_SPEAKER", "Damien Black"), ""
+        # speaker: env override > script's "xtts_speaker" (season 2 sets a female voice) > Damien Black (season 1)
+        model, voice, style = "xtts-v2", os.environ.get("XTTS_SPEAKER") or s.get("xtts_speaker") or "Damien Black", ""
         max_chars, workers = 1, 1
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     groups = list(groups_of(s["beats"], max_chars))

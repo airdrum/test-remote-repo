@@ -15,7 +15,7 @@ BACKEND = os.environ.get("TTS_BACKEND", "xtts").lower()  # default: local XTTS-v
 def synth(model, voice, style, text, retries=8, seed=None):
     if BACKEND == "xtts":  # style prompts are never sent to XTTS — it would read them aloud
         from xtts_backend import synthesize_pcm16
-        return synthesize_pcm16(text, seed=1234 if seed is None else seed)
+        return synthesize_pcm16(text, seed=1234 if seed is None else seed, speaker=voice or None)
     prompt = f"{style}\n\n{text}" if style else text
     body = {"contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {"responseModalities": ["AUDIO"],
