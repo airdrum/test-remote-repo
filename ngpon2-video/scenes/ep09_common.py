@@ -21,7 +21,13 @@ def M9(p):
 
 
 class Act9(Act5):
-    pass
+    def title_card(self, kick, title):
+        """Act.title_card with the title kept inside the frame."""
+        k = T(kick, 26, ACC, BOLD)
+        t = fit(T(title, 72, TXT, BOLD), 12.8)
+        g = VGroup(k, t).arrange(DOWN, buff=0.2).move_to(UP * 0.3)
+        self.play(FadeIn(k, shift=UP * 0.2), Write(t), run_time=1.3)
+        return g
 
 
 def sgn(v, d=None):
@@ -165,7 +171,7 @@ def ber_curve(X, Y, ps, qs, slope, p_lo, p_hi, color, npts=5, seed=1, r=0.06):
     return line, dots
 
 
-def chain(labels, y, x0, x1, color=MUTED, h=0.7, size=16, ssize=13):
+def chain(labels, y, x0, x1, color=MUTED, h=0.7, size=16, ssize=14):
     """Horizontal block chain from x0 to x1: labels = [(title, sub|None, colour)]. Returns (boxes, arrows)."""
     n = len(labels)
     gap = 0.45

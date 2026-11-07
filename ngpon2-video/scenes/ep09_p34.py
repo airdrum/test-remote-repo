@@ -116,7 +116,8 @@ class E9P3A(Act9):
         for y, s, c, dy in ((ymax, "P_maks", GOLD, 0.16), (pa, "P_ort", TXT, 0.0), (ymin, "P_min", GOLD, -0.16)):
             lv.add(VGroup(DashedLine([x0, y, 0], [x1 + 0.15, y, 0], color=c, stroke_width=2), T(s, 16, c, BOLD).next_to([x1 + 0.15, y + dy, 0], RIGHT, buff=0.08)))
         fm = VGroup(T("M = 100 · (P_maks − P_min) / P_ort", 23, TXT, BOLD), T("[%] · zarfın en büyük / en küçük / ortalama gücü", 16, MUTED)).arrange(DOWN, aligned_edge=LEFT, buff=0.1).move_to([3.85, 1.55, 0])
-        m10 = VGroup(T("M = %10 →  P_maks = 1,05 · P_ort", 21, AMC, BOLD), T("P_min = 0,95 · P_ort", 21, AMC, BOLD)).arrange(DOWN, aligned_edge=RIGHT, buff=0.08).move_to([3.95, 0.4, 0])
+        m10 = VGroup(T("M = %10 →  P_maks = 1,05 · P_ort", 19, AMC, BOLD), T("P_min = 0,95 · P_ort", 19, AMC, BOLD)).arrange(DOWN, aligned_edge=RIGHT, buff=0.08)
+        m10.move_to([4.0, 0.4, 0]).align_to([6.5, 0, 0], RIGHT)
         db = T("≈ ±0,2 dB  (+0,21 / −0,22 dB)", 22, GOLD, BOLD).move_to([3.95, -0.45, 0])
         boxes, arrs = chain([("fotodedektör", None, PTP), ("alçak geçiren", "filtre", AMC), ("yükselteç", None, MUTED), ("eşik", "algılayıcı", GOOD)], -2.55, -6.3, 4.4, h=0.75, size=17)
         outb = T("→ AMCC bitleri", 17, AMC, BOLD).next_to(boxes, RIGHT, buff=0.2)
@@ -338,7 +339,7 @@ class E9P3C(Act9):
         od = sbox("işletme verisi", "OMCI · OAM · PLOAM", AMC, 3.2, 0.75, 17, 14).move_to([2.6, 1.05, 0])
         ua = arrow(ud.get_bottom(), [-3.9, -1.85, 0], PTP, 3, 0.16)
         ut = T("TC katmanı\ndokunmaz", 17, PTP, BOLD, line_spacing=0.85).next_to(ua, LEFT, buff=0.2)
-        subs = VGroup(*[sbox(s, d, AMC, 4.4, 0.5, 15, 13) for s, d in (("hizmet uyarlama", None), ("çerçeveleme: gömülü OAM + PLOAM", None), ("PHY uyarlama: PSB (+ FEC: FFS)", None))])
+        subs = VGroup(*[sbox(s, d, AMC, 4.4, 0.5, 15, 14) for s, d in (("hizmet uyarlama", None), ("çerçeveleme: gömülü OAM + PLOAM", None), ("PHY uyarlama: PSB (+ FEC: FFS)", None))])
         subs.arrange(DOWN, buff=0.18).move_to([2.6, -0.5, 0])
         sa = VGroup(arrow(od.get_bottom(), subs[0].get_top(), AMC, 2.5, 0.12), *[arrow(subs[k].get_bottom(), subs[k + 1].get_top(), AMC, 2.5, 0.12) for k in range(2)],
                     arrow(subs[2].get_bottom(), [2.6, -1.85, 0], AMC, 2.5, 0.12))
@@ -376,7 +377,7 @@ class E9P3C(Act9):
         hf = frame_bar([(s, b * sc, AMC) for s, b in fl], -6.4, 0.3, 0.55, 15)
         hl = VGroup(DashedLine(fb[1][0].get_corner(DL), hf[0][0].get_corner(UL), color=AMC, stroke_width=1.5),
                     DashedLine(fb[1][0].get_corner(DR), hf[-1][0].get_corner(UR), color=AMC, stroke_width=1.5))
-        hb = T("64 bit", 15, AMC, BOLD).next_to(hf, UP, buff=0.06).align_to(hf, RIGHT)
+        hb = T("64 bit", 15, AMC, BOLD).next_to(hf, UP, buff=0.06)
         desc = T("yük uzunluğu: 4 B kelime cinsinden · SFC kayması: son SFC artışından bu yana ns", 16, MUTED).move_to([0, -2.8, 0])
         ind = frame_bar([("bit 9–4 · ayrılmış", 3.2, MUTED), ("3 · Engaged", 1.9, PTP), ("2 · LOMC", 1.7, WARN), ("1 · FWI", 1.3, MUTED), ("0 · DG", 1.3, MUTED)], -3.1, -1.4, 0.55, 15)
         il = VGroup(DashedLine(hf[3][0].get_corner(DL), ind[0][0].get_corner(UL), color=MUTED, stroke_width=1.5),
@@ -409,7 +410,7 @@ class E9P3C(Act9):
         self.clear(h)
         h = self.show_heading("Zaman ölçeği: esnek çerçeve", h)
         sc = 11.0 / 84
-        comp = frame_bar([("PSB 24 B", 24 * sc, TW_DS), ("8", 8 * sc, AMC), ("PLOAM 48 B", 48 * sc, TW_US), ("4", 4 * sc, MUTED)], -5.5, 1.7, 0.55, 16)
+        comp = frame_bar([("PSB 24 B", 24 * sc, TW_DS), ("8", 8 * sc, AMC), ("PLOAM 48 B", 48 * sc, TW_US), ("4", 4 * sc, MUTED)], -5.5, 1.55, 0.55, 16)
         ct = T("en küçük çerçeve (1 PLOAM): 84 B = 672 bit", 19, TXT, BOLD).next_to(comp, UP, buff=0.12)
         axg, X = lin_axis(0, 6.2, -5.5, 5.5, -0.25, [0, 1, 2, 3, 4, 5, 6], size=15, fmt=lambda v: tr(v), unit="ms")
         fr = Rectangle(width=X(5.84) - X(0), height=0.5, stroke_color=AMC, stroke_width=2, fill_color=AMC, fill_opacity=0.25).move_to([(X(0) + X(5.84)) / 2, 0.15, 0])
@@ -578,7 +579,7 @@ class E9P4A(Act9):
         y = -2.55
         oc = sbox("OLT CT", None, OLTC, 1.3, 0.55, 15).move_to([-5.6, y, 0])
         wmb = sbox("WM", None, PTP, 0.9, 0.55, 15).move_to([-3.9, y, 0])
-        sr = VGroup(DashedLine([-3.1, y - 0.35, 0], [-3.1, y + 0.35, 0], color=GOLD, stroke_width=2), T("S/R-CG", 13, GOLD, BOLD).move_to([-3.1, y + 0.5, 0]))
+        sr = VGroup(DashedLine([-3.1, y - 0.35, 0], [-3.1, y + 0.35, 0], color=GOLD, stroke_width=2), T("S/R-CG", 14, GOLD, BOLD).move_to([-3.1, y + 0.5, 0]))
         od = Line([-3.0, y, 0], [-1.7, y, 0], color=FEED, stroke_width=3)
         odl = T("ODN", 15, MUTED, BOLD).next_to(od, UP, buff=0.05)
         c1 = Line(oc.get_right(), wmb.get_left(), color=FEED, stroke_width=3)

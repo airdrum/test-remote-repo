@@ -5,7 +5,7 @@ def onu_sel(w=2.1, h=0.75, dot=None):
     r = RoundedRectangle(corner_radius=0.12, width=w, height=h, stroke_color=PTP, stroke_width=2.5, fill_color=PANEL, fill_opacity=1)
     t = T("ONU", 17, TXT, BOLD).move_to(r).align_to(r, LEFT).shift(RIGHT * 0.15)
     sel = VGroup(RoundedRectangle(corner_radius=0.08, width=1.05, height=h - 0.25, stroke_color=PTP, stroke_width=2, fill_color=BG, fill_opacity=1),
-                 T("λ seçici", 13, PTP, BOLD))
+                 T("λ seçici", 14, PTP, BOLD))
     sel[1].move_to(sel[0])
     sel.move_to(r).align_to(r, RIGHT).shift(LEFT * 0.12)
     g = VGroup(r, t, sel)
@@ -246,7 +246,7 @@ class E9P1A(Act9):
         # periodic passbands of one AWG port
         ax0, ax1, ay = 2.55, 6.5, -0.15
         axl = Line([ax0, ay, 0], [ax1, ay, 0], color=MUTED, stroke_width=2)
-        axt = T("frekans", 13, MUTED).next_to(axl, DOWN, buff=0.08).align_to(axl, RIGHT)
+        axt = T("frekans", 14, MUTED).next_to(axl, DOWN, buff=0.08).align_to(axl, RIGHT)
         ttl = T("port 1: periyodik geçirme bantları", 16, CH[0], BOLD).move_to([(ax0 + ax1) / 2, 1.55, 0])
         cs = [3.1, 4.5, 5.9]
         pbs = VGroup(*[lobe(lambda v: v, c, ay, 0.9, 0.13, CH[0], op=0.3) for c in cs])
@@ -871,9 +871,9 @@ class E9P2C(Act9):
         fb = T("] × 20 ps/nm  (DD20)", 26, TXT, BOLD)
         fe.next_to(fa, RIGHT, buff=0.04).shift(UP * 0.14)
         fb.next_to(fa, RIGHT, buff=0.22)
-        form = VGroup(fa, fe, fb).move_to([0, 1.85, 0])
+        form = VGroup(fa, fe, fb).move_to([0, 1.7, 0])
         er = T("basılı: ²", 15, WARN, BOLD).next_to(fe, UP, buff=0.12)
-        g4 = T("G.652 §6.10 sınırı: (1300 / λ)⁴  — yorum: atıf yapılan sınır", 18, GOOD, BOLD).move_to([-1.3, 1.05, 0]).align_to(form, LEFT)
+        g4 = T("G.652 §6.10 sınırı: (1300 / λ)⁴  — yorum: atıf yapılan sınır", 18, GOOD, BOLD).move_to([-1.3, 0.95, 0]).align_to(form, LEFT)
         axg, X = lin_axis(0, 450, -2.4, 5.8, -2.05, [0, 100, 200, 300, 400], size=14, fmt=lambda v: tr(v), unit="ps/nm (DD20)")
         rowsd = [("üs 4 · 1603 nm", 418, GOOD, "418"), ("TWDM ↓ tablosu", 420, TW_DS, "0–420"), ("üs 2 (basıldığı gibi)", 252, WARN, "252")]
         bars = []
@@ -890,7 +890,7 @@ class E9P2C(Act9):
         self.at(self.cue("Dispersiyon aralığı", 1.4))
         self.play(FadeIn(form, shift=UP * 0.1), self.set_src("G.989.2 Tablo A.2–A.7 (Not 2) · Amd.1 s.44"), run_time=0.7)
         self.at(self.cue("lambdanın karesi", 7.5))
-        self.play(fe.animate.set_color(WARN).scale(1.35), FadeIn(er, shift=DOWN * 0.05), run_time=0.6)
+        self.play(fe.animate.set_color(WARN).scale(1.2), FadeIn(er, shift=DOWN * 0.05), run_time=0.6)
         self.at(self.cue("Atıf yapılan G.652", 10.1))
         self.play(FadeIn(g4, shift=UP * 0.1), run_time=0.5)
         self.at(self.cue("Dördüncü kuvvetle", 14.7))
