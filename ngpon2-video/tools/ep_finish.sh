@@ -28,7 +28,12 @@ for c, f, t, p in json.load(open(f"plan/ep{ep}_order.json")):
         spec.append({"video": f"build/media_{c}/videos/{f}/1080p30/{c}.mp4", "norm": True, "timeline": f"build/{t}_timeline.json", "manifest": f"build/ep{ep}/{p}/audio_proc/manifest.json"})
 json.dump(spec, open(f"build/ep{ep}_full_spec.json", "w"), indent=1)
 PY
-  NAME=$($PY -c "import json,unicodedata;e=json.load(open('plan/episodes.json'))['episodes'][$((10#$EP))-1];t=unicodedata.normalize('NFKD',e['title'].replace('ı','i')).encode('ascii','ignore').decode().replace(' ','_');print(f'LAMBDA_B$EP'+'_'+t)")
+  NAME=$($PY -c "
+import json,unicodedata
+n=$((10#$EP)); j=json.load(open('plan/episodes.json'))
+e,tag=(j['season2']['episodes'][n-11],'S2B%02d'%(n-10)) if n>10 else (j['episodes'][n-1],'B$EP')
+t=unicodedata.normalize('NFKD',e['title'].replace('ı','i').replace('İ','I')).encode('ascii','ignore').decode().replace(' ','_')
+print('LAMBDA_'+tag+'_'+t)")
   mkdir -p deliverables/B$EP
   NO_SUBS=1 CRF=20 $PY tools/assemble.py build/ep${EP}_full_spec.json deliverables/B$EP/$NAME.mp4 ;;
 esac

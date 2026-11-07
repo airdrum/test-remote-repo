@@ -3,8 +3,14 @@ import os
 
 from lib import *
 
-EP = int(os.environ.get("EP", "1"))
-EPI = next(e for e in SERIES["episodes"] if e["n"] == EP)
+EP = int(os.environ.get("EP", "1"))  # internal number: 1–10 season 1, 11–20 season 2
+if EP > 10:
+    _S2 = SERIES["season2"]
+    EPI = next(e for e in _S2["episodes"] if e["n"] == EP - 10)
+    TAGLINE, SEASON, KICK = _S2["tagline"], _S2["season"], f"SEZON 2 · BÖLÜM {EP - 10}"
+else:
+    EPI = next(e for e in SERIES["episodes"] if e["n"] == EP)
+    TAGLINE, SEASON, KICK = SERIES["tagline"], SERIES["season"], f"BÖLÜM {EP}"
 HIT = SERIES["intro_hit"]  # music impact time (s)
 
 
@@ -51,8 +57,8 @@ class Intro(Scene):
 
         # 4) wordmark
         letters = VGroup(*[T(c, 104, TXT, BOLD) for c in "LAMBDA"]).arrange(RIGHT, buff=0.32)
-        tag = T(SERIES["tagline"], 30, MUTED, MEDIUM)
-        season = T(SERIES["season"], 20, ACC, SEMIBOLD)
+        tag = T(TAGLINE, 30, MUTED, MEDIUM)
+        season = T(SEASON, 20, ACC, SEMIBOLD)
         lam_small = lam.copy().scale(0.42)
         mark = VGroup(lam_small, letters).arrange(RIGHT, buff=0.55, aligned_edge=DOWN)
         VGroup(mark, tag, season).arrange(DOWN, buff=0.3).move_to(ORIGIN)
@@ -63,7 +69,7 @@ class Intro(Scene):
         # 5) episode card
         until(HIT + 1.75)
         logo = VGroup(lam, letters, tag, season)
-        kick = T(f"BÖLÜM {EP}", 24, ACC, BOLD)
+        kick = T(KICK, 24, ACC, BOLD)
         title = T(EPI["title"], 76, TXT, BOLD)
         sub = T(EPI["sub"], 26, MUTED, MEDIUM)
         refs = T(EPI["refs"], 18, LEGACY, MEDIUM)

@@ -2,7 +2,8 @@
 from lib import *
 
 BADGE = {"std": ("Standart ne diyor", GOLD), "fiz": ("Fizik", ACC), "lab": ("Laboratuvarda", GOOD),
-         "not": ("Mühendis notu", "#F472B6"), "tc": ("TC Köprüsü", "#A78BFA"), "ozet": ("Özet", ACC)}
+         "not": ("Mühendis notu", "#F472B6"), "tc": ("TC Köprüsü", "#A78BFA"), "ozet": ("Özet", ACC),
+         "pmd": ("PMD Köprüsü", "#A78BFA"), "neden": ("Neden böyle", ACC)}  # season 2
 FEED = "#CBD5E1"
 PINK = "#F472B6"
 
