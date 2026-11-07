@@ -282,6 +282,7 @@ class E14P3B(Act14):
         self.beat("d8")
         self.clear()
         h, chp = self.pmd_head("PMD Köprüsü — mesafe sınıfları", s1chip(2))
+        hk = tag("hesap", GOLD, 15).next_to(h, RIGHT, buff=0.3)
         rows = VGroup()
         for i, (cls, rtd, tq, fr, n) in enumerate((("DD20 · 0–20 km", "200 µs", "36 + 200 = 236 µs", 1.89, 2), ("DD40 · 0–40 km", "400 µs", "36 + 400 = 436 µs", 3.49, 4))):
             yy = 0.9 - i * 1.85
@@ -294,7 +295,7 @@ class E14P3B(Act14):
             ml = T(f"{n} harita havada", 17, BWC, BOLD).next_to(maps, RIGHT, buff=0.25)
             rows.add(VGroup(lab, ax, tb, tbl, maps, ml))
         cues = [("yirmi ya da kırk kilometreye", 4.0), ("iki yüz ya da dört yüz", 8.9), ("iki yüz otuz altı", 13.8), ("henüz gelmemiş iki ya da dört", 22.5)]
-        self.play(self.set_src("G.989.2 Tablo 6-2 · G.989.3 §13.1 · (13-6) · S1·B2 · hesap"), run_time=0.3)
+        self.play(self.set_src("G.989.2 Tablo 6-2 · G.989.3 §13.1 · (13-6) · S1·B2 · hesap"), FadeIn(hk), run_time=0.3)
         self.at(self.cue(*cues[0]))
         self.play(*[FadeIn(r[0][0], shift=RIGHT * 0.06) for r in rows], *[Create(r[1]) for r in rows], run_time=0.6)
         self.at(self.cue(*cues[1]))
