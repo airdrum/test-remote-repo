@@ -532,7 +532,7 @@ class E12P2A(Act12):
         self.to_header(tc)
         self.set_badge("std")
         h = self.show_heading("FEC — Reed-Solomon, 248 baytlık kod sözcüğü")
-        x0, W = -3.4, 9.6
+        x0, W = -3.0, 9.2
         u = W / 248
         r10 = strip([(216 * u, "216 B veri", R10, 0.2), (32 * u, "32 B", PARC, 0.5)], x0, 1.15, 0.6, 17)
         r25 = strip([(232 * u, "232 B veri", R25, 0.2), (16 * u, "16", PARC, 0.5)], x0, -0.75, 0.6, 15)
@@ -660,7 +660,8 @@ class E12P2A(Act12):
         bur = VGroup()
         for a, w, n, p, c in bs:
             r = Rectangle(width=w, height=0.6, stroke_color=c, stroke_width=2, fill_color=c, fill_opacity=0.2).move_to([tx0 + a + w / 2, 0.9, 0])
-            bur.add(VGroup(r, T(n, 16, TXT, BOLD).move_to(r), fit(T(p, 15, c, BOLD), w + 0.1).next_to(r, DOWN, buff=0.45)))
+            pl_ = VGroup(*[T(s_, 15, c, BOLD) for s_ in p.split(" · ")]).arrange(DOWN, buff=0.05).next_to(r, DOWN, buff=0.4)
+            bur.add(VGroup(r, T(n, 16, TXT, BOLD).move_to(r), pl_))
         tll = T("↑ çerçeve", 15, MUTED, BOLD).next_to(tl, DOWN, buff=0.06).align_to(tl, RIGHT)
         rr = VGroup(tag("her ONU için", TW_US, 18), tag("burst profiliyle (Burst_Profile · F biti)", TW_US, 18), tag("dinamik", TW_US, 18)).arrange(DOWN, buff=0.18).move_to([3.45, -1.45, 0])
         self.play(self.set_src("G.989.3 §10.1.3 · §10.1.3.1.2 · §10.1.3.2.4"), run_time=0.3)
@@ -806,17 +807,17 @@ class E12P2B(Act12):
         wx0, wx1 = -4.3, 3.2
         tb = (wx1 - wx0) / len(raw)
         w1 = VMobject(stroke_color=WARN, stroke_width=2.4).set_points_as_corners(nrz(raw, wx0, tb, 0.85, 1.65, 0.02))
-        w2 = VMobject(stroke_color=GOOD, stroke_width=2.4).set_points_as_corners(nrz(scb, wx0, tb, -0.75, 0.05, 0.02))
+        w2 = VMobject(stroke_color=GOOD, stroke_width=2.4).set_points_as_corners(nrz(scb, wx0, tb, -1.05, -0.25, 0.02))
         run_ = BraceBetweenPoints([wx0 + 4 * tb, 0.75, 0], [wx0 + 50 * tb, 0.75, 0], DOWN, color=WARN)
         runl = T("uzun özdeş dizi", 16, WARN, BOLD).next_to(run_, DOWN, buff=0.04)
         l1 = T("karıştırılmamış", 17, WARN, BOLD).move_to([-6.45, 1.25, 0], aligned_edge=LEFT)
-        l2 = T("karıştırılmış NRZ", 17, GOOD, BOLD).move_to([-6.45, -0.35, 0], aligned_edge=LEFT)
+        l2 = T("karıştırılmış NRZ", 17, GOOD, BOLD).move_to([-6.45, -0.65, 0], aligned_edge=LEFT)
         g2 = VGroup(T("G.989.2 §11.1.2", 15, MUTED, BOLD), T("↓ ve ↑ hat kodu:\nkarıştırılmış NRZ", 17, TXT, BOLD, line_spacing=0.85)).arrange(DOWN, aligned_edge=LEFT, buff=0.08).move_to([5.1, 1.25, 0])
-        g3 = VGroup(T("G.989.2 Tablo 11-4 … 11-7", 15, MUTED, BOLD), T("CID bağışıklığı: 72 bit", 17, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08).move_to([5.1, -0.35, 0])
+        g3 = VGroup(T("G.989.2 Tablo 11-4 … 11-7", 15, MUTED, BOLD), T("CID bağışıklığı: 72 bit", 17, GOLD, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08).move_to([5.1, -0.65, 0])
         for g in (g2, g3):
             g.align_to(g2, LEFT)
-        a = tile("optik tablo · G.989.2 · 72 bit CID", PMDC, 5.2, 0.62, 18, 0.15).move_to([-3.2, -2.3, 0])
-        b = tile("TC katmanı · G.989.3 · x⁵⁸ + x³⁹ + 1", PHC, 5.2, 0.62, 18, 0.15).move_to([3.2, -2.3, 0])
+        a = tile("optik tablo · G.989.2 · 72 bit CID", PMDC, 4.7, 0.62, 18, 0.15).move_to([-3.3, -2.35, 0])
+        b = tile("TC katmanı · G.989.3 · x⁵⁸ + x³⁹ + 1", PHC, 4.7, 0.62, 18, 0.15).move_to([3.3, -2.35, 0])
         ab = DoubleArrow(a.get_right(), b.get_left(), buff=0.08, color=ACC, stroke_width=3, tip_length=0.14)
         abl = T("birbirine dayanır", 16, ACC, BOLD).next_to(ab, UP, buff=0.08)
         self.play(FadeIn(chips, shift=LEFT * 0.1), self.set_src("G.989.2 §11.1.2 · Tablo 11-4…11-7 · G.989.3 §6.1.3.3"), run_time=0.5)
