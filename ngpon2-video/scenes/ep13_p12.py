@@ -248,7 +248,7 @@ class E13P1B(Act13):
         self.beat("b6")
         self.clear(hd)
         h = self.show_heading("PLI — yük uzunluğu göstergesi", h)
-        self.play(hd.animate.move_to([0, 1.8, 0]), run_time=0.5)
+        self.play(hd.animate.move_to([0, 1.6, 0]), run_time=0.5)
         gl = glow(hd[0][0], PLIC, 0.05)
         X = lambda v: -5.6 + v / 16383 * 11.2
         ay = 0.2
@@ -853,7 +853,7 @@ class E13P2B(Act13):
             dots.add(VGroup(lab, ln, dh, dp))
         leg = VGroup(VGroup(Dot(radius=0.08, color=HECC), T("başlık", 15, HECC, BOLD)).arrange(RIGHT, buff=0.1),
                      VGroup(Dot(radius=0.08, color=SAC), T("1518 B yük", 15, SAC, BOLD)).arrange(RIGHT, buff=0.1)).arrange(RIGHT, buff=0.3)
-        leg.next_to(ax, DOWN, buff=0.15).align_to(ax, RIGHT).shift(DOWN * 0.3)
+        leg.move_to([4.4, -0.22, 0])
         msg = pill("başlık, yükün bozulduğu yerde neredeyse hiç bozulmaz", GOOD, 19).move_to([-1.0, -3.05, 0])
         self.at(self.cue("Bağımsız hatalarla", 1.9))
         self.play(self.set_src("bağımsız bit hataları · Ek A Tablo A.4 · olasılıklar: hesap"), FadeIn(tb[0]), FadeIn(hk), FadeIn(ax), run_time=0.6)
