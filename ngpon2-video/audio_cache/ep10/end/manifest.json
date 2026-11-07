@@ -1,0 +1,42 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "bb603eb9168_0.wav",
+   "duration": 26.729,
+   "text": "Sezonun özeti. Bir: NG-PON2, aynı ODN üzerinde dört ya da sekiz TWDM kanal çiftini ve noktadan noktaya WDM hatlarını birlikte taşır. İki: ODN sınıfını OLT taşır; ONU alıcısı her sınıfta aynı pencereyi görür. Üç: ayarlanabilir verici ve alıcı, bu sistemin hem gücü hem de en büyük riskidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h2",
+   "file": "b93dfe4a347_0.wav",
+   "duration": 22.947,
+   "text": "Dört: yukarı yönde her burst sıfırdan edinilir; güç dengeleme ve X bölü S toleransı bu kalabalığı yönetilebilir kılar. Beş: sahada her şey ölçülür, ama ölçümler doğruluk sınırlarıyla okunmalıdır. Altı: koruma ve kanal yönetimi TC katmanındadır, ama optiğin ne kadar hızlı ve ne kadar temiz ayarlandığına bağlıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h3",
+   "file": "bc4bf091bec_0.wav",
+   "duration": 26.896,
+   "text": "Kendini test et. Birinci soru: B tipi korumada ONU neden yeniden ayarlanmaz, ve korumanın etkili olması için hangi koşul gerekir? İkinci soru: OLT'nin alınan güç ölçümü neden burst'ün uzunluğuna bağlıdır? Üçüncü soru: acil durdurma durumundaki bir ONU, gücü kesilip geri geldiğinde ne yapar? Cevaplar, ikinci sezonun ilk bölümünün başında.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h4",
+   "file": "bff3e20ecf1_0.wav",
+   "duration": 28.664,
+   "text": "İkinci sezonda G.989.3'e, iletim yakınsama katmanına geçiyoruz: çerçeveleme ve XGEM, PLOAM ve OMCI kanalları, dinamik bant genişliği tahsisi, aktivasyon ve mesafe ölçümü, kanal yönetimi ve ayar dizileri, güvenlik, güç yönetimi ve koruma. Bu sezon ışığın kendisini konuştuk; gelecek sezon ışığın taşıdığı dili konuşacağız.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h5",
+   "file": "b46df3d1959_0.wav",
+   "duration": 8.173,
+   "text": "LAMBDA'nın birinci sezonu burada bitiyor. İzlediğiniz için teşekkürler. Görüşmek üzere.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 113.41
+}

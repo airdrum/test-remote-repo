@@ -1,0 +1,49 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "ba61bc757d1_0.wav",
+   "duration": 12.397,
+   "text": "Bölüm on: Sahaya İniş. Sezon finali. Dokuz bölüm boyunca G.989.2'nin tablolarını tek tek açtık; bu bölümde onları sahaya taşıyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b7547cad85d_0.wav",
+   "duration": 9.888,
+   "text": "Önce izleme: bir ONU ve bir OLT kendi optik durumunu nasıl ölçer, ve bu ölçümlere ne kadar güvenebiliriz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b373f7c2037_0.wav",
+   "duration": 7.563,
+   "text": "Sonra koruma: bir besleyici fiber kesildiğinde ne olur, ve bu anahtarlama neden ONU'nun optiğine hiç dokunmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "b2c599d6578_0.wav",
+   "duration": 5.472,
+   "text": "Ardından uyumluluk: kırk iki normatif tablonun tek bir test matrisine dönüşmesi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b80a7c1d9a5_0.wav",
+   "duration": 8.629,
+   "text": "Ve bir ONU'nun hayatı: fişe takıldığı andan acil durdurma komutuna kadar, bütün sezonu tek bir hikâyede birleştiriyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b662c41ebd4_0.wav",
+   "duration": 11.452,
+   "text": "Sahada arıza vakalarını ve bir saha ekibinin ölçüm çantasını konuşacağız. Bölümün sonunda da ikinci sezona, G.989.3'e bir bakış var.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 55.4
+}

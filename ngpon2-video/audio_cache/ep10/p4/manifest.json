@@ -1,0 +1,140 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b91d21345c0_0.wav",
+   "duration": 19.416,
+   "text": "Perde dört: bir ONU'nun hayatı. Sezon boyunca ayrı ayrı gördüğümüz her parçayı, tek bir ONU'nun zaman çizelgesine diziyoruz. Her adımda iki soru soracağız: optik ne yapıyor, ve TC katmanı ne söylüyor.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "ba642281af1_0.wav",
+   "duration": 23.497,
+   "text": "Adım sıfır: güç verilir. ONU ilk durumuna girer, ve vericisi kapalıdır. Ama kapalı bir verici bile tamamen karanlık değildir: etkin olmayan vericinin güç spektral yoğunluğu, on beş gigahertz başına eksi altmış iki virgül altı dBm ile sınırlıdır. ONU'nun önceki durumu acil durdurma ise, doğrudan oraya döner.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "b0fe288ac5d_0.wav",
+   "duration": 21.285,
+   "text": "Adım bir: aşağı yön kanalını aramak. ONU pasif kalarak dinler. Alıcısı ayarlanabilir olmalıdır; aşağı yön kanalları yüz seksen yedi virgül sekizden yüz seksen yedi virgül bir terahertze uzanır. Ayar adımı en çok beş gigahertzdir. Alıcının ayar süresi sınıfı ise zorunlu değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "bf382fdb517_0.wav",
+   "duration": 25.396,
+   "text": "Adım iki: senkron. ONU saatini aşağı yön sinyalinden çıkarır, ve çerçeve başındaki senkron desenini avlar: altmış dört bitlik bir desen. Arama sırasında birebir eşleşmelidir; kilitlendikten sonra altmış dört bitin en az altmış ikisi tutmalıdır. Sonra yüz yirmi beş mikrosaniyelik çerçeveler akar; önerilen değerle üç ardışık kötü çerçeve, senkron kaybı demektir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "b5b5499817c_0.wav",
+   "duration": 26.324,
+   "text": "Adım üç: profilleri öğrenmek. ONU kanal profillerini dinler: her kanalın frekansı, FEC kullanımı, bağlantı tipi ve varsayılan zayıflatma. Profiller bir ile beş saniye arasında bir aralıkla yinelenir; profil bekleme süresi en az on saniyedir. ONU aynı anda PSBd'deki TOL alanından OLT'nin başlatma gücünü de okur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "bbdf48160ee_0.wav",
+   "duration": 27.476,
+   "text": "Adım dört: seri numarası. ONU ilk kez ışık verir. Burada altıncı ve yedinci bölümlerin bütün tabloları devrededir: burst başlatma gücü, spektral sapma, ayar penceresi, kanal aralığının yirmide biri kadar ayar adımı, ve verici açma süresi: iki buçuk gigabitte üç yüz yirmi, on gigabitte bin iki yüz seksen bit; ikisi de yüz yirmi sekiz virgül altı nanosaniye.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6a",
+   "file": "bca155e5086_0.wav",
+   "duration": 27.224,
+   "text": "ONU, sıfır ile kırk sekiz mikrosaniye arasında rastgele bir gecikmeyle, ve otuz beş artı eksi bir mikrosaniyelik bir yanıt süresiyle cevap verir. OLT bu sırada bir sessiz pencere açar: yirmi kilometrede iki yüz elli, kırk kilometrede dört yüz elli mikrosaniye. Seri numarası mesajı ONU'nun aşağı yön kanalını, kalibrasyon durumunu, ayar adımını ve tek adımlık ayar süresini de taşır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "b7f1f2e5676_0.wav",
+   "duration": 23.529,
+   "text": "Adım beş: yukarı yön dalga boyunu düzeltmek. Kalibre edilmemiş bir ONU, ayar komutlarıyla doğru kanala çekilir. Optik tarafta sınır, artı eksi yirmi gigahertzlik spektral sapmadır. Dalga boyuna bağlı güç değişimi ise iki buçuk gigabitte gigahertz başına sıfır virgül sıfır beş, on gigabitte sıfır virgül sıfır iki desibelle sınırlıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8",
+   "file": "b202bcc5ef0_0.wav",
+   "duration": 23.843,
+   "text": "Adım altı: mesafe ölçümü. OLT, ONU'nun gidiş dönüş gecikmesini ölçer, ve ona bir eşitleme gecikmesi verir; böylece bütün ONU'lar ortak bir zaman eksenine hizalanır. Mesafe ölçüm penceresi yirmi kilometrede iki yüz iki, kırk kilometrede dört yüz iki mikrosaniyedir, ve eşitleme gecikmesi iki buçuk gigabitte bir bit doğruluğundadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e9",
+   "file": "b5c264b29be_0.wav",
+   "duration": 16.909,
+   "text": "Adım yedi: kimlik. Kayıt kimliği her NG-PON2 cihazında zorunludur. İsteğe bağlı olarak, karşılıklı kimlik doğrulama da yapılabilir; bu, aktivasyon tamamlandıktan sonra ve kullanıcı verisi gönderilmeden önce olur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e10",
+   "file": "bf7c5185b44_0.wav",
+   "duration": 28.735,
+   "text": "Adım sekiz: çalışma. ONU artık yukarı yönde, aldığı aşağı yön sinyaliyle aynı frekans doğruluğunda gönderir. OLT her ONU'nun gelen gücünü, fazını ve hata oranını izler. Faz kayması bir pencereyi aşarsa yeni bir eşitleme gecikmesiyle düzeltilir: iki buçuk gigabitte sekiz, on gigabitte otuz iki bit; ikisi de yaklaşık üç virgül iki nanosaniye.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e11",
+   "file": "b2b086af176_0.wav",
+   "duration": 33.595,
+   "text": "Adım dokuz: güç dengeleme. Yakındaki bir ONU gücünü kısar. D ekindeki özerk örnekte ONU, aldığı güce göre on iki, dokuz, altı, üç ya da sıfır desibel zayıflatır; eşikler eksi yedi, eksi on, eksi on üç ve eksi on altı dBm'dir. OLT yönlendirmeli dengeleme altı ile dokuz desibellik ek bir aralık sunar. TC katmanında adımlar üç desibelin katlarıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e12",
+   "file": "bd3941da22a_0.wav",
+   "duration": 26.964,
+   "text": "Adım on: dalga boyu devri. OLT, ONU'yu başka bir kanala taşır. Yedinci bölümde gördüğümüz gibi, ayar süresince bütün tablo spesifikasyonları sağlanmalıdır ki ONU başıboş bir vericiye dönüşmesin. TC tarafında devir süresi, hazırlık, fiziksel ayar ve yeniden senkron sürelerinin toplamıdır; devrin anı ise bir süper çerçeve sayacıyla önceden belirlenir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e13",
+   "file": "b01a6a12424_0.wav",
+   "duration": 25.812,
+   "text": "Adım on bir: dalga boyu kilitleme. OLT, ONU'nun yukarı yön dalga boyunu küçük düzeltmelerle kanalın merkezinde tutar. İstatistik, düzeltmeden altı çerçeve, yani yedi yüz elli mikrosaniye sonra toplanmaya başlar. Çok sık ya da çok büyük düzeltme istekleri bir kusur olarak ilan edilir: vericinin kaydığını söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e14",
+   "file": "bc826d5a104_0.wav",
+   "duration": 19.651,
+   "text": "Adım on iki ve on üç: koruma ve izleme. Besleyici kesilirse B tipi koruma OLT tarafında anahtarlar; ONU yeniden ayarlanmaz. Bütün bu süre boyunca ONU ve OLT, ikinci ekin pencereleriyle kendi sıcaklığını, gerilimini, akımını ve optik güçlerini ölçer.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e15",
+   "file": "be2fb91f698_0.wav",
+   "duration": 27.199,
+   "text": "Adım on dört: arızalar. Senkron kaybı ONU'nun tek kusurudur. OLT tarafında ise burst kaybı, sinyal kaybı, zamanlama kayması ve devre dışı bırakma hatası gibi kusurlar vardır. En sert olanı acil durdurmadır: seri numarası devre dışı bırakılan bir ONU vericisini kapatır, ve bu durum yeniden başlatmada ve güç kesintisinde bile korunur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e16",
+   "file": "bfcae137821_0.wav",
+   "duration": 21.464,
+   "text": "Adım on beş: ayrılış. ONU kimliği iptal edilince ONU ilk duruma döner, ve hikâye baştan başlar. Bir sonraki aktivasyonda ONU, seri numarası mesajındaki aktivasyon hata ayıklama alanında neden yeniden başladığını söyler: güç kaybı mı, senkron kaybı mı, yoksa bir zamanlayıcı mı.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e17",
+   "file": "bdc4b6a62e0_0.wav",
+   "duration": 31.824,
+   "text": "Mühendis notu. Bir: aynı yüz yirmi beş mikrosaniyelik ızgara bütün arıza zamanlayıcılarını sürer: üç kötü çerçevede senkron kaybı, dört kaçırılmış burst'te burst kaybı, dört çerçevede sinyal kaybı, altı çerçevede kilitleme ölçümü. İki: G.989.3'e göre ONU'nun optiği N1'den E1'e kadar aynıdır. Bu, ikinci bölümde söylediğimizi doğrular: ODN sınıfını OLT taşır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e18",
+   "file": "be16ef3f8ed_0.wav",
+   "duration": 6.567,
+   "text": "Sıradaki: kâğıt üstünde hikâye tamam. Sahada ise işler her zaman bu sırayla gitmez.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 456.71
+}

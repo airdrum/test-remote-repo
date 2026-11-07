@@ -1,0 +1,112 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "c1",
+   "file": "b999a4a570e_0.wav",
+   "duration": 21.663,
+   "text": "Perde iki: koruma. Önce şunu belirtelim: G.989.2 koruma tanımlamaz; teknik metninde koruma sözcüğü bile geçmez. Koruma, G.989.3'ün on sekizinci maddesindedir. Bu perde bu yüzden bir TC köprüsüdür, ama fiziksel katman için önemli sonuçları var.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c2",
+   "file": "bdbcd7d321c_0.wav",
+   "duration": 20.163,
+   "text": "Tanımlanan yapı bire bir, B tipi korumadır. Bir kanal grubunda her kanal çiftinin iki OLT kanal sonlandırıcısı vardır. Çift ebeveynli yapıda bu iki sonlandırıcı farklı OLT şasilerindedir; tek ebeveynli yapıda aynı şasidedirler ve aynı servis arayüzünü paylaşabilirler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3",
+   "file": "b29cc604657_0.wav",
+   "duration": 27.184,
+   "text": "Neyi korur? Kanal bağlantı fiberini, yani OLT kanal sonlandırıcısı ile dalga boyu çoğullayıcısı arasındaki fiberi. Besleyici fiberi, yani çoğullayıcı ile ayırıcı arasındaki fiberi. Çoğullayıcının kendisini, kanal sonlandırıcısını, ve çift ebeveynlikte bütün şasiyi. Dağıtım ve düşüm fiberleri ile ayırıcı bu listede yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c3a",
+   "file": "b19b7a782b2_0.wav",
+   "duration": 20.553,
+   "text": "Anahtarlamanın inceliği de tanımlıdır. Her kanal çifti bağımsız korunur. Besleyici fiber, çoğullayıcı ya da şasi arızasında gruptaki bütün kanal çiftleri aynı anda anahtarlanır. Yalnızca bir kanal sonlandırıcısı ya da onun bağlantı fiberi arızalanırsa, yalnızca etkilenen çift anahtarlanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c4",
+   "file": "bd51a9ab26b_0.wav",
+   "duration": 20.355,
+   "text": "Fiziksel katman için en önemli cümle şudur: B tipi koruma ONU'nun yeniden ayarlanmasını gerektirmez. Anahtarlama sırasında ONU aynı kanal çiftinde kalır. Bu yüzden korumanın etkili olması için, aşağı yön senkronunun, ONU yeniden ayarlanmaya karar vermeden önce geri gelmesi gerekir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5",
+   "file": "b0ec3ad4e2c_0.wav",
+   "duration": 17.641,
+   "text": "Yük OLT tarafındadır. İki sonlandırıcı aynı kanal çiftine bakar, ama hiçbir anda ikisi birlikte göndermemelidir. Tam olarak biri etkin roldedir ve aşağı yönde ışık gönderir. Diğeri bekleme rolündedir: vericisi kapalıdır, ama yukarı yönü dinler ve devralmaya hazırdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c5a",
+   "file": "b62e616ea6b_0.wav",
+   "duration": 22.324,
+   "text": "Durum makinesinde on durum vardır, ve her birinde vericinin açık mı kapalı mı olduğu yazılıdır. Başlangıç, ön koruma, koruma ve bekleme tarafındaki sinyal kaybı durumlarında verici kapalıdır. Ön çalışma, çalışma ve çalışma tarafındaki sinyal kaybı durumlarında açıktır. Son iki durum ise iletişim ve donanım arızalarıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6",
+   "file": "b3bf5ee262f_0.wav",
+   "duration": 22.061,
+   "text": "Sinyal kaybı burada yukarı yön üzerinden tanımlanır. Basit sinyal kaybı, aşağı yönde iletim olmayan durumlarda, sıfır virgül beş milisaniyelik, yani dört çerçevelik yukarı yön sessizliğidir. Nitelikli sinyal kaybı ise dört ardışık çerçevede yukarı yön iletimi olmaması, ve ilgili bütün ONU'lar için burst kaybı ilan edilmesidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c6a",
+   "file": "b743f403eb5_0.wav",
+   "duration": 26.74,
+   "text": "Zamanlayıcılar için standart sayı vermez, yalnızca sıralama verir: koruma tarafındaki arıza zamanlayıcısı, tutma zamanlayıcısından ve çalışma tarafındaki arıza zamanlayıcısından uzun olmalıdır; tutma zamanlayıcısı da çalışma tarafındakinden uzun olmalıdır. Verilen tek değer, yukarı yön onayı için önerilen sıfır virgül beş milisaniyedir. Elli milisaniye gibi bir anahtarlama süresi hedefi metinde yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c7",
+   "file": "b824298ca13_0.wav",
+   "duration": 30.644,
+   "text": "İki sonlandırıcı birbirleriyle kanal sonlandırıcıları arası protokolle, yani ICTP ile konuşur. Varsayılan roller birincil ve ikincildir, ve bir el sıkışmayla çözülür. Geri dönüşlü yapılandırmada varsayılan roller kalıcıdır; geri dönüşsüz yapılandırmada el sıkışmadan sonra bırakılır. ICTP'nin ayrıntısı ayrı bir belgeye bırakılmıştır, ve durum makinesi ICTP olmadan da ilerleyebilecek biçimde tasarlanmıştır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8",
+   "file": "bea39b5de3a_0.wav",
+   "duration": 29.343,
+   "text": "İkinci bir koruma katmanı ONU tarafındadır: dalga boyu kanalı koruması. OLT, bir PLOAM mesajıyla ONU'ya önceden bir koruma kanalı bildirir. ONU aşağı yön senkronunu kaybedip aralıklı senkron kaybı durumuna, O6'ya girdiğinde, bu koruma açıksa TO3 zamanlayıcısını başlatır. Süre dolunca aşağı yön ayar durumuna geçer, ve önceden yapılandırılmış koruma kanalına ayarlanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c8a",
+   "file": "ba931d39a1d_0.wav",
+   "duration": 25.08,
+   "text": "Burada ONU'nun optiği gerçekten çalışır: yeni kanala ayar, yeni kanalda senkron, ve yukarı yönde kendini bildirme. Koruma tarafındaki OLT sonlandırıcısı, korunan ONU'ların varlıklarını bildirebileceği, önceden mesafesi ölçülmüş bir çekişmeli tahsis sunabilir. TO2 ve TO3 için ise standartta bir değer yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c9",
+   "file": "b292f892eda_0.wav",
+   "duration": 22.377,
+   "text": "Bir terim tuzağı. G.989.2'deki A tipi ve B tipi bağlantı, yükselteçsiz ve yükselteçli OLT alıcısı demektir. G.989.3'teki B tipi koruma ise bambaşka bir şeydir. Kanal profilindeki bağlantı tipi alanı ilkini taşır, korumayı değil.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c10",
+   "file": "becfc4c0f54_0.wav",
+   "duration": 30.245,
+   "text": "Mühendis notu. Bir: B tipi koruma tasarlıyorsanız, aşağı yönü geri getirme sürenizi ONU'nun sabrına göre ayarlayın; ONU yeniden ayara karar verirse, B tipi koruma yerine dalga boyu kanalı koruması devreye girer. İki: bekleme tarafındaki sonlandırıcının vericisinin gerçekten karanlık olduğunu doğrulayın. Aynı kanalda iki vericinin birlikte ışık vermesi, korumanın kendisini bir arızaya dönüştürür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "c11",
+   "file": "ba0d0b9fab3_0.wav",
+   "duration": 7.175,
+   "text": "Sıradaki: ağ ayakta. Ama bir OLT'nin ya da ONU'nun standarda uyduğunu nasıl kanıtlarız?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 343.55
+}

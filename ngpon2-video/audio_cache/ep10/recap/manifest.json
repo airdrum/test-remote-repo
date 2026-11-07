@@ -1,0 +1,28 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "b14e032a47c_0.wav",
+   "duration": 28.752,
+   "text": "Geçen bölümün soruları. Birinci soru: A eki tablolarında ODN sınıfı büyüdükçe ne değişir? Aşağı yönde OLT'nin başlatma gücü her sınıfta iki desibel artar; yukarı yönde OLT'nin hassasiyeti her sınıfta iki desibel iyileşir. ONU'nun vericisi ve alıcısı ise değişmez. ODN sınıfını iki yönde de OLT taşır, ve belirtilen her hücre sıfır payla kapanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a2",
+   "file": "b2610c948a8_0.wav",
+   "duration": 21.187,
+   "text": "İkinci soru: üst modülasyon indeksi, zarfın en büyük ve en küçük gücü arasındaki farkın ortalama güce oranıdır, yüzde olarak. Yüzde on, simetrik bir zarfta ortalamanın yüzde beş üstü ve yüzde beş altı demektir: yaklaşık artı eksi sıfır virgül iki desibel. Standart bunun yol açtığı cezayı tanımlamaz; ölçmek size kalır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a3",
+   "file": "b01249cddf9_0.wav",
+   "duration": 33.317,
+   "text": "Üçüncü soru: Y, başka abonelerin yukarı yön PtP ışığının ODN'den geri yansımasıdır. En büyük PtP ONU gücü artı dokuz dBm, eksi otuz iki desibellik geri dönüş kaybıyla eksi yirmi üç dBm eder; bu, TWDM ONU'sunun eksi otuz dBm'lik hassasiyetinin yedi desibel üstüdür. Birinci düzeltme, metindeki altı desibeli bu yüzden yediye çevirdi. Şimdi bu bölüme.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 83.26
+}

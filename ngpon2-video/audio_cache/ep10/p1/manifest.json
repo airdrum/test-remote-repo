@@ -1,0 +1,112 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "b1",
+   "file": "bbec97599c1_0.wav",
+   "duration": 22.723,
+   "text": "Perde bir: optik katmanı izlemek. Sahadaki bir ağ, laboratuvardaki gibi bir güç ölçer ve osiloskopla değil, cihazların kendi ölçümleriyle yönetilir. G.989.2 bunu ikinci ekte tanımlar: optik katman denetimini destekleyen fiziksel katman ölçümleri.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b1a",
+   "file": "ba4e8813d2f_0.wav",
+   "duration": 26.019,
+   "text": "Önemli bir ayrıntı: bu ek bilgilendiricidir, standardın bağlayıcı bir parçası değildir. İçeriği G.984.2'nin ikinci değişikliğindeki dördüncü ekten alınmıştır; bazı aralıklar ve hesap yöntemleri NG-PON2 için değiştirilmiştir. Ek, aynı ölçümlerin PtP WDM için de geçerli olduğunu, ama bu tarafın ayrıca inceleneceğini söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2",
+   "file": "b120db94ecf_0.wav",
+   "duration": 24.425,
+   "text": "Tablodaki yedi parametrenin üçü elektriksel ve ısıldır. Sıcaklık, besleme gerilimi ve öngerilim akımı hem OLT'de hem ONU'da ölçülür. Tipik aralıklar eksi kırk beşten artı doksan santigrat dereceye, sıfırdan altı virgül elli beş volta, ve sıfırdan sekiz yüz on dokuz miliampere kadardır. Tepki süreleri bir saniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b2a",
+   "file": "b0f9d1b14cd_0.wav",
+   "duration": 14.599,
+   "text": "Doğrulukları gevşektir: sıcaklıkta artı eksi üç derece, gerilimde nominal değerin yüzde üçü, öngerilim akımında yüzde onu. Bu ölçümler bir alarm ve eğilim aracıdır, bir kalibrasyon aracı değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3",
+   "file": "b68bd85b5f6_0.wav",
+   "duration": 29.869,
+   "text": "Optik güçler dört satırdır: ONU'nun ve OLT'nin gönderdiği ve aldığı güç. Gönderilen güç eksi yirmi sekizden artı yirmi dBm'e, alınan güç eksi elli üçten eksi dört virgül dokuz dBm'e kadar ölçülür. Çözünürlük her satırda sıfır virgül bir desibel, tekrarlanabilirlik artı eksi sıfır virgül beş desibel, tepki süresi üç yüz nanosaniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b3a",
+   "file": "baa85b27f48_0.wav",
+   "duration": 22.367,
+   "text": "Mutlak doğruluk ONU tarafında artı eksi üç, OLT tarafında artı eksi iki desibel olarak yazılmıştır. Ama tablonun beşinci notu, alınan güç için eksi otuz beş dBm'e kadar üç, daha aşağıda beş desibellik doğruluk der. OLT satırındaki iki desibel bu notla çelişir. Tabloyu okurken notları da okumak gerekir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4",
+   "file": "ba23896e922_0.wav",
+   "duration": 27.807,
+   "text": "Bu ölçüm penceresi tesadüf değildir. Eksi dört virgül dokuz dBm'lik üst sınır, TWDM tablolarındaki en yüksek aşırı yükü, eksi beş dBm'i kapsar. Eksi elli üçlük alt sınır ise çok daha aşağıdadır, ve ek nedenini açıkça yazar: ONU'nun ayarlanabilir vericisinin ayarına yardım etmek. Yanlış kanala ayarlanmış bir ONU'nun zayıf ışığı bile görülebilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b4a",
+   "file": "be2d1c58af7_0.wav",
+   "duration": 31.501,
+   "text": "Doğruluğun beş desibele düştüğü eksi otuz beşin altındaki bölgede yalnızca bir TWDM alıcı değeri vardır: iki buçuk gigabitlik, yükselteçli bağlantı tipindeki E2 sınıfı OLT alıcısının eksi otuz altı virgül beş dBm'lik hassasiyeti. ONU hassasiyetleri ise eksi yirmi sekiz ve eksi otuzdur; ONU'nun bütün çalışma penceresinde üç desibellik doğruluk geçerlidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b5",
+   "file": "b12c10b46ea_0.wav",
+   "duration": 23.305,
+   "text": "OLT'nin alınan güç ölçümü bir burst ölçümüdür. Üçüncü not, ölçümün burst'e göre doğru anda yapılmasını ve burst'ün dedektörün tepki süresine yetecek kadar uzun olmasını ister. Üç yüz nanosaniye, iki buçuk gigabitte yedi yüz kırk altı bit, on gigabitte yaklaşık üç bin bittir. Çok kısa bir burst'ün gücü anlamlı biçimde okunamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b6",
+   "file": "b966fa3a072_0.wav",
+   "duration": 25.08,
+   "text": "NG-PON2 küçük ama akıllı bir değişiklik de yapar: tek bir akım kaydı iki tip vericiyi izler. En anlamlı iki bit, değerin lazer öngerilimi mi, yoksa yarı iletken optik yükseltecin, yani SOA'nın akımı mı olduğunu söyler. Kalan on dört bit, elli mikroamperlik adımlarla on altı bin üç yüz seksen dört değer taşır; sekiz yüz on dokuz miliamperlik aralık buradan gelir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b6a",
+   "file": "b4ece30f00c_0.wav",
+   "duration": 23.139,
+   "text": "Güç kayıtlarının adımı da değişmiştir. Gönderilen güç bir virgül beş mikrovatlık adımlarla kodlanır; bir adım eksi yirmi sekiz virgül yirmi dört dBm'e, en büyük değer yaklaşık artı yirmi dBm'e karşılık gelir. Alınan güç sıfır virgül sıfır sıfır beş mikrovatlık adımlarla kodlanır: bir adım eksi elli üç, en büyük değer eksi dört virgül sekiz dBm.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7",
+   "file": "bfb21f2419d_0.wav",
+   "duration": 21.464,
+   "text": "Bu ölçümler bağlayıcı olmayan bir ekte durur, ama bağlayıcı metin onlara dayanır. D ekindeki özerk güç dengeleme, ONU'nun alınan güç göstergesinin artı eksi üç desibellik doğruluğunu buradan alır: on beş desibellik diferansiyel yol kaybından üç desibel düşülür, ve izin verilen dengeleme on iki desibele iner.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b7a",
+   "file": "b52d7ad0cb9_0.wav",
+   "duration": 34.164,
+   "text": "TC köprüsü: G.989.3 bu değerlerin nerede taşındığını söyler. OLT'nin başlatma gücü, aşağı yön çerçeve başlığındaki PSBd'nin TOL alanında, eksi otuz dBm'e göre sıfır virgül bir desibellik adımlarla bütün ONU'lara yayınlanır. ONU'nun optik güç ölçümleri ise OMCI ile, G.988'deki yönetim varlıkları üzerinden okunur. OLT de çalışan her ONU'nun gelen gücünü, fazını ve hata oranını izler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b8",
+   "file": "b86e7403133_0.wav",
+   "duration": 28.863,
+   "text": "Mühendis notu. Bir: bir ONU'nun bildirdiği alınan gücü saha güç ölçerinizle karşılaştırırken, üç desibele kadar farkı normal kabul edin. İki: güç dengeleme açıkken, D ekinin uyardığı gibi, güç ölçerin araya giriş kaybı ONU'yu bir eşiğin altına itebilir, ve ONU'nun vericisi üç desibel yükselebilir. Üç: OLT'nin gelen güç okumasını yalnızca yeterince uzun burst'lerde değerlendirin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "b9",
+   "file": "b9860e2dd09_0.wav",
+   "duration": 5.735,
+   "text": "Sıradaki: ölçebiliyoruz. Peki bir fiber kesildiğinde ağ nasıl ayakta kalır?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 361.06
+}

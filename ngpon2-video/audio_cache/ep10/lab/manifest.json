@@ -1,0 +1,98 @@
+{
+ "voice": "Damien Black",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "g1",
+   "file": "b482aac6c9c_0.wav",
+   "duration": 27.653,
+   "text": "Sahada. Bu bölümün laboratuvarı bir saha çantası. Önce ODN kabulü: yol kaybı sınıf penceresinin içinde mi? En küçük kaybın altındaysa, ağ bu en küçük kaybı sağlayacak bir zayıflatıcı içermelidir. Diferansiyel yol kaybı en çok on beş desibel, geri dönüş kaybı en az otuz iki desibel, ayrık yansımalar eksi otuz beş desibelin altında olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g2",
+   "file": "b838d1e56c4_0.wav",
+   "duration": 21.741,
+   "text": "Mesafe sınıfı yirmi ya da kırk kilometredir, ve OTDR bakım dalga boyu L.313'e uymalıdır. Unutmayın: OTDR, onuncu maddede geniş bant girişimciler listesindedir. NG-PON2 alıcısının bu girişime dayanması beklenir, ama bakım dalga boyunun planlanmış bantta kalması şarttır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g3",
+   "file": "b096ac1a73a_0.wav",
+   "duration": 20.508,
+   "text": "Güç okumaları: ONU'nun kendi bildirdiği alınan gücü bir PON güç ölçeriyle karşılaştırın; üç desibele kadar fark ikinci ekin doğruluğu içindedir. OLT'nin başlatma gücünü ise aşağı yön başlığındaki TOL alanından ve OLT'nin izleme sayaçlarından okuyun, ve değerin hangi referans noktasına ait olduğunu söyleyen biti kontrol edin.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g4",
+   "file": "b2056c48f69_0.wav",
+   "duration": 21.503,
+   "text": "Vaka bir: bir ONU görünmüyor. Önce senkron kaybı sayaçlarına bakın. Sonraki aktivasyondaki hata ayıklama kodu, ONU'nun neden yeniden başladığını söyler: senkron kaybı mı, bir zamanlayıcı mı, güç kaybı mı. Kanal değişti bayrağı da ONU'nun başka bir kanala geçip geçmediğini gösterir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g5",
+   "file": "ba8384f6bed_0.wav",
+   "duration": 25.221,
+   "text": "Vaka iki: bir ONU sessizce gidiyor. Ölmekte olan bir ONU, yukarı yön başlığındaki son nefes biti ile yerel bir sorun olduğunu bildirebilir. Bu bit, bir fiber sorununu müşteri tarafındaki bir sorundan ayırmaya yardım eder. Ama OLT, bant genişliği tahsislerini yalnızca bu bite dayanarak geri çekmemelidir. Son nefes bir ipucudur, bir komut değil.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g6",
+   "file": "bc441070943_0.wav",
+   "duration": 23.373,
+   "text": "Son nefes, kayıp bildirimlerini de niteler. Burst kaybı varsayılan olarak dört ardışık kaçırılmış burst'tür, ve raporlanması alınan son nefes bildirimleriyle nitelenmelidir. B tipi korumadaki nitelikli sinyal kaybı da son nefes bildirimlerini hesaba katabilir: birkaç ONU'nun elektriği kesildi diye bütün grup anahtarlanmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g7",
+   "file": "b7475ef4794_0.wav",
+   "duration": 24.98,
+   "text": "Vaka üç: başıboş ONU. Zaman alanında yanlış dilimde gönderen bir ONU, OLT'de burst kaybı ve zamanlama kusuru olarak görünür; üç düzeltme denemesinden sonra kaymaya devam ederse kusur ilan edilir. NG-PON2'de bunun yeni bir türü vardır: dalga boyu alanında başıboşluk. Verici yanlış kanala atlayabilir, ya da yanlış kanala ayarlanabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g8",
+   "file": "b0536b4b2fe_0.wav",
+   "duration": 22.349,
+   "text": "Bunun fiziksel savunması G.989.2'dedir: ayar süresince bütün spesifikasyonlar sağlanmalıdır, ve kanal dışı güç maskesi, verici spektral sapma aralığının herhangi bir yerine ayarlıyken de sağlanmalıdır. Dalga boyu kayması ise OLT'de, düzeltme isteklerinin sayısı ya da büyüklüğü eşikleri aştığında bir kusur olarak görünür.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g9",
+   "file": "b79c4d50d63_0.wav",
+   "duration": 25.481,
+   "text": "Son çare acil durdurmadır. OLT tek bir seri numarasını, ya da kanala ayarlı bütün ONU'ları devre dışı bırakabilir. Devre dışı ONU vericisini kapatır, ve bu durumu yeniden başlatmada bile korur. Yeniden başlayan böyle bir ONU kanalları tarar; her başarısız turda bekleme süresini ikiye katlayarak yaklaşık bir dakikaya kadar çıkar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g10",
+   "file": "b274df86f9c_0.wav",
+   "duration": 15.633,
+   "text": "Toplu bir başıboşluk vakasında OLT, bütün ONU'ları küresel olarak devre dışı bırakıp uyumlu olanları tek tek yeniden etkinleştirebilir. Bu, sahada suçluyu bulmanın sistematik yoludur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g11",
+   "file": "bb0ade30021_0.wav",
+   "duration": 23.807,
+   "text": "Vaka dört: güç dengeleme yanıt vermiyor. OLT bir ONU'ya gücünü değiştirmesini söyler, ONU onaylar, ama OLT'ye gelen güç değişmez. Bu durum ayrı bir kusur olarak ilan edilir. Olası nedenler: ONU'nun zayıflatıcısı çalışmıyordur, ya da OLT'nin gelen güç ölçümü yeterince uzun burst'lerde yapılmıyordur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g12",
+   "file": "b40f60953fb_0.wav",
+   "duration": 24.664,
+   "text": "Toplanacak sayaçlar: FEC ile düzeltilen ve düzeltilemeyen kod sözcükleri, FEC kapalıyken BIP-32 hataları, senkron kaybı olayları ve nasıl geri geldikleri, dalga boyu düzeltme genliği, son nefes sayısı ve güç değişimi retleri. Olay sonrası analiz için de ONU'nun kalıcı belleğindeki acil durum anlık görüntüsü: son nefes sırasında alınır, ve en az on kayıt tutar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "g13",
+   "file": "bbce79a0c98_0.wav",
+   "duration": 16.632,
+   "text": "Saha notu. Standardın sayı vermediği yerleri kendi ağınız için ölçün ve belgeleyin: OLT'nin koruma anahtarlama süresi, ve ONU'nun yeniden ayara karar vermeden önceki sabrı. İkisi de tanımsızdır, ama müşteriniz ikisini de hisseder.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 293.54
+}
