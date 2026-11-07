@@ -1,0 +1,61 @@
+{
+ "title": "S2B09 Perde 4 — Kusurlar ve son nefes",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: kusurlar. Madde amacını açıkça yazar: TC katmanında zorunlu eylemleri, uygulayıcıya kalanlardan ayırmak. OLT'nin dokuz kusuru, ONU'nun tek kusuru vardır: ikinci bölümde gördüğümüz LODS. OLT kusurlarında eylemlerin çoğu takdire kalır: ek bekleme süresi, tahsis planını değiştirmek, ONU'yu devre dışı bırakmak, ya da başıboş ONU tanılaması."
+  },
+  {
+   "id": "e2",
+   "text": "İlki burst kaybıdır: bir ONU'nun planlanmış ve art arda belirli sayıda burst'ü sınırlanamazsa, ve güç yönetimi makinesi onu muaf tutmuyorsa. Eşik yapılandırılabilir, varsayılanı dörttür; güç tasarrufunda OLT onu tolere edilen kayıp sayısına göre ayrıca kurmalıdır. Tek bir başarılı burst temizler, ve rapor, alınan son nefes bildirimleriyle nitelenmelidir."
+  },
+  {
+   "id": "e3",
+   "text": "Sinyal kaybı bütün PON içindir: OLT, yukarı yönde beklediği hiçbir iletimi art arda dört çerçeve almazsa. Tek bir iletim temizler. Bizim hesabımızla, çerçeve başına bir burst'le iki kusur da beş yüz mikrosaniyede ilan edilir; B tipi korumanın sessizlik süresi de yarım milisaniyedir. Ama burst kaybı burst sayar: on altı çerçevede bir burst alan bir ONU için sekiz milisaniyedir."
+  },
+  {
+   "id": "e4",
+   "text": "İletim girişimi uyarısı: zamanlama kayması dış eşiği aşar, ve eşitleme gecikmesi mesajıyla üç düzeltmeden sonra da dışarıda kalırsa; kayma iç eşiğin altına inince temizlenir. Önerilen dış eşik yaklaşık artı eksi altı virgül dört nanosaniyedir. PMD Köprüsü: bu, birinci sezonun altıncı bölümündeki en kötü durum koruma süresinin, iki yüz beş virgül sekiz nanosaniyenin, yalnızca yüzde üçüdür."
+  },
+  {
+   "id": "e5",
+   "text": "Başlatma başarısızlığı: OLT seri numarasını görür, ama ONU bağlanma dizisini tamamlayamaz. Tablodaki tek zorunlu eylem buradadır: kimlik iptali mesajı gönder. Devre dışı bırakma başarısızlığı: devre dışı bırakılan ONU tahsislere cevap vermeyi sürdürür. OLT bunu ancak tahsis vermeyi sürdürürse görebilir; o ONU'nun kimlikleri yeniden atanmaktan alıkonabilir."
+  },
+  {
+   "id": "e6",
+   "text": "Üç kusur yönetimden gelir. PLOAM kanalı kaybı: kalıcı bütünlük hatası ya da gelmeyen onaylar; kalıcı, aynı düzensizliğin art arda en az üç kez görülmesidir. OMCC kanalı kaybını OMCI motoru tanır. Verici dalga boyu kayması uyarısı, ayar isteklerinin sayısı ya da genliği eşikleri aşınca gelir. Ve bu üçünün iptal koşulu hücreleri boştur: standart ne zaman temizleneceklerini söylemez."
+  },
+  {
+   "id": "e7",
+   "text": "Dokuzuncusu zayıflatma düzeyi isteği başarısızlığıdır: ONU'nun onayladığı bir güç düzeyi değişikliğinden sonra OLT'nin aldığı güç değişmez. PMD Köprüsü. Birinci sezonun sekizinci bölümünde düzeyler üç desibellik adımlarla değişiyordu; aynı sezonun onuncu bölümündeki tabloda alınan güç tekrarlanabilirliği artı eksi yarım desibeldi. Bizim hesabımızla adım, bunun altı katıdır: değişim olarak görülür. Değişim eşiği ise yazılı değildir."
+  },
+  {
+   "id": "e8",
+   "text": "Kusurlar uykuyu bilmek zorundadır. Geçiş tablosunda, düşük güç gözetiminde ve uyarılmış durumda kaçırılan tahsisler kendine dönen geçişlerdir; bizim okumamızla muafiyet budur. Serbest uyanık durumda ise tek bir kaçırma OLT'yi zorla uyanık duruma atar, ve burst kaybı orada ilan edilebilir. Ama bu kaçırma girdisi hiçbir yerde tanımlanmaz, ve eşiğin ONU'ya nasıl bildirildiği de yazılı değildir."
+  },
+  {
+   "id": "e9",
+   "text": "Ölüm sonrası tanı için acil durum anlık görüntüsü vardır. ONU, OLT ile iletişimi tehlikeye girince durumunu ve kusurlarını kalıcı belleğe yazar: son nefes dizisinde, ve yazılımı vericiyi her kapattığında. En az on kayıt sığmalıdır; biçimi ve okuma yolu yazılı değildir. Bizim okumamız: harfiyen, her düşük güç girişi de bir kayıttır; örnek olarak yüz milisaniyelik döngüde saatte otuz altı bin yazım."
+  },
+  {
+   "id": "e10",
+   "text": "Son nefes adım adım. ONU, tahsislere cevap vermesini engelleyebilecek yerel bir durum saptar, yukarı yön başlığındaki son nefes bitini kurar ve anlık görüntüyü kaydeder. Bu bir susma sözü değildir: durum geçerse bildirimi geri alır. OLT bu burst'leri ONU başına sayabilir, ama yalnızca bu bitle tahsisleri geri çekmez. Güç geri gelince seri numarası mesajı on üç kodunu taşıyabilir: güç kesildi."
+  },
+  {
+   "id": "e11",
+   "text": "PMD Köprüsü. Son nefes, fiber sorunlarını abone tarafındaki sorunlardan ayırmaya yardım eder; birinci sezonun onuncu bölümünde bunu bir arıza vakası olarak gördük. Ama G.989.2'de ne sinyal kaybının ne de son nefesin tanımı vardır. B tipi korumanın nitelikli sinyal kaybı da son nefesleri hesaba katar; atıf yaptığı dışlama kuralları ise hiçbir maddede yazılı değildir."
+  },
+  {
+   "id": "e12",
+   "text": "Mühendis notu. Bir: ONU'ları uyutuyorsanız burst kaybı eşiğini tahsis aralığıyla birlikte ayarlayın; dörtlük varsayılan, seyrek tahsisli bir ONU'da milisaniyeler sürer. İki: temizlenme koşulu olmayan üç kusur için kendi kuralınızı yazın; yoksa bir kez ilan edilen PLOAM kanalı kaybı, yönetim sisteminde süresiz açık kalabilir."
+  },
+  {
+   "id": "e13",
+   "text": "Sıradaki: enerji ve sağlık tanımlandı. Şimdi laboratuvarda ölçelim."
+  }
+ ]
+}

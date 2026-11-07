@@ -1,0 +1,33 @@
+{
+ "title": "S2B09 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm dokuz: Enerji ve Sağlık. Bir ağın iki gündelik sorusu var: ne kadar enerji harcıyor, ve sağlığı nasıl? G.989.3 iki maddeyle cevap verir: güç yönetimi ve başarım izleme. İkisinde de iki bin yirmi birden beri tek bir sözcük değişmedi; değişen yalnızca çevrelerindeki atıflar."
+  },
+  {
+   "id": "o2",
+   "text": "Önce dikkatli uyku: standardın bıraktığı tek uyku kipi, ONU'nun ve OLT'nin yalnızca kısmen hizalı iki durum makinesi, ve hiçbirinin değeri olmayan parametreler."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra tasarrufun hesabı ve iki yol daha: daha az tüketen bir kanala geçmek, ve noktadan noktaya WDM'de hattı yavaşlatmak; zamanlayıcıları hâlâ çalışma konusu olan bir prosedür."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından sayaçlar: yüz on bir satırlık bir tablo, hangisi zorunlu, kim tutar, ve on gigabitte saniyeler içinde taşabilecek sayılar."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra kusurlar ve son nefes: OLT'nin dokuz kusuru, ONU'nun tek kusuru, temizlenme koşulu yazılmamış üç kusur, ve ölmekte olan bir ONU'nun geride bıraktığı kayıt."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda gücü durumlara göre ölçecek, uyanma gecikmesini ve zorunlu uyandırma bitini sınayacak, hata ve kusur enjekte edip sayaçları doğrulayacak, ve bir son nefesi yakalayacağız."
+  }
+ ]
+}

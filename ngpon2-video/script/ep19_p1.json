@@ -1,0 +1,69 @@
+{
+ "title": "S2B09 Perde 1 — Uyanık ve uykulu",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: uyanık ve uykulu. On altıncı madde bir gözlemle başlar: bir abone arayüzü boştaysa ve ONU bunu anlayabiliyorsa, etkinliği algılamayı sürdürerek o arayüzün devrelerini kapatması istenir. Ama hemen bir kapsam cümlesi gelir: bu teknikler ONU tasarımının ve işletme pratiğinin işidir. G.989.3 yalnızca protokolü standartlaştırır: tasarrufun OLT ile nasıl konuşulduğunu."
+  },
+  {
+   "id": "b2",
+   "text": "Ve tek bir uyku kipi bırakır: dikkatli uyku. Uyku isteği mesajında sıfır uyanık, üç dikkatli uyku demektir; bir ve iki ayrılmıştır. Uyuklama ya da döngüsel uyku, üç baskının hiçbirinde yoktur. Bizim yorumumuz: bu boşluk, G.989.3'ün üstüne kurulduğu XG-PON'un daha geniş uyku ailesinden kalan bir izdir."
+  },
+  {
+   "id": "b3",
+   "text": "Kurallar. OLT, ONU'nun güç yönetimini OMCI ile keşfeder ve yapılandırır; etkinleştirilmemiş bir ONU uyku iznini yok sayar. İki taraf birer durum makinesi tutar, ama yalnızca kısmen hizalı; adım adım eşleşme hedef değildir. PLOAM mesajları yalnızca geçişlerde üretilir, ve bir zamanlayıcı, mesaj gerçekten gönderilince başlar. ONU yalnızca O5'te uyur."
+  },
+  {
+   "id": "b4",
+   "text": "Parametreler. OLT dört aralık belirler: düşük güç durumunda en uzun kalış; farkında durumunda en kısa kalış; uyandırma kararından ONU tam çalışır olana kadar beklenebilecek en uzun süre; ve etkin tutulan durumda en kısa kalış. Beşincisini ONU bildirir: uykudan sonra verici ve alıcısının tam işleve dönme süresi. Sıfır, beklemeden cevap verebilir demektir."
+  },
+  {
+   "id": "b5",
+   "text": "Şimdi bu bölümün en önemli cümlesi: bu parametrelerin hiçbirinin sayısal değeri yoktur; ne varsayılan, ne sınır. Birim yüz yirmi beş mikrosaniyelik çerçevedir, birinin birimi hiç yazılmamıştır, ve değerler OMCI ile gelir. Bu yüzden bu bölümdeki her sayı örnektir: örnek olarak bir milisaniye sekiz çerçevedir."
+  },
+  {
+   "id": "b6",
+   "text": "ONU makinesinin dört durumu vardır. Etkin tutulan durum başlangıçtır: verici ve alıcı açık, güç yönetimi geçişi yok. Etkin serbest durumda uyumak ONU'nun yerel kararıdır. Farkında durumunda verici ve alıcı açıktır, ONU her tahsise cevap verir. Düşük güç durumunda verici kapalıdır; alıcı yalnızca ara ara bakar, ONU tahsislere cevap vermez ve trafik iletmez."
+  },
+  {
+   "id": "b7",
+   "text": "PMD Köprüsü. Birinci sezonun altıncı bölümünden biliyoruz ki kapalı verici karanlık değildir. G.989.2, etkin değilken güç yoğunluğunu on beş gigahertzde eksi altmış iki virgül altı dBm ile sınırlar; bir kanaldaki altmış üç komşunun toplamı, sıfır virgül bir desibellik bir cezaya denk gelir. Uyuyan ONU için ayrı bir optik kural yoktur; aynı karanlık kuralı geçerlidir."
+  },
+  {
+   "id": "b8",
+   "text": "Geçişler. Tutma süresi dolduğunda saklanan izin açıksa ONU etkin serbest olur, mesajsız. Yerel uyku göstergesiyle farkında durumuna geçer ve dikkatli uyku ister. Oradan zamanlayıcılarla düşük güce ve geri gider. Bu iki durumdayken kapalı izin, zorunlu uyandırma biti ya da yerel bir uyanma göstergesi gelirse, etkin tutulan duruma döner ve uyanık ister."
+  },
+  {
+   "id": "b9",
+   "text": "Hangi geçişin mesaj ürettiğini şeklin notu söyler: durumlar sarı ve gri iki alt çizgedir, ve mesaj yalnızca sınırı geçen geçişte üretilir. Bu bir çelişkiyi açıklar. Durum tablosuna göre etkin tutulan duruma her girişte uyanık isteği gönderilir; ama etkin serbestten oraya dönüş sarının içinde kalır, ve normatif geçiş tablosunda mesaj yoktur. Bizim okumamız: sınır, uykuya izin olup olmamasıdır."
+  },
+  {
+   "id": "b10",
+   "text": "OLT'nin de dört durumu vardır. Zorla uyanık durum başlangıçtır: her tahsise cevap bekler, kaçırılan burst'leri kusura sayar, girerken uyku iznini kapatır. Serbest uyanık durumda izni açar. Düşük güç gözetiminde normal tahsis verir ama yalnızca ara sıra cevap bekler; aşağı yön trafiğini atabilir ya da tamponlayabilir. Uyarılmış durumda ise ONU'yu uyandırmaya çalışır."
+  },
+  {
+   "id": "b11",
+   "text": "Döngü şöyle kurulur. OLT'nin yerel uyanma göstergesi kalkınca OLT serbest uyanık olur ve izni açar. ONU tutma süresinden sonra etkin serbest olur, etkinliği bitince dikkatli uyku ister; OLT düşük güç gözetimine geçer ve bir el sıkışma zamanlayıcısı başlatır. ONU artık farkında ile düşük güç arasında gidip gelir; her uyanışında tahsislere cevap verir, ve zamanlayıcı tazelenir."
+  },
+  {
+   "id": "b12",
+   "text": "Üç çıkış vardır. ONU'da trafik başlarsa uyanık ister, OLT serbest uyanığa döner. OLT'de ONU'yu uyandırmak için yerel bir neden doğarsa, örneğin trafik, OLT uyarılmış duruma geçer: izni bir kez kapatır, sonra her tahsiste zorunlu uyandırma bitini kurar. ONU susarsa el sıkışma zamanlayıcısı dolar, OLT zorla uyanığa döner. Bizim yorumumuz: kapalı izin bir fısıltıdır, uyuyan alıcı onu kaçırabilir; her tahsiste tekrarlanan bit ise bir bağırıştır."
+  },
+  {
+   "id": "b13",
+   "text": "Uyuyan ONU'yu yönetmek. Düşük güçte, alıcısı kapalıyken ONU komut alamaz; durum raporu ve PLOAM isteklerini de yok sayar. OLT, normalde yedi yüz elli mikrosaniyede beklediği PLOAM cevabı için ek süre tanımalıdır; standardın tavsiyesi, yönetim işleminden önce ONU'yu uyandırmaktır."
+  },
+  {
+   "id": "b14",
+   "text": "Mühendis notu. Bir: zorunlu uyandırma biti yalnızca bir tahsis serisinin ilk yapısında geçerlidir; sonrakilerde ONU onu yok sayar. İki: tablo, düşük güç gözetiminde normal tahsis der; yedinci madde ise tahsisi en aza indirmekten söz eder. Bizim yorumumuz: tahsisleri uzun süre keserseniz, tahsisle yeniden başlayan on saniyelik TO6 dolabilir."
+  },
+  {
+   "id": "b15",
+   "text": "Sıradaki: uyumanın kuralları belli. Peki bu uyku ne kazandırır, ve ne kadar geciktirir?"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "title": "S2B09 Kapanış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "h1",
+   "text": "Bölümün özeti. Bir: G.989.3'te tek uyku kipi dikkatli uykudur; ONU'nun ve OLT'nin dört durumlu iki makinesi kısmen hizalıdır, ve mesaj yalnızca sarı ile gri arasındaki sınır geçilince üretilir. İki: güç yönetimi parametrelerinin hiçbirinin değeri yoktur; PtP hız uyarlamasının üç değeri çalışma konusudur, ve bizim modelimizde tasarrufu uyurken açık kalan devreler sınırlar."
+  },
+  {
+   "id": "h2",
+   "text": "Üç: başarım tablosu yüz on bir satırdır, otuz yedisi zorunlu; PtP için hiçbiri yoktur, genişlikler de yazılı değildir. Dört: OLT dokuz, ONU bir kusur tanır; burst kaybının varsayılanı dört burst, sinyal kaybınınki dört çerçevedir, ve üç kusurun temizlenme koşulu yoktur. Beş: son nefes bir ipucudur, bir komut değil; anlık görüntü en az on kayıt tutar."
+  },
+  {
+   "id": "h3",
+   "text": "Kendini test et. Birinci soru: düşük güç gözetimindeki OLT, el sıkışma zamanlayıcısı dolana kadar ONU'dan hiç burst almazsa ne yapar, ve ardından ne gelebilir? İkinci soru: varsayılan ayarlarla ve çerçeve başına bir burst'le, burst kaybı ve sinyal kaybı ne kadar sürede ilan edilir, ve aralarındaki fark nedir? Üçüncü soru: G.989.3 hangi uyku kipini tanımlar, ONU onu nasıl ister, ve OLT uyuyan bir ONU'yu nasıl zorla uyandırır? Cevaplar, bir sonraki bölümün başında."
+  },
+  {
+   "id": "h4",
+   "text": "Bir sonraki bölüm, sezon finali: Ayakta Kalmak. Koruma, başıboş ONU ve acil durdurma; ve sezonun son hikayesi, bir paketin hayatı: bir Ethernet çerçevesinin XGEM'den ışığa ve geri yolculuğu. Görüşmek üzere."
+  }
+ ]
+}

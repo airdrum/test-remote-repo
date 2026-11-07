@@ -1,0 +1,21 @@
+{
+ "title": "S2B09 Önceki bölümde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: aynı anahtar akışını yukarı yön sayaç bloğu engeller: alt altmış dört biti, süper çerçeve sayacının alt elli biti ile çerçeve içi sayacın bit bit tümleyenidir. Standardın notu iki zayıf değer anar, birin ardından kırk dokuz sıfır ve sıfırın ardından kırk dokuz bir: dört bin yılda bir, yaklaşık iki yüz elli mikrosaniye; çaresi, sayacı küçük bir değerle başlatmak. Bizim çıkarımımız: yalnızca birincisine ulaşılır, alanın sıfırı da üçüncü zayıf çerçevedir; küçük, en az bir olmalı."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: kayıt kimliği varsayılansa ana oturum anahtarı herkesçe bilinir. Seri numarası mesajının beşinci ile on ikinci baytları ve burst profili mesajındaki PON etiketiyle oturum anahtarı, ondan da anahtar şifreleme anahtarı hesaplanır; ikisi de AES-CMAC'tir. Veri anahtarı, yukarı yön anahtar raporundaki parçanın bu anahtarla elektronik kod defteri kipinde çözülmesidir. Üç mesaj yeter: seri numarası, burst profili ve anahtar raporu."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: onay bekleme zamanlayıcısı, önerilen on milisaniye, dolunca OLT onay isteğini yeniden gönderir. Bütün deneme yüz milisaniyelik anahtar değişimi bekleme zamanlayıcısını aşarsa OLT, hiçbir anahtarın geçerli olmadığı duruma döner. İki bin yirmi bir metni burada ve istek durumunda yanlış zamanlayıcı adlarını yazıyordu; birinci değişiklik adları düzeltti, değerlere dokunmadı. Şimdi bu bölüme."
+  }
+ ]
+}

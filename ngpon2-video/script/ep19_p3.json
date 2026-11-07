@@ -1,0 +1,57 @@
+{
+ "title": "S2B09 Perde 3 — Sayaçlar",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: sayaçlar. On dördüncü madde, bağlantı arızasını saptama ve bağlantıların sağlığını izleme mekanizmalarına odaklanır; bu bilgiyi kullanan işlevleri, eşik uyarılarını ve alarmları büyük ölçüde kapsam dışı bırakır. Optik güç izleme G.988'e bırakılmıştır, ve ONU'nun sayaçları OLT'ye OMCI ile ulaşır."
+  },
+  {
+   "id": "d2",
+   "text": "Tablo üç sütunla okunur: her ONU, her TWDM kanalı için; OLT, her ONU için; ve OLT, bütün ONU'ların toplamı için. Bizim saymamızla yüz on bir satır vardır: otuz yedisi zorunlu, yetmiş dördü isteğe bağlı, on bir grupta. Hepsi TWDM içindir; noktadan noktaya WDM için tek bir sayaç bile yoktur."
+  },
+  {
+   "id": "d3",
+   "text": "Fiziksel katman grubunun altı zorunlu satırı: FEC ile düzeltilen baytlar, düzeltilen, düzeltilemeyen ve toplam kod sözcükleri; BIP-32 ile korunan sözcükler ve BIP-32 hataları. Not aynıdır: BIP-32, ancak FEC kapalıyken hata oranı tahmini verir. İsteğe bağlı üçü, PSBd ve çerçeve başlığı HEC hataları, ve bilinmeyen profil sayısıdır."
+  },
+  {
+   "id": "d4",
+   "text": "Senkron kaybı grubu yedi satırdır, hepsi zorunlu, hepsi ONU'nun yerel olayı: toplam LODS olayları; çalışan kanalda, koruma kanalında ya da ONU'nun seçtiği bir kanalda geri gelenler; aşağı yön dönmeden TO2, ya da TO3 ile TO4 dolduğu için yeniden aktivasyonlar; ve TO5 ile yukarı yön el sıkışması başarısız olunca yapılanlar."
+  },
+  {
+   "id": "d5",
+   "text": "XGEM grubunun dört zorunlu sayacı: gönderilen ve alınan XGEM çerçeveleri, başlık HEC hataları ve anahtar hataları. Bir tuhaflık: alınan çerçeve sayacı zorunludur, ama yalnızca OLT toplamında; ONU sütununda hayır yazar. Kullanım grubunun iki zorunlu sayacı boş olmayan çerçevelerdeki baytlardır; isteğe bağlı üçüncüsü, talep varken garantili bant genişliğinin atanamadığı durumları sayar."
+  },
+  {
+   "id": "d6",
+   "text": "PLOAM grubu otuz dört satırdır, yalnızca dördü zorunlu: eşitleme gecikmesi mesajlarının sayısı, kayma tahmininin temeli; koruma denetimi mesajlarının sayısı; dalga boyu ayarı mesajlarının sayısı ve genliği. Geri kalanı mesaj başına isteğe bağlıdır; uyku izni, uyku isteği ve güç tüketimi raporu dahil. Güç sorgusu ve hız mesajlarının sayacı yoktur."
+  },
+  {
+   "id": "d7",
+   "text": "Ayar denetimi grubu da otuz dört satırdır, on üçü zorunlu; aktivasyon, güç dengeleme ve OMCI grupları ise tamamen isteğe bağlıdır. Zorunlu tek optik satır, OLT'nin gönderdiği optik güç düzeyidir. Güç yönetimine ait tek satır ise isteğe bağlıdır: düşük güç durumlarında geçen süre. Mesaj sayaçları dışında, zorunlu uyandırmaları ya da el sıkışma ihlallerini sayan bir satır yoktur."
+  },
+  {
+   "id": "d8",
+   "text": "PMD Köprüsü. Birinci sezonun onuncu bölümünde G.989.2'nin ikinci ekindeki izleme tablosunu gördük: ONU'nun alınan güç doğruluğu artı eksi üç desibel, eksi otuz beş dBm'in altında beş; OLT'nin gönderdiği güç artı eksi iki desibel. G.989.3 ölçümü G.988'e, doğruluğu bilgilendirici bir eke bırakır. Bizim yorumumuz: zorunlu tek optik sayaç bile iki desibellik bir belirsizlik taşır."
+  },
+  {
+   "id": "d9",
+   "text": "Sayaçların genişliği ve toplama aralıkları G.989.3'te yoktur. Bizim hesabımızla on gigabitte saniyede beş milyon on altı bin FEC kod sözcüğü sayılır: otuz iki bitlik bir sayaç on dört dakikada taşar. BIP-32 sözcükleri FEC kapalıyken on üç virgül sekiz saniyede, boş olmayan XGEM baytları yaklaşık dört saniyede taşar. Altmış dört bitlik bir kod sözcüğü sayacı ise yüz yirmi bin yıl dayanır."
+  },
+  {
+   "id": "d10",
+   "text": "Hata sayaçları ise yavaştır. On üzeri eksi on ikilik hata oranında on gigabitlik bir hat, on bit hatasını ancak bin beş saniyede biriktirir; on üzeri eksi onda on saniyede. Aynı tabloda saniyeler içinde taşan sayaçlarla saatlerce sıfır kalan sayaçlar yan yana durur; okuma aralığını her biri için ayrı seçin."
+  },
+  {
+   "id": "d11",
+   "text": "Mühendis notu. Bir: test planınızı otuz yedi zorunlu satıra dayandırın; enerji sayacı da, son nefes sayacı da isteğe bağlıdır. İki: on yedinci madde bir PLOAM kanalı kaybı sayacının artırılmasından söz eder; böyle bir sayaç tabloda yoktur. Sayaç adlarını metinden değil, tablodan alın."
+  },
+  {
+   "id": "d12",
+   "text": "Sıradaki: sayılar bir eğilim söyler. Peki bir şey bozulduğunda, standart neyi kusur sayar?"
+  }
+ ]
+}
