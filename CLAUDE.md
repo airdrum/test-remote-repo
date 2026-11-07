@@ -7,9 +7,9 @@ Ana proje: `ngpon2-video/` — "LAMBDA — NG-PON2'nin Fizik Katmanı" Türkçe 
 Kullanıcı "ses üretelim" dediğinde **her zaman** yerel XTTS-v2 kullanılır; Gemini TTS **yalnızca kullanıcı açıkça isterse**.
 
 - Model: Coqui XTTS-v2, hazır konuşmacı **"Damien Black"**, `language="tr"`, **GPU (CUDA)**.
-- Konuşmacı sezona göre: **Sezon 1 (G.989.2) = "Damien Black"**; **Sezon 2 (G.989.3) = kadın sesi** — senaryo JSON'undaki
-  `"xtts_speaker"` alanından okunur (`XTTS_SPEAKER` env hepsini ezer). Aday sesleri dinlemek için GPU makinesinde
-  `tools/xtts_voices.py` çalıştır → `build/voices/*.wav`; kullanıcının seçtiği isim Sezon 2 senaryolarına yazılır.
+- Konuşmacı sezona göre: **Sezon 1 (G.989.2) = "Damien Black"**; **Sezon 2 (G.989.3) = "Ana Florence"** (kadın sesi,
+  seçimi kullanıcı Claude'a bıraktı) — senaryo JSON'undaki `"xtts_speaker"` alanından okunur (`XTTS_SPEAKER` env hepsini ezer).
+  Başka bir sesle karşılaştırmak için GPU makinesinde `tools/xtts_voices.py` → `build/voices/*.wav`.
 - Kod yolu: `TTS_BACKEND=xtts` (varsayılan, `tools/tts.py`) → `tools/xtts_backend.py` (model süreç başına bir kez yüklenir).
   Gemini kodu silinmedi; yalnızca `TTS_BACKEND=gemini` ile çalışır.
 - GPU yoksa **DUR ve kullanıcıya söyle**; CPU'ya sessizce düşme (`XTTS_REQUIRE_GPU=1`).
@@ -26,7 +26,7 @@ Kullanıcı "ses üretelim" dediğinde **her zaman** yerel XTTS-v2 kullanılır;
 - Kalite: `temperature=0.65`, sabit seed (1234; QA tekrarlarında seed değişir). QA: Gemini (gemini-3.5-flash) transkripsiyonu
   `GEMINI_API_KEY` ile; anahtar yoksa `TTS_QA=0` (QA kapalı) — o durumda sesleri bulutta `tools/qa_tts.py` ile kontrol et.
   Kısaltma takası riski için `tools/acro_check.py`.
-- Lisans: Coqui Public Model License — **ticari kullanım yok**. Jeneriklerde seslendirme "XTTS-v2 · Damien Black" olarak yazılır.
+- Lisans: Coqui Public Model License — **ticari kullanım yok**. Jeneriklerde seslendirme "Coqui XTTS-v2 — ses: <konuşmacı>" olarak yazılır.
 
 ## Diğer kurallar
 

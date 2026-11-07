@@ -2,8 +2,8 @@
 ### Sezon 2 · ITU-T G.989.3 (+ G.989.2 köprüleri) · 10 bölüm × 40–45 dk
 
 **Üretim ilkesi:** Senaryo, animasyon, diyagram, grafik ve ekrandaki tüm yazılar Claude tarafından
-kodla (Manim) üretilir. Anlatım yerel XTTS-v2 ile, **kadın sesiyle** üretilir (konuşmacı, aday seslerin
-örnekleri dinlendikten sonra seçilir; bkz. `tools/xtts_voices.py`). Intro müziği Sezon 1 ile aynıdır.
+kodla (Manim) üretilir. Anlatım yerel XTTS-v2 ile, **kadın sesiyle — "Ana Florence"** üretilir.
+Intro müziği Sezon 1 ile aynıdır.
 
 **Kaynaklar (yürürlükteki tam metinler):**
 - G.989.3 (05/2021) + Amd.1 (06/2023) + Amd.2 (05/2025) — TC katmanı, 282 sayfa — **ana kaynak**
@@ -75,7 +75,7 @@ G.989.3'teki yerine bağlayabilir, ve TC kararlarının PMD üzerindeki etkisini
 
 ## Üretim akışı (bölüm başına)
 1. **Bilgi dosyası:** G.989.3 maddelerinden kaynaklı bilgi derlemesi (Amd.1/Amd.2 farkları dahil)
-2. **Senaryo:** ~25.000 karakter Türkçe, beat'lere bölünmüş; senaryo JSON'unda `"xtts_speaker"` = seçilen kadın sesi
+2. **Senaryo:** ~25.000 karakter Türkçe, beat'lere bölünmüş; senaryo JSON'unda `"xtts_speaker": "Ana Florence"`
 3. **Ses:** Kullanıcının GPU'sunda yerel XTTS-v2 (`tools/tts_episode.sh`), bulutta transkripsiyon QA
 4. **Animasyon:** Manim sahneleri, yer tutucu sürelerle düzen kontrolü, sese senkron
 5. **Render + miks:** 1080p30, −16 LUFS
