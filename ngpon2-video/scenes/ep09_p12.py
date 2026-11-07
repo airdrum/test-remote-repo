@@ -559,7 +559,7 @@ class E9P2A(Act9):
         h = self.show_heading("FEC: istemci protokolüne bağlı — §A.1.2", h)
         rule = pill("PMD ek bir FEC eklemez", WARN, 22).move_to([0, 1.85, 0])
         no = [("CPRI", "FEC yok"), ("GbE · 8b/10b", "FEC yok"), ("10GBASE-ER · 64b/66b", "FEC yok")]
-        yes = [("SDH · STM-8/16/64", "yerleşik FEC (G.707)"), ("OTN · OTU1/2/2e", "yerleşik FEC (G.709)")]
+        yes = [("SDH · STM-8/16/64", "yerleşik FEC (G.707 / G.709)"), ("OTN · OTU1/2/2e", "yerleşik FEC (G.709)")]
         tn = VGroup(*[card(a, b, None, MUTED, w=4.0, h=1.15, tsize=21, bsize=18) for a, b in no]).arrange(RIGHT, buff=0.3).move_to([0, 0.45, 0])
         ty = VGroup(*[card(a, b, None, GOOD, w=4.8, h=1.15, tsize=21, bsize=18) for a, b in yes]).arrange(RIGHT, buff=0.4).move_to([0, -1.05, 0])
         tail = pill("“No extra FEC overhead is applied.” — ek FEC yükü yok", GOLD, 18).move_to([0, -2.5, 0])
