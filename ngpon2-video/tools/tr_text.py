@@ -68,7 +68,19 @@ def split_tr(text: str, limit: int = 200):
                 chunks.append(cur); cur = p
         if cur:
             chunks.append(cur)
-    return [c for c in chunks if c]
+    chunks = [c for c in chunks if c]
+    # XTTS invents syllables on very short inputs ("PMD Köprüsü." came out as "PMD Köprüsü dondu"):
+    # pack short neighbouring chunks together, up to the limit, so no chunk is shorter than MIN_CHUNK when avoidable.
+    packed = []
+    for c in chunks:
+        if packed and (len(packed[-1]) < MIN_CHUNK or len(c) < MIN_CHUNK) and len(packed[-1]) + 1 + len(c) <= limit:
+            packed[-1] = packed[-1] + " " + c
+        else:
+            packed.append(c)
+    return packed
+
+
+MIN_CHUNK = 80
 
 
 if __name__ == "__main__":

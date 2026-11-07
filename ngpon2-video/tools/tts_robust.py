@@ -84,8 +84,9 @@ def run(script_path, out_dir, max_chars=700, workers=2, log=print):
         """Synthesize with QA; returns (path, pcm) or (None, None)."""
         for k in range(tries):
             fn = out / f"{key}_{k}.wav"
-            if not fn.exists():
-                write_wav(fn, synth(model, voice, style, text_spoken, seed=1234 + 101 * k))
+            if not fn.exists():  # a "<key>.bump" marker (tools/revoice.py) asks for a fresh take with another seed
+                bump = 7777 if (out / f"{key}.bump").exists() else 0
+                write_wav(fn, synth(model, voice, style, text_spoken, seed=1234 + 101 * k + bump))
             if not QA:
                 return fn, read_wav(fn)
             tx = transcribe(str(fn))
