@@ -1,0 +1,35 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "b355f6380d4_0.wav",
+   "duration": 26.947,
+   "text": "Bölümün özeti. Bir: profiller bir ile beş saniyede bir yinelenir; kalibrasyon durumu kanal başına iki bittir, ve yeterli doğruluğun sayısal tanımı yoktur. İki: devir on bir adımdır; ONU O5.2, O8 ve O9'dan geçer, OLT beş durumlu bir makine çalıştırır, ve hata durumunda ONU kaynakta kalır. Üç: olumsuz cevap ve geri dönüş aynı bit haritasını farklı anlamlarla kullanır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h2",
+   "file": "b2fae5c63d2_0.wav",
+   "duration": 27.96,
+   "text": "Dört: TC ayar süresi hazırlık, PMD ayarı ve yeniden senkrondur; hızlı bir lazerde süreyi TC katmanı ve profil dağıtımı belirler, ve devrin hiçbir zamanlayıcısının değeri yoktur. Beş: kilitlemede istatistik, adım süresine altı çerçevelik işleme payı eklenerek başlar; bağlı ONU bir kimliği birden çok kanalda kullanır, ve klonlu sonlandırıcılar bütün ilgili parametreleri paylaşır, ONU'ları paylaşmaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h3",
+   "file": "b45cf256f1e_0.wav",
+   "duration": 37.112,
+   "text": "Kendini test et. Birinci soru: TC katmanı ayar süresi hangi üç parçadır, her biri nerede başlar ve biter, ve hangisini G.989.2 sınıflandırır? İkinci soru: ayar yanıtında işlem kodu bir ve on altılık tabanda sıfır iki bir sıfır ne demektir, hangi sonlandırıcı ne yapar, ve işlem kodu dört olsaydı aynı değer ne derdi? Üçüncü soru: adım süresi sekiz çerçeve olan bir ONU'ya F çerçevesinde iki adımlık ayar istenirse, OLT istatistiği hangi çerçeveden toplayabilir? Cevaplar, bir sonraki bölümün başında.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h4",
+   "file": "b2fddc9bb35_0.wav",
+   "duration": 11.648,
+   "text": "Bir sonraki bölüm: Güven. Kimlik doğrulama, şifreleme ve bütünlük; bir devrin sonunda neden yeniden türetildiğini gördüğümüz anahtarların nereden geldiği. Görüşmek üzere.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 103.67
+}

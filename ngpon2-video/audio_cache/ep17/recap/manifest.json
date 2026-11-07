@@ -1,0 +1,28 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "a1",
+   "file": "b010a1c57df_0.wav",
+   "duration": 33.208,
+   "text": "Geçen bölümün soruları. Birinci soru: değeri zorunlu olan tek aktivasyon zamanlayıcısı TO6'dır, unutulmuş ONU zamanlayıcısı: on saniye olmak zorundadır. İki bin yirmi üç değişikliğinden beri yalnızca O4 ya da O9'dan O5'e girişte başlar, yukarı yön tahsisli her çerçevede yeniden başlar, O5'ten çıkınca durur, ve O6'dan dönüşte kaldığı yerden devam eder. Geçiş tablosuna O6 için bir devam, O4 ve O9 için birer başlat hücresi eklendi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a2",
+   "file": "b3514721733_0.wav",
+   "duration": 27.309,
+   "text": "İkinci soru: kırk kilometrede seri numarası penceresi dört yüz elli mikrosaniyedir. Dört yüzü sıfır ile kırk kilometre arasındaki gidiş dönüş farkı, ikisi otuz beş artı eksi bir mikrosaniyelik yanıt süresinin oynaması, kırk sekizi en büyük rastgele gecikmedir; çok kısa olan burst'ün kendisi ihmal edilir. Hepsi süredir, hıza bağlı değildir; rastgele gecikme bile iki virgül dört sekiz sekiz üç iki gigabitin bit periyotlarıyla sayılır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "a3",
+   "file": "b1b84527b0c_0.wav",
+   "duration": 30.601,
+   "text": "Üçüncü soru: farkı indis oranı yaratır. Genel durumda oran yarım artı milyonda altmış birdir, ama milyonda otuz dört kadar yanlış olabilir: iki yüz mikrosaniyelik gidiş dönüşte artı eksi altı virgül sekiz nanosaniye. Sabit kanal eşleşmesinde sapma en çok milyonda üçtür: sıfır virgül altı nanosaniye. İkisine de yanıt süresi ve eşitleme gecikmesi için bir virgül altı, yuvarlama için bir nanosaniye eklenir: dokuz virgül dört ve üç virgül iki. Şimdi bu bölüme.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 91.12
+}

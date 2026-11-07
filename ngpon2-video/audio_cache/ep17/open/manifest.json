@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b0c2b75db57_0.wav",
+   "duration": 16.689,
+   "text": "Sezon iki, bölüm yedi: Renk Değiştirmek. Geçen bölümde O8 ve O9'un yalnızca adını andık. Bu bölümde bir ONU'nun bir kanal çiftinden ötekine geçişini izliyoruz: kim ne zaman ne söyler, ve standartta ne yazılı değildir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b931fa99936_0.wav",
+   "duration": 10.997,
+   "text": "Önce profiller ve kalibrasyon: OLT'nin her kanalda neyi ne sıklıkla duyurduğu, ONU'nun kalibrasyon kaydı, doğruluk sınıfları ve AMCC yolu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b9cba5b0314_0.wav",
+   "duration": 10.485,
+   "text": "Sonra devir: on bir adımlık dizi, ayar mesajları, planlı süper çerçeve sayacı, hata kodları, ve OLT'nin beş durumlu devir makinesi.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "bd0ecf8546e_0.wav",
+   "duration": 10.72,
+   "text": "Ardından ayar süresi ve kilitleme: F ekinin üç parçalı tanımı, bir devrin gerçekte ne kadar sürdüğü, ve OLT'nin bir vericiyi kanalında nasıl tuttuğu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "bebee5b52b4_0.wav",
+   "duration": 7.936,
+   "text": "Sonra bağlama ve karışık sınıflar: birden çok kanalı birlikte kullanan bir ONU, ve klonlanmış kanal sonlandırıcıları.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "bc7d7e00607_0.wav",
+   "duration": 10.539,
+   "text": "Laboratuvarda bir devrin süresini parçalarına ayıracağız, hata kodlarını kışkırtacağız, kilitlemeyi sıcaklık altında sınayacağız, ve iki arayüzlü bir ONU'yu aktive edeceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 67.37
+}

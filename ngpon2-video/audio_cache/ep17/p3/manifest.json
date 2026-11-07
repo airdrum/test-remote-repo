@@ -1,0 +1,112 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "b9a14650f21_0.wav",
+   "duration": 18.417,
+   "text": "Perde üç: ayar süresi ve kilitleme. F eki normatiftir, ve amacı şudur: ONU'nun ve OLT sonlandırıcılarının durum makinelerini tek bir zaman çizelgesinde birleştirmek, ve bazı zamanlayıcıların çıkmaza düşmemek için tanımlandığını göstermek. Üç dizi çizer: normal devir, geri dönüş ve olumsuz cevap.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "b4d704ebbbf_0.wav",
+   "duration": 32.707,
+   "text": "Tanım. TC katmanı ayar süresi üç parçadır. Hazırlık: planlı çerçeveden PMD ayarının gerçekten başladığı ana kadar, parametreleri kurmak için gereken işleme süresi. Ayar: G.989.2'de tanımlı PMD süresi. Yeniden senkron: ayar bittikten sonra aşağı yön çerçevesine senkron için gereken en uzun süre. Toplam, planlı çerçeveden senkronun doğru kurulduğu ana kadardır. Ve F eki üç parçanın hiçbirine sayı vermez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "b6945c6945b_0.wav",
+   "duration": 30.189,
+   "text": "PMD Köprüsü. Sayısı olan tek parça ortadakidir. Birinci sezonun yedinci bölümündeki sınıflar: birinci sınıf on mikrosaniyenin altında, ikinci sınıf on mikrosaniye ile yirmi beş milisaniye, üçüncü sınıf yirmi beş milisaniye ile bir saniye. G.989.2 mekanizmayı kapsam dışı bırakır, ama bir şart koyar: optik tabloların bütün değerleri, başıboş davranışı önlemek için, ayar süreci boyunca sağlanmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b95a56d6e5e_0.wav",
+   "duration": 31.188,
+   "text": "Bizim hesabımız, varsayımlarıyla. Hazırlık sıfır olsun. Yeniden senkron ikinci bölümdeki makineden gelir: ilk doğrulanan PSBd ön senkrona, ikincisi senkrona götürür; yani yüz yirmi beş ile iki yüz elli mikrosaniye. Hedef her çerçevede tahsis versin, OLT cevabını altı çerçevede hazırlasın. ONU'nun en kötü kesintisi birinci sınıfta yaklaşık bir virgül üç milisaniye, ikinci sınıfta yirmi altı milisaniye, üçüncü sınıfta bir saniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "bf0a355257a_0.wav",
+   "duration": 24.967,
+   "text": "Sonuç: hızlı bir lazerde devrin süresini TC katmanı belirler. Birinci sınıfta yeniden senkron, PMD sınırının en az on iki buçuk katıdır. Ölçek için: bir gigabitlik servis için tampon, birinci sınıfta yaklaşık sıfır virgül on altı, ikinci sınıfta üç virgül üç, üçüncü sınıfta yüz yirmi beş megabayttır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "bfef77127d7_0.wav",
+   "duration": 28.003,
+   "text": "Ama asıl tuzak profillerdedir. Sayaç eşleşince ONU burst profillerini atar; ve bir ONU, profilini bilmediği bir tahsise cevap veremez. Hedefin profili önceden ulaşmadıysa, ilk tamamlandı yanıtı hedefin yayın burst profilini bekler, ve tam küme bir ile beş saniyede bir gelir. Bizim çıkarımımız: o zaman birinci sınıf bir ONU bile devri ancak bir ile beş saniyede bitirir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "b12a36e8773_0.wav",
+   "duration": 29.539,
+   "text": "Standart bir kapı bırakır: O8'in tanımı, sistem destekliyorsa burst profillerinin önceden dağıtılmasından söz eder, ama yöntemi tanımlamaz. Bizim yorumumuz: araç, kanal ötesi burst profili mesajıdır; hedefin profilini kaynak kanalda, sanki orada gönderilmiş gibi taşır. Ve TO4, TO5 ile iki OLT zamanlayıcısını lazerin hızına göre değil, bu beklemeye göre boyutlandırın.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "b3037fdfc2b_0.wav",
+   "duration": 25.368,
+   "text": "Şimdi kilitleme. İnce ayarı destekleyen ONU'lar için OLT kapalı bir döngü kurabilir: küçük verici ayarları ister, alınan sinyalin kalitesini izler. Aracı dalga boyu ayarı mesajıdır: bir yön biti, ve sıfır virgül bir gigahertzlik birimle bir boyut. Bizim yorumumuzla bu, G.989.2'nin izin verdiği iki denetim türünden OLT ile etkileşimli olanıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "b0f4371e7fc_0.wav",
+   "duration": 34.979,
+   "text": "ONU iki yetenek bildirir: bir gigahertzlik birimle ayar granülerliği, ve çerçeve sayısıyla tek adım ayar süresi, yani bir adımın en az yüzde doksanına, geçişler dahil, varma süresi. Sıfır, ince ayar yok demektir. Kural: OLT F çerçevesinde N adım isterse, istatistiği F artı N çarpı adım süresi artı altıncı çerçeveden toplayabilir. Altı çerçeve, yedi yüz elli mikrosaniye, bir PLOAM mesajının normatif işleme süresidir; birinci sezonun onuncu bölümündeki altı çerçeve buydu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "bfb1c6f154b_0.wav",
+   "duration": 28.525,
+   "text": "Bizim hesabımız: adım süresi sekiz çerçeveyse tek adımda istatistik bir virgül yedi beş, dört adımda dört virgül yedi beş milisaniye sonra başlar. Alanın en büyük değeri, iki yüz elli beş çerçeve, otuz bir virgül dokuz milisaniyedir: ikinci sınıfın bütün bant için verdiği süreden uzun. Pencere boyu, kalite ölçütü, titreşim genliği ve döngü periyodu standartta yoktur; hepsi OLT'ye kalmıştır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "bac80edebd2_0.wav",
+   "duration": 29.123,
+   "text": "PMD Köprüsü. Birinci sezonun yedinci bölümündeki en büyük spektral sapma, ayarlanabilir vericiye yalnızca durağan kanal durumunda uygulanır, ve OLT'nin ince denetiminde kısa süreli kaymayı ve denetim hatalarını da kapsar. Sekizinci ek en büyük ayar hatasını yaklaşık olarak sapma eksi veri hızı diye verir: bizim hesabımızla on gigabitte, elli gigahertz aralıkta, yalnızca iki buçuk gigahertz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d12",
+   "file": "b8ee12443c8_0.wav",
+   "duration": 25.453,
+   "text": "Aynı ekin OLT çoğullayıcı kuralları kilitlemenin optik yarısıdır: filtre iki yanında tekdüze azalmalı, ve dalgalanması güç ölçüm çözünürlüğünden küçük kalmalıdır; böylece kilitleme vericiyi hep en düşük kayıp noktasına iter. Bizim hesabımızla merkeze yakın bir adım, artı eksi yarım desibellik tekrarlanabilirlikten küçük bir güç değişimidir; ek de ortalamanın hatayı azaltabileceğini söyler.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d13",
+   "file": "b0dd488ec25_0.wav",
+   "duration": 26.033,
+   "text": "Denetim. Dalga boyu ayarı mesajlarının sayısı zorunlu bir sayaçtır, çünkü kayma tahmininin temelidir; genlik tahmincisi de zorunludur. Bir de kusur vardır: verici dalga boyu kayması uyarısı. Birim zamandaki istek sayısı ya da genliği yapılandırılan eşikleri aşınca ilan edilir; eşikler, ONU'nun kapalı döngüde olup olmadığını hesaba katmalıdır. Varsayılan eşik yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d14",
+   "file": "b102d0ba89a_0.wav",
+   "duration": 21.948,
+   "text": "Mühendis notu. Bir: devir süresini üç parçasıyla ölçün; birinci sınıf bir lazer, burst profilleri önceden dağıtılmıyorsa devri hızlandırmaz. İki: TO4'ü F ekinin çizimine göre değil, on ikinci maddenin tablosuna göre kodlayın; ek onu tamamlandı yanıtında, tablo O8.2'deki uygunluk kararında durdurur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d15",
+   "file": "b1a6164b987_0.wav",
+   "duration": 6.4,
+   "text": "Sıradaki: ONU bir kanalda kilitli. Peki birden çok kanalı birlikte kullanmak isterse?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 392.84
+}

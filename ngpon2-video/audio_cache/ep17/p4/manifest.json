@@ -1,0 +1,91 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "e1",
+   "file": "b6d5922b58e_0.wav",
+   "duration": 24.195,
+   "text": "Perde dört: bağlama. H eki normatiftir ve kısadır. Kanal bağlamalı servis veren bir ONU, yani bağlı bir ONU, birden çok PON arayüzünü destekler; her biri, ONU'nun tek OMCI bilgi tabanında ayrı bir arayüz nesnesidir. ONU her arayüz için ayrı bir aktivasyon durum makinesi çalıştırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e2",
+   "file": "b273346c5fa_0.wav",
+   "duration": 27.736,
+   "text": "Kural sıradır. İlk arayüzün aktivasyonu O5'e geçişle tamamlanmadan başka bir arayüz denenmemelidir; bu ilk arayüz öncüdür. Öncü, seri numarası mesajında atanmamış ONU kimliğini, bin yirmi üçü kullanır, ve ONU kimliğinin ve bölümlemenin kaynağıdır. Sonraki her arayüz aynı seri numarasını ve öncüde atanan ONU kimliğini bildirir; bölüm içindeki başka bir TWDM kanalında, eşzamanlı da olabilir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e3",
+   "file": "b73e4c8ddc0_0.wav",
+   "duration": 23.665,
+   "text": "Tanımsız davranış dört durumda doğar: başka bir bölüm, zaten etkin bir arayüzün bulunduğu bir kanal, farklı bir seri numarası, ya da OLT'nin farklı bir ONU kimliği ataması. Her arayüz için bir OMCC kurulur; hangisinden gelirse gelsin bir OMCI komutu aynı bilgi tabanına uygulanır, ve cevap komutun geldiği arayüzden döner.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e4",
+   "file": "bf63abbdab6_0.wav",
+   "duration": 25.965,
+   "text": "Bizim çıkarımımız: aynı ONU kimliği aynı anda birkaç kanalda görünür; bağlı ONU'larda kimliğin benzersizliği kanal düzeyindedir, ve ICTP'nin kimlik tutarlılığı denetimi buna izin vermelidir. Standartta olmayanlar: trafiğin kanallara dağıtımı, bağlı bir arayüzün devri, ve G.989.2'de çok alıcı vericili ONU'lar için tek bir satır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e5",
+   "file": "bd72624fcb2_0.wav",
+   "duration": 25.315,
+   "text": "Şimdi karışık sınıflar: X eki, bilgilendirici. Senaryo kademeli büyümedir: önce N1 optikli sonlandırıcılar, sonra daha yüksek sınıflılar, ve ODN çoğu zaman yeniden kullanılmak zorundadır. Ek bir kolaylığı hatırlatır: ONU tarafı optik, N1'den E1'e kadar aynıdır. Yani karışım yalnızca OLT tarafındadır, ve özel bir TC özelliği gerekmez.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e6",
+   "file": "bb8d79dd7d5_0.wav",
+   "duration": 29.443,
+   "text": "PMD Köprüsü. Birinci sezonun ikinci bölümündeki sınıflar: N1 on dört ile yirmi dokuz, N2 on altı ile otuz bir desibel. Eke göre N2'nin fazladan iki desibeli, N1 kurulumunda uygun pay varsa, bir ayırma kademesi daha sağlayabilir. Bizim kontrolümüz: ideal bir bire iki ayırıcı üç virgül sıfır bir desibel kaybettirir. İki desibel tek başına yetmez; koşul bu yüzden oradadır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e7",
+   "file": "baade3e7c6d_0.wav",
+   "duration": 29.4,
+   "text": "Ekin karışık örneğinde iki eski sistem birleşir. İki N1 sonlandırıcısı aynı birinci dalga boyunda çalışır, her biri kendi ODN'ini besler. Üç N2 sonlandırıcısı ise bire iki ayırıcılarla iki ODN'e birden bağlanır. Her ONU, ayar yaparken yine dört sonlandırıcı görür. Ek bunu iki sistem gibi modellemeyi aşırı ve yararsız bir karmaşıklık sayar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e8",
+   "file": "bf00aba975a_0.wav",
+   "duration": 28.429,
+   "text": "Çözüm klonlanmış sonlandırıcılardır: sistem kimliği, kanal kimlikleri, PON kimliği ve PON etiketi dahil bütün ilgili parametreleri paylaşan iki sonlandırıcı. Tasarım gereği ayrık ONU kümelerine bakarlar. Alt ağacı ayırmak için ek üç yol sayar: yalnızca klonlu kanallarda aktivasyon, klonlu çifte kalibrasyon, ya da sonradan devir; ilk ikisinde ONU kimliği alt ağacı ayırır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e9",
+   "file": "b0e7f5dafe8_0.wav",
+   "duration": 23.1,
+   "text": "Kanal profilinin otuz ikinci baytı bunu taşır: üst dört bit klonlu sistemi, alt dört bit operatörün verdiği alt ağaç numarasını; ikincisi yalnızca kanalın kendi profilinde. Bayt iki bin yirmi birden beri vardır. Bir alan sınırı daha: sistem profilinin bir gigahertzlik birimleri, elli gigahertz aralıktaki artı eksi on iki buçuk gigahertzlik sapmayı tam yazamaz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e10",
+   "file": "ba2a4335e37_0.wav",
+   "duration": 28.888,
+   "text": "PMD Köprüsü. Kısıtlı ayar sınıflarını birinci sezonun üçüncü bölümündeki planla okuyun. Aşağı yön kanalları yüz gigahertz aralıklıdır; bizim çıkarımımızla yüz gigahertzle kısıtlı bir ikinci sınıf alıcı yalnızca komşu kanala gidebilir. Yukarı yönde iki yüz gigahertz aralık seçilmişse, aynı sınıftaki bir verici komşu kanala bile ulaşamaz. Kısıtlı sınıf, kanal planıyla birlikte seçilmelidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e11",
+   "file": "b3658b38d28_0.wav",
+   "duration": 24.497,
+   "text": "Mühendis notu. Bir: bağlı ONU'ları envanterde ONU kimliğiyle değil, seri numarası ve kanal çiftiyle izleyin; aynı kimlik birden çok kanalda yasal olarak görünür. İki: klonlu sonlandırıcılarda alt ağaçları yalnızca ONU kimliği ve otuz ikinci bayt ayırır; kimlik planını ayrık tutun, ve bir ayırma kademesi eklemeden önce N1 payınızı ölçün.",
+   "qa": "skipped"
+  },
+  {
+   "id": "e12",
+   "file": "b181b8f8daf_0.wav",
+   "duration": 5.568,
+   "text": "Sıradaki: kurallar belli. Şimdi laboratuvarda bir devri ölçelim.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 296.2
+}
