@@ -109,9 +109,9 @@ class PmSM:
             t = T(label, size, color, BOLD).next_to(a, RIGHT if s > 0 else LEFT, buff=0.06)
         return VGroup(a, t)
 
-    def region(self, tense=True, pad=0.28, label=True, size=15, lpos=UP):
+    def region(self, tense=True, pad=0.28, label=True, size=15, lpos=UP, extra=()):
         ks = sorted(k for k in self.b if (k in TENSE[self.side]) == tense)
-        g = VGroup(*[self.b[k] for k in ks])
+        g = VGroup(*[self.b[k] for k in ks], *extra)
         c = TNC if tense else RLC
         r = RoundedRectangle(corner_radius=0.2, width=g.width + 2 * pad, height=g.height + 2 * pad, stroke_width=0,
                              fill_color=c, fill_opacity=0.08).move_to(g)
@@ -296,6 +296,11 @@ def log_ax(v0, v1, x0, x1, y, ticks, size=14, color=MUTED):
 
 
 class Act19(Act18):
+    def src_in(self, s):
+        """Source line for use inside a combined play (e.g. reset extras): the old line is left to the stage clear."""
+        self.src = None
+        return self.set_src(s)
+
     def heading19(self, s, old=None, w=10.0):
         return self.heading12(s, old, w)
 
