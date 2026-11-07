@@ -35,7 +35,7 @@ class E15P3A(Act15):
         gl = {c: VGroup(glow(dsi[c], rcol.get(c, WARN), 0.04), glow(usi[c], rcol.get(c, WARN), 0.04)) for c in REUSED}
         nt = VGroup(T("aynı tür kimliği, iki anlam →", 18, TXT, BOLD), T("yön bilinmeden ad verilemez", 18, WARN, BOLD)).arrange(RIGHT, buff=0.2).move_to([0, -2.85, 0])
         self.play(self.set_src("G.989.3 §11.3 · Tablo 11-2 · Tablo 11-3"), FadeIn(heads[0]), LaggedStart(*[FadeIn(t, shift=RIGHT * 0.05) for t in ds], lag_ratio=0.04), run_time=1.0)
-        self.at(self.cue("yukarı yönde sekiz", 3.6))
+        self.at(self.cue("iki yönde yeniden kullanılır", 6.6))
         self.play(FadeIn(heads[1]), LaggedStart(*[FadeIn(t, shift=LEFT * 0.05) for t in us], lag_ratio=0.06), run_time=0.8)
         self.at(self.cue("aşağıda burst profili", 10.9))
         self.play(Create(gl[0x01][0]), run_time=0.4)
@@ -136,7 +136,7 @@ class E15P3A(Act15):
         mse.add(T("G.989.2 · OLT vericisi MSE ±20 GHz", 15, S1C, BOLD).move_to(mse[0]))
         fld = VGroup(Rectangle(width=X(12.7) - X(-12.7), height=0.42, stroke_color=GOLD, stroke_width=2, fill_color=GOLD, fill_opacity=0.3).move_to([0, y0 + 1.0, 0]))
         fld.add(T("ofset alanı · ±12,7 GHz", 15, TXT, BOLD).move_to(fld[0]))
-        hk = tag("hesap", GOLD, 14).next_to(fld[0], RIGHT, buff=0.15)
+        hk = tag("hesap", GOLD, 14).next_to(fld[0], LEFT, buff=0.15)
         olt = VGroup(Line([X(15), y0 - 0.08, 0], [X(15), y0 + 1.45, 0], color=WARN, stroke_width=3), T("OLT +15 GHz", 16, WARN, BOLD))
         olt[1].next_to(olt[0], UP, buff=0.06)
         unk = VGroup(T("→ alan:", 17, TXT, BOLD), HX("0x80", 19, WARN, BOLD), T("“bilinmiyor”", 17, WARN, BOLD)).arrange(RIGHT, buff=0.15)
@@ -222,10 +222,9 @@ class E15P3B(Act15):
             n = T(s, 16, c, BOLD).move_to([x0 - 0.2, y, 0], aligned_edge=RIGHT)
             bars.add(VGroup(n, b))
         src = T("G.989.2 Tablo III.2", 15, MUTED, BOLD).next_to(bars[0][1][0], UP, buff=0.12).align_to(bars, LEFT)
-        dl = VGroup(T("sınırlayıcı: en çok 64 bit", 18, TXT, BOLD), T("= 8 B alan", 18, GOLD, BOLD), ok_x(True, 20)).arrange(RIGHT, buff=0.18).move_to([-2.3, -2.75, 0])
-        calc = VGroup(T("6080 bit = 760 B = 8 B desen × 95 tekrar", 18, TXT, BOLD), ok_x(True, 20), tag("hesap · ≤ 255", GOLD, 15)).arrange(RIGHT, buff=0.18)
-        calc.move_to([3.0, -2.75, 0])
-        fit(VGroup(dl, calc), 12.8)
+        dl = VGroup(T("sınırlayıcı: en çok 64 bit", 17, TXT, BOLD), T("= 8 B alan", 17, GOLD, BOLD), ok_x(True, 18)).arrange(RIGHT, buff=0.15).move_to([-3.6, -2.75, 0])
+        calc = VGroup(T("6080 bit = 760 B = 8 B desen × 95 tekrar", 16, TXT, BOLD), ok_x(True, 18), tag("hesap · ≤ 255", GOLD, 14)).arrange(RIGHT, buff=0.15)
+        calc.move_to([3.45, -2.75, 0])
         self.play(self.set_src("G.989.2 Ek III · Tablo III.2 · G.989.3 Tablo 11-4 · hesap"), run_time=0.2)
         self.at(self.cue("en kötü önsöz", 6.6))
         self.play(FadeIn(ax), FadeIn(axl), FadeIn(src), FadeIn(bars[0][0]), GrowFromEdge(bars[0][1][0], LEFT), FadeIn(bars[0][1][1]), run_time=0.7)
@@ -247,9 +246,9 @@ class E15P3B(Act15):
         self.play(FadeOut(chp), run_time=0.2)
         self.set_badge("std")
         h = self.show_heading("Kimlik ve devre dışı bırakma", h)
-        idf = VGroup(*[mtile(c, n, f, 3.0, 0.38, 15) for c, n, f in (US_MSGS[0], DS_MSGS[1], DS_MSGS[2], US_MSGS[1])]).arrange(RIGHT, buff=0.12)
-        fit(idf, 10.4).move_to([-1.15, 1.75, 0])
-        nx = s2chip(6, 15).next_to(idf, RIGHT, buff=0.2)
+        idf = VGroup(*[mtile(c, n, f, 2.75, 0.38, 15) for c, n, f in (US_MSGS[0], DS_MSGS[1], DS_MSGS[2], US_MSGS[1])]).arrange(RIGHT, buff=0.12)
+        idf.move_to([0, 1.8, 0])
+        nx = s2chip(6, 15).next_to(idf, DOWN, buff=0.12).align_to(idf, RIGHT)
         y1, y2 = 0.45, -0.85
         dt = mtile(0x05, "Deactivate_ONU-ID", "dis", 3.3, 0.42, 16).move_to([-4.6, y1, 0])
         o1 = sbox("O1", "başlangıç", STATE, 1.5, 0.75, 20, 14).move_to([-1.6, y1, 0])
@@ -263,14 +262,14 @@ class E15P3B(Act15):
         noack = tag("iki onaysız mesaj", WARN, 15).next_to(VGroup(dt, ds_), LEFT, buff=0.15).shift(UP * 0.0)
         noack.rotate(PI / 2).move_to([-6.6, (y1 + y2) / 2, 0])
         rel = VGroup(T("serbest bırakma", 16, GOOD, BOLD), HX("0x00 / 0xF0", 16, GOOD, BOLD)).arrange(RIGHT, buff=0.15).move_to([-4.3, -2.15, 0])
-        lanes = VGroup(*[VGroup(Rectangle(width=2.6, height=0.16, stroke_width=0, fill_color=c, fill_opacity=0.7), mbox("0x06", GOOD, 0.62, 0.3, 14, mono=True))
+        lanes = VGroup(*[VGroup(Rectangle(width=2.6, height=0.16, stroke_width=0, fill_color=c, fill_opacity=0.7), mbox("0x06", GOOD, 0.72, 0.32, 15, mono=True))
                          for c in CH]).arrange(DOWN, buff=0.08)
         for l in lanes:
             l[1].move_to(l[0])
         lanes.move_to([0.4, -2.3, 0])
         rl = T("her TWDM kanalında gönderilmeli", 16, GOOD, BOLD).next_to(lanes, RIGHT, buff=0.3)
         self.play(self.set_src("G.989.3 Tablo 11-8 · Tablo 11-9 · Tablo 11-2"), run_time=0.2)
-        self.at(self.cue("Kimlik ailesi", 0.3))
+        self.at(self.cue("eşitleme gecikmesi ve kayıt", 3.9))
         self.play(LaggedStart(*[FadeIn(t, shift=RIGHT * 0.05) for t in idf], lag_ratio=0.2), run_time=0.8)
         self.at(self.cue("bir sonraki bölümün", 6.3))
         self.play(FadeIn(nx, shift=LEFT * 0.08), run_time=0.4)
@@ -424,7 +423,7 @@ class E15P3C(Act15):
         self.play(FadeIn(tb[1][0]), FadeIn(tb[1][1]), run_time=0.4)
         self.at(self.cue("yirmide biri", 12.2))
         self.play(FadeIn(tb[1][2]), run_time=0.4)
-        self.at(self.cue("iki virgül beş", 14.7))
+        self.at(self.cue("iki virgül beş gigahertzdir", 14.7))
         self.play(FadeIn(ax), FadeIn(axl), LaggedStart(*[FadeIn(d, scale=0.5) for d in dots], lag_ratio=0.08), Create(mk[0]), FadeIn(mk[1]), run_time=0.8)
         self.at(self.cue("bir gigahertzlik birimle yazılamaz", 17.0))
         self.play(FadeIn(tb[1][3]), FadeIn(nw, shift=LEFT * 0.05), run_time=0.5)
@@ -441,7 +440,7 @@ class E15P3C(Act15):
         self.set_badge("std")
         h = self.show_heading("Change_Power_Level (Tablo 11-21)", h)
         ops = mtable(["TT", "işlem"], [["00", "doğrudan bir düzey"], ["01", "bir düzey azalt"], ["10", "bir düzey artır"], ["11", "düzeyi bildir"]],
-                     [0.9, 3.6], size=17, hsize=15, row_h=0.46, mono=(0,)).move_to([-4.0, 1.25, 0])
+                     [0.9, 3.6], size=17, hsize=15, row_h=0.46, mono=(0,)).move_to([-4.0, 0.75, 0])
         opl = T("oktet 5 · 0000 00TT", 15, MUTED, BOLD).next_to(ops, UP, buff=0.1).align_to(ops, LEFT)
         lad = VGroup()
         for k in range(8):
@@ -451,8 +450,8 @@ class E15P3C(Act15):
         for c in lad:
             c[1].next_to(c[0], UP, buff=0.05)
             c[2].next_to(c[0], DOWN, buff=0.06)
-        lad.move_to([-4.0, -1.85, 0])
-        ladl = T("zayıflatma · dB · kod", 15, MUTED, BOLD).next_to(lad, UP, buff=0.35).align_to(lad, LEFT)
+        lad.move_to([-4.0, -2.05, 0])
+        ladl = T("zayıflatma · dB · kod", 15, MUTED, BOLD).next_to(lad, UP, buff=0.22).align_to(lad, LEFT)
         xo, xu, top, bot = 0.6, 5.2, 1.9, -2.75
         lo = lifeline("OLT CT", xo, top, bot, OLTC, 1.4, 0.48, 16)
         lu = lifeline("ONU", xu, top, bot, ONUC, 1.2, 0.48, 16)
@@ -468,7 +467,7 @@ class E15P3C(Act15):
         self.play(FadeIn(lo), FadeIn(lu), FadeIn(ex), run_time=0.5)
         self.at(self.cue("Dört işlem vardır", 6.3))
         self.play(FadeIn(opl), FadeIn(ops[0]), run_time=0.4)
-        for k, (key, d) in enumerate((("doğrudan bir düzey", 7.8), ("bir düzey azalt", 9.4), ("bir düzey artır", 10.8), ("düzeyi bildir", 12.1))):
+        for k, (key, d) in enumerate((("doğrudan bir düzey", 7.8), ("bir düzey azalt", 9.4), ("bir düzey artır", 10.8), ("ya da düzeyi bildir", 12.1))):
             self.at(self.cue(key, d))
             self.play(FadeIn(ops[k + 1], shift=UP * 0.05), run_time=0.3)
         self.at(self.cue("Zayıflatma kodları", 13.8))
@@ -502,9 +501,9 @@ class E15P3C(Act15):
         r21 = VGroup(Line([X(21), y - 0.1, 0], [X(21), y + 1.05, 0], color=GOLD, stroke_width=3), T("21 dB = kod 0111 · en büyük", 16, GOLD, BOLD))
         r21[1].next_to(r21[0], UP, buff=0.06).align_to(r21[0], RIGHT).shift(RIGHT * 0.3)
         hk = tag("hesap", GOLD, 14).next_to(r21[1], LEFT, buff=0.15)
-        ack = bbar([("başlık", 4, MUTED), ("kod", 1, ACC), ("zayıflatma", 1, PWC), ("PL", 1, PWC), ("dolgu", 33, MUTED), ("MIC", 8, MICC)], 9.0, 0.5, 15,
+        ack = bbar([("başlık", 4, MUTED), ("kod", 1, ACC), ("zayıflatma", 1, PWC), ("PL", 1, PWC), ("dolgu", 33, MUTED), ("MIC", 8, MICC)], 8.6, 0.5, 15,
                    ["1–4", "5", "6", "7", "8–40", "41–48"], place={1: (0, "r"), 2: (1, "c"), 3: (0, "l")}, op=0.2)
-        bar_to(ack, 0.4, -1.75)
+        bar_to(ack, 1.3, -1.75)
         ackl = mtile(0x09, "Acknowledgement", "ack", 2.9, 0.38, 15).next_to(ack[0][0], LEFT, buff=0.25)
         dg = glow(ack[2][0], PWC, 0.04)
         gap = VGroup(tag("G.989.2 D.5", S1C, 15), T("yönlendirmeli dengelemenin TC tarafı:", 16, TXT, BOLD), tag("daha fazla çalışma konusu", GOLD, 15),
@@ -565,7 +564,7 @@ class E15P3C(Act15):
         self.end(pad=0.05)
 
         self.note11("d15", [("1", "Kutuplara dikkat",
-                             "Disable_Serial_Number: 0x00 izin verir, 0xFF engeller · Protection_Control: 0x00 korumayı AÇAR\nsıfırı hep “kapalı” sayan yazılım burada ters çalışır", "kutuplara dikkat"),
+                             "Disable_Serial_Number: 0x00 izin verir, 0xFF engeller\nProtection_Control: 0x00 korumayı AÇAR\nsıfırı hep “kapalı” sayan yazılım burada ters çalışır", "kutuplara dikkat"),
                             ("2", "Onaylanmış güç değişikliği optikte görünmeli",
                              "görünmezse OLT kusur ilan eder (ALRFi) · izlemeniz 3 dB'lik adımı görebilmeli", "onaylanmış bir güç")])
         self.bridge_beat("d16", "PLOAM tamam.\nŞimdi OMCC'ye bakalım.")
@@ -657,7 +656,7 @@ class E15P4A(Act15):
         mib = VGroup(sbox("MIB", "tek", GOLD, 1.5, 0.7, 18, 14).move_to([3.2, -2.45, 0]))
         lk = VGroup(*[Line(o.get_bottom(), mib[0].get_top(), color=GOLD, stroke_width=1.6) for o in ocs])
         lk2 = VGroup(*[Line(ob.get_bottom(), i.get_top(), color=MUTED, stroke_width=1.6) for i in ifs])
-        ans = T("cevap: komutun geldiği arayüzden", 15, GOLD, BOLD).next_to(mib, RIGHT, buff=0.25)
+        ans = T("cevap: komutun geldiği arayüzden", 15, GOLD, BOLD).next_to(mib, LEFT, buff=0.25)
         self.play(self.set_src("G.989.3 §6.1.4.3 · §12 (O1) · Ek H"), FadeIn(lo), FadeIn(lu), run_time=0.4)
         self.at(self.cue("tek bir yayın PLOAM", 2.0))
         self.play(GrowArrow(m1[0]), FadeIn(m1[1]), FadeIn(kd), run_time=0.6)
@@ -722,9 +721,9 @@ class E15P4B(Act15):
         nl = VGroup(*[chk(s, False, 17) for s in ("genişletilmiş biçimin cihaz kimliği", "uzunluk alanı", "en büyük boy")]).arrange(DOWN, aligned_edge=LEFT, buff=0.14)
         nl.move_to([-3.6, 1.45, 0])
         g988 = VGroup(T("→", 22, MUTED, BOLD), doc_card("G.988", ["kaynaklarımızda", "yok"], GOLD, 1.9, 1.15, 17, 14)).arrange(RIGHT, buff=0.2).next_to(nl, RIGHT, buff=0.3)
-        hv = VGroup(T("G.989.3'te olan:", 16, MUTED, BOLD), T("Şekil 15-7'de bir ibare", 16, TXT, BOLD), tag("“genişletilmiş biçimde içerik uzunluğu dahil”", MUTED, 14),
-                    T("+ 2 isteğe bağlı sayaç: temel / genişletilmiş mesaj sayısı", 16, TXT, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08)
-        fit(hv, 5.6).move_to([3.6, 1.45, 0])
+        hv = VGroup(T("G.989.3'te olan:", 16, MUTED, BOLD), T("Şekil 15-7'de bir ibare", 16, TXT, BOLD), tag("“genişletilmiş biçimde uzunluk dahil”", MUTED, 14),
+                    T("+ 2 isteğe bağlı sayaç (Tablo 14-1):", 16, TXT, BOLD), T("temel / genişletilmiş mesaj sayısı", 16, TXT, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08)
+        fit(hv, 5.8).move_to([3.7, 1.45, 0])
         tr = VGroup(T("Ek IV.12 kuyruğu:", 17, TXT, BOLD), HX("00 00 00 28", 19, MUTED, BOLD), T("→ anlamı açıklanmaz", 17, WARN, BOLD)).arrange(RIGHT, buff=0.2).move_to([0, 0.05, 0])
         ef = frame_box("şifreleme · §15.5.1", PINK, 12.4, 2.1, 17).move_to([0, -1.95, 0])
         e1 = VGroup(tag("varsayılan XGEM portu = OMCC portu", PIDC, 15), T("yapılandırılabilir anahtar halkası yok", 16, TXT, BOLD)).arrange(RIGHT, buff=0.25)
@@ -744,7 +743,7 @@ class E15P4B(Act15):
         self.at(self.cue("şekildeki bir ibare", 10.5))
         self.play(FadeIn(hv[:3], shift=LEFT * 0.05), run_time=0.5)
         self.at(self.cue("iki isteğe bağlı sayaç", 12.3))
-        self.play(FadeIn(hv[3], shift=LEFT * 0.05), run_time=0.4)
+        self.play(FadeIn(hv[3:], shift=LEFT * 0.05), run_time=0.4)
         self.at(self.cue("dört baytlık kuyruğun", 15.5))
         self.play(FadeIn(tr, shift=UP * 0.05), run_time=0.5)
         self.at(self.cue("Şifreleme ise güvenlik", 19.8))

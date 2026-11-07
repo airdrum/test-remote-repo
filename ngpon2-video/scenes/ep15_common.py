@@ -103,8 +103,14 @@ def bbar(spec, w, h=0.6, size=17, below=None, place=None, unit=" B", osize=14, o
         x += cw
         s_ = f"{lab} · {n}{unit}" if unit is not None else lab
         t = T(s_, size, TXT, BOLD)
+        t2 = T(lab, size, TXT, BOLD)
+        bl = below[i] if below else None
         if t.width <= cw - 0.12:
             lb = t.move_to(r)
+        elif t2.width <= cw - 0.1:
+            lb = t2.move_to(r)
+            if bl is not None and unit is not None and T(f"{bl} · {n}{unit}", osize, MUTED, BOLD).width <= cw - 0.12:
+                bl = f"{bl} · {n}{unit}"
         else:
             t = T(s_, 15, c, BOLD)
             tier, al = place.get(i, (0, "c"))
@@ -117,8 +123,8 @@ def bbar(spec, w, h=0.6, size=17, below=None, place=None, unit=" B", osize=14, o
                 t.move_to([r.get_x(), y, 0])
             lb = VGroup(t, Line([r.get_x(), h / 2, 0], [r.get_x(), t.get_bottom()[1] - 0.03, 0], color=c, stroke_width=1.2))
         cell = VGroup(r, lb)
-        if below:
-            cell.add(T(below[i], osize, MUTED, BOLD).next_to(r, DOWN, buff=0.08))
+        if bl is not None:
+            cell.add(T(bl, osize, MUTED, BOLD).next_to(r, DOWN, buff=0.08))
         cells.add(cell)
     return cells
 
