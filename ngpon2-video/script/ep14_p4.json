@@ -1,0 +1,65 @@
+{
+ "title": "S2B04 Perde 4 — Çekişme",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "e1",
+   "text": "Perde dört: çekişme. Çekişmeli işletim eki ve çarpışma çözümü eki standardın normatif parçasıdır, ama koşullu uygulanır: genel NG-PON2 donanımının bunları desteklediği varsayılmamalıdır; ancak müşteri istemiş ve üretici kabul etmişse vardır. Bu perde, sözleşmenizde yazıyorsa geçerlidir."
+  },
+  {
+   "id": "e2",
+   "text": "Neden var? Etkin ama sessiz ONU'lara verilen yönlendirilmiş tahsisler büyük olasılıkla cevapsız kalır ya da boş çerçeve taşır. Bunların yerine tek bir çekişmeli tahsis, burst ek yükünü önemli ölçüde azaltır. Uygun bir ONU, çekişmeli bir tahsise tek bir PLOAM mesajıyla cevap verir."
+  },
+  {
+   "id": "e3",
+   "text": "Dört işlev vardır. Birincisi aktivasyon: ayrılmış seri numarası tahsis kimlikleriyle çalışır, ve çarpışmalar küme bölmeyle çözülür. İkincisi dalga boyu koruması: koruma kanalında senkron olan, O9 durumundaki ONU, ayar tamamlandı cevabını gönderir, ve OLT ona yönlendirilmiş tahsisleri en kısa sürede geri verir."
+  },
+  {
+   "id": "e4",
+   "text": "PMD Köprüsü. Koruma kanalına geçen ONU önce ayarlanır; birinci sezonun yedinci bölümünde G.989.2'nin ayar süresi sınıflarını gördük, on mikrosaniyenin altından bir saniyeye kadar. Bizim yorumumuz: koruma toleransı bu ayardan sonra başlar. Yedinci madde ise ONU hâlâ ana kanaldayken verilen koruma tahsislerinden söz eder; onlar zorunlu olarak boşa gider."
+  },
+  {
+   "id": "e5",
+   "text": "Üçüncü işlev boştaki ONU desteğidir: yönlendirilmiş tahsis almayan ama trafiği olan bir ONU, etkilenen tahsis kimliğini bildiren bir onay mesajıyla cevap verir. Dördüncüsü dikkatli uyku desteğidir: yerel bir uyanma göstergesiyle uyanan ONU, uyku isteği mesajıyla bunu söyler. OLT tahsisleri geri verir; çarpışmada, etkilenen bütün ONU'lara."
+  },
+  {
+   "id": "e6",
+   "text": "Bu DBA ile doğrudan bağlıdır: OLT, raporlardan ya da trafik izlemeden geçici olarak etkisiz sandığı veri tahsis kimliklerinin tahsislerini geri çekebilir. ONU'nun parametresi, çerçeve cinsinden bir baytlık yeniden iletim zaman aşımıdır; bizim hesabımızla en çok otuz bir virgül sekiz yedi beş milisaniye. OLT'nin sık tahsis vermesi beklenir, ama sayı verilmez."
+  },
+  {
+   "id": "e7",
+   "text": "PLOAM değişiklikleri. Yayın biçimli atama mesajı ONU kimliği olarak bin yirmi üçü kullanır, işlev kimliğini ve zaman aşımını taşır, ve varsayılan bütünlük anahtarıyla korunur. Onay mesajına altıncı bir tamamlama kodu eklenir, istenmemiş trafik etkinliği bildirimi, ve meşgul tahsis kimliği; sekizinci bayt on altılık tabanda ce sıfır ise bütün tahsis kimlikleri istenir. Onay ve ayar cevabı mesajlarına bir yetenek alanı da eklenir."
+  },
+  {
+   "id": "e8",
+   "text": "Şimdi çarpışma çözümü. Aktivasyonda küme bölmeye dayalı bir protokol uygulanır; mesafesi ölçülmüş tahsislerde OLT, etkilenen ONU'lara tahsisleri geri verebilir. OLT'ye iki kısıt konur. Bir: aynı tahsis kimliğine yeniden tahsis vermeden önce sonuç bildirimini göndermelidir. İki: bildirimden sonraki tahsis, elli milisaniyeden önce gelmemelidir."
+  },
+  {
+   "id": "e9",
+   "text": "Bildirim, çarpışma geri bildirimi mesajıdır: mesaj türü otuz, ONU kimliği atama mesajının biçiminde, varsayılan anahtarla. Bir bayt sonucu taşır: bir devam biti ve iki bitlik iki alan. İlki seçilen ana olay içindir: değerlendirilmedi, boş, başarılı tanıma ya da çarpışma. İkincisi tahsisin kalanı içindir: değerlendirilmedi, boş, düzgün bir burst ya da çarpışma."
+  },
+  {
+   "id": "e10",
+   "text": "ONU sanal bir yığın tutar. Yığına en üstten girer, ve yalnızca en üstteki gönderebilir. Çarpışmada en üstteki her ONU yazı tura atar: yarı olasılıkla yerinde kalır, yarı olasılıkla bir düzey iner; bekleyenler de bir düzey iner. Tahsis boş kalırsa bekleyenler bir düzey çıkar. Bildirim gelmezse, en üstteki varsayılan olarak yarı olasılıkla yeniden gönderir."
+  },
+  {
+   "id": "e11",
+   "text": "PMD Köprüsü. Gönderdiği hâlde tahsisin boş kaldığını duyan ONU'ya tablo, varsa özerk güç dengelemeyi devreye almasını söyler; bizim yorumumuz, OLT burst'ü hiç görmedi. Birinci sezonun sekizinci bölümünde G.989.2'nin bu mekanizmasını gördük: ONU, aldığı aşağı yön gücünden ODN kaybını kestirip çıkış gücünü ayarlar."
+  },
+  {
+   "id": "e12",
+   "text": "Şimdi tartışmaya açık sayı. Bizim benzetimimizle, çarpışan iki ONU'yu ayırmak ortalama dört buçuk tur sürer. Elli milisaniye dört yüz çerçevedir: saniyede en çok yirmi tur, ve iki ONU için ilk çarpışmadan sonra ortalama en az yüz yetmiş beş milisaniye. Metin gerekçe vermez. Bizim yorumumuz: sık tahsis beklentisi ve otuz iki milisaniyenin altındaki zaman aşımı, bu sayıyla zor bağdaşır."
+  },
+  {
+   "id": "e13",
+   "text": "Mühendis notu. Bir: çekişmeli işletim iki kez isteğe bağlıdır; ekler normatif ama koşulludur, ve yeni PLOAM alanları genel donanıma görünmez. Önce yetenek alanlarını okuyun. İki: elli milisaniyelik aralığı üreticiye sorun; çarpışma çözümü ekinin tek zaman sayısı budur."
+  },
+  {
+   "id": "e14",
+   "text": "Sıradaki: paylaşımın kurallarını tamamladık. Şimdi laboratuvarda ölçelim."
+  }
+ ]
+}

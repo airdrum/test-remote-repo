@@ -1,0 +1,69 @@
+{
+ "title": "S2B04 Perde 2 — DBA",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "c1",
+   "text": "Perde iki: DBA. Tanımı şudur: OLT'nin, bir TWDM kanalındaki ONU'ların trafik taşıyan varlıklarına yukarı yön iletim fırsatlarını, etkinliklerine ve trafik sözleşmelerine göre dağıttığı süreç. Etkinlik ya açıkça, tampon durum raporlarıyla; ya örtük olarak, tahsislerde gönderilen boş XGEM çerçeveleriyle; ya da ikisiyle birden bildirilir."
+  },
+  {
+   "id": "c2",
+   "text": "OLT her tahsis kimliğinin trafiğini tek bir mantıksal tampon olarak modeller, ve kanaldaki bütün tahsis kimliklerini aynı düzeyde, bağımsız eşler sayar. Bizim yorumumuz: DBA için ONU diye bir düzey yoktur. Ve OLT'nin DBA desteklemesi zorunludur."
+  },
+  {
+   "id": "c3",
+   "text": "Üç yöntem vardır. Durum raporlamada OLT rapor ister, ONU cevap verir. Trafik izlemede OLT, boş XGEM çerçevelerinin desenini onları tahsis eden haritalarla karşılaştırır. İş birlikli yöntemde bilgi, OLT'nin arkasındaki bir dış donanımdan, örneğin bir baz bant biriminden gelir. İlk ikisinin birleşimi zorunludur; üçüncüsü isteğe bağlıdır, ve rapor için hiç tahsis gerektirmez."
+  },
+  {
+   "id": "c4",
+   "text": "Şimdi zorunlu ama tanımsız olan kısım. Raporlanan durumun nasıl kullanılacağı, trafik izlemenin bütün tanımı, ve haritayı üreten zamanlayıcı kapsam dışıdır; OLT üreticisine bırakılmıştır. Yani standarda uyan iki OLT, aynı trafikte çok farklı davranabilir. Sabit olan yalnızca tanımlayıcı, referans model ve önerilen hedeflerdir."
+  },
+  {
+   "id": "c5",
+   "text": "Raporlamanın sinyali basittir. Tahsis yapısındaki bir bayrak raporu ister, ve ONU tahsisin başına dört baytlık DBRu'yu koyar: yirmi dört bitlik doluluk ve sekiz bitlik CRC. Doluluk, tahsis kimliğinin bütün tamponlarındaki birimlerin toplamıdır, dört baytlık birimlerle; sekiz bayttan kısa bir birim iki sayılır. Hepsi sıfır boş, hepsi bir geçersizdir."
+  },
+  {
+   "id": "c6",
+   "text": "Raporun zamanı ince bir noktadır. Değer, tahsis aralığının başına karşılık gelen en iyi tahmin olmalı, ve bu aralıkta gönderilecek trafiği de içermelidir. Bizim yorumumuz: rapor, kendi tahsisinde boşaltılan baytları da sayar; bunu hesaba katmayan bir DBA, aynı baytları iki kez tahsis eder."
+  },
+  {
+   "id": "c7",
+   "text": "Trafik izlemenin sinyali boş XGEM çerçevesidir. Gönderecek birimi olmayan verici, tahsisin kalanını boş çerçevelerle doldurmak zorundadır; iş korumayan bir zamanlayıcının o an uygun bulmadığı birimler de buna dahildir. Bizim yorumumuz: trafik izleme, boş baytları sayıp tahsisi veren haritayla karşılaştırmaktır."
+  },
+  {
+   "id": "c8",
+   "text": "DBA motorunun şeklinde hız parametreleri ve etkinlik göstergesi atama bloğuna, zamanlama parametreleri harita üretim bloğuna gider. Yönetim girdileri de vardır: PLOAM tahsisleri, korumadaki ONU'lara asgari tahsisler, güç yönetimindekilere azaltılmış tahsisler, ve çekişmeli yayın tahsisleri. Çıkış her çerçevede bir haritadır; DBA döngüsünün süresi verilmez."
+  },
+  {
+   "id": "c9",
+   "text": "Şimdi referans model. Sunulan yük, tampon doluluğu artı bir delta aralığında gelecek trafik, bölü deltadır. Delta en az bir çerçevedir; önerilen sekiz çerçeve, yani bir milisaniye. Bizim hesabımız: on altı bin baytlık bir tampon, delta bir milisaniyeyse saniyede yüz yirmi sekiz megabit, bir çerçeveyse bir virgül sıfır iki dört gigabit yük demektir."
+  },
+  {
+   "id": "c10",
+   "text": "Bileşenler katı bir sırayla atanır: önce sabit, sonra güvenceli, sonra güvencesiz, en son en iyi çaba. Sabit pay yükten bağımsız olarak verilir; güvenceli pay, tanımlı düzeye ya da talep karşılanana kadar. İkisinin toplamı garantili paydır. Ve sunulan yük sabit payı aştıkça, atanan bant genişliği ne en büyük değeri, ne de sunulan yükü aşabilir."
+  },
+  {
+   "id": "c11",
+   "text": "Kalan havuz iki biçimde paylaşılır. Hıza orantılı biçimde güvencesiz pay, doymamış akışlar arasında garantili düzeyleriyle orantılı bölünür; en iyi çaba ise ancak bütün güvencesiz akışlar doyunca, en büyük değerin garantisiz kısmıyla orantılı dağıtılır. Öncelikli biçimde üst öncelikte doymamış biri kaldıkça alt öncelik sıfır alır, eşitlerde ağırlık belirler; ama hangi yönün üst olduğu tanımsızdır."
+  },
+  {
+   "id": "c12",
+   "text": "Bizim örneğimiz: bin megabitlik bir kanal. A ve B güvencesizdir: garantileri yüz ve üç yüz megabit, ikisi de en büyük değerinin üstünde yük sunar. C en iyi çabadır: garantisiz, bir gigabit yük. D'nin elli megabit sabit payı var ama trafiği yok; E'nin elli megabitlik yükü garantisinin içinde. Kalan beş yüz megabit bire üç bölünür: A toplam iki yüz yirmi beş, B altı yüz yetmiş beş alır."
+  },
+  {
+   "id": "c13",
+   "text": "En iyi çaba havuzu ise sıfırdır: C, bir gigabitlik en büyük değerine rağmen hiçbir şey almaz; D trafiği olmadan elli megabit alır. B'nin yükü dört yüze düşerse ikisi de doyar, ve artan yüz megabit C'ye gider. Başarım hedefleri öneridir: durağan atamada modelden örneğin yüzde on sapma; geri gelme süresinde hedef iki milisaniye; yakınsamada hedef altı, beklenen on milisaniye."
+  },
+  {
+   "id": "c14",
+   "text": "Mühendis notu. Bir: standart algoritmayı değil ölçütü verir; bir OLT'yi başka bir OLT'ye değil, referans modele karşı sınayın, ve ortalama penceresini kendiniz yazın. İki: talep varken garantili payın atanamadığı durumları sayan sayaç, yukarı yön tıkanıklığının resmi göstergesidir."
+  },
+  {
+   "id": "c15",
+   "text": "Sıradaki: kuralları yazdık. Şimdi onları zamana yerleştirelim."
+  }
+ ]
+}

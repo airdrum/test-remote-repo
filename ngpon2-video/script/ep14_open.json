@@ -1,0 +1,33 @@
+{
+ "title": "S2B04 açılış",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "o1",
+   "text": "Sezon iki, bölüm dört: Paylaşım. Bir TWDM kanalının yukarı yönü, birçok ONU'nun ortak kullandığı tek bir zaman eksenidir. Bu bölümde o eksenin kime, ne kadar ve ne zaman verildiğini açıyoruz: kaynak tahsisi ve dinamik bant genişliği tahsisi, kısaca DBA."
+  },
+  {
+   "id": "o2",
+   "text": "Önce kim ve ne kadar: tahsis kimlikleri, T-CONT'lar, ve bir akışın sözleşmesini yazan trafik tanımlayıcısı; standardın hiç değer vermediği üç zamanlama parametresiyle birlikte."
+  },
+  {
+   "id": "o3",
+   "text": "Sonra DBA: durum raporlama, trafik izleme ve iş birlikli yöntem. Ve standardın referans modeli: dört katlı, katı bir öncelik sırası, ve önerilen başarım hedefleri."
+  },
+  {
+   "id": "o4",
+   "text": "Ardından gecikme ve zaman: tahsisin ölçü birimi, yoklamanın bedeli, mesafenin kurduğu istek ve tahsis döngüsü, ve mobil ön taşıma için iş birlikli tahsis."
+  },
+  {
+   "id": "o5",
+   "text": "Sonra çekişme: birden fazla ONU'nun aynı tahsisi paylaştığı iki isteğe bağlı ek, çarpışmaları çözen sanal yığın, ve tartışmaya açık bir elli milisaniye."
+  },
+  {
+   "id": "o6",
+   "text": "Laboratuvarda bir trafik üreteci, bir protokol analizörü ve bir OLT emülatörüyle bir DBA uygulamasını referans modele karşı sınayacağız: gecikme, verim, aşırı yük, ve yoklamanın bedeli."
+  }
+ ]
+}

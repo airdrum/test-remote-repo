@@ -42,7 +42,7 @@ LEX = [
     (r"\bBIP\b", "bip"), (r"\bSOA", "es o ey"), (r"\bPON\b", "pon"), (r"\bEthernet", "eternet"), (r"\bLAMBDA", "lamda"),
     (r"\bL([12])\b", lambda m: "el " + ["", "bir", "iki"][int(m.group(1))]),
     (r"\bO([1-9])\b", lambda m: "o " + ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"][int(m.group(1))]),
-    (r"\bB\b", "be"), (r"\bC\b", "ce"), (r"\bD\b", "de"), (r"\bG\b", "ge"),
+    (r"\bB\b", "be"), (r"\bC\b", "ce"), (r"\bD\b", "de"), (r"\bG\b", "ge"), (r"\bJ\b", "je"), (r"\bK\b", "ke"), (r"\bH\b", "ha"), (r"\bF\b", "fe"),
     (r"\bDBRu", "di bi ar yu"), (r"\bDBA\b", "di bi ey"), (r"\bT-CONT", "ti kont"), (r"\bOC\b", "o si"), (r"\bCRC\b", "si ar si"), (r"\bATM\b", "ey ti em"), (r"\bASCII\b", "aski"),
     (r"\bM\b", "em"), (r"\bN\b", "en"), (r"\bP\b", "pi"),
 ]

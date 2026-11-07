@@ -1,0 +1,21 @@
+{
+ "title": "S2B04 Önceki bölümde",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "a1",
+   "text": "Geçen bölümün soruları. Birinci soru: bin beş yüz on sekiz baytlık bir Ethernet çerçevesi tek bir XGEM çerçevesinde aşağı gidiyor. Gösterge bin beş yüz on sekizdir. Yük dördün katına yuvarlanır: bin beş yüz yirmi bayt, yani on altılık tabanda beş beş yazılmış iki dolgu baytı. Başlıkla toplam bin beş yüz yirmi sekiz bayt, son parça biti bir. Önsöz ve sınırlayıcı kapsüllemeden önce atılır; denetim dizisi taşınır."
+  },
+  {
+   "id": "a2",
+   "text": "İkinci soru: kuyruğunda bin beş yüz on sekiz baytlık bir çerçeve olan iki buçuk gigabitlik ONU, rapor isteyen dört sözcüklük tahsiste on altı bayt gönderir. Önce DBRu; doluluk, o çerçeve için üç yüz seksen birimi içerir. Kalan on iki bayt on altıdan azdır, bölme yasaktır. Bizim birleştirmemizle alan tek bir boş çerçeveyle dolar: port kimliği altmış beş bin beş yüz otuz beş, gösterge dört, anahtar indeksi sıfır, son parça biti bir."
+  },
+  {
+   "id": "a3",
+   "text": "Üçüncü soru: göstergesi dört olan boş bir çerçeveden sonraki başlık on iki bayt ileridedir; boş çerçevenin göstergesi gerçek yük boyudur ve yuvarlama formülüne uymaz. Dört sıfır bayt kısa boş çerçevedir, ve yalnızca yukarı yönde vardır. OLT ondan kaçınır, çünkü XG-PON ONU'larının TC katmanı aşağı yön çerçevesinin BIP kuyruğunu zaten kısa bir boş çerçeve sanar. Şimdi bu bölüme."
+  }
+ ]
+}

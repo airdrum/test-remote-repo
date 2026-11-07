@@ -1,0 +1,69 @@
+{
+ "title": "S2B04 Perde 3 — Gecikme ve zaman",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "d1",
+   "text": "Perde üç: gecikme ve zaman. Ölçü birimi on iki virgül sekiz altı nanosaniyelik zaman kuantumudur: iki buçuk gigabitte dört, on gigabitte on altı bayt. Bizim hesabımızla her çerçevede bir kuantum, saniyede iki yüz elli altı kilobit ya da bir virgül sıfır iki dört megabit eder. Saniyede altmış dört kilobitlik bir ses akışı, on altı baytlık en küçük yük tahsisini ancak on altı çerçevede bir ister."
+  },
+  {
+   "id": "d2",
+   "text": "Haritanın sınırları da sayar: bir haritada en çok beş yüz on iki yapı, bir ONU'ya en çok on altı seri. Bizim hesabımızla bir ONU'nun burst'leri arasındaki ortalama aralık, yedi virgül sekiz mikrosaniyenin altına inemez. Aynı ONU'ya yakın burst'ler ise önerilen bir uygulama değildir."
+  },
+  {
+   "id": "d3",
+   "text": "PMD Köprüsü. Birinci sezonun altıncı bölümünde G.989.2'nin burst başına ek yükünü gördük: iki hızda da on altı zaman kuantumu, en kötü durumda altmış dört. Yalnızca rapor taşıyan bir yoklama burst'ü, iki buçuk gigabitte, FEC kapalıyken on dokuz kuantumdur. Bizim hesabımız: bir çerçeveye beş yüz on bir tane sığar, harita da beş yüz on ikide keser. En kötü ek yükle yalnızca yüz kırk beş."
+  },
+  {
+   "id": "d4",
+   "text": "Yoklamanın bedeli, bizim hesabımızla. Altmış dört ONU'yu her çerçevede yoklamak, iki buçuk gigabitte yukarı yön zamanının yüzde on iki buçuğunu yer; milisaniyede bir yoklamak yüzde bir virgül altıyı. İki yüz elli altı ONU'yu her çerçevede yoklamak kanalın yarısıdır. Bin yirmi bir ONU'yu milisaniyede bir yoklamanın bedeli yaklaşık yüzde yirmi beştir."
+  },
+  {
+   "id": "d5",
+   "text": "Dengeyi zamanlama parametreleri kurar. Titreşim toleransı tahsis sıklığını belirler: uzun tolerans daha az burst ve ek yük, kısa tolerans daha düşük gecikme ama daha düşük verim; standart bu ödünleşimi operatöre bırakır. Atama gecikmesi toleransı ise, bizim yorumumuzla, yoklama aralığıdır."
+  },
+  {
+   "id": "d6",
+   "text": "PMD Köprüsü. Birinci sezonun sekizinci bölümünde OLT'nin burst alıcısını, onuncu bölümünde burst başına güç ölçümünü gördük: ölçüm, burst'ün dedektörün üç yüz nanosaniyelik tepki süresine yetecek kadar uzun olmasını ister. Bizim hesabımızla, üçüncü ekin örnek profiliyle, iki buçuk gigabitlik bir yoklama burst'ü yaklaşık yüz on altı nanosaniye sürer. Güç izlemesini veri burst'lerine bağlayın."
+  },
+  {
+   "id": "d7",
+   "text": "Bütün ONU iletimleri, haritayı taşıyan aşağı yön çerçevesinin başlangıcına göre zamanlanır. ONU'nun yanıt süresi otuz beş artı eksi bir mikrosaniyedir. OLT'de bir haritayla onu uygulayan yukarı yön çerçevesi arasındaki ofset sabittir, ve en büyük yanıt süresi artı en uzak ONU'nun gidiş dönüş gecikmesinden küçük olamaz."
+  },
+  {
+   "id": "d8",
+   "text": "PMD Köprüsü. Birinci sezonun ikinci bölümündeki mesafe sınıflarında ODN yirmi ya da kırk kilometreye uzanır, ve gidiş dönüş farkı iki yüz ya da dört yüz mikrosaniyedir. Bizim hesabımızla ofset en az iki yüz otuz altı ve dört yüz otuz altı mikrosaniyedir. Yani OLT'nin elinde, burst'leri henüz gelmemiş iki ya da dört harita vardır."
+  },
+  {
+   "id": "d9",
+   "text": "Raporlama döngüsü, bizim modelimizle: OLT hemen karar verirse, raporla istenen veri arasında yirmi kilometrede iki, kırk kilometrede dört çerçeve geçer. Her çerçevede yoklamayla bir paketin OLT'ye varışı en kötü durumda yaklaşık altı yüz ve dokuz yüz elli mikrosaniye sürer; OLT'nin karar süresi üstüne eklenir. Her çerçevede sabit bir tahsisle iki yüz yirmi beş ve üç yüz yirmi beş mikrosaniye."
+  },
+  {
+   "id": "d10",
+   "text": "Sabit payın hafiflettiği gecikme işte budur. Standart böyle bir alt sınır yazmaz; ama bizim modelimizle kırk kilometrede salt raporlama, en kötü durumda yaklaşık bir milisaniyenin altına inemez. Milisaniyede bir yoklamayla bu iki milisaniyeye yaklaşır; iki milisaniyelik geri gelme hedefi ancak sık yoklamayla rahattır."
+  },
+  {
+   "id": "d11",
+   "text": "Dokuzuncu ek, bilgilendirici, bu döngüyü kırmayı önerir. Raporlama ve trafik izleme, gecikmeye duyarlı istemcilerde sınırda ya da yetersizdir: mobil ön taşıma, yani merkezi birim ile uzak birimler arası ağ, ya da kablosuz erişim noktaları. Bilgilerini OLT ile paylaşırlarsa, gecikme neredeyse noktadan noktaya iletiminkine iner."
+  },
+  {
+   "id": "d12",
+   "text": "Üçüncü ve dördüncü nesilde CPRI sabit hızlıdır, sabit tahsis uygundur. Beşinci nesil işlev bölmelerinde yük mobil trafikle değişir, ve iş birlikli DBA gerekir. Dördüncü nesil örneğinde mobil tahsis mesajından yalnızca kaynak bloğu ataması ile modülasyon ve kodlama şeması gerekir; bunlardan bulunan taşıma bloğu boylarının toplamı, ONU'nun istek boyudur."
+  },
+  {
+   "id": "d13",
+   "text": "Zaman senkronu şarttır. OLT'nin saati öndeyse tahsis veri gelmeden boşa gider, bu yüzden OLT tahsisi en büyük zaman hatası kadar geciktirmelidir; merkezi birim öndeyse veri ONU'da bekler. Ek, sınır saatleri için yüz ve yetmiş nanosaniye anar. Ama ne bir mesaj biçimi, ne bir arayüz, ne de bir gecikme hedefi verir."
+  },
+  {
+   "id": "d14",
+   "text": "Mühendis notu. Bir: mesafe DBA motoruna bir boru hattı kurar; havadaki haritalar, raporu okuyan motorun verilmiş ama gelmemiş tahsisleri düşmesini gerektirir. İki: ek yükü hat hızından çok yoklama aralığı ve tahsis sıklığı belirler; bu iki değeri gecikme hedefinizle birlikte seçin."
+  },
+  {
+   "id": "d15",
+   "text": "Sıradaki: her ONU'ya kendi tahsisini verdik. Peki bir tahsisi birden fazla ONU paylaşırsa?"
+  }
+ ]
+}

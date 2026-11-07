@@ -1,0 +1,65 @@
+{
+ "title": "S2B04 Perde 1 — Kim, ne kadar",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "b1",
+   "text": "Perde bir: kim, ne kadar. Yedinci madde dürüst bir cümleyle açılır: erişime özgü hizmet kalitesi yetenekleri gereklidir, ama uçtan uca hedefler için yeterli değildir. Sonra kapsamı tek bir yukarı yön hızına sahip tek bir TWDM kanalına daraltır; dalga boyu kanallarının dinamik ataması ve çift hız uygulayıcıya kalır. Bizim yorumumuz: iki hızdaki ONU'ları aynı kanalda zamanlamanın kuralları da yoktur."
+  },
+  {
+   "id": "b2",
+   "text": "Bant genişliğini kim alır? Tahsis kimliği, haritanın tahsis yapısında görünen on dört bitlik bir sayıdır, ve tahsisin alıcısını söyler. Alıcı bir ONU'nun içindeki trafik taşıyan bir varlıktır, yani bir T-CONT ya da yukarı yön OMCC; ya da birden fazla ONU'nun kullanabildiği, çekişmeye dayalı bir işlevdir."
+  },
+  {
+   "id": "b3",
+   "text": "Sıfırdan bin yirmiye kadar varsayılan tahsis kimlikleri ONU kimliğine eşittir; bin yirmi bir, bin yirmi iki ve bin yirmi üç seri numarası tahsisleridir; bin yirmi dörtten on altı bin üç yüz seksen üçe kadarı açıkça atanır. NG-PON2'de aktivasyon tahsis kimlikleri açıkça atanamaz. Ve bir tahsis kimliği, bütün kanallarda, bütün ODN boyunca tektir."
+  },
+  {
+   "id": "b4",
+   "text": "Bizim hesabımızla bunun iki sonucu var. Atanabilir on beş bin üç yüz altmış değer, kanal başına değil bütün sistem için ortaktır. Ve ONU kimliği de ODN boyunca tek olduğundan, bir ODN'de, bütün kanalların toplamında en çok bin yirmi bir ONU olabilir."
+  },
+  {
+   "id": "b5",
+   "text": "Her ONU'nun tam olarak bir varsayılan tahsis kimliği vardır: OMCC trafiğini taşır, kullanıcı verisi de taşıyabilir, ve yalnızca PLOAM isteyen tahsislerde kullanılır. Ek tahsis kimlikleri bir T-CONT'a bağlanır ve tahsis kimliği atama mesajıyla verilir: on dört bitlik değer, bir tür baytı ve on altı bitlik bir kapsam alanı. Tür bir yük taşıyan bir tahsis atar, iki yüz elli beş atamayı geri alır."
+  },
+  {
+   "id": "b6",
+   "text": "PMD Köprüsü. Kapsam alanının her biti, dört bitlik bir yukarı yön dalga boyu kanalı kimliğine karşılık gelir; bit bir ise tahsis kimliği o kanalda geçersizdir. Birinci sezonun üçüncü bölümünde G.989.2'nin kanal planını, yedinci bölümünde de ONU'nun kanallar arasında ayarlanmasını gördük. Ama dar kapsamların ataması hâlâ çalışma konusudur."
+  },
+  {
+   "id": "b7",
+   "text": "T-CONT'a gelince bir sürpriz: tanımı G.989.3'te değil G.989'dadır, ve o belge kaynaklarımızda yok. G.989.3 onu yalnızca kullanır: her T-CONT için, üstüne çoğullanan port akışlarından bir toplu trafik tanımlayıcısı kurulur. OLT toplu akışları yönetir; içerdeki akışların hizmet kalitesi ONU'nun işidir. T-CONT tipleri de burada yoktur."
+  },
+  {
+   "id": "b8",
+   "text": "Peki ne kadar? Tanımlayıcının geleneksel biçimi altı bileşendir. Sabit bant genişliği: talepten bağımsız olarak ayrılan pay. Güvenceli bant genişliği: karşılanmamış talep olduğu sürece verilen pay. En büyük bant genişliği: üst sınır. Sonra üç değerli bir ek pay hakkı: yok, güvencesiz ya da en iyi çaba. Ve en iyi çaba için bir öncelik ve bir ağırlık."
+  },
+  {
+   "id": "b9",
+   "text": "Genişletilmiş biçim üç zamanlama parametresi ekler. Titreşim toleransı: etkin bir akışın, payına karşılık gelen bir tahsisi en az bir kez alması gereken aralık. Atama gecikmesi toleransı: etkisiz bir akışın etkinleşmesinden ilk yeterli tahsise kadar en büyük gecikme. Koruma anahtarlama toleransı: koruma kanalında senkron olan ONU'nun, varsayılan tahsis kimliğine ilk tahsise kadar en büyük gecikme."
+  },
+  {
+   "id": "b10",
+   "text": "Bu üçü iki bin on sekiz değişikliğiyle geldi, ve desteği operatörün gereksinimine bağlıdır. Uygulamaların sürekli bir aralık yerine sonlu bir temsilî değer kümesi sunması beklenir. Ama standart bu kümeyi hiçbir yerde vermez: ne birim, ne aralık, ne de tek bir örnek değer. Ayrı bir gecikme sınırı parametresi de yoktur."
+  },
+  {
+   "id": "b11",
+   "text": "Tanımlayıcının üç koşulu vardır. En büyük değer, sabit ile güvencelinin toplamından küçük olamaz. Güvencesiz hakkı olan akışta bu toplam sıfırdan büyük olmalıdır; en iyi çaba akışında sıfır olabilir. Ve kanaldaki bütün sabit artı güvenceli payların toplamı, ek yükler hariç kapasiteyi aşamaz. Bizim çıkarımımız: en iyi çaba akışının hiç garantisi olmayabilir; bu bir tasarım kararıdır."
+  },
+  {
+   "id": "b12",
+   "text": "Sabit pay neden var? Standardın cevabı: zamanlayıcı ile kuyrukların farklı ağ elemanlarında durduğu dağıtık bir ortamda, aradaki iletişim gecikmesini hafifletmek için. Zamanlamanın merkezi olduğu aşağı yönde uygulanamayabilir; aşağı yön trafik yönetimi zaten kapsam dışıdır. O gecikmeyi üçüncü perdede ölçeceğiz."
+  },
+  {
+   "id": "b13",
+   "text": "Mühendis notu. Bir: sınırı tahsis kimliği değil ONU kimliği koyar; bir ODN'de, bütün kanalların toplamında bin yirmi bir ONU. İki: sıfırlar ve özdeş değerler, servis disiplinini seçmenin standart yoludur; ama zamanlama parametrelerinin değerlerini üreticiden isteyin."
+  },
+  {
+   "id": "b14",
+   "text": "Sıradaki: kimin ne kadar alacağını yazdık. Peki OLT, kimin şu an neye ihtiyacı olduğunu nereden bilir?"
+  }
+ ]
+}

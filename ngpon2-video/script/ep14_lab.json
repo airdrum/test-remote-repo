@@ -1,0 +1,57 @@
+{
+ "title": "S2B04 Laboratuvarda — DBA gecikmesi, verim ve yoklama",
+ "voice": "Ana Florence",
+ "xtts_speaker": "Ana Florence",
+ "model": "xtts-v2",
+ "style": "",
+ "beats": [
+  {
+   "id": "g1",
+   "text": "Laboratuvarda. Düzenek: aşağı yön haritalarını ve yukarı yön burst'lerini yakalayan bir protokol analizörü, bir OLT ve ONU emülatörü, zaman damgalı bir trafik üreteci, ve sıfır, yirmi ve kırk kilometrelik fiber makaraları. Standart ölçütleri verir, yöntemleri vermez; aşağıdakiler mühendislik pratiğidir."
+  },
+  {
+   "id": "g2",
+   "text": "İlk test: durağan atama. İkinci perdedeki beş akışı tanımlayın, sabit yükler sunun, haritaları bir pencere boyunca yakalayın. Her tahsis kimliği için tahsis boylarını iki buçuk gigabitte dört, on gigabitte on altı baytla çarpıp toplayın, raporları düşün. Doymamış her akış en az garantili payı almalı, ve modelden örneğin yüzde on içinde kalmalıdır."
+  },
+  {
+   "id": "g3",
+   "text": "İkinci test: aşırı yük. En iyi çaba akışı, güvencesiz akışlar doymadıkça sıfır almalıdır. Trafiği olmayan sabit paylı akış yine tahsis almalı, ve ONU onu boş çerçevelerle doldurmalıdır; boşa giden payı ölçün. Sonra kararlılık koşulunu bilerek çiğneyin; tıkanıklık sayacı artmalıdır."
+  },
+  {
+   "id": "g4",
+   "text": "Üçüncü test: geri gelme süresi. Bir akışın yükünü sıfırdan garantili düzeyin üstüne bir adımda çıkarın, ve garantili payı ortalamada karşılayan pencerenin ilk yukarı yön çerçevesine kadar geçen süreyi ölçün. Hedef iki milisaniyedir. Üç makarada tekrarlayıp mesafenin payını algoritmanınkinden ayırın."
+  },
+  {
+   "id": "g5",
+   "text": "Dördüncü test: yakınsama. Durağan bir sistemde tek bir ONU'nun yükünü değiştirin, ve bütün doymamış akışların modelin örneğin yüzde yirmisi içine dönmesine kadar geçen süreyi ölçün. Hedef altı, beklenen on milisaniye. Bu süre haritaları taşıyan aşağı yön çerçevesinde ölçülür; geri gelme süresi ise ONU'da, yukarı yönde."
+  },
+  {
+   "id": "g6",
+   "text": "Beşinci test: gecikme ve titreşim. Zaman damgalı paketleri kullanıcı tarafından ağ tarafına gönderin: yalnızca sabit tahsisle, yalnızca raporlamayla, ve ikisi birlikte; yoklama aralığını değiştirin. Bizim modelimiz, her çerçevede yoklamayla en kötü durumda yirmi kilometrede yaklaşık yedi yüz mikrosaniye, kırk kilometrede bir milisaniye bekler."
+  },
+  {
+   "id": "g7",
+   "text": "Altıncı test: yoklamanın bedeli. Yoklanan ONU sayısını otuz ikiden başlayıp ikişer kat artırarak iki yüz elli altıya getirin; her biri her çerçevede yalnızca rapor taşıyan bir burst göndersin. Bizim tablomuz, iki buçuk gigabitte FEC kapalıyken, yüzde altı, on iki buçuk, yirmi beş ve elli verim kaybı öngörür."
+  },
+  {
+   "id": "g8",
+   "text": "Yedinci test: rapor sinyali. ONU emülatörü bilinen doluluklar göndersin: küçük birimler iki birim sayılmalı; sıfır boş, hepsi bir geçersizdir. Sonra CRC'yi bozun: OLT raporu atmalıdır. Son olarak OLT'nin, raporun kendi tahsisinde sayılan baytları iki kez tahsis etmediğini doğrulayın."
+  },
+  {
+   "id": "g9",
+   "text": "Sekizinci test: trafik izleme. Aynı rapor değerleriyle tahsisleri bir kez veriyle, bir kez boş çerçevelerle doldurun, ve tahsislerin küçülüp küçülmediğini izleyin. Sonra harita kurallarını denetleyin: yapı sınırları, artan başlangıç zamanları, burst'ler arası koruma aralığı ve FEC bloklarına hizalama."
+  },
+  {
+   "id": "g10",
+   "text": "Dokuzuncu test: bir altın vektör. Dördüncü ekin dokuzuncu örneği bir tahsis kimliği atama mesajıdır: ONU kimliği on dokuz, sıra numarası üç, tahsis kimliği bin doksan üç, tür bir. Bizim hesabımızla yayımlanan bütünlük kodu, yalnızca kapsam alanı sıfırken, yani bütün kanallar geçerliyken tutar. Vektör, metnin yazmadığı bir değeri de sabitliyor."
+  },
+  {
+   "id": "g11",
+   "text": "Sonra ONU'nun kendi kanalında geçersiz bir tahsis kimliğine cevap vermediğini doğrulayın. Çekişmeli işletimi yalnızca sözleşmedeyse sınayın: yetenek alanlarını okuyun, iki ONU'yu seri numarası tahsisinde bilerek çarpıştırın, ortalama dört buçuk turu ve elli milisaniyelik aralığı ölçün."
+  },
+  {
+   "id": "g12",
+   "text": "Laboratuvar notu. Bir: her DBA ölçümünü mesafeyle, FEC durumuyla ve burst profiliyle birlikte kaydedin; aynı algoritma kırk kilometrede başka bir gecikme verir. İki: iş birlikli yöntem için standart bir arayüz yoktur; sınamak için üreticinin, ekteki üç referans noktasından birine açtığı bir arayüz gerekir."
+  }
+ ]
+}
