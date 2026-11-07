@@ -13,7 +13,7 @@ def tcard(k, title, body, w=6.5, h=0.95, tsize=19, bsize=16):
     return VGroup(r, n, g)
 
 
-def eqrow(out, key, msg, y, x_out=-5.85, x_eq=-4.0, x_key=-1.75, x_msg=-0.45):
+def eqrow(out, key, msg, y, x_out=-5.9, x_eq=-3.85, x_key=-1.7, x_msg=-0.45):
     """'OUT = AES-CMAC( KEY , MSG )' row; returns VGroup(out, eq, key, comma, msg, close)."""
     out.move_to([x_out, y, 0])
     eq = T("= AES-CMAC (", 19, MICC, BOLD).move_to([x_eq, y, 0])
@@ -301,7 +301,7 @@ class E18P1B(Act18):
         onc[1].next_to(onc[0], RIGHT, buff=0.2)
         cp = RoundedRectangle(corner_radius=0.08, width=0.5, height=1.25, stroke_color=MSKC, stroke_width=2, fill_color=MSKC, fill_opacity=0.2).move_to([xo, -0.55, 0])
         cpl = VGroup(T("MSK → SK", 15, MSKC, BOLD), T("→ PLOAM_IK", 15, MSKC, BOLD)).arrange(DOWN, aligned_edge=RIGHT, buff=0.04).next_to(cp, LEFT, buff=0.12)
-        olc = VGroup(Dot([xo, -1.25, 0], radius=0.07, color=GOOD), VGroup(T("OLT: hesapladığı", 16, GOOD, BOLD), T("anda etkin", 16, GOOD, BOLD)).arrange(DOWN, aligned_edge=RIGHT, buff=0.04))
+        olc = VGroup(Dot([xo, -1.45, 0], radius=0.07, color=GOOD), VGroup(T("OLT: hesapladığı", 15, GOOD, BOLD), T("anda etkin", 15, GOOD, BOLD)).arrange(DOWN, aligned_edge=RIGHT, buff=0.04))
         olc[1].next_to(olc[0], LEFT, buff=0.15)
         gap = Rectangle(width=xn - xo - 0.55, height=1.3, stroke_width=0, fill_color=WARN, fill_opacity=0.1).move_to([(xo + xn) / 2 + 0.1, -0.5, 0])
         gpl = T("ONU'ya özgü kodlu mesaj yok", 15, WARN, BOLD).move_to(gap).shift(DOWN * 0.15)
@@ -1033,7 +1033,7 @@ class E18P2C(Act18):
         yt = ytag("bizim hesabımız").next_to(rate, RIGHT, buff=0.4).align_to(rate, UP)
         br = brace_lbl(VGroup(b1, b2), "11,7 ms · işlemesiz", GOLD, DOWN, 16)
         br.shift(DOWN * 0.6)
-        tk = DashedLine([X(10), -1.05, 0], [X(10), 0.35, 0], color=WARN, stroke_width=2.4)
+        tk = VGroup(DashedLine([X(10), -1.05, 0], [X(10), -0.52, 0], color=WARN, stroke_width=2.4), DashedLine([X(10), 0.12, 0], [X(10), 0.35, 0], color=WARN, stroke_width=2.4))
         tkl = T("TK2 = 10 ms", 16, WARN, BOLD).next_to(tk, UP, buff=0.06)
         nw = VGroup(T("Bu değerler PtP WDM'e uyar mı?", 18, TXT, BOLD), tag("yazılı değil", WARN, 16)).arrange(RIGHT, buff=0.2).move_to([0, -2.85, 0])
         self.play(self.set_src("S1·B9 · G.989.2 Ek B (AMCC) · G.989.3 Tablo 11-2/11-3 · §15.5.3 · hesap"), run_time=0.3)

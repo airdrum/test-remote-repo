@@ -44,11 +44,11 @@ class E18LabA(LabAct):
         atk[0].set_stroke(ATKC)
         d1 = Line(sp.get_right(), onu[0].get_left(), color=FEED, stroke_width=2)
         d2 = Line(sp.get_right(), atk[0].get_left(), color=ATKC, stroke_width=2)
-        spr = T("boş port", 15, ATKC, BOLD).next_to(d2.point_from_proportion(0.5), DOWN, buff=0.12)
+        spr = T("boş port", 15, ATKC, BOLD).next_to(d2.point_from_proportion(0.55), LEFT, buff=0.15)
         atl = tag("saldırganımız", ATKC, 16).next_to(atk, RIGHT, buff=0.3)
-        pa = pa_icon(1.9, 1.3, "Analizör").move_to([-3.6, -1.35, 0])
+        pa = pa_icon(1.9, 1.3, "Analizör").move_to([-3.25, -1.35, 0])
         pl = VGroup(T("şifre çözme motoru", 15, ACC, BOLD), T("bütünlük (MIC) motoru", 15, MICC, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.05).next_to(pa, LEFT, buff=0.2)
-        tp = DashedLine([-3.6, 0.95, 0], pa[0].get_top(), color=MUTED, stroke_width=1.6)
+        tp = DashedLine([-3.25, 0.95, 0], pa[0].get_top(), color=MUTED, stroke_width=1.6)
         tg = tg_icon(1.9, 1.3, "Trafik üreteci").move_to([5.3, 1.55, 0])
         tl = DashedLine(tg[0].get_left(), onu[0].get_right(), color=GOOD, stroke_width=1.6)
         iso = VGroup(lock(WARN, 0.26), T("yalnızca yalıtılmış bir test ağında", 18, WARN, BOLD)).arrange(RIGHT, buff=0.15).move_to([3.4, -2.75, 0])
@@ -154,7 +154,7 @@ class E18LabA(LabAct):
             x = -5.3
             k = 0
             while x + fw <= 6.5:
-                new = x >= xsw
+                new = x >= xsw - 0.01
                 c = GOOD if new else "#60A5FA"
                 r = Rectangle(width=fw - 0.06, height=0.42, stroke_color=c, stroke_width=1.6, fill_color=c, fill_opacity=0.35 if new else 0.15).move_to([x + fw / 2, y, 0])
                 g.add(VGroup(r, HX("10" if new else "01", 14, TXT, BOLD).move_to(r)))
@@ -304,7 +304,7 @@ class E18LabB(LabAct):
         msg_ = VGroup(mtile(0x06, "Disable_Serial_Number · yayın 0x03FF", "dis", 5.0, 0.44, 16),
                       VGroup(T("MIC:", 15, MUTED, BOLD), HX("33adf1f7c67f2f7b", 15, DKC, BOLD), keychip(True, 14, "(0x55) × 16")).arrange(RIGHT, buff=0.12)).arrange(DOWN, aligned_edge=LEFT, buff=0.1)
         msg_.move_to([-0.9, 1.05, 0])
-        ex = T("örnek MIC: S2·B5", 14, MUTED, BOLD).next_to(msg_, DOWN, buff=0.06).align_to(msg_, LEFT)
+        ex = T("örnek MIC: S2·B5'teki hesabımız", 14, MUTED, BOLD).next_to(msg_, DOWN, buff=0.06).align_to(msg_, LEFT)
         a1 = arrow(at[0].get_right(), msg_.get_left() + LEFT * 0.05, ATKC, 2.4, 0.12)
         onu = onu_box("ONU", ONUC, 1.2, 0.55, 17).move_to([4.6, 1.05, 0])
         a2 = arrow(msg_.get_right() + RIGHT * 0.05, onu.get_left(), ATKC, 2.4, 0.12)

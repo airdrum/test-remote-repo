@@ -1,0 +1,21 @@
+[
+ ["Ep18Open", "ep18_open", "ep18_open", "open"],
+ ["Intro", null, null, null],
+ ["Ep18Recap", "ep18_open", "ep18_recap", "recap"],
+ ["E18P1A", "ep18_p12", "ep18_p1A", "p1"],
+ ["E18P1B", "ep18_p12", "ep18_p1B", "p1"],
+ ["E18P1C", "ep18_p12", "ep18_p1C", "p1"],
+ ["E18P2A", "ep18_p12", "ep18_p2A", "p2"],
+ ["E18P2B", "ep18_p12", "ep18_p2B", "p2"],
+ ["E18P2C", "ep18_p12", "ep18_p2C", "p2"],
+ ["E18P3A", "ep18_p34", "ep18_p3A", "p3"],
+ ["E18P3B", "ep18_p34", "ep18_p3B", "p3"],
+ ["E18P3C", "ep18_p34", "ep18_p3C", "p3"],
+ ["E18P4A", "ep18_p34", "ep18_p4A", "p4"],
+ ["E18P4B", "ep18_p34", "ep18_p4B", "p4"],
+ ["E18P4C", "ep18_p34", "ep18_p4C", "p4"],
+ ["E18LabA", "ep18_le", "ep18_labA", "lab"],
+ ["E18LabB", "ep18_le", "ep18_labB", "lab"],
+ ["E18LabC", "ep18_le", "ep18_labC", "lab"],
+ ["E18End", "ep18_le", "ep18_end", "end"]
+]

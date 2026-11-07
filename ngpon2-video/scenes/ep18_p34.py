@@ -3,7 +3,7 @@ Perde 4 (bütünlük ve açık kalanlar — §15.6–§15.8, Tablo 14-1/14-2, §
 from ep18_common import *
 
 
-def ctr_col(x, k, y_ctr=1.55, y_aes=0.6, y_x=-0.35):
+def ctr_col(x, k, y_ctr=1.25, y_aes=0.3, y_x=-0.65):
     """One CTR column: counter tile → AES box → ⊕ with P_k → C_k. Returns dict."""
     ctr = tile("ICB" if k == 0 else f"ICB + {k}", SFCC8, 1.55, 0.46, 16, 0.18).move_to([x, y_ctr, 0])
     aes = tile("AES-128 · K", ACC, 1.75, 0.5, 16, 0.25).move_to([x, y_aes, 0])
@@ -38,11 +38,11 @@ class E18P3A(Act18):
         incl = VGroup(*[T("+1", 15, SFCC8, BOLD).next_to(a, UP, buff=0.04) for a in inc])
         dots = T("…", 26, MUTED, BOLD).next_to(cols[2]["ctr"], RIGHT, buff=0.35)
         kn = VGroup(T("anahtar K:", 17, TXT, BOLD), T("yalnızca OLT CT ve ONU", 17, ACC, BOLD), T("yayın anahtarında: ONU'lar", 17, BCC, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.08)
-        fit(kn, 2.9).move_to([5.4, 0.15, 0])
+        fit(kn, 2.9).move_to([5.4, -0.2, 0])
         icl = VGroup(T("her XGEM yükü için ICB'ye kurulur", 16, SFCC8, BOLD), T("128 bitin tamamında artırma · SP800-38A B.1", 15, MUTED, BOLD)).arrange(DOWN, aligned_edge=LEFT, buff=0.04)
-        icl.move_to([-6.5, 2.2, 0], aligned_edge=LEFT)
+        icl.move_to([-6.5, 1.95, 0], aligned_edge=LEFT)
         y = -2.65
-        xh = seg(-4.2, 1.4, y, SAC, "XGEM başlığı", 0.55, 0.5, 15, BG)
+        xh = seg(-4.4, 1.6, y, SAC, "XGEM başlığı", 0.55, 0.5, 15, BG)
         xp = seg(-2.8, 5.6, y, SAC, "XGEM yükü · şifreli", 0.55, 0.14, 16)
         lo = lock(CLRC, 0.26, opened=True).next_to(xh, UP, buff=0.08)
         lc = lock(GOOD, 0.26).next_to(xp, UP, buff=0.08)
@@ -259,11 +259,9 @@ class E18P3B(Act18):
         r6 = VGroup(T("IV.6 ↓ · blok 120 (0x78)", 16, TXT, BOLD), HX(IV6_ICB, 17, SFCC8, BOLD), ok_x(True, 18)).arrange(RIGHT, buff=0.3)
         r7 = VGroup(T("IV.7 ↑ · blok 2428 (0x97c)", 16, TXT, BOLD), VGroup(HX(IV7_ICB.split()[0], 17, SFCC8, BOLD), HX(IV7_ICB.split()[1], 17, NOTC, BOLD)).arrange(RIGHT, buff=0.22), ok_x(True, 18)).arrange(RIGHT, buff=0.3)
         for r, yy in ((r6, top - 0.3), (r7, top - 0.85)):
-            fit(r, 12.0)
-            r.move_to([0, yy, 0])
-        r7[1].align_to(r6[1], LEFT)
-        r7[0].align_to(r6[0], LEFT)
-        r7[2].align_to(r6[2], LEFT)
+            r[0].move_to([-5.9, yy, 0], aligned_edge=LEFT)
+            r[1].move_to([-2.2, yy, 0], aligned_edge=LEFT)
+            r[2].move_to([3.2, yy, 0])
         self.play(FadeIn(yt), self.set_src("G.989.3 §15.4.3 · Şekil 15-2 · Ek IV.6 · Ek IV.7 · yorum"), run_time=0.4)
         self.at(self.cue("tek alıcılı anahtar iki yönde", 2.4))
         self.play(FadeIn(kk, shift=UP * 0.05), run_time=0.4)
@@ -302,7 +300,9 @@ class E18P3B(Act18):
         smr = arrow(sm.get_top() + LEFT * 0.4 + UP * 0.02, bar.get_corner(DL) + RIGHT * 0.25, GOOD, 2, 0.1)
         cal = VGroup(ytag("bizim hesabımız"), T("2⁵⁰ × 125 µs = 4460 yıl", 17, TXT, BOLD), T("· 0'dan ortaya", 17, TXT, BOLD), T("2230 yıl", 19, GOLD, BOLD)).arrange(RIGHT, buff=0.15)
         fit(cal, 12.4).move_to([0, -2.55, 0])
-        tr_ = Arrow([-3.4, y + 0.62, 0], [-0.1, y + 0.62, 0], buff=0, color=GOLD, stroke_width=2.5, tip_length=0.14, max_tip_length_to_length_ratio=0.05)
+        tr_ = VGroup(Arrow([-5.9, y, 0], [-0.15, y, 0], buff=0, color=GOLD, stroke_width=2.5, tip_length=0.14, max_tip_length_to_length_ratio=0.05),
+                     T("0'dan ortaya: 2230 yıl", 15, GOLD, BOLD).move_to([-3.0, y + 0.13, 0]))
+        tr_[0].shift(DOWN * 0.1)
         self.play(self.set_src("G.989.3 §15.4.3 NOT (Amd.2 s. 168: “250 µs”) · hesap"), run_time=0.3)
         self.at(self.cue("Elli bitlik alanda", 2.1))
         self.play(FadeIn(bar), FadeIn(bl), run_time=0.5)
@@ -318,7 +318,7 @@ class E18P3B(Act18):
         self.at(self.cue("sayacı küçük bir değerle", 23.1))
         self.play(FadeIn(sm, shift=UP * 0.05), GrowArrow(smr), run_time=0.5)
         self.at(self.cue("sıfırdan başlayan sayaç", 27.3))
-        self.play(GrowArrow(tr_), FadeIn(cal, shift=UP * 0.05), run_time=0.7)
+        self.play(GrowArrow(tr_[0]), FadeIn(tr_[1]), FadeIn(cal, shift=UP * 0.05), run_time=0.7)
         self.end(pad=0.05)
 
         # d8 — our derivation (model validated on IV.6/IV.7): only 0b1(0)49 is reachable (shared blocks for IFC ≤ 511, long payloads);
@@ -329,13 +329,11 @@ class E18P3B(Act18):
         ax, X = lin_axis(0, 16384, -1.6, 6.3, -1.35, [0, 9718, 14580, 16384], size=14,
                          fmt=lambda v: {0: "0", 9718: "9718", 14580: "14 580", 16384: "2¹⁴"}[v])
         axl = T("IFC", 16, IFCC8, BOLD).next_to(ax, LEFT, buff=0.2)
-        legal = VGroup(Rectangle(width=X(9718) - X(0), height=0.16, stroke_width=0, fill_color=ACC, fill_opacity=0.6).move_to([(X(0) + X(9718)) / 2, -0.95, 0]),
-                       Rectangle(width=X(14580) - X(0), height=0.16, stroke_width=0, fill_color=GOLD, fill_opacity=0.6).move_to([(X(0) + X(14580)) / 2, -1.15, 0]))
+        legal = VGroup(Rectangle(width=X(9718) - X(0), height=0.16, stroke_width=0, fill_color=ACC, fill_opacity=0.6).move_to([(X(0) + X(9718)) / 2, -0.7, 0]),
+                       Rectangle(width=X(14580) - X(0), height=0.16, stroke_width=0, fill_color=GOLD, fill_opacity=0.6).move_to([(X(0) + X(14580)) / 2, -1.0, 0]))
         lgl = VGroup(T("izinli ↓", 15, ACC, BOLD).next_to(legal[0], LEFT, buff=0.1), T("izinli ↑", 15, GOLD, BOLD).next_to(legal[1], LEFT, buff=0.1))
         lgl[0].align_to(axl, RIGHT)
         lgl[1].align_to(axl, RIGHT)
-        lgl[0].shift(UP * 0.05)
-        lgl[1].shift(DOWN * 0.05)
         rows = [(1.55, "SFC = 2⁴⁹", "0b1(0)49", 0, 511, WARN, "ulaşılabilir · IFC ≤ 511 · uzun yüklerde ortak sayaç blokları"),
                 (0.75, "SFC = 2⁴⁹ − 1", "0b0(1)49", 15872, 16384, GOOD, "IFC ≥ 15 872 ister · madde sınırlarının dışında → ulaşılamaz"),
                 (-0.05, "SFC(49..0) = 0", "notta yok", 0, 510, WARN, "üçüncü zayıf çerçeve · ↑ alt yarı taşar → ↓ blok k+1 ile çakışır")]
@@ -390,12 +388,12 @@ class E18P3C(Act18):
             ("indeksi kullanımdan çek", "anahtarı kriptografik RNG ile üret", "her çoklu yayın ONU'suna OMCI ile yaz\no ONU'nun KEK'iyle AES-ECB", "hepsi alınca indeksi geri koy"))])
         st.arrange(DOWN, aligned_edge=LEFT, buff=0.32).move_to([-4.2, 0.45, 0])
         olt = VGroup(ct_box("OLT CT", OLTC, 1.4, 0.55, 17), VGroup(lock(BCC, 0.24), T("K yayın", 16, BCC, BOLD)).arrange(RIGHT, buff=0.1)).arrange(DOWN, buff=0.12).move_to([0.9, 0.45, 0])
-        onus = VGroup(*[onu_box(f"ONU {k + 1}", ONUC, 1.2, 0.5, 16).move_to([5.9, 1.55 - 1.1 * k, 0]) for k in range(3)])
+        onus = VGroup(*[onu_box(f"ONU {k + 1}", ONUC, 1.2, 0.5, 16).move_to([3.7, 1.55 - 1.1 * k, 0]) for k in range(3)])
         kcs = ["#C084FC", "#38BDF8", "#FB7185"]
         lines = VGroup(*[arrow(olt[0].get_right(), o.get_left(), MUTED, 2, 0.1) for o in onus])
         pk = VGroup(*[VGroup(lock(c, 0.2), HX(f"ECB(KEK{k + 1}, K)", 15, c, BOLD)).arrange(RIGHT, buff=0.08) for k, c in enumerate(kcs)])
-        for p_, l in zip(pk, lines):
-            p_.move_to(l.point_from_proportion(0.5) + UP * 0.22)
+        for p_, o_ in zip(pk, onus):
+            p_.next_to(o_, RIGHT, buff=0.25)
         om = T("OMCI", 15, OMC, BOLD).next_to(lines, DOWN, buff=0.15)
         yi = VGroup(ytag("yorum"), T("aynı anahtar · ONU sayısı kadar farklı şifre", 17, GOLD, BOLD)).arrange(RIGHT, buff=0.15).move_to([2.6, -1.85, 0])
         tg = VGroup(tag("zamanlayıcı yok", WARN, 16), tag("↑ yayın anahtarı yok", WARN, 16)).arrange(RIGHT, buff=0.3).move_to([0, -2.8, 0])
@@ -733,9 +731,9 @@ class E18P4B(Act18):
         kp = VGroup(keychip(True, 18, "(0x55) × 16"), T("herkese açık", 18, DKC, BOLD)).arrange(RIGHT, buff=0.2).move_to([-3.8, 1.65, 0])
         atk = attacker("enjektör", 17, 0.24).move_to([-5.6, 0.3, 0])
         sp = splitter(0.3).move_to([-3.9, 0.35, 0])
-        onu = onu_box("ONU", ONUC, 1.1, 0.5, 16).move_to([-1.9, 0.35, 0])
+        onu = onu_box("ONU", ONUC, 1.1, 0.5, 16).move_to([-1.2, 0.35, 0])
         inj = VGroup(arrow(atk[0].get_right(), sp.get_left(), ATKC, 2.6, 0.12), arrow(sp.get_right(), onu.get_left(), ATKC, 2.6, 0.12))
-        injl = T("↓ ışık enjekte", 15, ATKC, BOLD).next_to(inj[0], UP, buff=0.06)
+        injl = T("↓ ışık enjekte", 15, ATKC, BOLD).next_to(inj[1], UP, buff=0.06)
         yt = ytag("yorum").next_to(atk, DOWN, buff=0.2)
         ms = VGroup(mtile(0x06, "Disable_Serial_Number", "dis", 4.8, 0.42, 16), mtile(0x05, "Deactivate_ONU-ID", "dis", 4.8, 0.42, 16),
                     mtile(0x03, "Assign_ONU-ID", "kim", 4.8, 0.42, 16), mtile(0x15, "Tuning_Control", "tun", 4.8, 0.42, 16),
@@ -889,8 +887,8 @@ class E18P4C(Act18):
         self.beat("e10")
         h = self.reset("Açık 4 — yük dışındaki her şey açık", "std", 0.5)
         x0 = -4.4
-        ds = strip([(1.1, "PSBd", PSC, 0.3), (0.8, "HLend", HLC, 0.3), (2.4, "BWmap", BWC, 0.3), (1.9, "PLOAMd", PLDC, 0.3), (0.42, "H", SAC, 0.55),
-                    (1.7, "yük", GOOD, 0.15), (0.42, "H", SAC, 0.55), (1.6, "yük", GOOD, 0.15)], x0, 1.35, 0.55, 15)
+        ds = strip([(1.0, "PSBd", PSC, 0.3), (0.8, "HLend", HLC, 0.3), (2.6, "BWmap", BWC, 0.3), (2.0, "PLOAMd", PLDC, 0.3), (0.42, "H", SAC, 0.55),
+                    (1.5, "yük", GOOD, 0.15), (0.42, "H", SAC, 0.55), (1.4, "yük", GOOD, 0.15)], x0, 1.35, 0.55, 15)
         dl = T("↓ PHY çerçevesi", 16, MUTED, BOLD).next_to(ds, LEFT, buff=0.15)
         lk = VGroup(*[lock(GOOD, 0.22).next_to(ds[k], UP, buff=0.06) for k in (5, 7)])
         opn = {k: lock(CLRC, 0.22, opened=True).next_to(ds[k], UP, buff=0.06) for k in (0, 1, 2, 3, 4, 6)}
