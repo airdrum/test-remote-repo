@@ -23,7 +23,7 @@
   },
   {
    "id": "e5",
-   "text": "Standartta olmayanlar da var. Genişletilmiş biçimin cihaz kimliği, uzunluk alanı ve en büyük boyu G.989.3'te yoktur; yalnızca şekildeki bir ibare ve iki isteğe bağlı sayaç vardır. On ikinci örnekteki dört baytlık kuyruğun anlamı açıklanmaz. OMCC çerçevelerinin şifrelenip şifrelenmediği de açıkça yazılmaz."
+   "text": "Standartta olmayanlar da var. Genişletilmiş biçimin cihaz kimliği, uzunluk alanı ve en büyük boyu G.989.3'te yoktur; yalnızca şekildeki bir ibare ve iki isteğe bağlı sayaç vardır. On ikinci örnekteki dört baytlık kuyruğun anlamı açıklanmaz. Şifreleme ise güvenlik maddesindedir: varsayılan port, yani OMCC portu, tek alıcılı anahtarla iki yönde şifrelenecek biçimde tanımlıdır; ama ancak ilk tek alıcılı anahtar kurulduktan sonra. Bunu sekizinci bölümde açacağız."
   },
   {
    "id": "e6",
