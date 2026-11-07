@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "bc60f4f7e01_0.wav",
+   "duration": 14.94,
+   "text": "Sezon iki, bölüm sekiz: Güven. Geçen bölümde, PON etiketi değişince anahtarların yeniden türetildiğini gördük. Bu bölümde o anahtarların nereden geldiğini, neyi koruduklarını, ve neyi korumadıklarını izliyoruz.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "bf74bcc1788_0.wav",
+   "duration": 9.792,
+   "text": "Önce tehditler ve kimlik doğrulama: standardın saydığı dört tehdit, kayıt kimliği, ve gövdesi başka bir tavsiyeye bırakılmış iki karşılıklı yöntem.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "bf6725cf275_0.wav",
+   "duration": 9.931,
+   "text": "Sonra anahtarlar: tek kökten türeyen bir anahtar ağacı, anahtar değişiminin iki durum makinesi, beş zamanlayıcı, ve iki değişikliğin bu makinelere yaptıkları.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "ba4efb4036b_0.wav",
+   "duration": 10.347,
+   "text": "Ardından şifreleme: sayaç kipinde AES, iki yönü ayıran sayaç bloğu, dört bin yılda bir açılan zayıf bir pencere, ve gücü bilerek azaltılmış anahtarlar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b29abf39d6e_0.wav",
+   "duration": 10.208,
+   "text": "Sonra bütünlük ve açık kalanlar: bir bütünlük kodu ne zaman göndericiyi kanıtlar, ne zaman yalnızca bir hata denetimidir; ve hattan şifresiz geçen her şey.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b1bf7bb5441_0.wav",
+   "duration": 11.328,
+   "text": "Laboratuvarda bir şifre motorunu altın vektörlerle doğrulayacağız, bir anahtar değişimini izleyeceğiz, bütünlük hatası enjekte edeceğiz, ve başarısız bir yenilemenin ardından kalanı göreceğiz.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 66.55
+}

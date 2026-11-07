@@ -1,0 +1,98 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "d1",
+   "file": "bbda7b03cf1_0.wav",
+   "duration": 28.653,
+   "text": "Perde üç: şifreleme. Şifre, yüz yirmi sekiz bitlik AES'tir, sayaç kipinde; anahtarı yalnızca OLT ile ONU, yayın anahtarında ise ONU'lar bilir. Her XGEM yükü için sayaç bloğu ilk değerine kurulur, ve bütün yüz yirmi sekiz bit üzerinde standart bir artırma işleviyle ilerler. Üçüncü bölümde gördüğümüz gibi yalnızca yük şifrelenir; başlık açıktır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d2",
+   "file": "bfff854330b_0.wav",
+   "duration": 28.291,
+   "text": "Kapsam: iki yöndeki her tek alıcılı iletim, ve aşağı yönde belirlenmiş bir çoklu yayın akışı. OLT her an PON çapında bir yayın anahtar çifti ve her ONU için bir tek alıcılı çift bulundurur; çifti port kimliği seçer. İki bitlik indeks: sıfır sıfır şifresiz, sıfır bir ve bir sıfır iki anahtar, bir bir ayrılmış. Bilinmeyen anahtarlı çerçeve atılır, zorunlu anahtar hatası sayacı artar.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d3",
+   "file": "bfdd0552648_0.wav",
+   "duration": 30.2,
+   "text": "Şimdi beşinci bölümdeki söz: OMCC. Varsayılan XGEM portu, yani OMCC portu, anahtar halkası yapılandırılmadan, tek alıcılı anahtarla iki yönlü şifreleme için tanımlıdır. İlk tek alıcılı anahtar kurulunca OMCI çerçeveleri o anahtarla şifrelenir; aşağı yönde şifreliyse ONU'nun yukarı yönde de şifrelemesi beklenir. Ondan önce indeks sıfırdır, ve OMCI'ı yalnızca bütünlük kodu korur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d4",
+   "file": "b4290cadb34_0.wav",
+   "duration": 25.052,
+   "text": "İlk sayaç bloğu yüz yirmi sekiz bittir. Aşağı yönde: süper çerçeve sayacının alt elli biti, çerçeve içi sayacın on dört biti, ve bu altmış dört bitin bir kopyası. Yukarı yönde üst yarı aynıdır, alt yarı bit bit tümleyendir. Aşağı yönde sayaç, XGEM çerçevesini taşıyan fiziksel çerçeveninkidir; yukarı yönde, o burst'ü tahsis eden aşağı yön çerçevesininki.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d5",
+   "file": "b1d7d26bcac_0.wav",
+   "duration": 24.359,
+   "text": "Çerçeve içi sayaç bir konumdur: çerçeve ya da burst on altı baytlık bloklara bölünür, ve sayaç, XGEM başlığının ilk dört baytının düştüğü bloğun numarasıdır. Aşağı yönde on gigabitte en çok dokuz bin yedi yüz on sekizdir. Yukarı yönde başlangıç zamanından sayılır, ve on gigabitte on dört bin beş yüz seksene kadar çıkar: on dört bitin içinde.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d6",
+   "file": "bd36b3045e6_0.wav",
+   "duration": 26.936,
+   "text": "Neden tümleyen? Bizim okumamız: tek alıcılı anahtar iki yönde aynıdır; tümleyen olmasa, aynı çerçevede aynı blok numarasından başlayan iki yük aynı anahtar akışını kullanırdı, ve sayaç kipinde bu, iki düz metnin özel veyasını açığa çıkarır. Dördüncü ekin altıncı ve yedinci örnekleri aynı anahtar ve sayaçla, yüz yirmi ve iki bin dört yüz yirmi sekiz numaralı bloklarda şifreler; ikisini de birebir ürettik.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d7",
+   "file": "b6c215fa140_0.wav",
+   "duration": 28.109,
+   "text": "Ama standardın bir notu var. Elli bitlik alanda iki değer, birin ardından kırk dokuz sıfır ve sıfırın ardından kırk dokuz bir, iki yönde tekrarlanan sayaç bloklarına yol açabilir. Aralığın ortasında oldukları için zayıf pencere yaklaşık iki yüz elli mikrosaniyedir, dört bin yılda bir; sayacı küçük bir değerle başlatmak etkiyi azaltır. Bizim hesabımızla sıfırdan başlayan sayaç ortaya iki bin iki yüz otuz yılda varır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d8",
+   "file": "ba93b947f03_0.wav",
+   "duration": 31.917,
+   "text": "Bizim çıkarımımız, iki örnekle doğruladığımız modelle: yalnızca birinci değer ulaşılabilir; orada beş yüz on bire kadar blok numaralarında, uzun yüklerde ortak sayaç blokları çıkar. İkincisi on beş bin sekiz yüz yetmiş ikiden büyük blok numarası ister, maddenin kendi sınırları dışında. Notun anmadığı üçüncü bir zayıf çerçeve de bulduk: alanın sıfırı; yukarı yönün alt yarısı orada taşar. Küçük değer, en az bir olmalıdır.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d9",
+   "file": "b851236c7c5_0.wav",
+   "duration": 27.587,
+   "text": "Yayın anahtarları başka yoldan gelir. OLT değiştireceği indeksi kullanımdan çeker, anahtarı şifrelemeye uygun bir üreteçle üretir, ve çoklu yayın alan her ONU'ya OMCI ile, o ONU'nun anahtar şifreleme anahtarıyla şifreleyerek yazar; hepsi alınca indeksi geri koyar. Bizim yorumumuz: aynı anahtar, ONU sayısı kadar farklı şifreyle taşınır. Zamanlayıcısı yoktur; yukarı yön yayın anahtarı da yoktur.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d10",
+   "file": "bd7188551e7_0.wav",
+   "duration": 28.515,
+   "text": "Azaltılmış şifre gücü isteğe bağlıdır. Etkin anahtar uzunluğu sekizin katıdır; anahtarı üreten eleman, yüz yirmi sekizle bu uzunluk arasındaki farkın sekizde biri kadar en anlamlı baytı beş beş yapar. Altmış dört bitte sekiz bayt sabit, sekiz bayt rastgeledir. En küçük uzunluk ve alıcının öneki denetleyip denetlemediği yazılı değildir. Bizim gözlemimiz: sıfır uzunluk, varsayılan PLOAM anahtarının kendisi olurdu.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d11",
+   "file": "babd8769f77_0.wav",
+   "duration": 32.877,
+   "text": "PMD Köprüsü. Birinci sezonun birinci bölümünde şunu söyledik: yayın ortamında gizlilik ancak şifrelemeyle sağlanır, ve NG-PON2'de bu TC katmanının işidir. G.989.2'nin ODN'i güç ayırıcılı bir ağaçtır; her boş port, eksi yirmi sekiz dBm duyarlıklı bir ONU alıcısına yetecek ışık taşır, ve böyle bir alıcı her çerçeveyi çözer. Şifre yalnızca yükleri gizler; G.989.2'de ise bir güvenlik gereksinimi bulunmuyor.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d12",
+   "file": "b997eedc1f2_0.wav",
+   "duration": 20.743,
+   "text": "Mühendis notu. Bir: OLT'nin süper çerçeve sayacını hangi değerle başlattığını kaydedin; ikinci bölümün laboratuvarında karıştırıcı için onu sıfırla başlattık, şifreli trafik yoksa zararsızdır. İki: tamamen şifreli on gigabitlik bir aşağı yön, bizim hesabımızla saniyede yetmiş yedi virgül yedi altı milyon AES işlemidir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "d13",
+   "file": "bc0f3b9d549_0.wav",
+   "duration": 5.803,
+   "text": "Sıradaki: yükler gizli. Peki mesajların doğruluğu, ve gizlenmeyenler?",
+   "qa": "skipped"
+  }
+ ],
+ "total": 339.04
+}
