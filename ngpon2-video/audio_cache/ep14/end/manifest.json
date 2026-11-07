@@ -1,0 +1,35 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "h1",
+   "file": "be84a2d32b7_0.wav",
+   "duration": 24.692,
+   "text": "Bölümün özeti. Bir: tahsis kimliği on dört bittir ve bütün sistemde tektir; bir ODN'de en çok bin yirmi bir ONU olur. Her T-CONT'un tanımlayıcısında üç bant genişliği, ek pay hakkı, öncelik ve ağırlık, ve değeri verilmeyen üç zamanlama parametresi vardır. İki: DBA zorunludur, ama algoritma üreticinindir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h2",
+   "file": "b780e9321ac_0.wav",
+   "duration": 25.368,
+   "text": "Üç: referans model katı bir sıra izler; en iyi çaba akışı, güvencesiz akışlar doymadıkça sıfır alabilir. Dört: kıt kaynak burst sayısıdır, ve mesafe bir boru hattı kurar; kırk kilometrede salt raporlamanın tabanı yaklaşık bir milisaniyedir. Beş: çekişmeli işletim koşulludur, ve çarpışma çözümünün tek zaman sayısı gerekçesiz bir elli milisaniyedir.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h3",
+   "file": "babbaf37ae9_0.wav",
+   "duration": 36.823,
+   "text": "Kendini test et. Birinci soru: tam yüklü bir kanalda, en büyük değeri bir gigabit olan en iyi çaba T-CONT'u hiç pay alamıyor, güvencesiz bir T-CONT ise hâlâ doymamış. OLT bozuk mu? İkinci soru: çerçeve başına bir kuantum neden iki buçuk gigabitte iki yüz elli altı kilobit, on gigabitte bir virgül sıfır iki dört megabit eder, ve en küçük yük tahsisi nedir? Üçüncü soru: tahsisleri geri çekilmiş boştaki bir ONU, trafiği gelince onları nasıl geri ister? Cevaplar, bir sonraki bölümün başında.",
+   "qa": "skipped"
+  },
+  {
+   "id": "h4",
+   "file": "bc065ca79e2_0.wav",
+   "duration": 19.124,
+   "text": "Bir sonraki bölüm: Yönetim Kanalları. PLOAM mesajlarının kırk sekiz baytlık biçimi, bütünlük kodu ve sıra numaraları, mesaj kataloğu, ve OMCC. Bu bölümde adını andığımız atama ve onay mesajlarını orada bayt bayt açacağız. Görüşmek üzere.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 106.01
+}

@@ -1,0 +1,49 @@
+{
+ "voice": "Ana Florence",
+ "model": "xtts-v2",
+ "beats": [
+  {
+   "id": "o1",
+   "file": "b04d0a8dda9_0.wav",
+   "duration": 21.837,
+   "text": "Sezon iki, bölüm dört: Paylaşım. Bir TWDM kanalının yukarı yönü, birçok ONU'nun ortak kullandığı tek bir zaman eksenidir. Bu bölümde o eksenin kime, ne kadar ve ne zaman verildiğini açıyoruz: kaynak tahsisi ve dinamik bant genişliği tahsisi, kısaca DBA.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o2",
+   "file": "b3275462795_0.wav",
+   "duration": 11.883,
+   "text": "Önce kim ve ne kadar: tahsis kimlikleri, T-CONT'lar, ve bir akışın sözleşmesini yazan trafik tanımlayıcısı; standardın hiç değer vermediği üç zamanlama parametresiyle birlikte.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o3",
+   "file": "b0b5b5e9ad6_0.wav",
+   "duration": 14.14,
+   "text": "Sonra DBA: durum raporlama, trafik izleme ve iş birlikli yöntem. Ve standardın referans modeli: dört katlı, katı bir öncelik sırası, ve önerilen başarım hedefleri.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o4",
+   "file": "bdbf4743452_0.wav",
+   "duration": 12.064,
+   "text": "Ardından gecikme ve zaman: tahsisin ölçü birimi, yoklamanın bedeli, mesafenin kurduğu istek ve tahsis döngüsü, ve mobil ön taşıma için iş birlikli tahsis.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o5",
+   "file": "b3728b80c02_0.wav",
+   "duration": 9.792,
+   "text": "Sonra çekişme: birden fazla ONU'nun aynı tahsisi paylaştığı iki isteğe bağlı ek, çarpışmaları çözen sanal yığın, ve tartışmaya açık bir elli milisaniye.",
+   "qa": "skipped"
+  },
+  {
+   "id": "o6",
+   "file": "b36377a4ce3_0.wav",
+   "duration": 12.117,
+   "text": "Laboratuvarda bir trafik üreteci, bir protokol analizörü ve bir OLT emülatörüyle bir DBA uygulamasını referans modele karşı sınayacağız: gecikme, verim, aşırı yük, ve yoklamanın bedeli.",
+   "qa": "skipped"
+  }
+ ],
+ "total": 81.83
+}
